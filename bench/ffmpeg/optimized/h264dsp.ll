@@ -348,122 +348,236 @@ define void @ff_h264dsp_init(ptr noundef writeonly initializes((248, 264)) %0, i
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @ff_h264_add_pixels4_16_c(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #1 {
-  %4 = ashr i32 %2, 1
-  %5 = sext i32 %4 to i64
-  br label %6
+.lver.check:
+  %3 = ashr i32 %2, 1
+  %4 = sext i32 %3 to i64
+  %ident.check.not = icmp eq i32 %3, 1
+  br i1 %ident.check.not, label %.ph, label %.ph.lver.orig
 
-6:                                                ; preds = %3, %6
-  %.020 = phi ptr [ %1, %3 ], [ %30, %6 ]
-  %.01619 = phi ptr [ %0, %3 ], [ %29, %6 ]
-  %.01718 = phi i32 [ 0, %3 ], [ %31, %6 ]
-  %7 = load i32, ptr %.020, align 4, !tbaa !35
-  %8 = load i16, ptr %.01619, align 2, !tbaa !37
-  %9 = trunc i32 %7 to i16
-  %10 = add i16 %8, %9
-  store i16 %10, ptr %.01619, align 2, !tbaa !37
-  %11 = getelementptr inbounds nuw i8, ptr %.020, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !35
-  %13 = getelementptr inbounds nuw i8, ptr %.01619, i64 2
-  %14 = load i16, ptr %13, align 2, !tbaa !37
-  %15 = trunc i32 %12 to i16
-  %16 = add i16 %14, %15
-  store i16 %16, ptr %13, align 2, !tbaa !37
-  %17 = getelementptr inbounds nuw i8, ptr %.020, i64 8
-  %18 = load i32, ptr %17, align 4, !tbaa !35
-  %19 = getelementptr inbounds nuw i8, ptr %.01619, i64 4
-  %20 = load i16, ptr %19, align 2, !tbaa !37
-  %21 = trunc i32 %18 to i16
-  %22 = add i16 %20, %21
-  store i16 %22, ptr %19, align 2, !tbaa !37
-  %23 = getelementptr inbounds nuw i8, ptr %.020, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !35
-  %25 = getelementptr inbounds nuw i8, ptr %.01619, i64 6
-  %26 = load i16, ptr %25, align 2, !tbaa !37
-  %27 = trunc i32 %24 to i16
-  %28 = add i16 %26, %27
-  store i16 %28, ptr %25, align 2, !tbaa !37
-  %29 = getelementptr inbounds i16, ptr %.01619, i64 %5
-  %30 = getelementptr inbounds nuw i8, ptr %.020, i64 16
-  %31 = add nuw nsw i32 %.01718, 1
-  %exitcond.not = icmp eq i32 %31, 4
-  br i1 %exitcond.not, label %32, label %6, !llvm.loop !39
+.ph.lver.orig:                                    ; preds = %.lver.check, %.ph.lver.orig
+  %.020.lver.orig = phi ptr [ %28, %.ph.lver.orig ], [ %1, %.lver.check ]
+  %.01619.lver.orig = phi ptr [ %27, %.ph.lver.orig ], [ %0, %.lver.check ]
+  %.01718.lver.orig = phi i32 [ %29, %.ph.lver.orig ], [ 0, %.lver.check ]
+  %5 = load i32, ptr %.020.lver.orig, align 4, !tbaa !35
+  %6 = load i16, ptr %.01619.lver.orig, align 2, !tbaa !37
+  %7 = trunc i32 %5 to i16
+  %8 = add i16 %6, %7
+  store i16 %8, ptr %.01619.lver.orig, align 2, !tbaa !37
+  %9 = getelementptr inbounds nuw i8, ptr %.020.lver.orig, i64 4
+  %10 = load i32, ptr %9, align 4, !tbaa !35
+  %11 = getelementptr inbounds nuw i8, ptr %.01619.lver.orig, i64 2
+  %12 = load i16, ptr %11, align 2, !tbaa !37
+  %13 = trunc i32 %10 to i16
+  %14 = add i16 %12, %13
+  store i16 %14, ptr %11, align 2, !tbaa !37
+  %15 = getelementptr inbounds nuw i8, ptr %.020.lver.orig, i64 8
+  %16 = load i32, ptr %15, align 4, !tbaa !35
+  %17 = getelementptr inbounds nuw i8, ptr %.01619.lver.orig, i64 4
+  %18 = load i16, ptr %17, align 2, !tbaa !37
+  %19 = trunc i32 %16 to i16
+  %20 = add i16 %18, %19
+  store i16 %20, ptr %17, align 2, !tbaa !37
+  %21 = getelementptr inbounds nuw i8, ptr %.020.lver.orig, i64 12
+  %22 = load i32, ptr %21, align 4, !tbaa !35
+  %23 = getelementptr inbounds nuw i8, ptr %.01619.lver.orig, i64 6
+  %24 = load i16, ptr %23, align 2, !tbaa !37
+  %25 = trunc i32 %22 to i16
+  %26 = add i16 %24, %25
+  store i16 %26, ptr %23, align 2, !tbaa !37
+  %27 = getelementptr inbounds i16, ptr %.01619.lver.orig, i64 %4
+  %28 = getelementptr inbounds nuw i8, ptr %.020.lver.orig, i64 16
+  %29 = add nuw nsw i32 %.01718.lver.orig, 1
+  %exitcond.not.lver.orig = icmp eq i32 %29, 4
+  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !39
 
-32:                                               ; preds = %6
+.ph:                                              ; preds = %.lver.check
+  %scevgep = getelementptr nuw i8, ptr %0, i64 4
+  %load_initial = load i16, ptr %scevgep, align 2
+  br label %30
+
+30:                                               ; preds = %.ph, %30
+  %store_forwarded = phi i16 [ %load_initial, %.ph ], [ %51, %30 ]
+  %.020 = phi ptr [ %1, %.ph ], [ %53, %30 ]
+  %.01619 = phi ptr [ %0, %.ph ], [ %52, %30 ]
+  %.01718 = phi i32 [ 0, %.ph ], [ %54, %30 ]
+  %31 = load i32, ptr %.020, align 4, !tbaa !35
+  %32 = load i16, ptr %.01619, align 2, !tbaa !37
+  %33 = trunc i32 %31 to i16
+  %34 = add i16 %32, %33
+  store i16 %34, ptr %.01619, align 2, !tbaa !37
+  %35 = getelementptr inbounds nuw i8, ptr %.020, i64 4
+  %36 = load i32, ptr %35, align 4, !tbaa !35
+  %37 = getelementptr inbounds nuw i8, ptr %.01619, i64 2
+  %38 = load i16, ptr %37, align 2, !tbaa !37
+  %39 = trunc i32 %36 to i16
+  %40 = add i16 %38, %39
+  store i16 %40, ptr %37, align 2, !tbaa !37
+  %41 = getelementptr inbounds nuw i8, ptr %.020, i64 8
+  %42 = load i32, ptr %41, align 4, !tbaa !35
+  %43 = getelementptr inbounds nuw i8, ptr %.01619, i64 4
+  %44 = trunc i32 %42 to i16
+  %45 = add i16 %store_forwarded, %44
+  store i16 %45, ptr %43, align 2, !tbaa !37
+  %46 = getelementptr inbounds nuw i8, ptr %.020, i64 12
+  %47 = load i32, ptr %46, align 4, !tbaa !35
+  %48 = getelementptr inbounds nuw i8, ptr %.01619, i64 6
+  %49 = load i16, ptr %48, align 2, !tbaa !37
+  %50 = trunc i32 %47 to i16
+  %51 = add i16 %49, %50
+  store i16 %51, ptr %48, align 2, !tbaa !37
+  %52 = getelementptr inbounds nuw i16, ptr %.01619, i64 %4
+  %53 = getelementptr inbounds nuw i8, ptr %.020, i64 16
+  %54 = add nuw nsw i32 %.01718, 1
+  %exitcond.not = icmp eq i32 %54, 4
+  br i1 %exitcond.not, label %.loopexit, label %30, !llvm.loop !39
+
+.loopexit:                                        ; preds = %.ph.lver.orig, %30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %1, i8 0, i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @ff_h264_add_pixels8_16_c(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #1 {
-  %4 = ashr i32 %2, 1
-  %5 = sext i32 %4 to i64
-  br label %6
+.lver.check:
+  %3 = ashr i32 %2, 1
+  %4 = sext i32 %3 to i64
+  %ident.check.not = icmp eq i32 %3, 1
+  br i1 %ident.check.not, label %.ph, label %.ph.lver.orig
 
-6:                                                ; preds = %3, %6
-  %.028 = phi ptr [ %1, %3 ], [ %54, %6 ]
-  %.02427 = phi ptr [ %0, %3 ], [ %53, %6 ]
-  %.02526 = phi i32 [ 0, %3 ], [ %55, %6 ]
-  %7 = load i32, ptr %.028, align 4, !tbaa !35
-  %8 = load i16, ptr %.02427, align 2, !tbaa !37
-  %9 = trunc i32 %7 to i16
-  %10 = add i16 %8, %9
-  store i16 %10, ptr %.02427, align 2, !tbaa !37
-  %11 = getelementptr inbounds nuw i8, ptr %.028, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !35
-  %13 = getelementptr inbounds nuw i8, ptr %.02427, i64 2
-  %14 = load i16, ptr %13, align 2, !tbaa !37
-  %15 = trunc i32 %12 to i16
-  %16 = add i16 %14, %15
-  store i16 %16, ptr %13, align 2, !tbaa !37
-  %17 = getelementptr inbounds nuw i8, ptr %.028, i64 8
-  %18 = load i32, ptr %17, align 4, !tbaa !35
-  %19 = getelementptr inbounds nuw i8, ptr %.02427, i64 4
-  %20 = load i16, ptr %19, align 2, !tbaa !37
-  %21 = trunc i32 %18 to i16
-  %22 = add i16 %20, %21
-  store i16 %22, ptr %19, align 2, !tbaa !37
-  %23 = getelementptr inbounds nuw i8, ptr %.028, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !35
-  %25 = getelementptr inbounds nuw i8, ptr %.02427, i64 6
-  %26 = load i16, ptr %25, align 2, !tbaa !37
-  %27 = trunc i32 %24 to i16
-  %28 = add i16 %26, %27
-  store i16 %28, ptr %25, align 2, !tbaa !37
-  %29 = getelementptr inbounds nuw i8, ptr %.028, i64 16
-  %30 = load i32, ptr %29, align 4, !tbaa !35
-  %31 = getelementptr inbounds nuw i8, ptr %.02427, i64 8
-  %32 = load i16, ptr %31, align 2, !tbaa !37
-  %33 = trunc i32 %30 to i16
-  %34 = add i16 %32, %33
-  store i16 %34, ptr %31, align 2, !tbaa !37
-  %35 = getelementptr inbounds nuw i8, ptr %.028, i64 20
-  %36 = load i32, ptr %35, align 4, !tbaa !35
-  %37 = getelementptr inbounds nuw i8, ptr %.02427, i64 10
-  %38 = load i16, ptr %37, align 2, !tbaa !37
-  %39 = trunc i32 %36 to i16
-  %40 = add i16 %38, %39
-  store i16 %40, ptr %37, align 2, !tbaa !37
-  %41 = getelementptr inbounds nuw i8, ptr %.028, i64 24
-  %42 = load i32, ptr %41, align 4, !tbaa !35
-  %43 = getelementptr inbounds nuw i8, ptr %.02427, i64 12
-  %44 = load i16, ptr %43, align 2, !tbaa !37
-  %45 = trunc i32 %42 to i16
-  %46 = add i16 %44, %45
-  store i16 %46, ptr %43, align 2, !tbaa !37
-  %47 = getelementptr inbounds nuw i8, ptr %.028, i64 28
-  %48 = load i32, ptr %47, align 4, !tbaa !35
-  %49 = getelementptr inbounds nuw i8, ptr %.02427, i64 14
-  %50 = load i16, ptr %49, align 2, !tbaa !37
-  %51 = trunc i32 %48 to i16
-  %52 = add i16 %50, %51
-  store i16 %52, ptr %49, align 2, !tbaa !37
-  %53 = getelementptr inbounds i16, ptr %.02427, i64 %5
-  %54 = getelementptr inbounds nuw i8, ptr %.028, i64 32
-  %55 = add nuw nsw i32 %.02526, 1
-  %exitcond.not = icmp eq i32 %55, 8
-  br i1 %exitcond.not, label %56, label %6, !llvm.loop !41
+.ph.lver.orig:                                    ; preds = %.lver.check, %.ph.lver.orig
+  %.028.lver.orig = phi ptr [ %52, %.ph.lver.orig ], [ %1, %.lver.check ]
+  %.02427.lver.orig = phi ptr [ %51, %.ph.lver.orig ], [ %0, %.lver.check ]
+  %.02526.lver.orig = phi i32 [ %53, %.ph.lver.orig ], [ 0, %.lver.check ]
+  %5 = load i32, ptr %.028.lver.orig, align 4, !tbaa !35
+  %6 = load i16, ptr %.02427.lver.orig, align 2, !tbaa !37
+  %7 = trunc i32 %5 to i16
+  %8 = add i16 %6, %7
+  store i16 %8, ptr %.02427.lver.orig, align 2, !tbaa !37
+  %9 = getelementptr inbounds nuw i8, ptr %.028.lver.orig, i64 4
+  %10 = load i32, ptr %9, align 4, !tbaa !35
+  %11 = getelementptr inbounds nuw i8, ptr %.02427.lver.orig, i64 2
+  %12 = load i16, ptr %11, align 2, !tbaa !37
+  %13 = trunc i32 %10 to i16
+  %14 = add i16 %12, %13
+  store i16 %14, ptr %11, align 2, !tbaa !37
+  %15 = getelementptr inbounds nuw i8, ptr %.028.lver.orig, i64 8
+  %16 = load i32, ptr %15, align 4, !tbaa !35
+  %17 = getelementptr inbounds nuw i8, ptr %.02427.lver.orig, i64 4
+  %18 = load i16, ptr %17, align 2, !tbaa !37
+  %19 = trunc i32 %16 to i16
+  %20 = add i16 %18, %19
+  store i16 %20, ptr %17, align 2, !tbaa !37
+  %21 = getelementptr inbounds nuw i8, ptr %.028.lver.orig, i64 12
+  %22 = load i32, ptr %21, align 4, !tbaa !35
+  %23 = getelementptr inbounds nuw i8, ptr %.02427.lver.orig, i64 6
+  %24 = load i16, ptr %23, align 2, !tbaa !37
+  %25 = trunc i32 %22 to i16
+  %26 = add i16 %24, %25
+  store i16 %26, ptr %23, align 2, !tbaa !37
+  %27 = getelementptr inbounds nuw i8, ptr %.028.lver.orig, i64 16
+  %28 = load i32, ptr %27, align 4, !tbaa !35
+  %29 = getelementptr inbounds nuw i8, ptr %.02427.lver.orig, i64 8
+  %30 = load i16, ptr %29, align 2, !tbaa !37
+  %31 = trunc i32 %28 to i16
+  %32 = add i16 %30, %31
+  store i16 %32, ptr %29, align 2, !tbaa !37
+  %33 = getelementptr inbounds nuw i8, ptr %.028.lver.orig, i64 20
+  %34 = load i32, ptr %33, align 4, !tbaa !35
+  %35 = getelementptr inbounds nuw i8, ptr %.02427.lver.orig, i64 10
+  %36 = load i16, ptr %35, align 2, !tbaa !37
+  %37 = trunc i32 %34 to i16
+  %38 = add i16 %36, %37
+  store i16 %38, ptr %35, align 2, !tbaa !37
+  %39 = getelementptr inbounds nuw i8, ptr %.028.lver.orig, i64 24
+  %40 = load i32, ptr %39, align 4, !tbaa !35
+  %41 = getelementptr inbounds nuw i8, ptr %.02427.lver.orig, i64 12
+  %42 = load i16, ptr %41, align 2, !tbaa !37
+  %43 = trunc i32 %40 to i16
+  %44 = add i16 %42, %43
+  store i16 %44, ptr %41, align 2, !tbaa !37
+  %45 = getelementptr inbounds nuw i8, ptr %.028.lver.orig, i64 28
+  %46 = load i32, ptr %45, align 4, !tbaa !35
+  %47 = getelementptr inbounds nuw i8, ptr %.02427.lver.orig, i64 14
+  %48 = load i16, ptr %47, align 2, !tbaa !37
+  %49 = trunc i32 %46 to i16
+  %50 = add i16 %48, %49
+  store i16 %50, ptr %47, align 2, !tbaa !37
+  %51 = getelementptr inbounds i16, ptr %.02427.lver.orig, i64 %4
+  %52 = getelementptr inbounds nuw i8, ptr %.028.lver.orig, i64 32
+  %53 = add nuw nsw i32 %.02526.lver.orig, 1
+  %exitcond.not.lver.orig = icmp eq i32 %53, 8
+  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !41
 
-56:                                               ; preds = %6
+.ph:                                              ; preds = %.lver.check
+  %scevgep = getelementptr i8, ptr %0, i64 12
+  %load_initial = load i16, ptr %scevgep, align 2
+  br label %54
+
+54:                                               ; preds = %.ph, %54
+  %store_forwarded = phi i16 [ %load_initial, %.ph ], [ %99, %54 ]
+  %.028 = phi ptr [ %1, %.ph ], [ %101, %54 ]
+  %.02427 = phi ptr [ %0, %.ph ], [ %100, %54 ]
+  %.02526 = phi i32 [ 0, %.ph ], [ %102, %54 ]
+  %55 = load i32, ptr %.028, align 4, !tbaa !35
+  %56 = load i16, ptr %.02427, align 2, !tbaa !37
+  %57 = trunc i32 %55 to i16
+  %58 = add i16 %56, %57
+  store i16 %58, ptr %.02427, align 2, !tbaa !37
+  %59 = getelementptr inbounds nuw i8, ptr %.028, i64 4
+  %60 = load i32, ptr %59, align 4, !tbaa !35
+  %61 = getelementptr inbounds nuw i8, ptr %.02427, i64 2
+  %62 = load i16, ptr %61, align 2, !tbaa !37
+  %63 = trunc i32 %60 to i16
+  %64 = add i16 %62, %63
+  store i16 %64, ptr %61, align 2, !tbaa !37
+  %65 = getelementptr inbounds nuw i8, ptr %.028, i64 8
+  %66 = load i32, ptr %65, align 4, !tbaa !35
+  %67 = getelementptr inbounds nuw i8, ptr %.02427, i64 4
+  %68 = load i16, ptr %67, align 2, !tbaa !37
+  %69 = trunc i32 %66 to i16
+  %70 = add i16 %68, %69
+  store i16 %70, ptr %67, align 2, !tbaa !37
+  %71 = getelementptr inbounds nuw i8, ptr %.028, i64 12
+  %72 = load i32, ptr %71, align 4, !tbaa !35
+  %73 = getelementptr inbounds nuw i8, ptr %.02427, i64 6
+  %74 = load i16, ptr %73, align 2, !tbaa !37
+  %75 = trunc i32 %72 to i16
+  %76 = add i16 %74, %75
+  store i16 %76, ptr %73, align 2, !tbaa !37
+  %77 = getelementptr inbounds nuw i8, ptr %.028, i64 16
+  %78 = load i32, ptr %77, align 4, !tbaa !35
+  %79 = getelementptr inbounds nuw i8, ptr %.02427, i64 8
+  %80 = load i16, ptr %79, align 2, !tbaa !37
+  %81 = trunc i32 %78 to i16
+  %82 = add i16 %80, %81
+  store i16 %82, ptr %79, align 2, !tbaa !37
+  %83 = getelementptr inbounds nuw i8, ptr %.028, i64 20
+  %84 = load i32, ptr %83, align 4, !tbaa !35
+  %85 = getelementptr inbounds nuw i8, ptr %.02427, i64 10
+  %86 = load i16, ptr %85, align 2, !tbaa !37
+  %87 = trunc i32 %84 to i16
+  %88 = add i16 %86, %87
+  store i16 %88, ptr %85, align 2, !tbaa !37
+  %89 = getelementptr inbounds nuw i8, ptr %.028, i64 24
+  %90 = load i32, ptr %89, align 4, !tbaa !35
+  %91 = getelementptr inbounds nuw i8, ptr %.02427, i64 12
+  %92 = trunc i32 %90 to i16
+  %93 = add i16 %store_forwarded, %92
+  store i16 %93, ptr %91, align 2, !tbaa !37
+  %94 = getelementptr inbounds nuw i8, ptr %.028, i64 28
+  %95 = load i32, ptr %94, align 4, !tbaa !35
+  %96 = getelementptr inbounds nuw i8, ptr %.02427, i64 14
+  %97 = load i16, ptr %96, align 2, !tbaa !37
+  %98 = trunc i32 %95 to i16
+  %99 = add i16 %97, %98
+  store i16 %99, ptr %96, align 2, !tbaa !37
+  %100 = getelementptr inbounds nuw i16, ptr %.02427, i64 %4
+  %101 = getelementptr inbounds nuw i8, ptr %.028, i64 32
+  %102 = add nuw nsw i32 %.02526, 1
+  %exitcond.not = icmp eq i32 %102, 8
+  br i1 %exitcond.not, label %.loopexit, label %54, !llvm.loop !41
+
+.loopexit:                                        ; preds = %.ph.lver.orig, %54
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(256) %1, i8 0, i64 256, i1 false)
   ret void
 }

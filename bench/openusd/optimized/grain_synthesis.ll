@@ -1867,15 +1867,15 @@ ver_boundary_overlap.exit:                        ; preds = %754, %748
   br i1 %.not.i757, label %.lr.ph.i768, label %.lr.ph.i756, !llvm.loop !31
 
 798:                                              ; preds = %ver_boundary_overlap.exit
-  br i1 %or.cond.i, label %.preheader36.i749, label %ver_boundary_overlap.exit774
+  br i1 %or.cond.i, label %.preheader36.i749.lver.orig, label %ver_boundary_overlap.exit774
 
-.preheader36.i749:                                ; preds = %798, %.preheader36.i749
-  %.133.i750 = phi ptr [ %821, %.preheader36.i749 ], [ %123, %798 ]
-  %.131.i751 = phi ptr [ %822, %.preheader36.i749 ], [ %784, %798 ]
-  %.1.i753 = phi i32 [ %823, %.preheader36.i749 ], [ %689, %798 ]
-  %799 = load i32, ptr %.133.i750, align 4
+.preheader36.i749.lver.orig:                      ; preds = %798, %.preheader36.i749.lver.orig
+  %.133.i750.lver.orig = phi ptr [ %821, %.preheader36.i749.lver.orig ], [ %123, %798 ]
+  %.131.i751.lver.orig = phi ptr [ %822, %.preheader36.i749.lver.orig ], [ %784, %798 ]
+  %.1.i753.lver.orig = phi i32 [ %823, %.preheader36.i749.lver.orig ], [ %689, %798 ]
+  %799 = load i32, ptr %.133.i750.lver.orig, align 4
   %800 = mul nsw i32 %799, 27
-  %801 = load i32, ptr %.131.i751, align 4
+  %801 = load i32, ptr %.131.i751.lver.orig, align 4
   %802 = mul nsw i32 %801, 17
   %803 = add i32 %800, 16
   %804 = add i32 %803, %802
@@ -1883,11 +1883,11 @@ ver_boundary_overlap.exit:                        ; preds = %754, %748
   %806 = icmp slt i32 %805, %646
   %807 = tail call i32 @llvm.smin.i32(i32 %805, i32 %647)
   %808 = select i1 %806, i32 %646, i32 %807
-  store i32 %808, ptr %.133.i750, align 4
-  %809 = getelementptr inbounds nuw i8, ptr %.133.i750, i64 4
+  store i32 %808, ptr %.133.i750.lver.orig, align 4
+  %809 = getelementptr inbounds nuw i8, ptr %.133.i750.lver.orig, i64 4
   %810 = load i32, ptr %809, align 4
   %811 = mul nsw i32 %810, 17
-  %812 = getelementptr inbounds nuw i8, ptr %.131.i751, i64 4
+  %812 = getelementptr inbounds nuw i8, ptr %.131.i751.lver.orig, i64 4
   %813 = load i32, ptr %812, align 4
   %814 = mul nsw i32 %813, 27
   %815 = add i32 %811, 16
@@ -1897,11 +1897,11 @@ ver_boundary_overlap.exit:                        ; preds = %754, %748
   %819 = tail call i32 @llvm.smin.i32(i32 %817, i32 %647)
   %820 = select i1 %818, i32 %646, i32 %819
   store i32 %820, ptr %809, align 4
-  %821 = getelementptr i32, ptr %.133.i750, i64 %652
-  %822 = getelementptr inbounds nuw i32, ptr %.131.i751, i64 %653
-  %823 = add nsw i32 %.1.i753, -1
-  %.old1.not.i754 = icmp eq i32 %823, 0
-  br i1 %.old1.not.i754, label %.preheader36.i760, label %.preheader36.i749
+  %821 = getelementptr i32, ptr %.133.i750.lver.orig, i64 %652
+  %822 = getelementptr inbounds nuw i32, ptr %.131.i751.lver.orig, i64 %653
+  %823 = add nsw i32 %.1.i753.lver.orig, -1
+  %.old1.not.i754.lver.orig = icmp eq i32 %823, 0
+  br i1 %.old1.not.i754.lver.orig, label %.ph.lver.orig, label %.preheader36.i749.lver.orig
 
 .lr.ph.i768:                                      ; preds = %.lr.ph.i756
   %824 = getelementptr inbounds nuw i32, ptr %134, i64 %781
@@ -1929,18 +1929,18 @@ ver_boundary_overlap.exit:                        ; preds = %754, %748
   %.not.i773 = icmp eq i32 %839, 0
   br i1 %.not.i773, label %ver_boundary_overlap.exit774, label %826, !llvm.loop !31
 
-.preheader36.i760:                                ; preds = %.preheader36.i749
+.ph.lver.orig:                                    ; preds = %.preheader36.i749.lver.orig
   %840 = getelementptr inbounds nuw i32, ptr %134, i64 %781
   %841 = getelementptr inbounds nuw i32, ptr %840, i64 %783
   br label %842
 
-842:                                              ; preds = %842, %.preheader36.i760
-  %.133.i761 = phi ptr [ %865, %842 ], [ %128, %.preheader36.i760 ]
-  %.131.i762 = phi ptr [ %866, %842 ], [ %841, %.preheader36.i760 ]
-  %.1.i764 = phi i32 [ %867, %842 ], [ %689, %.preheader36.i760 ]
-  %843 = load i32, ptr %.133.i761, align 4
+842:                                              ; preds = %842, %.ph.lver.orig
+  %.133.i761.lver.orig = phi ptr [ %865, %842 ], [ %128, %.ph.lver.orig ]
+  %.131.i762.lver.orig = phi ptr [ %866, %842 ], [ %841, %.ph.lver.orig ]
+  %.1.i764.lver.orig = phi i32 [ %867, %842 ], [ %689, %.ph.lver.orig ]
+  %843 = load i32, ptr %.133.i761.lver.orig, align 4
   %844 = mul nsw i32 %843, 27
-  %845 = load i32, ptr %.131.i762, align 4
+  %845 = load i32, ptr %.131.i762.lver.orig, align 4
   %846 = mul nsw i32 %845, 17
   %847 = add i32 %844, 16
   %848 = add i32 %847, %846
@@ -1948,11 +1948,11 @@ ver_boundary_overlap.exit:                        ; preds = %754, %748
   %850 = icmp slt i32 %849, %646
   %851 = tail call i32 @llvm.smin.i32(i32 %849, i32 %647)
   %852 = select i1 %850, i32 %646, i32 %851
-  store i32 %852, ptr %.133.i761, align 4
-  %853 = getelementptr inbounds nuw i8, ptr %.133.i761, i64 4
+  store i32 %852, ptr %.133.i761.lver.orig, align 4
+  %853 = getelementptr inbounds nuw i8, ptr %.133.i761.lver.orig, i64 4
   %854 = load i32, ptr %853, align 4
   %855 = mul nsw i32 %854, 17
-  %856 = getelementptr inbounds nuw i8, ptr %.131.i762, i64 4
+  %856 = getelementptr inbounds nuw i8, ptr %.131.i762.lver.orig, i64 4
   %857 = load i32, ptr %856, align 4
   %858 = mul nsw i32 %857, 27
   %859 = add i32 %855, 16
@@ -1962,11 +1962,11 @@ ver_boundary_overlap.exit:                        ; preds = %754, %748
   %863 = tail call i32 @llvm.smin.i32(i32 %861, i32 %647)
   %864 = select i1 %862, i32 %646, i32 %863
   store i32 %864, ptr %853, align 4
-  %865 = getelementptr i32, ptr %.133.i761, i64 %652
-  %866 = getelementptr inbounds nuw i32, ptr %.131.i762, i64 %653
-  %867 = add nsw i32 %.1.i764, -1
-  %.old1.not.i765 = icmp eq i32 %867, 0
-  br i1 %.old1.not.i765, label %ver_boundary_overlap.exit774, label %842
+  %865 = getelementptr i32, ptr %.133.i761.lver.orig, i64 %652
+  %866 = getelementptr inbounds nuw i32, ptr %.131.i762.lver.orig, i64 %653
+  %867 = add nsw i32 %.1.i764.lver.orig, -1
+  %.old1.not.i765.lver.orig = icmp eq i32 %867, 0
+  br i1 %.old1.not.i765.lver.orig, label %ver_boundary_overlap.exit774, label %842
 
 ver_boundary_overlap.exit774:                     ; preds = %842, %826, %798, %.preheader.i755
   %868 = trunc nuw nsw i64 %indvars.iv to i32
