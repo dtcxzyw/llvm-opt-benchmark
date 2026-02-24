@@ -2136,11 +2136,15 @@ define internal noundef zeroext i16 @be_field_element_dissect(ptr noundef %0, pt
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ugt i32 %4, 2
-  br i1 %9, label %.lr.ph, label %._crit_edge
+  br i1 %9, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph:                                           ; preds = %7, %49
-  %.064 = phi i32 [ %.2, %49 ], [ %3, %7 ]
-  %.05463 = phi i1 [ %.155, %49 ], [ true, %7 ]
+.lr.ph.preheader:                                 ; preds = %7
+  %invariant.op = sub i32 2, %3
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %49
+  %.064 = phi i32 [ %.2, %49 ], [ %3, %.lr.ph.preheader ]
+  %.05463 = phi i1 [ %.155, %49 ], [ true, %.lr.ph.preheader ]
   %10 = add i32 %.064, 1
   %11 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.064)
   %12 = zext i8 %11 to i32
@@ -2209,15 +2213,14 @@ define internal noundef zeroext i16 @be_field_element_dissect(ptr noundef %0, pt
 
 49:                                               ; preds = %38, %45, %35
   %.2 = phi i32 [ %37, %35 ], [ %48, %45 ], [ %43, %38 ]
-  %reass.sub = sub i32 %.2, %3
-  %50 = add i32 %reass.sub, 2
-  %51 = icmp ult i32 %50, %4
-  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  %.reass.reass = add i32 %.2, %invariant.op
+  %50 = icmp ult i32 %.reass.reass, %4
+  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %49, %7
-  %52 = trunc i32 %4 to i16
+  %51 = trunc i32 %4 to i16
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret i16 %52
+  ret i16 %51
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

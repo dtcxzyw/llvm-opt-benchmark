@@ -17677,7 +17677,7 @@ define linkonce_odr void @_ZN5Eigen8internal12SparseLUImplIdiE7countnzElRlS3_RNS
   br label %19
 
 .loopexit:                                        ; preds = %35, %19
-  %18 = phi ptr [ %20, %19 ], [ %43, %35 ]
+  %18 = phi ptr [ %20, %19 ], [ %42, %35 ]
   %exitcond.not = icmp eq i64 %.02732, %16
   br i1 %exitcond.not, label %.loopexit28, label %19, !llvm.loop !309
 
@@ -17701,27 +17701,27 @@ define linkonce_odr void @_ZN5Eigen8internal12SparseLUImplIdiE7countnzElRlS3_RNS
   %32 = load i32, ptr %29, align 4
   %33 = sub nsw i32 %31, %32
   %34 = sext i32 %33 to i64
+  %invariant.op = sub i64 1, %27
   br label %35
 
 35:                                               ; preds = %.lr.ph, %35
-  %.030 = phi i64 [ %34, %.lr.ph ], [ %41, %35 ]
-  %.02629 = phi i64 [ %27, %.lr.ph ], [ %42, %35 ]
+  %.030 = phi i64 [ %34, %.lr.ph ], [ %40, %35 ]
+  %.02629 = phi i64 [ %27, %.lr.ph ], [ %41, %35 ]
   %36 = load i64, ptr %2, align 8
   %37 = add nsw i64 %36, %.030
   store i64 %37, ptr %2, align 8
   %38 = load i64, ptr %3, align 8
-  %reass.sub = sub nsw i64 %.02629, %27
-  %39 = add nuw nsw i64 %reass.sub, 1
-  %40 = add nsw i64 %39, %38
-  store i64 %40, ptr %3, align 8
-  %41 = add nsw i64 %.030, -1
-  %42 = add nsw i64 %.02629, 1
-  %43 = load ptr, ptr %4, align 8
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %23
-  %45 = load i32, ptr %44, align 4
-  %46 = sext i32 %45 to i64
-  %47 = icmp slt i64 %42, %46
-  br i1 %47, label %35, label %.loopexit, !llvm.loop !310
+  %.reass.reass = add i64 %.02629, %invariant.op
+  %39 = add nsw i64 %.reass.reass, %38
+  store i64 %39, ptr %3, align 8
+  %40 = add nsw i64 %.030, -1
+  %41 = add nsw i64 %.02629, 1
+  %42 = load ptr, ptr %4, align 8
+  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %23
+  %44 = load i32, ptr %43, align 4
+  %45 = sext i32 %44 to i64
+  %46 = icmp slt i64 %41, %45
+  br i1 %46, label %35, label %.loopexit, !llvm.loop !310
 
 .loopexit28:                                      ; preds = %.loopexit, %5
   ret void

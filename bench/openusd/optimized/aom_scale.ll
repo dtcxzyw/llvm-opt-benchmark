@@ -405,10 +405,11 @@ Scale2D.exit:                                     ; preds = %117, %93, %71, %._c
 
 .lr.ph:                                           ; preds = %Scale2D.exit
   %190 = sext i32 %42 to i64
+  %invariant.op = sub i32 1, %42
   br label %191
 
 191:                                              ; preds = %.lr.ph, %191
-  %.07788 = phi i32 [ 0, %.lr.ph ], [ %207, %191 ]
+  %.07788 = phi i32 [ 0, %.lr.ph ], [ %206, %191 ]
   %192 = load ptr, ptr %53, align 8
   %193 = load i32, ptr %55, align 4
   %194 = mul nsw i32 %193, %.07788
@@ -422,46 +423,45 @@ Scale2D.exit:                                     ; preds = %117, %93, %71, %._c
   %202 = getelementptr i8, ptr %201, i64 -2
   %203 = load i8, ptr %202, align 1
   %204 = load i32, ptr %186, align 4
-  %reass.sub = sub i32 %204, %42
-  %205 = add i32 %reass.sub, 1
-  %206 = sext i32 %205 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %198, i8 %203, i64 %206, i1 false)
-  %207 = add nuw nsw i32 %.07788, 1
-  %exitcond.not = icmp eq i32 %207, %43
+  %.reass.reass = add i32 %204, %invariant.op
+  %205 = sext i32 %.reass.reass to i64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %198, i8 %203, i64 %205, i1 false)
+  %206 = add nuw nsw i32 %.07788, 1
+  %exitcond.not = icmp eq i32 %206, %43
   br i1 %exitcond.not, label %.loopexit81, label %191, !llvm.loop !16
 
 .loopexit81:                                      ; preds = %191, %Scale2D.exit.thread, %Scale2D.exit
-  %208 = phi ptr [ %185, %Scale2D.exit.thread ], [ %186, %Scale2D.exit ], [ %186, %191 ]
-  %209 = getelementptr inbounds nuw i32, ptr %38, i64 %46
-  %210 = load i32, ptr %209, align 4
-  %211 = icmp slt i32 %43, %210
-  br i1 %211, label %.lr.ph90, label %.loopexit
+  %207 = phi ptr [ %185, %Scale2D.exit.thread ], [ %186, %Scale2D.exit ], [ %186, %191 ]
+  %208 = getelementptr inbounds nuw i32, ptr %38, i64 %46
+  %209 = load i32, ptr %208, align 4
+  %210 = icmp slt i32 %43, %209
+  br i1 %210, label %.lr.ph90, label %.loopexit
 
 .lr.ph90:                                         ; preds = %.loopexit81
-  %212 = add nsw i32 %43, -1
-  %213 = add nsw i32 %43, -2
-  br label %214
+  %211 = add nsw i32 %43, -1
+  %212 = add nsw i32 %43, -2
+  br label %213
 
-214:                                              ; preds = %.lr.ph90, %214
-  %.089 = phi i32 [ %212, %.lr.ph90 ], [ %226, %214 ]
-  %215 = load ptr, ptr %53, align 8
-  %216 = load i32, ptr %55, align 4
-  %217 = mul nsw i32 %216, %.089
-  %218 = sext i32 %217 to i64
-  %219 = getelementptr inbounds i8, ptr %215, i64 %218
-  %220 = mul nsw i32 %216, %213
-  %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds i8, ptr %215, i64 %221
-  %223 = load i32, ptr %208, align 4
-  %224 = add nsw i32 %223, 1
-  %225 = sext i32 %224 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %219, ptr align 1 %222, i64 %225, i1 false)
-  %226 = add nsw i32 %.089, 1
-  %227 = load i32, ptr %209, align 4
-  %228 = icmp slt i32 %226, %227
-  br i1 %228, label %214, label %.loopexit, !llvm.loop !17
+213:                                              ; preds = %.lr.ph90, %213
+  %.089 = phi i32 [ %211, %.lr.ph90 ], [ %225, %213 ]
+  %214 = load ptr, ptr %53, align 8
+  %215 = load i32, ptr %55, align 4
+  %216 = mul nsw i32 %215, %.089
+  %217 = sext i32 %216 to i64
+  %218 = getelementptr inbounds i8, ptr %214, i64 %217
+  %219 = mul nsw i32 %215, %212
+  %220 = sext i32 %219 to i64
+  %221 = getelementptr inbounds i8, ptr %214, i64 %220
+  %222 = load i32, ptr %207, align 4
+  %223 = add nsw i32 %222, 1
+  %224 = sext i32 %223 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %218, ptr align 1 %221, i64 %224, i1 false)
+  %225 = add nsw i32 %.089, 1
+  %226 = load i32, ptr %208, align 4
+  %227 = icmp slt i32 %225, %226
+  br i1 %227, label %213, label %.loopexit, !llvm.loop !17
 
-.loopexit:                                        ; preds = %214, %.loopexit81
+.loopexit:                                        ; preds = %213, %.loopexit81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond100.not, label %._crit_edge, label %39, !llvm.loop !18

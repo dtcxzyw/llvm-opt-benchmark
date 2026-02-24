@@ -545,115 +545,115 @@ define internal fastcc ptr @find_containing_dir(ptr noundef captures(ret: addres
 
 .lr.ph:                                           ; preds = %2
   %4 = ptrtoint ptr %1 to i64
+  %invariant.op = sub i64 1, %4
   br label %5
 
 5:                                                ; preds = %.lr.ph, %search_for_subdir.exit
-  %.01124 = phi ptr [ %0, %.lr.ph ], [ %39, %search_for_subdir.exit ]
-  %.01223 = phi ptr [ %3, %.lr.ph ], [ %55, %search_for_subdir.exit ]
+  %.01124 = phi ptr [ %0, %.lr.ph ], [ %37, %search_for_subdir.exit ]
+  %.01223 = phi ptr [ %3, %.lr.ph ], [ %53, %search_for_subdir.exit ]
   %6 = ptrtoint ptr %.01223 to i64
-  %7 = sub i64 %6, %4
-  %8 = add nsw i64 %7, 1
-  %9 = load i32, ptr %.01124, align 8, !tbaa !4
-  %.not.i.i = icmp eq i32 %9, 0
-  br i1 %.not.i.i, label %search_for_subdir.exit.thread, label %10
+  %.reass.reass.reass = add i64 %6, %invariant.op
+  %7 = load i32, ptr %.01124, align 8, !tbaa !4
+  %.not.i.i = icmp eq i32 %7, 0
+  br i1 %.not.i.i, label %search_for_subdir.exit.thread, label %8
 
-10:                                               ; preds = %5
+8:                                                ; preds = %5
   tail call fastcc void @sort_ref_dir(ptr noundef nonnull %.01124)
-  %11 = getelementptr inbounds nuw i8, ptr %.01124, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !13
-  %13 = load i32, ptr %.01124, align 8, !tbaa !4
-  %.not24.i.i.i = icmp eq i32 %13, 0
+  %9 = getelementptr inbounds nuw i8, ptr %.01124, i64 24
+  %10 = load ptr, ptr %9, align 8, !tbaa !13
+  %11 = load i32, ptr %.01124, align 8, !tbaa !4
+  %.not24.i.i.i = icmp eq i32 %11, 0
   br i1 %.not24.i.i.i, label %search_for_subdir.exit.thread, label %.lr.ph.i.preheader.i.i
 
-.lr.ph.i.preheader.i.i:                           ; preds = %10
-  %14 = sext i32 %13 to i64
+.lr.ph.i.preheader.i.i:                           ; preds = %8
+  %12 = sext i32 %11 to i64
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %31, %.lr.ph.i.preheader.i.i
-  %.01621.i.i.i = phi i64 [ %.1.i.i.i, %31 ], [ 0, %.lr.ph.i.preheader.i.i ]
-  %.01720.i.i.i = phi i64 [ %.118.i.i.i, %31 ], [ %14, %.lr.ph.i.preheader.i.i ]
-  %15 = add i64 %.01720.i.i.i, %.01621.i.i.i
-  %16 = lshr i64 %15, 1
-  %17 = shl i64 %16, 3
-  %18 = getelementptr inbounds nuw i8, ptr %12, i64 %17
-  %19 = load ptr, ptr %18, align 8, !tbaa !14
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  %21 = tail call i32 @strncmp(ptr noundef nonnull readonly %1, ptr noundef nonnull %20, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %8) #13
-  %.not.i13.i.i = icmp eq i32 %21, 0
-  br i1 %.not.i13.i.i, label %22, label %ref_entry_cmp_sslice.exit.i.i
+.lr.ph.i.i.i:                                     ; preds = %29, %.lr.ph.i.preheader.i.i
+  %.01621.i.i.i = phi i64 [ %.1.i.i.i, %29 ], [ 0, %.lr.ph.i.preheader.i.i ]
+  %.01720.i.i.i = phi i64 [ %.118.i.i.i, %29 ], [ %12, %.lr.ph.i.preheader.i.i ]
+  %13 = add i64 %.01720.i.i.i, %.01621.i.i.i
+  %14 = lshr i64 %13, 1
+  %15 = shl i64 %14, 3
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 %15
+  %17 = load ptr, ptr %16, align 8, !tbaa !14
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %19 = tail call i32 @strncmp(ptr noundef nonnull readonly %1, ptr noundef nonnull %18, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %.reass.reass.reass) #13
+  %.not.i13.i.i = icmp eq i32 %19, 0
+  br i1 %.not.i13.i.i, label %20, label %ref_entry_cmp_sslice.exit.i.i
 
-22:                                               ; preds = %.lr.ph.i.i.i
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 %8
-  %24 = load i8, ptr %23, align 1, !tbaa !17
-  %25 = zext i8 %24 to i32
-  %26 = sub nsw i32 0, %25
+20:                                               ; preds = %.lr.ph.i.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.reass.reass.reass
+  %22 = load i8, ptr %21, align 1, !tbaa !17
+  %23 = zext i8 %22 to i32
+  %24 = sub nsw i32 0, %23
   br label %ref_entry_cmp_sslice.exit.i.i
 
-ref_entry_cmp_sslice.exit.i.i:                    ; preds = %22, %.lr.ph.i.i.i
-  %.0.i14.i.i = phi i32 [ %26, %22 ], [ %21, %.lr.ph.i.i.i ]
-  %27 = icmp slt i32 %.0.i14.i.i, 0
-  br i1 %27, label %31, label %28
+ref_entry_cmp_sslice.exit.i.i:                    ; preds = %20, %.lr.ph.i.i.i
+  %.0.i14.i.i = phi i32 [ %24, %20 ], [ %19, %.lr.ph.i.i.i ]
+  %25 = icmp slt i32 %.0.i14.i.i, 0
+  br i1 %25, label %29, label %26
 
-28:                                               ; preds = %ref_entry_cmp_sslice.exit.i.i
+26:                                               ; preds = %ref_entry_cmp_sslice.exit.i.i
   %.not.i.i.i = icmp eq i32 %.0.i14.i.i, 0
-  br i1 %.not.i.i.i, label %search_ref_dir.exit.i, label %29
+  br i1 %.not.i.i.i, label %search_ref_dir.exit.i, label %27
 
-29:                                               ; preds = %28
-  %30 = add nuw i64 %16, 1
-  br label %31
+27:                                               ; preds = %26
+  %28 = add nuw i64 %14, 1
+  br label %29
 
-31:                                               ; preds = %29, %ref_entry_cmp_sslice.exit.i.i
-  %.118.i.i.i = phi i64 [ %.01720.i.i.i, %29 ], [ %16, %ref_entry_cmp_sslice.exit.i.i ]
-  %.1.i.i.i = phi i64 [ %30, %29 ], [ %.01621.i.i.i, %ref_entry_cmp_sslice.exit.i.i ]
-  %32 = icmp ult i64 %.1.i.i.i, %.118.i.i.i
-  br i1 %32, label %.lr.ph.i.i.i, label %search_for_subdir.exit.thread, !llvm.loop !28
+29:                                               ; preds = %27, %ref_entry_cmp_sslice.exit.i.i
+  %.118.i.i.i = phi i64 [ %.01720.i.i.i, %27 ], [ %14, %ref_entry_cmp_sslice.exit.i.i ]
+  %.1.i.i.i = phi i64 [ %28, %27 ], [ %.01621.i.i.i, %ref_entry_cmp_sslice.exit.i.i ]
+  %30 = icmp ult i64 %.1.i.i.i, %.118.i.i.i
+  br i1 %30, label %.lr.ph.i.i.i, label %search_for_subdir.exit.thread, !llvm.loop !28
 
-search_ref_dir.exit.i:                            ; preds = %28
-  %33 = and i64 %15, 8589934590
-  %34 = icmp eq i64 %33, 8589934590
-  br i1 %34, label %search_for_subdir.exit.thread, label %35
+search_ref_dir.exit.i:                            ; preds = %26
+  %31 = and i64 %13, 8589934590
+  %32 = icmp eq i64 %31, 8589934590
+  br i1 %32, label %search_for_subdir.exit.thread, label %33
 
-35:                                               ; preds = %search_ref_dir.exit.i
-  %sext.i = shl i64 %16, 32
-  %36 = ashr exact i64 %sext.i, 29
-  %37 = getelementptr inbounds i8, ptr %12, i64 %36
-  %38 = load ptr, ptr %37, align 8, !tbaa !14
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load i8, ptr %38, align 8, !tbaa !17
-  %41 = and i8 %40, 32
-  %.not.i8.i = icmp eq i8 %41, 0
-  br i1 %.not.i8.i, label %search_for_subdir.exit, label %42
+33:                                               ; preds = %search_ref_dir.exit.i
+  %sext.i = shl i64 %14, 32
+  %34 = ashr exact i64 %sext.i, 29
+  %35 = getelementptr inbounds i8, ptr %10, i64 %34
+  %36 = load ptr, ptr %35, align 8, !tbaa !14
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %38 = load i8, ptr %36, align 8, !tbaa !17
+  %39 = and i8 %38, 32
+  %.not.i8.i = icmp eq i8 %39, 0
+  br i1 %.not.i8.i, label %search_for_subdir.exit, label %40
 
-42:                                               ; preds = %35
-  %43 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %44 = load ptr, ptr %43, align 8, !tbaa !18
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !19
-  %.not9.i.i = icmp eq ptr %46, null
-  br i1 %.not9.i.i, label %47, label %48
+40:                                               ; preds = %33
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %42 = load ptr, ptr %41, align 8, !tbaa !18
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %44 = load ptr, ptr %43, align 8, !tbaa !19
+  %.not9.i.i = icmp eq ptr %44, null
+  br i1 %.not9.i.i, label %45, label %46
 
-47:                                               ; preds = %42
+45:                                               ; preds = %40
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 28, ptr noundef nonnull @.str.1) #11
   unreachable
 
-48:                                               ; preds = %42
-  %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !22
-  %51 = getelementptr inbounds nuw i8, ptr %38, i64 56
-  tail call void %46(ptr noundef %50, ptr noundef nonnull %39, ptr noundef nonnull %51) #12
-  %52 = load i8, ptr %38, align 8, !tbaa !17
-  %53 = and i8 %52, -33
-  store i8 %53, ptr %38, align 8, !tbaa !17
+46:                                               ; preds = %40
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !22
+  %49 = getelementptr inbounds nuw i8, ptr %36, i64 56
+  tail call void %44(ptr noundef %48, ptr noundef nonnull %37, ptr noundef nonnull %49) #12
+  %50 = load i8, ptr %36, align 8, !tbaa !17
+  %51 = and i8 %50, -33
+  store i8 %51, ptr %36, align 8, !tbaa !17
   br label %search_for_subdir.exit
 
-search_for_subdir.exit:                           ; preds = %48, %35
-  %54 = getelementptr inbounds nuw i8, ptr %.01223, i64 1
-  %55 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %54, i32 noundef 47) #13
-  %.not = icmp eq ptr %55, null
+search_for_subdir.exit:                           ; preds = %46, %33
+  %52 = getelementptr inbounds nuw i8, ptr %.01223, i64 1
+  %53 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %52, i32 noundef 47) #13
+  %.not = icmp eq ptr %53, null
   br i1 %.not, label %search_for_subdir.exit.thread, label %5, !llvm.loop !30
 
-search_for_subdir.exit.thread:                    ; preds = %search_for_subdir.exit, %search_ref_dir.exit.i, %5, %10, %31, %2
-  %.1 = phi ptr [ %0, %2 ], [ null, %31 ], [ null, %search_ref_dir.exit.i ], [ null, %5 ], [ %39, %search_for_subdir.exit ], [ null, %10 ]
+search_for_subdir.exit.thread:                    ; preds = %search_for_subdir.exit, %search_ref_dir.exit.i, %5, %8, %29, %2
+  %.1 = phi ptr [ %0, %2 ], [ null, %29 ], [ null, %search_ref_dir.exit.i ], [ null, %5 ], [ %37, %search_for_subdir.exit ], [ null, %8 ]
   ret ptr %.1
 }
 

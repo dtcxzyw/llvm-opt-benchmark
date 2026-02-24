@@ -4337,18 +4337,18 @@ define internal fastcc i32 @get_ipv6_suffix(ptr noundef %0, ptr noundef readonly
 
 .lr.ph70:                                         ; preds = %.loopexit
   %wide.trip.count = zext nneg i32 %.047 to i64
+  %invariant.op = sub i32 32, %.047
   br label %51
 
 51:                                               ; preds = %.lr.ph70, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next, %51 ]
   %52 = trunc i64 %indvars.iv to i32
-  %53 = sub i32 %52, %.047
-  %54 = add i32 %53, 32
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr i8, ptr %3, i64 %55
-  %57 = load i8, ptr %56, align 1
-  %58 = getelementptr i8, ptr %3, i64 %indvars.iv
-  store i8 %57, ptr %58, align 1
+  %.reass.reass = add i32 %52, %invariant.op
+  %53 = sext i32 %.reass.reass to i64
+  %54 = getelementptr i8, ptr %3, i64 %53
+  %55 = load i8, ptr %54, align 1
+  %56 = getelementptr i8, ptr %3, i64 %indvars.iv
+  store i8 %55, ptr %56, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond79.not, label %._crit_edge71, label %51, !llvm.loop !56
@@ -4356,12 +4356,12 @@ define internal fastcc i32 @get_ipv6_suffix(ptr noundef %0, ptr noundef readonly
 ._crit_edge71:                                    ; preds = %51, %2, %.loopexit
   %.05085 = phi i32 [ %.151.lcssa, %.loopexit ], [ 0, %2 ], [ %.151.lcssa, %51 ]
   %.2.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %2 ], [ %.047, %51 ]
-  %59 = zext nneg i32 %.2.lcssa to i64
-  %60 = getelementptr i8, ptr %3, i64 %59
-  store i8 0, ptr %60, align 1
-  %61 = add nuw i32 %.2.lcssa, 1
-  %62 = sext i32 %61 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %0, ptr noundef nonnull align 16 dereferenceable(1) %3, i64 noundef range(i64 -2147483648, 2147483648) %62, i1 noundef false) #23
+  %57 = zext nneg i32 %.2.lcssa to i64
+  %58 = getelementptr i8, ptr %3, i64 %57
+  store i8 0, ptr %58, align 1
+  %59 = add nuw i32 %.2.lcssa, 1
+  %60 = sext i32 %59 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %0, ptr noundef nonnull align 16 dereferenceable(1) %3, i64 noundef range(i64 -2147483648, 2147483648) %60, i1 noundef false) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.05085
 }

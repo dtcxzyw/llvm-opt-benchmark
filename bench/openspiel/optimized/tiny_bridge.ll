@@ -8139,7 +8139,11 @@ _ZNK4absl7debian24SpanIfE2atEm.exit49:            ; preds = %_ZN10open_spiel11ti
   %99 = sub i64 %97, %98
   %100 = ashr exact i64 %99, 2
   %101 = icmp ugt i64 %100, %94
-  br i1 %101, label %.lr.ph, label %.loopexit
+  br i1 %101, label %.lr.ph.preheader, label %.loopexit
+
+.lr.ph.preheader:                                 ; preds = %.preheader76
+  %invariant.op = sub i32 4, %1
+  br label %.lr.ph
 
 .preheader:                                       ; preds = %91
   %102 = load ptr, ptr %47, align 8
@@ -8183,97 +8187,96 @@ _ZNK4absl7debian24SpanIfE2atEm.exit51:            ; preds = %.lr.ph81
   %128 = icmp ugt i64 %127, %indvars.iv.next85
   br i1 %128, label %.lr.ph81, label %.loopexit, !llvm.loop !81
 
-.lr.ph:                                           ; preds = %.preheader76, %167
-  %indvars.iv = phi i64 [ %indvars.iv.next, %167 ], [ %94, %.preheader76 ]
-  %129 = phi ptr [ %169, %167 ], [ %96, %.preheader76 ]
-  %.03978 = phi i32 [ %.1, %167 ], [ 0, %.preheader76 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %166
+  %indvars.iv = phi i64 [ %indvars.iv.next, %166 ], [ %94, %.lr.ph.preheader ]
+  %129 = phi ptr [ %168, %166 ], [ %96, %.lr.ph.preheader ]
+  %.03978 = phi i32 [ %.1, %166 ], [ 0, %.lr.ph.preheader ]
   %130 = load i32, ptr %23, align 4
   %131 = trunc nsw i64 %indvars.iv to i32
   %132 = srem i32 %131, %130
-  %reass.sub = sub i32 %132, %1
-  %133 = add i32 %reass.sub, 4
-  %134 = srem i32 %133, 4
-  %135 = getelementptr inbounds i32, ptr %129, i64 %indvars.iv
-  %136 = load i32, ptr %135, align 4
-  switch i32 %136, label %158 [
-    i32 0, label %137
-    i32 7, label %141
-    i32 8, label %151
+  %.reass.reass = add i32 %132, %invariant.op
+  %133 = srem i32 %.reass.reass, 4
+  %134 = getelementptr inbounds i32, ptr %129, i64 %indvars.iv
+  %135 = load i32, ptr %134, align 4
+  switch i32 %135, label %157 [
+    i32 0, label %136
+    i32 7, label %140
+    i32 8, label %150
   ]
 
-137:                                              ; preds = %.lr.ph
-  %138 = icmp eq i32 %.03978, 0
-  br i1 %138, label %_ZNK4absl7debian24SpanIfE2atEm.exit52, label %167
+136:                                              ; preds = %.lr.ph
+  %137 = icmp eq i32 %.03978, 0
+  br i1 %137, label %_ZNK4absl7debian24SpanIfE2atEm.exit52, label %166
 
-_ZNK4absl7debian24SpanIfE2atEm.exit52:            ; preds = %137
-  %139 = add nsw i32 %134, %34
-  %140 = zext nneg i32 %139 to i64
+_ZNK4absl7debian24SpanIfE2atEm.exit52:            ; preds = %136
+  %138 = add nsw i32 %133, %34
+  %139 = zext nneg i32 %138 to i64
   br label %.sink.split102
 
-141:                                              ; preds = %.lr.ph
-  %142 = add nsw i32 %130, %34
-  %143 = mul i32 %.03978, 3
-  %144 = add i32 %143, -3
-  %145 = mul i32 %144, %130
-  %146 = add nsw i32 %142, %145
-  %147 = add nsw i32 %146, %134
-  %148 = sext i32 %147 to i64
-  %149 = icmp ugt i64 %3, %148
-  br i1 %149, label %.sink.split102, label %150
+140:                                              ; preds = %.lr.ph
+  %141 = add nsw i32 %130, %34
+  %142 = mul i32 %.03978, 3
+  %143 = add i32 %142, -3
+  %144 = mul i32 %143, %130
+  %145 = add nsw i32 %141, %144
+  %146 = add nsw i32 %145, %133
+  %147 = sext i32 %146 to i64
+  %148 = icmp ugt i64 %3, %147
+  br i1 %148, label %.sink.split102, label %149
 
-150:                                              ; preds = %141
+149:                                              ; preds = %140
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.72) #27
   unreachable
 
-151:                                              ; preds = %.lr.ph
-  %152 = mul i32 %.03978, 3
-  %reass.add = add i32 %152, -1
+150:                                              ; preds = %.lr.ph
+  %151 = mul i32 %.03978, 3
+  %reass.add = add i32 %151, -1
   %reass.mul = mul i32 %reass.add, %130
-  %153 = add nsw i32 %134, %34
-  %154 = add i32 %153, %reass.mul
-  %155 = sext i32 %154 to i64
-  %156 = icmp ugt i64 %3, %155
-  br i1 %156, label %.sink.split102, label %157
+  %152 = add nsw i32 %133, %34
+  %153 = add i32 %152, %reass.mul
+  %154 = sext i32 %153 to i64
+  %155 = icmp ugt i64 %3, %154
+  br i1 %155, label %.sink.split102, label %156
 
-157:                                              ; preds = %151
+156:                                              ; preds = %150
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.72) #27
   unreachable
 
-158:                                              ; preds = %.lr.ph
-  %159 = mul i32 %136, 3
-  %reass.add74 = add i32 %159, -1
+157:                                              ; preds = %.lr.ph
+  %158 = mul i32 %135, 3
+  %reass.add74 = add i32 %158, -1
   %reass.mul75 = mul i32 %reass.add74, %130
-  %160 = add nsw i32 %134, %34
-  %161 = add i32 %160, %130
-  %162 = add i32 %161, %reass.mul75
-  %163 = sext i32 %162 to i64
-  %164 = icmp ugt i64 %3, %163
-  br i1 %164, label %.sink.split102, label %165
+  %159 = add nsw i32 %133, %34
+  %160 = add i32 %159, %130
+  %161 = add i32 %160, %reass.mul75
+  %162 = sext i32 %161 to i64
+  %163 = icmp ugt i64 %3, %162
+  br i1 %163, label %.sink.split102, label %164
 
-165:                                              ; preds = %158
+164:                                              ; preds = %157
   tail call void @_ZN4absl7debian213base_internal18ThrowStdOutOfRangeEPKc(ptr noundef nonnull @.str.72) #27
   unreachable
 
-.sink.split102:                                   ; preds = %158, %151, %141, %_ZNK4absl7debian24SpanIfE2atEm.exit52
-  %.sink103 = phi i64 [ %140, %_ZNK4absl7debian24SpanIfE2atEm.exit52 ], [ %148, %141 ], [ %155, %151 ], [ %163, %158 ]
-  %.1.ph = phi i32 [ 0, %_ZNK4absl7debian24SpanIfE2atEm.exit52 ], [ %.03978, %141 ], [ %.03978, %151 ], [ %136, %158 ]
-  %166 = getelementptr inbounds nuw float, ptr %2, i64 %.sink103
-  store float 1.000000e+00, ptr %166, align 4
-  br label %167
+.sink.split102:                                   ; preds = %157, %150, %140, %_ZNK4absl7debian24SpanIfE2atEm.exit52
+  %.sink103 = phi i64 [ %139, %_ZNK4absl7debian24SpanIfE2atEm.exit52 ], [ %147, %140 ], [ %154, %150 ], [ %162, %157 ]
+  %.1.ph = phi i32 [ 0, %_ZNK4absl7debian24SpanIfE2atEm.exit52 ], [ %.03978, %140 ], [ %.03978, %150 ], [ %135, %157 ]
+  %165 = getelementptr inbounds nuw float, ptr %2, i64 %.sink103
+  store float 1.000000e+00, ptr %165, align 4
+  br label %166
 
-167:                                              ; preds = %.sink.split102, %137
-  %.1 = phi i32 [ %.03978, %137 ], [ %.1.ph, %.sink.split102 ]
+166:                                              ; preds = %.sink.split102, %136
+  %.1 = phi i32 [ %.03978, %136 ], [ %.1.ph, %.sink.split102 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %168 = load ptr, ptr %47, align 8
-  %169 = load ptr, ptr %46, align 8
+  %167 = load ptr, ptr %47, align 8
+  %168 = load ptr, ptr %46, align 8
+  %169 = ptrtoint ptr %167 to i64
   %170 = ptrtoint ptr %168 to i64
-  %171 = ptrtoint ptr %169 to i64
-  %172 = sub i64 %170, %171
-  %173 = ashr exact i64 %172, 2
-  %174 = icmp ugt i64 %173, %indvars.iv.next
-  br i1 %174, label %.lr.ph, label %.loopexit, !llvm.loop !82
+  %171 = sub i64 %169, %170
+  %172 = ashr exact i64 %171, 2
+  %173 = icmp ugt i64 %172, %indvars.iv.next
+  br i1 %173, label %.lr.ph, label %.loopexit, !llvm.loop !82
 
-.loopexit:                                        ; preds = %167, %_ZNK4absl7debian24SpanIfE2atEm.exit51, %.preheader76, %.preheader
+.loopexit:                                        ; preds = %166, %_ZNK4absl7debian24SpanIfE2atEm.exit51, %.preheader76, %.preheader
   ret void
 }
 

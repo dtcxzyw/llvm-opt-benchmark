@@ -1180,12 +1180,13 @@ bn_correct_top.exit:                              ; preds = %39, %42
   %.055 = select i1 %.not68, ptr %62, ptr %1
   %63 = shl nsw i32 %50, 3
   %64 = sext i32 %63 to i64
+  %invariant.op = sub i64 1, %64
   br label %65
 
 65:                                               ; preds = %.lr.ph, %65
   %.15674 = phi ptr [ %.055, %.lr.ph ], [ %83, %65 ]
-  %.06073 = phi i64 [ 0, %.lr.ph ], [ %87, %65 ]
-  %.06172 = phi i64 [ 0, %.lr.ph ], [ %86, %65 ]
+  %.06073 = phi i64 [ 0, %.lr.ph ], [ %86, %65 ]
+  %.06172 = phi i64 [ 0, %.lr.ph ], [ %85, %65 ]
   %.16471 = phi i32 [ %.063, %.lr.ph ], [ %82, %65 ]
   %66 = load ptr, ptr %0, align 8, !tbaa !13
   %67 = lshr i64 %.06172, 3
@@ -1207,12 +1208,11 @@ bn_correct_top.exit:                              ; preds = %39, %42
   %81 = icmp samesign ugt i32 %77, %80
   %82 = zext i1 %81 to i32
   %83 = getelementptr inbounds i8, ptr %.15674, i64 %.059
-  %reass.sub = sub i64 %.06172, %64
-  %84 = add i64 %reass.sub, 1
-  %85 = lshr i64 %84, 63
-  %86 = add i64 %85, %.06172
-  %87 = add nuw i64 %.06073, 1
-  %exitcond.not = icmp eq i64 %87, %56
+  %.reass.reass = add i64 %.06172, %invariant.op
+  %84 = lshr i64 %.reass.reass, 63
+  %85 = add i64 %84, %.06172
+  %86 = add nuw i64 %.06073, 1
+  %exitcond.not = icmp eq i64 %86, %56
   br i1 %exitcond.not, label %.loopexit, label %65, !llvm.loop !26
 
 .loopexit:                                        ; preds = %65, %55, %52, %53, %bn_correct_top.exit
@@ -1268,12 +1268,13 @@ define range(i32 -268435455, 268435456) i32 @BN_bn2bin(ptr noundef readonly capt
   %18 = getelementptr i8, ptr %1, i64 %13
   %19 = shl nsw i32 %7, 3
   %20 = sext i32 %19 to i64
+  %invariant.op = sub i64 1, %20
   br label %21
 
 21:                                               ; preds = %21, %.lr.ph.i
   %.pn = phi ptr [ %18, %.lr.ph.i ], [ %.15674.i, %21 ]
-  %.06073.i = phi i64 [ 0, %.lr.ph.i ], [ %41, %21 ]
-  %.06172.i = phi i64 [ 0, %.lr.ph.i ], [ %40, %21 ]
+  %.06073.i = phi i64 [ 0, %.lr.ph.i ], [ %40, %21 ]
+  %.06172.i = phi i64 [ 0, %.lr.ph.i ], [ %39, %21 ]
   %.16471.i = phi i32 [ 0, %.lr.ph.i ], [ %37, %21 ]
   %.15674.i = getelementptr i8, ptr %.pn, i64 -1
   %22 = load ptr, ptr %0, align 8, !tbaa !13
@@ -1294,12 +1295,11 @@ define range(i32 -268435455, 268435456) i32 @BN_bn2bin(ptr noundef readonly capt
   %35 = and i32 %33, 255
   %36 = icmp samesign ugt i32 %32, %35
   %37 = zext i1 %36 to i32
-  %reass.sub = sub i64 %.06172.i, %20
-  %38 = add i64 %reass.sub, 1
-  %39 = lshr i64 %38, 63
-  %40 = add i64 %39, %.06172.i
-  %41 = add nuw i64 %.06073.i, 1
-  %exitcond.not.i = icmp eq i64 %41, %13
+  %.reass.i.reass.reass = add i64 %.06172.i, %invariant.op
+  %38 = lshr i64 %.reass.i.reass.reass, 63
+  %39 = add i64 %38, %.06172.i
+  %40 = add nuw i64 %.06073.i, 1
+  %exitcond.not.i = icmp eq i64 %40, %13
   br i1 %exitcond.not.i, label %bn2binpad.exit, label %21, !llvm.loop !26
 
 bn2binpad.exit:                                   ; preds = %21, %9, %10, %12

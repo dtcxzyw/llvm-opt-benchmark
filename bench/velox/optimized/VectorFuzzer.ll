@@ -2625,8 +2625,8 @@ entry:
   %0 = load i8, ptr %allowLazyVector, align 2
   %tobool = trunc i8 %0 to i1
   %ref.tmp12.sink534.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  %ref.tmp12.sink534.sroa.gep535 = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 8
   %ref.tmp12.sink534.sroa.gep536 = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 8
+  %ref.tmp12.sink534.sroa.gep537 = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 8
   br i1 %tobool, label %land.rhs, label %land.lhs.true
 
 land.rhs:                                         ; preds = %entry
@@ -2744,7 +2744,7 @@ cond.false:                                       ; preds = %invoke.cont14
           to label %if.end19 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end19:                                         ; preds = %cond.false, %cond.true, %if.then9
-  %ref.tmp12.sink534.sroa.phi = phi ptr [ %ref.tmp12.sink534.sroa.gep, %if.then9 ], [ %ref.tmp12.sink534.sroa.gep535, %cond.true ], [ %ref.tmp12.sink534.sroa.gep536, %cond.false ]
+  %ref.tmp12.sink534.sroa.phi = phi ptr [ %ref.tmp12.sink534.sroa.gep, %if.then9 ], [ %ref.tmp12.sink534.sroa.gep536, %cond.true ], [ %ref.tmp12.sink534.sroa.gep537, %cond.false ]
   %ref.tmp12.sink534 = phi ptr [ %ref.tmp, %if.then9 ], [ %ref.tmp12, %cond.true ], [ %ref.tmp12, %cond.false ]
   %4 = load ptr, ptr %ref.tmp12.sink534, align 8
   %5 = load ptr, ptr %ref.tmp12.sink534.sroa.phi, align 8
@@ -3200,6 +3200,7 @@ if.end39:                                         ; preds = %if.end8.sink.split.
   %_M_refcount4.i.i.i305 = getelementptr inbounds nuw i8, ptr %ref.tmp55, i64 8
   %_M_refcount3.i.i.i306 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %_M_refcount4.i.i.i373 = getelementptr inbounds nuw i8, ptr %ref.tmp67, i64 8
+  %invariant.op = sub i32 1, %size
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %if.end39
@@ -3587,9 +3588,8 @@ if.then59:                                        ; preds = %_ZNSt10shared_ptrIN
 
 invoke.cont62:                                    ; preds = %if.then59
   %conv.i.i.i.i.i370 = trunc i64 %call9.i.i.i.i371 to i32
-  %reass.sub516 = sub i32 %vectorSize.1, %size
-  %add65 = add i32 %reass.sub516, 1
-  %rem66 = urem i32 %conv.i.i.i.i.i370, %add65
+  %add65.reass.reass = add i32 %vectorSize.1, %invariant.op
+  %rem66 = urem i32 %conv.i.i.i.i.i370, %add65.reass.reass
   %118 = load ptr, ptr %agg.result, align 8
   %vtable69 = load ptr, ptr %118, align 8
   %vfn70 = getelementptr inbounds nuw i8, ptr %vtable69, i64 224

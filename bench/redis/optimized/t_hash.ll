@@ -10599,10 +10599,10 @@ define internal fastcc void @httlGenericCommand(ptr noundef %0, i64 noundef %1, 
   %40 = load i32, ptr %12, align 8
   %41 = lshr i32 %40, 4
   %42 = and i32 %41, 15
-  switch i32 %42, label %187 [
+  switch i32 %42, label %185 [
     i32 11, label %43
     i32 12, label %83
-    i32 2, label %147
+    i32 2, label %146
   ]
 
 43:                                               ; preds = %39
@@ -10797,105 +10797,105 @@ sdslen.exit:                                      ; preds = %55, %60, %63, %67, 
 
 140:                                              ; preds = %138
   %141 = load i64, ptr %5, align 8, !tbaa !24
-  %reass.sub15 = sub i64 %141, %1
+  %reass.sub45 = sub i64 %141, %1
   br i1 %89, label %142, label %.thread
 
 142:                                              ; preds = %140
-  %143 = add i64 %reass.sub15, 999
-  %144 = sdiv i64 %143, 1000
+  %.reass42 = add i64 %reass.sub45, 999
+  %143 = sdiv i64 %.reass42, 1000
   br label %.thread
 
 .thread:                                          ; preds = %140, %138, %135, %123, %90, %142
-  %.sink41 = phi i64 [ %144, %142 ], [ -2, %138 ], [ -1, %135 ], [ -2, %123 ], [ -2, %90 ], [ %reass.sub15, %140 ]
-  call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.sink41) #17
+  %.sink43 = phi i64 [ %143, %142 ], [ -2, %138 ], [ -1, %135 ], [ -2, %123 ], [ -2, %90 ], [ %reass.sub45, %140 ]
+  call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.sink43) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
-  %145 = load i64, ptr %4, align 8, !tbaa !28
-  %146 = icmp sgt i64 %145, %indvars.iv.next21
-  br i1 %146, label %90, label %.loopexit, !llvm.loop !180
+  %144 = load i64, ptr %4, align 8, !tbaa !28
+  %145 = icmp sgt i64 %144, %indvars.iv.next21
+  br i1 %145, label %90, label %.loopexit, !llvm.loop !180
 
-147:                                              ; preds = %39
-  %148 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %149 = load ptr, ptr %148, align 8, !tbaa !10
+146:                                              ; preds = %39
+  %147 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %148 = load ptr, ptr %147, align 8, !tbaa !10
   call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %27) #17
-  %150 = load i64, ptr %4, align 8, !tbaa !28
-  %151 = icmp sgt i64 %150, 0
-  br i1 %151, label %.lr.ph, label %.loopexit
+  %149 = load i64, ptr %4, align 8, !tbaa !28
+  %150 = icmp sgt i64 %149, 0
+  br i1 %150, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %147
-  %152 = icmp eq i32 %2, 0
-  br label %153
+.lr.ph:                                           ; preds = %146
+  %151 = icmp eq i32 %2, 0
+  br label %152
 
-153:                                              ; preds = %.lr.ph, %hfieldGetExpireTime.exit.thread
+152:                                              ; preds = %.lr.ph, %hfieldGetExpireTime.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %hfieldGetExpireTime.exit.thread ]
-  %154 = load ptr, ptr %8, align 8, !tbaa !132
-  %155 = getelementptr inbounds nuw ptr, ptr %154, i64 %indvars.iv
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 32
-  %157 = load ptr, ptr %156, align 8, !tbaa !64
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  %159 = load ptr, ptr %158, align 8, !tbaa !10
-  %160 = call ptr @dictFind(ptr noundef %149, ptr noundef %159) #17
-  %161 = icmp eq ptr %160, null
-  br i1 %161, label %hfieldGetExpireTime.exit.thread, label %162
+  %153 = load ptr, ptr %8, align 8, !tbaa !132
+  %154 = getelementptr inbounds nuw ptr, ptr %153, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 32
+  %156 = load ptr, ptr %155, align 8, !tbaa !64
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
+  %158 = load ptr, ptr %157, align 8, !tbaa !10
+  %159 = call ptr @dictFind(ptr noundef %148, ptr noundef %158) #17
+  %160 = icmp eq ptr %159, null
+  br i1 %160, label %hfieldGetExpireTime.exit.thread, label %161
 
-162:                                              ; preds = %153
-  %163 = call ptr @dictGetKey(ptr noundef nonnull %160) #17
-  %164 = getelementptr i8, ptr %163, i64 -1
-  %.val.i.i = load i8, ptr %164, align 1, !tbaa !5
-  %165 = and i8 %.val.i.i, 4
-  %.not.i.i = icmp eq i8 %165, 0
+161:                                              ; preds = %152
+  %162 = call ptr @dictGetKey(ptr noundef nonnull %159) #17
+  %163 = getelementptr i8, ptr %162, i64 -1
+  %.val.i.i = load i8, ptr %163, align 1, !tbaa !5
+  %164 = and i8 %.val.i.i, 4
+  %.not.i.i = icmp eq i8 %164, 0
   br i1 %.not.i.i, label %hfieldGetExpireTime.exit.thread, label %hfieldIsExpireAttached.exit.i
 
-hfieldIsExpireAttached.exit.i:                    ; preds = %162
-  %166 = call ptr @mstrFlagsRef(ptr noundef nonnull %163) #17
-  %167 = load i16, ptr %166, align 2, !tbaa !8
-  %168 = and i16 %167, 1
-  %.not.i = icmp eq i16 %168, 0
-  br i1 %.not.i, label %hfieldGetExpireTime.exit.thread, label %169
+hfieldIsExpireAttached.exit.i:                    ; preds = %161
+  %165 = call ptr @mstrFlagsRef(ptr noundef nonnull %162) #17
+  %166 = load i16, ptr %165, align 2, !tbaa !8
+  %167 = and i16 %166, 1
+  %.not.i = icmp eq i16 %167, 0
+  br i1 %.not.i, label %hfieldGetExpireTime.exit.thread, label %168
 
-169:                                              ; preds = %hfieldIsExpireAttached.exit.i
-  %170 = call ptr @mstrMetaRef(ptr noundef nonnull %163, ptr noundef nonnull @mstrFieldKind, i32 noundef 0) #17
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 6
-  %172 = load i16, ptr %171, align 2
-  %173 = and i16 %172, 256
-  %.not4.i = icmp eq i16 %173, 0
+168:                                              ; preds = %hfieldIsExpireAttached.exit.i
+  %169 = call ptr @mstrMetaRef(ptr noundef nonnull %162, ptr noundef nonnull @mstrFieldKind, i32 noundef 0) #17
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 6
+  %171 = load i16, ptr %170, align 2
+  %172 = and i16 %171, 256
+  %.not4.i = icmp eq i16 %172, 0
   br i1 %.not4.i, label %hfieldGetExpireTime.exit, label %hfieldGetExpireTime.exit.thread
 
-hfieldGetExpireTime.exit:                         ; preds = %169
-  %.val.i = load i32, ptr %170, align 8, !tbaa !69
-  %174 = getelementptr i8, ptr %170, i64 4
-  %.val5.i = load i16, ptr %174, align 4, !tbaa !70
-  %175 = zext i16 %.val5.i to i64
-  %176 = shl nuw nsw i64 %175, 32
-  %177 = zext i32 %.val.i to i64
-  %178 = or disjoint i64 %176, %177
-  %179 = call i64 @commandTimeSnapshot() #17
-  %180 = icmp slt i64 %178, %179
-  br i1 %180, label %hfieldGetExpireTime.exit.thread, label %181
+hfieldGetExpireTime.exit:                         ; preds = %168
+  %.val.i = load i32, ptr %169, align 8, !tbaa !69
+  %173 = getelementptr i8, ptr %169, i64 4
+  %.val5.i = load i16, ptr %173, align 4, !tbaa !70
+  %174 = zext i16 %.val5.i to i64
+  %175 = shl nuw nsw i64 %174, 32
+  %176 = zext i32 %.val.i to i64
+  %177 = or disjoint i64 %175, %176
+  %178 = call i64 @commandTimeSnapshot() #17
+  %179 = icmp slt i64 %177, %178
+  br i1 %179, label %hfieldGetExpireTime.exit.thread, label %180
 
-181:                                              ; preds = %hfieldGetExpireTime.exit
-  %reass.sub = sub i64 %178, %1
-  br i1 %152, label %182, label %hfieldGetExpireTime.exit.thread
+180:                                              ; preds = %hfieldGetExpireTime.exit
+  %reass.sub = sub i64 %177, %1
+  br i1 %151, label %181, label %hfieldGetExpireTime.exit.thread
 
-182:                                              ; preds = %181
-  %183 = add i64 %reass.sub, 999
-  %184 = udiv i64 %183, 1000
+181:                                              ; preds = %180
+  %.reass = add i64 %reass.sub, 999
+  %182 = udiv i64 %.reass, 1000
   br label %hfieldGetExpireTime.exit.thread
 
-hfieldGetExpireTime.exit.thread:                  ; preds = %181, %hfieldGetExpireTime.exit, %hfieldIsExpireAttached.exit.i, %169, %162, %153, %182
-  %.sink42 = phi i64 [ -2, %153 ], [ -1, %hfieldIsExpireAttached.exit.i ], [ -2, %hfieldGetExpireTime.exit ], [ %184, %182 ], [ -1, %162 ], [ -1, %169 ], [ %reass.sub, %181 ]
-  call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.sink42) #17
+hfieldGetExpireTime.exit.thread:                  ; preds = %180, %hfieldGetExpireTime.exit, %hfieldIsExpireAttached.exit.i, %168, %161, %152, %181
+  %.sink44 = phi i64 [ -2, %152 ], [ -1, %hfieldIsExpireAttached.exit.i ], [ -2, %hfieldGetExpireTime.exit ], [ %182, %181 ], [ -1, %161 ], [ -1, %168 ], [ %reass.sub, %180 ]
+  call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.sink44) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %185 = load i64, ptr %4, align 8, !tbaa !28
-  %186 = icmp sgt i64 %185, %indvars.iv.next
-  br i1 %186, label %153, label %.loopexit, !llvm.loop !181
+  %183 = load i64, ptr %4, align 8, !tbaa !28
+  %184 = icmp sgt i64 %183, %indvars.iv.next
+  br i1 %184, label %152, label %.loopexit, !llvm.loop !181
 
-187:                                              ; preds = %39
+185:                                              ; preds = %39
   call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 3665, ptr noundef nonnull @.str.6, i32 noundef %42) #17
   call void @abort() #18
   unreachable
 
-.loopexit:                                        ; preds = %hfieldGetExpireTime.exit.thread, %.thread, %.critedge, %.lr.ph14, %147, %83, %43, %34, %22, %3, %32, %21
+.loopexit:                                        ; preds = %hfieldGetExpireTime.exit.thread, %.thread, %.critedge, %.lr.ph14, %146, %83, %43, %34, %22, %3, %32, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

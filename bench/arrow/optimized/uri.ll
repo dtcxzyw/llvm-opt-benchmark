@@ -335,7 +335,7 @@ define void @_ZN5arrow4util13UriEncodeHostB5cxx11ESt17basic_string_viewIcSt11cha
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %10, %.lr.ph.i.i
   %.033.i.i = phi i64 [ %1, %.lr.ph.i.i ], [ %13, %10 ]
   %.02132.i.i = phi ptr [ %2, %.lr.ph.i.i ], [ %11, %10 ]
-  %8 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %.02132.i.i, i32 noundef 58, i64 noundef %.033.i.i) #25
+  %8 = tail call ptr @memchr(ptr noundef %.02132.i.i, i32 noundef 58, i64 noundef %.033.i.i) #25
   %.not26.i.i = icmp eq ptr %8, null
   br i1 %.not26.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
@@ -429,7 +429,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   tail call void @_ZdlPvm(ptr noundef %39, i64 noundef %42) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread: ; preds = %10, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %10, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %43, ptr %0, align 8, !tbaa !3
   %44 = icmp eq ptr %2, null

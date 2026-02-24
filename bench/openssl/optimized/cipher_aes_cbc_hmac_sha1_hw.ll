@@ -1760,12 +1760,13 @@ define internal i32 @aesni_cbc_hmac_sha1_tls1_multiblock_encrypt(ptr noundef %0,
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 732
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 733
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 734
+  %invariant.op = sub i32 36, %.0307.i
   br label %222
 
 222:                                              ; preds = %222, %.lr.ph351.i
   %indvars.iv391.i = phi i64 [ 0, %.lr.ph351.i ], [ %indvars.iv.next392.i, %222 ]
   %.0300349.i = phi ptr [ %8, %.lr.ph351.i ], [ %scevgep390.i, %222 ]
-  %.0309347.i = phi i64 [ 0, %.lr.ph351.i ], [ %281, %222 ]
+  %.0309347.i = phi i64 [ 0, %.lr.ph351.i ], [ %280, %222 ]
   %223 = icmp eq i64 %indvars.iv391.i, %156
   %224 = select i1 %223, i32 %.0303.i, i32 %.0302.i
   %225 = getelementptr inbounds nuw %struct.CIPH_DESC, ptr %5, i64 %indvars.iv391.i
@@ -1818,47 +1819,46 @@ define internal i32 @aesni_cbc_hmac_sha1_tls1_multiblock_encrypt(ptr noundef %0,
   %263 = getelementptr i8, ptr %scevgep.i, i64 %233
   %scevgep390.i = getelementptr i8, ptr %263, i64 %261
   %264 = sub i32 %224, %256
-  %reass.sub = sub i32 %264, %.0307.i
-  %265 = add i32 %reass.sub, 36
-  %266 = lshr i32 %265, 4
-  %267 = getelementptr inbounds nuw i8, ptr %225, i64 16
-  store i32 %266, ptr %267, align 8, !tbaa !66
-  %268 = add i32 %264, 52
-  %269 = load i8, ptr %219, align 4, !tbaa !8
-  store i8 %269, ptr %.0300349.i, align 1, !tbaa !8
-  %270 = load i8, ptr %220, align 1, !tbaa !8
-  %271 = getelementptr inbounds nuw i8, ptr %.0300349.i, i64 1
-  store i8 %270, ptr %271, align 1, !tbaa !8
-  %272 = load i8, ptr %221, align 2, !tbaa !8
-  %273 = getelementptr inbounds nuw i8, ptr %.0300349.i, i64 2
-  store i8 %272, ptr %273, align 1, !tbaa !8
-  %274 = lshr i32 %268, 8
-  %275 = trunc i32 %274 to i8
-  %276 = getelementptr inbounds nuw i8, ptr %.0300349.i, i64 3
-  store i8 %275, ptr %276, align 1, !tbaa !8
-  %277 = trunc i32 %268 to i8
-  %278 = getelementptr inbounds nuw i8, ptr %.0300349.i, i64 4
-  store i8 %277, ptr %278, align 1, !tbaa !8
-  %279 = add i32 %264, 57
-  %280 = zext i32 %279 to i64
-  %281 = add i64 %.0309347.i, %280
+  %.reass.i.reass.reass = add i32 %264, %invariant.op
+  %265 = lshr i32 %.reass.i.reass.reass, 4
+  %266 = getelementptr inbounds nuw i8, ptr %225, i64 16
+  store i32 %265, ptr %266, align 8, !tbaa !66
+  %267 = add i32 %264, 52
+  %268 = load i8, ptr %219, align 4, !tbaa !8
+  store i8 %268, ptr %.0300349.i, align 1, !tbaa !8
+  %269 = load i8, ptr %220, align 1, !tbaa !8
+  %270 = getelementptr inbounds nuw i8, ptr %.0300349.i, i64 1
+  store i8 %269, ptr %270, align 1, !tbaa !8
+  %271 = load i8, ptr %221, align 2, !tbaa !8
+  %272 = getelementptr inbounds nuw i8, ptr %.0300349.i, i64 2
+  store i8 %271, ptr %272, align 1, !tbaa !8
+  %273 = lshr i32 %267, 8
+  %274 = trunc i32 %273 to i8
+  %275 = getelementptr inbounds nuw i8, ptr %.0300349.i, i64 3
+  store i8 %274, ptr %275, align 1, !tbaa !8
+  %276 = trunc i32 %267 to i8
+  %277 = getelementptr inbounds nuw i8, ptr %.0300349.i, i64 4
+  store i8 %276, ptr %277, align 1, !tbaa !8
+  %278 = add i32 %264, 57
+  %279 = zext i32 %278 to i64
+  %280 = add i64 %.0309347.i, %279
   %indvars.iv.next392.i = add nuw nsw i64 %indvars.iv391.i, 1
   %exitcond395.not.i = icmp eq i64 %indvars.iv.next392.i, %wide.trip.count383.i
   br i1 %exitcond395.not.i, label %._crit_edge352.i, label %222, !llvm.loop !88
 
 ._crit_edge352.i:                                 ; preds = %222, %._crit_edge340.thread.i
-  %.0309.lcssa.i = phi i64 [ 0, %._crit_edge340.thread.i ], [ %281, %222 ]
-  %282 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  call void @aesni_multi_cbc_encrypt(ptr noundef nonnull %5, ptr noundef nonnull %282, i32 noundef range(i32 0, 1073741824) %15) #9
+  %.0309.lcssa.i = phi i64 [ 0, %._crit_edge340.thread.i ], [ %280, %222 ]
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  call void @aesni_multi_cbc_encrypt(ptr noundef nonnull %5, ptr noundef nonnull %281, i32 noundef range(i32 0, 1073741824) %15) #9
   call void @OPENSSL_cleanse(ptr noundef nonnull %7, i64 noundef 1024) #9
   call void @OPENSSL_cleanse(ptr noundef nonnull %28, i64 noundef 160) #9
-  %283 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  store i64 %.0309.lcssa.i, ptr %283, align 8, !tbaa !89
-  %284 = trunc i64 %.0309.lcssa.i to i32
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  store i64 %.0309.lcssa.i, ptr %282, align 8, !tbaa !89
+  %283 = trunc i64 %.0309.lcssa.i to i32
   br label %tls1_multi_block_encrypt.exit
 
 tls1_multi_block_encrypt.exit:                    ; preds = %2, %._crit_edge352.i
-  %.0.i = phi i32 [ %284, %._crit_edge352.i ], [ 0, %2 ]
+  %.0.i = phi i32 [ %283, %._crit_edge352.i ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

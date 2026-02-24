@@ -3125,6 +3125,7 @@ _ZN2EA4StdCL26BoyerMooreBadCharacterCalcEPKciPii.exit: ; preds = %for.body3.i, %
 
 while.cond.preheader.us.preheader:                ; preds = %_ZN2EA4StdCL26BoyerMooreBadCharacterCalcEPKciPii.exit
   %19 = zext nneg i32 %nPatternLength to i64
+  %invariant.op = sub i32 1, %nPatternLength
   br label %while.cond.preheader.us
 
 while.cond.preheader.us:                          ; preds = %while.cond.preheader.us.preheader, %for.inc.us
@@ -3198,9 +3199,8 @@ if.else.us:                                       ; preds = %land.rhs.us74, %if.
   %idxprom21.us = sext i8 %24 to i64
   %arrayidx22.us = getelementptr inbounds i32, ptr %pAlphabetBuffer, i64 %idxprom21.us
   %25 = load i32, ptr %arrayidx22.us, align 4
-  %reass.sub = sub i32 %.us-phi.us, %nPatternLength
-  %add24.us = add i32 %reass.sub, 1
-  %add25.us = add i32 %add24.us, %25
+  %add24.us.reass.reass = add i32 %.us-phi.us, %invariant.op
+  %add25.us = add i32 %add24.us.reass.reass, %25
   %cond.us = tail call i32 @llvm.smax.i32(i32 %sub16.us, i32 %add25.us)
   %arrayidx28.us = getelementptr inbounds nuw i32, ptr %pPatternBuffer1, i64 %idxprom27.us.pre-phi
   %26 = load i32, ptr %arrayidx28.us, align 4

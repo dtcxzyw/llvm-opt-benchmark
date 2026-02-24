@@ -594,14 +594,14 @@ switch.lookup:
 
 .lr.ph:                                           ; preds = %switch.lookup
   %6 = ptrtoint ptr %4 to i64
-  %.neg47 = sub i64 %1, %6
+  %invariant.op = sub i64 %1, %6
   %.val = load ptr, ptr %3, align 8, !nonnull !4, !align !283
   br label %7
 
-7:                                                ; preds = %.lr.ph, %58
-  %.sroa.613.052 = phi i32 [ undef, %.lr.ph ], [ %.sroa.613.1, %58 ]
-  %.sroa.411.051 = phi i8 [ undef, %.lr.ph ], [ %.sroa.411.1, %58 ]
-  %.sroa.0.050 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.1.ph3544, %58 ]
+7:                                                ; preds = %.lr.ph, %57
+  %.sroa.613.052 = phi i32 [ undef, %.lr.ph ], [ %.sroa.613.1, %57 ]
+  %.sroa.411.051 = phi i8 [ undef, %.lr.ph ], [ %.sroa.411.1, %57 ]
+  %.sroa.0.050 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.1.ph3544, %57 ]
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.050, i64 1
   %9 = load i8, ptr %.sroa.0.050, align 1, !noalias !284, !noundef !4
   %10 = icmp sgt i8 %9, -1
@@ -624,8 +624,8 @@ switch.lookup:
 .thread31.thread:                                 ; preds = %7
   %21 = zext nneg i8 %9 to i32
   %22 = ptrtoint ptr %8 to i64
-  %23 = add i64 %.neg47, %22
-  br label %51
+  %23 = add i64 %invariant.op, %22
+  br label %50
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb431706d4e78e158E.exit15.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb431706d4e78e158E.exit13.i"
   %24 = icmp ne ptr %14, %4
@@ -660,60 +660,59 @@ switch.lookup:
   %.sroa.4.0.i.ph36 = phi i32 [ %44, %34 ], [ %19, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb431706d4e78e158E.exit13.i" ], [ %32, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb431706d4e78e158E.exit15.i" ]
   %.sroa.0.1.ph35 = phi ptr [ %36, %34 ], [ %14, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb431706d4e78e158E.exit13.i" ], [ %25, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb431706d4e78e158E.exit15.i" ]
   %45 = ptrtoint ptr %.sroa.0.1.ph35 to i64
-  %.neg = sub i64 %45, %6
-  %46 = add i64 %.neg, %1
-  %47 = icmp samesign ult i32 %.sroa.4.0.i.ph36, 128
-  br i1 %47, label %51, label %.thread38
+  %.reass = add i64 %invariant.op, %45
+  %46 = icmp samesign ult i32 %.sroa.4.0.i.ph36, 128
+  br i1 %46, label %50, label %.thread38
 
-.thread:                                          ; preds = %34, %58, %switch.lookup
+.thread:                                          ; preds = %34, %57, %switch.lookup
   ret void
 
 .thread38:                                        ; preds = %.thread31
-  %48 = icmp samesign ult i32 %.sroa.4.0.i.ph36, 2048
-  %49 = icmp samesign ult i32 %.sroa.4.0.i.ph36, 65536
-  %. = select i1 %49, i64 -3, i64 -4
-  %.018.neg.ph = select i1 %48, i64 -2, i64 %.
-  %50 = add i64 %46, %.018.neg.ph
-  br label %55
+  %47 = icmp samesign ult i32 %.sroa.4.0.i.ph36, 2048
+  %48 = icmp samesign ult i32 %.sroa.4.0.i.ph36, 65536
+  %. = select i1 %48, i64 -3, i64 -4
+  %.018.neg.ph = select i1 %47, i64 -2, i64 %.
+  %49 = add i64 %.reass, %.018.neg.ph
+  br label %54
 
-51:                                               ; preds = %.thread31.thread, %.thread31
-  %52 = phi i64 [ %46, %.thread31 ], [ %23, %.thread31.thread ]
+50:                                               ; preds = %.thread31.thread, %.thread31
+  %51 = phi i64 [ %.reass, %.thread31 ], [ %23, %.thread31.thread ]
   %.sroa.0.1.ph3546 = phi ptr [ %.sroa.0.1.ph35, %.thread31 ], [ %8, %.thread31.thread ]
   %.sroa.4.0.i.ph3643 = phi i32 [ %.sroa.4.0.i.ph36, %.thread31 ], [ %21, %.thread31.thread ]
-  %53 = add i64 %52, -1
-  %54 = icmp eq i32 %.sroa.4.0.i.ph3643, 13
-  br i1 %54, label %58, label %55
+  %52 = add i64 %51, -1
+  %53 = icmp eq i32 %.sroa.4.0.i.ph3643, 13
+  br i1 %53, label %57, label %54
 
-55:                                               ; preds = %.thread38, %51
-  %.not48 = phi i1 [ %switch.masked, %.thread38 ], [ false, %51 ]
-  %56 = phi i64 [ %46, %.thread38 ], [ %52, %51 ]
-  %.sroa.0.1.ph3545 = phi ptr [ %.sroa.0.1.ph35, %.thread38 ], [ %.sroa.0.1.ph3546, %51 ]
-  %.sroa.4.0.i.ph3642 = phi i32 [ %.sroa.4.0.i.ph36, %.thread38 ], [ %.sroa.4.0.i.ph3643, %51 ]
-  %57 = phi i64 [ %50, %.thread38 ], [ %53, %51 ]
+54:                                               ; preds = %.thread38, %50
+  %.not48 = phi i1 [ %switch.masked, %.thread38 ], [ false, %50 ]
+  %55 = phi i64 [ %.reass, %.thread38 ], [ %51, %50 ]
+  %.sroa.0.1.ph3545 = phi ptr [ %.sroa.0.1.ph35, %.thread38 ], [ %.sroa.0.1.ph3546, %50 ]
+  %.sroa.4.0.i.ph3642 = phi i32 [ %.sroa.4.0.i.ph36, %.thread38 ], [ %.sroa.4.0.i.ph3643, %50 ]
+  %56 = phi i64 [ %49, %.thread38 ], [ %52, %50 ]
   %.20 = zext i1 %.not48 to i64
   %.sroa.411.0. = select i1 %.not48, i8 19, i8 %.sroa.411.051
   %.0..sroa.613.0 = select i1 %.not48, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
-  br label %58
+  br label %57
 
-58:                                               ; preds = %51, %55
-  %59 = phi i64 [ %56, %55 ], [ %52, %51 ]
-  %.sroa.0.1.ph3544 = phi ptr [ %.sroa.0.1.ph3545, %55 ], [ %.sroa.0.1.ph3546, %51 ]
-  %60 = phi i64 [ %57, %55 ], [ %53, %51 ]
-  %.sroa.010.0 = phi i64 [ %.20, %55 ], [ 1, %51 ]
-  %.sroa.411.1 = phi i8 [ %.sroa.411.0., %55 ], [ 5, %51 ]
-  %.sroa.613.1 = phi i32 [ %.0..sroa.613.0, %55 ], [ %.sroa.613.052, %51 ]
+57:                                               ; preds = %50, %54
+  %58 = phi i64 [ %55, %54 ], [ %51, %50 ]
+  %.sroa.0.1.ph3544 = phi ptr [ %.sroa.0.1.ph3545, %54 ], [ %.sroa.0.1.ph3546, %50 ]
+  %59 = phi i64 [ %56, %54 ], [ %52, %50 ]
+  %.sroa.010.0 = phi i64 [ %.20, %54 ], [ 1, %50 ]
+  %.sroa.411.1 = phi i8 [ %.sroa.411.0., %54 ], [ 5, %50 ]
+  %.sroa.613.1 = phi i32 [ %.0..sroa.613.0, %54 ], [ %.sroa.613.052, %50 ]
   %.sroa.613.0.insert.ext = zext i32 %.sroa.613.1 to i64
   %.sroa.613.0.insert.shift = shl nuw i64 %.sroa.613.0.insert.ext, 32
   %.sroa.411.0.insert.ext = zext i8 %.sroa.411.1 to i64
   %.sroa.411.0.insert.shift = shl nuw nsw i64 %.sroa.411.0.insert.ext, 8
-  %61 = or disjoint i64 %.sroa.411.0.insert.shift, %.sroa.010.0
-  %62 = or i64 %.sroa.010.0, %.sroa.613.0.insert.ext
-  %or.cond.i = icmp eq i64 %62, 0
-  %.sroa.616.17.insert.insert.i = select i1 %or.cond.i, i64 5121, i64 %61
+  %60 = or disjoint i64 %.sroa.411.0.insert.shift, %.sroa.010.0
+  %61 = or i64 %.sroa.010.0, %.sroa.613.0.insert.ext
+  %or.cond.i = icmp eq i64 %61, 0
+  %.sroa.616.17.insert.insert.i = select i1 %or.cond.i, i64 5121, i64 %60
   %.sroa.616.20.insert.insert.i = or disjoint i64 %.sroa.616.17.insert.insert.i, %.sroa.613.0.insert.shift
-  tail call void @"_ZN10hir_expand5attrs8unescape28_$u7b$$u7b$closure$u7d$$u7d$17h877eda1c80a7d153E.llvm.15988534848567551436"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.val, i64 noundef %60, i64 noundef %59, i64 %.sroa.616.20.insert.insert.i)
-  %63 = icmp eq ptr %.sroa.0.1.ph3544, %4
-  br i1 %63, label %.thread, label %7
+  tail call void @"_ZN10hir_expand5attrs8unescape28_$u7b$$u7b$closure$u7d$$u7d$17h877eda1c80a7d153E.llvm.15988534848567551436"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.val, i64 noundef %59, i64 noundef %58, i64 %.sroa.616.20.insert.insert.i)
+  %62 = icmp eq ptr %.sroa.0.1.ph3544, %4
+  br i1 %62, label %.thread, label %7
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -727,13 +726,13 @@ switch.lookup:
 
 .lr.ph:                                           ; preds = %switch.lookup
   %6 = ptrtoint ptr %4 to i64
-  %.neg47 = sub i64 %1, %6
+  %invariant.op = sub i64 %1, %6
   br label %7
 
-7:                                                ; preds = %.lr.ph, %58
-  %.sroa.613.052 = phi i32 [ undef, %.lr.ph ], [ %.sroa.613.1, %58 ]
-  %.sroa.411.051 = phi i8 [ undef, %.lr.ph ], [ %.sroa.411.1, %58 ]
-  %.sroa.0.050 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.1.ph3544, %58 ]
+7:                                                ; preds = %.lr.ph, %57
+  %.sroa.613.052 = phi i32 [ undef, %.lr.ph ], [ %.sroa.613.1, %57 ]
+  %.sroa.411.051 = phi i8 [ undef, %.lr.ph ], [ %.sroa.411.1, %57 ]
+  %.sroa.0.050 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.1.ph3544, %57 ]
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.050, i64 1
   %9 = load i8, ptr %.sroa.0.050, align 1, !noalias !287, !noundef !4
   %10 = icmp sgt i8 %9, -1
@@ -756,8 +755,8 @@ switch.lookup:
 .thread31.thread:                                 ; preds = %7
   %21 = zext nneg i8 %9 to i32
   %22 = ptrtoint ptr %8 to i64
-  %23 = add i64 %.neg47, %22
-  br label %51
+  %23 = add i64 %invariant.op, %22
+  br label %50
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb431706d4e78e158E.exit15.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb431706d4e78e158E.exit13.i"
   %24 = icmp ne ptr %14, %4
@@ -792,57 +791,56 @@ switch.lookup:
   %.sroa.4.0.i.ph36 = phi i32 [ %44, %34 ], [ %19, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb431706d4e78e158E.exit13.i" ], [ %32, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb431706d4e78e158E.exit15.i" ]
   %.sroa.0.1.ph35 = phi ptr [ %36, %34 ], [ %14, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb431706d4e78e158E.exit13.i" ], [ %25, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb431706d4e78e158E.exit15.i" ]
   %45 = ptrtoint ptr %.sroa.0.1.ph35 to i64
-  %.neg = sub i64 %45, %6
-  %46 = add i64 %.neg, %1
-  %47 = icmp samesign ult i32 %.sroa.4.0.i.ph36, 128
-  br i1 %47, label %51, label %.thread38
+  %.reass = add i64 %invariant.op, %45
+  %46 = icmp samesign ult i32 %.sroa.4.0.i.ph36, 128
+  br i1 %46, label %50, label %.thread38
 
-.thread:                                          ; preds = %34, %58, %switch.lookup
+.thread:                                          ; preds = %34, %57, %switch.lookup
   ret void
 
 .thread38:                                        ; preds = %.thread31
-  %48 = icmp samesign ult i32 %.sroa.4.0.i.ph36, 2048
-  %49 = icmp samesign ult i32 %.sroa.4.0.i.ph36, 65536
-  %. = select i1 %49, i64 -3, i64 -4
-  %.018.neg.ph = select i1 %48, i64 -2, i64 %.
-  %50 = add i64 %46, %.018.neg.ph
-  br label %55
+  %47 = icmp samesign ult i32 %.sroa.4.0.i.ph36, 2048
+  %48 = icmp samesign ult i32 %.sroa.4.0.i.ph36, 65536
+  %. = select i1 %48, i64 -3, i64 -4
+  %.018.neg.ph = select i1 %47, i64 -2, i64 %.
+  %49 = add i64 %.reass, %.018.neg.ph
+  br label %54
 
-51:                                               ; preds = %.thread31.thread, %.thread31
-  %52 = phi i64 [ %46, %.thread31 ], [ %23, %.thread31.thread ]
+50:                                               ; preds = %.thread31.thread, %.thread31
+  %51 = phi i64 [ %.reass, %.thread31 ], [ %23, %.thread31.thread ]
   %.sroa.0.1.ph3546 = phi ptr [ %.sroa.0.1.ph35, %.thread31 ], [ %8, %.thread31.thread ]
   %.sroa.4.0.i.ph3643 = phi i32 [ %.sroa.4.0.i.ph36, %.thread31 ], [ %21, %.thread31.thread ]
-  %53 = add i64 %52, -1
-  %54 = icmp eq i32 %.sroa.4.0.i.ph3643, 13
-  br i1 %54, label %58, label %55
+  %52 = add i64 %51, -1
+  %53 = icmp eq i32 %.sroa.4.0.i.ph3643, 13
+  br i1 %53, label %57, label %54
 
-55:                                               ; preds = %.thread38, %51
-  %.not48 = phi i1 [ %switch.masked, %.thread38 ], [ false, %51 ]
-  %56 = phi i64 [ %46, %.thread38 ], [ %52, %51 ]
-  %.sroa.0.1.ph3545 = phi ptr [ %.sroa.0.1.ph35, %.thread38 ], [ %.sroa.0.1.ph3546, %51 ]
-  %.sroa.4.0.i.ph3642 = phi i32 [ %.sroa.4.0.i.ph36, %.thread38 ], [ %.sroa.4.0.i.ph3643, %51 ]
-  %57 = phi i64 [ %50, %.thread38 ], [ %53, %51 ]
+54:                                               ; preds = %.thread38, %50
+  %.not48 = phi i1 [ %switch.masked, %.thread38 ], [ false, %50 ]
+  %55 = phi i64 [ %.reass, %.thread38 ], [ %51, %50 ]
+  %.sroa.0.1.ph3545 = phi ptr [ %.sroa.0.1.ph35, %.thread38 ], [ %.sroa.0.1.ph3546, %50 ]
+  %.sroa.4.0.i.ph3642 = phi i32 [ %.sroa.4.0.i.ph36, %.thread38 ], [ %.sroa.4.0.i.ph3643, %50 ]
+  %56 = phi i64 [ %49, %.thread38 ], [ %52, %50 ]
   %.20 = zext i1 %.not48 to i64
   %.sroa.411.0. = select i1 %.not48, i8 19, i8 %.sroa.411.051
   %.0..sroa.613.0 = select i1 %.not48, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
-  br label %58
+  br label %57
 
-58:                                               ; preds = %51, %55
-  %59 = phi i64 [ %56, %55 ], [ %52, %51 ]
-  %.sroa.0.1.ph3544 = phi ptr [ %.sroa.0.1.ph3545, %55 ], [ %.sroa.0.1.ph3546, %51 ]
-  %60 = phi i64 [ %57, %55 ], [ %53, %51 ]
-  %.sroa.010.0 = phi i64 [ %.20, %55 ], [ 1, %51 ]
-  %.sroa.411.1 = phi i8 [ %.sroa.411.0., %55 ], [ 5, %51 ]
-  %.sroa.613.1 = phi i32 [ %.0..sroa.613.0, %55 ], [ %.sroa.613.052, %51 ]
+57:                                               ; preds = %50, %54
+  %58 = phi i64 [ %55, %54 ], [ %51, %50 ]
+  %.sroa.0.1.ph3544 = phi ptr [ %.sroa.0.1.ph3545, %54 ], [ %.sroa.0.1.ph3546, %50 ]
+  %59 = phi i64 [ %56, %54 ], [ %52, %50 ]
+  %.sroa.010.0 = phi i64 [ %.20, %54 ], [ 1, %50 ]
+  %.sroa.411.1 = phi i8 [ %.sroa.411.0., %54 ], [ 5, %50 ]
+  %.sroa.613.1 = phi i32 [ %.0..sroa.613.0, %54 ], [ %.sroa.613.052, %50 ]
   %.sroa.613.0.insert.ext = zext i32 %.sroa.613.1 to i64
   %.sroa.613.0.insert.shift = shl nuw i64 %.sroa.613.0.insert.ext, 32
   %.sroa.411.0.insert.ext = zext i8 %.sroa.411.1 to i64
   %.sroa.411.0.insert.shift = shl nuw nsw i64 %.sroa.411.0.insert.ext, 8
   %.sroa.411.0.insert.insert = or disjoint i64 %.sroa.613.0.insert.shift, %.sroa.411.0.insert.shift
   %.sroa.010.0.insert.insert = or disjoint i64 %.sroa.411.0.insert.insert, %.sroa.010.0
-  tail call void @"_ZN10hir_expand5attrs8unescape28_$u7b$$u7b$closure$u7d$$u7d$17h877eda1c80a7d153E.llvm.15988534848567551436"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3, i64 noundef %60, i64 noundef %59, i64 %.sroa.010.0.insert.insert)
-  %61 = icmp eq ptr %.sroa.0.1.ph3544, %4
-  br i1 %61, label %.thread, label %7
+  tail call void @"_ZN10hir_expand5attrs8unescape28_$u7b$$u7b$closure$u7d$$u7d$17h877eda1c80a7d153E.llvm.15988534848567551436"(ptr noalias noundef nonnull align 8 dereferenceable(40) %3, i64 noundef %59, i64 noundef %58, i64 %.sroa.010.0.insert.insert)
+  %60 = icmp eq ptr %.sroa.0.1.ph3544, %4
+  br i1 %60, label %.thread, label %7
 }
 
 ; Function Attrs: nonlazybind uwtable

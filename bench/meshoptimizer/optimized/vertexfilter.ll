@@ -875,6 +875,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
 .lr.ph113:                                        ; preds = %._crit_edge.us, %.loopexit95
   %27 = icmp eq i32 %5, 1
   %.not118 = icmp eq i64 %8, 0
+  %invariant.op = sub i32 1, %3
   br label %28
 
 ._crit_edge114:                                   ; preds = %._crit_edge, %.preheader94.thread, %.loopexit95
@@ -965,7 +966,7 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
   br i1 %exitcond131.not, label %._crit_edge114, label %28, !llvm.loop !28
 
 .lr.ph110:                                        ; preds = %.lr.ph110.preheader, %68
-  %.078109 = phi i64 [ %84, %68 ], [ 0, %.lr.ph110.preheader ]
+  %.078109 = phi i64 [ %83, %68 ], [ 0, %.lr.ph110.preheader ]
   br i1 %27, label %68, label %65
 
 65:                                               ; preds = %.lr.ph110
@@ -975,24 +976,23 @@ define dso_local void @meshopt_encodeFilterExp(ptr noundef writeonly captures(no
 
 68:                                               ; preds = %.lr.ph110, %65
   %69 = phi i32 [ %67, %65 ], [ %.1147, %.lr.ph110 ]
-  %reass.sub = sub i32 %69, %3
-  %70 = add i32 %reass.sub, 1
-  %71 = getelementptr inbounds nuw float, ptr %30, i64 %.078109
-  %72 = load float, ptr %71, align 4, !tbaa !14
-  %73 = shl i32 %70, 23
-  %74 = sub i32 1065353216, %73
-  %75 = bitcast i32 %74 to float
-  %76 = fcmp oge float %72, 0.000000e+00
-  %77 = select i1 %76, float 5.000000e-01, float -5.000000e-01
-  %78 = tail call float @llvm.fmuladd.f32(float %72, float %75, float %77)
-  %79 = fptosi float %78 to i32
-  %80 = and i32 %79, 16777215
-  %81 = shl i32 %70, 24
-  %82 = or disjoint i32 %80, %81
-  %83 = getelementptr inbounds nuw i32, ptr %31, i64 %.078109
-  store i32 %82, ptr %83, align 4, !tbaa !20
-  %84 = add nuw nsw i64 %.078109, 1
-  %exitcond130.not = icmp eq i64 %84, %8
+  %.reass.reass = add i32 %69, %invariant.op
+  %70 = getelementptr inbounds nuw float, ptr %30, i64 %.078109
+  %71 = load float, ptr %70, align 4, !tbaa !14
+  %72 = shl i32 %.reass.reass, 23
+  %73 = sub i32 1065353216, %72
+  %74 = bitcast i32 %73 to float
+  %75 = fcmp oge float %71, 0.000000e+00
+  %76 = select i1 %75, float 5.000000e-01, float -5.000000e-01
+  %77 = tail call float @llvm.fmuladd.f32(float %71, float %74, float %76)
+  %78 = fptosi float %77 to i32
+  %79 = and i32 %78, 16777215
+  %80 = shl i32 %.reass.reass, 24
+  %81 = or disjoint i32 %79, %80
+  %82 = getelementptr inbounds nuw i32, ptr %31, i64 %.078109
+  store i32 %81, ptr %82, align 4, !tbaa !20
+  %83 = add nuw nsw i64 %.078109, 1
+  %exitcond130.not = icmp eq i64 %83, %8
   br i1 %exitcond130.not, label %._crit_edge, label %.lr.ph110, !llvm.loop !29
 }
 

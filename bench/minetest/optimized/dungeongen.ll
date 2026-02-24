@@ -3242,6 +3242,8 @@ entry:
   %sub85 = add nsw i32 %conv38, -1
   %cmp86351 = icmp slt i16 %roomsize.sroa.0.0.extract.trunc, 3
   %brmerge = select i1 %cmp78358, i1 true, i1 %cmp86351
+  %invariant.op = sub i16 1, %roomsize.sroa.6.0.extract.trunc
+  %invariant.op13 = sub i16 1, %roomsize.sroa.0.0.extract.trunc
   br label %for.body
 
 for.body:                                         ; preds = %for.inc122, %entry
@@ -3296,8 +3298,7 @@ if.then14:                                        ; preds = %land.lhs.true.i159
   %call26 = tail call noundef i32 @_ZN12PseudoRandom5rangeEii(ptr noundef nonnull align 4 dereferenceable(4) %random36, i32 noundef %add25, i32 noundef -2)
   %conv27 = trunc i32 %call26 to i16
   %9 = load i16, ptr %doorplace, align 2, !tbaa !24
-  %reass.sub4 = sub i16 %9, %roomsize.sroa.0.0.extract.trunc
-  %add.i170 = add i16 %reass.sub4, 1
+  %add.i170.reass.reass = add i16 %9, %invariant.op13
   %10 = load i16, ptr %Y.i, align 2, !tbaa !25
   %add8.i173 = add i16 %10, -1
   %11 = load i16, ptr %Z.i, align 2, !tbaa !26
@@ -3334,14 +3335,13 @@ if.then48:                                        ; preds = %_ZNK3irr4core8vecto
   %18 = load i16, ptr %Y.i, align 2, !tbaa !25
   %add8.i229 = add i16 %18, -1
   %19 = load i16, ptr %Z.i, align 2, !tbaa !26
-  %reass.sub3 = sub i16 %19, %roomsize.sroa.6.0.extract.trunc
-  %add13.i232 = add i16 %reass.sub3, 1
+  %add13.i232.reass.reass = add i16 %19, %invariant.op
   br label %if.end65
 
 if.end65:                                         ; preds = %if.then48, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit223.thread, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit195, %land.lhs.true.i187, %if.then14, %land.lhs.true.i159, %if.then3, %land.lhs.true.i, %if.end
-  %roomplace.sroa.0.3 = phi i16 [ %add.i226, %if.then48 ], [ %add.i170, %if.then14 ], [ 0, %land.lhs.true.i159 ], [ 0, %land.lhs.true.i ], [ %4, %if.then3 ], [ 0, %land.lhs.true.i187 ], [ 0, %if.end ], [ %add.i198, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit223.thread ], [ 0, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit195 ]
+  %roomplace.sroa.0.3 = phi i16 [ %add.i226, %if.then48 ], [ %add.i170.reass.reass, %if.then14 ], [ 0, %land.lhs.true.i159 ], [ 0, %land.lhs.true.i ], [ %4, %if.then3 ], [ 0, %land.lhs.true.i187 ], [ 0, %if.end ], [ %add.i198, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit223.thread ], [ 0, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit195 ]
   %roomplace.sroa.9.3 = phi i16 [ %add8.i229, %if.then48 ], [ %add8.i173, %if.then14 ], [ 0, %land.lhs.true.i159 ], [ 0, %land.lhs.true.i ], [ %add8.i, %if.then3 ], [ 0, %land.lhs.true.i187 ], [ 0, %if.end ], [ %add8.i201, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit223.thread ], [ 0, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit195 ]
-  %roomplace.sroa.11.3 = phi i16 [ %add13.i232, %if.then48 ], [ %add13.i176, %if.then14 ], [ 0, %land.lhs.true.i159 ], [ 0, %land.lhs.true.i ], [ %add13.i, %if.then3 ], [ 0, %land.lhs.true.i187 ], [ 0, %if.end ], [ %14, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit223.thread ], [ 0, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit195 ]
+  %roomplace.sroa.11.3 = phi i16 [ %add13.i232.reass.reass, %if.then48 ], [ %add13.i176, %if.then14 ], [ 0, %land.lhs.true.i159 ], [ 0, %land.lhs.true.i ], [ %add13.i, %if.then3 ], [ 0, %land.lhs.true.i187 ], [ 0, %if.end ], [ %14, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit223.thread ], [ 0, %_ZNK3irr4core8vector3dIsEeqERKS2_.exit195 ]
   br i1 %cmp71361, label %for.cond74.preheader.lr.ph, label %cleanup118
 
 for.cond74.preheader.lr.ph:                       ; preds = %if.end65

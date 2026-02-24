@@ -1013,7 +1013,11 @@ define internal fastcc i32 @scanRTEForColumn(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not42, label %.lr.ph.split.us.split, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  br i1 %14, label %.lr.ph47, label %.critedge
+  br i1 %14, label %.lr.ph47.preheader, label %.critedge
+
+.lr.ph47.preheader:                               ; preds = %.lr.ph.split.preheader
+  %invariant.op = sub i32 1, %4
+  br label %.lr.ph47
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph
   br i1 %14, label %.lr.ph15, label %.critedge.thread
@@ -1045,9 +1049,9 @@ updateFuzzyAttrMatchState.exit.us:                ; preds = %23, %16
   %exitcond.not = icmp eq i64 %indvars.iv.next23, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %16
 
-.lr.ph47:                                         ; preds = %.lr.ph.split.preheader, %updateFuzzyAttrMatchState.exit
-  %.031646 = phi i32 [ %.1, %updateFuzzyAttrMatchState.exit ], [ 0, %.lr.ph.split.preheader ]
-  %indvars.iv45 = phi i64 [ %indvars.iv.next, %updateFuzzyAttrMatchState.exit ], [ 0, %.lr.ph.split.preheader ]
+.lr.ph47:                                         ; preds = %.lr.ph47.preheader, %updateFuzzyAttrMatchState.exit
+  %.031646 = phi i32 [ %.1, %updateFuzzyAttrMatchState.exit ], [ 0, %.lr.ph47.preheader ]
+  %indvars.iv45 = phi i64 [ %indvars.iv.next, %updateFuzzyAttrMatchState.exit ], [ 0, %.lr.ph47.preheader ]
   %24 = load ptr, ptr %8, align 8
   %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv45
   %26 = load ptr, ptr %25, align 8
@@ -1092,93 +1096,92 @@ updateFuzzyAttrMatchState.exit.us:                ; preds = %23, %16
   %44 = trunc i64 %43 to i32
   %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #11
   %46 = trunc i64 %45 to i32
-  %reass.sub = sub i32 %37, %4
-  %47 = add i32 %reass.sub, 1
-  %48 = tail call i32 @varstr_levenshtein_less_equal(ptr noundef nonnull %28, i32 noundef %46, ptr noundef nonnull %2, i32 noundef %44, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef %47, i1 noundef zeroext true) #10
-  %49 = sdiv i32 %44, 2
-  %50 = icmp sgt i32 %48, %49
-  br i1 %50, label %updateFuzzyAttrMatchState.exit, label %51
+  %.reass.reass = add i32 %37, %invariant.op
+  %47 = tail call i32 @varstr_levenshtein_less_equal(ptr noundef nonnull %28, i32 noundef %46, ptr noundef nonnull %2, i32 noundef %44, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef %.reass.reass, i1 noundef zeroext true) #10
+  %48 = sdiv i32 %44, 2
+  %49 = icmp sgt i32 %47, %48
+  br i1 %49, label %updateFuzzyAttrMatchState.exit, label %50
 
-51:                                               ; preds = %42
-  %52 = add i32 %48, %4
-  %53 = load i32, ptr %5, align 8
-  %54 = icmp slt i32 %52, %53
-  br i1 %54, label %55, label %57
+50:                                               ; preds = %42
+  %51 = add i32 %47, %4
+  %52 = load i32, ptr %5, align 8
+  %53 = icmp slt i32 %51, %52
+  br i1 %53, label %54, label %56
 
-55:                                               ; preds = %51
-  store i32 %52, ptr %5, align 8
+54:                                               ; preds = %50
+  store i32 %51, ptr %5, align 8
   store ptr %1, ptr %10, align 8
-  %56 = trunc i64 %indvars.iv.next to i16
-  store i16 %56, ptr %12, align 8
+  %55 = trunc i64 %indvars.iv.next to i16
+  store i16 %55, ptr %12, align 8
   store ptr null, ptr %9, align 8
   br label %updateFuzzyAttrMatchState.exit
 
-57:                                               ; preds = %51
-  %58 = icmp eq i32 %52, %53
-  br i1 %58, label %59, label %updateFuzzyAttrMatchState.exit
+56:                                               ; preds = %50
+  %57 = icmp eq i32 %51, %52
+  br i1 %57, label %58, label %updateFuzzyAttrMatchState.exit
 
-59:                                               ; preds = %57
-  %60 = load ptr, ptr %9, align 8
-  %.not.i = icmp eq ptr %60, null
-  br i1 %.not.i, label %62, label %61
+58:                                               ; preds = %56
+  %59 = load ptr, ptr %9, align 8
+  %.not.i = icmp eq ptr %59, null
+  br i1 %.not.i, label %61, label %60
 
-61:                                               ; preds = %59
+60:                                               ; preds = %58
   store ptr null, ptr %10, align 8
   store ptr null, ptr %9, align 8
   br label %updateFuzzyAttrMatchState.exit
 
-62:                                               ; preds = %59
-  %63 = load ptr, ptr %10, align 8
-  %.not36.i = icmp eq ptr %63, null
-  br i1 %.not36.i, label %updateFuzzyAttrMatchState.exit, label %64
+61:                                               ; preds = %58
+  %62 = load ptr, ptr %10, align 8
+  %.not36.i = icmp eq ptr %62, null
+  br i1 %.not36.i, label %updateFuzzyAttrMatchState.exit, label %63
 
-64:                                               ; preds = %62
+63:                                               ; preds = %61
   store ptr %1, ptr %9, align 8
-  %65 = trunc i64 %indvars.iv.next to i16
-  store i16 %65, ptr %11, align 8
+  %64 = trunc i64 %indvars.iv.next to i16
+  store i16 %64, ptr %11, align 8
   br label %updateFuzzyAttrMatchState.exit
 
-updateFuzzyAttrMatchState.exit:                   ; preds = %64, %62, %61, %57, %55, %42, %39, %36
-  %66 = load i32, ptr %7, align 4
-  %67 = sext i32 %66 to i64
-  %68 = icmp slt i64 %indvars.iv.next, %67
-  br i1 %68, label %.lr.ph47, label %.critedge
+updateFuzzyAttrMatchState.exit:                   ; preds = %63, %61, %60, %56, %54, %42, %39, %36
+  %65 = load i32, ptr %7, align 4
+  %66 = sext i32 %65 to i64
+  %67 = icmp slt i64 %indvars.iv.next, %66
+  br i1 %67, label %.lr.ph47, label %.critedge
 
 .critedge.thread:                                 ; preds = %.lr.ph.split.us.split, %6, %.critedge
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %70 = load i32, ptr %69, align 8
-  %71 = icmp eq i32 %70, 0
-  br i1 %71, label %72, label %specialAttNum.exit.thread
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp eq i32 %69, 0
+  br i1 %70, label %71, label %specialAttNum.exit.thread
 
-72:                                               ; preds = %.critedge.thread
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %74 = load i8, ptr %73, align 1
-  %.not39 = icmp eq i8 %74, 99
-  br i1 %.not39, label %specialAttNum.exit.thread, label %75
+71:                                               ; preds = %.critedge.thread
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 33
+  %73 = load i8, ptr %72, align 1
+  %.not39 = icmp eq i8 %73, 99
+  br i1 %.not39, label %specialAttNum.exit.thread, label %74
 
-75:                                               ; preds = %72
-  %76 = tail call ptr @SystemAttributeByName(ptr noundef %2) #10
-  %.not.i43 = icmp eq ptr %76, null
+74:                                               ; preds = %71
+  %75 = tail call ptr @SystemAttributeByName(ptr noundef %2) #10
+  %.not.i43 = icmp eq ptr %75, null
   br i1 %.not.i43, label %specialAttNum.exit.thread, label %specialAttNum.exit
 
-specialAttNum.exit:                               ; preds = %75
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 74
-  %78 = load i16, ptr %77, align 2
-  %.not40 = icmp eq i16 %78, 0
-  br i1 %.not40, label %specialAttNum.exit.thread, label %79
+specialAttNum.exit:                               ; preds = %74
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 74
+  %77 = load i16, ptr %76, align 2
+  %.not40 = icmp eq i16 %77, 0
+  br i1 %.not40, label %specialAttNum.exit.thread, label %78
 
-79:                                               ; preds = %specialAttNum.exit
-  %80 = sext i16 %78 to i32
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %82 = load i32, ptr %81, align 4
-  %83 = zext i32 %82 to i64
-  %84 = sext i16 %78 to i64
-  %85 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 7, i64 noundef %83, i64 noundef %84, i64 noundef 0, i64 noundef 0) #10
-  %spec.select = select i1 %85, i32 %80, i32 0
+78:                                               ; preds = %specialAttNum.exit
+  %79 = sext i16 %77 to i32
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %81 = load i32, ptr %80, align 4
+  %82 = zext i32 %81 to i64
+  %83 = sext i16 %77 to i64
+  %84 = tail call zeroext i1 @SearchSysCacheExists(i32 noundef 7, i64 noundef %82, i64 noundef %83, i64 noundef 0, i64 noundef 0) #10
+  %spec.select = select i1 %84, i32 %79, i32 0
   br label %specialAttNum.exit.thread
 
-specialAttNum.exit.thread:                        ; preds = %75, %79, %.critedge.thread, %72, %specialAttNum.exit, %.critedge
-  %.0 = phi i32 [ %.031.lcssa, %.critedge ], [ 0, %.critedge.thread ], [ %spec.select, %79 ], [ 0, %specialAttNum.exit ], [ 0, %72 ], [ 0, %75 ]
+specialAttNum.exit.thread:                        ; preds = %74, %78, %.critedge.thread, %71, %specialAttNum.exit, %.critedge
+  %.0 = phi i32 [ %.031.lcssa, %.critedge ], [ 0, %.critedge.thread ], [ %spec.select, %78 ], [ 0, %specialAttNum.exit ], [ 0, %71 ], [ 0, %74 ]
   ret i32 %.0
 }
 

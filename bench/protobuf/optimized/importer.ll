@@ -2097,11 +2097,11 @@ while.body.lr.ph.i.i.i:                           ; preds = %if.end.i.i.i
   %sub.ptr.lhs.cast20.i.i.i = ptrtoint ptr %add.ptr9.i.i.i to i64
   br label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
 
-_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %if.end19.i.i.i, %while.body.lr.ph.i.i.i
+_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %while.body.lr.ph.i.i.i, %if.end19.i.i.i
   %__len.022.i.i.i = phi i64 [ %path.coerce0, %while.body.lr.ph.i.i.i ], [ %sub.ptr.sub22.i.i.i, %if.end19.i.i.i ]
   %__first.021.i.i.i = phi ptr [ %path.coerce1, %while.body.lr.ph.i.i.i ], [ %incdec.ptr.i.i.i, %if.end19.i.i.i ]
-  %add.i.i.i = add i64 %__len.022.i.i.i, -3
-  %call.i.i.i.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %__first.021.i.i.i, i32 noundef 47, i64 noundef %add.i.i.i) #27
+  %add.reass.reass.i.reass.reass.i.reass.reass.i = add i64 %__len.022.i.i.i, -3
+  %call.i.i.i.i = tail call ptr @memchr(ptr noundef nonnull %__first.021.i.i.i, i32 noundef 47, i64 noundef %add.reass.reass.i.reass.reass.i.reass.reass.i) #27
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %lor.end, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
@@ -2125,7 +2125,7 @@ if.end19.i.i.i:                                   ; preds = %_ZNSt11char_traitsI
   br i1 %cmp11.not.i.i.i, label %lor.end, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, !llvm.loop !36
 
 lor.end:                                          ; preds = %if.end19.i.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, %if.end.i.i.i.thread, %if.then17.i.i.i, %if.end.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
-  %2 = phi i1 [ true, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ true, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ %1, %if.then17.i.i.i ], [ false, %if.end.i.i.i ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ false, %if.end.i.i.i.thread ], [ false, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ], [ false, %if.end19.i.i.i ]
+  %2 = phi i1 [ true, %_ZN4absl12lts_202308028EndsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ true, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit ], [ false, %if.end.i.i.i ], [ %1, %if.then17.i.i.i ], [ true, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ false, %if.end.i.i.i.thread ], [ false, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ], [ false, %if.end19.i.i.i ]
   ret i1 %2
 }
 

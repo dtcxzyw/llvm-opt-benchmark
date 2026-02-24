@@ -1208,36 +1208,36 @@ define internal noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_127IsBuildingHttpL
   %11 = ptrtoint ptr %10 to i64
   br label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
 
-_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %20, %.lr.ph.i.i.i
-  %.033.i.i.i = phi i64 [ %8, %.lr.ph.i.i.i ], [ %23, %20 ]
-  %.02132.i.i.i = phi ptr [ %9, %.lr.ph.i.i.i ], [ %21, %20 ]
-  %12 = add i64 %.033.i.i.i, -3
-  %13 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %.02132.i.i.i, i32 noundef 104, i64 noundef %12) #27
-  %.not26.i.i.i = icmp eq ptr %13, null
+_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %.lr.ph.i.i.i, %19
+  %.033.i.i.i = phi i64 [ %8, %.lr.ph.i.i.i ], [ %22, %19 ]
+  %.02132.i.i.i = phi ptr [ %9, %.lr.ph.i.i.i ], [ %20, %19 ]
+  %.reass.reass.i.reass.reass.i.reass.reass.i = add i64 %.033.i.i.i, -3
+  %12 = tail call ptr @memchr(ptr noundef %.02132.i.i.i, i32 noundef 104, i64 noundef %.reass.reass.i.reass.reass.i.reass.reass.i) #27
+  %.not26.i.i.i = icmp eq ptr %12, null
   br i1 %.not26.i.i.i, label %_ZN4absl12lts_2024072211StrContainsESt17basic_string_viewIcSt11char_traitsIcEES4_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %13, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
-  %14 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %14, label %15, label %20
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %12, ptr noundef nonnull dereferenceable(4) @.str.4, i64 4)
+  %13 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %13, label %14, label %19
 
-15:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  %16 = ptrtoint ptr %13 to i64
-  %17 = ptrtoint ptr %9 to i64
-  %18 = sub i64 %16, %17
-  %19 = icmp ne i64 %18, -1
+14:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  %15 = ptrtoint ptr %12 to i64
+  %16 = ptrtoint ptr %9 to i64
+  %17 = sub i64 %15, %16
+  %18 = icmp ne i64 %17, -1
   br label %_ZN4absl12lts_2024072211StrContainsESt17basic_string_viewIcSt11char_traitsIcEES4_.exit
 
-20:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  %21 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %22 = ptrtoint ptr %21 to i64
-  %23 = sub i64 %11, %22
-  %.not25.i.i.i = icmp ult i64 %23, 4
+19:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %21 = ptrtoint ptr %20 to i64
+  %22 = sub i64 %11, %21
+  %.not25.i.i.i = icmp ult i64 %22, 4
   br i1 %.not25.i.i.i, label %_ZN4absl12lts_2024072211StrContainsESt17basic_string_viewIcSt11char_traitsIcEES4_.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, !llvm.loop !27
 
-_ZN4absl12lts_2024072211StrContainsESt17basic_string_viewIcSt11char_traitsIcEES4_.exit: ; preds = %20, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, %15, %3, %1
-  %24 = phi i1 [ false, %1 ], [ %19, %15 ], [ false, %3 ], [ false, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ], [ false, %20 ]
-  ret i1 %24
+_ZN4absl12lts_2024072211StrContainsESt17basic_string_viewIcSt11char_traitsIcEES4_.exit: ; preds = %19, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, %14, %3, %1
+  %23 = phi i1 [ false, %1 ], [ %18, %14 ], [ false, %3 ], [ false, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ], [ false, %19 ]
+  ret i1 %23
 }
 
 declare i32 @__gxx_personality_v0(...)

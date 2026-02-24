@@ -977,35 +977,35 @@ _ZN3gmx23mpiLibraryVersionStringEv.exit:          ; preds = %0, %3, %5
   %10 = ptrtoint ptr %9 to i64
   br label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
 
-_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %19, %.lr.ph.i.i
-  %.033.i.i = phi i64 [ %8, %.lr.ph.i.i ], [ %22, %19 ]
-  %.02132.i.i = phi ptr [ %7, %.lr.ph.i.i ], [ %20, %19 ]
-  %11 = add i64 %.033.i.i, -19
-  %12 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %.02132.i.i, i32 noundef 73, i64 noundef %11) #31
-  %.not26.i.i = icmp eq ptr %12, null
+_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %.lr.ph.i.i, %18
+  %.033.i.i = phi i64 [ %8, %.lr.ph.i.i ], [ %21, %18 ]
+  %.02132.i.i = phi ptr [ %7, %.lr.ph.i.i ], [ %19, %18 ]
+  %.reass.reass.i.reass.reass.i = add i64 %.033.i.i, -19
+  %11 = tail call ptr @memchr(ptr noundef %.02132.i.i, i32 noundef 73, i64 noundef %.reass.reass.i.reass.reass.i) #31
+  %.not26.i.i = icmp eq ptr %11, null
   br i1 %.not26.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %12, ptr noundef nonnull dereferenceable(20) @.str.2, i64 20)
-  %13 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %13, label %14, label %19
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %11, ptr noundef nonnull dereferenceable(20) @.str.2, i64 20)
+  %12 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %12, label %13, label %18
 
-14:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %15 = ptrtoint ptr %12 to i64
-  %16 = ptrtoint ptr %7 to i64
-  %17 = sub i64 %15, %16
-  %18 = icmp ne i64 %17, -1
+13:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+  %14 = ptrtoint ptr %11 to i64
+  %15 = ptrtoint ptr %7 to i64
+  %16 = sub i64 %14, %15
+  %17 = icmp ne i64 %16, -1
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit
 
-19:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %20 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %21 = ptrtoint ptr %20 to i64
-  %22 = sub i64 %10, %21
-  %.not25.i.i = icmp ult i64 %22, 20
+18:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  %20 = ptrtoint ptr %19 to i64
+  %21 = sub i64 %10, %20
+  %.not25.i.i = icmp ult i64 %21, 20
   br i1 %.not25.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, !llvm.loop !16
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %19, %_ZN3gmx23mpiLibraryVersionStringEv.exit, %14
-  %.020.i.i = phi i1 [ %18, %14 ], [ false, %_ZN3gmx23mpiLibraryVersionStringEv.exit ], [ false, %19 ], [ false, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %18, %_ZN3gmx23mpiLibraryVersionStringEv.exit, %13
+  %.020.i.i = phi i1 [ %17, %13 ], [ false, %_ZN3gmx23mpiLibraryVersionStringEv.exit ], [ false, %18 ], [ false, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
   ret i1 %.020.i.i
 }
 

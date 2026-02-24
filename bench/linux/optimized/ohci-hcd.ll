@@ -824,10 +824,11 @@ define internal fastcc noundef range(i32 -108, 1) i32 @root_port_reset(ptr nound
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %9 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %8) #14, !srcloc !5
   %10 = trunc i32 %9 to i16
+  %invariant.op = sub i16 -50, %10
   br label %11
 
 11:                                               ; preds = %29, %2
-  %12 = phi i32 [ 5, %2 ], [ %36, %29 ]
+  %12 = phi i32 [ 5, %2 ], [ %35, %29 ]
   br label %13
 
 13:                                               ; preds = %20, %11
@@ -868,17 +869,16 @@ define internal fastcc noundef range(i32 -108, 1) i32 @root_port_reset(ptr nound
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 60
   %32 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %31) #14, !srcloc !5
   %33 = trunc i32 %32 to i16
-  %reass.sub = sub i16 %33, %10
-  %34 = add i16 %reass.sub, -50
-  %35 = icmp slt i16 %34, 0
-  %36 = add nsw i32 %12, -1
-  %37 = icmp ne i32 %12, 0
-  %38 = select i1 %35, i1 %37, i1 false
-  br i1 %38, label %11, label %.thread2, !llvm.loop !18
+  %.reass.reass = add i16 %33, %invariant.op
+  %34 = icmp slt i16 %.reass.reass, 0
+  %35 = add nsw i32 %12, -1
+  %36 = icmp ne i32 %12, 0
+  %37 = select i1 %34, i1 %36, i1 false
+  br i1 %37, label %11, label %.thread2, !llvm.loop !18
 
 .thread2:                                         ; preds = %22, %29, %20, %13
-  %39 = phi i32 [ -108, %13 ], [ 0, %20 ], [ 0, %29 ], [ 0, %22 ]
-  ret i32 %39
+  %38 = phi i32 [ -108, %13 ], [ 0, %20 ], [ 0, %29 ], [ 0, %22 ]
+  ret i32 %38
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

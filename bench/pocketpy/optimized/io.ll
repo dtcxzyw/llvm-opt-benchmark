@@ -940,70 +940,74 @@ define void @_ZN4pkpy6FileIOC2EPNS_2VMERKNS_3StrES5_(ptr noundef nonnull writeon
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %7, i64 %9
   %11 = ptrtoint ptr %10 to i64
-  br label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
+  br label %12
 
-_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %20, %.lr.ph.i.i
-  %.033.i.i = phi i64 [ %9, %.lr.ph.i.i ], [ %23, %20 ]
-  %.02132.i.i = phi ptr [ %7, %.lr.ph.i.i ], [ %21, %20 ]
-  %12 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %.02132.i.i, i32 noundef 98, i64 noundef %.033.i.i) #27
-  %.not26.i.i = icmp eq ptr %12, null
+12:                                               ; preds = %22, %.lr.ph.i.i
+  %.033.i.i = phi i64 [ %9, %.lr.ph.i.i ], [ %25, %22 ]
+  %.02132.i.i = phi ptr [ %7, %.lr.ph.i.i ], [ %23, %22 ]
+  %13 = icmp eq i64 %.033.i.i, 0
+  br i1 %13, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
+
+_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %12
+  %14 = tail call ptr @memchr(ptr noundef %.02132.i.i, i32 noundef 98, i64 noundef %.033.i.i) #27
+  %.not26.i.i = icmp eq ptr %14, null
   br i1 %.not26.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
-  %lhsc = load i8, ptr %12, align 1
-  %13 = icmp eq i8 %lhsc, 98
-  br i1 %13, label %14, label %20
+  %lhsc = load i8, ptr %14, align 1
+  %15 = icmp eq i8 %lhsc, 98
+  br i1 %15, label %16, label %22
 
-14:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %15 = ptrtoint ptr %12 to i64
-  %16 = ptrtoint ptr %7 to i64
-  %17 = sub i64 %15, %16
-  %18 = icmp eq i64 %17, -1
-  %19 = zext i1 %18 to i8
+16:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+  %17 = ptrtoint ptr %14 to i64
+  %18 = ptrtoint ptr %7 to i64
+  %19 = sub i64 %17, %18
+  %20 = icmp eq i64 %19, -1
+  %21 = zext i1 %20 to i8
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit
 
-20:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %21 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %22 = ptrtoint ptr %21 to i64
-  %23 = sub i64 %11, %22
-  %.not25.i.i = icmp eq i64 %23, 0
-  br i1 %.not25.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, !llvm.loop !4
+22:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  %24 = ptrtoint ptr %23 to i64
+  %25 = sub i64 %11, %24
+  %.not25.i.i = icmp eq i64 %25, 0
+  br i1 %.not25.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit, label %12, !llvm.loop !4
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %20, %4, %14
-  %.020.i.i = phi i8 [ %19, %14 ], [ 1, %4 ], [ 1, %20 ], [ 1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ]
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.020.i.i, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %6, align 8
-  %28 = tail call noalias noundef ptr @fopen(ptr noundef readonly %26, ptr noundef readonly %27)
-  store ptr %28, ptr %0, align 8
-  %.not = icmp eq ptr %28, null
-  br i1 %.not, label %29, label %36
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit: ; preds = %12, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %22, %4, %16
+  %.020.i.i = phi i8 [ %21, %16 ], [ 1, %4 ], [ 1, %22 ], [ 1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i ], [ 1, %12 ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %.020.i.i, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %6, align 8
+  %30 = tail call noalias noundef ptr @fopen(ptr noundef readonly %28, ptr noundef readonly %29)
+  store ptr %30, ptr %0, align 8
+  %.not = icmp eq ptr %30, null
+  br i1 %.not, label %31, label %38
 
-29:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit
-  %30 = tail call ptr @__errno_location() #30
-  %31 = load i32, ptr %30, align 4
-  %32 = tail call ptr @strerror(i32 noundef %31) #27
-  call void @_ZN4pkpy3StrC1EPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %32)
-  %33 = invoke i16 @_ZN4pkpy7StrName3getESt17basic_string_viewIcSt11char_traitsIcEE(i64 7, ptr nonnull @.str.38)
-          to label %.noexc unwind label %34
+31:                                               ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit
+  %32 = tail call ptr @__errno_location() #30
+  %33 = load i32, ptr %32, align 4
+  %34 = tail call ptr @strerror(i32 noundef %33) #27
+  call void @_ZN4pkpy3StrC1EPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %34)
+  %35 = invoke i16 @_ZN4pkpy7StrName3getESt17basic_string_viewIcSt11char_traitsIcEE(i64 7, ptr nonnull @.str.38)
+          to label %.noexc unwind label %36
 
-.noexc:                                           ; preds = %29
-  invoke void @_ZN4pkpy2VM15__builtin_errorENS_7StrNameERKNS_3StrE(ptr noundef nonnull align 8 dereferenceable(264913) %1, i16 %33, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZN4pkpy2VM7IOErrorERKNS_3StrE.exit unwind label %34
+.noexc:                                           ; preds = %31
+  invoke void @_ZN4pkpy2VM15__builtin_errorENS_7StrNameERKNS_3StrE(ptr noundef nonnull align 8 dereferenceable(264913) %1, i16 %35, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %_ZN4pkpy2VM7IOErrorERKNS_3StrE.exit unwind label %36
 
 _ZN4pkpy2VM7IOErrorERKNS_3StrE.exit:              ; preds = %.noexc
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
-  br label %36
+  br label %38
 
-34:                                               ; preds = %.noexc, %29
-  %35 = landingpad { ptr, i32 }
+36:                                               ; preds = %.noexc, %31
+  %37 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
-  resume { ptr, i32 } %35
+  resume { ptr, i32 } %37
 
-36:                                               ; preds = %_ZN4pkpy2VM7IOErrorERKNS_3StrE.exit, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit
+38:                                               ; preds = %_ZN4pkpy2VM7IOErrorERKNS_3StrE.exit, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit
   ret void
 }
 

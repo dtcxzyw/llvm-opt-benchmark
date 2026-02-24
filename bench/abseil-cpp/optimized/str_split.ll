@@ -148,44 +148,48 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %21
   %39 = load i8, ptr %27, align 1, !tbaa !14
   %40 = sext i8 %39 to i32
   %41 = ptrtoint ptr %35 to i64
-  br label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i
+  %invariant.op = sub i64 1, %6
+  br label %42
 
-_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i: ; preds = %45, %.lr.ph.i.i.i.i
-  %.033.i.i.i.i = phi i64 [ %37, %.lr.ph.i.i.i.i ], [ %48, %45 ]
-  %.02132.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i ], [ %46, %45 ]
-  %reass.sub = sub i64 %.033.i.i.i.i, %6
-  %42 = add i64 %reass.sub, 1
-  %43 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %.02132.i.i.i.i, i32 noundef %40, i64 noundef %42) #11
-  %.not26.i.i.i.i = icmp eq ptr %43, null
+42:                                               ; preds = %46, %.lr.ph.i.i.i.i
+  %.033.i.i.i.i = phi i64 [ %37, %.lr.ph.i.i.i.i ], [ %49, %46 ]
+  %.02132.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i ], [ %47, %46 ]
+  %.reass.reass.i.reass.reass.i.reass.reass.i.reass.reass.i.reass.reass.reass = add i64 %.033.i.i.i.i, %invariant.op
+  %43 = icmp eq i64 %.reass.reass.i.reass.reass.i.reass.reass.i.reass.reass.i.reass.reass.reass, 0
+  br i1 %43, label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_13LiteralPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i
+
+_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i: ; preds = %42
+  %44 = tail call ptr @memchr(ptr noundef %.02132.i.i.i.i, i32 noundef %40, i64 noundef %.reass.reass.i.reass.reass.i.reass.reass.i.reass.reass.i.reass.reass.reass) #11
+  %.not26.i.i.i.i = icmp eq ptr %44, null
   br i1 %.not26.i.i.i.i, label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_13LiteralPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %43, ptr nonnull readonly %27, i64 %6)
-  %44 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %44, label %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i, label %45
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull %44, ptr nonnull readonly %27, i64 %6)
+  %45 = icmp eq i32 %bcmp.i.i.i.i, 0
+  br i1 %45, label %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i, label %46
 
-45:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 1
-  %47 = ptrtoint ptr %46 to i64
-  %48 = sub i64 %41, %47
-  %.not25.i.i.i.i = icmp ult i64 %48, %6
-  br i1 %.not25.i.i.i.i, label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_13LiteralPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i, !llvm.loop !16
+46:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 1
+  %48 = ptrtoint ptr %47 to i64
+  %49 = sub i64 %41, %48
+  %.not25.i.i.i.i = icmp ult i64 %49, %6
+  br i1 %.not25.i.i.i.i, label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_13LiteralPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit, label %42, !llvm.loop !16
 
 _ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %49 = ptrtoint ptr %43 to i64
-  %50 = ptrtoint ptr %2 to i64
-  %51 = sub i64 %49, %50
-  %.not8.i = icmp eq i64 %51, -1
+  %50 = ptrtoint ptr %44 to i64
+  %51 = ptrtoint ptr %2 to i64
+  %52 = sub i64 %50, %51
+  %.not8.i = icmp eq i64 %52, -1
   br i1 %.not8.i, label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_13LiteralPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit, label %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.thread24.i
 
 _ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.thread24.i: ; preds = %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i, %33
-  %.020.i.i.i27.i = phi i64 [ %51, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ 0, %33 ]
-  %52 = getelementptr inbounds nuw i8, ptr %2, i64 %.020.i.i.i27.i
+  %.020.i.i.i27.i = phi i64 [ %52, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ 0, %33 ]
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 %.020.i.i.i27.i
   br label %_ZN4absl12_GLOBAL__N_111GenericFindINS0_13LiteralPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit
 
-_ZN4absl12_GLOBAL__N_111GenericFindINS0_13LiteralPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit: ; preds = %45, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.thread24.i, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i, %36, %34, %33, %30, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
-  %.sroa.016.0 = phi i64 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread ], [ %.sroa.speculated.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ 0, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ %6, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.thread24.i ], [ 0, %30 ], [ 0, %34 ], [ 0, %36 ], [ 0, %33 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %45 ]
-  %.sroa.4.0 = phi ptr [ %20, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread ], [ %25, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %35, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ %52, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.thread24.i ], [ %32, %30 ], [ %35, %34 ], [ %35, %36 ], [ %2, %33 ], [ %35, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ %35, %45 ]
+_ZN4absl12_GLOBAL__N_111GenericFindINS0_13LiteralPolicyEEESt17basic_string_viewIcSt11char_traitsIcEES6_S6_mT_.exit: ; preds = %46, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i, %42, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.thread24.i, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i, %36, %34, %33, %30, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
+  %.sroa.016.0 = phi i64 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread ], [ %.sroa.speculated.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ 0, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ %6, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.thread24.i ], [ 0, %30 ], [ 0, %34 ], [ 0, %36 ], [ 0, %33 ], [ 0, %42 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ 0, %46 ]
+  %.sroa.4.0 = phi ptr [ %20, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread ], [ %25, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %35, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.i ], [ %53, %_ZN4absl12_GLOBAL__N_113LiteralPolicy4FindESt17basic_string_viewIcSt11char_traitsIcEES5_m.exit.thread24.i ], [ %32, %30 ], [ %35, %34 ], [ %35, %36 ], [ %2, %33 ], [ %35, %42 ], [ %35, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i ], [ %35, %46 ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.016.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { i64, ptr } %.fca.1.insert

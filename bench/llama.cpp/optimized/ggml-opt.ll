@@ -2498,7 +2498,11 @@ ggml_opt_forward_backward.exit:                   ; preds = %61, %73
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 5120
   %.not = icmp eq ptr %6, null
   %78 = sub nsw i64 %26, %33
-  br i1 %.not, label %.lr.ph62.split.us, label %.lr.ph62.split
+  br i1 %.not, label %.lr.ph62.split.us, label %.lr.ph62.split.preheader
+
+.lr.ph62.split.preheader:                         ; preds = %.lr.ph62
+  %invariant.op = sub i64 1, %33
+  br label %.lr.ph62.split
 
 .lr.ph62.split.us:                                ; preds = %.lr.ph62, %.lr.ph62.split.us
   %.160.us = phi i64 [ %80, %.lr.ph62.split.us ], [ %.0.lcssa, %.lr.ph62 ]
@@ -2509,16 +2513,15 @@ ggml_opt_forward_backward.exit:                   ; preds = %61, %73
   %exitcond69.not = icmp eq i64 %80, %26
   br i1 %exitcond69.not, label %._crit_edge63, label %.lr.ph62.split.us, !llvm.loop !159
 
-.lr.ph62.split:                                   ; preds = %.lr.ph62, %.lr.ph62.split
-  %.160 = phi i64 [ %83, %.lr.ph62.split ], [ %.0.lcssa, %.lr.ph62 ]
+.lr.ph62.split:                                   ; preds = %.lr.ph62.split.preheader, %.lr.ph62.split
+  %.160 = phi i64 [ %82, %.lr.ph62.split ], [ %.0.lcssa, %.lr.ph62.split.preheader ]
   tail call void @ggml_opt_dataset_get_batch(ptr noundef %1, ptr noundef %9, ptr noundef %11, i64 noundef %.160)
   %81 = load ptr, ptr %77, align 8, !tbaa !81
   tail call fastcc void @_ZL19ggml_opt_eval_graphP16ggml_opt_contextP11ggml_cgraphP15ggml_opt_result(ptr noundef nonnull %0, ptr noundef %81, ptr noundef %3)
-  %reass.sub = sub i64 %.160, %33
-  %82 = add i64 %reass.sub, 1
-  tail call void %6(i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, i64 noundef %82, i64 noundef %78, i64 noundef %75)
-  %83 = add i64 %.160, 1
-  %exitcond68.not = icmp eq i64 %83, %26
+  %.reass.reass = add i64 %.160, %invariant.op
+  tail call void %6(i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %3, i64 noundef %.reass.reass, i64 noundef %78, i64 noundef %75)
+  %82 = add i64 %.160, 1
+  %exitcond68.not = icmp eq i64 %82, %26
   br i1 %exitcond68.not, label %._crit_edge63, label %.lr.ph62.split, !llvm.loop !159
 
 ._crit_edge63:                                    ; preds = %.lr.ph62.split, %.lr.ph62.split.us, %._crit_edge

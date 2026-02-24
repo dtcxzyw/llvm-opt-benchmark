@@ -176,7 +176,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang6interp13BitcastBuffer14allInitia
 
 .lr.ph.i:                                         ; preds = %3, %20
   %.02254.i = phi i1 [ %.1.i, %20 ], [ false, %3 ]
-  %.02353.i = phi ptr [ %24, %20 ], [ %6, %3 ]
+  %.02353.i = phi ptr [ %23, %20 ], [ %6, %3 ]
   %.sroa.035.052.i = phi i64 [ %.sroa.035.3.i, %20 ], [ 0, %3 ]
   %.sroa.030.0.copyload.i = load i64, ptr %.02353.i, align 8, !tbaa !14
   %.sroa.8.0..023.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.02353.i, i64 8
@@ -203,28 +203,28 @@ define dso_local noundef zeroext i1 @_ZNK5clang6interp13BitcastBuffer14allInitia
 20:                                               ; preds = %17, %.lr.ph.i
   %.sroa.035.2.i = phi i64 [ %19, %17 ], [ %.sroa.035.052.i, %.lr.ph.i ]
   %21 = icmp eq i64 %.sroa.030.0.copyload.i, 0
-  %22 = add i64 %.sroa.8.0.copyload.i, 1
-  %23 = select i1 %21, i64 %22, i64 0
-  %.sroa.035.3.i = add i64 %.sroa.035.2.i, %23
+  %.reass.i = add i64 %.sroa.8.0.copyload.i, 1
+  %22 = select i1 %21, i64 %.reass.i, i64 0
+  %.sroa.035.3.i = add i64 %.sroa.035.2.i, %22
   %.1.i = or i1 %.02254.i, %21
-  %24 = getelementptr inbounds nuw i8, ptr %.02353.i, i64 16
-  %.not.i = icmp eq ptr %24, %10
+  %23 = getelementptr inbounds nuw i8, ptr %.02353.i, i64 16
+  %.not.i = icmp eq ptr %23, %10
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
 
 .loopexit.i:                                      ; preds = %20, %.critedge.i, %3
   %.sroa.035.1.i = phi i64 [ %16, %.critedge.i ], [ 0, %3 ], [ %.sroa.035.3.i, %20 ]
-  %25 = icmp uge i64 %.sroa.035.1.i, %.sroa.0.0.copyload
+  %24 = icmp uge i64 %.sroa.035.1.i, %.sroa.0.0.copyload
   br label %_ZNK5clang6interp13BitcastBuffer16rangeInitializedENS0_4BitsES2_.exit
 
 _ZNK5clang6interp13BitcastBuffer16rangeInitializedENS0_4BitsES2_.exit: ; preds = %1, %.loopexit.i
-  %.0.i = phi i1 [ %25, %.loopexit.i ], [ true, %1 ]
+  %.0.i = phi i1 [ %24, %.loopexit.i ], [ true, %1 ]
   ret i1 %.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang6interp13BitcastBuffer16rangeInitializedENS0_4BitsES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, i64 %1, i64 %2) local_unnamed_addr #3 align 2 {
   %4 = icmp eq i64 %2, 0
-  br i1 %4, label %32, label %5
+  br i1 %4, label %31, label %5
 
 5:                                                ; preds = %3
   %6 = add i64 %1, -1
@@ -237,12 +237,16 @@ define dso_local noundef zeroext i1 @_ZNK5clang6interp13BitcastBuffer16rangeInit
   %.idx = shl nuw nsw i64 %12, 4
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   %.not51 = icmp eq i32 %11, 0
-  br i1 %.not51, label %.loopexit, label %.lr.ph
+  br i1 %.not51, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %5, %24
-  %.02254 = phi i1 [ %.1, %24 ], [ false, %5 ]
-  %.02353 = phi ptr [ %30, %24 ], [ %9, %5 ]
-  %.sroa.035.052 = phi i64 [ %.sroa.035.3, %24 ], [ 0, %5 ]
+.lr.ph.preheader:                                 ; preds = %5
+  %invariant.op = sub i64 1, %1
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %24
+  %.02254 = phi i1 [ %.1, %24 ], [ false, %.lr.ph.preheader ]
+  %.02353 = phi ptr [ %29, %24 ], [ %9, %.lr.ph.preheader ]
+  %.sroa.035.052 = phi i64 [ %.sroa.035.3, %24 ], [ 0, %.lr.ph.preheader ]
   %.sroa.030.0.copyload = load i64, ptr %.02353, align 8, !tbaa !14
   %.sroa.8.0..023.sroa_idx = getelementptr inbounds nuw i8, ptr %.02353, i64 8
   %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..023.sroa_idx, align 8, !tbaa !14
@@ -271,22 +275,21 @@ define dso_local noundef zeroext i1 @_ZNK5clang6interp13BitcastBuffer16rangeInit
   %25 = icmp ule i64 %.sroa.030.0.copyload, %1
   %26 = icmp uge i64 %.sroa.8.0.copyload, %1
   %27 = select i1 %25, i1 %26, i1 false
-  %reass.sub = sub i64 %.sroa.8.0.copyload, %1
-  %28 = add i64 %reass.sub, 1
-  %29 = select i1 %27, i64 %28, i64 0
-  %.sroa.035.3 = add i64 %.sroa.035.2, %29
+  %.reass.reass = add i64 %.sroa.8.0.copyload, %invariant.op
+  %28 = select i1 %27, i64 %.reass.reass, i64 0
+  %.sroa.035.3 = add i64 %.sroa.035.2, %28
   %.1 = or i1 %27, %.02254
-  %30 = getelementptr inbounds nuw i8, ptr %.02353, i64 16
-  %.not = icmp eq ptr %30, %13
+  %29 = getelementptr inbounds nuw i8, ptr %.02353, i64 16
+  %.not = icmp eq ptr %29, %13
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %24, %5, %.critedge
   %.sroa.035.1 = phi i64 [ %20, %.critedge ], [ 0, %5 ], [ %.sroa.035.3, %24 ]
-  %31 = icmp uge i64 %.sroa.035.1, %2
-  br label %32
+  %30 = icmp uge i64 %.sroa.035.1, %2
+  br label %31
 
-32:                                               ; preds = %3, %.loopexit
-  %.0 = phi i1 [ %31, %.loopexit ], [ true, %3 ]
+31:                                               ; preds = %3, %.loopexit
+  %.0 = phi i1 [ %30, %.loopexit ], [ true, %3 ]
   ret i1 %.0
 }
 

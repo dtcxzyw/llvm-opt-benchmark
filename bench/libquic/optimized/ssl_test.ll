@@ -1458,15 +1458,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19: ; preds = %.cr
 define internal fastcc noundef zeroext i1 @_ZL20TestPaddingExtensionv() unnamed_addr #3 {
   %1 = tail call fastcc noundef i64 @_ZL17GetClientHelloLenm(i64 noundef 1)
   %2 = icmp eq i64 %1, 0
-  br i1 %2, label %.loopexit, label %.preheader
+  br i1 %2, label %.loopexit, label %.preheader.preheader
+
+.preheader.preheader:                             ; preds = %0
+  %invariant.op = sub i64 1, %1
+  br label %.preheader
 
 3:                                                ; preds = %.critedge29
   %.022.add = add nuw nsw i64 %.022.idx33, 16
   %.not = icmp eq i64 %.022.add, 176
   br i1 %.not, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %0, %3
-  %.022.idx33 = phi i64 [ %.022.add, %3 ], [ 0, %0 ]
+.preheader:                                       ; preds = %.preheader.preheader, %3
+  %.022.idx33 = phi i64 [ %.022.add, %3 ], [ 0, %.preheader.preheader ]
   %.022.ptr34 = getelementptr inbounds nuw i8, ptr @_ZL13kPaddingTests, i64 %.022.idx33
   %4 = load i64, ptr %.022.ptr34, align 16, !tbaa !71
   %5 = icmp ugt i64 %1, %4
@@ -1478,24 +1482,23 @@ define internal fastcc noundef zeroext i1 @_ZL20TestPaddingExtensionv() unnamed_
   br label %.loopexit
 
 .critedge29:                                      ; preds = %.preheader
-  %reass.sub = sub nuw i64 %4, %1
-  %8 = add nuw i64 %reass.sub, 1
-  %9 = tail call fastcc noundef i64 @_ZL17GetClientHelloLenm(i64 noundef %8)
-  %10 = getelementptr inbounds nuw i8, ptr %.022.ptr34, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !73
-  %.not27 = icmp eq i64 %9, %11
-  br i1 %.not27, label %3, label %12
+  %.reass.reass = add i64 %4, %invariant.op
+  %8 = tail call fastcc noundef i64 @_ZL17GetClientHelloLenm(i64 noundef %.reass.reass)
+  %9 = getelementptr inbounds nuw i8, ptr %.022.ptr34, i64 8
+  %10 = load i64, ptr %9, align 8, !tbaa !73
+  %.not27 = icmp eq i64 %8, %10
+  br i1 %.not27, label %3, label %11
 
-12:                                               ; preds = %.critedge29
-  %13 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %14 = trunc i64 %4 to i32
-  %15 = trunc i64 %9 to i32
-  %16 = trunc i64 %11 to i32
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.91, i32 noundef %14, i32 noundef %15, i32 noundef %16) #26
+11:                                               ; preds = %.critedge29
+  %12 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %13 = trunc i64 %4 to i32
+  %14 = trunc i64 %8 to i32
+  %15 = trunc i64 %10 to i32
+  %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.91, i32 noundef %13, i32 noundef %14, i32 noundef %15) #26
   br label %.loopexit
 
-.loopexit:                                        ; preds = %3, %.critedge, %12, %0
-  %.0 = phi i1 [ false, %0 ], [ false, %12 ], [ false, %.critedge ], [ true, %3 ]
+.loopexit:                                        ; preds = %3, %.critedge, %11, %0
+  %.0 = phi i1 [ false, %0 ], [ false, %11 ], [ false, %.critedge ], [ true, %3 ]
   ret i1 %.0
 }
 

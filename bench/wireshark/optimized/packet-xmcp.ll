@@ -649,7 +649,7 @@ define internal i32 @dissect_xmcp_message(ptr noundef %0, ptr noundef %1, ptr no
 111:                                              ; preds = %96
   %112 = call i32 @tvb_reported_length(ptr noundef %0)
   %113 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %105, ptr noundef nonnull @ei_xmcp_length_bad, ptr noundef nonnull @.str.212, i32 noundef 20, i32 noundef %107, i32 noundef %112)
-  br label %.sink.split209
+  br label %.sink.split208
 
 114:                                              ; preds = %96
   %115 = load i32, ptr @hf_xmcp_cookie, align 4
@@ -1187,16 +1187,15 @@ proto_item_set_generated.exit.i:                  ; preds = %243, %240, %232
 
 405:                                              ; preds = %403, %401
   %406 = icmp ugt i16 %172, 3
-  br i1 %406, label %.lr.ph.preheader.i, label %.loopexit.i
+  br i1 %406, label %.lr.ph.i.preheader, label %.loopexit.i
 
-.lr.ph.preheader.i:                               ; preds = %405
-  %invariant.op.i = add nsw i32 %180, -3
-  %invariant.op = add nsw i32 %invariant.op.i, %191
+.lr.ph.i.preheader:                               ; preds = %405
+  %invariant.op = sub i32 3, %191
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %445, %.lr.ph.preheader.i
-  %407 = phi i32 [ %447, %445 ], [ %191, %.lr.ph.preheader.i ]
-  %.0396.i = phi i16 [ %446, %445 ], [ %190, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %445
+  %407 = phi i32 [ %447, %445 ], [ %191, %.lr.ph.i.preheader ]
+  %.0396.i = phi i16 [ %446, %445 ], [ %190, %.lr.ph.i.preheader ]
   %408 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %407)
   %409 = add nuw nsw i32 %407, 2
   %410 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %409)
@@ -1275,7 +1274,8 @@ proto_item_set_generated.exit.i:                  ; preds = %243, %240, %232
 445:                                              ; preds = %441, %440, %439, %.thread385.i, %428, %427, %426, %.thread.i
   %446 = add i16 %.0396.i, 4
   %447 = zext i16 %446 to i32
-  %448 = icmp sgt i32 %invariant.op, %447
+  %.reass.i.reass.reass = add i32 %447, %invariant.op
+  %448 = icmp slt i32 %.reass.i.reass.reass, %180
   br i1 %448, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !8
 
 449:                                              ; preds = %196
@@ -1505,18 +1505,18 @@ proto_item_set_generated.exit176:                 ; preds = %521, %524, %527
 534:                                              ; preds = %532, %proto_item_set_generated.exit176
   %535 = load i16, ptr @xmcp_msg_type_class, align 2
   %536 = icmp eq i16 %535, 0
-  br i1 %536, label %537, label %.sink.split209
+  br i1 %536, label %537, label %.sink.split208
 
 537:                                              ; preds = %534
   store i8 1, ptr %98, align 8
-  br label %.sink.split209
+  br label %.sink.split208
 
 538:                                              ; preds = %.loopexit
   %539 = load i16, ptr @xmcp_msg_type_class, align 2
   %540 = zext nneg i16 %539 to i32
   %541 = and i16 %539, -17
   %or.cond5 = icmp eq i16 %541, 0
-  br i1 %or.cond5, label %542, label %.sink.split209
+  br i1 %or.cond5, label %542, label %.sink.split208
 
 542:                                              ; preds = %538
   %543 = load i16, ptr @xmcp_msg_type_method, align 2
@@ -1527,12 +1527,12 @@ proto_item_set_generated.exit176:                 ; preds = %521, %524, %527
 546:                                              ; preds = %542
   %547 = call ptr @val_to_str_const(i32 noundef %540, ptr noundef nonnull @classes, ptr noundef nonnull @.str.219)
   %548 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %84, ptr noundef nonnull @ei_xmcp_new_session, ptr noundef nonnull @.str.218, ptr noundef %547)
-  br label %.sink.split209
+  br label %.sink.split208
 
 549:                                              ; preds = %542
   %550 = and i16 %543, -2
   %or.cond8 = icmp eq i16 %550, 2
-  br i1 %or.cond8, label %551, label %.sink.split209
+  br i1 %or.cond8, label %551, label %.sink.split208
 
 551:                                              ; preds = %549
   %552 = call ptr @val_to_str_const(i32 noundef %544, ptr noundef nonnull @methods, ptr noundef nonnull @.str.219)
@@ -1540,14 +1540,14 @@ proto_item_set_generated.exit176:                 ; preds = %521, %524, %527
   %554 = zext nneg i16 %553 to i32
   %555 = call ptr @val_to_str_const(i32 noundef %554, ptr noundef nonnull @classes, ptr noundef nonnull @.str.219)
   %556 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %84, ptr noundef nonnull @ei_xmcp_session_termination, ptr noundef nonnull @.str.220, ptr noundef %552, ptr noundef %555)
-  br label %.sink.split209
+  br label %.sink.split208
 
-.sink.split209:                                   ; preds = %537, %534, %546, %549, %551, %538, %111
+.sink.split208:                                   ; preds = %537, %534, %546, %549, %551, %538, %111
   %557 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %558
 
-558:                                              ; preds = %.sink.split209, %14, %12, %4
-  %.0144 = phi i32 [ 0, %14 ], [ 0, %4 ], [ 0, %12 ], [ %557, %.sink.split209 ]
+558:                                              ; preds = %.sink.split208, %14, %12, %4
+  %.0144 = phi i32 [ 0, %14 ], [ 0, %4 ], [ 0, %12 ], [ %557, %.sink.split208 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0144

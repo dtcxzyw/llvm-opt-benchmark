@@ -321,6 +321,7 @@ _ZN3ue2L23findFloodProneSuffixLenERKNS_13RoseBuildImplE.exit: ; preds = %_ZNSt15
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %invariant.op = sub i64 1, %26
   br label %33
 
 33:                                               ; preds = %.lr.ph, %_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit.thread
@@ -492,17 +493,16 @@ _ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit: ; preds = %.lr.ph.i.split.i.i
   br i1 %141, label %_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit.thread, label %142
 
 142:                                              ; preds = %_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit
-  %reass.sub = sub nuw i64 %140, %26
-  %143 = add i64 %reass.sub, 1
-  %144 = sub i64 %115, %143
-  %145 = icmp ult i64 %144, 5
-  br i1 %145, label %_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit.thread, label %146
+  %.reass.reass = add i64 %140, %invariant.op
+  %143 = sub i64 %115, %.reass.reass
+  %144 = icmp ult i64 %143, 5
+  br i1 %144, label %_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit.thread, label %145
 
-146:                                              ; preds = %142
-  tail call fastcc void @_ZN3ue2L23convertFloodProneSuffixERNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEEjRKNS_15rose_literal_idEm(ptr noundef nonnull align 8 dereferenceable(780) %0, ptr %.sroa.053.061, i64 %35, i32 noundef %51, ptr noundef nonnull align 8 dereferenceable(124) %storemerge.i.i.i.i.i.i, i64 noundef %143)
+145:                                              ; preds = %142
+  tail call fastcc void @_ZN3ue2L23convertFloodProneSuffixERNS_13RoseBuildImplENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEEjRKNS_15rose_literal_idEm(ptr noundef nonnull align 8 dereferenceable(780) %0, ptr %.sroa.053.061, i64 %35, i32 noundef %51, ptr noundef nonnull align 8 dereferenceable(124) %storemerge.i.i.i.i.i.i, i64 noundef %.reass.reass)
   br label %_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit.thread
 
-_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit.thread: ; preds = %139, %102, %_ZNK3ue214RoseLiteralMap2atEj.exit, %105, %111, %113, %146, %142, %_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit, %45, %42, %39, %33
+_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit.thread: ; preds = %139, %102, %_ZNK3ue214RoseLiteralMap2atEj.exit, %105, %111, %113, %145, %142, %_ZN3ue2L14suffixFloodLenERKNS_11ue2_literalE.exit, %45, %42, %39, %33
   %.sroa.053.0 = load ptr, ptr %.sroa.053.061, align 8
   %.not57 = icmp eq ptr %.sroa.053.0, %27
   br i1 %.not57, label %.loopexit, label %33

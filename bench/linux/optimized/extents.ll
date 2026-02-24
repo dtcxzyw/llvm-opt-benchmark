@@ -11833,7 +11833,11 @@ define internal fastcc noundef range(i32 0, 2) i32 @ext4_ext_try_to_merge_right(
   %37 = add i32 %36, %35
   %38 = load i32, ptr %17, align 4
   %39 = icmp eq i32 %37, %38
-  br i1 %39, label %.lr.ph16, label %.critedge
+  br i1 %39, label %.lr.ph16.preheader, label %.critedge
+
+.lr.ph16.preheader:                               ; preds = %.lr.ph
+  %invariant.op = sub i64 4294967284, %30
+  br label %.lr.ph16
 
 40:                                               ; preds = %3
   tail call void asm sideeffect "2064: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2064b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2064) #16, !srcloc !191
@@ -11860,15 +11864,15 @@ define internal fastcc noundef range(i32 0, 2) i32 @ext4_ext_try_to_merge_right(
   %56 = icmp eq i32 %54, %55
   br i1 %56, label %.lr.ph16, label %.critedge, !llvm.loop !193
 
-.lr.ph16:                                         ; preds = %.lr.ph, %47
-  %.in = phi i64 [ %51, %47 ], [ %34, %.lr.ph ]
-  %57 = phi i32 [ %52, %47 ], [ %35, %.lr.ph ]
-  %58 = phi i1 [ %49, %47 ], [ %32, %.lr.ph ]
-  %59 = phi i32 [ 1, %47 ], [ 0, %.lr.ph ]
-  %60 = phi i16 [ %42, %47 ], [ %25, %.lr.ph ]
-  %61 = phi i1 [ %43, %47 ], [ %26, %.lr.ph ]
-  %62 = phi i16 [ %44, %47 ], [ %27, %.lr.ph ]
-  %63 = phi i1 [ %45, %47 ], [ %28, %.lr.ph ]
+.lr.ph16:                                         ; preds = %.lr.ph16.preheader, %47
+  %.in = phi i64 [ %51, %47 ], [ %34, %.lr.ph16.preheader ]
+  %57 = phi i32 [ %52, %47 ], [ %35, %.lr.ph16.preheader ]
+  %58 = phi i1 [ %49, %47 ], [ %32, %.lr.ph16.preheader ]
+  %59 = phi i32 [ 1, %47 ], [ 0, %.lr.ph16.preheader ]
+  %60 = phi i16 [ %42, %47 ], [ %25, %.lr.ph16.preheader ]
+  %61 = phi i1 [ %43, %47 ], [ %26, %.lr.ph16.preheader ]
+  %62 = phi i16 [ %44, %47 ], [ %27, %.lr.ph16.preheader ]
+  %63 = phi i1 [ %45, %47 ], [ %28, %.lr.ph16.preheader ]
   %64 = zext i16 %62 to i32
   %65 = add nsw i32 %64, -32768
   %66 = select i1 %63, i32 %64, i32 %65
@@ -11926,43 +11930,42 @@ define internal fastcc noundef range(i32 0, 2) i32 @ext4_ext_try_to_merge_right(
   %101 = zext i16 %100 to i64
   %102 = getelementptr %struct.ext4_extent, ptr %8, i64 %101
   %103 = icmp ult ptr %17, %102
-  br i1 %103, label %104, label %108
+  br i1 %103, label %104, label %107
 
 104:                                              ; preds = %99
   %105 = ptrtoint ptr %102 to i64
-  %reass.sub = sub i64 %105, %30
-  %106 = add i64 %reass.sub, 4294967284
-  %107 = and i64 %106, 4294967295
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %17, ptr align 4 %24, i64 %107, i1 false)
+  %.reass.reass = add i64 %105, %invariant.op
+  %106 = and i64 %.reass.reass, 4294967295
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %17, ptr align 4 %24, i64 %106, i1 false)
   %.pre = load i16, ptr %11, align 2
-  br label %108
+  br label %107
 
-108:                                              ; preds = %104, %99
-  %109 = phi i16 [ %.pre, %104 ], [ %100, %99 ]
-  %110 = add i16 %109, -1
-  store i16 %110, ptr %11, align 2
-  %111 = icmp eq i16 %110, 0
-  br i1 %111, label %112, label %.thread, !prof !9
+107:                                              ; preds = %104, %99
+  %108 = phi i16 [ %.pre, %104 ], [ %100, %99 ]
+  %109 = add i16 %108, -1
+  store i16 %109, ptr %11, align 2
+  %110 = icmp eq i16 %109, 0
+  br i1 %110, label %111, label %.thread, !prof !9
 
-112:                                              ; preds = %108
+111:                                              ; preds = %107
   tail call void asm sideeffect "2065: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2065b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2065) #16, !srcloc !194
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1830, i32 2305, i64 12) #16, !srcloc !195
   tail call void asm sideeffect "2066: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2066b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2066) #16, !srcloc !196
   %.pr = load i16, ptr %11, align 2
-  %113 = icmp eq i16 %.pr, 0
-  br i1 %113, label %114, label %.thread
+  %112 = icmp eq i16 %.pr, 0
+  br i1 %112, label %113, label %.thread
 
-114:                                              ; preds = %112
+113:                                              ; preds = %111
   tail call void (ptr, ptr, i32, i64, i32, ptr, ...) @__ext4_error_inode(ptr noundef %0, ptr noundef nonnull @__func__.ext4_ext_try_to_merge_right, i32 noundef 1832, i64 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.30) #16
   %.pre11 = load i16, ptr %11, align 2
   br label %.thread
 
-.thread:                                          ; preds = %108, %114, %112
-  %115 = phi i16 [ %110, %108 ], [ %.pre11, %114 ], [ %.pr, %112 ]
-  %116 = zext i16 %115 to i64
-  %117 = getelementptr %struct.ext4_extent, ptr %8, i64 %116
-  %118 = icmp ugt ptr %117, %2
-  br i1 %118, label %41, label %.thread..critedge.loopexit_crit_edge, !llvm.loop !193
+.thread:                                          ; preds = %107, %113, %111
+  %114 = phi i16 [ %109, %107 ], [ %.pre11, %113 ], [ %.pr, %111 ]
+  %115 = zext i16 %114 to i64
+  %116 = getelementptr %struct.ext4_extent, ptr %8, i64 %115
+  %117 = icmp ugt ptr %116, %2
+  br i1 %117, label %41, label %.thread..critedge.loopexit_crit_edge, !llvm.loop !193
 
 .thread..critedge.loopexit_crit_edge:             ; preds = %.thread
   br label %.critedge, !llvm.loop !193
@@ -11971,8 +11974,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @ext4_ext_try_to_merge_right(
   br label %.critedge, !llvm.loop !193
 
 .critedge:                                        ; preds = %47, %.lr.ph16, %72, %.lr.ph, %..critedge.loopexit_crit_edge, %16, %.thread..critedge.loopexit_crit_edge, %10
-  %119 = phi i32 [ 0, %10 ], [ 1, %.thread..critedge.loopexit_crit_edge ], [ 0, %16 ], [ 1, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %59, %72 ], [ 1, %47 ], [ %59, %.lr.ph16 ]
-  ret i32 %119
+  %118 = phi i32 [ 0, %10 ], [ 1, %.thread..critedge.loopexit_crit_edge ], [ 0, %16 ], [ 1, %..critedge.loopexit_crit_edge ], [ 0, %.lr.ph ], [ %59, %72 ], [ 1, %47 ], [ %59, %.lr.ph16 ]
+  ret i32 %118
 }
 
 ; Function Attrs: null_pointer_is_valid

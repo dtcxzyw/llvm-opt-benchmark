@@ -4534,6 +4534,7 @@ if.then.i11.i:                                    ; preds = %_ZNK8facebook5velox
 
 for.body.lr.ph.i.i:                               ; preds = %if.then.i11.i
   %48 = sext i32 %46 to i64
+  %invariant.op185 = sub i32 1, %extractNullsResult.sroa.0.0.extract.trunc.i
   br label %for.body.i12.i
 
 for.body.i12.i:                                   ; preds = %for.body.i12.i, %for.body.lr.ph.i.i
@@ -4543,9 +4544,8 @@ for.body.i12.i:                                   ; preds = %for.body.i12.i, %fo
   %arrayidx3.i.i.i = getelementptr inbounds i32, ptr %32, i64 %indvars.iv.i13.i
   %50 = load i32, ptr %arrayidx3.i.i.i, align 4
   %sub.i.i.i = sub nsw i32 %49, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub127 = sub i32 %50, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %add.i.i.i = add i32 %reass.sub127, 1
-  %call.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %28, i32 noundef %sub.i.i.i, i32 noundef %add.i.i.i)
+  %add.i.i.reass.i.reass.reass = add i32 %50, %invariant.op185
+  %call.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %28, i32 noundef %sub.i.i.i, i32 noundef %add.i.i.reass.i.reass.reass)
   %51 = load ptr, ptr %rowNumbers_, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %51, i64 %indvars.iv.i13.i
   store i32 %call.i.i.i, ptr %add.ptr.i.i.i.i, align 4
@@ -4589,10 +4589,14 @@ if.then3.i.i.i.i.i:                               ; preds = %if.end.i.i.i4.i.i
   %59 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %and.i.i.i.i.i.i = and i64 %and7.i.i.i.i.i, %59
   %tobool4.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
-  br i1 %tobool4.not.i.i.i.i.i.i, label %if.end6, label %while.body.i.i.i.i.i.i
+  br i1 %tobool4.not.i.i.i.i.i.i, label %if.end6, label %while.body.i.i.i.i.i.i.preheader
 
-while.body.i.i.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i, %while.body.i.i.i.i.i.i
-  %word.0.i.i.i.i.i.i = phi i64 [ %and6.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %if.then3.i.i.i.i.i ]
+while.body.i.i.i.i.i.i.preheader:                 ; preds = %if.then3.i.i.i.i.i
+  %invariant.op184 = sub i32 1, %extractNullsResult.sroa.0.0.extract.trunc.i
+  br label %while.body.i.i.i.i.i.i
+
+while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.i.i.preheader, %while.body.i.i.i.i.i.i
+  %word.0.i.i.i.i.i.i = phi i64 [ %and6.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.preheader ]
   %60 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i.i = trunc nuw nsw i64 %60 to i32
   %add.i26.i.i.i.i.i = or disjoint i32 %58, %cast.i.i.i.i.i.i
@@ -4602,9 +4606,8 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i,
   %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i.i.i.i.i.i
   %62 = load i32, ptr %arrayidx3.i.i.i.i.i.i.i, align 4
   %sub.i.i27.i.i.i.i.i = sub nsw i32 %61, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub126 = sub i32 %62, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %add.i.i.i.i.i.i.i = add i32 %reass.sub126, 1
-  %call.i.i.i.i.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %28, i32 noundef %sub.i.i27.i.i.i.i.i, i32 noundef %add.i.i.i.i.i.i.i)
+  %add.i.i.i.i.i.i.reass.i.reass.reass = add i32 %62, %invariant.op184
+  %call.i.i.i.i.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %28, i32 noundef %sub.i.i27.i.i.i.i.i, i32 noundef %add.i.i.i.i.i.i.reass.i.reass.reass)
   %63 = load ptr, ptr %rowNumbers_, align 8
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %63, i64 %idxprom.i.i.i.i.i.i.i
   store i32 %call.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i, align 4
@@ -4635,6 +4638,7 @@ if.then10.i.i.i.i.i:                              ; preds = %if.end8.i.i.i.i.i
 
 while.body.preheader.i41.i.i.i.i.i:               ; preds = %if.then10.i.i.i.i.i
   %mul.i42.i.i.i.i.i = shl nsw i32 %div11.i.i.i.i.i, 6
+  %invariant.op = sub i32 1, %extractNullsResult.sroa.0.0.extract.trunc.i
   br label %while.body.i43.i.i.i.i.i
 
 while.body.i43.i.i.i.i.i:                         ; preds = %while.body.i43.i.i.i.i.i, %while.body.preheader.i41.i.i.i.i.i
@@ -4648,9 +4652,8 @@ while.body.i43.i.i.i.i.i:                         ; preds = %while.body.i43.i.i.
   %arrayidx3.i.i49.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i47.i.i.i.i.i
   %67 = load i32, ptr %arrayidx3.i.i49.i.i.i.i.i, align 4
   %sub.i.i50.i.i.i.i.i = sub nsw i32 %66, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub = sub i32 %67, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %add.i.i52.i.i.i.i.i = add i32 %reass.sub, 1
-  %call.i.i53.i.i.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %28, i32 noundef %sub.i.i50.i.i.i.i.i, i32 noundef %add.i.i52.i.i.i.i.i)
+  %add.i.i52.i.i.i.i.reass.i.reass.reass = add i32 %67, %invariant.op
+  %call.i.i53.i.i.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %28, i32 noundef %sub.i.i50.i.i.i.i.i, i32 noundef %add.i.i52.i.i.i.i.reass.i.reass.reass)
   %68 = load ptr, ptr %rowNumbers_, align 8
   %add.ptr.i.i.i55.i.i.i.i.i = getelementptr inbounds i32, ptr %68, i64 %idxprom.i.i47.i.i.i.i.i
   store i32 %call.i.i53.i.i.i.i.i, ptr %add.ptr.i.i.i55.i.i.i.i.i, align 4
@@ -4662,11 +4665,16 @@ while.body.i43.i.i.i.i.i:                         ; preds = %while.body.i43.i.i.
 if.end14.i.i.i.i.i:                               ; preds = %while.body.i43.i.i.i.i.i, %if.then10.i.i.i.i.i, %if.end8.i.i.i.i.i
   %add114.i.i.i.i.i = add nsw i32 %mul.i.i.i.i.i.i, 64
   %cmp15.not115.i.i.i.i.i = icmp sgt i32 %add114.i.i.i.i.i, %58
-  br i1 %cmp15.not115.i.i.i.i.i, label %for.end.i.i.i6.i.i, label %for.body.i.i.i5.i.i
+  br i1 %cmp15.not115.i.i.i.i.i, label %for.end.i.i.i6.i.i, label %for.body.i.i.i5.i.i.preheader
 
-for.body.i.i.i5.i.i:                              ; preds = %if.end14.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE0EE24setRowNumbersIgnoreNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i.i
-  %add117.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE0EE24setRowNumbersIgnoreNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i.i ], [ %add114.i.i.i.i.i, %if.end14.i.i.i.i.i ]
-  %i.0116.i.i.i.i.i = phi i32 [ %add117.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE0EE24setRowNumbersIgnoreNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i.i ], [ %mul.i.i.i.i.i.i, %if.end14.i.i.i.i.i ]
+for.body.i.i.i5.i.i.preheader:                    ; preds = %if.end14.i.i.i.i.i
+  %invariant.op181 = sub i32 1, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %invariant.op182 = sub i32 1, %extractNullsResult.sroa.0.0.extract.trunc.i
+  br label %for.body.i.i.i5.i.i
+
+for.body.i.i.i5.i.i:                              ; preds = %for.body.i.i.i5.i.i.preheader, %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE0EE24setRowNumbersIgnoreNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i.i
+  %add117.i.i.i.i.i = phi i32 [ %add.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE0EE24setRowNumbersIgnoreNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i.i ], [ %add114.i.i.i.i.i, %for.body.i.i.i5.i.i.preheader ]
+  %i.0116.i.i.i.i.i = phi i32 [ %add117.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE0EE24setRowNumbersIgnoreNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i.i ], [ %mul.i.i.i.i.i.i, %for.body.i.i.i5.i.i.preheader ]
   %div16.i.i.i.i.i = sdiv i32 %i.0116.i.i.i.i.i, 64
   %idxprom.i60.i.i.i.i.i = sext i32 %div16.i.i.i.i.i to i64
   %arrayidx.i61.i.i.i.i.i = getelementptr inbounds i64, ptr %54, i64 %idxprom.i60.i.i.i.i.i
@@ -4699,9 +4707,8 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %arrayidx2.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %row.022.i.i.i.i.i.i
   %71 = load i32, ptr %arrayidx2.i.i.i.i.i.i.i, align 4
   %sub.i.i66.i.i.i.i.i = sub nsw i32 %70, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub124 = sub i32 %71, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %add.i.i67.i.i.i.i.i = add i32 %reass.sub124, 1
-  %call.i.i68.i.i.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %28, i32 noundef %sub.i.i66.i.i.i.i.i, i32 noundef %add.i.i67.i.i.i.i.i)
+  %add.i.i67.i.i.i.i.reass.i.reass.reass = add i32 %71, %invariant.op181
+  %call.i.i68.i.i.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %28, i32 noundef %sub.i.i66.i.i.i.i.i, i32 noundef %add.i.i67.i.i.i.i.reass.i.reass.reass)
   %72 = load ptr, ptr %rowNumbers_, align 8
   %add.ptr.i.i.i70.i.i.i.i.i = getelementptr inbounds i32, ptr %72, i64 %row.022.i.i.i.i.i.i
   store i32 %call.i.i68.i.i.i.i.i, ptr %add.ptr.i.i.i70.i.i.i.i.i, align 4
@@ -4720,22 +4727,21 @@ while.body.i71.i.i.i.i.i:                         ; preds = %_ZN8facebook5velox4
   %arrayidx3.i.i74.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i73.i.i.i.i.i
   %75 = load i32, ptr %arrayidx3.i.i74.i.i.i.i.i, align 4
   %sub.i12.i.i.i.i.i.i = sub nsw i32 %74, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub40.i = sub i32 %75, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %add.i13.i.i.i.i.i.i = add i32 %reass.sub40.i, 1
-  %cmp.not.i.i.i.i.i.i.i = icmp slt i32 %sub.i12.i.i.i.i.i.i, %add.i13.i.i.i.i.i.i
+  %add.i13.i.i.i.i.i.reass.i.reass.reass.reass = add i32 %75, %invariant.op182
+  %cmp.not.i.i.i.i.i.i.i = icmp slt i32 %sub.i12.i.i.i.i.i.i, %add.i13.i.i.i.i.i.reass.i.reass.reass.reass
   br i1 %cmp.not.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i, label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %while.body.i71.i.i.i.i.i
   %add.i.i.i.i.i.i.i.i = add i32 %sub.i12.i.i.i.i.i.i, 63
   %76 = srem i32 %add.i.i.i.i.i.i.i.i, 64
   %mul.i.i.i.i.i.i.i.i = sub nsw i32 %add.i.i.i.i.i.i.i.i, %76
-  %77 = and i32 %add.i13.i.i.i.i.i.i, -64
+  %77 = and i32 %add.i13.i.i.i.i.i.reass.i.reass.reass.reass, -64
   %cmp2.i.i.i.i.i.i.i = icmp slt i32 %77, %mul.i.i.i.i.i.i.i.i
   br i1 %cmp2.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i, label %if.end9.i.i.i.i.i.i.i
 
 if.then3.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.i
-  %div.i.i.i.i.i.i.i = ashr i32 %add.i13.i.i.i.i.i.i, 6
-  %sub.i.i107.i.i.i.i.i = and i32 %add.i13.i.i.i.i.i.i, 63
+  %div.i.i.i.i.i.i.i = ashr i32 %add.i13.i.i.i.i.i.reass.i.reass.reass.reass, 6
+  %sub.i.i107.i.i.i.i.i = and i32 %add.i13.i.i.i.i.i.reass.i.reass.reass.reass, 63
   %sh_prom.i.i.i.i.i.i.i.i = zext nneg i32 %sub.i.i107.i.i.i.i.i to i64
   %notmask.i.i.i.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i.i.i.i.i.i.i.i
   %sub.i22.i.i.i.i.i.i.i = xor i64 %notmask.i.i.i.i.i.i.i.i, -1
@@ -4800,12 +4806,12 @@ _ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUliE_clEi.exit.thread.i.i.i.i.i.i
   br label %return.sink.split.i.i.i.i.i.i.i
 
 for.end.i.i.i.i.i.i.i:                            ; preds = %for.cond.i.i.i.i.i.i.i
-  %cmp25.not.i.i.i.i.i.i.i = icmp eq i32 %add.i13.i.i.i.i.i.i, %77
+  %cmp25.not.i.i.i.i.i.i.i = icmp eq i32 %add.i13.i.i.i.i.i.reass.i.reass.reass.reass, %77
   br i1 %cmp25.not.i.i.i.i.i.i.i, label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i.i.i.i.i, label %if.then26.i.i.i.i.i.i.i
 
 if.then26.i.i.i.i.i.i.i:                          ; preds = %for.end.i.i.i.i.i.i.i
-  %div27.i.i.i.i.i.i.i = ashr i32 %add.i13.i.i.i.i.i.i, 6
-  %sub28.i.i.i.i.i.i.i = and i32 %add.i13.i.i.i.i.i.i, 63
+  %div27.i.i.i.i.i.i.i = ashr i32 %add.i13.i.i.i.i.i.reass.i.reass.reass.reass, 6
+  %sub28.i.i.i.i.i.i.i = and i32 %add.i13.i.i.i.i.i.reass.i.reass.reass.reass, 63
   %sh_prom.i49.i.i.i.i.i.i.i = zext nneg i32 %sub28.i.i.i.i.i.i.i to i64
   %notmask.i50.i.i.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i49.i.i.i.i.i.i.i
   %sub.i51.i.i.i.i.i.i.i = xor i64 %notmask.i50.i.i.i.i.i.i.i, -1
@@ -4854,10 +4860,14 @@ if.then19.i.i.i.i.i:                              ; preds = %for.end.i.i.i6.i.i
   %84 = load i64, ptr %arrayidx.i82.i.i.i.i.i, align 8
   %and.i85.i.i.i.i.i = and i64 %84, %sub.i80.i.i.i.i.i
   %tobool4.not.i86.i.i.i.i.i = icmp eq i64 %and.i85.i.i.i.i.i, 0
-  br i1 %tobool4.not.i86.i.i.i.i.i, label %if.end6, label %while.body.i89.i.i.i.i.i
+  br i1 %tobool4.not.i86.i.i.i.i.i, label %if.end6, label %while.body.i89.i.i.i.i.i.preheader
 
-while.body.i89.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i, %while.body.i89.i.i.i.i.i
-  %word.0.i90.i.i.i.i.i = phi i64 [ %and6.i103.i.i.i.i.i, %while.body.i89.i.i.i.i.i ], [ %and.i85.i.i.i.i.i, %if.then19.i.i.i.i.i ]
+while.body.i89.i.i.i.i.i.preheader:               ; preds = %if.then19.i.i.i.i.i
+  %invariant.op183 = sub i32 1, %extractNullsResult.sroa.0.0.extract.trunc.i
+  br label %while.body.i89.i.i.i.i.i
+
+while.body.i89.i.i.i.i.i:                         ; preds = %while.body.i89.i.i.i.i.i.preheader, %while.body.i89.i.i.i.i.i
+  %word.0.i90.i.i.i.i.i = phi i64 [ %and6.i103.i.i.i.i.i, %while.body.i89.i.i.i.i.i ], [ %and.i85.i.i.i.i.i, %while.body.i89.i.i.i.i.i.preheader ]
   %85 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i90.i.i.i.i.i, i1 true)
   %cast.i91.i.i.i.i.i = trunc nuw nsw i64 %85 to i32
   %add.i92.i.i.i.i.i = or disjoint i32 %58, %cast.i91.i.i.i.i.i
@@ -4867,9 +4877,8 @@ while.body.i89.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i
   %arrayidx3.i.i95.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i93.i.i.i.i.i
   %87 = load i32, ptr %arrayidx3.i.i95.i.i.i.i.i, align 4
   %sub.i.i96.i.i.i.i.i = sub nsw i32 %86, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub125 = sub i32 %87, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %add.i.i98.i.i.i.i.i = add i32 %reass.sub125, 1
-  %call.i.i99.i.i.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %28, i32 noundef %sub.i.i96.i.i.i.i.i, i32 noundef %add.i.i98.i.i.i.i.i)
+  %add.i.i98.i.i.i.i.reass.i.reass.reass = add i32 %87, %invariant.op183
+  %call.i.i99.i.i.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %28, i32 noundef %sub.i.i96.i.i.i.i.i, i32 noundef %add.i.i98.i.i.i.i.reass.i.reass.reass)
   %88 = load ptr, ptr %rowNumbers_, align 8
   %add.ptr.i.i.i101.i.i.i.i.i = getelementptr inbounds i32, ptr %88, i64 %idxprom.i.i93.i.i.i.i.i
   store i32 %call.i.i99.i.i.i.i.i, ptr %add.ptr.i.i.i101.i.i.i.i.i, align 4
@@ -5007,8 +5016,8 @@ _ZNSt6vectorImSaImEE6resizeEm.exit.i.i:           ; preds = %invoke.cont.i.i.i.i
 
 for.body.i.i.i.i.i.preheader.i:                   ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i
   %108 = ptrtoint ptr %106 to i64
-  %reass.sub128 = sub i64 %108, %.pre-phi.i
-  %109 = and i64 %reass.sub128, -8
+  %reass.sub129 = sub i64 %108, %.pre-phi.i
+  %109 = and i64 %reass.sub129, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %107, i8 -1, i64 %109, i1 false)
   br label %_ZN8facebook5velox17SelectivityVector10resizeFillEib.exit.i
 
@@ -7306,6 +7315,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.i11.i
   %50 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i.i, i64 8
   %51 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i.i, i64 16
   %52 = sext i32 %46 to i64
+  %invariant.op191 = sub i32 1, %extractNullsResult.sroa.0.0.extract.trunc.i
   br label %for.body.i12.i
 
 for.body.i12.i:                                   ; preds = %for.body.i12.i, %for.body.lr.ph.i.i
@@ -7315,8 +7325,7 @@ for.body.i12.i:                                   ; preds = %for.body.i12.i, %fo
   %arrayidx3.i.i.i = getelementptr inbounds i32, ptr %32, i64 %indvars.iv.i13.i
   %54 = load i32, ptr %arrayidx3.i.i.i, align 4
   %sub.i.i.i = sub nsw i32 %53, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub129 = sub i32 %54, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %add.i.i.i = add i32 %reass.sub129, 1
+  %add.i.i.reass.i.reass.reass = add i32 %54, %invariant.op191
   call void @llvm.lifetime.start.p0(ptr nonnull %found.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp2.i.i.i.i)
@@ -7327,7 +7336,7 @@ for.body.i12.i:                                   ; preds = %for.body.i12.i, %fo
   store ptr %28, ptr %agg.tmp2.i.i.i.i, align 8
   store ptr %found.i.i.i.i, ptr %50, align 8
   store i8 1, ptr %51, align 8
-  %call.i.i.i.i = call noundef zeroext i1 @_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_(i32 noundef %sub.i.i.i, i32 noundef %add.i.i.i, ptr noundef nonnull byval(%class.anon.150) align 8 %agg.tmp.i.i.i.i, ptr noundef nonnull byval(%class.anon.152) align 8 %agg.tmp2.i.i.i.i)
+  %call.i.i.i.i = call noundef zeroext i1 @_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_(i32 noundef %sub.i.i.i, i32 noundef %add.i.i.reass.i.reass.reass, ptr noundef nonnull byval(%class.anon.150) align 8 %agg.tmp.i.i.i.i, ptr noundef nonnull byval(%class.anon.152) align 8 %agg.tmp2.i.i.i.i)
   %55 = load i32, ptr %found.i.i.i.i, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %found.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i.i)
@@ -7382,6 +7391,7 @@ while.body.preheader.i.i.i.i.i.i:                 ; preds = %if.then3.i.i.i.i.i
   %66 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i.i.i.i.i, i64 16
   %67 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i.i.i.i.i.i, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i.i.i.i.i.i, i64 16
+  %invariant.op190 = sub i32 1, %extractNullsResult.sroa.0.0.extract.trunc.i
   br label %while.body.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.i.i, %while.body.preheader.i.i.i.i.i.i
@@ -7395,8 +7405,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.
   %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i.i.i.i.i.i
   %71 = load i32, ptr %arrayidx3.i.i.i.i.i.i.i, align 4
   %sub.i.i27.i.i.i.i.i = sub nsw i32 %70, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub128 = sub i32 %71, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %add.i.i.i.i.i.i.i = add i32 %reass.sub128, 1
+  %add.i.i.i.i.i.i.reass.i.reass.reass = add i32 %71, %invariant.op190
   call void @llvm.lifetime.start.p0(ptr nonnull %found.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp2.i.i.i.i.i.i.i.i)
@@ -7407,7 +7416,7 @@ while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.
   store ptr %28, ptr %agg.tmp2.i.i.i.i.i.i.i.i, align 8
   store ptr %found.i.i.i.i.i.i.i.i, ptr %67, align 8
   store i8 1, ptr %68, align 8
-  %call.i.i.i.i.i.i.i.i = call noundef zeroext i1 @_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_(i32 noundef %sub.i.i27.i.i.i.i.i, i32 noundef %add.i.i.i.i.i.i.i, ptr noundef nonnull byval(%class.anon.150) align 8 %agg.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull byval(%class.anon.152) align 8 %agg.tmp2.i.i.i.i.i.i.i.i)
+  %call.i.i.i.i.i.i.i.i = call noundef zeroext i1 @_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_(i32 noundef %sub.i.i27.i.i.i.i.i, i32 noundef %add.i.i.i.i.i.i.reass.i.reass.reass, ptr noundef nonnull byval(%class.anon.150) align 8 %agg.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull byval(%class.anon.152) align 8 %agg.tmp2.i.i.i.i.i.i.i.i)
   %72 = load i32, ptr %found.i.i.i.i.i.i.i.i, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %found.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i)
@@ -7446,6 +7455,7 @@ while.body.preheader.i44.i.i.i.i.i:               ; preds = %if.then10.i.i.i.i.i
   %76 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i36.i.i.i.i.i, i64 16
   %77 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i37.i.i.i.i.i, i64 8
   %78 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i37.i.i.i.i.i, i64 16
+  %invariant.op = sub i32 1, %extractNullsResult.sroa.0.0.extract.trunc.i
   br label %while.body.i46.i.i.i.i.i
 
 while.body.i46.i.i.i.i.i:                         ; preds = %while.body.i46.i.i.i.i.i, %while.body.preheader.i44.i.i.i.i.i
@@ -7459,8 +7469,7 @@ while.body.i46.i.i.i.i.i:                         ; preds = %while.body.i46.i.i.
   %arrayidx3.i.i52.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i50.i.i.i.i.i
   %81 = load i32, ptr %arrayidx3.i.i52.i.i.i.i.i, align 4
   %sub.i.i53.i.i.i.i.i = sub nsw i32 %80, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub = sub i32 %81, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %add.i.i55.i.i.i.i.i = add i32 %reass.sub, 1
+  %add.i.i55.i.i.i.i.reass.i.reass.reass = add i32 %81, %invariant.op
   call void @llvm.lifetime.start.p0(ptr nonnull %found.i.i.i35.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i36.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp2.i.i.i37.i.i.i.i.i)
@@ -7471,7 +7480,7 @@ while.body.i46.i.i.i.i.i:                         ; preds = %while.body.i46.i.i.
   store ptr %28, ptr %agg.tmp2.i.i.i37.i.i.i.i.i, align 8
   store ptr %found.i.i.i35.i.i.i.i.i, ptr %77, align 8
   store i8 1, ptr %78, align 8
-  %call.i.i.i56.i.i.i.i.i = call noundef zeroext i1 @_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_(i32 noundef %sub.i.i53.i.i.i.i.i, i32 noundef %add.i.i55.i.i.i.i.i, ptr noundef nonnull byval(%class.anon.150) align 8 %agg.tmp.i.i.i36.i.i.i.i.i, ptr noundef nonnull byval(%class.anon.152) align 8 %agg.tmp2.i.i.i37.i.i.i.i.i)
+  %call.i.i.i56.i.i.i.i.i = call noundef zeroext i1 @_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_(i32 noundef %sub.i.i53.i.i.i.i.i, i32 noundef %add.i.i55.i.i.i.i.reass.i.reass.reass, ptr noundef nonnull byval(%class.anon.150) align 8 %agg.tmp.i.i.i36.i.i.i.i.i, ptr noundef nonnull byval(%class.anon.152) align 8 %agg.tmp2.i.i.i37.i.i.i.i.i)
   %82 = load i32, ptr %found.i.i.i35.i.i.i.i.i, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %found.i.i.i35.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i36.i.i.i.i.i)
@@ -7494,6 +7503,8 @@ for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.end14.i.i.i.i.i
   %85 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i64.i.i.i.i.i, i64 16
   %86 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i65.i.i.i.i.i, i64 8
   %87 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i65.i.i.i.i.i, i64 16
+  %invariant.op187 = sub i32 1, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %invariant.op188 = sub i32 1, %extractNullsResult.sroa.0.0.extract.trunc.i
   br label %for.body.i.i.i5.i.i
 
 for.body.i.i.i5.i.i:                              ; preds = %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE1EE24setRowNumbersIgnoreNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i
@@ -7531,8 +7542,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %arrayidx2.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %row.025.i.i.i.i.i.i
   %90 = load i32, ptr %arrayidx2.i.i.i.i.i.i.i, align 4
   %sub.i.i72.i.i.i.i.i = sub nsw i32 %89, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub126 = sub i32 %90, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %add.i.i73.i.i.i.i.i = add i32 %reass.sub126, 1
+  %add.i.i73.i.i.i.i.reass.i.reass.reass = add i32 %90, %invariant.op187
   call void @llvm.lifetime.start.p0(ptr nonnull %found.i.i.i63.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i64.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp2.i.i.i65.i.i.i.i.i)
@@ -7543,7 +7553,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   store ptr %28, ptr %agg.tmp2.i.i.i65.i.i.i.i.i, align 8
   store ptr %found.i.i.i63.i.i.i.i.i, ptr %86, align 8
   store i8 1, ptr %87, align 8
-  %call.i.i.i74.i.i.i.i.i = call noundef zeroext i1 @_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_(i32 noundef %sub.i.i72.i.i.i.i.i, i32 noundef %add.i.i73.i.i.i.i.i, ptr noundef nonnull byval(%class.anon.150) align 8 %agg.tmp.i.i.i64.i.i.i.i.i, ptr noundef nonnull byval(%class.anon.152) align 8 %agg.tmp2.i.i.i65.i.i.i.i.i)
+  %call.i.i.i74.i.i.i.i.i = call noundef zeroext i1 @_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_(i32 noundef %sub.i.i72.i.i.i.i.i, i32 noundef %add.i.i73.i.i.i.i.reass.i.reass.reass, ptr noundef nonnull byval(%class.anon.150) align 8 %agg.tmp.i.i.i64.i.i.i.i.i, ptr noundef nonnull byval(%class.anon.152) align 8 %agg.tmp2.i.i.i65.i.i.i.i.i)
   %91 = load i32, ptr %found.i.i.i63.i.i.i.i.i, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %found.i.i.i63.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i64.i.i.i.i.i)
@@ -7566,22 +7576,21 @@ while.body.i77.i.i.i.i.i:                         ; preds = %_ZN8facebook5velox4
   %arrayidx3.i.i80.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i79.i.i.i.i.i
   %95 = load i32, ptr %arrayidx3.i.i80.i.i.i.i.i, align 4
   %sub.i15.i.i.i.i.i.i = sub nsw i32 %94, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub41.i = sub i32 %95, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %add.i16.i.i.i.i.i.i = add i32 %reass.sub41.i, 1
-  %cmp.not.i.i.i.i.i.i = icmp slt i32 %sub.i15.i.i.i.i.i.i, %add.i16.i.i.i.i.i.i
+  %add.i16.i.i.i.i.i.reass.i.reass.reass.reass = add i32 %95, %invariant.op188
+  %cmp.not.i.i.i.i.i.i = icmp slt i32 %sub.i15.i.i.i.i.i.i, %add.i16.i.i.i.i.i.reass.i.reass.reass.reass
   br i1 %cmp.not.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_.exit.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %while.body.i77.i.i.i.i.i
   %add.i.i117.i.i.i.i.i = add i32 %sub.i15.i.i.i.i.i.i, 63
   %96 = srem i32 %add.i.i117.i.i.i.i.i, 64
   %mul.i.i.i.i.i.i.i = sub nsw i32 %add.i.i117.i.i.i.i.i, %96
-  %97 = and i32 %add.i16.i.i.i.i.i.i, -64
+  %97 = and i32 %add.i16.i.i.i.i.i.reass.i.reass.reass.reass, -64
   %cmp2.i.i.i.i.i.i = icmp slt i32 %97, %mul.i.i.i.i.i.i.i
   br i1 %cmp2.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %if.end9.i.i.i.i.i.i
 
 if.then3.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
-  %div.i.i.i.i.i.i = ashr i32 %add.i16.i.i.i.i.i.i, 6
-  %sub.i119.i.i.i.i.i = and i32 %add.i16.i.i.i.i.i.i, 63
+  %div.i.i.i.i.i.i = ashr i32 %add.i16.i.i.i.i.i.reass.i.reass.reass.reass, 6
+  %sub.i119.i.i.i.i.i = and i32 %add.i16.i.i.i.i.i.reass.i.reass.reass.reass, 63
   %sh_prom.i.i120.i.i.i.i.i = zext nneg i32 %sub.i119.i.i.i.i.i to i64
   %notmask.i.i121.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i.i120.i.i.i.i.i
   %sub.i22.i.i.i.i.i.i = xor i64 %notmask.i.i121.i.i.i.i.i, -1
@@ -7601,22 +7610,22 @@ if.then3.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   br i1 %tobool4.not.i.i.i.i.i.i.i, label %_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then3.i.i.i.i.i.i
-  %add.i26.i.i.i.i.i.i = or i32 %add.i16.i.i.i.i.i.i, 63
+  %add.i26.i.i.i.i.i.i = or i32 %add.i16.i.i.i.i.i.reass.i.reass.reass.reass, 63
   %99 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %and.i.i.i.i.i.i.i, i1 true)
   %cast.i.i.i.i.i.i.i = trunc nuw nsw i64 %99 to i32
   %sub.i27.i.i.i.i.i.i = sub nuw nsw i32 %add.i26.i.i.i.i.i.i, %cast.i.i.i.i.i.i.i
   br label %_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_.exit.i.i.i.i.i
 
 if.end9.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
-  %cmp10.not.i.i.i.i.i.i = icmp eq i32 %add.i16.i.i.i.i.i.i, %97
+  %cmp10.not.i.i.i.i.i.i = icmp eq i32 %add.i16.i.i.i.i.i.reass.i.reass.reass.reass, %97
   br i1 %cmp10.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i.preheader, label %if.then11.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i.preheader:                   ; preds = %if.then11.i.i.i.i.i.i, %if.end9.i.i.i.i.i.i
   br label %for.cond.i.i.i.i.i.i
 
 if.then11.i.i.i.i.i.i:                            ; preds = %if.end9.i.i.i.i.i.i
-  %div12.i.i.i.i.i.i = ashr i32 %add.i16.i.i.i.i.i.i, 6
-  %sub13.i.i.i.i.i.i = and i32 %add.i16.i.i.i.i.i.i, 63
+  %div12.i.i.i.i.i.i = ashr i32 %add.i16.i.i.i.i.i.reass.i.reass.reass.reass, 6
+  %sub13.i.i.i.i.i.i = and i32 %add.i16.i.i.i.i.i.reass.i.reass.reass.reass, 63
   %sh_prom.i28.i.i.i.i.i.i = zext nneg i32 %sub13.i.i.i.i.i.i to i64
   %notmask.i29.i.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i28.i.i.i.i.i.i
   %sub.i30.i.i.i.i.i.i = xor i64 %notmask.i29.i.i.i.i.i.i, -1
@@ -7628,7 +7637,7 @@ if.then11.i.i.i.i.i.i:                            ; preds = %if.end9.i.i.i.i.i.i
   br i1 %tobool4.not.i36.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i.preheader, label %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i.i.i.i.i.i
 
 _ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i.i.i.i.i.i: ; preds = %if.then11.i.i.i.i.i.i
-  %add.i39.i.i.i.i.i.i = or i32 %add.i16.i.i.i.i.i.i, 63
+  %add.i39.i.i.i.i.i.i = or i32 %add.i16.i.i.i.i.i.reass.i.reass.reass.reass, 63
   %101 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %and.i35.i.i.i.i.i.i, i1 true)
   %cast.i40.i.i.i.i.i.i = trunc nuw nsw i64 %101 to i32
   %sub.i41.i.i.i.i.i.i = sub nuw nsw i32 %add.i39.i.i.i.i.i.i, %cast.i40.i.i.i.i.i.i
@@ -7720,6 +7729,7 @@ while.body.preheader.i96.i.i.i.i.i:               ; preds = %if.then19.i.i.i.i.i
   %110 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i88.i.i.i.i.i, i64 16
   %111 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i89.i.i.i.i.i, i64 8
   %112 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i89.i.i.i.i.i, i64 16
+  %invariant.op189 = sub i32 1, %extractNullsResult.sroa.0.0.extract.trunc.i
   br label %while.body.i98.i.i.i.i.i
 
 while.body.i98.i.i.i.i.i:                         ; preds = %while.body.i98.i.i.i.i.i, %while.body.preheader.i96.i.i.i.i.i
@@ -7733,8 +7743,7 @@ while.body.i98.i.i.i.i.i:                         ; preds = %while.body.i98.i.i.
   %arrayidx3.i.i104.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i102.i.i.i.i.i
   %115 = load i32, ptr %arrayidx3.i.i104.i.i.i.i.i, align 4
   %sub.i.i105.i.i.i.i.i = sub nsw i32 %114, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub127 = sub i32 %115, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %add.i.i107.i.i.i.i.i = add i32 %reass.sub127, 1
+  %add.i.i107.i.i.i.i.reass.i.reass.reass = add i32 %115, %invariant.op189
   call void @llvm.lifetime.start.p0(ptr nonnull %found.i.i.i87.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i.i.i88.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp2.i.i.i89.i.i.i.i.i)
@@ -7745,7 +7754,7 @@ while.body.i98.i.i.i.i.i:                         ; preds = %while.body.i98.i.i.
   store ptr %28, ptr %agg.tmp2.i.i.i89.i.i.i.i.i, align 8
   store ptr %found.i.i.i87.i.i.i.i.i, ptr %111, align 8
   store i8 1, ptr %112, align 8
-  %call.i.i.i108.i.i.i.i.i = call noundef zeroext i1 @_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_(i32 noundef %sub.i.i105.i.i.i.i.i, i32 noundef %add.i.i107.i.i.i.i.i, ptr noundef nonnull byval(%class.anon.150) align 8 %agg.tmp.i.i.i88.i.i.i.i.i, ptr noundef nonnull byval(%class.anon.152) align 8 %agg.tmp2.i.i.i89.i.i.i.i.i)
+  %call.i.i.i108.i.i.i.i.i = call noundef zeroext i1 @_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_(i32 noundef %sub.i.i105.i.i.i.i.i, i32 noundef %add.i.i107.i.i.i.i.reass.i.reass.reass, ptr noundef nonnull byval(%class.anon.150) align 8 %agg.tmp.i.i.i88.i.i.i.i.i, ptr noundef nonnull byval(%class.anon.152) align 8 %agg.tmp2.i.i.i89.i.i.i.i.i)
   %116 = load i32, ptr %found.i.i.i87.i.i.i.i.i, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %found.i.i.i87.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i.i.i88.i.i.i.i.i)
@@ -7887,8 +7896,8 @@ _ZNSt6vectorImSaImEE6resizeEm.exit.i.i:           ; preds = %invoke.cont.i.i.i.i
 
 for.body.i.i.i.i.i.preheader.i:                   ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i
   %137 = ptrtoint ptr %135 to i64
-  %reass.sub130 = sub i64 %137, %.pre-phi.i
-  %138 = and i64 %reass.sub130, -8
+  %reass.sub131 = sub i64 %137, %.pre-phi.i
+  %138 = and i64 %reass.sub131, -8
   call void @llvm.memset.p0.i64(ptr align 8 %136, i8 -1, i64 %138, i1 false)
   br label %_ZN8facebook5velox17SelectivityVector10resizeFillEib.exit.i
 

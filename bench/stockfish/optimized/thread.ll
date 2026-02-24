@@ -1773,10 +1773,14 @@ _ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairI
   %.sroa.speculated84 = call i32 @llvm.smin.i32(i32 %49, i32 %.08893)
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.077.092, i64 8
   %.not = icmp eq ptr %50, %43
-  br i1 %.not, label %.lr.ph96, label %.lr.ph
+  br i1 %.not, label %.lr.ph96.preheader, label %.lr.ph
 
-.lr.ph96:                                         ; preds = %.lr.ph, %.lr.ph96
-  %.sroa.070.095 = phi ptr [ %63, %.lr.ph96 ], [ %42, %.lr.ph ]
+.lr.ph96.preheader:                               ; preds = %.lr.ph
+  %invariant.op = sub i32 14, %.sroa.speculated84
+  br label %.lr.ph96
+
+.lr.ph96:                                         ; preds = %.lr.ph96.preheader, %.lr.ph96
+  %.sroa.070.095 = phi ptr [ %62, %.lr.ph96 ], [ %42, %.lr.ph96.preheader ]
   %51 = load ptr, ptr %.sroa.070.095, align 8
   %52 = getelementptr i8, ptr %51, i64 8
   %.val56 = load ptr, ptr %52, align 8
@@ -1785,159 +1789,161 @@ _ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairI
   %54 = getelementptr i8, ptr %.val56, i64 9582684
   %.val56.val62 = load i32, ptr %54, align 4
   %.val56.val.val = load i32, ptr %.val56.val, align 8
-  %reass.sub = sub i32 %.val56.val.val, %.sroa.speculated84
-  %55 = add i32 %reass.sub, 14
-  %56 = mul nsw i32 %55, %.val56.val62
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds nuw i8, ptr %.val56.val, i64 32
-  %59 = load ptr, ptr %58, align 8
-  %60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN9Stockfish4MoveESt4pairIKS2_lESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_8MoveHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 2 dereferenceable(2) %59)
-  %61 = load i64, ptr %60, align 8
-  %62 = add nsw i64 %61, %57
-  store i64 %62, ptr %60, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.070.095, i64 8
-  %.not89 = icmp eq ptr %63, %43
+  %.reass.reass = add i32 %.val56.val.val, %invariant.op
+  %55 = mul nsw i32 %.reass.reass, %.val56.val62
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds nuw i8, ptr %.val56.val, i64 32
+  %58 = load ptr, ptr %57, align 8
+  %59 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN9Stockfish4MoveESt4pairIKS2_lESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_8MoveHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 2 dereferenceable(2) %58)
+  %60 = load i64, ptr %59, align 8
+  %61 = add nsw i64 %60, %56
+  store i64 %61, ptr %59, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.070.095, i64 8
+  %.not89 = icmp eq ptr %62, %43
   br i1 %.not89, label %._crit_edge, label %.lr.ph96
 
 ._crit_edge:                                      ; preds = %.lr.ph96
   %.pre = load ptr, ptr %3, align 8
   %.pre106 = load ptr, ptr %6, align 8
   %.not9097 = icmp eq ptr %.pre, %.pre106
-  br i1 %.not9097, label %._crit_edge102, label %.lr.ph101
+  br i1 %.not9097, label %._crit_edge102, label %.lr.ph101.preheader
 
-.lr.ph101:                                        ; preds = %._crit_edge, %128
-  %.099 = phi ptr [ %.1, %128 ], [ %5, %._crit_edge ]
-  %.sroa.066.098 = phi ptr [ %129, %128 ], [ %.pre, %._crit_edge ]
-  %64 = load ptr, ptr %.sroa.066.098, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %.099, i64 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 9582656
-  %68 = load ptr, ptr %67, align 8
-  %69 = load i32, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 9582656
-  %73 = load ptr, ptr %72, align 8
-  %74 = load i32, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  %76 = getelementptr inbounds nuw i8, ptr %73, i64 32
-  %77 = load ptr, ptr %75, align 8
-  %78 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN9Stockfish4MoveESt4pairIKS2_lESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_8MoveHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 2 dereferenceable(2) %77)
-  %79 = load i64, ptr %78, align 8
-  %80 = load ptr, ptr %76, align 8
-  %81 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN9Stockfish4MoveESt4pairIKS2_lESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_8MoveHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 2 dereferenceable(2) %80)
-  %82 = load i64, ptr %81, align 8
-  %83 = icmp sgt i32 %69, 31506
-  %84 = icmp sgt i32 %74, 31506
-  %85 = icmp ne i32 %74, -32001
-  %86 = icmp slt i32 %74, -31506
-  %87 = and i1 %85, %86
-  %.val58 = load ptr, ptr %70, align 8
-  %88 = getelementptr i8, ptr %.val58, i64 9582656
-  %.val58.val = load ptr, ptr %88, align 8
-  %89 = getelementptr i8, ptr %.val58, i64 9582684
-  %.val58.val61 = load i32, ptr %89, align 4
+.lr.ph101.preheader:                              ; preds = %._crit_edge
+  %invariant.op129 = sub i32 14, %.sroa.speculated84
+  %invariant.op130 = sub i32 14, %.sroa.speculated84
+  br label %.lr.ph101
+
+.lr.ph101:                                        ; preds = %.lr.ph101.preheader, %125
+  %.099 = phi ptr [ %.1, %125 ], [ %5, %.lr.ph101.preheader ]
+  %.sroa.066.098 = phi ptr [ %126, %125 ], [ %.pre, %.lr.ph101.preheader ]
+  %63 = load ptr, ptr %.sroa.066.098, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %.099, i64 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 9582656
+  %67 = load ptr, ptr %66, align 8
+  %68 = load i32, ptr %67, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 9582656
+  %72 = load ptr, ptr %71, align 8
+  %73 = load i32, ptr %72, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %67, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 32
+  %76 = load ptr, ptr %74, align 8
+  %77 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN9Stockfish4MoveESt4pairIKS2_lESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_8MoveHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 2 dereferenceable(2) %76)
+  %78 = load i64, ptr %77, align 8
+  %79 = load ptr, ptr %75, align 8
+  %80 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8__detail9_Map_baseIN9Stockfish4MoveESt4pairIKS2_lESaIS5_ENS_10_Select1stESt8equal_toIS2_ENS2_8MoveHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS4_(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 2 dereferenceable(2) %79)
+  %81 = load i64, ptr %80, align 8
+  %82 = icmp sgt i32 %68, 31506
+  %83 = icmp sgt i32 %73, 31506
+  %84 = icmp ne i32 %73, -32001
+  %85 = icmp slt i32 %73, -31506
+  %86 = and i1 %84, %85
+  %.val58 = load ptr, ptr %69, align 8
+  %87 = getelementptr i8, ptr %.val58, i64 9582656
+  %.val58.val = load ptr, ptr %87, align 8
+  %88 = getelementptr i8, ptr %.val58, i64 9582684
+  %.val58.val61 = load i32, ptr %88, align 4
   %.val58.val.val = load i32, ptr %.val58.val, align 8
-  %reass.sub104 = sub i32 %.val58.val.val, %.sroa.speculated84
-  %90 = add i32 %reass.sub104, 14
-  %91 = mul nsw i32 %90, %.val58.val61
-  %92 = getelementptr inbounds nuw i8, ptr %73, i64 40
-  %93 = load ptr, ptr %92, align 8
-  %94 = load ptr, ptr %76, align 8
-  %95 = ptrtoint ptr %93 to i64
-  %96 = ptrtoint ptr %94 to i64
-  %97 = sub i64 %95, %96
-  %98 = icmp ugt i64 %97, 4
-  %99 = select i1 %98, i32 %91, i32 0
-  %.0.val = load ptr, ptr %65, align 8
-  %100 = getelementptr i8, ptr %.0.val, i64 9582656
-  %.0.val.val = load ptr, ptr %100, align 8
-  %101 = getelementptr i8, ptr %.0.val, i64 9582684
-  %.0.val.val60 = load i32, ptr %101, align 4
+  %.reass124.reass = add i32 %.val58.val.val, %invariant.op129
+  %89 = mul nsw i32 %.reass124.reass, %.val58.val61
+  %90 = getelementptr inbounds nuw i8, ptr %72, i64 40
+  %91 = load ptr, ptr %90, align 8
+  %92 = load ptr, ptr %75, align 8
+  %93 = ptrtoint ptr %91 to i64
+  %94 = ptrtoint ptr %92 to i64
+  %95 = sub i64 %93, %94
+  %96 = icmp ugt i64 %95, 4
+  %97 = select i1 %96, i32 %89, i32 0
+  %.0.val = load ptr, ptr %64, align 8
+  %98 = getelementptr i8, ptr %.0.val, i64 9582656
+  %.0.val.val = load ptr, ptr %98, align 8
+  %99 = getelementptr i8, ptr %.0.val, i64 9582684
+  %.0.val.val60 = load i32, ptr %99, align 4
   %.0.val.val.val = load i32, ptr %.0.val.val, align 8
-  %reass.sub105 = sub i32 %.0.val.val.val, %.sroa.speculated84
-  %102 = add i32 %reass.sub105, 14
-  %103 = mul nsw i32 %102, %.0.val.val60
-  %104 = getelementptr inbounds nuw i8, ptr %68, i64 40
-  %105 = load ptr, ptr %104, align 8
-  %106 = load ptr, ptr %75, align 8
-  %107 = ptrtoint ptr %105 to i64
-  %108 = ptrtoint ptr %106 to i64
-  %109 = sub i64 %107, %108
-  %110 = icmp ugt i64 %109, 4
-  %111 = select i1 %110, i32 %103, i32 0
-  %112 = icmp sgt i32 %99, %111
-  br i1 %83, label %113, label %115
+  %.reass126.reass = add i32 %.0.val.val.val, %invariant.op130
+  %100 = mul nsw i32 %.reass126.reass, %.0.val.val60
+  %101 = getelementptr inbounds nuw i8, ptr %67, i64 40
+  %102 = load ptr, ptr %101, align 8
+  %103 = load ptr, ptr %74, align 8
+  %104 = ptrtoint ptr %102 to i64
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %104, %105
+  %107 = icmp ugt i64 %106, 4
+  %108 = select i1 %107, i32 %100, i32 0
+  %109 = icmp sgt i32 %97, %108
+  br i1 %82, label %110, label %112
 
-113:                                              ; preds = %.lr.ph101
-  %114 = icmp sgt i32 %74, %69
-  %spec.select = select i1 %114, ptr %64, ptr %.099
-  br label %128
+110:                                              ; preds = %.lr.ph101
+  %111 = icmp sgt i32 %73, %68
+  %spec.select = select i1 %111, ptr %63, ptr %.099
+  br label %125
 
-115:                                              ; preds = %.lr.ph101
-  %116 = icmp ne i32 %69, -32001
-  %117 = icmp slt i32 %69, -31506
-  %118 = and i1 %116, %117
-  br i1 %118, label %119, label %121
+112:                                              ; preds = %.lr.ph101
+  %113 = icmp ne i32 %68, -32001
+  %114 = icmp slt i32 %68, -31506
+  %115 = and i1 %113, %114
+  br i1 %115, label %116, label %118
 
-119:                                              ; preds = %115
-  %120 = icmp slt i32 %74, %69
-  %or.cond53 = select i1 %87, i1 %120, i1 false
-  %spec.select55 = select i1 %or.cond53, ptr %64, ptr %.099
-  br label %128
+116:                                              ; preds = %112
+  %117 = icmp slt i32 %73, %68
+  %or.cond53 = select i1 %86, i1 %117, i1 false
+  %spec.select55 = select i1 %or.cond53, ptr %63, ptr %.099
+  br label %125
 
-121:                                              ; preds = %115
-  %or.cond = or i1 %84, %87
-  br i1 %or.cond, label %127, label %122
+118:                                              ; preds = %112
+  %or.cond = or i1 %83, %86
+  br i1 %or.cond, label %124, label %119
 
-122:                                              ; preds = %121
-  %123 = icmp sgt i32 %74, -31507
-  br i1 %123, label %124, label %128
+119:                                              ; preds = %118
+  %120 = icmp sgt i32 %73, -31507
+  br i1 %120, label %121, label %125
 
-124:                                              ; preds = %122
-  %125 = icmp sgt i64 %82, %79
-  %126 = icmp eq i64 %82, %79
-  %or.cond3 = and i1 %126, %112
-  %or.cond54 = or i1 %125, %or.cond3
-  br i1 %or.cond54, label %127, label %128
+121:                                              ; preds = %119
+  %122 = icmp sgt i64 %81, %78
+  %123 = icmp eq i64 %81, %78
+  %or.cond3 = and i1 %123, %109
+  %or.cond54 = or i1 %122, %or.cond3
+  br i1 %or.cond54, label %124, label %125
 
-127:                                              ; preds = %124, %121
-  br label %128
+124:                                              ; preds = %121, %118
+  br label %125
 
-128:                                              ; preds = %119, %113, %124, %122, %127
-  %.1 = phi ptr [ %.099, %122 ], [ %.099, %124 ], [ %64, %127 ], [ %spec.select, %113 ], [ %spec.select55, %119 ]
-  %129 = getelementptr inbounds nuw i8, ptr %.sroa.066.098, i64 8
-  %.not90 = icmp eq ptr %129, %.pre106
+125:                                              ; preds = %116, %110, %121, %119, %124
+  %.1 = phi ptr [ %.099, %119 ], [ %.099, %121 ], [ %63, %124 ], [ %spec.select, %110 ], [ %spec.select55, %116 ]
+  %126 = getelementptr inbounds nuw i8, ptr %.sroa.066.098, i64 8
+  %.not90 = icmp eq ptr %126, %.pre106
   br i1 %.not90, label %._crit_edge102, label %.lr.ph101
 
-._crit_edge102:                                   ; preds = %128, %_ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairIKS1_lEEEC2EmRKS2_RKS4_RKS8_.exit, %._crit_edge
-  %.0.lcssa = phi ptr [ %5, %._crit_edge ], [ %5, %_ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairIKS1_lEEEC2EmRKS2_RKS4_RKS8_.exit ], [ %.1, %128 ]
-  %130 = load ptr, ptr %25, align 8
-  %.not5.i.i.i.i = icmp eq ptr %130, null
+._crit_edge102:                                   ; preds = %125, %_ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairIKS1_lEEEC2EmRKS2_RKS4_RKS8_.exit, %._crit_edge
+  %.0.lcssa = phi ptr [ %5, %._crit_edge ], [ %5, %_ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairIKS1_lEEEC2EmRKS2_RKS4_RKS8_.exit ], [ %.1, %125 ]
+  %127 = load ptr, ptr %25, align 8
+  %.not5.i.i.i.i = icmp eq ptr %127, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableIN9Stockfish4MoveESt4pairIKS1_lESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_8MoveHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge102, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %131, %.lr.ph.i.i.i.i ], [ %130, %._crit_edge102 ]
-  %131 = load ptr, ptr %.06.i.i.i.i, align 8
+  %.06.i.i.i.i = phi ptr [ %128, %.lr.ph.i.i.i.i ], [ %127, %._crit_edge102 ]
+  %128 = load ptr, ptr %.06.i.i.i.i, align 8
   call void @_ZdlPv(ptr noundef nonnull %.06.i.i.i.i) #17
-  %.not.i.i.i.i = icmp eq ptr %131, null
+  %.not.i.i.i.i = icmp eq ptr %128, null
   br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableIN9Stockfish4MoveESt4pairIKS1_lESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_8MoveHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !23
 
 _ZNSt10_HashtableIN9Stockfish4MoveESt4pairIKS1_lESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_8MoveHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %._crit_edge102
-  %132 = load ptr, ptr %2, align 8
-  %133 = load i64, ptr %24, align 8
-  %134 = shl i64 %133, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %132, i8 0, i64 %134, i1 false)
+  %129 = load ptr, ptr %2, align 8
+  %130 = load i64, ptr %24, align 8
+  %131 = shl i64 %130, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %129, i8 0, i64 %131, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
-  %135 = load ptr, ptr %2, align 8
-  %136 = icmp eq ptr %135, %23
-  br i1 %136, label %_ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairIKS1_lEEED2Ev.exit, label %137
+  %132 = load ptr, ptr %2, align 8
+  %133 = icmp eq ptr %132, %23
+  br i1 %133, label %_ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairIKS1_lEEED2Ev.exit, label %134
 
-137:                                              ; preds = %_ZNSt10_HashtableIN9Stockfish4MoveESt4pairIKS1_lESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_8MoveHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
-  call void @_ZdlPv(ptr noundef %135) #17
+134:                                              ; preds = %_ZNSt10_HashtableIN9Stockfish4MoveESt4pairIKS1_lESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_8MoveHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
+  call void @_ZdlPv(ptr noundef %132) #17
   br label %_ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairIKS1_lEEED2Ev.exit
 
-_ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairIKS1_lEEED2Ev.exit: ; preds = %_ZNSt10_HashtableIN9Stockfish4MoveESt4pairIKS1_lESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_8MoveHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, %137
+_ZNSt13unordered_mapIN9Stockfish4MoveElNS1_8MoveHashESt8equal_toIS1_ESaISt4pairIKS1_lEEED2Ev.exit: ; preds = %_ZNSt10_HashtableIN9Stockfish4MoveESt4pairIKS1_lESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_8MoveHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, %134
   ret ptr %.0.lcssa
 }
 

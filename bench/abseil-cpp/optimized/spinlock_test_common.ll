@@ -4745,6 +4745,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %133, %_ZNKSt14defau
 define internal void @_ZN4absl13base_internal12_GLOBAL__N_112TestFunctionEjPNS0_8SpinLockE(i32 noundef %0, ptr noundef %1) #3 personality ptr @__gxx_personality_v0 {
   %3 = zext i32 %0 to i64
   %4 = lshr i32 %0, 13
+  %invariant.op = sub i32 1640531527, %0
   br label %6
 
 5:                                                ; preds = %_ZN4absl13base_internal14SpinLockHolderD2Ev.exit
@@ -4796,50 +4797,49 @@ _ZN4absl13base_internal14SpinLockHolderD2Ev.exit: ; preds = %13, %17
   br i1 %exitcond28.not, label %5, label %6, !llvm.loop !153
 
 _ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit: ; preds = %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.preheader, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit
-  %.0926 = phi i64 [ %61, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit ], [ 0, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.preheader ]
+  %.0926 = phi i64 [ %60, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit ], [ 0, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.preheader ]
   %22 = add nuw nsw i64 %.0926, %3
   %23 = urem i64 %22, 10
   %24 = getelementptr inbounds nuw i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_16valuesE, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !27
-  %reass.sub = sub i32 %25, %0
-  %26 = add i32 %reass.sub, 1640531527
-  %27 = xor i32 %26, %4
-  %28 = add i32 %0, %27
-  %29 = sub i32 -1640531527, %28
-  %30 = shl i32 %27, 8
-  %31 = xor i32 %29, %30
-  %32 = add i32 %27, %31
-  %33 = sub i32 %0, %32
-  %34 = lshr i32 %31, 13
-  %35 = xor i32 %33, %34
-  %36 = add i32 %31, %35
-  %37 = sub i32 %27, %36
-  %38 = lshr i32 %35, 12
-  %39 = xor i32 %37, %38
-  %40 = add i32 %35, %39
-  %41 = sub i32 %31, %40
-  %42 = shl i32 %39, 16
-  %43 = xor i32 %41, %42
-  %44 = add i32 %39, %43
-  %45 = sub i32 %35, %44
-  %46 = lshr i32 %43, 5
-  %47 = xor i32 %45, %46
-  %48 = add i32 %43, %47
-  %49 = sub i32 %39, %48
-  %50 = lshr i32 %47, 3
-  %51 = xor i32 %49, %50
-  %52 = add i32 %47, %51
-  %53 = sub i32 %43, %52
-  %54 = shl i32 %51, 10
-  %55 = xor i32 %53, %54
-  %56 = add i32 %51, %55
-  %57 = sub i32 %47, %56
-  %58 = lshr i32 %55, 15
-  %59 = xor i32 %57, %58
-  store i32 %59, ptr %24, align 4, !tbaa !27
-  %60 = tail call noundef i32 @sched_yield() #20
-  %61 = add nuw nsw i64 %.0926, 1
-  %exitcond.not = icmp eq i64 %61, 10
+  %.reass.reass = add i32 %25, %invariant.op
+  %26 = xor i32 %.reass.reass, %4
+  %27 = add i32 %0, %26
+  %28 = sub i32 -1640531527, %27
+  %29 = shl i32 %26, 8
+  %30 = xor i32 %28, %29
+  %31 = add i32 %26, %30
+  %32 = sub i32 %0, %31
+  %33 = lshr i32 %30, 13
+  %34 = xor i32 %32, %33
+  %35 = add i32 %30, %34
+  %36 = sub i32 %26, %35
+  %37 = lshr i32 %34, 12
+  %38 = xor i32 %36, %37
+  %39 = add i32 %34, %38
+  %40 = sub i32 %30, %39
+  %41 = shl i32 %38, 16
+  %42 = xor i32 %40, %41
+  %43 = add i32 %38, %42
+  %44 = sub i32 %34, %43
+  %45 = lshr i32 %42, 5
+  %46 = xor i32 %44, %45
+  %47 = add i32 %42, %46
+  %48 = sub i32 %38, %47
+  %49 = lshr i32 %46, 3
+  %50 = xor i32 %48, %49
+  %51 = add i32 %46, %50
+  %52 = sub i32 %42, %51
+  %53 = shl i32 %50, 10
+  %54 = xor i32 %52, %53
+  %55 = add i32 %50, %54
+  %56 = sub i32 %46, %55
+  %57 = lshr i32 %54, 15
+  %58 = xor i32 %56, %57
+  store i32 %58, ptr %24, align 4, !tbaa !27
+  %59 = tail call noundef i32 @sched_yield() #20
+  %60 = add nuw nsw i64 %.0926, 1
+  %exitcond.not = icmp eq i64 %60, 10
   br i1 %exitcond.not, label %13, label %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit, !llvm.loop !154
 }
 

@@ -158,13 +158,14 @@ define range(i32 0, 5) i32 @uriComposeQueryExA(ptr noundef %0, ptr noundef reado
   %14 = ptrtoint ptr %0 to i64
   %15 = add nsw i32 %2, -1
   %16 = zext nneg i32 %15 to i64
+  %invariant.op = sub i64 1, %14
   br label %.split.i
 
-.split.i:                                         ; preds = %61, %.split.preheader.i
-  %.06395.i = phi ptr [ %63, %61 ], [ %1, %.split.preheader.i ]
-  %17 = phi i1 [ false, %61 ], [ true, %.split.preheader.i ]
-  %.06994.i = phi i32 [ %.372.i, %61 ], [ 0, %.split.preheader.i ]
-  %.07393.i = phi ptr [ %.275.i, %61 ], [ %0, %.split.preheader.i ]
+.split.i:                                         ; preds = %60, %.split.preheader.i
+  %.06395.i = phi ptr [ %62, %60 ], [ %1, %.split.preheader.i ]
+  %17 = phi i1 [ false, %60 ], [ true, %.split.preheader.i ]
+  %.06994.i = phi i32 [ %.372.i, %60 ], [ 0, %.split.preheader.i ]
+  %.07393.i = phi ptr [ %.275.i, %60 ], [ %0, %.split.preheader.i ]
   %18 = load ptr, ptr %.06395.i, align 8, !tbaa !7
   %19 = getelementptr inbounds nuw i8, ptr %.06395.i, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !12
@@ -219,47 +220,46 @@ define range(i32 0, 5) i32 @uriComposeQueryExA(ptr noundef %0, ptr noundef reado
   %47 = sext i32 %26 to i64
   %48 = getelementptr inbounds i8, ptr %18, i64 %47
   %49 = tail call ptr @uriEscapeExA(ptr noundef %18, ptr noundef %48, ptr noundef %.376.i, i32 noundef %4, i32 noundef %5) #7
-  br i1 %27, label %61, label %50
+  br i1 %27, label %60, label %50
 
 50:                                               ; preds = %46
   %51 = ptrtoint ptr %49 to i64
   %52 = sext i32 %35 to i64
-  %reass.sub = sub i64 %52, %14
-  %53 = add i64 %reass.sub, 1
-  %54 = add i64 %53, %51
-  %55 = icmp sgt i64 %54, %16
-  br i1 %55, label %uriComposeQueryEngineA.exit, label %56
+  %.reass.i.reass.reass = add i64 %52, %invariant.op
+  %53 = add i64 %.reass.i.reass.reass, %51
+  %54 = icmp sgt i64 %53, %16
+  br i1 %54, label %uriComposeQueryEngineA.exit, label %55
 
-56:                                               ; preds = %50
+55:                                               ; preds = %50
   store i8 61, ptr %49, align 1, !tbaa !16
-  %57 = getelementptr inbounds nuw i8, ptr %49, i64 1
-  %58 = sext i32 %32 to i64
-  %59 = getelementptr inbounds i8, ptr %20, i64 %58
-  %60 = tail call ptr @uriEscapeExA(ptr noundef nonnull %20, ptr noundef nonnull %59, ptr noundef nonnull %57, i32 noundef %4, i32 noundef %5) #7
-  br label %61
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 1
+  %57 = sext i32 %32 to i64
+  %58 = getelementptr inbounds i8, ptr %20, i64 %57
+  %59 = tail call ptr @uriEscapeExA(ptr noundef nonnull %20, ptr noundef nonnull %58, ptr noundef nonnull %56, i32 noundef %4, i32 noundef %5) #7
+  br label %60
 
-61:                                               ; preds = %56, %46
-  %.275.i = phi ptr [ %49, %46 ], [ %60, %56 ]
-  %62 = getelementptr inbounds nuw i8, ptr %.06395.i, i64 16
-  %63 = load ptr, ptr %62, align 8, !tbaa !13
-  %.not.i = icmp eq ptr %63, null
+60:                                               ; preds = %55, %46
+  %.275.i = phi ptr [ %49, %46 ], [ %59, %55 ]
+  %61 = getelementptr inbounds nuw i8, ptr %.06395.i, i64 16
+  %62 = load ptr, ptr %61, align 8, !tbaa !13
+  %.not.i = icmp eq ptr %62, null
   br i1 %.not.i, label %.split97.us.i, label %.split.i, !llvm.loop !14
 
-.split97.us.i:                                    ; preds = %61
+.split97.us.i:                                    ; preds = %60
   store i8 0, ptr %.275.i, align 1, !tbaa !16
   %.not88.i = icmp eq ptr %3, null
-  br i1 %.not88.i, label %uriComposeQueryEngineA.exit, label %64
+  br i1 %.not88.i, label %uriComposeQueryEngineA.exit, label %63
 
-64:                                               ; preds = %.split97.us.i
-  %65 = ptrtoint ptr %.275.i to i64
-  %66 = sub i64 %65, %14
-  %67 = trunc i64 %66 to i32
-  %68 = add nsw i32 %67, 1
-  store i32 %68, ptr %3, align 4, !tbaa !3
+63:                                               ; preds = %.split97.us.i
+  %64 = ptrtoint ptr %.275.i to i64
+  %65 = sub i64 %64, %14
+  %66 = trunc i64 %65 to i32
+  %67 = add nsw i32 %66, 1
+  store i32 %67, ptr %3, align 4, !tbaa !3
   br label %uriComposeQueryEngineA.exit
 
-uriComposeQueryEngineA.exit:                      ; preds = %50, %33, %31, %64, %.split97.us.i, %9, %6
-  %.0 = phi i32 [ 4, %9 ], [ 2, %6 ], [ 0, %64 ], [ 0, %.split97.us.i ], [ 4, %31 ], [ 4, %33 ], [ 4, %50 ]
+uriComposeQueryEngineA.exit:                      ; preds = %50, %33, %31, %63, %.split97.us.i, %9, %6
+  %.0 = phi i32 [ 4, %9 ], [ 2, %6 ], [ 0, %63 ], [ 0, %.split97.us.i ], [ 4, %31 ], [ 4, %33 ], [ 4, %50 ]
   ret i32 %.0
 }
 

@@ -17692,25 +17692,26 @@ define hidden noundef i32 @_ZN11upolynomial7manager31knuth_positive_root_upper_b
 
 .lr.ph:                                           ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %invariant.op = sub i32 1, %18
   br label %21
 
-._crit_edge.loopexit:                             ; preds = %45
+._crit_edge.loopexit:                             ; preds = %44
   %20 = add i32 %.1, 1
   br label %._crit_edge
 
-21:                                               ; preds = %.lr.ph, %45
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %.03947 = phi i32 [ 0, %.lr.ph ], [ %.1, %45 ]
+21:                                               ; preds = %.lr.ph, %44
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %44 ]
+  %.03947 = phi i32 [ 0, %.lr.ph ], [ %.1, %44 ]
   %22 = sub nuw nsw i64 %7, %indvars.iv
   %23 = getelementptr inbounds nuw %class.mpz, ptr %2, i64 %22
   %24 = load i32, ptr %23, align 8, !tbaa !8
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %45, label %26
+  br i1 %25, label %44, label %26
 
 26:                                               ; preds = %21
   %27 = icmp sgt i32 %24, 0
   %28 = xor i1 %10, %27
-  br i1 %28, label %29, label %45
+  br i1 %28, label %29, label %44
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %19, align 8, !tbaa !33
@@ -17727,21 +17728,20 @@ define hidden noundef i32 @_ZN11upolynomial7manager31knuth_positive_root_upper_b
 35:                                               ; preds = %33, %31
   %36 = phi i32 [ %32, %31 ], [ %34, %33 ]
   %37 = icmp ugt i32 %18, %36
-  br i1 %37, label %45, label %38
+  br i1 %37, label %44, label %38
 
 38:                                               ; preds = %35
-  %reass.sub = sub nuw i32 %36, %18
-  %39 = add i32 %reass.sub, 1
-  %40 = trunc nuw i64 %indvars.iv to i32
-  %41 = urem i32 %39, %40
-  %42 = icmp ne i32 %41, 0
-  %43 = udiv i32 %39, %40
-  %44 = zext i1 %42 to i32
-  %.0 = add i32 %43, %44
+  %.reass.reass = add i32 %36, %invariant.op
+  %39 = trunc nuw i64 %indvars.iv to i32
+  %40 = urem i32 %.reass.reass, %39
+  %41 = icmp ne i32 %40, 0
+  %42 = udiv i32 %.reass.reass, %39
+  %43 = zext i1 %41 to i32
+  %.0 = add i32 %42, %43
   %spec.select = tail call i32 @llvm.umax.i32(i32 %.0, i32 %.03947)
-  br label %45
+  br label %44
 
-45:                                               ; preds = %26, %35, %38, %21
+44:                                               ; preds = %26, %35, %38, %21
   %.1 = phi i32 [ %.03947, %21 ], [ %.03947, %26 ], [ %spec.select, %38 ], [ %.03947, %35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
