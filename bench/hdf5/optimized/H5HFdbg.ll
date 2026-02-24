@@ -417,7 +417,7 @@ define void @H5HF_iblock_print(ptr noundef readonly captures(none) %0, i1 nounde
   %10 = trunc nuw i8 %9 to i1
   %11 = xor i1 %10, true
   %12 = select i1 %8, i1 true, i1 %11
-  br i1 %12, label %13, label %213, !prof !9
+  br i1 %12, label %13, label %214, !prof !9
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -531,7 +531,7 @@ define void @H5HF_iblock_print(ptr noundef readonly captures(none) %0, i1 nounde
   %90 = load i32, ptr %26, align 8, !tbaa !79
   %91 = load i32, ptr %33, align 8, !tbaa !81
   %92 = icmp ugt i32 %90, %91
-  br i1 %92, label %.lr.ph141, label %194
+  br i1 %92, label %.lr.ph141, label %195
 
 .lr.ph141:                                        ; preds = %.critedge
   %93 = zext i32 %91 to i64
@@ -561,7 +561,7 @@ define void @H5HF_iblock_print(ptr noundef readonly captures(none) %0, i1 nounde
   br label %116
 
 116:                                              ; preds = %.lr.ph141, %._crit_edge138
-  %.1139 = phi i64 [ %93, %.lr.ph141 ], [ %190, %._crit_edge138 ]
+  %.1139 = phi i64 [ %93, %.lr.ph141 ], [ %191, %._crit_edge138 ]
   %117 = load ptr, ptr %107, align 8, !tbaa !82
   %118 = getelementptr inbounds nuw i64, ptr %117, i64 %.1139
   %119 = load i64, ptr %118, align 8, !tbaa !11
@@ -665,64 +665,64 @@ H5VM_log2_gen.exit:                               ; preds = %125, %130, %137, %1
   br i1 %.not144, label %._crit_edge138, label %.lr.ph137.preheader
 
 .lr.ph137.preheader:                              ; preds = %H5VM_log2_gen.exit
-  %176 = zext i32 %175 to i64
+  %177 = zext i32 %175 to i64
   br label %.lr.ph137
 
 .lr.ph137:                                        ; preds = %.lr.ph137.preheader, %.lr.ph137
-  %177 = phi i64 [ %188, %.lr.ph137 ], [ %176, %.lr.ph137.preheader ]
-  %.1122136 = phi i64 [ %186, %.lr.ph137 ], [ 0, %.lr.ph137.preheader ]
-  %178 = mul nuw i64 %177, %.1139
-  %179 = trunc nuw i64 %.1122136 to i32
-  %180 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 64, ptr noundef nonnull @.str.70, i32 noundef %179) #9
-  %181 = load ptr, ptr %115, align 8, !tbaa !84
-  %182 = getelementptr inbounds nuw %struct.H5HF_indirect_ent_t, ptr %181, i64 %178
-  %183 = getelementptr inbounds nuw %struct.H5HF_indirect_ent_t, ptr %182, i64 %.1122136
-  %184 = load i64, ptr %183, align 8, !tbaa !85
-  %185 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.72, i32 noundef %112, ptr noundef nonnull @.str.6, i32 noundef %114, ptr noundef nonnull %6, i64 noundef %184) #9
-  %186 = add nuw nsw i64 %.1122136, 1
-  %187 = load i32, ptr %32, align 8, !tbaa !83
-  %188 = zext i32 %187 to i64
-  %189 = icmp samesign ult i64 %186, %188
-  br i1 %189, label %.lr.ph137, label %._crit_edge138, !llvm.loop !96
+  %178 = phi i64 [ %189, %.lr.ph137 ], [ %177, %.lr.ph137.preheader ]
+  %.1122136 = phi i64 [ %187, %.lr.ph137 ], [ 0, %.lr.ph137.preheader ]
+  %179 = mul nuw i64 %178, %.1139
+  %180 = trunc nuw i64 %.1122136 to i32
+  %181 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 64, ptr noundef nonnull @.str.70, i32 noundef %180) #9
+  %182 = load ptr, ptr %115, align 8, !tbaa !84
+  %183 = getelementptr inbounds nuw %struct.H5HF_indirect_ent_t, ptr %182, i64 %179
+  %184 = getelementptr inbounds nuw %struct.H5HF_indirect_ent_t, ptr %183, i64 %.1122136
+  %185 = load i64, ptr %184, align 8, !tbaa !85
+  %186 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.72, i32 noundef %112, ptr noundef nonnull @.str.6, i32 noundef %114, ptr noundef nonnull %6, i64 noundef %185) #9
+  %187 = add nuw nsw i64 %.1122136, 1
+  %188 = load i32, ptr %32, align 8, !tbaa !83
+  %189 = zext i32 %188 to i64
+  %190 = icmp samesign ult i64 %187, %189
+  br i1 %190, label %.lr.ph137, label %._crit_edge138, !llvm.loop !96
 
 ._crit_edge138:                                   ; preds = %.lr.ph137, %H5VM_log2_gen.exit
-  %190 = add nuw nsw i64 %.1139, 1
-  %191 = load i32, ptr %26, align 8, !tbaa !79
-  %192 = zext i32 %191 to i64
-  %193 = icmp samesign ult i64 %190, %192
-  br i1 %193, label %116, label %.loopexit, !llvm.loop !97
+  %191 = add nuw nsw i64 %.1139, 1
+  %192 = load i32, ptr %26, align 8, !tbaa !79
+  %193 = zext i32 %192 to i64
+  %194 = icmp samesign ult i64 %191, %193
+  br i1 %194, label %116, label %.loopexit, !llvm.loop !97
 
-194:                                              ; preds = %.critedge
-  %195 = add nsw i32 %3, 3
-  %196 = call i32 @llvm.smax.i32(i32 %4, i32 3)
-  %197 = add nsw i32 %196, -3
-  %198 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.69, i32 noundef %195, ptr noundef nonnull @.str.6, i32 noundef %197, ptr noundef nonnull @.str.75) #9
+195:                                              ; preds = %.critedge
+  %196 = add nsw i32 %3, 3
+  %197 = call i32 @llvm.smax.i32(i32 %4, i32 3)
+  %198 = add nsw i32 %197, -3
+  %199 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.69, i32 noundef %196, ptr noundef nonnull @.str.6, i32 noundef %198, ptr noundef nonnull @.str.75) #9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge138, %194
-  br i1 %1, label %199, label %213
+.loopexit:                                        ; preds = %._crit_edge138, %195
+  br i1 %1, label %200, label %214
 
-199:                                              ; preds = %.loopexit
-  %200 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.76, i32 noundef %3, ptr noundef nonnull @.str.6) #9
-  %201 = add nsw i32 %3, 3
-  %202 = call i32 @llvm.smax.i32(i32 %4, i32 3)
-  %203 = add nsw i32 %202, -3
-  %204 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %205 = load i64, ptr %204, align 8, !tbaa !98
-  %206 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.35, i32 noundef %201, ptr noundef nonnull @.str.6, i32 noundef %203, ptr noundef nonnull @.str.77, i64 noundef %205) #9
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %208 = load ptr, ptr %207, align 8, !tbaa !99
-  %209 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.41, i32 noundef %201, ptr noundef nonnull @.str.6, i32 noundef %203, ptr noundef nonnull @.str.78, ptr noundef %208) #9
-  %210 = load ptr, ptr %207, align 8, !tbaa !99
-  %.not127 = icmp eq ptr %210, null
-  br i1 %.not127, label %213, label %211
+200:                                              ; preds = %.loopexit
+  %201 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.76, i32 noundef %3, ptr noundef nonnull @.str.6) #9
+  %202 = add nsw i32 %3, 3
+  %203 = call i32 @llvm.smax.i32(i32 %4, i32 3)
+  %204 = add nsw i32 %203, -3
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %206 = load i64, ptr %205, align 8, !tbaa !98
+  %207 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.35, i32 noundef %202, ptr noundef nonnull @.str.6, i32 noundef %204, ptr noundef nonnull @.str.77, i64 noundef %206) #9
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %209 = load ptr, ptr %208, align 8, !tbaa !99
+  %210 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.41, i32 noundef %202, ptr noundef nonnull @.str.6, i32 noundef %204, ptr noundef nonnull @.str.78, ptr noundef %209) #9
+  %211 = load ptr, ptr %208, align 8, !tbaa !99
+  %.not127 = icmp eq ptr %211, null
+  br i1 %.not127, label %214, label %212
 
-211:                                              ; preds = %199
-  %212 = add nsw i32 %3, 6
-  call void @H5HF_iblock_print(ptr noundef nonnull %210, i1 noundef zeroext true, ptr noundef %2, i32 noundef %212, i32 noundef %4)
-  br label %213
+212:                                              ; preds = %200
+  %213 = add nsw i32 %3, 6
+  call void @H5HF_iblock_print(ptr noundef nonnull %211, i1 noundef zeroext true, ptr noundef %2, i32 noundef %213, i32 noundef %4)
+  br label %214
 
-213:                                              ; preds = %.loopexit, %211, %199, %5
+214:                                              ; preds = %.loopexit, %212, %200, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }

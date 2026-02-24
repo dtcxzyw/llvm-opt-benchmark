@@ -1561,8 +1561,8 @@ isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
   %65 = icmp ult i32 %63, %64
   br i1 %65, label %.lr.ph.split.us, label %.loopexit
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %98
-  %66 = phi i32 [ %100, %98 ], [ %29, %.lr.ph.split.preheader ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %99
+  %66 = phi i32 [ %101, %98 ], [ %29, %.lr.ph.split.preheader ]
   %67 = zext i32 %66 to i64
   %68 = getelementptr inbounds nuw %struct.mq_item, ptr %32, i64 %67
   %69 = load i32, ptr %68, align 8
@@ -1612,27 +1612,27 @@ isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
 
 .thread39:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.us-phi = phi i64 [ %40, %.lr.ph.split.us ], [ %71, %.lr.ph.split ]
-  %92 = load i32, ptr %33, align 4, !alias.scope !14
-  %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds nuw %struct.mq_item, ptr %34, i64 %93
-  store i32 1, ptr %94, align 8, !alias.scope !14
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  store i64 %.us-phi, ptr %95, align 8, !alias.scope !14
-  %96 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  store i64 0, ptr %96, align 8, !alias.scope !14
-  %97 = add i32 %92, 1
-  store i32 %97, ptr %33, align 4, !alias.scope !14
+  %93 = load i32, ptr %33, align 4, !alias.scope !14
+  %94 = zext i32 %93 to i64
+  %95 = getelementptr inbounds nuw %struct.mq_item, ptr %34, i64 %94
+  store i32 1, ptr %95, align 8, !alias.scope !14
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  store i64 %.us-phi, ptr %96, align 8, !alias.scope !14
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 16
+  store i64 0, ptr %97, align 8, !alias.scope !14
+  %98 = add i32 %93, 1
+  store i32 %98, ptr %33, align 4, !alias.scope !14
   br label %.loopexit
 
-98:                                               ; preds = %.thread, %85
-  %99 = load i32, ptr %27, align 8
-  %100 = add i32 %99, 1
-  store i32 %100, ptr %27, align 8
-  %101 = load i32, ptr %28, align 4
-  %102 = icmp ult i32 %100, %101
-  br i1 %102, label %.lr.ph.split, label %.loopexit
+99:                                               ; preds = %.thread, %85
+  %100 = load i32, ptr %27, align 8
+  %101 = add i32 %100, 1
+  store i32 %101, ptr %27, align 8
+  %102 = load i32, ptr %28, align 4
+  %103 = icmp ult i32 %101, %102
+  br i1 %103, label %.lr.ph.split, label %.loopexit
 
-.loopexit:                                        ; preds = %98, %61, %isMultiTopType.exit, %.thread39
+.loopexit:                                        ; preds = %99, %61, %isMultiTopType.exit, %.thread39
   ret void
 }
 

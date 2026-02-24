@@ -16997,43 +16997,43 @@ _ZN3fmt3v1019basic_memory_bufferIjLm32ESaIjEED2Ev.exit: ; preds = %_ZN3fmt3v106d
 
 92:                                               ; preds = %.lr.ph50, %._crit_edge
   %indvars.iv70 = phi i32 [ 1, %.lr.ph50 ], [ %indvars.iv.next71, %._crit_edge ]
-  %.03149 = phi i32 [ %5, %.lr.ph50 ], [ %99, %._crit_edge ]
-  %.248 = phi i128 [ %.035.lcssa, %.lr.ph50 ], [ %98, %._crit_edge ]
+  %.03149 = phi i32 [ %5, %.lr.ph50 ], [ %100, %._crit_edge ]
+  %.248 = phi i128 [ %.035.lcssa, %.lr.ph50 ], [ %99, %._crit_edge ]
   %.reass.reass = add i32 %.03149, %invariant.op
   %93 = icmp slt i32 %.reass.reass, %5
   br i1 %93, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %92
-  %94 = sext i32 %indvars.iv70 to i64
+  %95 = sext i32 %indvars.iv70 to i64
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %92
-  %.3.lcssa = phi i128 [ %.248, %92 ], [ %108, %.lr.ph ]
-  %95 = trunc i128 %.3.lcssa to i32
-  %96 = zext i32 %.03149 to i64
-  %97 = getelementptr inbounds nuw i32, ptr %.pre82, i64 %96
-  store i32 %95, ptr %97, align 4, !tbaa !94
-  %98 = lshr i128 %.3.lcssa, 32
-  %99 = add nsw i32 %.03149, 1
+  %.3.lcssa = phi i128 [ %.248, %92 ], [ %109, %.lr.ph ]
+  %96 = trunc i128 %.3.lcssa to i32
+  %97 = zext i32 %.03149 to i64
+  %98 = getelementptr inbounds nuw i32, ptr %.pre82, i64 %97
+  store i32 %96, ptr %98, align 4, !tbaa !94
+  %99 = lshr i128 %.3.lcssa, 32
+  %100 = add nsw i32 %.03149, 1
   %indvars.iv.next71 = add i32 %indvars.iv70, 1
   %exitcond80.not = icmp eq i32 %indvars.iv70, %5
   br i1 %exitcond80.not, label %._crit_edge51.loopexit, label %92, !llvm.loop !344
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv74.in = phi i64 [ %53, %.lr.ph.preheader ], [ %indvars.iv74, %.lr.ph ]
-  %indvars.iv72 = phi i64 [ %94, %.lr.ph.preheader ], [ %indvars.iv.next73, %.lr.ph ]
-  %.344 = phi i128 [ %.248, %.lr.ph.preheader ], [ %108, %.lr.ph ]
+  %indvars.iv72 = phi i64 [ %95, %.lr.ph.preheader ], [ %indvars.iv.next73, %.lr.ph ]
+  %.344 = phi i128 [ %.248, %.lr.ph.preheader ], [ %109, %.lr.ph ]
   %indvars.iv74 = add nsw i64 %indvars.iv74.in, -1
   %indvars.iv.next73 = add nsw i64 %indvars.iv72, 1
-  %100 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv72
-  %101 = load i32, ptr %100, align 4, !tbaa !94
-  %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv74
-  %104 = load i32, ptr %103, align 4, !tbaa !94
-  %105 = zext i32 %104 to i64
-  %106 = mul nuw i64 %105, %102
-  %107 = zext i64 %106 to i128
-  %108 = add i128 %.344, %107
+  %101 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv72
+  %102 = load i32, ptr %101, align 4, !tbaa !94
+  %103 = zext i32 %102 to i64
+  %104 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv74
+  %105 = load i32, ptr %104, align 4, !tbaa !94
+  %106 = zext i32 %105 to i64
+  %107 = mul nuw i64 %106, %103
+  %108 = zext i64 %107 to i128
+  %109 = add i128 %.344, %108
   %lftr.wideiv103 = trunc i64 %indvars.iv.next73 to i32
   %exitcond = icmp eq i32 %lftr.wideiv103, %5
   br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !345

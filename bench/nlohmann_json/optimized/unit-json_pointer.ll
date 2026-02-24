@@ -58158,11 +58158,11 @@ define linkonce_odr dso_local void @_ZN8nlohmann16json_abi_v3_11_36detail17repla
   %invariant.op = sub i64 1, %6
   br label %17
 
-17:                                               ; preds = %21, %.lr.ph.i.i
-  %.041.i.i = phi i64 [ %8, %.lr.ph.i.i ], [ %24, %21 ]
+17:; preds = %21, %.lr.ph.i.i
+  %.02840.i.i = phi i64 [ %8, %.lr.ph.i.i ], [ %24, %21 ]
   %.02840.i.i = phi ptr [ %12, %.lr.ph.i.i ], [ %22, %21 ]
-  %.reass.reass.i.reass.reass.i.reass.reass.reass = add i64 %.041.i.i, %invariant.op
-  %18 = icmp eq i64 %.reass.reass.i.reass.reass.i.reass.reass.reass, 0
+  %17 = add i64 %.041.i.i, %invariant.op
+  %18 = icmp eq i64 %17, 0
   br i1 %18, label %._crit_edge, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %17
@@ -58172,43 +58172,43 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %17
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %19, ptr nonnull %4, i64 %6)
-  %20 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %20, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit, label %21
+  %19 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %19, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit, label %20
 
-21:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 1
-  %23 = ptrtoint ptr %22 to i64
-  %24 = sub i64 %16, %23
-  %.not33.i.i = icmp ult i64 %24, %6
+20:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 1
+  %22 = ptrtoint ptr %21 to i64
+  %23 = sub i64 %16, %22
+  %.not33.i.i = icmp ult i64 %23, %6
   br i1 %.not33.i.i, label %._crit_edge, label %17, !llvm.loop !550
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %25 = ptrtoint ptr %19 to i64
-  %26 = ptrtoint ptr %12 to i64
-  %27 = sub i64 %25, %26
-  %.not28 = icmp eq i64 %27, -1
+  %24 = ptrtoint ptr %19 to i64
+  %25 = ptrtoint ptr %12 to i64
+  %26 = sub i64 %24, %25
+  %.not28 = icmp eq i64 %26, -1
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit
-  %.027.i.i50 = phi i64 [ %27, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit ], [ 0, %3 ]
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %29
+  %.027.i.i51 = phi i64 [ %26, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit ], [ 0, %3 ]
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %28
 
-._crit_edge:                                      ; preds = %17, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %21, %44, %46, %45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit23, %54, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i18, %62, %11, %10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit
+._crit_edge:                                      ; preds = %17, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %20, %44, %46, %45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit23, %54, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i18, %62, %11, %10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit
   ret void
 
-29:                                               ; preds = %.lr.ph, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit23
-  %30 = phi i64 [ %6, %.lr.ph ], [ %41, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit23 ]
-  %31 = phi i64 [ %8, %.lr.ph ], [ %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit23 ]
-  %.029 = phi i64 [ %.027.i.i50, %.lr.ph ], [ %.027.i.i11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit23 ]
-  %32 = icmp ugt i64 %.029, %31
-  br i1 %32, label %33, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmRKS4_.exit
+28:                                               ; preds = %.lr.ph, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit23
+  %29 = phi i64 [ %6, %.lr.ph ], [ %41, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit23 ]
+  %30 = phi i64 [ %8, %.lr.ph ], [ %42, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit23 ]
+  %.029 = phi i64 [ %.027.i.i51, %.lr.ph ], [ %.027.i.i11, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit23 ]
+  %31 = icmp ugt i64 %.029, %30
+  br i1 %31, label %32, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmRKS4_.exit
 
-33:                                               ; preds = %29
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.337, ptr noundef nonnull @.str.340, i64 noundef %.029, i64 noundef %31) #33
+32:                                               ; preds = %28
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.337, ptr noundef nonnull @.str.340, i64 noundef %.029, i64 noundef %30) #33
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmRKS4_.exit: ; preds = %29
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmRKS4_.exit:; preds = %29
   %34 = load i64, ptr %28, align 8, !tbaa !19
   %35 = load ptr, ptr %2, align 8, !tbaa !27
   %36 = sub nuw i64 %31, %.029
@@ -58223,10 +58223,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmRKS4_.exit: ; pr
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmRKS4_.exit
-  %.not35.i.i = icmp ugt i64 %39, %42
-  br i1 %.not35.i.i, label %._crit_edge, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit23
+  %.not.i.i10 = icmp ugt i64 %39, %42
+  br i1 %.not.i.i10, label %._crit_edge, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit23
 
-45:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmRKS4_.exit
+45:                                               ; preds = %43
   %.not.i.i10 = icmp ult i64 %39, %42
   br i1 %.not.i.i10, label %46, label %._crit_edge
 
@@ -58237,23 +58237,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmRKS4_.exit: ; pr
   br i1 %.not3339.i.i12, label %._crit_edge, label %.lr.ph.i.i13
 
 .lr.ph.i.i13:                                     ; preds = %46
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 %42
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 %39
-  %51 = load i8, ptr %40, align 1, !tbaa !22
-  %52 = sext i8 %51 to i32
-  %53 = ptrtoint ptr %49 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %42
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 %39
+  %50 = load i8, ptr %40, align 1, !tbaa !22
+  %51 = sext i8 %50 to i32
+  %52 = ptrtoint ptr %48 to i64
   %invariant.op85 = sub i64 1, %41
   br label %54
 
-54:                                               ; preds = %62, %.lr.ph.i.i13
-  %.041.i.i14 = phi i64 [ %48, %.lr.ph.i.i13 ], [ %65, %62 ]
+54:; preds = %62, %.lr.ph.i.i13
+  %.02840.i.i16 = phi i64 [ %48, %.lr.ph.i.i13 ], [ %65, %62 ]
   %.02840.i.i15 = phi ptr [ %50, %.lr.ph.i.i13 ], [ %63, %62 ]
-  %.reass.reass.i.reass.reass.i17.reass.reass.reass = add i64 %.041.i.i14, %invariant.op85
-  %55 = icmp eq i64 %.reass.reass.i.reass.reass.i17.reass.reass.reass, 0
+  %53 = add i64 %.041.i.i14, %invariant.op85
+  %55 = icmp eq i64 %53, 0
   br i1 %55, label %._crit_edge, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i18
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i18:   ; preds = %54
-  %56 = tail call ptr @memchr(ptr noundef %.02840.i.i15, i32 noundef %52, i64 noundef %.reass.reass.i.reass.reass.i17.reass.reass.reass) #29
+  %56 = tail call ptr @memchr(ptr noundef %.02840.i.i15, i32 noundef %52, i64 noundef %53) #29
   %.not34.i.i19 = icmp eq ptr %56, null
   br i1 %.not34.i.i19, label %._crit_edge, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i20
 
@@ -58262,13 +58262,13 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i20: ; preds = %_ZNSt11char_traitsI
   %57 = icmp eq i32 %bcmp.i.i21, 0
   br i1 %57, label %58, label %62
 
-58:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i20
+58:; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i20
   %59 = ptrtoint ptr %56 to i64
   %60 = ptrtoint ptr %47 to i64
   %61 = sub i64 %59, %60
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit23
 
-62:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i20
+62:; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i20
   %63 = getelementptr inbounds nuw i8, ptr %56, i64 1
   %64 = ptrtoint ptr %63 to i64
   %65 = sub i64 %53, %64
@@ -58278,7 +58278,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i20: ; preds = %_ZNSt11char_traitsI
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m.exit23: ; preds = %44, %58
   %.027.i.i11 = phi i64 [ %39, %44 ], [ %61, %58 ]
   %.not = icmp eq i64 %.027.i.i11, -1
-  br i1 %.not, label %._crit_edge, label %29, !llvm.loop !551
+  br i1 %.not, label %._crit_edge, label %28, !llvm.loop !551
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)

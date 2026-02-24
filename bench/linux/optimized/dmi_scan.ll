@@ -776,7 +776,7 @@ define dso_local i32 @dmi_get_bios_year() #2 align 16 {
 define dso_local noundef range(i32 -12, 1) i32 @dmi_walk(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = load i32, ptr @dmi_available, align 4
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %63, label %5
+  br i1 %4, label %64, label %5
 
 5:                                                ; preds = %2
   %6 = load i64, ptr @dmi_base, align 8
@@ -784,15 +784,15 @@ define dso_local noundef range(i32 -12, 1) i32 @dmi_walk(ptr noundef readonly ca
   %8 = zext i32 %7 to i64
   %9 = tail call ptr @memremap(i64 noundef %6, i64 noundef %8, i64 noundef 1) #21
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %63, label %11
+  br i1 %10, label %64, label %11
 
 11:                                               ; preds = %5
   %12 = ptrtoint ptr %9 to i64
   %13 = load i32, ptr @dmi_len, align 4
   %14 = icmp ult i32 %13, 4
-  br i1 %14, label %.loopexit6, label %.preheader5.preheader
+  br i1 %14, label %.loopexit6, label %.preheader5
 
-.preheader5.preheader:                            ; preds = %11
+.preheader5:                                      ; preds = %11
   %invariant.op = sub i64 4, %12
   br label %.preheader5
 
@@ -867,24 +867,24 @@ define dso_local noundef range(i32 -12, 1) i32 @dmi_walk(ptr noundef readonly ca
 
 .loopexit6:                                       ; preds = %.loopexit6.loopexit, %11
   %.pre-phi = phi i64 [ %.pre14, %.loopexit6.loopexit ], [ %12, %11 ]
-  %56 = phi i32 [ %.pre, %.loopexit6.loopexit ], [ %13, %11 ]
-  %57 = zext i32 %56 to i64
-  %58 = sub i64 %.pre-phi, %12
-  %59 = icmp slt i64 %58, %57
-  br i1 %59, label %60, label %62
+  %57 = phi i32 [ %.pre, %.loopexit6.loopexit ], [ %13, %11 ]
+  %58 = zext i32 %57 to i64
+  %59 = sub i64 %.pre-phi, %12
+  %60 = icmp slt i64 %59, %58
+  br i1 %60, label %61, label %63
 
-60:                                               ; preds = %.loopexit6
-  %61 = trunc i64 %58 to i32
-  store i32 %61, ptr @dmi_len, align 4
-  br label %62
-
-62:                                               ; preds = %60, %.loopexit6
-  tail call void @memunmap(ptr noundef nonnull %9) #21
+61:                                               ; preds = %.loopexit6
+  %62 = trunc i64 %59 to i32
+  store i32 %62, ptr @dmi_len, align 4
   br label %63
 
-63:                                               ; preds = %62, %5, %2
-  %64 = phi i32 [ 0, %62 ], [ -6, %2 ], [ -12, %5 ]
-  ret i32 %64
+63:                                               ; preds = %61, %.loopexit6
+  tail call void @memunmap(ptr noundef nonnull %9) #21
+  br label %64
+
+64:                                               ; preds = %63, %5, %2
+  %65 = phi i32 [ 0, %62 ], [ -6, %2 ], [ -12, %5 ]
+  ret i32 %65
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1310,7 +1310,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @dmi_walk_early(ptr noundef
   %4 = zext i32 %2 to i64
   %5 = tail call ptr @early_memremap(i64 noundef %3, i64 noundef %4) #21
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %52, label %7
+  br i1 %6, label %53, label %7
 
 7:                                                ; preds = %1
   %8 = ptrtoint ptr %5 to i64
@@ -1395,25 +1395,25 @@ define internal fastcc noundef range(i32 -12, 1) i32 @dmi_walk_early(ptr noundef
   %.pre-phi14.i = phi i64 [ %.pre13.i, %._crit_edge.loopexit.i ], [ %8, %7 ]
   %.pre-phi.in.i = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ %9, %7 ]
   %.pre-phi.i = zext i32 %.pre-phi.in.i to i64
-  %48 = sub i64 %.pre-phi14.i, %8
-  %49 = icmp slt i64 %48, %.pre-phi.i
-  br i1 %49, label %50, label %dmi_decode_table.exit
+  %49 = sub i64 %.pre-phi14.i, %8
+  %50 = icmp slt i64 %49, %.pre-phi.i
+  br i1 %50, label %51, label %dmi_decode_table.exit
 
-50:                                               ; preds = %._crit_edge.i
-  %51 = trunc i64 %48 to i32
-  store i32 %51, ptr @dmi_len, align 4
-  %.pre = and i64 %48, 4294967295
+51:                                               ; preds = %._crit_edge.i
+  %52 = trunc i64 %49 to i32
+  store i32 %52, ptr @dmi_len, align 4
+  %.pre = and i64 %49, 4294967295
   br label %dmi_decode_table.exit
 
-dmi_decode_table.exit:                            ; preds = %._crit_edge.i, %50
+dmi_decode_table.exit:                            ; preds = %._crit_edge.i, %51
   %.pre-phi = phi i64 [ %.pre-phi.i, %._crit_edge.i ], [ %.pre, %50 ]
   tail call void @add_device_randomness(ptr noundef nonnull %5, i64 noundef %.pre-phi) #21
   tail call void @early_memunmap(ptr noundef nonnull %5, i64 noundef %4) #21
-  br label %52
+  br label %53
 
-52:                                               ; preds = %dmi_decode_table.exit, %1
-  %53 = phi i32 [ 0, %dmi_decode_table.exit ], [ -12, %1 ]
-  ret i32 %53
+53:                                               ; preds = %dmi_decode_table.exit, %1
+  %54 = phi i32 [ 0, %dmi_decode_table.exit ], [ -12, %1 ]
+  ret i32 %54
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

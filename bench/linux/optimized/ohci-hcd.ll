@@ -877,8 +877,8 @@ define internal fastcc noundef range(i32 -108, 1) i32 @root_port_reset(ptr nound
   br i1 %37, label %11, label %.thread2, !llvm.loop !18
 
 .thread2:                                         ; preds = %22, %29, %20, %13
-  %38 = phi i32 [ -108, %13 ], [ 0, %20 ], [ 0, %29 ], [ 0, %22 ]
-  ret i32 %38
+  %39 = phi i32 [ -108, %13 ], [ 0, %20 ], [ 0, %29 ], [ 0, %22 ]
+  ret i32 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -4373,35 +4373,35 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %4
   %25 = ptrtoint ptr %24 to i64
   br label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
 
-_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %33, %.lr.ph.i.i.i
-  %.033.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i ], [ %36, %33 ]
-  %.02132.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i ], [ %34, %33 ]
-  %.reass.reass.i.reass.reass.i.i = add i64 %.033.i.i.i, -1
-  %26 = tail call ptr @memchr(ptr noundef nonnull %.02132.i.i.i, i32 noundef 95, i64 noundef %.reass.reass.i.reass.reass.i.i) #22
-  %.not26.i.i.i = icmp eq ptr %26, null
+_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %34, %.lr.ph.i.i.i
+  %.033.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i ], [ %37, %33 ]
+  %.02132.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i ], [ %35, %33 ]
+  %26 = add i64 %.033.i.i.i, -1
+  %27 = tail call ptr @memchr(ptr noundef nonnull %.02132.i.i.i, i32 noundef 95, i64 noundef %26) #22
+  %.not26.i.i.i = icmp eq ptr %27, null
   br i1 %.not26.i.i.i, label %_Z12is_ugly_nameSt17basic_string_viewIcSt11char_traitsIcEE.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %26, ptr noundef nonnull dereferenceable(2) @.str.18, i64 2)
-  %27 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %27, label %28, label %33
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %27, ptr noundef nonnull dereferenceable(2) @.str.18, i64 2)
+  %28 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %28, label %29, label %34
 
-28:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  %29 = ptrtoint ptr %26 to i64
-  %30 = ptrtoint ptr %13 to i64
-  %31 = sub i64 %29, %30
-  %32 = icmp eq i64 %31, -1
+29:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  %30 = ptrtoint ptr %27 to i64
+  %31 = ptrtoint ptr %13 to i64
+  %32 = sub i64 %30, %31
+  %33 = icmp eq i64 %32, -1
   br label %_Z12is_ugly_nameSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-33:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  %35 = ptrtoint ptr %34 to i64
-  %36 = sub i64 %25, %35
-  %.not25.i.i.i = icmp ult i64 %36, 2
+34:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  %36 = ptrtoint ptr %35 to i64
+  %37 = sub i64 %25, %36
+  %.not25.i.i.i = icmp ult i64 %37, 2
   br i1 %.not25.i.i.i, label %_Z12is_ugly_nameSt17basic_string_viewIcSt11char_traitsIcEE.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, !llvm.loop !244
 
-_Z12is_ugly_nameSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, %33, %4, %_ZNK5clang9NamedDecl7getNameEv.exit, %20, %28
-  %.0.i = phi i1 [ false, %20 ], [ true, %_ZNK5clang9NamedDecl7getNameEv.exit ], [ %32, %28 ], [ true, %4 ], [ true, %33 ], [ true, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ]
+_Z12is_ugly_nameSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, %34, %4, %_ZNK5clang9NamedDecl7getNameEv.exit, %20, %29
+  %.0.i = phi i1 [ false, %20 ], [ true, %_ZNK5clang9NamedDecl7getNameEv.exit ], [ %33, %28 ], [ true, %4 ], [ true, %33 ], [ true, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ]
   ret i1 %.0.i
 }
 
@@ -4648,35 +4648,35 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %4
   %25 = ptrtoint ptr %24 to i64
   br label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
 
-_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %33, %.lr.ph.i.i.i
-  %.033.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i ], [ %36, %33 ]
-  %.02132.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i ], [ %34, %33 ]
-  %.reass.reass.i.reass.reass.i.i = add i64 %.033.i.i.i, -1
-  %26 = tail call ptr @memchr(ptr noundef nonnull %.02132.i.i.i, i32 noundef 95, i64 noundef %.reass.reass.i.reass.reass.i.i) #22
-  %.not26.i.i.i = icmp eq ptr %26, null
+_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %34, %.lr.ph.i.i.i
+  %.033.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i ], [ %37, %33 ]
+  %.02132.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i ], [ %35, %33 ]
+  %26 = add i64 %.033.i.i.i, -1
+  %27 = tail call ptr @memchr(ptr noundef nonnull %.02132.i.i.i, i32 noundef 95, i64 noundef %26) #22
+  %.not26.i.i.i = icmp eq ptr %27, null
   br i1 %.not26.i.i.i, label %_Z12is_ugly_nameSt17basic_string_viewIcSt11char_traitsIcEE.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %26, ptr noundef nonnull dereferenceable(2) @.str.18, i64 2)
-  %27 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %27, label %28, label %33
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %27, ptr noundef nonnull dereferenceable(2) @.str.18, i64 2)
+  %28 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %28, label %29, label %34
 
-28:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  %29 = ptrtoint ptr %26 to i64
-  %30 = ptrtoint ptr %13 to i64
-  %31 = sub i64 %29, %30
-  %32 = icmp ne i64 %31, -1
+29:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  %30 = ptrtoint ptr %27 to i64
+  %31 = ptrtoint ptr %13 to i64
+  %32 = sub i64 %30, %31
+  %33 = icmp ne i64 %32, -1
   br label %_Z12is_ugly_nameSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-33:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  %35 = ptrtoint ptr %34 to i64
-  %36 = sub i64 %25, %35
-  %.not25.i.i.i = icmp ult i64 %36, 2
+34:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  %36 = ptrtoint ptr %35 to i64
+  %37 = sub i64 %25, %36
+  %.not25.i.i.i = icmp ult i64 %37, 2
   br i1 %.not25.i.i.i, label %_Z12is_ugly_nameSt17basic_string_viewIcSt11char_traitsIcEE.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, !llvm.loop !244
 
-_Z12is_ugly_nameSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, %33, %4, %_ZNK5clang9NamedDecl7getNameEv.exit, %20, %28
-  %.0.i = phi i1 [ true, %20 ], [ false, %_ZNK5clang9NamedDecl7getNameEv.exit ], [ %32, %28 ], [ false, %4 ], [ false, %33 ], [ false, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ]
+_Z12is_ugly_nameSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, %34, %4, %_ZNK5clang9NamedDecl7getNameEv.exit, %20, %29
+  %.0.i = phi i1 [ true, %20 ], [ false, %_ZNK5clang9NamedDecl7getNameEv.exit ], [ %33, %28 ], [ false, %4 ], [ false, %33 ], [ false, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ]
   ret i1 %.0.i
 }
 

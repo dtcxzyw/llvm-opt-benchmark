@@ -4589,9 +4589,9 @@ if.then3.i.i.i.i.i:                               ; preds = %if.end.i.i.i4.i.i
   %59 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
   %and.i.i.i.i.i.i = and i64 %and7.i.i.i.i.i, %59
   %tobool4.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
-  br i1 %tobool4.not.i.i.i.i.i.i, label %if.end6, label %while.body.i.i.i.i.i.i.preheader
+  br i1 %tobool4.not.i.i.i.i.i.i, label %if.end6, label %while.body.i.i.i.i.i.i
 
-while.body.i.i.i.i.i.i.preheader:                 ; preds = %if.then3.i.i.i.i.i
+while.body.i.i.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i
   %invariant.op184 = sub i32 1, %extractNullsResult.sroa.0.0.extract.trunc.i
   br label %while.body.i.i.i.i.i.i
 
@@ -4665,9 +4665,9 @@ while.body.i43.i.i.i.i.i:                         ; preds = %while.body.i43.i.i.
 if.end14.i.i.i.i.i:                               ; preds = %while.body.i43.i.i.i.i.i, %if.then10.i.i.i.i.i, %if.end8.i.i.i.i.i
   %add114.i.i.i.i.i = add nsw i32 %mul.i.i.i.i.i.i, 64
   %cmp15.not115.i.i.i.i.i = icmp sgt i32 %add114.i.i.i.i.i, %58
-  br i1 %cmp15.not115.i.i.i.i.i, label %for.end.i.i.i6.i.i, label %for.body.i.i.i5.i.i.preheader
+  br i1 %cmp15.not115.i.i.i.i.i, label %for.end.i.i.i6.i.i, label %for.body.i.i.i5.i.i
 
-for.body.i.i.i5.i.i.preheader:                    ; preds = %if.end14.i.i.i.i.i
+for.body.i.i.i5.i.i:                              ; preds = %if.end14.i.i.i.i.i
   %invariant.op181 = sub i32 1, %extractNullsResult.sroa.0.0.extract.trunc.i
   %invariant.op182 = sub i32 1, %extractNullsResult.sroa.0.0.extract.trunc.i
   br label %for.body.i.i.i5.i.i
@@ -5016,8 +5016,8 @@ _ZNSt6vectorImSaImEE6resizeEm.exit.i.i:           ; preds = %invoke.cont.i.i.i.i
 
 for.body.i.i.i.i.i.preheader.i:                   ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i
   %108 = ptrtoint ptr %106 to i64
-  %reass.sub129 = sub i64 %108, %.pre-phi.i
-  %109 = and i64 %reass.sub129, -8
+  %reass.sub128 = sub i64 %108, %.pre-phi.i
+  %109 = and i64 %reass.sub128, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %107, i8 -1, i64 %109, i1 false)
   br label %_ZN8facebook5velox17SelectivityVector10resizeFillEib.exit.i
 
@@ -7896,8 +7896,8 @@ _ZNSt6vectorImSaImEE6resizeEm.exit.i.i:           ; preds = %invoke.cont.i.i.i.i
 
 for.body.i.i.i.i.i.preheader.i:                   ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i
   %137 = ptrtoint ptr %135 to i64
-  %reass.sub131 = sub i64 %137, %.pre-phi.i
-  %138 = and i64 %reass.sub131, -8
+  %reass.sub130 = sub i64 %137, %.pre-phi.i
+  %138 = and i64 %reass.sub130, -8
   call void @llvm.memset.p0.i64(ptr align 8 %136, i8 -1, i64 %138, i1 false)
   br label %_ZN8facebook5velox17SelectivityVector10resizeFillEib.exit.i
 

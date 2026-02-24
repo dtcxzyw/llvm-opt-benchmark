@@ -2100,8 +2100,8 @@ while.body.lr.ph.i.i.i:                           ; preds = %if.end.i.i.i
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %while.body.lr.ph.i.i.i, %if.end19.i.i.i
   %__len.022.i.i.i = phi i64 [ %path.coerce0, %while.body.lr.ph.i.i.i ], [ %sub.ptr.sub22.i.i.i, %if.end19.i.i.i ]
   %__first.021.i.i.i = phi ptr [ %path.coerce1, %while.body.lr.ph.i.i.i ], [ %incdec.ptr.i.i.i, %if.end19.i.i.i ]
-  %add.reass.reass.i.reass.reass.i.reass.reass.i = add i64 %__len.022.i.i.i, -3
-  %call.i.i.i.i = tail call ptr @memchr(ptr noundef nonnull %__first.021.i.i.i, i32 noundef 47, i64 noundef %add.reass.reass.i.reass.reass.i.reass.reass.i) #27
+  %add.i.i.i = add i64 %__len.022.i.i.i, -3
+  %call.i.i.i.i = tail call ptr @memchr(ptr noundef nonnull %__first.021.i.i.i, i32 noundef 47, i64 noundef %add.i.i.i) #27
   %tobool.not.i.i.i = icmp eq ptr %call.i.i.i.i, null
   br i1 %tobool.not.i.i.i, label %lor.end, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 

@@ -53,13 +53,13 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   %18 = call i32 @fclose(ptr noundef nonnull %16)
   br label %.thread.sink.split
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %51
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %52
   %.03767.i = phi i64 [ %.3.i, %51 ], [ 2097152, %.lr.ph.i.preheader ]
   %.04066.i = phi i64 [ %.242.i, %51 ], [ -1, %.lr.ph.i.preheader ]
   %.04565.i = phi i64 [ %.146.i, %51 ], [ 0, %.lr.ph.i.preheader ]
   %19 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %7, ptr noundef nonnull @.str.4, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
   %20 = icmp eq i32 %19, 2
-  br i1 %20, label %21, label %54
+  br i1 %20, label %21, label %55
 
 21:                                               ; preds = %.lr.ph.i
   %22 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.5) #9
@@ -78,12 +78,12 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   %26 = load i64, ptr %6, align 8
   %27 = add i64 %26, 4194303
   %28 = and i64 %27, -2097152
-  br i1 %.not53.i, label %29, label %51
+  br i1 %.not53.i, label %29, label %52
 
 29:                                               ; preds = %._crit_edge, %23
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %25, %23 ]
   %.not54.i = icmp ugt i64 %.pre.i, ptrtoint (ptr @execute_ex to i64)
-  br i1 %.not54.i, label %42, label %30
+  br i1 %.not54.i, label %43, label %30
 
 30:                                               ; preds = %29
   %.not56.i = icmp ugt i64 %.pre-phi, %.pre.i
@@ -100,82 +100,82 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
 
 36:                                               ; preds = %31, %30
   %.343.i = phi i64 [ %.04066.i, %30 ], [ %spec.select.i, %31 ]
-  %37 = load i64, ptr %6, align 8, !tbaa !19
-  %38 = icmp ugt i64 %37, ptrtoint (ptr @execute_ex to i64)
-  br i1 %38, label %39, label %46
+  %38 = load i64, ptr %6, align 8, !tbaa !19
+  %39 = icmp ugt i64 %38, ptrtoint (ptr @execute_ex to i64)
+  br i1 %39, label %40, label %47
 
-39:                                               ; preds = %36
+40:                                               ; preds = %36
   %.not57.i = icmp ne i64 %.343.i, -1
-  %40 = sub i64 %37, %.343.i
-  %41 = icmp ult i64 %40, 4294967295
-  %or.cond.i = and i1 %.not57.i, %41
-  br i1 %or.cond.i, label %.thread113, label %46
+  %41 = sub i64 %38, %.343.i
+  %42 = icmp ult i64 %41, 4294967295
+  %or.cond.i = and i1 %.not57.i, %42
+  br i1 %or.cond.i, label %.thread113, label %47
 
-42:                                               ; preds = %29
-  %43 = sub i64 %.pre-phi, %.04565.i
-  %44 = icmp ugt i64 %43, 4294967295
-  br i1 %44, label %54, label %45
+43:                                               ; preds = %29
+  %44 = sub i64 %.pre-phi, %.04565.i
+  %45 = icmp ugt i64 %44, 4294967295
+  br i1 %45, label %55, label %46
 
-45:                                               ; preds = %42
+46:                                               ; preds = %43
   %.not55.i = icmp ugt i64 %.pre-phi, %.pre.i
   br i1 %.not55.i, label %._crit_edge.i, label %.thread113
 
-._crit_edge.i:                                    ; preds = %45
+._crit_edge.i:                                    ; preds = %46
   %.pre76.i = load i64, ptr %6, align 8, !tbaa !19
-  br label %46
+  br label %47
 
-46:                                               ; preds = %._crit_edge.i, %39, %36
-  %47 = phi i64 [ %.pre76.i, %._crit_edge.i ], [ %37, %36 ], [ %37, %39 ]
+47:                                               ; preds = %._crit_edge.i, %40, %36
+  %48 = phi i64 [ %.pre76.i, %._crit_edge.i ], [ %38, %36 ], [ %38, %39 ]
   %.247.i = phi i64 [ %.04565.i, %._crit_edge.i ], [ %.04565.i, %36 ], [ %.pre.i, %39 ]
   %.5.i = phi i64 [ %.04066.i, %._crit_edge.i ], [ %.343.i, %36 ], [ -1, %39 ]
-  %48 = add i64 %47, 2097151
-  %49 = and i64 %48, -2097152
-  %50 = add i64 %49, 2097152
-  %spec.select58.i = select i1 %.not52.i, i64 %49, i64 %50
-  br label %51
+  %49 = add i64 %48, 2097151
+  %50 = and i64 %49, -2097152
+  %51 = add i64 %50, 2097152
+  %spec.select58.i = select i1 %.not52.i, i64 %50, i64 %51
+  br label %52
 
-51:                                               ; preds = %46, %23
+52:                                               ; preds = %47, %23
   %.146.i = phi i64 [ %.04565.i, %23 ], [ %.247.i, %46 ]
   %.242.i = phi i64 [ %.04066.i, %23 ], [ %.5.i, %46 ]
   %.3.i = phi i64 [ %28, %23 ], [ %spec.select58.i, %46 ]
-  %52 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef nonnull %16)
-  %.not51.i = icmp eq ptr %52, null
-  br i1 %.not51.i, label %54, label %.lr.ph.i
+  %53 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef nonnull %16)
+  %.not51.i = icmp eq ptr %53, null
+  br i1 %.not51.i, label %55, label %.lr.ph.i
 
-.thread113:                                       ; preds = %39, %45
+.thread113:                                       ; preds = %40, %46
   %.141.i.ph = phi i64 [ %.03767.i, %45 ], [ %.343.i, %39 ]
-  %53 = call i32 @fclose(ptr noundef nonnull %16)
+  %54 = call i32 @fclose(ptr noundef nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %56
+  br label %57
 
-54:                                               ; preds = %.lr.ph.i, %42, %51
+55:                                               ; preds = %.lr.ph.i, %43, %52
   %.141.i = phi i64 [ %.04066.i, %.lr.ph.i ], [ %.04066.i, %42 ], [ %.242.i, %51 ]
-  %55 = call i32 @fclose(ptr noundef nonnull %16)
+  %56 = call i32 @fclose(ptr noundef nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i64 %.141.i, -1
-  br i1 %.not, label %.thread, label %56
+  br i1 %.not, label %.thread, label %57
 
-56:                                               ; preds = %.thread113, %54
+57:                                               ; preds = %.thread113, %55
   %.in = phi i64 [ %.141.i.ph, %.thread113 ], [ %.141.i, %54 ]
-  %57 = inttoptr i64 %.in to ptr
-  %58 = icmp ugt i64 %0, 2097151
-  %59 = and i64 %0, 2097151
-  %60 = icmp eq i64 %59, 0
-  %or.cond82 = and i1 %58, %60
-  br i1 %or.cond82, label %61, label %63
+  %58 = inttoptr i64 %.in to ptr
+  %59 = icmp ugt i64 %0, 2097151
+  %60 = and i64 %0, 2097151
+  %61 = icmp eq i64 %60, 0
+  %or.cond82 = and i1 %59, %61
+  br i1 %or.cond82, label %62, label %64
 
-61:                                               ; preds = %56
-  %62 = call ptr @mmap(ptr noundef %57, i64 noundef %0, i32 noundef 3, i32 noundef 262193, i32 noundef -1, i64 noundef 0) #8
-  %.not74 = icmp eq ptr %62, inttoptr (i64 -1 to ptr)
-  br i1 %.not74, label %63, label %.thread96
+62:                                               ; preds = %57
+  %63 = call ptr @mmap(ptr noundef %58, i64 noundef %0, i32 noundef 3, i32 noundef 262193, i32 noundef -1, i64 noundef 0) #8
+  %.not74 = icmp eq ptr %63, inttoptr (i64 -1 to ptr)
+  br i1 %.not74, label %64, label %.thread96
 
-63:                                               ; preds = %61, %56
-  %64 = call ptr @mmap(ptr noundef %57, i64 noundef %0, i32 noundef 3, i32 noundef 49, i32 noundef -1, i64 noundef 0) #8
-  %.not75 = icmp eq ptr %64, inttoptr (i64 -1 to ptr)
+64:                                               ; preds = %62, %57
+  %65 = call ptr @mmap(ptr noundef %58, i64 noundef %0, i32 noundef 3, i32 noundef 49, i32 noundef -1, i64 noundef 0) #8
+  %.not75 = icmp eq ptr %65, inttoptr (i64 -1 to ptr)
   br i1 %.not75, label %.thread, label %.thread96
 
 .thread.sink.split:                               ; preds = %15, %.thread92
@@ -184,69 +184,69 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %4, %12, %63, %54
-  %65 = icmp ugt i64 %0, 2097151
-  %66 = and i64 %0, 2097151
-  %67 = icmp eq i64 %66, 0
-  %or.cond86 = and i1 %65, %67
-  br i1 %or.cond86, label %68, label %81
+.thread:                                          ; preds = %.thread.sink.split, %4, %12, %64, %55
+  %66 = icmp ugt i64 %0, 2097151
+  %67 = and i64 %0, 2097151
+  %68 = icmp eq i64 %67, 0
+  %or.cond86 = and i1 %66, %68
+  br i1 %or.cond86, label %69, label %82
 
-68:                                               ; preds = %.thread
-  %69 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 97, i32 noundef -1, i64 noundef 0) #8
-  %.not76 = icmp eq ptr %69, inttoptr (i64 -1 to ptr)
-  br i1 %.not76, label %79, label %70
+69:                                               ; preds = %.thread
+  %70 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 97, i32 noundef -1, i64 noundef 0) #8
+  %.not76 = icmp eq ptr %70, inttoptr (i64 -1 to ptr)
+  br i1 %.not76, label %80, label %71
 
-70:                                               ; preds = %68
-  %71 = call i32 @munmap(ptr noundef %69, i64 noundef %0) #8
-  %72 = ptrtoint ptr %69 to i64
-  %73 = add i64 %72, 2097151
-  %74 = and i64 %73, -2097152
-  %75 = inttoptr i64 %74 to ptr
-  %76 = call ptr @mmap(ptr noundef %75, i64 noundef %0, i32 noundef 3, i32 noundef 262257, i32 noundef -1, i64 noundef 0) #8
-  %.not77 = icmp eq ptr %76, inttoptr (i64 -1 to ptr)
-  br i1 %.not77, label %77, label %.thread96
+71:                                               ; preds = %69
+  %72 = call i32 @munmap(ptr noundef %70, i64 noundef %0) #8
+  %73 = ptrtoint ptr %70 to i64
+  %74 = add i64 %73, 2097151
+  %75 = and i64 %74, -2097152
+  %76 = inttoptr i64 %75 to ptr
+  %77 = call ptr @mmap(ptr noundef %76, i64 noundef %0, i32 noundef 3, i32 noundef 262257, i32 noundef -1, i64 noundef 0) #8
+  %.not77 = icmp eq ptr %77, inttoptr (i64 -1 to ptr)
+  br i1 %.not77, label %78, label %.thread96
 
-77:                                               ; preds = %70
-  %78 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 97, i32 noundef -1, i64 noundef 0) #8
-  %.not78 = icmp eq ptr %78, inttoptr (i64 -1 to ptr)
-  br i1 %.not78, label %79, label %.thread96
+78:                                               ; preds = %71
+  %79 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 97, i32 noundef -1, i64 noundef 0) #8
+  %.not78 = icmp eq ptr %79, inttoptr (i64 -1 to ptr)
+  br i1 %.not78, label %80, label %.thread96
 
-79:                                               ; preds = %77, %68
-  %80 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 262177, i32 noundef -1, i64 noundef 0) #8
-  %.not79 = icmp eq ptr %80, inttoptr (i64 -1 to ptr)
-  br i1 %.not79, label %81, label %.thread96
+80:                                               ; preds = %78, %69
+  %81 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 262177, i32 noundef -1, i64 noundef 0) #8
+  %.not79 = icmp eq ptr %81, inttoptr (i64 -1 to ptr)
+  br i1 %.not79, label %82, label %.thread96
 
-81:                                               ; preds = %79, %.thread
-  %82 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 33, i32 noundef -1, i64 noundef 0) #8
-  %83 = icmp eq ptr %82, inttoptr (i64 -1 to ptr)
-  br i1 %83, label %84, label %.thread96
+82:                                               ; preds = %80, %.thread
+  %83 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 33, i32 noundef -1, i64 noundef 0) #8
+  %84 = icmp eq ptr %83, inttoptr (i64 -1 to ptr)
+  br i1 %84, label %85, label %.thread96
 
-84:                                               ; preds = %81
+85:                                               ; preds = %82
   store ptr @.str, ptr %3, align 8, !tbaa !20
-  br label %91
+  br label %92
 
-.thread96:                                        ; preds = %63, %61, %81, %79, %77, %70
-  %.1 = phi ptr [ %76, %70 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %64, %63 ], [ %62, %61 ]
+.thread96:                                        ; preds = %64, %62, %82, %80, %78, %71
+  %.1 = phi ptr [ %77, %70 ], [ %79, %77 ], [ %81, %79 ], [ %83, %81 ], [ %65, %63 ], [ %63, %61 ]
   store i32 1, ptr %2, align 4, !tbaa !21
-  %85 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #10
-  store ptr %85, ptr %1, align 8, !tbaa !22
-  %.not80 = icmp eq ptr %85, null
-  br i1 %.not80, label %86, label %88
+  %86 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #10
+  store ptr %86, ptr %1, align 8, !tbaa !22
+  %.not80 = icmp eq ptr %86, null
+  br i1 %.not80, label %87, label %89
 
-86:                                               ; preds = %.thread96
-  %87 = call i32 @munmap(ptr noundef %.1, i64 noundef %0) #8
+87:                                               ; preds = %.thread96
+  %88 = call i32 @munmap(ptr noundef %.1, i64 noundef %0) #8
   store ptr @.str.1, ptr %3, align 8, !tbaa !20
-  br label %91
+  br label %92
 
-88:                                               ; preds = %.thread96
-  %89 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  store ptr %89, ptr %85, align 8, !tbaa !24
-  %90 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  store ptr %.1, ptr %90, align 8, !tbaa !26
-  store i64 %0, ptr %89, align 8, !tbaa !28
-  br label %91
+89:                                               ; preds = %.thread96
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  store ptr %90, ptr %86, align 8, !tbaa !24
+  %91 = getelementptr inbounds nuw i8, ptr %86, i64 32
+  store ptr %.1, ptr %91, align 8, !tbaa !26
+  store i64 %0, ptr %90, align 8, !tbaa !28
+  br label %92
 
-91:                                               ; preds = %88, %86, %84
+92:                                               ; preds = %89, %87, %85
   %.0 = phi i32 [ 0, %84 ], [ 1, %88 ], [ 0, %86 ]
   ret i32 %.0
 }

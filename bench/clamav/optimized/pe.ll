@@ -1659,7 +1659,7 @@ get_pe_property.exit:                             ; preds = %26, %31, %36
   %135 = call fastcc i32 @cli_hashsect(ptr noundef %134, ptr noundef nonnull readonly %89, ptr noundef %2, ptr noundef %4, ptr noundef %5)
   %136 = load i8, ptr @cli_debug_flag, align 1, !tbaa !33
   %.not.i2925 = icmp eq i8 %136, 0
-  br i1 %.not.i2925, label %.preheader3689, label %137
+  br i1 %.not.i2925, label %.preheader3688, label %137
 
 137:                                              ; preds = %133
   %138 = load ptr, ptr %2, align 16, !tbaa !80
@@ -1716,7 +1716,7 @@ get_pe_property.exit:                             ; preds = %26, %31, %36
   %186 = load i8, ptr %185, align 1, !tbaa !33
   %187 = zext i8 %186 to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.340, i32 noundef %140, i32 noundef %142, i32 noundef %145, i32 noundef %148, i32 noundef %151, i32 noundef %154, i32 noundef %157, i32 noundef %160, i32 noundef %163, i32 noundef %166, i32 noundef %169, i32 noundef %172, i32 noundef %175, i32 noundef %178, i32 noundef %181, i32 noundef %184, i32 noundef %187) #22
-  br label %.preheader3689
+  br label %.preheader3688
 
 188:                                              ; preds = %137
   %189 = load i8, ptr @cli_always_gen_section_hash, align 1, !tbaa !33
@@ -1795,17 +1795,17 @@ get_pe_property.exit:                             ; preds = %26, %31, %36
   %253 = zext i8 %252 to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.343, i32 noundef %206, i32 noundef %208, i32 noundef %211, i32 noundef %214, i32 noundef %217, i32 noundef %220, i32 noundef %223, i32 noundef %226, i32 noundef %229, i32 noundef %232, i32 noundef %235, i32 noundef %238, i32 noundef %241, i32 noundef %244, i32 noundef %247, i32 noundef %250, i32 noundef %253) #22
   call void @free(ptr noundef nonnull %201) #22
-  br label %.preheader3689
+  br label %.preheader3688
 
 254:                                              ; preds = %188
   %255 = load i32, ptr %90, align 4, !tbaa !3
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.344, i32 noundef %255) #22
-  br label %.preheader3689
+  br label %.preheader3688
 
-.preheader3689:                                   ; preds = %254, %202, %139, %133
+.preheader3688:                                   ; preds = %254, %202, %139, %133
   br label %256
 
-256:                                              ; preds = %.preheader3689, %281
+256:                                              ; preds = %.preheader3688, %281
   %indvars.iv127.i = phi i64 [ %indvars.iv.next128.i, %281 ], [ 0, %.preheader3689 ]
   %257 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv127.i
   %258 = load i32, ptr %257, align 4, !tbaa !10

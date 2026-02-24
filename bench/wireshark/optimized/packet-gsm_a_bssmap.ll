@@ -2136,9 +2136,9 @@ define internal noundef zeroext i16 @be_field_element_dissect(ptr noundef %0, pt
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %9 = icmp ugt i32 %4, 2
-  br i1 %9, label %.lr.ph.preheader, label %._crit_edge
+  br i1 %9, label %.lr.ph, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %7
+.lr.ph:                                           ; preds = %7
   %invariant.op = sub i32 2, %3
   br label %.lr.ph
 
@@ -2218,9 +2218,9 @@ define internal noundef zeroext i16 @be_field_element_dissect(ptr noundef %0, pt
   br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %49, %7
-  %51 = trunc i32 %4 to i16
+  %52 = trunc i32 %4 to i16
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret i16 %51
+  ret i16 %52
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

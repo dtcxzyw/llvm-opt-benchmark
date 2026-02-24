@@ -2288,9 +2288,9 @@ define weak_odr dso_local noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_trait
   %invariant.op = sub i64 1, %3
   br label %26
 
-26:                                               ; preds = %32, %.lr.ph.i.i
-  %27 = phi i64 [ %gepdiff.i, %.lr.ph.i.i ], [ %35, %32 ]
-  %.02529.i.i = phi ptr [ %23, %.lr.ph.i.i ], [ %33, %32 ]
+26:                                               ; preds = %33, %.lr.ph.i.i
+  %27 = phi i64 [ %gepdiff.i, %.lr.ph.i.i ], [ %36, %33 ]
+  %.02529.i.i = phi ptr [ %23, %.lr.ph.i.i ], [ %34, %33 ]
   %.reass.i.reass.i.reass.reass = add i64 %27, %invariant.op
   %28 = tail call noundef ptr @memchr(ptr noundef nonnull dereferenceable(1) %.02529.i.i, i32 noundef %25, i64 noundef %.reass.i.reass.i.reass.reass) #28
   %29 = icmp eq ptr %28, null
@@ -2299,7 +2299,7 @@ define weak_odr dso_local noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_trait
 30:                                               ; preds = %26
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %28, ptr nonnull %1, i64 %3)
   %31 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %31, label %_ZNSt3__118__search_substringB8ne210000IcNS_11char_traitsIcEEEEPKT_S5_S5_S5_S5_.exit.i, label %32
+  br i1 %32, label %_ZNSt3__118__search_substringB8ne210000IcNS_11char_traitsIcEEEEPKT_S5_S5_S5_S5_.exit.i, label %32
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 1
@@ -2319,7 +2319,7 @@ _ZNSt3__118__search_substringB8ne210000IcNS_11char_traitsIcEEEEPKT_S5_S5_S5_S5_.
   br label %_ZNSt3__110__str_findB8ne210000IcmNS_11char_traitsIcEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit
 
 _ZNSt3__110__str_findB8ne210000IcmNS_11char_traitsIcEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit: ; preds = %4, %17, %_ZNSt3__118__search_substringB8ne210000IcNS_11char_traitsIcEEEEPKT_S5_S5_S5_S5_.exit.i, %_ZNSt3__118__search_substringB8ne210000IcNS_11char_traitsIcEEEEPKT_S5_S5_S5_S5_.exit.thread.i
-  %.0.i = phi i64 [ %2, %17 ], [ -1, %4 ], [ -1, %_ZNSt3__118__search_substringB8ne210000IcNS_11char_traitsIcEEEEPKT_S5_S5_S5_S5_.exit.thread.i ], [ %39, %_ZNSt3__118__search_substringB8ne210000IcNS_11char_traitsIcEEEEPKT_S5_S5_S5_S5_.exit.i ]
+  %.0.i = phi i64 [ %2, %17 ], [ -1, %4 ], [ -1, %_ZNSt3__118__search_substringB8ne210000IcNS_11char_traitsIcEEEEPKT_S5_S5_S5_S5_.exit.thread.i ], [ %40, %_ZNSt3__118__search_substringB8ne210000IcNS_11char_traitsIcEEEEPKT_S5_S5_S5_S5_.exit.i ]
   ret i64 %.0.i
 }
 
@@ -5239,40 +5239,40 @@ define weak_odr dso_local noundef i64 @_ZNKSt3__112basic_stringIwNS_11char_trait
   %invariant.op = sub i64 1, %3
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %31, %.lr.ph.preheader.i.i
-  %26 = phi i64 [ %35, %31 ], [ %25, %.lr.ph.preheader.i.i ]
-  %.02530.i.i = phi ptr [ %32, %31 ], [ %23, %.lr.ph.preheader.i.i ]
+.lr.ph.i.i:                                       ; preds = %32, %.lr.ph.preheader.i.i
+  %26 = phi i64 [ %36, %31 ], [ %25, %.lr.ph.preheader.i.i ]
+  %.02530.i.i = phi ptr [ %33, %31 ], [ %23, %.lr.ph.preheader.i.i ]
   %.reass.i.reass.i.reass.reass = add i64 %26, %invariant.op
   %27 = tail call noundef ptr @wmemchr(ptr noundef %.02530.i.i, i32 noundef signext %24, i64 noundef %.reass.i.reass.i.reass.reass) #28
   %28 = icmp eq ptr %27, null
   br i1 %28, label %_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.thread.i, label %_ZNSt3__111char_traitsIwE7compareB8ne210000EPKwS3_m.exit.i.i
 
 _ZNSt3__111char_traitsIwE7compareB8ne210000EPKwS3_m.exit.i.i: ; preds = %.lr.ph.i.i
-  %29 = tail call noundef i32 @wmemcmp(ptr noundef nonnull %27, ptr noundef nonnull %1, i64 noundef %3) #28
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.i, label %31
+  %30 = tail call noundef i32 @wmemcmp(ptr noundef nonnull %27, ptr noundef nonnull %1, i64 noundef %3) #28
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.i, label %32
 
-31:                                               ; preds = %_ZNSt3__111char_traitsIwE7compareB8ne210000EPKwS3_m.exit.i.i
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %33 = ptrtoint ptr %32 to i64
-  %34 = sub i64 %21, %33
-  %35 = ashr exact i64 %34, 2
-  %36 = icmp slt i64 %35, %3
-  br i1 %36, label %_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !22
+32:                                               ; preds = %_ZNSt3__111char_traitsIwE7compareB8ne210000EPKwS3_m.exit.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %34 = ptrtoint ptr %33 to i64
+  %35 = sub i64 %21, %34
+  %36 = ashr exact i64 %35, 2
+  %37 = icmp slt i64 %36, %3
+  br i1 %37, label %_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !22
 
 _ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.i: ; preds = %_ZNSt3__111char_traitsIwE7compareB8ne210000EPKwS3_m.exit.i.i
   %.pre23.i = ptrtoint ptr %27 to i64
-  %37 = icmp eq ptr %27, %20
-  %38 = ptrtoint ptr %10 to i64
-  %39 = sub i64 %.pre23.i, %38
-  %40 = ashr exact i64 %39, 2
-  br i1 %37, label %_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.thread.i, label %_ZNSt3__110__str_findB8ne210000IwmNS_11char_traitsIwEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit
+  %38 = icmp eq ptr %27, %20
+  %39 = ptrtoint ptr %10 to i64
+  %40 = sub i64 %.pre23.i, %39
+  %41 = ashr exact i64 %40, 2
+  br i1 %38, label %_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.thread.i, label %_ZNSt3__110__str_findB8ne210000IwmNS_11char_traitsIwEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit
 
-_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.thread.i: ; preds = %31, %.lr.ph.i.i, %_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.i, %19
+_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.thread.i: ; preds = %32, %.lr.ph.i.i, %_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.i, %19
   br label %_ZNSt3__110__str_findB8ne210000IwmNS_11char_traitsIwEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit
 
 _ZNSt3__110__str_findB8ne210000IwmNS_11char_traitsIwEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit: ; preds = %4, %17, %_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.i, %_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.thread.i
-  %.0.i = phi i64 [ %2, %17 ], [ -1, %4 ], [ -1, %_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.thread.i ], [ %40, %_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.i ]
+  %.0.i = phi i64 [ %2, %17 ], [ -1, %4 ], [ -1, %_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.thread.i ], [ %41, %_ZNSt3__118__search_substringB8ne210000IwNS_11char_traitsIwEEEEPKT_S5_S5_S5_S5_.exit.i ]
   ret i64 %.0.i
 }
 

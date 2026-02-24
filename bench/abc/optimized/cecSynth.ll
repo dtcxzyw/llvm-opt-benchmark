@@ -745,7 +745,7 @@ Gia_ManAppendAnd.exit:                            ; preds = %336, %338
   %.val170.lcssa = phi i32 [ %.val170276, %.critedge12 ], [ %.val170, %350 ]
   tail call void @Gia_ManSetRegNum(ptr noundef %127, i32 noundef %.val170.lcssa) #20
   %.not159 = icmp eq ptr %4, null
-  br i1 %.not159, label %407, label %374
+  br i1 %.not159, label %409, label %374
 
 374:                                              ; preds = %.critedge14
   %375 = getelementptr i8, ptr %127, i64 24
@@ -814,8 +814,8 @@ Gia_ManAppendAnd.exit:                            ; preds = %336, %338
   %400 = load i32, ptr %399, align 4, !tbaa !22
   %401 = sext i32 %400 to i64
   %402 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val215, i64 %401
-  %403 = getelementptr i8, ptr %402, i64 8
-  %.val223 = load i32, ptr %403, align 4, !tbaa !52
+  %404 = getelementptr i8, ptr %402, i64 8
+  %.val223 = load i32, ptr %404, align 4, !tbaa !52
   %404 = ashr i32 %.val223, 1
   %405 = sext i32 %404 to i64
   %406 = getelementptr inbounds i32, ptr %378, i64 %405
@@ -826,18 +826,18 @@ Gia_ManAppendAnd.exit:                            ; preds = %336, %338
 
 .critedge18:                                      ; preds = %395, %.critedge16
   store ptr %378, ptr %4, align 8, !tbaa !65
-  br label %407
+  br label %409
 
-407:                                              ; preds = %.critedge18, %.critedge14
-  %408 = load ptr, ptr %158, align 8, !tbaa !21
-  %.not.i236 = icmp eq ptr %408, null
-  br i1 %.not.i236, label %Vec_IntFree.exit237, label %409
+409:                                              ; preds = %.critedge18, %.critedge14
+  %410 = load ptr, ptr %158, align 8, !tbaa !21
+  %.not.i236 = icmp eq ptr %410, null
+  br i1 %.not.i236, label %Vec_IntFree.exit237, label %411
 
-409:                                              ; preds = %407
-  tail call void @free(ptr noundef nonnull %408) #20
+411:                                              ; preds = %409
+  tail call void @free(ptr noundef nonnull %410) #20
   br label %Vec_IntFree.exit237
 
-Vec_IntFree.exit237:                              ; preds = %407, %409
+Vec_IntFree.exit237:                              ; preds = %409, %411
   tail call void @free(ptr noundef nonnull %58) #20
   ret ptr %127
 }

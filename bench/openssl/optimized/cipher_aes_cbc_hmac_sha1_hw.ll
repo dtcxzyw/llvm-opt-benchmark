@@ -1848,17 +1848,17 @@ define internal i32 @aesni_cbc_hmac_sha1_tls1_multiblock_encrypt(ptr noundef %0,
 
 ._crit_edge352.i:                                 ; preds = %222, %._crit_edge340.thread.i
   %.0309.lcssa.i = phi i64 [ 0, %._crit_edge340.thread.i ], [ %280, %222 ]
-  %281 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  call void @aesni_multi_cbc_encrypt(ptr noundef nonnull %5, ptr noundef nonnull %281, i32 noundef range(i32 0, 1073741824) %15) #9
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  call void @aesni_multi_cbc_encrypt(ptr noundef nonnull %5, ptr noundef nonnull %282, i32 noundef range(i32 0, 1073741824) %15) #9
   call void @OPENSSL_cleanse(ptr noundef nonnull %7, i64 noundef 1024) #9
   call void @OPENSSL_cleanse(ptr noundef nonnull %28, i64 noundef 160) #9
-  %282 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  store i64 %.0309.lcssa.i, ptr %282, align 8, !tbaa !89
-  %283 = trunc i64 %.0309.lcssa.i to i32
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  store i64 %.0309.lcssa.i, ptr %283, align 8, !tbaa !89
+  %284 = trunc i64 %.0309.lcssa.i to i32
   br label %tls1_multi_block_encrypt.exit
 
 tls1_multi_block_encrypt.exit:                    ; preds = %2, %._crit_edge352.i
-  %.0.i = phi i32 [ %283, %._crit_edge352.i ], [ 0, %2 ]
+  %.0.i = phi i32 [ %284, %._crit_edge352.i ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -5246,24 +5246,24 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i:       ; preds = %19
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i
   %bcmp.i = tail call i32 @bcmp(ptr nonnull %21, ptr nonnull %1, i64 %4)
-  %22 = icmp eq i32 %bcmp.i, 0
-  br i1 %22, label %23, label %27
+  %21 = icmp eq i32 %bcmp.i, 0
+  br i1 %21, label %22, label %26
 
-23:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i
-  %24 = ptrtoint ptr %21 to i64
-  %25 = ptrtoint ptr %12 to i64
-  %26 = sub i64 %24, %25
+22:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i
+  %23 = ptrtoint ptr %21 to i64
+  %24 = ptrtoint ptr %12 to i64
+  %25 = sub i64 %23, %24
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm.exit
 
-27:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i
-  %28 = getelementptr inbounds nuw i8, ptr %21, i64 1
-  %29 = ptrtoint ptr %28 to i64
-  %30 = sub i64 %18, %29
-  %.not33.i = icmp ult i64 %30, %4
+26:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 1
+  %28 = ptrtoint ptr %27 to i64
+  %29 = sub i64 %18, %28
+  %.not33.i = icmp ult i64 %29, %4
   br i1 %.not33.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm.exit, label %19, !llvm.loop !27
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm.exit: ; preds = %19, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %27, %8, %10, %11, %23
-  %.027.i = phi i64 [ %9, %8 ], [ -1, %10 ], [ %26, %23 ], [ -1, %11 ], [ -1, %27 ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ -1, %19 ]
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm.exit: ; preds = %19, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %26, %8, %10, %11, %22
+  %.027.i = phi i64 [ %9, %8 ], [ -1, %10 ], [ %25, %23 ], [ -1, %11 ], [ -1, %27 ], [ -1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ -1, %19 ]
   ret i64 %.027.i
 }
 

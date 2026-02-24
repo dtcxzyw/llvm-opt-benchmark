@@ -11075,37 +11075,37 @@ _ZN3fmt3v1119basic_memory_bufferIjLm32ENS0_6detail9allocatorIjEEE6resizeEm.exit:
 _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit.i: ; preds = %80, %77
   %85 = and i64 %indvars.iv.i, 4294967295
   %86 = icmp ult i64 %54, %85
-  br i1 %86, label %87, label %106
+  br i1 %86, label %87, label %107
 
 87:                                               ; preds = %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit.i
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %89 = load ptr, ptr %88, align 8, !tbaa !20
   invoke void %89(ptr noundef nonnull align 8 dereferenceable(172) %0, i64 noundef %85)
-          to label %.noexc47 unwind label %115
+          to label %.noexc47 unwind label %116
 
 .noexc47:                                         ; preds = %87
   %.pre.i.i.i = load i64, ptr %10, align 8, !tbaa !24
-  br label %106
+  br label %107
 
 90:                                               ; preds = %.lr.ph68, %._crit_edge
   %indvars.iv102 = phi i64 [ %59, %.lr.ph68 ], [ %indvars.iv.next103, %._crit_edge ]
   %indvars.iv92 = phi i32 [ 1, %.lr.ph68 ], [ %indvars.iv.next93, %._crit_edge ]
-  %.266 = phi i128 [ %.037.lcssa, %.lr.ph68 ], [ %96, %._crit_edge ]
+  %.266 = phi i128 [ %.037.lcssa, %.lr.ph68 ], [ %97, %._crit_edge ]
   %91 = trunc nuw i64 %indvars.iv102 to i32
   %.reass.reass = add i32 %91, %invariant.op
   %92 = icmp slt i32 %.reass.reass, %5
   br i1 %92, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %90
-  %93 = sext i32 %indvars.iv92 to i64
+  %94 = sext i32 %indvars.iv92 to i64
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %90
-  %.3.lcssa = phi i128 [ %.266, %90 ], [ %105, %.lr.ph ]
-  %94 = trunc i128 %.3.lcssa to i32
-  %95 = getelementptr inbounds nuw i32, ptr %.pre106, i64 %indvars.iv102
-  store i32 %94, ptr %95, align 4, !tbaa !54
-  %96 = lshr i128 %.3.lcssa, 32
+  %.3.lcssa = phi i128 [ %.266, %90 ], [ %106, %.lr.ph ]
+  %95 = trunc i128 %.3.lcssa to i32
+  %96 = getelementptr inbounds nuw i32, ptr %.pre106, i64 %indvars.iv102
+  store i32 %95, ptr %96, align 4, !tbaa !54
+  %97 = lshr i128 %.3.lcssa, 32
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %indvars.iv.next93 = add i32 %indvars.iv92, 1
   %exitcond105.not = icmp eq i32 %indvars.iv92, %5
@@ -11113,61 +11113,61 @@ _ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit.i: ; pre
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv96.in = phi i64 [ %59, %.lr.ph.preheader ], [ %indvars.iv96, %.lr.ph ]
-  %indvars.iv94 = phi i64 [ %93, %.lr.ph.preheader ], [ %indvars.iv.next95, %.lr.ph ]
-  %.362 = phi i128 [ %.266, %.lr.ph.preheader ], [ %105, %.lr.ph ]
+  %indvars.iv94 = phi i64 [ %94, %.lr.ph.preheader ], [ %indvars.iv.next95, %.lr.ph ]
+  %.362 = phi i128 [ %.266, %.lr.ph.preheader ], [ %106, %.lr.ph ]
   %indvars.iv96 = add nsw i64 %indvars.iv96.in, -1
   %indvars.iv.next95 = add nsw i64 %indvars.iv94, 1
-  %97 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv94
-  %98 = load i32, ptr %97, align 4, !tbaa !54
-  %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv96
-  %101 = load i32, ptr %100, align 4, !tbaa !54
-  %102 = zext i32 %101 to i64
-  %103 = mul nuw i64 %102, %99
-  %104 = zext i64 %103 to i128
-  %105 = add i128 %.362, %104
+  %98 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv94
+  %99 = load i32, ptr %98, align 4, !tbaa !54
+  %100 = zext i32 %99 to i64
+  %101 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv96
+  %102 = load i32, ptr %101, align 4, !tbaa !54
+  %103 = zext i32 %102 to i64
+  %104 = mul nuw i64 %103, %100
+  %105 = zext i64 %104 to i128
+  %106 = add i128 %.362, %105
   %lftr.wideiv127 = trunc i64 %indvars.iv.next95 to i32
   %exitcond = icmp eq i32 %lftr.wideiv127, %5
   br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !164
 
-106:                                              ; preds = %.noexc47, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit.i
-  %107 = phi i64 [ %54, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit.i ], [ %.pre.i.i.i, %.noexc47 ]
-  %108 = call noundef i64 @llvm.umin.i64(i64 %85, i64 %107)
-  store i64 %108, ptr %3, align 8, !tbaa !55
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %110 = load i32, ptr %109, align 8, !tbaa !25
-  %111 = shl nsw i32 %110, 1
-  store i32 %111, ptr %109, align 8, !tbaa !25
-  %112 = load ptr, ptr %2, align 8, !tbaa !23
-  %113 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.not.i.i = icmp eq ptr %112, %113
-  br i1 %.not.i.i, label %_ZN3fmt3v1119basic_memory_bufferIjLm32ENS0_6detail9allocatorIjEEED2Ev.exit, label %114
+107:                                              ; preds = %.noexc47, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit.i
+  %108 = phi i64 [ %54, %_ZN3fmt3v116detail11to_unsignedIiEENSt13make_unsignedIT_E4typeES4_.exit.i ], [ %.pre.i.i.i, %.noexc47 ]
+  %109 = call noundef i64 @llvm.umin.i64(i64 %85, i64 %108)
+  store i64 %109, ptr %3, align 8, !tbaa !55
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %111 = load i32, ptr %110, align 8, !tbaa !25
+  %112 = shl nsw i32 %111, 1
+  store i32 %112, ptr %110, align 8, !tbaa !25
+  %113 = load ptr, ptr %2, align 8, !tbaa !23
+  %114 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %.not.i.i = icmp eq ptr %113, %114
+  br i1 %.not.i.i, label %_ZN3fmt3v1119basic_memory_bufferIjLm32ENS0_6detail9allocatorIjEEED2Ev.exit, label %115
 
-114:                                              ; preds = %106
-  call void @free(ptr noundef %112) #34
+115:                                              ; preds = %107
+  call void @free(ptr noundef %113) #34
   br label %_ZN3fmt3v1119basic_memory_bufferIjLm32ENS0_6detail9allocatorIjEEED2Ev.exit
 
-_ZN3fmt3v1119basic_memory_bufferIjLm32ENS0_6detail9allocatorIjEEED2Ev.exit: ; preds = %106, %114
+_ZN3fmt3v1119basic_memory_bufferIjLm32ENS0_6detail9allocatorIjEEED2Ev.exit: ; preds = %107, %115
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-115:                                              ; preds = %87
-  %116 = landingpad { ptr, i32 }
+116:                                              ; preds = %87
+  %117 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %115, %60, %46
-  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %61, %60 ], [ %116, %115 ]
-  %117 = load ptr, ptr %2, align 8, !tbaa !23
-  %118 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.not.i.i48 = icmp eq ptr %117, %118
-  br i1 %.not.i.i48, label %_ZN3fmt3v1119basic_memory_bufferIjLm32ENS0_6detail9allocatorIjEEED2Ev.exit49, label %119
+.body:                                            ; preds = %116, %60, %46
+  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %61, %60 ], [ %117, %115 ]
+  %118 = load ptr, ptr %2, align 8, !tbaa !23
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %.not.i.i48 = icmp eq ptr %118, %119
+  br i1 %.not.i.i48, label %_ZN3fmt3v1119basic_memory_bufferIjLm32ENS0_6detail9allocatorIjEEED2Ev.exit49, label %120
 
-119:                                              ; preds = %.body
-  call void @free(ptr noundef %117) #34
+120:                                              ; preds = %.body
+  call void @free(ptr noundef %118) #34
   br label %_ZN3fmt3v1119basic_memory_bufferIjLm32ENS0_6detail9allocatorIjEEED2Ev.exit49
 
-_ZN3fmt3v1119basic_memory_bufferIjLm32ENS0_6detail9allocatorIjEEED2Ev.exit49: ; preds = %.body, %119
+_ZN3fmt3v1119basic_memory_bufferIjLm32ENS0_6detail9allocatorIjEEED2Ev.exit49: ; preds = %.body, %120
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn
 }

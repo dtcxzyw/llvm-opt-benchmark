@@ -4300,7 +4300,7 @@ while.body.lr.ph.i.i.i:                           ; preds = %if.end6.i.i.i
   %invariant.op = sub i64 1, %2
   br label %while.body.i.i.i
 
-while.body.i.i.i:                                 ; preds = %if.end19.i.i.i, %while.body.lr.ph.i.i.i
+_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %if.end19.i.i.i, %while.body.lr.ph.i.i.i
   %__len.022.i.i.i = phi i64 [ %sub.i.i.i, %while.body.lr.ph.i.i.i ], [ %sub.ptr.sub22.i.i.i, %if.end19.i.i.i ]
   %__first.021.i.i.i = phi ptr [ %add.ptr.i.i.i, %while.body.lr.ph.i.i.i ], [ %incdec.ptr.i.i.i, %if.end19.i.i.i ]
   %add.reass.reass.i.reass.reass.i.reass.reass.i.reass.reass.reass = add i64 %__len.022.i.i.i, %invariant.op
@@ -4328,7 +4328,7 @@ if.end19.i.i.i:                                   ; preds = %_ZNSt11char_traitsI
   %sub.ptr.rhs.cast21.i.i.i = ptrtoint ptr %incdec.ptr.i.i.i to i64
   %sub.ptr.sub22.i.i.i = sub i64 %sub.ptr.lhs.cast20.i.i.i, %sub.ptr.rhs.cast21.i.i.i
   %cmp11.not.i.i.i = icmp ult i64 %sub.ptr.sub22.i.i.i, %2
-  br i1 %cmp11.not.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_114countOccurenceERKSt17basic_string_viewIcSt11char_traitsIcEERKNSt7__cxx1112basic_stringIcS5_SaIcEEE.exit, label %while.body.i.i.i, !llvm.loop !19
+  br i1 %cmp11.not.i.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_114countOccurenceERKSt17basic_string_viewIcSt11char_traitsIcEERKNSt7__cxx1112basic_stringIcS5_SaIcEEE.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, !llvm.loop !19
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i: ; preds = %if.then17.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi i64 [ %pos.0.i, %if.then.i.i.i ], [ %sub.ptr.sub.i.i.i, %if.then17.i.i.i ]
@@ -4353,8 +4353,8 @@ invoke.cont6:                                     ; preds = %_ZN8facebook5velox9
   %7 = load ptr, ptr %_M_str.i.i.i, align 8
   %8 = load i64, ptr %format, align 8
   %add.ptr = getelementptr inbounds i8, ptr %7, i64 %8
-  %cmp43 = icmp sgt i64 %8, 0
-  br i1 %cmp43, label %while.body.lr.ph, label %while.end126
+  %cmp44 = icmp sgt i64 %8, 0
+  br i1 %cmp44, label %while.body.lr.ph, label %while.end126
 
 while.body.lr.ph:                                 ; preds = %invoke.cont6
   %_M_str.i36 = getelementptr inbounds nuw i8, ptr %ref.tmp110, i64 8
@@ -4366,17 +4366,17 @@ while.body.lr.ph:                                 ; preds = %invoke.cont6
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end125
-  %cur.044 = phi ptr [ %7, %while.body.lr.ph ], [ %tokenEnd.0, %if.end125 ]
-  %9 = load i8, ptr %cur.044, align 1
+  %cur.045 = phi ptr [ %7, %while.body.lr.ph ], [ %tokenEnd.0, %if.end125 ]
+  %9 = load i8, ptr %cur.045, align 1
   %cmp9 = icmp eq i8 %9, 37
   br i1 %cmp9, label %if.then10, label %while.cond117.preheader
 
 while.cond117.preheader:                          ; preds = %while.body
-  %cmp11840 = icmp ult ptr %cur.044, %add.ptr
-  br i1 %cmp11840, label %while.body121, label %while.end
+  %cmp11841 = icmp ult ptr %cur.045, %add.ptr
+  br i1 %cmp11841, label %while.body121, label %while.end
 
 if.then10:                                        ; preds = %while.body
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %cur.044, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %cur.045, i64 1
   %cmp11 = icmp eq ptr %incdec.ptr, %add.ptr
   br i1 %cmp11, label %while.end126, label %if.end13
 
@@ -4587,7 +4587,7 @@ sw.default:                                       ; preds = %if.end13
           to label %sw.epilog unwind label %lpad15.loopexit
 
 sw.epilog:                                        ; preds = %sw.bb103.invoke, %sw.bb78.invoke, %sw.bb57.invoke, %sw.bb36.invoke, %sw.bb33.invoke, %sw.bb24.invoke, %sw.bb21.invoke, %sw.bb18.invoke, %sw.bb.invoke, %sw.default, %sw.bb109, %sw.bb100, %sw.bb94, %sw.bb42, %sw.bb39, %sw.bb30
-  %incdec.ptr116 = getelementptr inbounds nuw i8, ptr %cur.044, i64 2
+  %incdec.ptr116 = getelementptr inbounds nuw i8, ptr %cur.045, i64 2
   br label %if.end125
 
 land.rhsthread-pre-split:                         ; preds = %while.body121
@@ -4596,8 +4596,8 @@ land.rhsthread-pre-split:                         ; preds = %while.body121
   br i1 %cmp120.not, label %while.end, label %while.body121
 
 while.body121:                                    ; preds = %while.cond117.preheader, %land.rhsthread-pre-split
-  %tokenEnd.14159 = phi ptr [ %incdec.ptr122, %land.rhsthread-pre-split ], [ %cur.044, %while.cond117.preheader ]
-  %incdec.ptr122 = getelementptr inbounds nuw i8, ptr %tokenEnd.14159, i64 1
+  %tokenEnd.14263 = phi ptr [ %incdec.ptr122, %land.rhsthread-pre-split ], [ %cur.045, %while.cond117.preheader ]
+  %incdec.ptr122 = getelementptr inbounds nuw i8, ptr %tokenEnd.14263, i64 1
   %cmp118 = icmp ult ptr %incdec.ptr122, %add.ptr
   br i1 %cmp118, label %land.rhsthread-pre-split, label %while.body121.while.end.loopexit_crit_edge, !llvm.loop !21
 
@@ -4605,11 +4605,11 @@ while.body121.while.end.loopexit_crit_edge:       ; preds = %while.body121
   br label %while.end, !llvm.loop !21
 
 while.end:                                        ; preds = %land.rhsthread-pre-split, %while.body121.while.end.loopexit_crit_edge, %while.cond117.preheader
-  %tokenEnd.1.lcssa = phi ptr [ %cur.044, %while.cond117.preheader ], [ %incdec.ptr122, %while.body121.while.end.loopexit_crit_edge ], [ %incdec.ptr122, %land.rhsthread-pre-split ]
+  %tokenEnd.1.lcssa = phi ptr [ %cur.045, %while.cond117.preheader ], [ %incdec.ptr122, %while.body121.while.end.loopexit_crit_edge ], [ %incdec.ptr122, %land.rhsthread-pre-split ]
   %sub.ptr.lhs.cast = ptrtoint ptr %tokenEnd.1.lcssa to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %cur.044 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %cur.045 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call124 = invoke noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder13appendLiteralEPKcm(ptr noundef nonnull align 8 dereferenceable(44) %builder, ptr noundef nonnull %cur.044, i64 noundef %sub.ptr.sub)
+  %call124 = invoke noundef nonnull align 8 dereferenceable(44) ptr @_ZN8facebook5velox9functions24DateTimeFormatterBuilder13appendLiteralEPKcm(ptr noundef nonnull align 8 dereferenceable(44) %builder, ptr noundef nonnull %cur.045, i64 noundef %sub.ptr.sub)
           to label %if.end125 unwind label %lpad15.loopexit
 
 if.end125:                                        ; preds = %while.end, %sw.epilog

@@ -6531,7 +6531,7 @@ _ZNSt12system_errorC2EiRKNSt3_V214error_categoryEPKc.exit: ; preds = %3
 
 10:                                               ; preds = %0
   %11 = invoke fastcc { i64, ptr } @_ZN14arrow_vendored4dateL15extract_tz_nameEPKc(ptr noundef nonnull %1)
-          to label %12 unwind label %27
+          to label %12 unwind label %28
 
 12:                                               ; preds = %10
   %13 = extractvalue { i64, ptr } %11, 0
@@ -6545,51 +6545,51 @@ _ZNSt12system_errorC2EiRKNSt3_V214error_categoryEPKc.exit: ; preds = %3
   br label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %.lr.ph.i.i, %20
-  %.033.i.i = phi i64 [ %13, %.lr.ph.i.i ], [ %23, %20 ]
-  %.02132.i.i = phi ptr [ %14, %.lr.ph.i.i ], [ %21, %20 ]
-  %.reass.reass.i.reass.reass.i = add i64 %.033.i.i, -4
-  %18 = tail call ptr @memchr(ptr noundef %.02132.i.i, i32 noundef 112, i64 noundef %.reass.reass.i.reass.reass.i) #33
-  %.not26.i.i = icmp eq ptr %18, null
+  %.033.i.i = phi i64 [ %13, %.lr.ph.i.i ], [ %24, %20 ]
+  %.02132.i.i = phi ptr [ %14, %.lr.ph.i.i ], [ %22, %20 ]
+  %18 = add i64 %.033.i.i, -4
+  %19 = tail call ptr @memchr(ptr noundef %.02132.i.i, i32 noundef 112, i64 noundef %18) #33
+  %.not26.i.i = icmp eq ptr %19, null
   br i1 %.not26.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %18, ptr noundef nonnull dereferenceable(5) @.str.20, i64 5)
-  %19 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %19, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit, label %20
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %19, ptr noundef nonnull dereferenceable(5) @.str.20, i64 5)
+  %20 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %20, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit, label %21
 
-20:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %21 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  %22 = ptrtoint ptr %21 to i64
-  %23 = sub i64 %17, %22
-  %.not25.i.i = icmp ult i64 %23, 5
+21:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 1
+  %23 = ptrtoint ptr %22 to i64
+  %24 = sub i64 %17, %23
+  %.not25.i.i = icmp ult i64 %24, 5
   br i1 %.not25.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, !llvm.loop !204
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
-  %24 = icmp eq ptr %18, %14
-  br i1 %24, label %_ZNSt10unique_ptrIcPDoFvPvEED2Ev.exit, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread
+  %25 = icmp eq ptr %19, %14
+  br i1 %25, label %_ZNSt10unique_ptrIcPDoFvPvEED2Ev.exit, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %20, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit
-  %25 = icmp eq i64 %13, 10
-  br i1 %25, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, label %_ZNSt10unique_ptrIcPDoFvPvEED2Ev.exit
+  %26 = icmp eq i64 %13, 10
+  br i1 %26, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, label %_ZNSt10unique_ptrIcPDoFvPvEED2Ev.exit
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread
   %bcmp.i.i6 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %14, ptr noundef nonnull dereferenceable(10) @.str.62, i64 10)
-  %26 = icmp ne i32 %bcmp.i.i6, 0
+  %27 = icmp ne i32 %bcmp.i.i6, 0
   br label %_ZNSt10unique_ptrIcPDoFvPvEED2Ev.exit
 
 _ZNSt10unique_ptrIcPDoFvPvEED2Ev.exit:            ; preds = %12, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit
-  %.0 = phi i1 [ %26, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ false, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit ], [ true, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread ], [ true, %12 ]
+  %.0 = phi i1 [ %27, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ], [ false, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit ], [ true, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEPKcm.exit.thread ], [ true, %12 ]
   tail call void @free(ptr noundef nonnull %1) #33
   ret i1 %.0
 
-27:                                               ; preds = %10
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %10
+  %29 = landingpad { ptr, i32 }
           cleanup
   tail call void @free(ptr noundef nonnull %1) #33
   br label %_ZNSt10unique_ptrIcPDoFvPvEED2Ev.exit8
 
-_ZNSt10unique_ptrIcPDoFvPvEED2Ev.exit8:           ; preds = %8, %27
-  %.pn13 = phi { ptr, i32 } [ %28, %27 ], [ %9, %8 ]
+_ZNSt10unique_ptrIcPDoFvPvEED2Ev.exit8:           ; preds = %8, %28
+  %.pn13 = phi { ptr, i32 } [ %29, %27 ], [ %9, %8 ]
   resume { ptr, i32 } %.pn13
 }
 

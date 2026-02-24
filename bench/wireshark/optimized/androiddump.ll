@@ -1617,7 +1617,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
   %.08.i = phi ptr [ %23, %21 ], [ null, %24 ]
   %25 = tail call fastcc i32 @adb_connect_transport(ptr noundef %2, ptr noundef %3, ptr noundef %.08.i)
   %26 = icmp eq i32 %25, -1
-  br i1 %26, label %106, label %27
+  br i1 %26, label %108, label %27
 
 27:                                               ; preds = %get_serial_from_interface.exit
   %28 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef nonnull dereferenceable(20) @.str.80, i64 noundef 19) #22
@@ -1667,7 +1667,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
 45:                                               ; preds = %43
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2066, ptr noundef nonnull @__func__.capture_android_logcat_text, ptr noundef nonnull @.str.159, ptr noundef %0)
   %46 = tail call i32 @close(i32 noundef %25)
-  br label %106
+  br label %108
 
 47:                                               ; preds = %43, %39, %41, %35, %37, %31, %33, %27, %29
   %.089 = phi ptr [ @.str.157, %39 ], [ @.str.154, %27 ], [ @.str.155, %31 ], [ @.str.156, %35 ], [ @.str.154, %29 ], [ @.str.155, %33 ], [ @.str.156, %37 ], [ @.str.157, %41 ], [ @.str.158, %43 ]
@@ -1683,7 +1683,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
 50:                                               ; preds = %47
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2081, ptr noundef nonnull @__func__.capture_android_logcat_text, ptr noundef nonnull @.str.98)
   %51 = tail call i32 @close(i32 noundef %25)
-  br label %106
+  br label %108
 
 52:                                               ; preds = %47
   %53 = tail call fastcc i32 @adb_send(i32 noundef %25, ptr noundef nonnull @capture_android_logcat_text.packet)
@@ -1693,7 +1693,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
 54:                                               ; preds = %52
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2088, ptr noundef nonnull @__func__.capture_android_logcat_text, ptr noundef nonnull @.str.161, ptr noundef nonnull @capture_android_logcat_text.packet)
   %55 = tail call i32 @close(i32 noundef %25)
-  br label %106
+  br label %108
 
 56:                                               ; preds = %52
   store i32 402656256, ptr @capture_android_logcat_text.packet, align 16
@@ -1714,7 +1714,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
 60:                                               ; preds = %.outer, %62
   %61 = load i32, ptr @endless_loop, align 4
   %.not108 = icmp eq i32 %61, 0
-  br i1 %.not108, label %104, label %62
+  br i1 %.not108, label %106, label %62
 
 62:                                               ; preds = %60
   %63 = tail call ptr @__errno_location() #24
@@ -1730,7 +1730,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
   %67 = call ptr @strerror(i32 noundef %65) #23
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2120, ptr noundef nonnull @__func__.capture_android_logcat_text, ptr noundef nonnull @.str.162, ptr noundef %67)
   %68 = call i32 @close(i32 noundef %25)
-  br label %106
+  br label %108
 
 69:                                               ; preds = %62
   %70 = icmp slt i64 %64, 1
@@ -1739,7 +1739,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
 71:                                               ; preds = %69
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2126, ptr noundef nonnull @__func__.capture_android_logcat_text, ptr noundef nonnull @.str.163)
   %72 = call i32 @close(i32 noundef %25)
-  br label %106
+  br label %108
 
 73:                                               ; preds = %69
   %74 = add i64 %64, %.087.ph
@@ -1763,20 +1763,20 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
   %.reass = add i64 %77, sub (i64 1, i64 ptrtoint (ptr @capture_android_logcat_text.packet to i64))
   %78 = call i64 @time(ptr noundef null) #23
   store i64 %78, ptr %8, align 8
-  %79 = call ptr @localtime(ptr noundef nonnull %8) #23
-  %.not112 = icmp eq ptr %79, null
+  %80 = call ptr @localtime(ptr noundef nonnull %8) #23
+  %.not112 = icmp eq ptr %80, null
   br i1 %.not112, label %103, label %80, !llvm.loop !24
 
-80:                                               ; preds = %76
+80:; preds = %76
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 12
-  %83 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %84 = getelementptr inbounds nuw i8, ptr %79, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %85 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @capture_android_logcat_text.packet, i64 32), ptr noundef nonnull @.str.164, ptr noundef nonnull %81, ptr noundef nonnull %82, ptr noundef nonnull %83, ptr noundef nonnull %84, ptr noundef nonnull %79, ptr noundef nonnull %7) #23
   %86 = icmp eq i32 %85, 6
   br i1 %86, label %87, label %96
 
-87:                                               ; preds = %80
+87:; preds = %80
   %88 = load i32, ptr %81, align 8
   %89 = add i32 %88, -1
   store i32 %89, ptr %81, align 8
@@ -1789,7 +1789,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
   %95 = fptosi double %94 to i32
   br label %96
 
-96:                                               ; preds = %87, %80
+96:; preds = %87, %80
   %.085 = phi i64 [ %91, %87 ], [ 0, %80 ]
   %.0 = phi i32 [ %95, %87 ], [ 0, %80 ]
   %97 = call fastcc zeroext i1 @extcap_dumper_dump(i32 %10, ptr %11, ptr noundef %1, ptr noundef nonnull @capture_android_logcat_text.packet, i64 noundef %.reass, i64 noundef %.reass, i64 noundef %.085, i32 noundef %.0)
@@ -1801,18 +1801,18 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
   %102 = call ptr @__memmove_chk(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @capture_android_logcat_text.packet, i64 32), ptr noundef %99, i64 noundef %101, i64 noundef 65503) #23
   br label %103
 
-103:                                              ; preds = %76, %96
+103:; preds = %76, %96
   %.2 = phi i64 [ %101, %96 ], [ %.1126, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not110 = icmp eq i64 %.2, 0
   br i1 %.not110, label %.outer.backedge, label %.lr.ph, !llvm.loop !23
 
-104:                                              ; preds = %60
-  %105 = call i32 @close(i32 noundef %25)
-  br label %106
+106:                                              ; preds = %60
+  %107 = call i32 @close(i32 noundef %25)
+  br label %108
 
-106:                                              ; preds = %get_serial_from_interface.exit, %104, %71, %66, %54, %50, %45
+108:                                              ; preds = %get_serial_from_interface.exit, %106, %71, %66, %54, %50, %45
   %.086 = phi i32 [ -1, %45 ], [ 24, %50 ], [ 30, %54 ], [ -1, %66 ], [ -1, %71 ], [ 0, %104 ], [ 42, %get_serial_from_interface.exit ]
   ret i32 %.086
 }

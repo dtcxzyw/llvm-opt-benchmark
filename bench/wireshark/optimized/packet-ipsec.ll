@@ -4356,12 +4356,12 @@ define internal fastcc i32 @get_ipv6_suffix(ptr noundef %0, ptr noundef readonly
 ._crit_edge71:                                    ; preds = %51, %2, %.loopexit
   %.05085 = phi i32 [ %.151.lcssa, %.loopexit ], [ 0, %2 ], [ %.151.lcssa, %51 ]
   %.2.lcssa = phi i32 [ 0, %.loopexit ], [ 0, %2 ], [ %.047, %51 ]
-  %57 = zext nneg i32 %.2.lcssa to i64
-  %58 = getelementptr i8, ptr %3, i64 %57
-  store i8 0, ptr %58, align 1
-  %59 = add nuw i32 %.2.lcssa, 1
-  %60 = sext i32 %59 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %0, ptr noundef nonnull align 16 dereferenceable(1) %3, i64 noundef range(i64 -2147483648, 2147483648) %60, i1 noundef false) #23
+  %59 = zext nneg i32 %.2.lcssa to i64
+  %60 = getelementptr i8, ptr %3, i64 %59
+  store i8 0, ptr %60, align 1
+  %61 = add nuw i32 %.2.lcssa, 1
+  %62 = sext i32 %61 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %0, ptr noundef nonnull align 16 dereferenceable(1) %3, i64 noundef range(i64 -2147483648, 2147483648) %62, i1 noundef false) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.05085
 }
