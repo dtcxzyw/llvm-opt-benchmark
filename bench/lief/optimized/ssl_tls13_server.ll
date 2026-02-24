@@ -2028,9 +2028,10 @@ define internal fastcc void @ssl_tls13_select_ciphersuite(ptr noundef %0, ptr no
   %9 = sub i64 %7, %8
   %10 = and i64 %9, 1
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %.preheader, label %64
+  br i1 %.not, label %.preheader, label %63
 
 .preheader:                                       ; preds = %6
+  %invariant.op = add nsw i32 %4, -33554432
   %11 = icmp ult ptr %1, %2
   br i1 %11, label %.lr.ph, label %._crit_edge
 
@@ -2081,7 +2082,7 @@ ssl_tls13_validate_peer_ciphersuite.exit.thread.us.us: ; preds = %21, %mbedtls_s
   br i1 %27, label %.lr.ph.split.us.split.us, label %._crit_edge, !llvm.loop !111
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %ssl_tls13_validate_peer_ciphersuite.exit.thread.us
-  %.036.us = phi ptr [ %46, %ssl_tls13_validate_peer_ciphersuite.exit.thread.us ], [ %1, %.lr.ph.split.us ]
+  %.036.us = phi ptr [ %45, %ssl_tls13_validate_peer_ciphersuite.exit.thread.us ], [ %1, %.lr.ph.split.us ]
   %.0.copyload.i.us = load i16, ptr %.036.us, align 1
   %28 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.us)
   %29 = zext i16 %28 to i32
@@ -2116,65 +2117,64 @@ mbedtls_ssl_tls13_cipher_suite_is_offered.exit.i.us: ; preds = %31
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 17
   %43 = load i8, ptr %42, align 1, !tbaa !102
   %44 = zext i8 %43 to i32
-  %45 = or disjoint i32 %44, 33554432
-  %.not29.us = icmp eq i32 %45, %4
+  %.not29.us = icmp eq i32 %invariant.op, %44
   br i1 %.not29.us, label %.split.us, label %ssl_tls13_validate_peer_ciphersuite.exit.thread.us
 
 ssl_tls13_validate_peer_ciphersuite.exit.thread.us: ; preds = %41, %36, %mbedtls_ssl_tls13_cipher_suite_is_offered.exit.i.us
-  %46 = getelementptr inbounds nuw i8, ptr %.036.us, i64 2
-  %47 = icmp ult ptr %46, %2
-  br i1 %47, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !111
+  %45 = getelementptr inbounds nuw i8, ptr %.036.us, i64 2
+  %46 = icmp ult ptr %45, %2
+  br i1 %46, label %.lr.ph.split.us.split, label %._crit_edge, !llvm.loop !111
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %ssl_tls13_validate_peer_ciphersuite.exit.thread
-  %.036 = phi ptr [ %61, %ssl_tls13_validate_peer_ciphersuite.exit.thread ], [ %1, %.lr.ph ]
+  %.036 = phi ptr [ %60, %ssl_tls13_validate_peer_ciphersuite.exit.thread ], [ %1, %.lr.ph ]
   %.0.copyload.i = load i16, ptr %.036, align 1
-  %48 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i)
-  %49 = zext i16 %48 to i32
+  %47 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i)
+  %48 = zext i16 %47 to i32
   %.val.i = load ptr, ptr %0, align 8, !tbaa !40
-  %50 = getelementptr i8, ptr %.val.i, i64 24
-  %.val.val.i = load ptr, ptr %50, align 8, !tbaa !109
-  br label %51
+  %49 = getelementptr i8, ptr %.val.i, i64 24
+  %.val.val.i = load ptr, ptr %49, align 8, !tbaa !109
+  br label %50
 
-51:                                               ; preds = %51, %.lr.ph.split
-  %.08.i.i = phi i64 [ 0, %.lr.ph.split ], [ %55, %51 ]
-  %52 = getelementptr inbounds nuw i32, ptr %.val.val.i, i64 %.08.i.i
-  %53 = load i32, ptr %52, align 4, !tbaa !106
-  %.not.i.i = icmp eq i32 %53, 0
-  %54 = icmp eq i32 %53, %49
-  %or.cond.i.i = or i1 %.not.i.i, %54
-  %55 = add i64 %.08.i.i, 1
-  br i1 %or.cond.i.i, label %mbedtls_ssl_tls13_cipher_suite_is_offered.exit.i, label %51, !llvm.loop !110
+50:                                               ; preds = %50, %.lr.ph.split
+  %.08.i.i = phi i64 [ 0, %.lr.ph.split ], [ %54, %50 ]
+  %51 = getelementptr inbounds nuw i32, ptr %.val.val.i, i64 %.08.i.i
+  %52 = load i32, ptr %51, align 4, !tbaa !106
+  %.not.i.i = icmp eq i32 %52, 0
+  %53 = icmp eq i32 %52, %48
+  %or.cond.i.i = or i1 %.not.i.i, %53
+  %54 = add i64 %.08.i.i, 1
+  br i1 %or.cond.i.i, label %mbedtls_ssl_tls13_cipher_suite_is_offered.exit.i, label %50, !llvm.loop !110
 
-mbedtls_ssl_tls13_cipher_suite_is_offered.exit.i: ; preds = %51
-  br i1 %.not.i.i, label %ssl_tls13_validate_peer_ciphersuite.exit.thread, label %56
+mbedtls_ssl_tls13_cipher_suite_is_offered.exit.i: ; preds = %50
+  br i1 %.not.i.i, label %ssl_tls13_validate_peer_ciphersuite.exit.thread, label %55
 
-56:                                               ; preds = %mbedtls_ssl_tls13_cipher_suite_is_offered.exit.i
-  %57 = tail call ptr @mbedtls_ssl_ciphersuite_from_id(i32 noundef range(i32 0, 65536) %49) #9
-  %58 = load i32, ptr %12, align 4, !tbaa !48
-  %59 = tail call i32 @mbedtls_ssl_validate_ciphersuite(ptr noundef nonnull %0, ptr noundef %57, i32 noundef %58, i32 noundef %58) #9
-  %.not8.i = icmp eq i32 %59, 0
-  %60 = icmp ne ptr %57, null
-  %or.cond.not41 = and i1 %60, %.not8.i
-  %.not30 = icmp eq i32 %3, %49
+55:                                               ; preds = %mbedtls_ssl_tls13_cipher_suite_is_offered.exit.i
+  %56 = tail call ptr @mbedtls_ssl_ciphersuite_from_id(i32 noundef range(i32 0, 65536) %48) #9
+  %57 = load i32, ptr %12, align 4, !tbaa !48
+  %58 = tail call i32 @mbedtls_ssl_validate_ciphersuite(ptr noundef nonnull %0, ptr noundef %56, i32 noundef %57, i32 noundef %57) #9
+  %.not8.i = icmp eq i32 %58, 0
+  %59 = icmp ne ptr %56, null
+  %or.cond.not41 = and i1 %59, %.not8.i
+  %.not30 = icmp eq i32 %3, %48
   %or.cond39 = and i1 %or.cond.not41, %.not30
   br i1 %or.cond39, label %.split.us, label %ssl_tls13_validate_peer_ciphersuite.exit.thread
 
-ssl_tls13_validate_peer_ciphersuite.exit.thread:  ; preds = %mbedtls_ssl_tls13_cipher_suite_is_offered.exit.i, %56
-  %61 = getelementptr inbounds nuw i8, ptr %.036, i64 2
-  %62 = icmp ult ptr %61, %2
-  br i1 %62, label %.lr.ph.split, label %._crit_edge, !llvm.loop !111
+ssl_tls13_validate_peer_ciphersuite.exit.thread:  ; preds = %mbedtls_ssl_tls13_cipher_suite_is_offered.exit.i, %55
+  %60 = getelementptr inbounds nuw i8, ptr %.036, i64 2
+  %61 = icmp ult ptr %60, %2
+  br i1 %61, label %.lr.ph.split, label %._crit_edge, !llvm.loop !111
 
-.split.us:                                        ; preds = %56, %41, %21
-  %.us-phi = phi ptr [ %37, %41 ], [ %22, %21 ], [ %57, %56 ]
+.split.us:                                        ; preds = %55, %41, %21
+  %.us-phi = phi ptr [ %37, %41 ], [ %22, %21 ], [ %56, %55 ]
   store ptr %.us-phi, ptr %5, align 8, !tbaa !108
-  br label %64
+  br label %63
 
 ._crit_edge:                                      ; preds = %ssl_tls13_validate_peer_ciphersuite.exit.thread, %ssl_tls13_validate_peer_ciphersuite.exit.thread.us, %ssl_tls13_validate_peer_ciphersuite.exit.thread.us.us, %.preheader
-  %63 = zext nneg i32 %4 to i64
-  tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 97, ptr noundef nonnull @.str.48, i32 noundef %3, i64 noundef %63) #9
-  br label %64
+  %62 = zext nneg i32 %4 to i64
+  tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 97, ptr noundef nonnull @.str.48, i32 noundef %3, i64 noundef %62) #9
+  br label %63
 
-64:                                               ; preds = %.split.us, %6, %._crit_edge
+63:                                               ; preds = %.split.us, %6, %._crit_edge
   ret void
 }
 

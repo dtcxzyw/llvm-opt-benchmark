@@ -11611,6 +11611,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit: ; preds = %46
   store i32 %49, ptr %47, align 8
   %56 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %57 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, ptr, i64, i8, [7 x i8] }, ptr %56, i64 %40
+  %invariant.op = add i64 %40, -1
   br label %58
 
 58:                                               ; preds = %61, %_ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit
@@ -11628,7 +11629,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit: ; preds = %46
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.087.0, i64 48
   %63 = add nuw nsw i64 %.sroa.7.0, 1
-  %64 = icmp eq i64 %63, %40
+  %64 = icmp eq i64 %.sroa.7.0, %invariant.op
   %65 = invoke fastcc noundef i32 @_ZN9typst_pdf7outline18write_outline_item17h899067324ce0a2e1E(ptr noalias noundef align 8 dereferenceable(856) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %.sroa.087.0, i32 noundef %48, i32 noundef %.063, i1 noundef zeroext %64)
           to label %58 unwind label %.loopexit, !range !2025
 
@@ -12132,6 +12133,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit51: ; preds = %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
   call void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.17057414408856058071"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  %invariant.op = add i64 %46, -1
   %132 = icmp eq i64 %.idx, 0
   br i1 %132, label %._crit_edge, label %.lr.ph
 
@@ -12236,7 +12238,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit51: ; preds = %70
   %.sroa.7.086 = phi i64 [ %170, %.lr.ph ], [ 0, %"_ZN4core3ptr55drop_in_place$LT$pdf_writer..structure..OutlineItem$GT$17h0e61311b8dc54197E.exit" ]
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0.087, i64 48
   %170 = add nuw nsw i64 %.sroa.7.086, 1
-  %171 = icmp eq i64 %170, %46
+  %171 = icmp eq i64 %.sroa.7.086, %invariant.op
   %172 = call fastcc noundef i32 @_ZN9typst_pdf7outline18write_outline_item17h899067324ce0a2e1E(ptr noalias noundef align 8 dereferenceable(856) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %.sroa.0.087, i32 noundef %18, i32 noundef %.03888, i1 noundef zeroext %171), !range !2025
   %173 = icmp eq ptr %169, %47
   br i1 %173, label %._crit_edge, label %.lr.ph

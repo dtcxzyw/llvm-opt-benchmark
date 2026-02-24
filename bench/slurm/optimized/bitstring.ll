@@ -652,41 +652,44 @@ define dso_local range(i64 -9223372036854775808, 9223372036854775807) i64 @bit_f
 
 .preheader:                                       ; preds = %.lr.ph29
   %10 = icmp slt i64 %.028, %3
-  br i1 %10, label %.lr.ph, label %.critedge
+  br i1 %10, label %.lr.ph.preheader, label %.critedge
+
+.lr.ph.preheader:                                 ; preds = %.preheader
+  %invariant.op = add nsw i64 %6, -2
+  br label %.lr.ph
 
 11:                                               ; preds = %.lr.ph29
   %12 = add i64 %.028, 64
   br label %.critedge, !llvm.loop !14
 
-.lr.ph:                                           ; preds = %.preheader, %20
-  %.220 = phi i64 [ %21, %20 ], [ %.028, %.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
+  %.220 = phi i64 [ %20, %19 ], [ %.028, %.lr.ph.preheader ]
   %13 = ashr i64 %.220, 6
-  %14 = add nsw i64 %13, 2
-  %15 = icmp eq i64 %14, %6
-  br i1 %15, label %16, label %.critedge
+  %14 = icmp eq i64 %13, %invariant.op
+  br i1 %14, label %15, label %.critedge
 
-16:                                               ; preds = %.lr.ph
-  %17 = and i64 %.220, 63
-  %18 = shl nuw i64 1, %17
-  %19 = and i64 %8, %18
-  %.not = icmp eq i64 %19, 0
-  br i1 %.not, label %.critedge, label %20
+15:                                               ; preds = %.lr.ph
+  %16 = and i64 %.220, 63
+  %17 = shl nuw i64 1, %16
+  %18 = and i64 %8, %17
+  %.not = icmp eq i64 %18, 0
+  br i1 %.not, label %.critedge, label %19
 
-20:                                               ; preds = %16
-  %21 = add i64 %.220, 1
-  %exitcond.not = icmp eq i64 %21, %3
+19:                                               ; preds = %15
+  %20 = add i64 %.220, 1
+  %exitcond.not = icmp eq i64 %20, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
-.critedge:                                        ; preds = %16, %.lr.ph, %.preheader, %11
-  %.117 = phi i64 [ -1, %11 ], [ -1, %.preheader ], [ %.220, %16 ], [ -1, %.lr.ph ]
-  %.1 = phi i64 [ %12, %11 ], [ %.028, %.preheader ], [ %.220, %.lr.ph ], [ %.220, %16 ]
-  %22 = icmp slt i64 %.1, %3
-  %23 = icmp eq i64 %.117, -1
-  %24 = and i1 %23, %22
-  br i1 %24, label %.lr.ph29, label %._crit_edge
+.critedge:                                        ; preds = %15, %.lr.ph, %.preheader, %11
+  %.117 = phi i64 [ -1, %11 ], [ -1, %.preheader ], [ %.220, %15 ], [ -1, %.lr.ph ]
+  %.1 = phi i64 [ %12, %11 ], [ %.028, %.preheader ], [ %.220, %.lr.ph ], [ %.220, %15 ]
+  %21 = icmp slt i64 %.1, %3
+  %22 = icmp eq i64 %.117, -1
+  %23 = and i1 %22, %21
+  br i1 %23, label %.lr.ph29, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.critedge, %20, %1
-  %.016.lcssa = phi i64 [ -1, %1 ], [ -1, %20 ], [ %.117, %.critedge ]
+._crit_edge:                                      ; preds = %.critedge, %19, %1
+  %.016.lcssa = phi i64 [ -1, %1 ], [ -1, %19 ], [ %.117, %.critedge ]
   ret i64 %.016.lcssa
 }
 

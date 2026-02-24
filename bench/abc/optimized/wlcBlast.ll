@@ -2952,7 +2952,7 @@ Vec_IntFill.exit64:                               ; preds = %Vec_IntGrow.exit.i5
   %46 = zext nneg i32 %3 to i64
   %47 = getelementptr inbounds nuw i32, ptr %43, i64 %46
   %48 = icmp sgt i32 %4, 0
-  br i1 %48, label %.preheader.us.preheader, label %._crit_edge67
+  br i1 %48, label %.preheader.us.preheader, label %._crit_edge68
 
 Vec_IntFill.exit64.thread:                        ; preds = %Vec_IntGrow.exit.i57
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -2965,17 +2965,20 @@ Vec_IntFill.exit64.thread:                        ; preds = %Vec_IntGrow.exit.i5
   br label %._crit_edge
 
 .preheader.us.preheader:                          ; preds = %Vec_IntFill.exit64
+  %invariant.op66 = add nsw i32 %4, -1
   %.not54 = icmp ne i32 %7, 0
-  %54 = zext nneg i32 %3 to i64
-  %55 = zext nneg i32 %4 to i64
+  %invariant.op = add nsw i32 %3, -1
+  %54 = zext nneg i32 %invariant.op to i64
+  %55 = zext nneg i32 %invariant.op66 to i64
+  %wide.trip.count75 = zext nneg i32 %4 to i64
+  %wide.trip.count = zext nneg i32 %3 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %indvars.iv71 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next72, %._crit_edge.us ]
-  %56 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv71
-  %57 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv71
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %58 = icmp eq i64 %indvars.iv.next72, %55
+  %indvars.iv72 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next73, %._crit_edge.us ]
+  %56 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv72
+  %57 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv72
+  %58 = icmp eq i64 %indvars.iv72, %55
   br label %59
 
 59:                                               ; preds = %.preheader.us, %Wlc_BlastFullAdder.exit.us
@@ -2990,10 +2993,9 @@ Vec_IntFill.exit64.thread:                        ; preds = %Vec_IntGrow.exit.i5
   %.not.us = icmp eq i64 %indvars.iv, 0
   %67 = getelementptr i8, ptr %63, i64 -4
   %68 = select i1 %.not.us, ptr %57, ptr %67
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %69 = icmp eq i64 %indvars.iv.next, %54
+  %69 = icmp eq i64 %indvars.iv, %54
   %70 = xor i1 %58, %69
-  %narrow = select i1 %.not54, i1 %70, i1 false
+  %narrow = and i1 %.not54, %70
   %71 = zext i1 %narrow to i32
   %72 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %61, i32 noundef %62) #26
   %73 = xor i32 %72, %71
@@ -3035,35 +3037,37 @@ Vec_IntFill.exit64.thread:                        ; preds = %Vec_IntGrow.exit.i5
   br label %Wlc_BlastFullAdder.exit.us
 
 Wlc_BlastFullAdder.exit.us:                       ; preds = %93, %59
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %54
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %59, !llvm.loop !82
 
 ._crit_edge.us:                                   ; preds = %Wlc_BlastFullAdder.exit.us
-  %exitcond75.not = icmp eq i64 %indvars.iv.next72, %55
-  br i1 %exitcond75.not, label %._crit_edge67, label %.preheader.us, !llvm.loop !83
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
+  br i1 %exitcond76.not, label %._crit_edge68, label %.preheader.us, !llvm.loop !83
 
-._crit_edge67:                                    ; preds = %._crit_edge.us, %Vec_IntFill.exit64
+._crit_edge68:                                    ; preds = %._crit_edge.us, %Vec_IntFill.exit64
   %98 = getelementptr i32, ptr %47, i64 %46
   %99 = getelementptr i8, ptr %98, i64 -4
   store i32 %7, ptr %99, align 4, !tbaa !3
   %100 = sext i32 %4 to i64
-  %wide.trip.count79 = zext nneg i32 %3 to i64
+  %wide.trip.count80 = zext nneg i32 %3 to i64
   %invariant.gep = getelementptr i32, ptr %25, i64 %100
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %._crit_edge67, %.lr.ph
-  %indvars.iv76 = phi i64 [ 0, %._crit_edge67 ], [ %indvars.iv.next77, %.lr.ph ]
-  %101 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv76
+.lr.ph:                                           ; preds = %._crit_edge68, %.lr.ph
+  %indvars.iv77 = phi i64 [ 0, %._crit_edge68 ], [ %indvars.iv.next78, %.lr.ph ]
+  %101 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv77
   %102 = load i32, ptr %101, align 4, !tbaa !3
-  %103 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv76
+  %103 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv77
   %104 = load i32, ptr %103, align 4, !tbaa !3
   %105 = load i32, ptr %9, align 4, !tbaa !3
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv76
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv77
   %106 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef 1, i32 noundef %102) #26
   call void @Wlc_BlastFullAdder(ptr noundef %0, i32 noundef %106, i32 noundef %104, i32 noundef %105, ptr noundef nonnull %9, ptr noundef %gep)
-  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
-  br i1 %exitcond80.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
+  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
+  %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
+  br i1 %exitcond81.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Vec_IntFill.exit64.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3170,7 +3174,7 @@ Vec_IntFill.exit73:                               ; preds = %45
   %48 = zext nneg i32 %3 to i64
   %49 = getelementptr inbounds nuw i32, ptr %44, i64 %48
   %50 = icmp sgt i32 %4, 0
-  br i1 %50, label %.preheader74.us.preheader, label %._crit_edge77
+  br i1 %50, label %.preheader74.us.preheader, label %._crit_edge78
 
 Vec_IntFill.exit73.thread:                        ; preds = %Vec_IntGrow.exit.i66
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -3183,16 +3187,19 @@ Vec_IntFill.exit73.thread:                        ; preds = %Vec_IntGrow.exit.i6
   br label %.preheader
 
 .preheader74.us.preheader:                        ; preds = %Vec_IntFill.exit73
-  %56 = zext nneg i32 %3 to i64
-  %57 = zext nneg i32 %4 to i64
+  %invariant.op76 = add nsw i32 %4, -1
+  %invariant.op = add nsw i32 %3, -1
+  %56 = zext nneg i32 %invariant.op to i64
+  %57 = zext nneg i32 %invariant.op76 to i64
+  %wide.trip.count87 = zext nneg i32 %4 to i64
+  %wide.trip.count = zext nneg i32 %3 to i64
   br label %.preheader74.us
 
 .preheader74.us:                                  ; preds = %.preheader74.us.preheader, %._crit_edge.us
-  %indvars.iv83 = phi i64 [ 0, %.preheader74.us.preheader ], [ %indvars.iv.next84, %._crit_edge.us ]
-  %58 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv83
-  %59 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv83
-  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
-  %60 = icmp ne i64 %indvars.iv.next84, %57
+  %indvars.iv84 = phi i64 [ 0, %.preheader74.us.preheader ], [ %indvars.iv.next85, %._crit_edge.us ]
+  %58 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv84
+  %59 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv84
+  %60 = icmp ne i64 %indvars.iv84, %57
   br label %61
 
 61:                                               ; preds = %.preheader74.us, %Wlc_BlastFullAdder.exit.us
@@ -3207,10 +3214,9 @@ Vec_IntFill.exit73.thread:                        ; preds = %Vec_IntGrow.exit.i6
   %.not63.us = icmp eq i64 %indvars.iv, 0
   %69 = getelementptr i8, ptr %65, i64 -4
   %70 = select i1 %.not63.us, ptr %59, ptr %69
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %71 = icmp eq i64 %indvars.iv.next, %56
+  %71 = icmp eq i64 %indvars.iv, %56
   %72 = xor i1 %60, %71
-  %narrow = select i1 %.not, i1 true, i1 %72
+  %narrow = or i1 %.not, %72
   %73 = zext i1 %narrow to i32
   %74 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %63, i32 noundef %64) #26
   %75 = xor i32 %74, %73
@@ -3252,53 +3258,56 @@ Vec_IntFill.exit73.thread:                        ; preds = %Vec_IntGrow.exit.i6
   br label %Wlc_BlastFullAdder.exit.us
 
 Wlc_BlastFullAdder.exit.us:                       ; preds = %95, %61
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %56
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %61, !llvm.loop !86
 
 ._crit_edge.us:                                   ; preds = %Wlc_BlastFullAdder.exit.us
-  br i1 %60, label %.preheader74.us, label %._crit_edge77, !llvm.loop !87
+  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
+  %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
+  br i1 %exitcond88.not, label %._crit_edge78, label %.preheader74.us, !llvm.loop !87
 
-._crit_edge77:                                    ; preds = %._crit_edge.us, %Vec_IntFill.exit73
+._crit_edge78:                                    ; preds = %._crit_edge.us, %Vec_IntFill.exit73
   %100 = getelementptr i32, ptr %49, i64 %48
   %101 = getelementptr i8, ptr %100, i64 -4
   store i32 %10, ptr %101, align 4, !tbaa !3
   %102 = sext i32 %4 to i64
-  %wide.trip.count91 = zext nneg i32 %3 to i64
+  %wide.trip.count92 = zext nneg i32 %3 to i64
   %invariant.gep = getelementptr i32, ptr %26, i64 %102
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %Vec_IntFill.exit73.thread
-  br i1 %24, label %.lr.ph80.preheader, label %._crit_edge
+  br i1 %24, label %.lr.ph81.preheader, label %._crit_edge
 
-.lr.ph80.preheader:                               ; preds = %.preheader
-  %wide.trip.count96 = zext nneg i32 %11 to i64
-  br label %.lr.ph80
+.lr.ph81.preheader:                               ; preds = %.preheader
+  %wide.trip.count97 = zext nneg i32 %11 to i64
+  br label %.lr.ph81
 
-.lr.ph:                                           ; preds = %._crit_edge77, %.lr.ph
-  %indvars.iv88 = phi i64 [ 0, %._crit_edge77 ], [ %indvars.iv.next89, %.lr.ph ]
-  %103 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv88
+.lr.ph:                                           ; preds = %._crit_edge78, %.lr.ph
+  %indvars.iv89 = phi i64 [ 0, %._crit_edge78 ], [ %indvars.iv.next90, %.lr.ph ]
+  %103 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv89
   %104 = load i32, ptr %103, align 4, !tbaa !3
-  %105 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv88
+  %105 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv89
   %106 = load i32, ptr %105, align 4, !tbaa !3
   %107 = load i32, ptr %9, align 4, !tbaa !3
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv88
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv89
   %108 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef 1, i32 noundef %104) #26
   call void @Wlc_BlastFullAdder(ptr noundef %0, i32 noundef %108, i32 noundef %106, i32 noundef %107, ptr noundef nonnull %9, ptr noundef %gep)
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
-  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91
-  br i1 %exitcond92.not, label %.preheader, label %.lr.ph, !llvm.loop !88
+  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
+  %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
+  br i1 %exitcond93.not, label %.preheader, label %.lr.ph, !llvm.loop !88
 
-.lr.ph80:                                         ; preds = %.lr.ph80.preheader, %.lr.ph80
-  %indvars.iv93 = phi i64 [ 0, %.lr.ph80.preheader ], [ %indvars.iv.next94, %.lr.ph80 ]
-  %109 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv93
+.lr.ph81:                                         ; preds = %.lr.ph81.preheader, %.lr.ph81
+  %indvars.iv94 = phi i64 [ 0, %.lr.ph81.preheader ], [ %indvars.iv.next95, %.lr.ph81 ]
+  %109 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv94
   %110 = load i32, ptr %109, align 4, !tbaa !3
   %111 = xor i32 %110, 1
   store i32 %111, ptr %109, align 4, !tbaa !3
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
-  br i1 %exitcond97.not, label %._crit_edge, label %.lr.ph80, !llvm.loop !89
+  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
+  %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
+  br i1 %exitcond98.not, label %._crit_edge, label %.lr.ph81, !llvm.loop !89
 
-._crit_edge:                                      ; preds = %.lr.ph80, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph81, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }

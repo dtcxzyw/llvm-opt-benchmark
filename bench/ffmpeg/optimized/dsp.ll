@@ -5825,6 +5825,7 @@ prof_grad_filter_12.exit:                         ; preds = %._crit_edge.us.i
   br i1 %exitcond39.not.i68, label %prof_grad_filter_12.exit69, label %.preheader.us.i56, !llvm.loop !209
 
 prof_grad_filter_12.exit69:                       ; preds = %._crit_edge.us.i67, %6
+  %invariant.op = add i32 %5, -4
   br i1 %10, label %.preheader.lr.ph, label %._crit_edge84
 
 .preheader.lr.ph:                                 ; preds = %prof_grad_filter_12.exit69
@@ -5835,7 +5836,7 @@ prof_grad_filter_12.exit69:                       ; preds = %._crit_edge.us.i67,
   %52 = zext nneg i32 %4 to i64
   %53 = zext nneg i32 %4 to i64
   %54 = zext nneg i32 %5 to i64
-  %55 = zext nneg i32 %5 to i64
+  %55 = zext i32 %invariant.op to i64
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 512
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 512
   br label %.preheader.us
@@ -5847,8 +5848,7 @@ prof_grad_filter_12.exit69:                       ; preds = %._crit_edge.us.i67,
   %59 = getelementptr inbounds nuw i16, ptr %2, i64 %58
   %60 = getelementptr inbounds nuw i16, ptr %3, i64 %58
   %.not45.us = icmp eq i64 %indvars.iv91, 0
-  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 4
-  %61 = icmp eq i64 %indvars.iv.next92, %55
+  %61 = icmp eq i64 %indvars.iv91, %55
   %62 = shl i64 %indvars.iv91, 4
   %63 = and i64 %62, 4294967232
   br label %64
@@ -6078,6 +6078,7 @@ apply_bdof_min_block_12.exit.us:                  ; preds = %205
 
 ._crit_edge.us:                                   ; preds = %apply_bdof_min_block_12.exit.us
   %210 = getelementptr inbounds nuw i8, ptr %.083.us, i64 %.idx
+  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 4
   %211 = icmp samesign ult i64 %indvars.iv.next92, %54
   br i1 %211, label %.preheader.us, label %._crit_edge84, !llvm.loop !221
 
@@ -18652,6 +18653,7 @@ prof_grad_filter_10.exit:                         ; preds = %._crit_edge.us.i
   br i1 %exitcond39.not.i68, label %prof_grad_filter_10.exit69, label %.preheader.us.i56, !llvm.loop !522
 
 prof_grad_filter_10.exit69:                       ; preds = %._crit_edge.us.i67, %6
+  %invariant.op = add i32 %5, -4
   br i1 %10, label %.preheader.lr.ph, label %._crit_edge84
 
 .preheader.lr.ph:                                 ; preds = %prof_grad_filter_10.exit69
@@ -18662,7 +18664,7 @@ prof_grad_filter_10.exit69:                       ; preds = %._crit_edge.us.i67,
   %52 = zext nneg i32 %4 to i64
   %53 = zext nneg i32 %4 to i64
   %54 = zext nneg i32 %5 to i64
-  %55 = zext nneg i32 %5 to i64
+  %55 = zext i32 %invariant.op to i64
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 512
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 512
   br label %.preheader.us
@@ -18674,8 +18676,7 @@ prof_grad_filter_10.exit69:                       ; preds = %._crit_edge.us.i67,
   %59 = getelementptr inbounds nuw i16, ptr %2, i64 %58
   %60 = getelementptr inbounds nuw i16, ptr %3, i64 %58
   %.not45.us = icmp eq i64 %indvars.iv91, 0
-  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 4
-  %61 = icmp eq i64 %indvars.iv.next92, %55
+  %61 = icmp eq i64 %indvars.iv91, %55
   %62 = shl i64 %indvars.iv91, 4
   %63 = and i64 %62, 4294967232
   br label %64
@@ -18905,6 +18906,7 @@ apply_bdof_min_block_10.exit.us:                  ; preds = %205
 
 ._crit_edge.us:                                   ; preds = %apply_bdof_min_block_10.exit.us
   %210 = getelementptr inbounds nuw i8, ptr %.083.us, i64 %.idx
+  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 4
   %211 = icmp samesign ult i64 %indvars.iv.next92, %54
   br i1 %211, label %.preheader.us, label %._crit_edge84, !llvm.loop !534
 
@@ -31344,6 +31346,7 @@ prof_grad_filter_8.exit:                          ; preds = %._crit_edge.us.i
   br i1 %exitcond39.not.i64, label %prof_grad_filter_8.exit65, label %.preheader.us.i52, !llvm.loop !735
 
 prof_grad_filter_8.exit65:                        ; preds = %._crit_edge.us.i63, %6
+  %invariant.op = add i32 %5, -4
   br i1 %9, label %.preheader.lr.ph, label %._crit_edge83
 
 .preheader.lr.ph:                                 ; preds = %prof_grad_filter_8.exit65
@@ -31354,7 +31357,7 @@ prof_grad_filter_8.exit65:                        ; preds = %._crit_edge.us.i63,
   %52 = zext nneg i32 %4 to i64
   %53 = zext nneg i32 %4 to i64
   %54 = zext nneg i32 %5 to i64
-  %55 = zext nneg i32 %5 to i64
+  %55 = zext i32 %invariant.op to i64
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 512
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 512
   br label %.preheader.us
@@ -31366,8 +31369,7 @@ prof_grad_filter_8.exit65:                        ; preds = %._crit_edge.us.i63,
   %59 = getelementptr inbounds nuw i16, ptr %2, i64 %58
   %60 = getelementptr inbounds nuw i16, ptr %3, i64 %58
   %.not45.us = icmp eq i64 %indvars.iv90, 0
-  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 4
-  %61 = icmp eq i64 %indvars.iv.next91, %55
+  %61 = icmp eq i64 %indvars.iv90, %55
   %62 = shl i64 %indvars.iv90, 4
   %63 = and i64 %62, 4294967232
   br label %64
@@ -31599,6 +31601,7 @@ apply_bdof_min_block_8.exit.us:                   ; preds = %204
 
 ._crit_edge.us:                                   ; preds = %apply_bdof_min_block_8.exit.us
   %209 = getelementptr inbounds i8, ptr %.082.us, i64 %51
+  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 4
   %210 = icmp samesign ult i64 %indvars.iv.next91, %54
   br i1 %210, label %.preheader.us, label %._crit_edge83, !llvm.loop !747
 

@@ -262,7 +262,11 @@ define internal fastcc noundef i32 @_ZL11adjustasizeP8LuaTableiPK10lua_TValue(pt
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = getelementptr i8, ptr %0, i64 6
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br i1 %.fr, label %.split.us, label %.critedge
+  br i1 %.fr, label %.split.us, label %.critedge.preheader
+
+.critedge.preheader:                              ; preds = %21
+  %invariant.op = add i32 %22, -1
+  br label %.critedge
 
 .split.us:                                        ; preds = %21
   %26 = sext i32 %1 to i64
@@ -376,11 +380,10 @@ _Z11luaH_getnumP8LuaTablei.exit.us:               ; preds = %70, %74, %80
 .split.us.split.backedge:                         ; preds = %_Z11luaH_getnumP8LuaTablei.exit.us, %.split.us.split
   br label %.split.us.split, !llvm.loop !27
 
-.critedge:                                        ; preds = %21, %.critedge
-  %.0 = phi i32 [ %22, %.critedge ], [ %1, %21 ]
-  %85 = add nsw i32 %.0, 1
-  %86 = icmp eq i32 %85, %22
-  br i1 %86, label %.critedge, label %.critedge2, !llvm.loop !27
+.critedge:                                        ; preds = %.critedge.preheader, %.critedge
+  %.0 = phi i32 [ %22, %.critedge ], [ %1, %.critedge.preheader ]
+  %85 = icmp eq i32 %.0, %invariant.op
+  br i1 %85, label %.critedge, label %.critedge2, !llvm.loop !27
 
 .critedge2:                                       ; preds = %.critedge, %_Z11luaH_getnumP8LuaTablei.exit.us, %_Z11luaH_getnumP8LuaTablei.exit.us.us
   %.us-phi = phi i32 [ %42, %_Z11luaH_getnumP8LuaTablei.exit.us ], [ %31, %_Z11luaH_getnumP8LuaTablei.exit.us.us ], [ %.0, %.critedge ]

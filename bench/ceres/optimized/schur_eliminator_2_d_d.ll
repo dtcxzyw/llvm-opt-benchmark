@@ -27119,7 +27119,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_IKNS_9TransposeIKNS1_IKNS_6MatrixIdLin1ELi
 .lr.ph.i.i.i.i.i.i.us.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.us.i.i.i, %.lr.ph.i.i.i.i.i.i.preheader.us.i.i.i
   %.05.i.i.i.i.i.i.us.i.i.i = phi i64 [ %95, %.lr.ph.i.i.i.i.i.i.us.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.preheader.us.i.i.i ]
   %89 = getelementptr inbounds nuw double, ptr %59, i64 %.05.i.i.i.i.i.i.us.i.i.i
-  %90 = icmp eq i64 %.017.us.i.i.i, %.05.i.i.i.i.i.i.us.i.i.i
+  %90 = icmp eq i64 %.05.i.i.i.i.i.i.us.i.i.i, %.017.us.i.i.i
   %91 = select i1 %90, double 1.000000e+00, double 0.000000e+00
   %92 = fmul double %88, %91
   %93 = load double, ptr %89, align 8, !tbaa !138
@@ -27288,7 +27288,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
   %38 = load double, ptr %37, align 8, !tbaa !138
   %39 = icmp eq i64 %.01724.i.i.i.i.i.i.us, %.03261
   %40 = select i1 %39, double 1.000000e+00, double 0.000000e+00
-  %41 = fmul double %38, %40
+  %41 = fmul double %40, %38
   %42 = fadd double %.02223.i.i.i.i.i.i.us, %41
   %43 = add nuw nsw i64 %.01724.i.i.i.i.i.i.us, 1
   %exitcond.not.i.i.i.i.i.i.us = icmp eq i64 %43, %24
@@ -27410,7 +27410,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
   %105 = load double, ptr %104, align 8, !tbaa !138
   %106 = icmp eq i64 %.01724.i.i.i.i.i.i38, %.03261
   %107 = select i1 %106, double 1.000000e+00, double 0.000000e+00
-  %108 = fmul double %105, %107
+  %108 = fmul double %107, %105
   %109 = fadd double %.02223.i.i.i.i.i.i39, %108
   %110 = add nuw nsw i64 %.01724.i.i.i.i.i.i38, 1
   %exitcond.not.i.i.i.i.i.i40 = icmp eq i64 %110, %53
@@ -27469,16 +27469,19 @@ thread-pre-split.i.i.i.i.i.i:                     ; preds = %_ZN5Eigen15PlainObj
   %20 = icmp sgt i64 %18, 0
   br i1 %20, label %.lr.ph.i.i.i.i.i.i.i, label %.loopexit
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %17, %.lr.ph.i.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i.i = phi i64 [ %25, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %17 ]
-  %21 = getelementptr inbounds nuw double, ptr %19, i64 %.05.i.i.i.i.i.i.i
-  %22 = add nsw i64 %.05.i.i.i.i.i.i.i, %11
-  %23 = icmp eq i64 %22, %13
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %17
+  %invariant.op.i.i.i.i.i.i.i = sub i64 %13, %11
+  br label %21
+
+21:                                               ; preds = %21, %.lr.ph.i.i.i.i.i.i.i
+  %.05.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i ], [ %25, %21 ]
+  %22 = getelementptr inbounds nuw double, ptr %19, i64 %.05.i.i.i.i.i.i.i
+  %23 = icmp eq i64 %.05.i.i.i.i.i.i.i, %invariant.op.i.i.i.i.i.i.i
   %24 = select i1 %23, double 1.000000e+00, double 0.000000e+00
-  store double %24, ptr %21, align 8, !tbaa !138
+  store double %24, ptr %22, align 8, !tbaa !138
   %25 = add nuw nsw i64 %.05.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i64 %25, %18
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !1193
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %.loopexit, label %21, !llvm.loop !1193
 
 common.resume:                                    ; preds = %37, %26
   %common.resume.op = phi { ptr, i32 } [ %27, %26 ], [ %38, %37 ]
@@ -27491,7 +27494,7 @@ common.resume:                                    ; preds = %37, %26
   call void @free(ptr noundef %28) #36
   br label %common.resume
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %17
+.loopexit:                                        ; preds = %21, %17
   %29 = load double, ptr %3, align 8, !tbaa !138
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.7.0.copyload, i64 16

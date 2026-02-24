@@ -490,26 +490,29 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp7Blender11createMVertEm(i64
   %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #24
   store i64 %0, ptr %10, align 16
   %11 = icmp eq i64 %0, 0
-  br i1 %11, label %.loopexit, label %.preheader
+  br i1 %11, label %.loopexit, label %12
 
-.preheader:                                       ; preds = %1, %.preheader
-  %.idx = phi i64 [ %.add, %.preheader ], [ 8, %1 ]
+12:                                               ; preds = %1
+  %invariant.op = add i64 %4, -48
+  br label %13
+
+13:                                               ; preds = %12, %13
+  %.idx = phi i64 [ 8, %12 ], [ %.add, %13 ]
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
-  %12 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 8
-  store ptr null, ptr %12, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 8
+  store ptr null, ptr %14, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6Assimp7Blender5MVertE, i64 16), ptr %.ptr.ptr, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 40
-  store i8 0, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 44
-  store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 48
-  store i32 0, ptr %15, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 40
+  store i8 0, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 44
+  store i32 0, ptr %16, align 4
+  %17 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 48
+  store i32 0, ptr %17, align 8
   %.add = add nuw nsw i64 %.idx, 56
-  %16 = add nuw nsw i64 %.idx, 48
-  %17 = icmp eq i64 %16, %4
-  br i1 %17, label %.loopexit, label %.preheader
+  %18 = icmp eq i64 %.idx, %invariant.op
+  br i1 %18, label %.loopexit, label %13
 
-.loopexit:                                        ; preds = %.preheader, %1
+.loopexit:                                        ; preds = %13, %1
   %.ptr5 = getelementptr inbounds nuw i8, ptr %10, i64 8
   ret ptr %.ptr5
 }

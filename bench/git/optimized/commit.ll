@@ -4232,11 +4232,12 @@ define dso_local range(i32 0, 2) i32 @remove_signature(ptr noundef %0) local_unn
 .lr.ph:                                           ; preds = %1
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %2 to i64
+  %invariant.op = add i64 %9, 32
   br label %11
 
 .preheader:                                       ; preds = %.loopexit, %1
   %10 = ptrtoint ptr %4 to i64
-  br label %45
+  br label %44
 
 11:                                               ; preds = %.lr.ph, %.loopexit
   %.03966 = phi ptr [ %4, %.lr.ph ], [ %.038, %.loopexit ]
@@ -4311,8 +4312,7 @@ skip_prefix.exit:                                 ; preds = %30, %38, %35
   %41 = icmp eq i8 %40, 10
   %spec.select = select i1 %41, ptr %7, ptr %16
   %42 = ptrtoint ptr %.04165 to i64
-  %43 = sub i64 %42, %9
-  %.not51 = icmp eq i64 %43, 32
+  %.not51 = icmp eq i64 %invariant.op, %42
   %or.cond = select i1 %.not49, i1 true, i1 %.not51
   %.2.idx.sroa.sel.idx.sroa.sel.idx = select i1 %or.cond, i64 0, i64 16
   %.2.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.04165, i64 %.2.idx.sroa.sel.idx.sroa.sel.idx
@@ -4322,37 +4322,37 @@ skip_prefix.exit:                                 ; preds = %30, %38, %35
   %.144 = phi i32 [ 1, %20 ], [ 0, %39 ], [ %.3, %skip_prefix.exit ]
   %.142 = phi ptr [ %.04165, %20 ], [ %.2.idx.sroa.sel.idx.sroa.sel, %39 ], [ %.04165, %skip_prefix.exit ]
   %.038 = phi ptr [ %16, %20 ], [ %spec.select, %39 ], [ %16, %skip_prefix.exit ]
-  %44 = icmp ult ptr %.038, %7
-  br i1 %44, label %11, label %.preheader, !llvm.loop !155
+  %43 = icmp ult ptr %.038, %7
+  br i1 %43, label %11, label %.preheader, !llvm.loop !155
 
-45:                                               ; preds = %.preheader, %55
-  %indvars.iv71 = phi i64 [ 1, %.preheader ], [ %indvars.iv.next72, %55 ]
-  %46 = getelementptr inbounds nuw %struct.sigbuf, ptr %2, i64 %indvars.iv71
-  %47 = load ptr, ptr %46, align 16, !tbaa !153
-  %.not = icmp eq ptr %47, null
-  br i1 %.not, label %55, label %48
+44:                                               ; preds = %.preheader, %54
+  %indvars.iv71 = phi i64 [ 1, %.preheader ], [ %indvars.iv.next72, %54 ]
+  %45 = getelementptr inbounds nuw %struct.sigbuf, ptr %2, i64 %indvars.iv71
+  %46 = load ptr, ptr %45, align 16, !tbaa !153
+  %.not = icmp eq ptr %46, null
+  br i1 %.not, label %54, label %47
 
-48:                                               ; preds = %45
-  %49 = ptrtoint ptr %47 to i64
-  %50 = sub i64 %49, %10
-  %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !151
-  %53 = ptrtoint ptr %52 to i64
-  %54 = sub i64 %53, %49
-  call void @strbuf_remove(ptr noundef %0, i64 noundef %50, i64 noundef %54) #25
-  br label %55
+47:                                               ; preds = %44
+  %48 = ptrtoint ptr %46 to i64
+  %49 = sub i64 %48, %10
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !151
+  %52 = ptrtoint ptr %51 to i64
+  %53 = sub i64 %52, %48
+  call void @strbuf_remove(ptr noundef %0, i64 noundef %49, i64 noundef %53) #25
+  br label %54
 
-55:                                               ; preds = %45, %48
+54:                                               ; preds = %44, %47
   %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
   %.not76 = icmp eq i64 %indvars.iv71, 0
-  br i1 %.not76, label %56, label %45, !llvm.loop !156
+  br i1 %.not76, label %55, label %44, !llvm.loop !156
 
-56:                                               ; preds = %55
-  %57 = load ptr, ptr %2, align 16, !tbaa !153
-  %58 = icmp ne ptr %57, null
-  %59 = zext i1 %58 to i32
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %2, align 16, !tbaa !153
+  %57 = icmp ne ptr %56, null
+  %58 = zext i1 %57 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %59
+  ret i32 %58
 }
 
 declare void @strbuf_remove(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1

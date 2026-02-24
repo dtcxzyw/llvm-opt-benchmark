@@ -12414,6 +12414,7 @@ _ZN12_GLOBAL__N_114SegmentBuilder14combineRegionsEN4llvm15MutableArrayRefINS1_8c
   %70 = add i64 %.neg.i, %2
   %.idx85.i = mul nuw nsw i64 %70, 80
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx85.i
+  %invariant.op.i = add i64 %70, -1
   %.not7182.i = icmp eq i64 %70, 0
   br i1 %.not7182.i, label %._crit_edge.i10, label %.lr.ph.i8
 
@@ -12421,14 +12422,14 @@ _ZN12_GLOBAL__N_114SegmentBuilder14combineRegionsEN4llvm15MutableArrayRefINS1_8c
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br label %74
 
-._crit_edge.i10:                                  ; preds = %206, %3, %_ZN12_GLOBAL__N_114SegmentBuilder14combineRegionsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE.exit
+._crit_edge.i10:                                  ; preds = %207, %3, %_ZN12_GLOBAL__N_114SegmentBuilder14combineRegionsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE.exit
   %73 = load i32, ptr %8, align 8, !tbaa !47
   %.not.i.i = icmp eq i32 %73, 0
-  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS1_8coverage13CountedRegionEEE.exit, label %208
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS1_8coverage13CountedRegionEEE.exit, label %210
 
-74:                                               ; preds = %206, %.lr.ph.i8
-  %.sroa.7.084.i = phi i64 [ 0, %.lr.ph.i8 ], [ %161, %206 ]
-  %.sroa.052.083.i = phi ptr [ %1, %.lr.ph.i8 ], [ %207, %206 ]
+74:                                               ; preds = %207, %.lr.ph.i8
+  %.sroa.7.084.i = phi i64 [ 0, %.lr.ph.i8 ], [ %208, %207 ]
+  %.sroa.052.083.i = phi ptr [ %1, %.lr.ph.i8 ], [ %209, %207 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.052.083.i, i64 36
   %76 = load i64, ptr %75, align 4
@@ -12497,7 +12498,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegment
   %100 = icmp ule i32 %83, %.sroa.0.0.extract.trunc.i.i44.i.i.i.i.i
   %.not75.i.i.i.i.i = icmp samesign ult i64 %84, %.sroa.4.0.extract.shift.i.i45.i.i.i.i.i
   %or.cond63.i = select i1 %100, i1 %.not75.i.i.i.i.i, i1 false
-  br i1 %or.cond63.i, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit47.thread66.i.i.i.i.i, label %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit46
+  br i1 %or.cond63.i, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit47.thread66.i.i.i.i.i, label %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit47
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit47.thread66.i.i.i.i.i: ; preds = %99, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit43.thread65.i.i.i.i.i
   %101 = getelementptr inbounds nuw i8, ptr %.02998.i.i.i.i.i, i64 24
@@ -12513,7 +12514,7 @@ _ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegment
   %105 = icmp ule i32 %83, %.sroa.0.0.extract.trunc.i.i48.i.i.i.i.i
   %.not76.i.i.i.i.i = icmp samesign ult i64 %84, %.sroa.4.0.extract.shift.i.i49.i.i.i.i.i
   %or.cond64.i = select i1 %105, i1 %.not76.i.i.i.i.i, i1 false
-  br i1 %or.cond64.i, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit51.thread67.i.i.i.i.i, label %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit48
+  br i1 %or.cond64.i, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit51.thread67.i.i.i.i.i, label %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit49
 
 _ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit51.thread67.i.i.i.i.i: ; preds = %104, %_ZN9__gnu_cxx5__ops12_Iter_negateIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS4_8coverage13CountedRegionEEEEUlPKS7_E_EclIPSA_EEbT_.exit47.thread66.i.i.i.i.i
   %106 = getelementptr inbounds nuw i8, ptr %.02998.i.i.i.i.i, i64 32
@@ -12593,16 +12594,16 @@ _ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_p
   %125 = getelementptr inbounds nuw i8, ptr %.02998.i.i.i.i.i, i64 8
   br label %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i
 
-_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit46: ; preds = %99
+_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit47: ; preds = %99
   %126 = getelementptr inbounds nuw i8, ptr %.02998.i.i.i.i.i, i64 16
   br label %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i
 
-_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit48: ; preds = %104
+_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit49: ; preds = %104
   %127 = getelementptr inbounds nuw i8, ptr %.02998.i.i.i.i.i, i64 24
   br label %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i
 
-_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i: ; preds = %89, %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit, %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit46, %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit48, %123, %118, %113
-  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %113 ], [ %.2.i.i.i.i.i, %123 ], [ %.1.i.i.i.i.i, %118 ], [ %127, %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit48 ], [ %125, %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit ], [ %126, %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit46 ], [ %.02998.i.i.i.i.i, %89 ]
+_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i: ; preds = %89, %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit, %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit47, %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit49, %123, %118, %113
+  %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %113 ], [ %.2.i.i.i.i.i, %123 ], [ %.1.i.i.i.i.i, %118 ], [ %127, %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit49 ], [ %125, %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit ], [ %126, %_ZSt13__find_if_notIPPKN4llvm8coverage13CountedRegionEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_EEET_SF_SF_T0_.exit.i.i.i.loopexit.split.loop.exit47 ], [ %.02998.i.i.i.i.i, %89 ]
   %128 = icmp eq ptr %.028.i.i.i.i.i, %80
   br i1 %128, label %_ZSt16stable_partitionIPPKN4llvm8coverage13CountedRegionEZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplENS0_8ArrayRefIS2_EEEUlS4_E_ET_SB_SB_T0_.exit.i, label %129
 
@@ -12669,125 +12670,127 @@ _ZSt16stable_partitionIPPKN4llvm8coverage13CountedRegionEZN12_GLOBAL__N_114Segme
   %158 = load i32, ptr %72, align 4
   %159 = icmp eq i32 %158, %.sroa.4.0.extract.trunc.i
   %160 = select i1 %157, i1 %159, i1 false
-  %161 = add nuw nsw i64 %.sroa.7.084.i, 1
-  %162 = icmp eq i64 %161, %70
-  br i1 %160, label %163, label %185
+  br i1 %160, label %161, label %184
 
-163:                                              ; preds = %150
-  %164 = icmp eq i32 %152, 2
-  %spec.select.i = select i1 %162, i1 true, i1 %164
-  %165 = load i32, ptr %8, align 8, !tbaa !47
-  %.not.i36.i = icmp eq i32 %165, 0
-  br i1 %.not.i36.i, label %172, label %166
+161:                                              ; preds = %150
+  %162 = icmp eq i64 %.sroa.7.084.i, %invariant.op.i
+  %163 = icmp eq i32 %152, 2
+  %spec.select.i = select i1 %162, i1 true, i1 %163
+  %164 = load i32, ptr %8, align 8, !tbaa !47
+  %.not.i36.i = icmp eq i32 %164, 0
+  br i1 %.not.i36.i, label %171, label %165
 
-166:                                              ; preds = %163
-  %167 = load ptr, ptr %6, align 8, !tbaa !50
-  %168 = zext i32 %165 to i64
-  %169 = getelementptr inbounds nuw ptr, ptr %167, i64 %168
-  %170 = getelementptr inbounds i8, ptr %169, i64 -8
-  %171 = load ptr, ptr %170, align 8, !tbaa !419
-  %.phi.trans.insert.i = getelementptr i8, ptr %171, i64 52
+165:                                              ; preds = %161
+  %166 = load ptr, ptr %6, align 8, !tbaa !50
+  %167 = zext i32 %164 to i64
+  %168 = getelementptr inbounds nuw ptr, ptr %166, i64 %167
+  %169 = getelementptr inbounds i8, ptr %168, i64 -8
+  %170 = load ptr, ptr %169, align 8, !tbaa !419
+  %.phi.trans.insert.i = getelementptr i8, ptr %170, i64 52
   %.val28.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
-  br label %172
+  br label %171
 
-172:                                              ; preds = %166, %163
-  %.val28.i = phi i32 [ %.val28.pre.i, %166 ], [ %152, %163 ]
-  %173 = phi ptr [ %171, %166 ], [ %.sroa.052.083.i, %163 ]
+171:                                              ; preds = %165, %161
+  %.val28.i = phi i32 [ %.val28.pre.i, %165 ], [ %152, %161 ]
+  %172 = phi ptr [ %170, %165 ], [ %.sroa.052.083.i, %161 ]
   %.sroa.03.0.copyload.i = load i64, ptr %4, align 8
   %.val.i = load ptr, ptr %5, align 8, !tbaa !748
-  %174 = getelementptr i8, ptr %173, i64 56
-  %.val29.i = load i64, ptr %174, align 8
+  %173 = getelementptr i8, ptr %172, i64 56
+  %.val29.i = load i64, ptr %173, align 8
   call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb(ptr %.val.i, i32 %.val28.i, i64 %.val29.i, i64 %.sroa.03.0.copyload.i, i1 noundef zeroext %153, i1 noundef zeroext %spec.select.i)
-  br i1 %spec.select.i, label %175, label %206
+  br i1 %spec.select.i, label %174, label %207
 
-175:                                              ; preds = %172
-  %176 = load i32, ptr %8, align 8, !tbaa !47
-  %.not.i37.i = icmp eq i32 %176, 0
-  br i1 %.not.i37.i, label %206, label %177
+174:                                              ; preds = %171
+  %175 = load i32, ptr %8, align 8, !tbaa !47
+  %.not.i37.i = icmp eq i32 %175, 0
+  br i1 %.not.i37.i, label %207, label %176
 
-177:                                              ; preds = %175
-  %178 = load ptr, ptr %6, align 8, !tbaa !50
-  %179 = zext i32 %176 to i64
-  %180 = getelementptr inbounds nuw ptr, ptr %178, i64 %179
-  %181 = getelementptr inbounds i8, ptr %180, i64 -8
-  %182 = load ptr, ptr %181, align 8, !tbaa !419
+176:                                              ; preds = %174
+  %177 = load ptr, ptr %6, align 8, !tbaa !50
+  %178 = zext i32 %175 to i64
+  %179 = getelementptr inbounds nuw ptr, ptr %177, i64 %178
+  %180 = getelementptr inbounds i8, ptr %179, i64 -8
+  %181 = load ptr, ptr %180, align 8, !tbaa !419
   %.sroa.02.0.copyload.i = load i64, ptr %4, align 8
   %.val30.i = load ptr, ptr %5, align 8, !tbaa !748
-  %183 = getelementptr i8, ptr %182, i64 52
-  %.val31.i = load i32, ptr %183, align 4
-  %184 = getelementptr i8, ptr %182, i64 56
-  %.val32.i = load i64, ptr %184, align 8
+  %182 = getelementptr i8, ptr %181, i64 52
+  %.val31.i = load i32, ptr %182, align 4
+  %183 = getelementptr i8, ptr %181, i64 56
+  %.val32.i = load i64, ptr %183, align 8
   call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb(ptr %.val30.i, i32 %.val31.i, i64 %.val32.i, i64 %.sroa.02.0.copyload.i, i1 noundef zeroext false, i1 noundef zeroext false)
-  br label %206
+  br label %207
 
-185:                                              ; preds = %150
-  br i1 %162, label %.critedge.i11, label %186
+184:                                              ; preds = %150
+  %185 = add nuw nsw i64 %.sroa.7.084.i, 1
+  %186 = icmp eq i64 %185, %70
+  br i1 %186, label %.critedge.i11, label %187
 
-186:                                              ; preds = %185
-  %187 = getelementptr inbounds nuw %"struct.llvm::coverage::CountedRegion", ptr %1, i64 %161
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 36
-  %189 = load i64, ptr %188, align 4
-  %.sroa.038.0.extract.trunc.i = trunc i64 %189 to i32
-  %.sroa.5.0.extract.shift.i = lshr i64 %189, 32
+187:                                              ; preds = %184
+  %188 = getelementptr inbounds nuw %"struct.llvm::coverage::CountedRegion", ptr %1, i64 %185
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 36
+  %190 = load i64, ptr %189, align 4
+  %.sroa.038.0.extract.trunc.i = trunc i64 %190 to i32
+  %.sroa.5.0.extract.shift.i = lshr i64 %190, 32
   %.sroa.5.0.extract.trunc.i = trunc nuw i64 %.sroa.5.0.extract.shift.i to i32
-  %190 = icmp ne i32 %156, %.sroa.038.0.extract.trunc.i
-  %191 = icmp ne i32 %158, %.sroa.5.0.extract.trunc.i
-  %.not3.i.i = select i1 %190, i1 true, i1 %191
-  br i1 %.not3.i.i, label %.critedge.i11, label %193
+  %191 = icmp ne i32 %156, %.sroa.038.0.extract.trunc.i
+  %192 = icmp ne i32 %158, %.sroa.5.0.extract.trunc.i
+  %.not3.i.i = select i1 %191, i1 true, i1 %192
+  br i1 %.not3.i.i, label %.critedge.i11, label %194
 
-.critedge.i11:                                    ; preds = %186, %185
+.critedge.i11:                                    ; preds = %187, %184
   %.sroa.01.0.copyload.i = load i64, ptr %4, align 8
   %.val33.i = load ptr, ptr %5, align 8, !tbaa !748
-  %192 = getelementptr i8, ptr %.sroa.052.083.i, i64 56
-  %.val35.i = load i64, ptr %192, align 8
+  %193 = getelementptr i8, ptr %.sroa.052.083.i, i64 56
+  %.val35.i = load i64, ptr %193, align 8
   call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder12startSegmentERKN4llvm8coverage13CountedRegionESt4pairIjjEbb(ptr %.val33.i, i32 %152, i64 %.val35.i, i64 %.sroa.01.0.copyload.i, i1 noundef zeroext %153, i1 noundef zeroext false)
-  br label %193
+  br label %194
 
-193:                                              ; preds = %.critedge.i11, %186
-  %194 = load i32, ptr %8, align 8, !tbaa !47
-  %195 = load i32, ptr %9, align 4, !tbaa !49
-  %.not.i.i.not.i.i = icmp ult i32 %194, %195
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_8coverage13CountedRegionELb1EE9push_backES4_.exit.i, label %196, !prof !39
+194:                                              ; preds = %.critedge.i11, %187
+  %195 = load i32, ptr %8, align 8, !tbaa !47
+  %196 = load i32, ptr %9, align 4, !tbaa !49
+  %.not.i.i.not.i.i = icmp ult i32 %195, %196
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_8coverage13CountedRegionELb1EE9push_backES4_.exit.i, label %197, !prof !39
 
-196:                                              ; preds = %193
-  %197 = zext i32 %194 to i64
-  %198 = add nuw nsw i64 %197, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7, i64 noundef %198, i64 noundef 8) #31
+197:                                              ; preds = %194
+  %198 = zext i32 %195 to i64
+  %199 = add nuw nsw i64 %198, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %7, i64 noundef %199, i64 noundef 8) #31
   %.pre.i.i = load i32, ptr %8, align 8, !tbaa !47
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_8coverage13CountedRegionELb1EE9push_backES4_.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseIPKNS_8coverage13CountedRegionELb1EE9push_backES4_.exit.i: ; preds = %196, %193
-  %199 = phi i32 [ %194, %193 ], [ %.pre.i.i, %196 ]
-  %200 = load ptr, ptr %6, align 8, !tbaa !50
-  %201 = zext i32 %199 to i64
-  %202 = getelementptr inbounds nuw ptr, ptr %200, i64 %201
-  %203 = ptrtoint ptr %.sroa.052.083.i to i64
-  store i64 %203, ptr %202, align 1
-  %204 = load i32, ptr %8, align 8, !tbaa !47
-  %205 = add i32 %204, 1
-  store i32 %205, ptr %8, align 8, !tbaa !47
-  br label %206
+_ZN4llvm23SmallVectorTemplateBaseIPKNS_8coverage13CountedRegionELb1EE9push_backES4_.exit.i: ; preds = %197, %194
+  %200 = phi i32 [ %195, %194 ], [ %.pre.i.i, %197 ]
+  %201 = load ptr, ptr %6, align 8, !tbaa !50
+  %202 = zext i32 %200 to i64
+  %203 = getelementptr inbounds nuw ptr, ptr %201, i64 %202
+  %204 = ptrtoint ptr %.sroa.052.083.i to i64
+  store i64 %204, ptr %203, align 1
+  %205 = load i32, ptr %8, align 8, !tbaa !47
+  %206 = add i32 %205, 1
+  store i32 %206, ptr %8, align 8, !tbaa !47
+  br label %207
 
-206:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_8coverage13CountedRegionELb1EE9push_backES4_.exit.i, %177, %175, %172
+207:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_8coverage13CountedRegionELb1EE9push_backES4_.exit.i, %176, %174, %171
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %207 = getelementptr inbounds nuw i8, ptr %.sroa.052.083.i, i64 80
-  %.not71.i = icmp eq ptr %207, %71
+  %208 = add nuw nsw i64 %.sroa.7.084.i, 1
+  %209 = getelementptr inbounds nuw i8, ptr %.sroa.052.083.i, i64 80
+  %.not71.i = icmp eq ptr %209, %71
   br i1 %.not71.i, label %._crit_edge.i10, label %74
 
-208:                                              ; preds = %._crit_edge.i10
+210:                                              ; preds = %._crit_edge.i10
   call fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder20completeRegionsUntilESt8optionalISt4pairIjjEEj(ptr noundef nonnull align 8 dereferenceable(88) %5, i64 undef, i8 0, i32 noundef 0)
   br label %_ZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS1_8coverage13CountedRegionEEE.exit
 
-_ZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS1_8coverage13CountedRegionEEE.exit: ; preds = %._crit_edge.i10, %208
-  %209 = load ptr, ptr %6, align 8, !tbaa !50
-  %210 = icmp eq ptr %209, %7
-  br i1 %210, label %_ZN12_GLOBAL__N_114SegmentBuilderD2Ev.exit, label %211
+_ZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS1_8coverage13CountedRegionEEE.exit: ; preds = %._crit_edge.i10, %210
+  %211 = load ptr, ptr %6, align 8, !tbaa !50
+  %212 = icmp eq ptr %211, %7
+  br i1 %212, label %_ZN12_GLOBAL__N_114SegmentBuilderD2Ev.exit, label %213
 
-211:                                              ; preds = %_ZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS1_8coverage13CountedRegionEEE.exit
-  call void @free(ptr noundef %209) #31
+213:                                              ; preds = %_ZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS1_8coverage13CountedRegionEEE.exit
+  call void @free(ptr noundef %211) #31
   br label %_ZN12_GLOBAL__N_114SegmentBuilderD2Ev.exit
 
-_ZN12_GLOBAL__N_114SegmentBuilderD2Ev.exit:       ; preds = %_ZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS1_8coverage13CountedRegionEEE.exit, %211
+_ZN12_GLOBAL__N_114SegmentBuilderD2Ev.exit:       ; preds = %_ZN12_GLOBAL__N_114SegmentBuilder17buildSegmentsImplEN4llvm8ArrayRefINS1_8coverage13CountedRegionEEE.exit, %213
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }

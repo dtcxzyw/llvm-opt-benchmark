@@ -2545,6 +2545,7 @@ define hidden noundef ptr @"_ZN94_$LT$inquire..ui..backend..Backend$LT$T$GT$$u20
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i64, ptr %20, align 8, !noundef !4
   %22 = getelementptr inbounds nuw { ptr, i64 }, ptr %19, i64 %21
+  %invariant.op = add i64 %21, -1
   %23 = load i64, ptr %1, align 8, !range !3
   %24 = trunc nuw i64 %23 to i1
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2624,7 +2625,7 @@ define hidden noundef ptr @"_ZN94_$LT$inquire..ui..backend..Backend$LT$T$GT$$u20
   br label %"_ZN7inquire2ui7backend16Backend$LT$T$GT$19print_option_prefix17he19c7ec3b789bb48E.exit"
 
 55:                                               ; preds = %52
-  %56 = icmp ne i64 %50, %21
+  %56 = icmp ne i64 %.sroa.8.0, %invariant.op
   %or.cond5.i = select i1 %56, i1 true, i1 %33
   br i1 %or.cond5.i, label %58, label %59
 

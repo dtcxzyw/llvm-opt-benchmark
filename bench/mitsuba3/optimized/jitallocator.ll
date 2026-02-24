@@ -321,33 +321,36 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
   %117 = icmp ult i64 %112, %80
   br i1 %117, label %.preheader, label %.loopexit16
 
-118:                                              ; preds = %133
-  %119 = add nuw nsw i64 %121, 64
+.preheader:                                       ; preds = %116
+  %invariant.op = add i64 %108, -1
+  br label %121
+
+118:                                              ; preds = %134
+  %119 = add nuw nsw i64 %122, 64
   %120 = icmp ult i64 %119, %80
-  br i1 %120, label %.preheader, label %.loopexit16, !llvm.loop !54
+  br i1 %120, label %121, label %.loopexit16, !llvm.loop !54
 
-.preheader:                                       ; preds = %116, %118
-  %121 = phi i64 [ %119, %118 ], [ %112, %116 ]
-  %122 = phi i64 [ %121, %118 ], [ %105, %116 ]
-  %123 = phi ptr [ %124, %118 ], [ %106, %116 ]
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %125 = load i64, ptr %124, align 8, !tbaa !51
-  %126 = icmp eq i64 %125, 0
-  br i1 %126, label %133, label %127
+121:                                              ; preds = %.preheader, %118
+  %122 = phi i64 [ %119, %118 ], [ %112, %.preheader ]
+  %123 = phi i64 [ %122, %118 ], [ %105, %.preheader ]
+  %124 = phi ptr [ %125, %118 ], [ %106, %.preheader ]
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
+  %126 = load i64, ptr %125, align 8, !tbaa !51
+  %127 = icmp eq i64 %126, 0
+  br i1 %127, label %134, label %128
 
-127:                                              ; preds = %.preheader
-  %128 = call i64 @llvm.cttz.i64(i64 %125, i1 true), !range !53
-  %129 = add nuw nsw i64 %128, %121
-  %130 = call noundef i64 @llvm.umin.i64(i64 %80, i64 %129)
-  %131 = shl nsw i64 -1, %128
-  %132 = xor i64 %131, %125
+128:                                              ; preds = %121
+  %129 = call i64 @llvm.cttz.i64(i64 %126, i1 true), !range !53
+  %130 = add nuw nsw i64 %129, %122
+  %131 = call noundef i64 @llvm.umin.i64(i64 %80, i64 %130)
+  %132 = shl nsw i64 -1, %129
+  %133 = xor i64 %132, %126
   br label %.loopexit16
 
-133:                                              ; preds = %.preheader
-  %134 = add i64 %122, 128
-  %135 = call noundef i64 @llvm.umin.i64(i64 %80, i64 %134)
-  %136 = sub i64 %135, %108
-  %137 = icmp eq i64 %136, -1
+134:                                              ; preds = %121
+  %135 = add i64 %123, 128
+  %136 = call noundef i64 @llvm.umin.i64(i64 %80, i64 %135)
+  %137 = icmp eq i64 %136, %invariant.op
   br i1 %137, label %.loopexit16, label %118, !llvm.loop !54
 
 138:                                              ; preds = %103
@@ -359,11 +362,11 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
   %144 = xor i64 %143, %139
   br label %.loopexit16
 
-.loopexit16:                                      ; preds = %133, %118, %138, %127, %116, %111
-  %145 = phi i64 [ %142, %138 ], [ %130, %127 ], [ %113, %111 ], [ %113, %116 ], [ %135, %118 ], [ %135, %133 ]
-  %146 = phi ptr [ %106, %138 ], [ %124, %127 ], [ %106, %111 ], [ %106, %116 ], [ %124, %118 ], [ %124, %133 ]
-  %147 = phi i64 [ %105, %138 ], [ %121, %127 ], [ %105, %111 ], [ %112, %116 ], [ %121, %133 ], [ %119, %118 ]
-  %148 = phi i64 [ %144, %138 ], [ %132, %127 ], [ 0, %111 ], [ 0, %116 ], [ 0, %118 ], [ 0, %133 ]
+.loopexit16:                                      ; preds = %134, %118, %138, %128, %116, %111
+  %145 = phi i64 [ %142, %138 ], [ %131, %128 ], [ %113, %111 ], [ %113, %116 ], [ %invariant.op, %134 ], [ %136, %118 ]
+  %146 = phi ptr [ %106, %138 ], [ %125, %128 ], [ %106, %111 ], [ %106, %116 ], [ %125, %118 ], [ %125, %134 ]
+  %147 = phi i64 [ %105, %138 ], [ %122, %128 ], [ %105, %111 ], [ %112, %116 ], [ %122, %134 ], [ %119, %118 ]
+  %148 = phi i64 [ %144, %138 ], [ %133, %128 ], [ 0, %111 ], [ 0, %116 ], [ 0, %118 ], [ 0, %134 ]
   %149 = mul i64 %108, %87
   %150 = getelementptr inbounds i8, ptr %74, i64 %149
   %151 = sub i64 %145, %108
@@ -375,7 +378,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
 
 156:                                              ; preds = %.loopexit16
   %157 = icmp ult i64 %152, 128
-  br i1 %157, label %.preheader75, label %158
+  br i1 %157, label %.preheader76, label %158
 
 158:                                              ; preds = %156
   %159 = and i64 %154, 4611686018427387872
@@ -399,14 +402,14 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
 
 170:                                              ; preds = %162
   %171 = icmp eq i64 %154, %159
-  br i1 %171, label %.loopexit, label %.preheader75
+  br i1 %171, label %.loopexit, label %.preheader76
 
-.preheader75:                                     ; preds = %170, %156
+.preheader76:                                     ; preds = %170, %156
   %.ph = phi i64 [ %159, %170 ], [ 0, %156 ]
   br label %172
 
-172:                                              ; preds = %.preheader75, %172
-  %173 = phi i64 [ %175, %172 ], [ %.ph, %.preheader75 ]
+172:                                              ; preds = %.preheader76, %172
+  %173 = phi i64 [ %175, %172 ], [ %.ph, %.preheader76 ]
   %174 = getelementptr inbounds nuw i32, ptr %150, i64 %173
   store i32 %153, ptr %174, align 4, !tbaa !55
   %175 = add nuw nsw i64 %173, 1

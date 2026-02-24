@@ -11597,36 +11597,35 @@ define hidden noundef ptr @_ZN10LinearScan15compute_oop_mapEP14IntervalWalkerP6L
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = trunc i64 %32 to i32
-  %34 = sub i32 %33, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
-  %.not.i = icmp eq i32 %34, -1
-  br i1 %.not.i, label %35, label %_ZN10LinearScan19vm_reg_for_intervalEP8Interval.exit
+  %.not.i = icmp eq i32 %33, add (i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32), i32 -1)
+  br i1 %.not.i, label %34, label %_ZN10LinearScan19vm_reg_for_intervalEP8Interval.exit
 
-35:                                               ; preds = %29
-  %36 = getelementptr inbounds nuw i8, ptr %.02834, i64 72
-  %.sroa.0.0.copyload.i.i.i = load i64, ptr %36, align 8
-  %37 = and i64 %.sroa.0.0.copyload.i.i.i, 7
-  %38 = icmp eq i64 %37, 7
-  br i1 %38, label %39, label %_ZN10LinearScan20operand_for_intervalEP8Interval.exit.i
+34:                                               ; preds = %29
+  %35 = getelementptr inbounds nuw i8, ptr %.02834, i64 72
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %35, align 8
+  %36 = and i64 %.sroa.0.0.copyload.i.i.i, 7
+  %37 = icmp eq i64 %36, 7
+  br i1 %37, label %38, label %_ZN10LinearScan20operand_for_intervalEP8Interval.exit.i
 
-39:                                               ; preds = %35
-  %40 = tail call i64 @_ZN10LinearScan25calc_operand_for_intervalEPK8Interval(ptr noundef nonnull %.02834)
-  store i64 %40, ptr %36, align 8
+38:                                               ; preds = %34
+  %39 = tail call i64 @_ZN10LinearScan25calc_operand_for_intervalEPK8Interval(ptr noundef nonnull %.02834)
+  store i64 %39, ptr %35, align 8
   br label %_ZN10LinearScan20operand_for_intervalEP8Interval.exit.i
 
-_ZN10LinearScan20operand_for_intervalEP8Interval.exit.i: ; preds = %39, %35
-  %.sroa.0.0.i.i = phi i64 [ %40, %39 ], [ %.sroa.0.0.copyload.i.i.i, %35 ]
-  %41 = load ptr, ptr %9, align 8
-  %42 = tail call noundef ptr @_ZNK8FrameMap7regnameE7LIR_Opr(ptr noundef nonnull align 8 dereferenceable(40) %41, i64 %.sroa.0.0.i.i) #22
-  store ptr %42, ptr %30, align 8
-  %.pre = ptrtoint ptr %42 to i64
+_ZN10LinearScan20operand_for_intervalEP8Interval.exit.i: ; preds = %38, %34
+  %.sroa.0.0.i.i = phi i64 [ %39, %38 ], [ %.sroa.0.0.copyload.i.i.i, %34 ]
+  %40 = load ptr, ptr %9, align 8
+  %41 = tail call noundef ptr @_ZNK8FrameMap7regnameE7LIR_Opr(ptr noundef nonnull align 8 dereferenceable(40) %40, i64 %.sroa.0.0.i.i) #22
+  store ptr %41, ptr %30, align 8
+  %.pre = ptrtoint ptr %41 to i64
   %.pre41 = trunc i64 %.pre to i32
-  %.pre43 = sub i32 %.pre41, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   br label %_ZN10LinearScan19vm_reg_for_intervalEP8Interval.exit
 
 _ZN10LinearScan19vm_reg_for_intervalEP8Interval.exit: ; preds = %29, %_ZN10LinearScan20operand_for_intervalEP8Interval.exit.i
-  %.pre-phi44 = phi i32 [ %34, %29 ], [ %.pre43, %_ZN10LinearScan20operand_for_intervalEP8Interval.exit.i ]
-  %.0.i = phi ptr [ %31, %29 ], [ %42, %_ZN10LinearScan20operand_for_intervalEP8Interval.exit.i ]
-  %43 = icmp ult i32 %.pre-phi44, 16384
+  %.pre-phi42 = phi i32 [ %33, %29 ], [ %.pre41, %_ZN10LinearScan20operand_for_intervalEP8Interval.exit.i ]
+  %.0.i = phi ptr [ %31, %29 ], [ %41, %_ZN10LinearScan20operand_for_intervalEP8Interval.exit.i ]
+  %42 = sub i32 %.pre-phi42, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
+  %43 = icmp ult i32 %42, 16384
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %_ZN10LinearScan19vm_reg_for_intervalEP8Interval.exit

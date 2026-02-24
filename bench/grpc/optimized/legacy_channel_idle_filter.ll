@@ -4763,34 +4763,37 @@ define linkonce_odr void @_ZN9grpc_core10NoDestructINS_6PerCpuIZNS_18LegacyMaxAg
   %16 = call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #38
   store i64 %7, ptr %16, align 16
   %17 = icmp eq i64 %7, 0
-  br i1 %17, label %_ZN9grpc_core6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenEC2ENS_13PerCpuOptionsE.exit, label %.preheader
+  br i1 %17, label %_ZN9grpc_core6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenEC2ENS_13PerCpuOptionsE.exit, label %18
 
-.preheader:                                       ; preds = %2, %19
-  %.idx.i = phi i64 [ %.add.i, %19 ], [ 8, %2 ]
+18:                                               ; preds = %2
+  %invariant.op.i = add i64 %10, -288
+  br label %19
+
+19:                                               ; preds = %21, %18
+  %.idx.i = phi i64 [ 8, %18 ], [ %.add.i, %21 ]
   %.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %16, i64 %.idx.i
   store i64 0, ptr %.ptr.ptr.i, align 8, !tbaa !272
-  %18 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !273
-  invoke void @_ZN4absl12lts_2024072215random_internal13randen_engineImEC2IRNS1_17RandenPoolSeedSeqEvEEOT_(ptr noundef nonnull align 8 dereferenceable(288) %18, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %19 unwind label %.loopexit.i
+  invoke void @_ZN4absl12lts_2024072215random_internal13randen_engineImEC2IRNS1_17RandenPoolSeedSeqEvEEOT_(ptr noundef nonnull align 8 dereferenceable(288) %20, ptr noundef nonnull align 1 dereferenceable(1) %3)
+          to label %21 unwind label %.loopexit.i
 
-19:                                               ; preds = %.preheader
+21:                                               ; preds = %19
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !273
   %.add.i = add nuw nsw i64 %.idx.i, 296
-  %20 = add nuw nsw i64 %.idx.i, 288
-  %21 = icmp eq i64 %20, %10
-  br i1 %21, label %_ZN9grpc_core6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenEC2ENS_13PerCpuOptionsE.exit, label %.preheader
+  %22 = icmp eq i64 %.idx.i, %invariant.op.i
+  br i1 %22, label %_ZN9grpc_core6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenEC2ENS_13PerCpuOptionsE.exit, label %19
 
-.loopexit.i:                                      ; preds = %.preheader
-  %22 = landingpad { ptr, i32 }
+.loopexit.i:                                      ; preds = %19
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdaPvm(ptr noundef nonnull %16, i64 noundef %15) #39
-  resume { ptr, i32 } %22
+  resume { ptr, i32 } %23
 
-_ZN9grpc_core6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenEC2ENS_13PerCpuOptionsE.exit: ; preds = %19, %2
+_ZN9grpc_core6PerCpuIZNS_18LegacyMaxAgeFilter6Config15FromChannelArgsERKNS_11ChannelArgsEE6BitGenEC2ENS_13PerCpuOptionsE.exit: ; preds = %21, %2
   %.ptr5.i = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.ptr5.i, ptr %23, align 8, !tbaa !276
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.ptr5.i, ptr %24, align 8, !tbaa !276
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

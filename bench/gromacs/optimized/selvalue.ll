@@ -87,7 +87,7 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !4
   %5 = icmp eq i32 %4, -1
-  br i1 %5, label %55, label %6
+  br i1 %5, label %56, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -95,7 +95,7 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
   %.not = icmp eq ptr %8, null
   %9 = icmp slt i32 %4, %1
   %or.cond = or i1 %9, %.not
-  br i1 %or.cond, label %10, label %55
+  br i1 %or.cond, label %10, label %56
 
 10:                                               ; preds = %6
   %11 = load i32, ptr %0, align 8, !tbaa !10
@@ -104,7 +104,7 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
     i32 2, label %15
     i32 3, label %18
     i32 4, label %26
-    i32 5, label %47
+    i32 5, label %48
   ]
 
 12:                                               ; preds = %10
@@ -159,70 +159,73 @@ define void @_Z21_gmx_selvalue_reserveP18gmx_ana_selvalue_ti(ptr noundef capture
   store i64 %29, ptr %38, align 16
   %.ptr36 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %39 = icmp eq i32 %1, 0
-  br i1 %39, label %.loopexit.sink.split, label %.preheader61
+  br i1 %39, label %.loopexit.sink.split, label %40
 
-.preheader61:                                     ; preds = %28, %40
-  %.idx = phi i64 [ %.add, %40 ], [ 8, %28 ]
+40:                                               ; preds = %28
+  %invariant.op = add nsw i64 %32, -144
+  br label %41
+
+41:                                               ; preds = %42, %40
+  %.idx = phi i64 [ 8, %40 ], [ %.add, %42 ]
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %38, i64 %.idx
   invoke void @_ZN13gmx_ana_pos_tC1Ev(ptr noundef nonnull align 8 dereferenceable(148) %.ptr.ptr)
-          to label %40 unwind label %43
+          to label %42 unwind label %44
 
-40:                                               ; preds = %.preheader61
+42:                                               ; preds = %41
   %.add = add nuw nsw i64 %.idx, 152
-  %41 = add nuw nsw i64 %.idx, 144
-  %42 = icmp eq i64 %41, %32
-  br i1 %42, label %.loopexit.sink.split, label %.preheader61
+  %43 = icmp eq i64 %.idx, %invariant.op
+  br i1 %43, label %.loopexit.sink.split, label %41
 
-43:                                               ; preds = %.preheader61
-  %44 = landingpad { ptr, i32 }
+44:                                               ; preds = %41
+  %45 = landingpad { ptr, i32 }
           cleanup
-  %45 = icmp eq i64 %.idx, 8
-  br i1 %45, label %.loopexit42, label %.preheader
+  %46 = icmp eq i64 %.idx, 8
+  br i1 %46, label %.loopexit42, label %.preheader
 
-.preheader:                                       ; preds = %43, %.preheader
-  %.idx37 = phi i64 [ %.add38, %.preheader ], [ %.idx, %43 ]
+.preheader:                                       ; preds = %44, %.preheader
+  %.idx37 = phi i64 [ %.add38, %.preheader ], [ %.idx, %44 ]
   %.add38 = add nsw i64 %.idx37, -152
   %.ptr40 = getelementptr inbounds i8, ptr %38, i64 %.add38
   tail call void @_ZN13gmx_ana_pos_tD1Ev(ptr noundef nonnull align 8 dereferenceable(148) %.ptr40) #10
-  %46 = icmp eq i64 %.add38, 8
-  br i1 %46, label %.loopexit42, label %.preheader
+  %47 = icmp eq i64 %.add38, 8
+  br i1 %47, label %.loopexit42, label %.preheader
 
-.loopexit42:                                      ; preds = %.preheader, %43
+.loopexit42:                                      ; preds = %.preheader, %44
   tail call void @_ZdaPvm(ptr noundef nonnull %38, i64 noundef %37) #11
-  resume { ptr, i32 } %44
+  resume { ptr, i32 } %45
 
-47:                                               ; preds = %10
-  %48 = sext i32 %1 to i64
-  %49 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 103, ptr noundef %8, i64 noundef range(i64 -2147483648, 2147483648) %48, i64 noundef 24)
-  store ptr %49, ptr %7, align 8, !tbaa !20
-  %50 = load i32, ptr %3, align 8, !tbaa !4
-  %51 = icmp slt i32 %50, %1
-  br i1 %51, label %.lr.ph.preheader, label %.loopexit
+48:                                               ; preds = %10
+  %49 = sext i32 %1 to i64
+  %50 = tail call noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 103, ptr noundef %8, i64 noundef range(i64 -2147483648, 2147483648) %49, i64 noundef 24)
+  store ptr %50, ptr %7, align 8, !tbaa !20
+  %51 = load i32, ptr %3, align 8, !tbaa !4
+  %52 = icmp slt i32 %51, %1
+  br i1 %52, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %47
-  %52 = sext i32 %50 to i64
+.lr.ph.preheader:                                 ; preds = %48
+  %53 = sext i32 %51 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ %52, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %53 = load ptr, ptr %7, align 8, !tbaa !11
-  %54 = getelementptr inbounds %struct.gmx_ana_index_t, ptr %53, i64 %indvars.iv
-  tail call void @_Z19gmx_ana_index_clearP15gmx_ana_index_t(ptr noundef %54)
+  %indvars.iv = phi i64 [ %53, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %54 = load ptr, ptr %7, align 8, !tbaa !11
+  %55 = getelementptr inbounds %struct.gmx_ana_index_t, ptr %54, i64 %indvars.iv
+  tail call void @_Z19gmx_ana_index_clearP15gmx_ana_index_t(ptr noundef %55)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %1, %lftr.wideiv
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
-.loopexit.sink.split:                             ; preds = %40, %28, %12, %15
-  %.ptr36.sink = phi ptr [ %14, %12 ], [ %17, %15 ], [ %.ptr36, %28 ], [ %.ptr36, %40 ]
+.loopexit.sink.split:                             ; preds = %42, %28, %12, %15
+  %.ptr36.sink = phi ptr [ %14, %12 ], [ %17, %15 ], [ %.ptr36, %28 ], [ %.ptr36, %42 ]
   store ptr %.ptr36.sink, ptr %7, align 8, !tbaa !11
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph48, %.loopexit.sink.split, %47, %18, %10
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph48, %.loopexit.sink.split, %48, %18, %10
   store i32 %1, ptr %3, align 8, !tbaa !4
-  br label %55
+  br label %56
 
-55:                                               ; preds = %.loopexit, %6, %2
+56:                                               ; preds = %.loopexit, %6, %2
   ret void
 }
 

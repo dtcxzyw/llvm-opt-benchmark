@@ -6235,9 +6235,7 @@ if.else:                                          ; preds = %for.body57
 if.then66:                                        ; preds = %if.else
   %call.i.i.i142 = call ptr @wmemchr(ptr noundef nonnull @.str.210, i32 noundef signext %45, i64 noundef 10) #33
   %tobool.not.i.i = icmp eq ptr %call.i.i.i142, null
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.i.i.i142 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, ptrtoint (ptr @.str.210 to i64)
-  %cmp70158 = icmp eq i64 %sub.ptr.sub.i.i, -4
+  %cmp70158 = icmp eq ptr %call.i.i.i142, inttoptr (i64 add (i64 ptrtoint (ptr @.str.210 to i64), i64 -4) to ptr)
   %cmp70 = or i1 %tobool.not.i.i, %cmp70158
   br i1 %cmp70, label %if.end76, label %if.then73
 

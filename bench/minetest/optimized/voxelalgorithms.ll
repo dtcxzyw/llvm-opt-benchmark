@@ -298,6 +298,7 @@ while.body:                                       ; preds = %if.end.i, %while.co
   %inc26.i = add i16 %neighbor_block_pos.sroa.18.0.extract.trunc, 1
   %inc15.i = add i16 %neighbor_block_pos.sroa.12.0.extract.trunc, 1
   %inc5.i = add i16 %neighbor_block_pos.sroa.0.0.extract.trunc, 1
+  %invariant.op = sub nsw i32 5, %conv5
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.inc
@@ -312,8 +313,7 @@ for.body:                                         ; preds = %for.inc, %while.bod
   %source_dir.0331 = phi i8 [ 6, %while.body ], [ %source_dir.3, %for.inc ]
   %brightest_neighbor_light.0330 = phi i8 [ %narrow, %while.body ], [ %brightest_neighbor_light.3, %for.inc ]
   %indvars333 = trunc i32 %indvars.iv to i8
-  %add7 = add nuw nsw i32 %indvars.iv, %conv5
-  %cmp8 = icmp eq i32 %add7, 5
+  %cmp8 = icmp eq i32 %indvars.iv, %invariant.op
   br i1 %cmp8, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body
@@ -960,13 +960,13 @@ while.body:                                       ; preds = %if.end.i, %while.co
   %arrayidx.i98 = getelementptr inbounds nuw %"class.std::vector", ptr %light_sources, i64 %idxprom.i97
   %_M_finish.i.i99 = getelementptr inbounds nuw i8, ptr %arrayidx.i98, i64 8
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i98, i64 16
+  %invariant.op = sub nsw i32 5, %conv1
   br label %for.body
 
 for.body:                                         ; preds = %for.inc, %while.body
   %indvars.iv = phi i32 [ 0, %while.body ], [ %indvars.iv.next, %for.inc ]
   %indvars167 = trunc i32 %indvars.iv to i8
-  %add = add nuw nsw i32 %indvars.iv, %conv1
-  %cmp3 = icmp eq i32 %add, 5
+  %cmp3 = icmp eq i32 %indvars.iv, %invariant.op
   br i1 %cmp3, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body

@@ -3281,6 +3281,7 @@ for.body.lr.ph.split.split:                       ; preds = %for.body.lr.ph.spli
   %xtraiter = and i32 %12, 3
   %lcmp.mod.not = icmp eq i32 %xtraiter, 0
   %14 = icmp ult i32 %13, 3
+  %invariant.op = add nsw i32 %conv32, -3
   br i1 %14, label %for.body.lr.ph.split.split.split.us, label %for.body.lr.ph.split.split.split
 
 for.body.lr.ph.split.split.split.us:              ; preds = %for.body.lr.ph.split.split
@@ -3368,7 +3369,6 @@ for.body35.us.us:                                 ; preds = %for.body35.us.us, %
   %param1.2.split.us.us = getelementptr inbounds nuw %struct.MapNode, ptr %11, i64 %idxprom.2.us.us
   %param1.2.us.us = getelementptr inbounds nuw i8, ptr %param1.2.split.us.us, i64 2
   store i8 %light, ptr %param1.2.us.us, align 2, !tbaa !170
-  %inc.2.us.us = add nsw i32 %x.083.us.us, 3
   %inc37.2.us.us = add i32 %i.082.us.us, 3
   %idxprom.3.us.us = zext i32 %inc37.2.us.us to i64
   %param1.3.split.us.us = getelementptr inbounds nuw %struct.MapNode, ptr %11, i64 %idxprom.3.us.us
@@ -3376,7 +3376,7 @@ for.body35.us.us:                                 ; preds = %for.body35.us.us, %
   store i8 %light, ptr %param1.3.us.us, align 2, !tbaa !170
   %inc.3.us.us = add nsw i32 %x.083.us.us, 4
   %inc37.3.us.us = add i32 %i.082.us.us, 4
-  %exitcond.not.3.us.us = icmp eq i32 %inc.2.us.us, %conv32
+  %exitcond.not.3.us.us = icmp eq i32 %x.083.us.us, %invariant.op
   br i1 %exitcond.not.3.us.us, label %for.cond29.for.cond.cleanup34_crit_edge.loopexit.us.us, label %for.body35.us.us, !llvm.loop !175
 
 for.cond29.for.cond.cleanup34_crit_edge.loopexit.us.us: ; preds = %for.body35.us.us
@@ -3467,7 +3467,6 @@ for.body35:                                       ; preds = %for.body35.prol, %f
   %param1.2.split = getelementptr inbounds nuw %struct.MapNode, ptr %11, i64 %idxprom.2
   %param1.2 = getelementptr inbounds nuw i8, ptr %param1.2.split, i64 2
   store i8 %light, ptr %param1.2, align 2, !tbaa !170
-  %inc.2 = add nsw i32 %x.083, 3
   %inc37.2 = add i32 %i.082, 3
   %idxprom.3 = zext i32 %inc37.2 to i64
   %param1.3.split = getelementptr inbounds nuw %struct.MapNode, ptr %11, i64 %idxprom.3
@@ -3475,7 +3474,7 @@ for.body35:                                       ; preds = %for.body35.prol, %f
   store i8 %light, ptr %param1.3, align 2, !tbaa !170
   %inc.3 = add nsw i32 %x.083, 4
   %inc37.3 = add i32 %i.082, 4
-  %exitcond.not.3 = icmp eq i32 %inc.2, %conv32
+  %exitcond.not.3 = icmp eq i32 %x.083, %invariant.op
   br i1 %exitcond.not.3, label %for.cond29.for.cond.cleanup34_crit_edge.loopexit, label %for.body35, !llvm.loop !175
 }
 

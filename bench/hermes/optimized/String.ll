@@ -4488,10 +4488,11 @@ _ZN6hermes2vm13MutableHandleINS0_15StringPrimitiveEEC2ERNS0_15HandleRootOwnerEPS
   %retval.0.i.i.i.i.i.i108 = phi ptr [ %41, %if.then.i.i.i.i.i.i109 ], [ %call7.i.i.i.i.i.i107, %if.end.i.i.i.i.i.i106 ]
   %43 = load ptr, ptr %next_.i, align 8
   %44 = load i32, ptr %curChunkIndex_.i, align 8
+  %invariant.op = add nsw i64 %conv.i, -1
   %call.i112150 = call { i32, i64 } @_ZN6hermes2vm8JSObject27getComputedWithReceiver_RJSENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES7_(ptr %retval.0.i.i.i.i.i.i44, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %retval.0.i.i.i.i.i.i70, ptr %retval.0.i.i.i.i.i.i44) #14
   %45 = extractvalue { i32, i64 } %call.i112150, 0
   %cmp.i113151 = icmp eq i32 %45, 0
-  %.pre155 = zext i32 %44 to i64
+  %.pre154 = zext i32 %44 to i64
   br i1 %cmp.i113151, label %cleanup, label %if.end101
 
 if.end101:                                        ; preds = %_ZN6hermes2vm13MutableHandleINS0_15StringPrimitiveEEC2ERNS0_15HandleRootOwnerEPS2_.exit111, %if.end151
@@ -4511,8 +4512,7 @@ if.end112:                                        ; preds = %if.end101
   call void @_ZNK6hermes2vm15StringPrimitive17appendUTF16StringERN4llvh15SmallVectorImplIDsEE(ptr noundef nonnull align 4 dereferenceable(8) %48, ptr noundef nonnull align 8 dereferenceable(16) %stringElements) #14
   %49 = load double, ptr %retval.0.i.i.i.i.i.i70, align 8
   %conv.i118 = fptosi double %49 to i64
-  %add = add nsw i64 %conv.i118, 1
-  %cmp119 = icmp eq i64 %add, %conv.i
+  %cmp119 = icmp eq i64 %invariant.op, %conv.i118
   br i1 %cmp119, label %if.then120, label %if.end123
 
 if.then120:                                       ; preds = %if.end112
@@ -4560,15 +4560,15 @@ if.end146:                                        ; preds = %_ZNK6hermes2vm10Nat
   call void @_ZNK6hermes2vm15StringPrimitive17appendUTF16StringERN4llvh15SmallVectorImplIDsEE(ptr noundef nonnull align 4 dereferenceable(8) %58, ptr noundef nonnull align 8 dereferenceable(16) %stringElements) #14
   %.pre = load double, ptr %retval.0.i.i.i.i.i.i70, align 8
   %.pre153 = fptosi double %.pre to i64
-  %.pre154 = add nsw i64 %.pre153, 1
   br label %if.end151
 
 if.end151:                                        ; preds = %if.end146, %if.end123
-  %add155.pre-phi = phi i64 [ %.pre154, %if.end146 ], [ %add, %if.end123 ]
-  %conv.i133 = sitofp i64 %add155.pre-phi to double
+  %conv.i132.pre-phi = phi i64 [ %.pre153, %if.end146 ], [ %conv.i118, %if.end123 ]
+  %add155 = add nsw i64 %conv.i132.pre-phi, 1
+  %conv.i133 = sitofp i64 %add155 to double
   store double %conv.i133, ptr %retval.0.i.i.i.i.i.i70, align 8
   %59 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i.i = getelementptr inbounds nuw ptr, ptr %59, i64 %.pre155
+  %arrayidx.i20.i.i = getelementptr inbounds nuw ptr, ptr %59, i64 %.pre154
   %60 = load ptr, ptr %arrayidx.i20.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %60, i64 128
   store i32 %44, ptr %curChunkIndex_.i, align 8
@@ -4583,7 +4583,7 @@ cleanup:                                          ; preds = %if.end151, %if.end1
   %retval.sroa.0.1 = phi i32 [ 0, %_ZN6hermes2vm13MutableHandleINS0_15StringPrimitiveEEC2ERNS0_15HandleRootOwnerEPS2_.exit111 ], [ %52, %if.then120 ], [ 0, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit ], [ 0, %if.end101 ], [ 0, %if.end151 ]
   %retval.sroa.11.1 = phi i64 [ undef, %_ZN6hermes2vm13MutableHandleINS0_15StringPrimitiveEEC2ERNS0_15HandleRootOwnerEPS2_.exit111 ], [ %53, %if.then120 ], [ undef, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit ], [ undef, %if.end101 ], [ undef, %if.end151 ]
   %62 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i20.i.i.i = getelementptr inbounds nuw ptr, ptr %62, i64 %.pre155
+  %arrayidx.i20.i.i.i = getelementptr inbounds nuw ptr, ptr %62, i64 %.pre154
   %63 = load ptr, ptr %arrayidx.i20.i.i.i, align 8
   %add.ptr.i.i.i139 = getelementptr inbounds nuw i8, ptr %63, i64 128
   store i32 %44, ptr %curChunkIndex_.i, align 8

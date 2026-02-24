@@ -940,6 +940,7 @@ define i32 @wedgedEllipse(ptr noundef %0, ptr noundef readonly captures(none) %1
 27:                                               ; preds = %26, %11
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.val = load i64, ptr %28, align 8, !tbaa !100
+  %invariant.op = add i64 %.val, -1
   %.not = icmp eq i64 %.val, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -951,9 +952,9 @@ define i32 @wedgedEllipse(ptr noundef %0, ptr noundef readonly captures(none) %1
   %33 = load i64, ptr %32, align 8, !tbaa !107, !noalias !103
   br label %34
 
-34:                                               ; preds = %.lr.ph, %49
-  %.046 = phi i64 [ 0, %.lr.ph ], [ %.pre-phi, %49 ]
-  %.03345 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1.ph, %49 ]
+34:                                               ; preds = %.lr.ph, %48
+  %.046 = phi i64 [ 0, %.lr.ph ], [ %49, %48 ]
+  %.03345 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1.ph, %48 ]
   %35 = add i64 %31, %.046
   %36 = urem i64 %35, %33
   %37 = getelementptr inbounds nuw %struct.colorseg_t, ptr %29, i64 %36
@@ -965,33 +966,28 @@ define i32 @wedgedEllipse(ptr noundef %0, ptr noundef readonly captures(none) %1
 
 39:                                               ; preds = %34
   %40 = fcmp ugt double %.sroa.4.0.copyload, 0.000000e+00
-  br i1 %40, label %41, label %._crit_edge50
-
-._crit_edge50:                                    ; preds = %39
-  %.pre51 = add nuw i64 %.046, 1
-  br label %49
+  br i1 %40, label %41, label %48
 
 41:                                               ; preds = %39
   tail call void @gvrender_set_fillcolor(ptr noundef %0, ptr noundef nonnull %.sroa.0.0.copyload) #28
-  %42 = add nuw i64 %.046, 1
-  %43 = icmp eq i64 %42, %.val
-  %44 = tail call double @llvm.fmuladd.f64(double %.sroa.4.0.copyload, double 0x401921FB54442D18, double %.03345)
-  %.034 = select i1 %43, double 0x401921FB54442D18, double %44
-  %45 = tail call ptr @ellipticWedge(double %20, double %22, double noundef %23, double noundef %24, double noundef %.03345, double noundef %.034) #28
-  %46 = load ptr, ptr %45, align 8, !tbaa !109
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %48 = load i64, ptr %47, align 8, !tbaa !111
-  tail call void @gvrender_beziercurve(ptr noundef %0, ptr noundef %46, i64 noundef %48, i32 noundef 1) #28
-  tail call void @freePath(ptr noundef nonnull %45) #28
-  br label %49
+  %42 = icmp eq i64 %.046, %invariant.op
+  %43 = tail call double @llvm.fmuladd.f64(double %.sroa.4.0.copyload, double 0x401921FB54442D18, double %.03345)
+  %.034 = select i1 %42, double 0x401921FB54442D18, double %43
+  %44 = tail call ptr @ellipticWedge(double %20, double %22, double noundef %23, double noundef %24, double noundef %.03345, double noundef %.034) #28
+  %45 = load ptr, ptr %44, align 8, !tbaa !109
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %47 = load i64, ptr %46, align 8, !tbaa !111
+  tail call void @gvrender_beziercurve(ptr noundef %0, ptr noundef %45, i64 noundef %47, i32 noundef 1) #28
+  tail call void @freePath(ptr noundef nonnull %44) #28
+  br label %48
 
-49:                                               ; preds = %._crit_edge50, %41
-  %.pre-phi = phi i64 [ %.pre51, %._crit_edge50 ], [ %42, %41 ]
-  %.1.ph = phi double [ %.03345, %._crit_edge50 ], [ %.034, %41 ]
-  %exitcond.not = icmp eq i64 %.pre-phi, %.val
+48:                                               ; preds = %41, %39
+  %.1.ph = phi double [ %.03345, %39 ], [ %.034, %41 ]
+  %49 = add nuw i64 %.046, 1
+  %exitcond.not = icmp eq i64 %49, %.val
   br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !112
 
-._crit_edge:                                      ; preds = %49, %34, %27
+._crit_edge:                                      ; preds = %48, %34, %27
   br i1 %25, label %50, label %51
 
 50:                                               ; preds = %._crit_edge
@@ -1367,8 +1363,8 @@ define i32 @stripedBox(ptr noundef %0, ptr noundef readonly captures(none) %1, p
   br label %25
 
 25:                                               ; preds = %20, %15
-  %.sink45 = phi i64 [ 48, %20 ], [ 16, %15 ]
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink45
+  %.sink44 = phi i64 [ 48, %20 ], [ 16, %15 ]
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %28 = load double, ptr %27, align 16, !tbaa !127
@@ -1387,6 +1383,7 @@ define i32 @stripedBox(ptr noundef %0, ptr noundef readonly captures(none) %1, p
 34:                                               ; preds = %33, %25
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val35 = load i64, ptr %35, align 8, !tbaa !100
+  %invariant.op = add i64 %.val35, -1
   %.not41 = icmp eq i64 %.val35, 0
   br i1 %.not41, label %._crit_edge, label %.lr.ph
 
@@ -1399,8 +1396,8 @@ define i32 @stripedBox(ptr noundef %0, ptr noundef readonly captures(none) %1, p
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 48
   br label %42
 
-42:                                               ; preds = %.lr.ph, %55
-  %.038 = phi i64 [ 0, %.lr.ph ], [ %.pre-phi, %55 ]
+42:                                               ; preds = %.lr.ph, %54
+  %.038 = phi i64 [ 0, %.lr.ph ], [ %55, %54 ]
   %43 = add i64 %38, %.038
   %44 = urem i64 %43, %40
   %45 = getelementptr inbounds nuw %struct.colorseg_t, ptr %36, i64 %44
@@ -1412,33 +1409,28 @@ define i32 @stripedBox(ptr noundef %0, ptr noundef readonly captures(none) %1, p
 
 47:                                               ; preds = %42
   %48 = fcmp ugt double %.sroa.4.0.copyload, 0.000000e+00
-  br i1 %48, label %49, label %._crit_edge43
-
-._crit_edge43:                                    ; preds = %47
-  %.pre44 = add nuw i64 %.038, 1
-  br label %55
+  br i1 %48, label %49, label %54
 
 49:                                               ; preds = %47
   call void @gvrender_set_fillcolor(ptr noundef %0, ptr noundef nonnull %.sroa.0.0.copyload) #28
-  %50 = add nuw i64 %.038, 1
-  %51 = icmp eq i64 %50, %.val35
-  %52 = load double, ptr %6, align 16
-  %53 = call double @llvm.fmuladd.f64(double %30, double %.sroa.4.0.copyload, double %52)
-  %storemerge = select i1 %51, double %28, double %53
+  %50 = icmp eq i64 %.038, %invariant.op
+  %51 = load double, ptr %6, align 16
+  %52 = call double @llvm.fmuladd.f64(double %30, double %.sroa.4.0.copyload, double %51)
+  %storemerge = select i1 %50, double %28, double %52
   store double %storemerge, ptr %31, align 16, !tbaa !127
   store double %storemerge, ptr %27, align 16, !tbaa !127
   call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 4, i32 noundef 1) #28
-  %54 = load double, ptr %27, align 16, !tbaa !127
-  store double %54, ptr %41, align 16, !tbaa !127
-  store double %54, ptr %6, align 16, !tbaa !127
-  br label %55
+  %53 = load double, ptr %27, align 16, !tbaa !127
+  store double %53, ptr %41, align 16, !tbaa !127
+  store double %53, ptr %6, align 16, !tbaa !127
+  br label %54
 
-55:                                               ; preds = %._crit_edge43, %49
-  %.pre-phi = phi i64 [ %.pre44, %._crit_edge43 ], [ %50, %49 ]
-  %exitcond.not = icmp eq i64 %.pre-phi, %.val35
+54:                                               ; preds = %49, %47
+  %55 = add nuw i64 %.038, 1
+  %exitcond.not = icmp eq i64 %55, %.val35
   br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !131
 
-._crit_edge:                                      ; preds = %55, %42, %34
+._crit_edge:                                      ; preds = %54, %42, %34
   br i1 %32, label %56, label %57
 
 56:                                               ; preds = %._crit_edge

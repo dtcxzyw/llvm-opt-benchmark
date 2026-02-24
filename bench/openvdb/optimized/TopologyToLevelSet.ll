@@ -101047,6 +101047,7 @@ if.then3:                                         ; preds = %if.then
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #28
   store i64 %mul, ptr %call, align 16
   %.ptr = getelementptr inbounds nuw i8, ptr %call, i64 8
+  %invariant.op = add i64 %4, -8
   br label %arrayctor.loop
 
 arrayctor.loop:                                   ; preds = %invoke.cont, %if.then3
@@ -101062,17 +101063,16 @@ invoke.cont:                                      ; preds = %arrayctor.loop
   %mOutOfCore2.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store atomic i32 0, ptr %mOutOfCore2.i seq_cst, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 16
-  %7 = add nuw nsw i64 %arrayctor.cur.idx, 8
-  %arrayctor.done = icmp eq i64 %7, %4
+  %arrayctor.done = icmp eq i64 %arrayctor.cur.idx, %invariant.op
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %invoke.cont
   tail call void @_ZNSt15__uniq_ptr_implIN7openvdb5v11_04tree10LeafBufferIfLj3EEESt14default_deleteIA_S4_EE5resetEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %mAuxBufferPtrs7, ptr noundef nonnull %.ptr) #17
-  %8 = load ptr, ptr %mAuxBufferPtrs7, align 8
+  %7 = load ptr, ptr %mAuxBufferPtrs7, align 8
   br label %if.end
 
 lpad:                                             ; preds = %arrayctor.loop
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   %arraydestroy.isempty = icmp eq i64 %arrayctor.cur.idx, 8
   br i1 %arraydestroy.isempty, label %arraydestroy.done4, label %arraydestroy.body
@@ -101087,14 +101087,14 @@ arraydestroy.body:                                ; preds = %lpad, %arraydestroy
 
 arraydestroy.done4:                               ; preds = %arraydestroy.body, %lpad
   tail call void @_ZdaPv(ptr noundef nonnull %call) #30
-  resume { ptr, i32 } %9
+  resume { ptr, i32 } %8
 
 if.else:                                          ; preds = %if.then
   tail call void @_ZNSt15__uniq_ptr_implIN7openvdb5v11_04tree10LeafBufferIfLj3EEESt14default_deleteIA_S4_EE5resetEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %mAuxBufferPtrs7, ptr noundef null) #17
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %arrayctor.cont
-  %.sink = phi ptr [ null, %if.else ], [ %8, %arrayctor.cont ]
+  %.sink = phi ptr [ null, %if.else ], [ %7, %arrayctor.cont ]
   %mAuxBuffers8 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr %.sink, ptr %mAuxBuffers8, align 8
   store i64 %mul, ptr %mAuxBufferCount, align 8

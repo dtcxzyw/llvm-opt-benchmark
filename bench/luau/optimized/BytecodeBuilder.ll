@@ -10544,16 +10544,16 @@ define dso_local void @_ZNK4Luau15BytecodeBuilder12dumpTypeInfoB5cxx11Ev(ptr dea
   %.not34 = icmp eq ptr %6, %7
   br i1 %.not34, label %._crit_edge33, label %.lr.ph32
 
-.lr.ph32:                                         ; preds = %2, %39
-  %8 = phi ptr [ %40, %39 ], [ %7, %2 ]
-  %9 = phi ptr [ %41, %39 ], [ %6, %2 ]
-  %.030 = phi i64 [ %42, %39 ], [ 0, %2 ]
+.lr.ph32:                                         ; preds = %2, %38
+  %8 = phi ptr [ %39, %38 ], [ %7, %2 ]
+  %9 = phi ptr [ %40, %38 ], [ %6, %2 ]
+  %.030 = phi i64 [ %41, %38 ], [ 0, %2 ]
   %10 = getelementptr inbounds nuw %"struct.Luau::BytecodeBuilder::Function", ptr %8, i64 %.030
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %13 = load i64, ptr %12, align 8, !tbaa !127
   %14 = icmp eq i64 %13, 0
-  br i1 %14, label %39, label %15
+  br i1 %14, label %38, label %15
 
 15:                                               ; preds = %.lr.ph32
   invoke void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.116, i64 noundef %.030)
@@ -10564,6 +10564,7 @@ define dso_local void @_ZNK4Luau15BytecodeBuilder12dumpTypeInfoB5cxx11Ev(ptr dea
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %19 = load i8, ptr %18, align 1, !tbaa !128
   %20 = zext i8 %19 to i32
+  %invariant.op = add nsw i32 %20, -1
   %.not35 = icmp eq i8 %19, 0
   br i1 %.not35, label %._crit_edge, label %.lr.ph.preheader
 
@@ -10571,23 +10572,23 @@ define dso_local void @_ZNK4Luau15BytecodeBuilder12dumpTypeInfoB5cxx11Ev(ptr dea
   %wide.trip.count = zext i8 %19 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %37, %16
+._crit_edge:                                      ; preds = %36, %16
   invoke void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.119)
-          to label %._crit_edge._crit_edge unwind label %48
+          to label %._crit_edge._crit_edge unwind label %47
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
   %.pre = load ptr, ptr %5, align 8, !tbaa !141
   %.pre36 = load ptr, ptr %1, align 8, !tbaa !140
-  br label %39
+  br label %38
 
 21:                                               ; preds = %15
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %50
+  br label %49
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %37
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
-  %23 = phi i32 [ 0, %.lr.ph.preheader ], [ %38, %37 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %36
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %36 ]
+  %23 = phi i32 [ 0, %.lr.ph.preheader ], [ %37, %36 ]
   %24 = load ptr, ptr %11, align 8, !tbaa !143
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 2
@@ -10607,60 +10608,59 @@ switch.lookup:                                    ; preds = %.lr.ph
 _ZN4LuauL17getBaseTypeStringEh.exit:              ; preds = %.lr.ph, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ null, %.lr.ph ]
   invoke void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.117, ptr noundef %.0.i, ptr noundef nonnull %28)
-          to label %32 unwind label %35
+          to label %32 unwind label %34
 
 32:                                               ; preds = %_ZN4LuauL17getBaseTypeStringEh.exit
-  %33 = add nuw nsw i32 %23, 1
-  %.not26 = icmp eq i32 %33, %20
-  br i1 %.not26, label %37, label %34
+  %.not26 = icmp eq i32 %23, %invariant.op
+  br i1 %.not26, label %36, label %33
 
-34:                                               ; preds = %32
+33:                                               ; preds = %32
   invoke void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.118)
-          to label %37 unwind label %35
+          to label %36 unwind label %34
 
-35:                                               ; preds = %34, %_ZN4LuauL17getBaseTypeStringEh.exit
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %33, %_ZN4LuauL17getBaseTypeStringEh.exit
+  %35 = landingpad { ptr, i32 }
           cleanup
-  br label %50
+  br label %49
 
-37:                                               ; preds = %34, %32
+36:                                               ; preds = %33, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = trunc nuw i64 %indvars.iv.next to i32
+  %37 = trunc nuw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !330
 
-39:                                               ; preds = %._crit_edge._crit_edge, %.lr.ph32
-  %40 = phi ptr [ %.pre36, %._crit_edge._crit_edge ], [ %8, %.lr.ph32 ]
-  %41 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %9, %.lr.ph32 ]
-  %42 = add nuw i64 %.030, 1
-  %43 = ptrtoint ptr %41 to i64
-  %44 = ptrtoint ptr %40 to i64
-  %45 = sub i64 %43, %44
-  %46 = sdiv exact i64 %45, 168
-  %47 = icmp ult i64 %42, %46
-  br i1 %47, label %.lr.ph32, label %._crit_edge33, !llvm.loop !331
+38:                                               ; preds = %._crit_edge._crit_edge, %.lr.ph32
+  %39 = phi ptr [ %.pre36, %._crit_edge._crit_edge ], [ %8, %.lr.ph32 ]
+  %40 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %9, %.lr.ph32 ]
+  %41 = add nuw i64 %.030, 1
+  %42 = ptrtoint ptr %40 to i64
+  %43 = ptrtoint ptr %39 to i64
+  %44 = sub i64 %42, %43
+  %45 = sdiv exact i64 %44, 168
+  %46 = icmp ult i64 %41, %45
+  br i1 %46, label %.lr.ph32, label %._crit_edge33, !llvm.loop !331
 
-48:                                               ; preds = %._crit_edge
-  %49 = landingpad { ptr, i32 }
+47:                                               ; preds = %._crit_edge
+  %48 = landingpad { ptr, i32 }
           cleanup
-  br label %50
+  br label %49
 
-50:                                               ; preds = %35, %48, %21
-  %.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %36, %35 ], [ %49, %48 ]
-  %51 = load ptr, ptr %0, align 8, !tbaa !143
-  %52 = icmp eq ptr %51, %3
-  br i1 %52, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+49:                                               ; preds = %34, %47, %21
+  %.pn.pn = phi { ptr, i32 } [ %22, %21 ], [ %35, %34 ], [ %48, %47 ]
+  %50 = load ptr, ptr %0, align 8, !tbaa !143
+  %51 = icmp eq ptr %50, %3
+  br i1 %51, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %50
-  %53 = load i64, ptr %3, align 8, !tbaa !128
-  %54 = add i64 %53, 1
-  tail call void @_ZdlPvm(ptr noundef %51, i64 noundef %54) #34
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %49
+  %52 = load i64, ptr %3, align 8, !tbaa !128
+  %53 = add i64 %52, 1
+  tail call void @_ZdlPvm(ptr noundef %50, i64 noundef %53) #34
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   resume { ptr, i32 } %.pn.pn
 
-._crit_edge33:                                    ; preds = %39, %2
+._crit_edge33:                                    ; preds = %38, %2
   ret void
 }
 

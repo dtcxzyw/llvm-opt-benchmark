@@ -377,16 +377,18 @@ define noundef zeroext i1 @range_add_value(ptr noundef %0, ptr noundef captures(
 
 .preheader:                                       ; preds = %4
   %6 = load i32, ptr %5, align 4
-  %.not53 = icmp eq i32 %6, 0
-  br i1 %.not53, label %._crit_edge, label %.lr.ph
+  %invariant.op = add i32 %2, 1
+  %invariant.op51 = add i32 %2, -1
+  %.not54 = icmp eq i32 %6, 0
+  br i1 %.not54, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %wide.trip.count = zext i32 %6 to i64
   br label %8
 
-8:                                                ; preds = %.lr.ph, %25
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
+8:                                                ; preds = %.lr.ph, %23
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %9 = getelementptr %struct.range_admin_tag, ptr %7, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %.not38 = icmp ult i32 %2, %10
@@ -399,58 +401,56 @@ define noundef zeroext i1 @range_add_value(ptr noundef %0, ptr noundef captures(
   br i1 %.not39, label %14, label %.loopexit
 
 14:                                               ; preds = %11, %8
-  %15 = add i32 %10, -1
-  %16 = icmp eq i32 %2, %15
-  br i1 %16, label %17, label %18
+  %15 = icmp eq i32 %10, %invariant.op
+  br i1 %15, label %16, label %17
 
-17:                                               ; preds = %14
+16:                                               ; preds = %14
   store i32 %2, ptr %9, align 4
   br label %.loopexit
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %20 = load i32, ptr %19, align 4
-  %21 = add i32 %20, 1
-  %22 = icmp eq i32 %2, %21
-  br i1 %22, label %23, label %25
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %19 = load i32, ptr %18, align 4
+  %20 = icmp eq i32 %19, %invariant.op51
+  br i1 %20, label %21, label %23
 
-23:                                               ; preds = %18
-  %24 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %2, ptr %24, align 4
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 %2, ptr %22, align 4
   br label %.loopexit
 
-25:                                               ; preds = %18
+23:                                               ; preds = %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %8, !llvm.loop !13
 
-._crit_edge.loopexit:                             ; preds = %25
-  %26 = zext i32 %6 to i64
+._crit_edge.loopexit:                             ; preds = %23
+  %24 = zext i32 %6 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
-  %.0.lcssa = phi i64 [ 0, %.preheader ], [ %26, %._crit_edge.loopexit ]
-  %27 = add i32 %6, 1
-  %28 = zext i32 %27 to i64
-  %29 = shl nuw nsw i64 %28, 3
-  %30 = or disjoint i64 %29, 4
-  %31 = tail call ptr @wmem_realloc(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %30) #8
-  store ptr %31, ptr %1, align 8
-  %32 = load i32, ptr %31, align 4
-  %33 = add i32 %32, 1
-  store i32 %33, ptr %31, align 4
-  %34 = load ptr, ptr %1, align 8
-  %35 = getelementptr %struct.range_admin_tag, ptr %34, i64 %.0.lcssa
-  %36 = getelementptr i8, ptr %35, i64 8
-  store i32 %2, ptr %36, align 4
-  %37 = load ptr, ptr %1, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  %39 = getelementptr %struct.range_admin_tag, ptr %38, i64 %.0.lcssa
-  store i32 %2, ptr %39, align 4
+  %.0.lcssa = phi i64 [ 0, %.preheader ], [ %24, %._crit_edge.loopexit ]
+  %25 = add i32 %6, 1
+  %26 = zext i32 %25 to i64
+  %27 = shl nuw nsw i64 %26, 3
+  %28 = or disjoint i64 %27, 4
+  %29 = tail call ptr @wmem_realloc(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %28) #8
+  store ptr %29, ptr %1, align 8
+  %30 = load i32, ptr %29, align 4
+  %31 = add i32 %30, 1
+  store i32 %31, ptr %29, align 4
+  %32 = load ptr, ptr %1, align 8
+  %33 = getelementptr %struct.range_admin_tag, ptr %32, i64 %.0.lcssa
+  %34 = getelementptr i8, ptr %33, i64 8
+  store i32 %2, ptr %34, align 4
+  %35 = load ptr, ptr %1, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  %37 = getelementptr %struct.range_admin_tag, ptr %36, i64 %.0.lcssa
+  store i32 %2, ptr %37, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %3, %4, %._crit_edge, %23, %17
-  %.033 = phi i1 [ false, %3 ], [ true, %17 ], [ true, %23 ], [ true, %._crit_edge ], [ false, %4 ], [ true, %11 ]
+.loopexit:                                        ; preds = %11, %3, %4, %._crit_edge, %21, %16
+  %.033 = phi i1 [ false, %3 ], [ true, %16 ], [ true, %21 ], [ true, %._crit_edge ], [ false, %4 ], [ true, %11 ]
   ret i1 %.033
 }
 

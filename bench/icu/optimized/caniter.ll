@@ -217,22 +217,25 @@ define void @_ZN6icu_7717CanonicalIterator9setSourceERKNS_13UnicodeStringER10UEr
   %66 = icmp eq i32 %57, 0
   br i1 %66, label %.loopexit116, label %.preheader115
 
-.preheader115:                                    ; preds = %65, %.preheader115
-  %.idx = phi i64 [ %.add, %.preheader115 ], [ 8, %65 ]
+.preheader115:                                    ; preds = %65
+  %invariant.op = add nsw i64 %60, -56
+  br label %67
+
+67:                                               ; preds = %.preheader115, %67
+  %.idx = phi i64 [ %.add, %67 ], [ 8, %.preheader115 ]
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %63, i64 %.idx
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %.ptr.ptr, align 8, !tbaa !3
-  %67 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 8
-  store i16 2, ptr %67, align 8, !tbaa !6
+  %68 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 8
+  store i16 2, ptr %68, align 8, !tbaa !6
   %.add = add nuw nsw i64 %.idx, 64
-  %68 = add nuw nsw i64 %.idx, 56
-  %69 = icmp eq i64 %68, %60
-  br i1 %69, label %.loopexit116, label %.preheader115
+  %69 = icmp eq i64 %.idx, %invariant.op
+  br i1 %69, label %.loopexit116, label %67
 
 70:                                               ; preds = %49
   store i32 7, ptr %2, align 4, !tbaa !23
   br label %.thread100
 
-.loopexit116:                                     ; preds = %.preheader115, %65
+.loopexit116:                                     ; preds = %67, %65
   %71 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %6, i32 noundef 0)
   %72 = icmp ult i32 %71, 65536
   %73 = select i1 %72, i32 1, i32 2
@@ -791,17 +794,17 @@ _ZN6icu_779HashtableC2ER10UErrorCode.exit93:      ; preds = %37
 40:                                               ; preds = %29, %24
   %41 = landingpad { ptr, i32 }
           cleanup
-  br label %201
+  br label %200
 
 42:                                               ; preds = %37, %32
   %43 = landingpad { ptr, i32 }
           cleanup
-  br label %200
+  br label %199
 
 44:                                               ; preds = %_ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit96, %_ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit, %46
   %45 = landingpad { ptr, i32 }
           cleanup
-  br label %199
+  br label %198
 
 46:                                               ; preds = %_ZN6icu_779HashtableC2ER10UErrorCode.exit93
   %47 = load ptr, ptr %5, align 8, !tbaa !39
@@ -833,19 +836,19 @@ _ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit98: ; preds = %_ZN6icu_779Hasht
 57:                                               ; preds = %54
   %58 = load i32, ptr %3, align 4, !tbaa !23
   %59 = icmp slt i32 %58, 1
-  br i1 %59, label %65, label %184
+  br i1 %59, label %65, label %183
 
 60:                                               ; preds = %54
   %61 = landingpad { ptr, i32 }
           cleanup
-  br label %185
+  br label %184
 
 62:                                               ; preds = %_ZN6icu_779Hashtable15setValueDeleterEPFvPvE.exit98
   %63 = landingpad { ptr, i32 }
           cleanup
   %64 = load ptr, ptr %9, align 8, !tbaa !45
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %64) #13, !srcloc !48
-  br label %185
+  br label %184
 
 65:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -988,7 +991,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %111
 129:                                              ; preds = %65
   %130 = landingpad { ptr, i32 }
           cleanup
-  br label %183
+  br label %182
 
 131:                                              ; preds = %75
   %132 = landingpad { ptr, i32 }
@@ -1071,7 +1074,7 @@ _ZNK6icu_779Hashtable11nextElementERi.exit108:    ; preds = %_ZNK6icu_779Hashtab
 150:                                              ; preds = %149, %131
   %.pn77.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn.pn.pn, %149 ], [ %132, %131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %183
+  br label %182
 
 _ZNK6icu_779Hashtable11nextElementERi.exit._crit_edge: ; preds = %_ZNK6icu_779Hashtable11nextElementERi.exit108, %_ZNK6icu_779Hashtable11nextElementERi.exit.preheader
   %151 = load i32, ptr %3, align 4, !tbaa !23
@@ -1099,6 +1102,7 @@ _ZNK6icu_779Hashtable5countEv.exit:               ; preds = %153
 
 164:                                              ; preds = %156
   store i64 %157, ptr %162, align 8
+  %invariant.op = add nsw i64 %159, -56
   br label %165
 
 165:                                              ; preds = %164, %165
@@ -1108,47 +1112,46 @@ _ZNK6icu_779Hashtable5countEv.exit:               ; preds = %153
   %166 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 8
   store i16 2, ptr %166, align 8, !tbaa !6
   %.add = add nuw nsw i64 %.idx, 64
-  %167 = add nuw nsw i64 %.idx, 56
-  %168 = icmp eq i64 %167, %159
-  br i1 %168, label %169, label %165
+  %167 = icmp eq i64 %.idx, %invariant.op
+  br i1 %167, label %168, label %165
 
-.loopexit121:                                     ; preds = %172, %180
+.loopexit121:                                     ; preds = %171, %179
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %183
+  br label %182
 
-.loopexit.split-lp:                               ; preds = %153, %169
+.loopexit.split-lp:                               ; preds = %153, %168
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %183
+  br label %182
 
-169:                                              ; preds = %165
+168:                                              ; preds = %165
   %.ptr68 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store i32 0, ptr %2, align 4, !tbaa !29
   store i32 -1, ptr %10, align 4, !tbaa !29
-  %170 = load ptr, ptr %5, align 8, !tbaa !39
-  %171 = invoke noundef ptr @uhash_nextElement_77(ptr noundef %170, ptr noundef nonnull align 4 dereferenceable(4) %10)
+  %169 = load ptr, ptr %5, align 8, !tbaa !39
+  %170 = invoke noundef ptr @uhash_nextElement_77(ptr noundef %169, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %_ZNK6icu_779Hashtable11nextElementERi.exit111 unwind label %.loopexit.split-lp
 
-_ZNK6icu_779Hashtable11nextElementERi.exit111:    ; preds = %169, %180
-  %.155 = phi ptr [ %182, %180 ], [ %171, %169 ]
+_ZNK6icu_779Hashtable11nextElementERi.exit111:    ; preds = %168, %179
+  %.155 = phi ptr [ %181, %179 ], [ %170, %168 ]
   %.not74 = icmp eq ptr %.155, null
-  br i1 %.not74, label %.loopexit, label %172
+  br i1 %.not74, label %.loopexit, label %171
 
-172:                                              ; preds = %_ZNK6icu_779Hashtable11nextElementERi.exit111
-  %173 = getelementptr inbounds nuw i8, ptr %.155, i64 8
-  %174 = load ptr, ptr %173, align 8, !tbaa !6
-  %175 = load i32, ptr %2, align 4, !tbaa !29
-  %176 = add nsw i32 %175, 1
-  store i32 %176, ptr %2, align 4, !tbaa !29
-  %177 = sext i32 %175 to i64
-  %178 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %.ptr68, i64 %177
-  %179 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %178, ptr noundef nonnull align 8 dereferenceable(64) %174)
-          to label %180 unwind label %.loopexit121
+171:                                              ; preds = %_ZNK6icu_779Hashtable11nextElementERi.exit111
+  %172 = getelementptr inbounds nuw i8, ptr %.155, i64 8
+  %173 = load ptr, ptr %172, align 8, !tbaa !6
+  %174 = load i32, ptr %2, align 4, !tbaa !29
+  %175 = add nsw i32 %174, 1
+  store i32 %175, ptr %2, align 4, !tbaa !29
+  %176 = sext i32 %174 to i64
+  %177 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %.ptr68, i64 %176
+  %178 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %177, ptr noundef nonnull align 8 dereferenceable(64) %173)
+          to label %179 unwind label %.loopexit121
 
-180:                                              ; preds = %172
-  %181 = load ptr, ptr %5, align 8, !tbaa !39
-  %182 = invoke noundef ptr @uhash_nextElement_77(ptr noundef %181, ptr noundef nonnull align 4 dereferenceable(4) %10)
+179:                                              ; preds = %171
+  %180 = load ptr, ptr %5, align 8, !tbaa !39
+  %181 = invoke noundef ptr @uhash_nextElement_77(ptr noundef %180, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %_ZNK6icu_779Hashtable11nextElementERi.exit111 unwind label %.loopexit121
 
 .loopexit.sink.split:                             ; preds = %_ZNK6icu_779Hashtable5countEv.exit, %156
@@ -1159,93 +1162,93 @@ _ZNK6icu_779Hashtable11nextElementERi.exit111:    ; preds = %169, %180
 .loopexit:                                        ; preds = %_ZNK6icu_779Hashtable11nextElementERi.exit111, %.loopexit.sink.split, %_ZNK6icu_779Hashtable11nextElementERi.exit._crit_edge
   %.2 = phi ptr [ null, %_ZNK6icu_779Hashtable11nextElementERi.exit._crit_edge ], [ null, %.loopexit.sink.split ], [ %.ptr68, %_ZNK6icu_779Hashtable11nextElementERi.exit111 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %184
+  br label %183
 
-183:                                              ; preds = %.loopexit121, %.loopexit.split-lp, %150, %129
+182:                                              ; preds = %.loopexit121, %.loopexit.split-lp, %150, %129
   %.pn77.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn.pn.pn.pn, %150 ], [ %130, %129 ], [ %lpad.loopexit, %.loopexit121 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %185
+  br label %184
 
-184:                                              ; preds = %57, %.loopexit
+183:                                              ; preds = %57, %.loopexit
   %.1 = phi ptr [ %.2, %.loopexit ], [ null, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread
 
-185:                                              ; preds = %183, %62, %60
-  %.pn77.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn.pn.pn.pn.pn, %183 ], [ %61, %60 ], [ %63, %62 ]
+184:                                              ; preds = %182, %62, %60
+  %.pn77.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn.pn.pn.pn.pn, %182 ], [ %61, %60 ], [ %63, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %199
+  br label %198
 
-_ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread: ; preds = %.noexc91, %_ZN6icu_779HashtableC2ER10UErrorCode.exit93, %184
-  %.0.ph = phi ptr [ null, %.noexc91 ], [ null, %_ZN6icu_779HashtableC2ER10UErrorCode.exit93 ], [ %.1, %184 ]
+_ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread: ; preds = %.noexc91, %_ZN6icu_779HashtableC2ER10UErrorCode.exit93, %183
+  %.0.ph = phi ptr [ null, %.noexc91 ], [ null, %_ZN6icu_779HashtableC2ER10UErrorCode.exit93 ], [ %.1, %183 ]
   %.pr151 = load ptr, ptr %7, align 8, !tbaa !39
   %.not.i114 = icmp eq ptr %.pr151, null
-  br i1 %.not.i114, label %_ZN6icu_779HashtableD2Ev.exit, label %186
+  br i1 %.not.i114, label %_ZN6icu_779HashtableD2Ev.exit, label %185
 
-186:                                              ; preds = %_ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread
+185:                                              ; preds = %_ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread
   invoke void @uhash_close_77(ptr noundef nonnull %.pr151)
-          to label %_ZN6icu_779HashtableD2Ev.exit unwind label %187
+          to label %_ZN6icu_779HashtableD2Ev.exit unwind label %186
 
-187:                                              ; preds = %186
-  %188 = landingpad { ptr, i32 }
+186:                                              ; preds = %185
+  %187 = landingpad { ptr, i32 }
           catch ptr null
-  %189 = extractvalue { ptr, i32 } %188, 0
-  call void @__clang_call_terminate(ptr %189) #15
+  %188 = extractvalue { ptr, i32 } %187, 0
+  call void @__clang_call_terminate(ptr %188) #15
   unreachable
 
-_ZN6icu_779HashtableD2Ev.exit:                    ; preds = %_ZN6icu_779HashtableC2ER10UErrorCode.exit90, %_ZN6icu_779HashtableC2ER10UErrorCode.exit90.thread, %_ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread, %186
-  %.0154.ph = phi ptr [ null, %_ZN6icu_779HashtableC2ER10UErrorCode.exit90 ], [ null, %_ZN6icu_779HashtableC2ER10UErrorCode.exit90.thread ], [ %.0.ph, %_ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread ], [ %.0.ph, %186 ]
+_ZN6icu_779HashtableD2Ev.exit:                    ; preds = %_ZN6icu_779HashtableC2ER10UErrorCode.exit90, %_ZN6icu_779HashtableC2ER10UErrorCode.exit90.thread, %_ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread, %185
+  %.0154.ph = phi ptr [ null, %_ZN6icu_779HashtableC2ER10UErrorCode.exit90 ], [ null, %_ZN6icu_779HashtableC2ER10UErrorCode.exit90.thread ], [ %.0.ph, %_ZN6icu_779HashtableC2ER10UErrorCode.exit93.thread ], [ %.0.ph, %185 ]
   %.pr155 = load ptr, ptr %6, align 8, !tbaa !39
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not.i115 = icmp eq ptr %.pr155, null
-  br i1 %.not.i115, label %_ZN6icu_779HashtableD2Ev.exit116, label %190
+  br i1 %.not.i115, label %_ZN6icu_779HashtableD2Ev.exit116, label %189
 
-190:                                              ; preds = %_ZN6icu_779HashtableD2Ev.exit
+189:                                              ; preds = %_ZN6icu_779HashtableD2Ev.exit
   invoke void @uhash_close_77(ptr noundef nonnull %.pr155)
-          to label %_ZN6icu_779HashtableD2Ev.exit116 unwind label %191
+          to label %_ZN6icu_779HashtableD2Ev.exit116 unwind label %190
 
-191:                                              ; preds = %190
-  %192 = landingpad { ptr, i32 }
+190:                                              ; preds = %189
+  %191 = landingpad { ptr, i32 }
           catch ptr null
-  %193 = extractvalue { ptr, i32 } %192, 0
-  call void @__clang_call_terminate(ptr %193) #15
+  %192 = extractvalue { ptr, i32 } %191, 0
+  call void @__clang_call_terminate(ptr %192) #15
   unreachable
 
-_ZN6icu_779HashtableD2Ev.exit116:                 ; preds = %_ZN6icu_779HashtableD2Ev.exit.thread, %_ZN6icu_779HashtableD2Ev.exit, %190
-  %.0154158 = phi ptr [ null, %_ZN6icu_779HashtableD2Ev.exit.thread ], [ %.0154.ph, %_ZN6icu_779HashtableD2Ev.exit ], [ %.0154.ph, %190 ]
+_ZN6icu_779HashtableD2Ev.exit116:                 ; preds = %_ZN6icu_779HashtableD2Ev.exit.thread, %_ZN6icu_779HashtableD2Ev.exit, %189
+  %.0154158 = phi ptr [ null, %_ZN6icu_779HashtableD2Ev.exit.thread ], [ %.0154.ph, %_ZN6icu_779HashtableD2Ev.exit ], [ %.0154.ph, %189 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %194 = load ptr, ptr %5, align 8, !tbaa !39
-  %.not.i117 = icmp eq ptr %194, null
-  br i1 %.not.i117, label %_ZN6icu_779HashtableD2Ev.exit118, label %195
+  %193 = load ptr, ptr %5, align 8, !tbaa !39
+  %.not.i117 = icmp eq ptr %193, null
+  br i1 %.not.i117, label %_ZN6icu_779HashtableD2Ev.exit118, label %194
 
-195:                                              ; preds = %_ZN6icu_779HashtableD2Ev.exit116
-  invoke void @uhash_close_77(ptr noundef nonnull %194)
-          to label %_ZN6icu_779HashtableD2Ev.exit118 unwind label %196
+194:                                              ; preds = %_ZN6icu_779HashtableD2Ev.exit116
+  invoke void @uhash_close_77(ptr noundef nonnull %193)
+          to label %_ZN6icu_779HashtableD2Ev.exit118 unwind label %195
 
-196:                                              ; preds = %195
-  %197 = landingpad { ptr, i32 }
+195:                                              ; preds = %194
+  %196 = landingpad { ptr, i32 }
           catch ptr null
-  %198 = extractvalue { ptr, i32 } %197, 0
-  call void @__clang_call_terminate(ptr %198) #15
+  %197 = extractvalue { ptr, i32 } %196, 0
+  call void @__clang_call_terminate(ptr %197) #15
   unreachable
 
-_ZN6icu_779HashtableD2Ev.exit118:                 ; preds = %_ZN6icu_779HashtableD2Ev.exit116, %195
+_ZN6icu_779HashtableD2Ev.exit118:                 ; preds = %_ZN6icu_779HashtableD2Ev.exit116, %194
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0154158
 
-199:                                              ; preds = %185, %44
-  %.pn77.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn.pn.pn.pn.pn.pn, %185 ], [ %45, %44 ]
+198:                                              ; preds = %184, %44
+  %.pn77.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn.pn.pn.pn.pn.pn, %184 ], [ %45, %44 ]
   call void @_ZN6icu_779HashtableD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %7) #13
-  br label %200
+  br label %199
 
-200:                                              ; preds = %199, %42
-  %.pn77.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn.pn.pn.pn.pn.pn.pn, %199 ], [ %43, %42 ]
+199:                                              ; preds = %198, %42
+  %.pn77.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn.pn.pn.pn.pn.pn.pn, %198 ], [ %43, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN6icu_779HashtableD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %6) #13
-  br label %201
+  br label %200
 
-201:                                              ; preds = %200, %40
-  %.pn77.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn.pn.pn.pn.pn.pn.pn.pn, %200 ], [ %41, %40 ]
+200:                                              ; preds = %199, %40
+  %.pn77.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn77.pn.pn.pn.pn.pn.pn.pn.pn.pn, %199 ], [ %41, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN6icu_779HashtableD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

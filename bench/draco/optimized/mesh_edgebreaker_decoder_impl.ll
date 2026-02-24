@@ -24220,89 +24220,89 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco31MeshEdgebreakerTraversalDecod
   %9 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #22
   store i64 %6, ptr %9, align 16
   %.ptr13 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %invariant.op = add nsw i64 %7, -16
   br label %10
 
 10:                                               ; preds = %11, %5
   %.idx = phi i64 [ 8, %5 ], [ %.add, %11 ]
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %9, i64 %.idx
   invoke void @_ZN5draco14RAnsBitDecoderC1Ev(ptr noundef nonnull align 8 dereferenceable(17) %.ptr.ptr)
-          to label %11 unwind label %32
+          to label %11 unwind label %31
 
 11:                                               ; preds = %10
   %.add = add nuw nsw i64 %.idx, 24
-  %12 = add nuw nsw i64 %.idx, 16
-  %13 = icmp eq i64 %12, %7
-  br i1 %13, label %14, label %10
+  %12 = icmp eq i64 %.idx, %invariant.op
+  br i1 %12, label %13, label %10
 
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %16 = load ptr, ptr %15, align 8, !tbaa !311
-  store ptr %.ptr13, ptr %15, align 8, !tbaa !311
-  %.not.i.i.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIA_N5draco14RAnsBitDecoderESt14default_deleteIS2_EED2Ev.exit, label %17
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %15 = load ptr, ptr %14, align 8, !tbaa !311
+  store ptr %.ptr13, ptr %14, align 8, !tbaa !311
+  %.not.i.i.i.i = icmp eq ptr %15, null
+  br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIA_N5draco14RAnsBitDecoderESt14default_deleteIS2_EED2Ev.exit, label %16
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %16, i64 -8
-  %19 = load i64, ptr %18, align 8
-  %.idx.i.i.i.i.i = mul i64 %19, 24
-  %20 = icmp eq i64 %19, 0
-  br i1 %20, label %_ZNKSt14default_deleteIA_N5draco14RAnsBitDecoderEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %.preheader.preheader.i.i.i.i.i
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds i8, ptr %15, i64 -8
+  %18 = load i64, ptr %17, align 8
+  %.idx.i.i.i.i.i = mul i64 %18, 24
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %_ZNKSt14default_deleteIA_N5draco14RAnsBitDecoderEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %.preheader.preheader.i.i.i.i.i
 
-.preheader.preheader.i.i.i.i.i:                   ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %16, i64 %.idx.i.i.i.i.i
+.preheader.preheader.i.i.i.i.i:                   ; preds = %16
+  %20 = getelementptr inbounds i8, ptr %15, i64 %.idx.i.i.i.i.i
   br label %.preheader.i.i.i.i.i
 
 .preheader.i.i.i.i.i:                             ; preds = %.preheader.i.i.i.i.i, %.preheader.preheader.i.i.i.i.i
-  %22 = phi ptr [ %23, %.preheader.i.i.i.i.i ], [ %21, %.preheader.preheader.i.i.i.i.i ]
-  %23 = getelementptr inbounds i8, ptr %22, i64 -24
-  tail call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %23) #20
-  %24 = icmp eq ptr %23, %16
-  br i1 %24, label %_ZNKSt14default_deleteIA_N5draco14RAnsBitDecoderEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %.preheader.i.i.i.i.i
+  %21 = phi ptr [ %22, %.preheader.i.i.i.i.i ], [ %20, %.preheader.preheader.i.i.i.i.i ]
+  %22 = getelementptr inbounds i8, ptr %21, i64 -24
+  tail call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %22) #20
+  %23 = icmp eq ptr %22, %15
+  br i1 %23, label %_ZNKSt14default_deleteIA_N5draco14RAnsBitDecoderEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, label %.preheader.i.i.i.i.i
 
-_ZNKSt14default_deleteIA_N5draco14RAnsBitDecoderEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i: ; preds = %.preheader.i.i.i.i.i, %17
-  %25 = add i64 %.idx.i.i.i.i.i, 8
-  tail call void @_ZdaPvm(ptr noundef nonnull %18, i64 noundef %25) #21
+_ZNKSt14default_deleteIA_N5draco14RAnsBitDecoderEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i: ; preds = %.preheader.i.i.i.i.i, %16
+  %24 = add i64 %.idx.i.i.i.i.i, 8
+  tail call void @_ZdaPvm(ptr noundef nonnull %17, i64 noundef %24) #21
   br label %_ZNSt10unique_ptrIA_N5draco14RAnsBitDecoderESt14default_deleteIS2_EED2Ev.exit
 
-_ZNSt10unique_ptrIA_N5draco14RAnsBitDecoderESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_N5draco14RAnsBitDecoderEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, %14
-  %26 = load i32, ptr %2, align 8, !tbaa !88
-  %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.lr.ph, label %.thread
+_ZNSt10unique_ptrIA_N5draco14RAnsBitDecoderESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIA_N5draco14RAnsBitDecoderEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i.i.i, %13
+  %25 = load i32, ptr %2, align 8, !tbaa !88
+  %26 = icmp sgt i32 %25, 0
+  br i1 %26, label %.lr.ph, label %.thread
 
-28:                                               ; preds = %.lr.ph
+27:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = load i32, ptr %2, align 8, !tbaa !88
-  %30 = sext i32 %29 to i64
-  %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %.lr.ph, label %.thread, !llvm.loop !607
+  %28 = load i32, ptr %2, align 8, !tbaa !88
+  %29 = sext i32 %28 to i64
+  %30 = icmp slt i64 %indvars.iv.next, %29
+  br i1 %30, label %.lr.ph, label %.thread, !llvm.loop !607
 
-32:                                               ; preds = %10
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %10
+  %32 = landingpad { ptr, i32 }
           cleanup
-  %34 = icmp eq i64 %.idx, 8
-  br i1 %34, label %.loopexit, label %.preheader
+  %33 = icmp eq i64 %.idx, 8
+  br i1 %33, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %32, %.preheader
-  %.idx14 = phi i64 [ %.add15, %.preheader ], [ %.idx, %32 ]
+.preheader:                                       ; preds = %31, %.preheader
+  %.idx14 = phi i64 [ %.add15, %.preheader ], [ %.idx, %31 ]
   %.add15 = add nsw i64 %.idx14, -24
   %.ptr17 = getelementptr inbounds i8, ptr %9, i64 %.add15
   tail call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %.ptr17) #20
-  %35 = icmp eq i64 %.add15, 8
-  br i1 %35, label %.loopexit, label %.preheader
+  %34 = icmp eq i64 %.add15, 8
+  br i1 %34, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader, %32
+.loopexit:                                        ; preds = %.preheader, %31
   tail call void @_ZdaPvm(ptr noundef nonnull %9, i64 noundef %8) #21
-  resume { ptr, i32 } %33
+  resume { ptr, i32 } %32
 
-.lr.ph:                                           ; preds = %_ZNSt10unique_ptrIA_N5draco14RAnsBitDecoderESt14default_deleteIS2_EED2Ev.exit, %28
-  %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %_ZNSt10unique_ptrIA_N5draco14RAnsBitDecoderESt14default_deleteIS2_EED2Ev.exit ]
-  %36 = load ptr, ptr %15, align 8, !tbaa !311
-  %37 = getelementptr inbounds nuw %"class.draco::RAnsBitDecoder", ptr %36, i64 %indvars.iv
-  %38 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(17) %37, ptr noundef nonnull %0)
-  br i1 %38, label %28, label %.thread
+.lr.ph:                                           ; preds = %_ZNSt10unique_ptrIA_N5draco14RAnsBitDecoderESt14default_deleteIS2_EED2Ev.exit, %27
+  %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %_ZNSt10unique_ptrIA_N5draco14RAnsBitDecoderESt14default_deleteIS2_EED2Ev.exit ]
+  %35 = load ptr, ptr %14, align 8, !tbaa !311
+  %36 = getelementptr inbounds nuw %"class.draco::RAnsBitDecoder", ptr %35, i64 %indvars.iv
+  %37 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(17) %36, ptr noundef nonnull %0)
+  br i1 %37, label %27, label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %28, %_ZNSt10unique_ptrIA_N5draco14RAnsBitDecoderESt14default_deleteIS2_EED2Ev.exit, %1
-  %.1 = phi i1 [ true, %1 ], [ true, %_ZNSt10unique_ptrIA_N5draco14RAnsBitDecoderESt14default_deleteIS2_EED2Ev.exit ], [ %38, %28 ], [ %38, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %27, %_ZNSt10unique_ptrIA_N5draco14RAnsBitDecoderESt14default_deleteIS2_EED2Ev.exit, %1
+  %.1 = phi i1 [ true, %1 ], [ true, %_ZNSt10unique_ptrIA_N5draco14RAnsBitDecoderESt14default_deleteIS2_EED2Ev.exit ], [ %37, %27 ], [ %37, %.lr.ph ]
   ret i1 %.1
 }
 

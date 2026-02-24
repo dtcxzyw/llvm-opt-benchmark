@@ -4237,6 +4237,7 @@ define internal void @collection_updated(ptr readnone captures(none) %0, i32 nou
   br i1 %or.cond, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %6
+  %invariant.op = add i32 %2, 1
   %.not24 = icmp slt i32 %11, 0
   br i1 %.not24, label %.critedge23, label %.lr.ph
 
@@ -4255,8 +4256,7 @@ define internal void @collection_updated(ptr readnone captures(none) %0, i32 nou
   %23 = tail call ptr @dt_bauhaus_combobox_get_data(ptr noundef %22) #16
   %24 = ptrtoint ptr %23 to i64
   %25 = trunc i64 %24 to i32
-  %26 = add i32 %25, -1
-  %.not20 = icmp eq i32 %26, %2
+  %.not20 = icmp eq i32 %invariant.op, %25
   br i1 %.not20, label %.critedge, label %17
 
 .critedge:                                        ; preds = %.lr.ph, %6

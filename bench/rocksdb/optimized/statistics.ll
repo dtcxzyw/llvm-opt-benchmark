@@ -7809,12 +7809,13 @@ define linkonce_odr void @_ZN7rocksdb14CoreLocalArrayINS_14StatisticsImpl14Stati
   %14 = or disjoint i64 %13, 64
   %15 = select i1 %12, i64 -1, i64 %14
   %16 = invoke noundef ptr @_ZN7rocksdb4port23cacheline_aligned_allocEm(i64 noundef %15)
-          to label %_ZN7rocksdb14StatisticsImpl14StatisticsDatanaEm.exit unwind label %33
+          to label %_ZN7rocksdb14StatisticsImpl14StatisticsDatanaEm.exit unwind label %32
 
 _ZN7rocksdb14StatisticsImpl14StatisticsDatanaEm.exit: ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store i64 %10, ptr %17, align 8
   %.idx1314 = shl i64 62720, %9
+  %invariant.op = add i64 %.idx1314, -62656
   br label %18
 
 18:                                               ; preds = %_ZN7rocksdb14StatisticsImpl14StatisticsDataC2Ev.exit, %_ZN7rocksdb14StatisticsImpl14StatisticsDatanaEm.exit
@@ -7847,52 +7848,51 @@ _ZN7rocksdb14StatisticsImpl14StatisticsDatanaEm.exit: ; preds = %7
 
 _ZN7rocksdb14StatisticsImpl14StatisticsDataC2Ev.exit: ; preds = %.noexc15
   %.add = add nuw nsw i64 %.idx, 62720
-  %25 = add nuw nsw i64 %.idx, 62656
-  %26 = icmp eq i64 %25, %.idx1314
-  br i1 %26, label %27, label %18
+  %25 = icmp eq i64 %.idx, %invariant.op
+  br i1 %25, label %26, label %18
 
-27:                                               ; preds = %_ZN7rocksdb14StatisticsImpl14StatisticsDataC2Ev.exit
+26:                                               ; preds = %_ZN7rocksdb14StatisticsImpl14StatisticsDataC2Ev.exit
   %.ptr7 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  %28 = load ptr, ptr %0, align 8, !tbaa !156
+  %27 = load ptr, ptr %0, align 8, !tbaa !156
   store ptr %.ptr7, ptr %0, align 8, !tbaa !156
-  %.not.i.i = icmp eq ptr %28, null
+  %.not.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIA_N7rocksdb14StatisticsImpl14StatisticsDataESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit, label %.loopexit.i.i.i
 
-.loopexit.i.i.i:                                  ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 -64
-  invoke void @_ZN7rocksdb4port22cacheline_aligned_freeEPv(ptr noundef nonnull %29)
-          to label %_ZNSt10unique_ptrIA_N7rocksdb14StatisticsImpl14StatisticsDataESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit unwind label %30
+.loopexit.i.i.i:                                  ; preds = %26
+  %28 = getelementptr inbounds i8, ptr %27, i64 -64
+  invoke void @_ZN7rocksdb4port22cacheline_aligned_freeEPv(ptr noundef nonnull %28)
+          to label %_ZNSt10unique_ptrIA_N7rocksdb14StatisticsImpl14StatisticsDataESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit unwind label %29
 
-30:                                               ; preds = %.loopexit.i.i.i
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %.loopexit.i.i.i
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  tail call void @__clang_call_terminate(ptr %32) #34
+  %31 = extractvalue { ptr, i32 } %30, 0
+  tail call void @__clang_call_terminate(ptr %31) #34
   unreachable
 
-_ZNSt10unique_ptrIA_N7rocksdb14StatisticsImpl14StatisticsDataESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit: ; preds = %27, %.loopexit.i.i.i
+_ZNSt10unique_ptrIA_N7rocksdb14StatisticsImpl14StatisticsDataESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit: ; preds = %26, %.loopexit.i.i.i
   ret void
 
-33:                                               ; preds = %7
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %7
+  %33 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7rocksdb14StatisticsImpl14StatisticsDatadaEPv.exit
 
 .loopexit:                                        ; preds = %.noexc, %.preheader16.i
-  %35 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN7rocksdb4port22cacheline_aligned_freeEPv(ptr noundef nonnull %16)
-          to label %_ZN7rocksdb14StatisticsImpl14StatisticsDatadaEPv.exit unwind label %36
+          to label %_ZN7rocksdb14StatisticsImpl14StatisticsDatadaEPv.exit unwind label %35
 
-36:                                               ; preds = %.loopexit
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %.loopexit
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #34
+  %37 = extractvalue { ptr, i32 } %36, 0
+  tail call void @__clang_call_terminate(ptr %37) #34
   unreachable
 
-_ZN7rocksdb14StatisticsImpl14StatisticsDatadaEPv.exit: ; preds = %.loopexit, %33
-  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %35, %.loopexit ]
+_ZN7rocksdb14StatisticsImpl14StatisticsDatadaEPv.exit: ; preds = %.loopexit, %32
+  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %34, %.loopexit ]
   tail call void @_ZNSt10unique_ptrIA_N7rocksdb14StatisticsImpl14StatisticsDataESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #32
   resume { ptr, i32 } %.pn
 }

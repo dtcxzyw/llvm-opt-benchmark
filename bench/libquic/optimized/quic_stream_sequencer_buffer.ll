@@ -4324,7 +4324,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK3net25QuicStreamSequencerBuffe
 
 11:                                               ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  br label %72
+  br label %71
 
 12:                                               ; preds = %3
   %13 = load i64, ptr %0, align 8, !tbaa !13
@@ -4350,7 +4350,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK3net25QuicStreamSequencerBuffe
   %28 = sub i64 %7, %9
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %28, ptr %29, align 8, !tbaa !137
-  br label %72
+  br label %71
 
 ._crit_edge66:                                    ; preds = %12
   %30 = add nuw nsw i64 %15, 1
@@ -4374,55 +4374,55 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK3net25QuicStreamSequencerBuffe
   br i1 %45, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %._crit_edge66
+  %invariant.op = add i64 %32, -1
   %46 = zext nneg i32 %2 to i64
   br label %47
 
 47:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %.061 = phi i64 [ %42, %.lr.ph ], [ %59, %47 ]
+  %.061 = phi i64 [ %42, %.lr.ph ], [ %58, %47 ]
   %48 = getelementptr inbounds nuw ptr, ptr %23, i64 %.061
   %49 = load ptr, ptr %48, align 8, !tbaa !56
   %50 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %indvars.iv
   store ptr %49, ptr %50, align 8, !tbaa !139
-  %51 = add nuw nsw i64 %.061, 1
-  %52 = icmp eq i64 %51, %32
-  %53 = load i64, ptr %0, align 8
-  %54 = and i64 %53, 8191
-  %55 = icmp ne i64 %54, 0
-  %56 = select i1 %52, i1 %55, i1 false
-  %.0.i49 = select i1 %56, i64 %54, i64 8192
-  %57 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store i64 %.0.i49, ptr %57, align 8, !tbaa !137
+  %51 = icmp eq i64 %.061, %invariant.op
+  %52 = load i64, ptr %0, align 8
+  %53 = and i64 %52, 8191
+  %54 = icmp ne i64 %53, 0
+  %55 = select i1 %51, i1 %54, i1 false
+  %.0.i49 = select i1 %55, i64 %53, i64 8192
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store i64 %.0.i49, ptr %56, align 8, !tbaa !137
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %58 = add nuw nsw i64 %15, %indvars.iv.next
-  %59 = urem i64 %58, %32
-  %60 = icmp ne i64 %59, %19
-  %61 = icmp samesign ult i64 %indvars.iv.next, %46
-  %62 = and i1 %60, %61
-  br i1 %62, label %47, label %._crit_edge.loopexit, !llvm.loop !148
+  %57 = add nuw nsw i64 %15, %indvars.iv.next
+  %58 = urem i64 %57, %32
+  %59 = icmp ne i64 %58, %19
+  %60 = icmp samesign ult i64 %indvars.iv.next, %46
+  %61 = and i1 %59, %60
+  br i1 %61, label %47, label %._crit_edge.loopexit, !llvm.loop !148
 
 ._crit_edge.loopexit:                             ; preds = %47
-  %63 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br i1 %61, label %64, label %72
+  %62 = trunc nuw nsw i64 %indvars.iv.next to i32
+  br i1 %60, label %63, label %71
 
 ._crit_edge:                                      ; preds = %._crit_edge66
-  br i1 %44, label %64, label %72
+  br i1 %44, label %63, label %71
 
-64:                                               ; preds = %._crit_edge.loopexit, %._crit_edge
-  %.042.lcssa73 = phi i32 [ %63, %._crit_edge.loopexit ], [ 1, %._crit_edge ]
-  %65 = getelementptr inbounds nuw ptr, ptr %23, i64 %19
-  %66 = load ptr, ptr %65, align 8, !tbaa !56
-  %67 = zext nneg i32 %.042.lcssa73 to i64
-  %68 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %67
-  store ptr %66, ptr %68, align 8, !tbaa !139
-  %69 = add nuw nsw i64 %18, 1
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store i64 %69, ptr %70, align 8, !tbaa !137
-  %71 = add nuw nsw i32 %.042.lcssa73, 1
-  br label %72
+63:                                               ; preds = %._crit_edge.loopexit, %._crit_edge
+  %.042.lcssa73 = phi i32 [ %62, %._crit_edge.loopexit ], [ 1, %._crit_edge ]
+  %64 = getelementptr inbounds nuw ptr, ptr %23, i64 %19
+  %65 = load ptr, ptr %64, align 8, !tbaa !56
+  %66 = zext nneg i32 %.042.lcssa73 to i64
+  %67 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %66
+  store ptr %65, ptr %67, align 8, !tbaa !139
+  %68 = add nuw nsw i64 %18, 1
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  store i64 %68, ptr %69, align 8, !tbaa !137
+  %70 = add nuw nsw i32 %.042.lcssa73, 1
+  br label %71
 
-72:                                               ; preds = %._crit_edge.loopexit, %27, %64, %._crit_edge, %11
-  %.043 = phi i32 [ 0, %11 ], [ 1, %27 ], [ %71, %64 ], [ 1, %._crit_edge ], [ %63, %._crit_edge.loopexit ]
+71:                                               ; preds = %._crit_edge.loopexit, %27, %63, %._crit_edge, %11
+  %.043 = phi i32 [ 0, %11 ], [ 1, %27 ], [ %70, %63 ], [ 1, %._crit_edge ], [ %62, %._crit_edge.loopexit ]
   ret i32 %.043
 }
 
