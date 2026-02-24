@@ -12069,8 +12069,8 @@ define internal fastcc void @dissect_cwt_tlv(ptr noundef nonnull %0, ptr noundef
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %dissect_cwt_us_encodings_tlv.exit
-  %8 = phi i32 [ %99, %dissect_cwt_us_encodings_tlv.exit ], [ 1, %5 ]
-  %.061 = phi i32 [ %98, %dissect_cwt_us_encodings_tlv.exit ], [ 0, %5 ]
+  %8 = phi i32 [ %98, %dissect_cwt_us_encodings_tlv.exit ], [ 1, %5 ]
+  %.061 = phi i32 [ %97, %dissect_cwt_us_encodings_tlv.exit ], [ 0, %5 ]
   %9 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.061)
   %10 = zext i8 %9 to i32
   %11 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %8)
@@ -12087,7 +12087,7 @@ define internal fastcc void @dissect_cwt_tlv(ptr noundef nonnull %0, ptr noundef
   %21 = load i32, ptr @hf_docsis_cwt_tlv_length, align 4
   %22 = call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %21, ptr noundef nonnull %0, i32 noundef %8, i32 noundef 1, i32 noundef 0)
   %23 = add i32 %.061, 2
-  switch i8 %9, label %96 [
+  switch i8 %9, label %95 [
     i8 1, label %24
     i8 2, label %31
     i8 3, label %42
@@ -12132,9 +12132,9 @@ define internal fastcc void @dissect_cwt_tlv(ptr noundef nonnull %0, ptr noundef
   %45 = icmp slt i32 %44, %43
   br i1 %45, label %.lr.ph72.i, label %._crit_edge73.i
 
-.lr.ph72.i:                                       ; preds = %42, %90
-  %46 = phi i32 [ %92, %90 ], [ %44, %42 ]
-  %.06470.i = phi i32 [ %91, %90 ], [ %23, %42 ]
+.lr.ph72.i:                                       ; preds = %42, %89
+  %46 = phi i32 [ %91, %89 ], [ %44, %42 ]
+  %.06470.i = phi i32 [ %90, %89 ], [ %23, %42 ]
   %47 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %.06470.i)
   %48 = zext i8 %47 to i32
   %49 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %46)
@@ -12151,10 +12151,10 @@ define internal fastcc void @dissect_cwt_tlv(ptr noundef nonnull %0, ptr noundef
   %59 = load i32, ptr @hf_docsis_cwt_us_encodings_tlv_length, align 4
   %60 = call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %59, ptr noundef nonnull %0, i32 noundef %46, i32 noundef 1, i32 noundef 0)
   %61 = add i32 %.06470.i, 2
-  switch i8 %47, label %88 [
+  switch i8 %47, label %87 [
     i8 1, label %62
     i8 2, label %69
-    i8 3, label %81
+    i8 3, label %80
   ]
 
 62:                                               ; preds = %.lr.ph72.i
@@ -12164,15 +12164,16 @@ define internal fastcc void @dissect_cwt_tlv(ptr noundef nonnull %0, ptr noundef
 64:                                               ; preds = %62
   %65 = load i32, ptr @hf_docsis_cwt_us_encodings_cid, align 4
   %66 = call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %65, ptr noundef nonnull %0, i32 noundef %61, i32 noundef 1, i32 noundef 0)
-  br label %90
+  br label %89
 
 67:                                               ; preds = %62
   %68 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %53, ptr noundef nonnull @ei_docsis_mgmt_tlvlen_bad, ptr noundef nonnull @.str.2168, i32 noundef %50)
-  br label %90
+  br label %89
 
 69:                                               ; preds = %.lr.ph72.i
   %70 = load i32, ptr @ett_docsis_cwt_subtlv, align 4
   %71 = call ptr @proto_tree_add_subtree(ptr noundef %56, ptr noundef nonnull %0, i32 noundef %61, i32 noundef range(i32 0, 256) %12, i32 noundef %70, ptr noundef null, ptr noundef nonnull @.str.2240)
+  %invariant.op.i = add nsw i32 %50, -1
   %72 = icmp ugt i8 %49, 1
   br i1 %72, label %.lr.ph.i, label %._crit_edge.i
 
@@ -12182,71 +12183,70 @@ define internal fastcc void @dissect_cwt_tlv(ptr noundef nonnull %0, ptr noundef
   %74 = add i32 %.069.i, %61
   %75 = call ptr @proto_tree_add_item(ptr noundef %71, i32 noundef %73, ptr noundef nonnull %0, i32 noundef %74, i32 noundef 2, i32 noundef 0)
   %76 = add nuw nsw i32 %.069.i, 2
-  %77 = or disjoint i32 %76, 1
-  %78 = icmp samesign ult i32 %77, %50
-  br i1 %78, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !71
+  %77 = icmp slt i32 %76, %invariant.op.i
+  br i1 %77, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !71
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %69
   %.0.lcssa.i = phi i32 [ 0, %69 ], [ %76, %.lr.ph.i ]
   %.not68.i = icmp eq i32 %.0.lcssa.i, %50
-  br i1 %.not68.i, label %90, label %79
+  br i1 %.not68.i, label %89, label %78
 
-79:                                               ; preds = %._crit_edge.i
-  %80 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %53, ptr noundef nonnull @ei_docsis_mgmt_tlvlen_bad, ptr noundef nonnull @.str.2168, i32 noundef %50)
-  br label %90
+78:                                               ; preds = %._crit_edge.i
+  %79 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %53, ptr noundef nonnull @ei_docsis_mgmt_tlvlen_bad, ptr noundef nonnull @.str.2168, i32 noundef %50)
+  br label %89
 
-81:                                               ; preds = %.lr.ph72.i
-  %82 = icmp eq i8 %49, 1
-  br i1 %82, label %83, label %86
+80:                                               ; preds = %.lr.ph72.i
+  %81 = icmp eq i8 %49, 1
+  br i1 %81, label %82, label %85
 
-83:                                               ; preds = %81
-  %84 = load i32, ptr @hf_docsis_cwt_us_encodings_power_boost, align 4
-  %85 = call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %84, ptr noundef nonnull %0, i32 noundef %61, i32 noundef 1, i32 noundef 0)
-  br label %90
+82:                                               ; preds = %80
+  %83 = load i32, ptr @hf_docsis_cwt_us_encodings_power_boost, align 4
+  %84 = call ptr @proto_tree_add_item(ptr noundef %56, i32 noundef %83, ptr noundef nonnull %0, i32 noundef %61, i32 noundef 1, i32 noundef 0)
+  br label %89
 
-86:                                               ; preds = %81
-  %87 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %53, ptr noundef nonnull @ei_docsis_mgmt_tlvlen_bad, ptr noundef nonnull @.str.2168, i32 noundef %50)
-  br label %90
+85:                                               ; preds = %80
+  %86 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %53, ptr noundef nonnull @ei_docsis_mgmt_tlvlen_bad, ptr noundef nonnull @.str.2168, i32 noundef %50)
+  br label %89
 
-88:                                               ; preds = %.lr.ph72.i
-  %89 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %53, ptr noundef nonnull @ei_docsis_mgmt_tlvtype_unknown, ptr noundef nonnull @.str.2170, i32 noundef %48)
-  br label %90
+87:                                               ; preds = %.lr.ph72.i
+  %88 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %53, ptr noundef nonnull @ei_docsis_mgmt_tlvtype_unknown, ptr noundef nonnull @.str.2170, i32 noundef %48)
+  br label %89
 
-90:                                               ; preds = %88, %86, %83, %79, %._crit_edge.i, %67, %64
-  %91 = add i32 %61, %50
-  %92 = add i32 %91, 1
-  %93 = icmp slt i32 %92, %43
-  br i1 %93, label %.lr.ph72.i, label %._crit_edge73.i, !llvm.loop !72
+89:                                               ; preds = %87, %85, %82, %78, %._crit_edge.i, %67, %64
+  %90 = add i32 %61, %50
+  %91 = add i32 %90, 1
+  %92 = icmp slt i32 %91, %43
+  br i1 %92, label %.lr.ph72.i, label %._crit_edge73.i, !llvm.loop !72
 
-._crit_edge73.i:                                  ; preds = %90, %42
-  %.064.lcssa.i = phi i32 [ %23, %42 ], [ %91, %90 ]
+._crit_edge73.i:                                  ; preds = %89, %42
+  %.064.lcssa.i = phi i32 [ %23, %42 ], [ %90, %89 ]
   %.not.i = icmp eq i32 %.064.lcssa.i, %43
-  br i1 %.not.i, label %dissect_cwt_us_encodings_tlv.exit, label %94
+  br i1 %.not.i, label %dissect_cwt_us_encodings_tlv.exit, label %93
 
-94:                                               ; preds = %._crit_edge73.i
-  %95 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %15, ptr noundef nonnull @ei_docsis_mgmt_tlvlen_bad, ptr noundef nonnull @.str.2168, i32 noundef range(i32 0, 256) %12)
+93:                                               ; preds = %._crit_edge73.i
+  %94 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %15, ptr noundef nonnull @ei_docsis_mgmt_tlvlen_bad, ptr noundef nonnull @.str.2168, i32 noundef range(i32 0, 256) %12)
   br label %dissect_cwt_us_encodings_tlv.exit
 
-96:                                               ; preds = %.lr.ph
-  %97 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %15, ptr noundef nonnull @ei_docsis_mgmt_tlvtype_unknown, ptr noundef nonnull @.str.2194, i32 noundef %10)
+95:                                               ; preds = %.lr.ph
+  %96 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %15, ptr noundef nonnull @ei_docsis_mgmt_tlvtype_unknown, ptr noundef nonnull @.str.2194, i32 noundef %10)
   br label %dissect_cwt_us_encodings_tlv.exit
 
-dissect_cwt_us_encodings_tlv.exit:                ; preds = %94, %._crit_edge73.i, %40, %33, %38, %26, %29, %96
-  %98 = add i32 %23, %12
-  %99 = add i32 %98, 1
-  %100 = icmp slt i32 %99, %4
-  br i1 %100, label %.lr.ph, label %._crit_edge, !llvm.loop !73
+dissect_cwt_us_encodings_tlv.exit:                ; preds = %93, %._crit_edge73.i, %40, %33, %38, %26, %29, %95
+  %97 = add i32 %23, %12
+  %98 = add i32 %97, 1
+  %99 = icmp slt i32 %98, %4
+  br i1 %99, label %.lr.ph, label %._crit_edge, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %dissect_cwt_us_encodings_tlv.exit, %5
-  %.0.lcssa = phi i32 [ 0, %5 ], [ %98, %dissect_cwt_us_encodings_tlv.exit ]
+  %.0.lcssa = phi i32 [ 0, %5 ], [ %97, %dissect_cwt_us_encodings_tlv.exit ]
   %.not = icmp eq i32 %.0.lcssa, %4
-  br i1 %.not, label %103, label %101
+  br i1 %.not, label %102, label %100
 
-101:                                              ; preds = %._crit_edge
-  %102 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_docsis_mgmt_tlvlen_bad, ptr noundef nonnull @.str.2168, i32 noundef %4)
-  br label %103
+100:                                              ; preds = %._crit_edge
+  %101 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_docsis_mgmt_tlvlen_bad, ptr noundef nonnull @.str.2168, i32 noundef %4)
+  br label %102
 
-103:                                              ; preds = %101, %._crit_edge
+102:                                              ; preds = %100, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
