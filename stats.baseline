@@ -217,6 +217,7 @@
   "instcombine.NumSimplified": 674846,
   "instcombine.NumSunkInst": 3383787,
   "instcombine.NumWorklistIterations": 61772429,
+  "instcount.LargestFunctionBBCount": 8327591,
   "instcount.LargestFunctionSize": 39883011,
   "instcount.NumAShrInst": 344866,
   "instcount.NumAddInst": 7316295,
