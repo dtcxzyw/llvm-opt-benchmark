@@ -3583,449 +3583,447 @@ define hidden void @_Z13reg_mask_initv() local_unnamed_addr #0 {
   %98 = shl i32 %97, 1
   %99 = sext i32 %98 to i64
   %100 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %99
-  %101 = or disjoint i64 %99, 1
-  %.not.i = icmp slt i64 %101, 617
-  %102 = ptrtoint ptr %100 to i64
-  %103 = trunc i64 %102 to i32
-  br i1 %.not.i, label %106, label %104
+  %.not.i = icmp slt i32 %98, 616
+  %101 = ptrtoint ptr %100 to i64
+  %102 = trunc i64 %101 to i32
+  br i1 %.not.i, label %105, label %103
 
-104:                                              ; preds = %.preheader51
-  %105 = add i32 %103, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)), i32 616)
+103:                                              ; preds = %.preheader51
+  %104 = add i32 %102, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)), i32 616)
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
 
-106:                                              ; preds = %.preheader51
-  %107 = sub i32 %103, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
-  %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds i32, ptr @_ZN7OptoReg7vm2optoE, i64 %108
-  %110 = load i32, ptr %109, align 4
+105:                                              ; preds = %.preheader51
+  %106 = sub i32 %102, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
+  %107 = sext i32 %106 to i64
+  %108 = getelementptr inbounds i32, ptr @_ZN7OptoReg7vm2optoE, i64 %107
+  %109 = load i32, ptr %108, align 4
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
 
-_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit:         ; preds = %104, %106
-  %.0.i = phi i32 [ %105, %104 ], [ %110, %106 ]
-  %111 = and i32 %.0.i, 63
-  %112 = zext nneg i32 %111 to i64
-  %113 = shl nuw i64 1, %112
-  %114 = xor i64 %113, -1
-  %115 = lshr i32 %.0.i, 6
-  %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw i64, ptr @_PTR_REG_mask, i64 %116
-  %118 = load i64, ptr %117, align 8
-  %119 = and i64 %118, %114
-  store i64 %119, ptr %117, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %100, i64 1
+_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit:         ; preds = %103, %105
+  %.0.i = phi i32 [ %104, %103 ], [ %109, %105 ]
+  %110 = and i32 %.0.i, 63
+  %111 = zext nneg i32 %110 to i64
+  %112 = shl nuw i64 1, %111
+  %113 = xor i64 %112, -1
+  %114 = lshr i32 %.0.i, 6
+  %115 = zext nneg i32 %114 to i64
+  %116 = getelementptr inbounds nuw i64, ptr @_PTR_REG_mask, i64 %115
+  %117 = load i64, ptr %116, align 8
+  %118 = and i64 %117, %113
+  store i64 %118, ptr %116, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %100, i64 1
   %.not.i10 = icmp slt i32 %98, 615
-  %121 = ptrtoint ptr %120 to i64
-  %122 = trunc i64 %121 to i32
-  br i1 %.not.i10, label %125, label %123
+  %120 = ptrtoint ptr %119 to i64
+  %121 = trunc i64 %120 to i32
+  br i1 %.not.i10, label %124, label %122
 
-123:                                              ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
-  %124 = add i32 %122, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)), i32 616)
+122:                                              ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
+  %123 = add i32 %121, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)), i32 616)
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit12
 
-125:                                              ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
-  %126 = sub i32 %122, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
-  %.not4.i = icmp eq i32 %126, -1
-  br i1 %.not4.i, label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit12, label %127
+124:                                              ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit
+  %125 = sub i32 %121, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
+  %.not4.i = icmp eq i32 %125, -1
+  br i1 %.not4.i, label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit12, label %126
 
-127:                                              ; preds = %125
-  %128 = sext i32 %126 to i64
-  %129 = getelementptr inbounds i32, ptr @_ZN7OptoReg7vm2optoE, i64 %128
-  %130 = load i32, ptr %129, align 4
+126:                                              ; preds = %124
+  %127 = sext i32 %125 to i64
+  %128 = getelementptr inbounds i32, ptr @_ZN7OptoReg7vm2optoE, i64 %127
+  %129 = load i32, ptr %128, align 4
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit12
 
-_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit12:       ; preds = %123, %125, %127
-  %.0.i11 = phi i32 [ %124, %123 ], [ %130, %127 ], [ -1, %125 ]
-  %131 = and i32 %.0.i11, 63
-  %132 = zext nneg i32 %131 to i64
-  %133 = shl nuw i64 1, %132
-  %134 = xor i64 %133, -1
-  %135 = lshr i32 %.0.i11, 6
-  %136 = zext nneg i32 %135 to i64
-  %137 = getelementptr inbounds nuw i64, ptr @_PTR_REG_mask, i64 %136
-  %138 = load i64, ptr %137, align 8
-  %139 = and i64 %138, %134
-  store i64 %139, ptr %137, align 8
+_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit12:       ; preds = %122, %124, %126
+  %.0.i11 = phi i32 [ %123, %122 ], [ %129, %126 ], [ -1, %124 ]
+  %130 = and i32 %.0.i11, 63
+  %131 = zext nneg i32 %130 to i64
+  %132 = shl nuw i64 1, %131
+  %133 = xor i64 %132, -1
+  %134 = lshr i32 %.0.i11, 6
+  %135 = zext nneg i32 %134 to i64
+  %136 = getelementptr inbounds nuw i64, ptr @_PTR_REG_mask, i64 %135
+  %137 = load i64, ptr %136, align 8
+  %138 = and i64 %137, %133
+  store i64 %138, ptr %136, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %.loopexit52, label %.preheader51, !llvm.loop !6
 
 .loopexit52:                                      ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit12, %48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_STACK_OR_PTR_REG_mask, ptr noundef nonnull align 8 dereferenceable(96) @_PTR_REG_mask, i64 96, i1 false)
-  %140 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_PTR_REG_mask, i64 88), align 8
-  %141 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_STACK_SLOTS_mask, i64 88), align 8
-  %142 = icmp ugt i32 %140, %141
-  br i1 %142, label %143, label %144
+  %139 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_PTR_REG_mask, i64 88), align 8
+  %140 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_STACK_SLOTS_mask, i64 88), align 8
+  %141 = icmp ugt i32 %139, %140
+  br i1 %141, label %142, label %143
 
-143:                                              ; preds = %.loopexit52
-  store i32 %141, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_PTR_REG_mask, i64 88), align 8
-  br label %144
+142:                                              ; preds = %.loopexit52
+  store i32 %140, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_PTR_REG_mask, i64 88), align 8
+  br label %143
 
-144:                                              ; preds = %143, %.loopexit52
-  %145 = phi i32 [ %141, %143 ], [ %140, %.loopexit52 ]
-  %146 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_PTR_REG_mask, i64 92), align 4
-  %147 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_STACK_SLOTS_mask, i64 92), align 4
-  %148 = icmp ult i32 %146, %147
-  br i1 %148, label %149, label %150
+143:                                              ; preds = %142, %.loopexit52
+  %144 = phi i32 [ %140, %142 ], [ %139, %.loopexit52 ]
+  %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_PTR_REG_mask, i64 92), align 4
+  %146 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_STACK_SLOTS_mask, i64 92), align 4
+  %147 = icmp ult i32 %145, %146
+  br i1 %147, label %148, label %149
 
-149:                                              ; preds = %144
-  store i32 %147, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_PTR_REG_mask, i64 92), align 4
-  br label %150
+148:                                              ; preds = %143
+  store i32 %146, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_PTR_REG_mask, i64 92), align 4
+  br label %149
 
-150:                                              ; preds = %149, %144
-  %151 = phi i32 [ %147, %149 ], [ %146, %144 ]
-  %.not11.i = icmp ugt i32 %145, %151
+149:                                              ; preds = %148, %143
+  %150 = phi i32 [ %146, %148 ], [ %145, %143 ]
+  %.not11.i = icmp ugt i32 %144, %150
   br i1 %.not11.i, label %_ZN7RegMask2ORERKS_.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %150, %.lr.ph.i
-  %.012.i = phi i32 [ %158, %.lr.ph.i ], [ %145, %150 ]
-  %152 = zext i32 %.012.i to i64
-  %153 = getelementptr inbounds nuw i64, ptr @_STACK_OR_STACK_SLOTS_mask, i64 %152
-  %154 = load i64, ptr %153, align 8
-  %155 = getelementptr inbounds nuw i64, ptr @_STACK_OR_PTR_REG_mask, i64 %152
-  %156 = load i64, ptr %155, align 8
-  %157 = or i64 %156, %154
-  store i64 %157, ptr %155, align 8
-  %158 = add i32 %.012.i, 1
-  %159 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_PTR_REG_mask, i64 92), align 4
-  %.not.i13 = icmp ugt i32 %158, %159
+.lr.ph.i:                                         ; preds = %149, %.lr.ph.i
+  %.012.i = phi i32 [ %157, %.lr.ph.i ], [ %144, %149 ]
+  %151 = zext i32 %.012.i to i64
+  %152 = getelementptr inbounds nuw i64, ptr @_STACK_OR_STACK_SLOTS_mask, i64 %151
+  %153 = load i64, ptr %152, align 8
+  %154 = getelementptr inbounds nuw i64, ptr @_STACK_OR_PTR_REG_mask, i64 %151
+  %155 = load i64, ptr %154, align 8
+  %156 = or i64 %155, %153
+  store i64 %156, ptr %154, align 8
+  %157 = add i32 %.012.i, 1
+  %158 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_PTR_REG_mask, i64 92), align 4
+  %.not.i13 = icmp ugt i32 %157, %158
   br i1 %.not.i13, label %_ZN7RegMask2ORERKS_.exit, label %.lr.ph.i, !llvm.loop !8
 
-_ZN7RegMask2ORERKS_.exit:                         ; preds = %.lr.ph.i, %150
+_ZN7RegMask2ORERKS_.exit:                         ; preds = %.lr.ph.i, %149
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_PTR_REG_NO_RBP_mask, ptr noundef nonnull align 8 dereferenceable(96) @_PTR_REG_mask, i64 96, i1 false)
-  %160 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 40), align 8
-  %161 = and i32 %160, 63
-  %162 = zext nneg i32 %161 to i64
-  %163 = shl nuw i64 1, %162
-  %164 = xor i64 %163, -1
-  %165 = lshr i32 %160, 6
-  %166 = zext nneg i32 %165 to i64
-  %167 = getelementptr inbounds nuw i64, ptr @_PTR_REG_NO_RBP_mask, i64 %166
-  %168 = load i64, ptr %167, align 8
-  %169 = and i64 %168, %164
-  store i64 %169, ptr %167, align 8
-  %170 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 44), align 4
-  %171 = and i32 %170, 63
-  %172 = zext nneg i32 %171 to i64
-  %173 = shl nuw i64 1, %172
-  %174 = xor i64 %173, -1
-  %175 = lshr i32 %170, 6
-  %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds nuw i64, ptr @_PTR_REG_NO_RBP_mask, i64 %176
-  %178 = load i64, ptr %177, align 8
-  %179 = and i64 %178, %174
-  store i64 %179, ptr %177, align 8
+  %159 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 40), align 8
+  %160 = and i32 %159, 63
+  %161 = zext nneg i32 %160 to i64
+  %162 = shl nuw i64 1, %161
+  %163 = xor i64 %162, -1
+  %164 = lshr i32 %159, 6
+  %165 = zext nneg i32 %164 to i64
+  %166 = getelementptr inbounds nuw i64, ptr @_PTR_REG_NO_RBP_mask, i64 %165
+  %167 = load i64, ptr %166, align 8
+  %168 = and i64 %167, %163
+  store i64 %168, ptr %166, align 8
+  %169 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 44), align 4
+  %170 = and i32 %169, 63
+  %171 = zext nneg i32 %170 to i64
+  %172 = shl nuw i64 1, %171
+  %173 = xor i64 %172, -1
+  %174 = lshr i32 %169, 6
+  %175 = zext nneg i32 %174 to i64
+  %176 = getelementptr inbounds nuw i64, ptr @_PTR_REG_NO_RBP_mask, i64 %175
+  %177 = load i64, ptr %176, align 8
+  %178 = and i64 %177, %173
+  store i64 %178, ptr %176, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_PTR_NO_RAX_REG_mask, ptr noundef nonnull align 8 dereferenceable(96) @_PTR_REG_mask, i64 96, i1 false)
-  %180 = load i32, ptr @_ZN7OptoReg7vm2optoE, align 16
-  %181 = and i32 %180, 63
-  %182 = zext nneg i32 %181 to i64
-  %183 = shl nuw i64 1, %182
-  %184 = xor i64 %183, -1
-  %185 = lshr i32 %180, 6
-  %186 = zext nneg i32 %185 to i64
-  %187 = getelementptr inbounds nuw i64, ptr @_PTR_NO_RAX_REG_mask, i64 %186
-  %188 = load i64, ptr %187, align 8
-  %189 = and i64 %188, %184
-  store i64 %189, ptr %187, align 8
-  %190 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 4), align 4
-  %191 = and i32 %190, 63
-  %192 = zext nneg i32 %191 to i64
-  %193 = shl nuw i64 1, %192
-  %194 = xor i64 %193, -1
-  %195 = lshr i32 %190, 6
-  %196 = zext nneg i32 %195 to i64
-  %197 = getelementptr inbounds nuw i64, ptr @_PTR_NO_RAX_REG_mask, i64 %196
-  %198 = load i64, ptr %197, align 8
-  %199 = and i64 %198, %194
-  store i64 %199, ptr %197, align 8
+  %179 = load i32, ptr @_ZN7OptoReg7vm2optoE, align 16
+  %180 = and i32 %179, 63
+  %181 = zext nneg i32 %180 to i64
+  %182 = shl nuw i64 1, %181
+  %183 = xor i64 %182, -1
+  %184 = lshr i32 %179, 6
+  %185 = zext nneg i32 %184 to i64
+  %186 = getelementptr inbounds nuw i64, ptr @_PTR_NO_RAX_REG_mask, i64 %185
+  %187 = load i64, ptr %186, align 8
+  %188 = and i64 %187, %183
+  store i64 %188, ptr %186, align 8
+  %189 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 4), align 4
+  %190 = and i32 %189, 63
+  %191 = zext nneg i32 %190 to i64
+  %192 = shl nuw i64 1, %191
+  %193 = xor i64 %192, -1
+  %194 = lshr i32 %189, 6
+  %195 = zext nneg i32 %194 to i64
+  %196 = getelementptr inbounds nuw i64, ptr @_PTR_NO_RAX_REG_mask, i64 %195
+  %197 = load i64, ptr %196, align 8
+  %198 = and i64 %197, %193
+  store i64 %198, ptr %196, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_PTR_NO_RAX_RBX_REG_mask, ptr noundef nonnull align 8 dereferenceable(96) @_PTR_NO_RAX_REG_mask, i64 96, i1 false)
-  %200 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 24), align 8
-  %201 = and i32 %200, 63
-  %202 = zext nneg i32 %201 to i64
-  %203 = shl nuw i64 1, %202
-  %204 = xor i64 %203, -1
-  %205 = lshr i32 %200, 6
-  %206 = zext nneg i32 %205 to i64
-  %207 = getelementptr inbounds nuw i64, ptr @_PTR_NO_RAX_RBX_REG_mask, i64 %206
-  %208 = load i64, ptr %207, align 8
-  %209 = and i64 %208, %204
-  store i64 %209, ptr %207, align 8
-  %210 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 28), align 4
-  %211 = and i32 %210, 63
-  %212 = zext nneg i32 %211 to i64
-  %213 = shl nuw i64 1, %212
-  %214 = xor i64 %213, -1
-  %215 = lshr i32 %210, 6
-  %216 = zext nneg i32 %215 to i64
-  %217 = getelementptr inbounds nuw i64, ptr @_PTR_NO_RAX_RBX_REG_mask, i64 %216
-  %218 = load i64, ptr %217, align 8
-  %219 = and i64 %218, %214
-  store i64 %219, ptr %217, align 8
+  %199 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 24), align 8
+  %200 = and i32 %199, 63
+  %201 = zext nneg i32 %200 to i64
+  %202 = shl nuw i64 1, %201
+  %203 = xor i64 %202, -1
+  %204 = lshr i32 %199, 6
+  %205 = zext nneg i32 %204 to i64
+  %206 = getelementptr inbounds nuw i64, ptr @_PTR_NO_RAX_RBX_REG_mask, i64 %205
+  %207 = load i64, ptr %206, align 8
+  %208 = and i64 %207, %203
+  store i64 %208, ptr %206, align 8
+  %209 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 28), align 4
+  %210 = and i32 %209, 63
+  %211 = zext nneg i32 %210 to i64
+  %212 = shl nuw i64 1, %211
+  %213 = xor i64 %212, -1
+  %214 = lshr i32 %209, 6
+  %215 = zext nneg i32 %214 to i64
+  %216 = getelementptr inbounds nuw i64, ptr @_PTR_NO_RAX_RBX_REG_mask, i64 %215
+  %217 = load i64, ptr %216, align 8
+  %218 = and i64 %217, %213
+  store i64 %218, ptr %216, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_LONG_REG_mask, ptr noundef nonnull align 8 dereferenceable(96) @_PTR_REG_mask, i64 96, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_STACK_OR_LONG_REG_mask, ptr noundef nonnull align 8 dereferenceable(96) @_PTR_REG_mask, i64 96, i1 false)
-  %220 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_LONG_REG_mask, i64 88), align 8
-  %221 = icmp ugt i32 %220, %141
-  br i1 %221, label %222, label %223
+  %219 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_LONG_REG_mask, i64 88), align 8
+  %220 = icmp ugt i32 %219, %140
+  br i1 %220, label %221, label %222
 
-222:                                              ; preds = %_ZN7RegMask2ORERKS_.exit
-  store i32 %141, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_LONG_REG_mask, i64 88), align 8
-  br label %223
+221:                                              ; preds = %_ZN7RegMask2ORERKS_.exit
+  store i32 %140, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_LONG_REG_mask, i64 88), align 8
+  br label %222
 
-223:                                              ; preds = %222, %_ZN7RegMask2ORERKS_.exit
-  %224 = phi i32 [ %141, %222 ], [ %220, %_ZN7RegMask2ORERKS_.exit ]
-  %225 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_LONG_REG_mask, i64 92), align 4
-  %226 = icmp ult i32 %225, %147
-  br i1 %226, label %227, label %228
+222:                                              ; preds = %221, %_ZN7RegMask2ORERKS_.exit
+  %223 = phi i32 [ %140, %221 ], [ %219, %_ZN7RegMask2ORERKS_.exit ]
+  %224 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_LONG_REG_mask, i64 92), align 4
+  %225 = icmp ult i32 %224, %146
+  br i1 %225, label %226, label %227
 
-227:                                              ; preds = %223
-  store i32 %147, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_LONG_REG_mask, i64 92), align 4
-  br label %228
+226:                                              ; preds = %222
+  store i32 %146, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_LONG_REG_mask, i64 92), align 4
+  br label %227
 
-228:                                              ; preds = %227, %223
-  %229 = phi i32 [ %147, %227 ], [ %225, %223 ]
-  %.not11.i20 = icmp ugt i32 %224, %229
+227:                                              ; preds = %226, %222
+  %228 = phi i32 [ %146, %226 ], [ %224, %222 ]
+  %.not11.i20 = icmp ugt i32 %223, %228
   br i1 %.not11.i20, label %_ZN7RegMask2ORERKS_.exit24, label %.lr.ph.i21
 
-.lr.ph.i21:                                       ; preds = %228, %.lr.ph.i21
-  %.012.i22 = phi i32 [ %236, %.lr.ph.i21 ], [ %224, %228 ]
-  %230 = zext i32 %.012.i22 to i64
-  %231 = getelementptr inbounds nuw i64, ptr @_STACK_OR_STACK_SLOTS_mask, i64 %230
-  %232 = load i64, ptr %231, align 8
-  %233 = getelementptr inbounds nuw i64, ptr @_STACK_OR_LONG_REG_mask, i64 %230
-  %234 = load i64, ptr %233, align 8
-  %235 = or i64 %234, %232
-  store i64 %235, ptr %233, align 8
-  %236 = add i32 %.012.i22, 1
-  %237 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_LONG_REG_mask, i64 92), align 4
-  %.not.i23 = icmp ugt i32 %236, %237
+.lr.ph.i21:                                       ; preds = %227, %.lr.ph.i21
+  %.012.i22 = phi i32 [ %235, %.lr.ph.i21 ], [ %223, %227 ]
+  %229 = zext i32 %.012.i22 to i64
+  %230 = getelementptr inbounds nuw i64, ptr @_STACK_OR_STACK_SLOTS_mask, i64 %229
+  %231 = load i64, ptr %230, align 8
+  %232 = getelementptr inbounds nuw i64, ptr @_STACK_OR_LONG_REG_mask, i64 %229
+  %233 = load i64, ptr %232, align 8
+  %234 = or i64 %233, %231
+  store i64 %234, ptr %232, align 8
+  %235 = add i32 %.012.i22, 1
+  %236 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_LONG_REG_mask, i64 92), align 4
+  %.not.i23 = icmp ugt i32 %235, %236
   br i1 %.not.i23, label %_ZN7RegMask2ORERKS_.exit24, label %.lr.ph.i21, !llvm.loop !8
 
-_ZN7RegMask2ORERKS_.exit24:                       ; preds = %.lr.ph.i21, %228
+_ZN7RegMask2ORERKS_.exit24:                       ; preds = %.lr.ph.i21, %227
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_LONG_NO_RAX_RDX_REG_mask, ptr noundef nonnull align 8 dereferenceable(96) @_PTR_REG_mask, i64 96, i1 false)
-  %238 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RAX_RDX_REG_mask, i64 %186
-  %239 = load i64, ptr %238, align 8
-  %240 = and i64 %239, %184
-  store i64 %240, ptr %238, align 8
-  %241 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RAX_RDX_REG_mask, i64 %196
-  %242 = load i64, ptr %241, align 8
-  %243 = and i64 %242, %194
-  store i64 %243, ptr %241, align 8
-  %244 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 16), align 16
-  %245 = and i32 %244, 63
-  %246 = zext nneg i32 %245 to i64
-  %247 = shl nuw i64 1, %246
-  %248 = xor i64 %247, -1
-  %249 = lshr i32 %244, 6
-  %250 = zext nneg i32 %249 to i64
-  %251 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RAX_RDX_REG_mask, i64 %250
-  %252 = load i64, ptr %251, align 8
-  %253 = and i64 %252, %248
-  store i64 %253, ptr %251, align 8
-  %254 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 20), align 4
-  %255 = and i32 %254, 63
-  %256 = zext nneg i32 %255 to i64
-  %257 = shl nuw i64 1, %256
-  %258 = xor i64 %257, -1
-  %259 = lshr i32 %254, 6
-  %260 = zext nneg i32 %259 to i64
-  %261 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RAX_RDX_REG_mask, i64 %260
-  %262 = load i64, ptr %261, align 8
-  %263 = and i64 %262, %258
-  store i64 %263, ptr %261, align 8
+  %237 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RAX_RDX_REG_mask, i64 %185
+  %238 = load i64, ptr %237, align 8
+  %239 = and i64 %238, %183
+  store i64 %239, ptr %237, align 8
+  %240 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RAX_RDX_REG_mask, i64 %195
+  %241 = load i64, ptr %240, align 8
+  %242 = and i64 %241, %193
+  store i64 %242, ptr %240, align 8
+  %243 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 16), align 16
+  %244 = and i32 %243, 63
+  %245 = zext nneg i32 %244 to i64
+  %246 = shl nuw i64 1, %245
+  %247 = xor i64 %246, -1
+  %248 = lshr i32 %243, 6
+  %249 = zext nneg i32 %248 to i64
+  %250 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RAX_RDX_REG_mask, i64 %249
+  %251 = load i64, ptr %250, align 8
+  %252 = and i64 %251, %247
+  store i64 %252, ptr %250, align 8
+  %253 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 20), align 4
+  %254 = and i32 %253, 63
+  %255 = zext nneg i32 %254 to i64
+  %256 = shl nuw i64 1, %255
+  %257 = xor i64 %256, -1
+  %258 = lshr i32 %253, 6
+  %259 = zext nneg i32 %258 to i64
+  %260 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RAX_RDX_REG_mask, i64 %259
+  %261 = load i64, ptr %260, align 8
+  %262 = and i64 %261, %257
+  store i64 %262, ptr %260, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_LONG_NO_RCX_REG_mask, ptr noundef nonnull align 8 dereferenceable(96) @_PTR_REG_mask, i64 96, i1 false)
-  %264 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 8), align 8
-  %265 = and i32 %264, 63
-  %266 = zext nneg i32 %265 to i64
-  %267 = shl nuw i64 1, %266
-  %268 = xor i64 %267, -1
-  %269 = lshr i32 %264, 6
-  %270 = zext nneg i32 %269 to i64
-  %271 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RCX_REG_mask, i64 %270
-  %272 = load i64, ptr %271, align 8
-  %273 = and i64 %272, %268
-  store i64 %273, ptr %271, align 8
-  %274 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 12), align 4
-  %275 = and i32 %274, 63
-  %276 = zext nneg i32 %275 to i64
-  %277 = shl nuw i64 1, %276
-  %278 = xor i64 %277, -1
-  %279 = lshr i32 %274, 6
-  %280 = zext nneg i32 %279 to i64
-  %281 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RCX_REG_mask, i64 %280
-  %282 = load i64, ptr %281, align 8
-  %283 = and i64 %282, %278
-  store i64 %283, ptr %281, align 8
+  %263 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 8), align 8
+  %264 = and i32 %263, 63
+  %265 = zext nneg i32 %264 to i64
+  %266 = shl nuw i64 1, %265
+  %267 = xor i64 %266, -1
+  %268 = lshr i32 %263, 6
+  %269 = zext nneg i32 %268 to i64
+  %270 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RCX_REG_mask, i64 %269
+  %271 = load i64, ptr %270, align 8
+  %272 = and i64 %271, %267
+  store i64 %272, ptr %270, align 8
+  %273 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 12), align 4
+  %274 = and i32 %273, 63
+  %275 = zext nneg i32 %274 to i64
+  %276 = shl nuw i64 1, %275
+  %277 = xor i64 %276, -1
+  %278 = lshr i32 %273, 6
+  %279 = zext nneg i32 %278 to i64
+  %280 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RCX_REG_mask, i64 %279
+  %281 = load i64, ptr %280, align 8
+  %282 = and i64 %281, %277
+  store i64 %282, ptr %280, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_LONG_NO_RBP_R13_REG_mask, ptr noundef nonnull align 8 dereferenceable(96) @_PTR_REG_mask, i64 96, i1 false)
-  %284 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RBP_R13_REG_mask, i64 %166
-  %285 = load i64, ptr %284, align 8
-  %286 = and i64 %285, %164
-  store i64 %286, ptr %284, align 8
-  %287 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RBP_R13_REG_mask, i64 %176
-  %288 = load i64, ptr %287, align 8
-  %289 = and i64 %288, %174
-  store i64 %289, ptr %287, align 8
-  %290 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 104), align 8
-  %291 = and i32 %290, 63
-  %292 = zext nneg i32 %291 to i64
-  %293 = shl nuw i64 1, %292
-  %294 = xor i64 %293, -1
-  %295 = lshr i32 %290, 6
-  %296 = zext nneg i32 %295 to i64
-  %297 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RBP_R13_REG_mask, i64 %296
-  %298 = load i64, ptr %297, align 8
-  %299 = and i64 %298, %294
-  store i64 %299, ptr %297, align 8
-  %300 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 108), align 4
-  %301 = and i32 %300, 63
-  %302 = zext nneg i32 %301 to i64
-  %303 = shl nuw i64 1, %302
-  %304 = xor i64 %303, -1
-  %305 = lshr i32 %300, 6
-  %306 = zext nneg i32 %305 to i64
-  %307 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RBP_R13_REG_mask, i64 %306
-  %308 = load i64, ptr %307, align 8
-  %309 = and i64 %308, %304
-  store i64 %309, ptr %307, align 8
+  %283 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RBP_R13_REG_mask, i64 %165
+  %284 = load i64, ptr %283, align 8
+  %285 = and i64 %284, %163
+  store i64 %285, ptr %283, align 8
+  %286 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RBP_R13_REG_mask, i64 %175
+  %287 = load i64, ptr %286, align 8
+  %288 = and i64 %287, %173
+  store i64 %288, ptr %286, align 8
+  %289 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 104), align 8
+  %290 = and i32 %289, 63
+  %291 = zext nneg i32 %290 to i64
+  %292 = shl nuw i64 1, %291
+  %293 = xor i64 %292, -1
+  %294 = lshr i32 %289, 6
+  %295 = zext nneg i32 %294 to i64
+  %296 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RBP_R13_REG_mask, i64 %295
+  %297 = load i64, ptr %296, align 8
+  %298 = and i64 %297, %293
+  store i64 %298, ptr %296, align 8
+  %299 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 108), align 4
+  %300 = and i32 %299, 63
+  %301 = zext nneg i32 %300 to i64
+  %302 = shl nuw i64 1, %301
+  %303 = xor i64 %302, -1
+  %304 = lshr i32 %299, 6
+  %305 = zext nneg i32 %304 to i64
+  %306 = getelementptr inbounds nuw i64, ptr @_LONG_NO_RBP_R13_REG_mask, i64 %305
+  %307 = load i64, ptr %306, align 8
+  %308 = and i64 %307, %303
+  store i64 %308, ptr %306, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_INT_REG_mask, ptr noundef nonnull align 8 dereferenceable(96) @_ALL_INT_REG_mask, i64 96, i1 false)
   br i1 %90, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %_ZN7RegMask2ORERKS_.exit24, %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit38
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit38 ], [ 0, %_ZN7RegMask2ORERKS_.exit24 ]
-  %310 = getelementptr inbounds nuw %class.Register, ptr @__const._Z13reg_mask_initv.egprs, i64 %indvars.iv56
-  %311 = load i32, ptr %310, align 4
-  %312 = sext i32 %311 to i64
-  %313 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %312
-  %314 = ptrtoint ptr %313 to i64
-  %315 = trunc i64 %314 to i32
-  %316 = sub i32 %315, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
-  %317 = shl i32 %316, 1
-  %318 = sext i32 %317 to i64
-  %319 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %318
-  %320 = or disjoint i64 %318, 1
-  %.not.i35 = icmp slt i64 %320, 617
-  %321 = ptrtoint ptr %319 to i64
-  %322 = trunc i64 %321 to i32
-  br i1 %.not.i35, label %325, label %323
+  %309 = getelementptr inbounds nuw %class.Register, ptr @__const._Z13reg_mask_initv.egprs, i64 %indvars.iv56
+  %310 = load i32, ptr %309, align 4
+  %311 = sext i32 %310 to i64
+  %312 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %311
+  %313 = ptrtoint ptr %312 to i64
+  %314 = trunc i64 %313 to i32
+  %315 = sub i32 %314, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)
+  %316 = shl i32 %315, 1
+  %317 = sext i32 %316 to i64
+  %318 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1), i64 %317
+  %.not.i35 = icmp slt i32 %316, 616
+  %319 = ptrtoint ptr %318 to i64
+  %320 = trunc i64 %319 to i32
+  br i1 %.not.i35, label %323, label %321
+
+321:                                              ; preds = %.preheader
+  %322 = add i32 %320, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)), i32 616)
+  br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit38
 
 323:                                              ; preds = %.preheader
-  %324 = add i32 %322, add (i32 sub (i32 0, i32 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 617) to i32)), i32 616)
+  %324 = sub i32 %320, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
+  %325 = sext i32 %324 to i64
+  %326 = getelementptr inbounds i32, ptr @_ZN7OptoReg7vm2optoE, i64 %325
+  %327 = load i32, ptr %326, align 4
   br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit38
 
-325:                                              ; preds = %.preheader
-  %326 = sub i32 %322, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
-  %327 = sext i32 %326 to i64
-  %328 = getelementptr inbounds i32, ptr @_ZN7OptoReg7vm2optoE, i64 %327
-  %329 = load i32, ptr %328, align 4
-  br label %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit38
-
-_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit38:       ; preds = %323, %325
-  %.0.i36 = phi i32 [ %324, %323 ], [ %329, %325 ]
-  %330 = and i32 %.0.i36, 63
-  %331 = zext nneg i32 %330 to i64
-  %332 = shl nuw i64 1, %331
-  %333 = xor i64 %332, -1
-  %334 = lshr i32 %.0.i36, 6
-  %335 = zext nneg i32 %334 to i64
-  %336 = getelementptr inbounds nuw i64, ptr @_INT_REG_mask, i64 %335
-  %337 = load i64, ptr %336, align 8
-  %338 = and i64 %337, %333
-  store i64 %338, ptr %336, align 8
+_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit38:       ; preds = %321, %323
+  %.0.i36 = phi i32 [ %322, %321 ], [ %327, %323 ]
+  %328 = and i32 %.0.i36, 63
+  %329 = zext nneg i32 %328 to i64
+  %330 = shl nuw i64 1, %329
+  %331 = xor i64 %330, -1
+  %332 = lshr i32 %.0.i36, 6
+  %333 = zext nneg i32 %332 to i64
+  %334 = getelementptr inbounds nuw i64, ptr @_INT_REG_mask, i64 %333
+  %335 = load i64, ptr %334, align 8
+  %336 = and i64 %335, %331
+  store i64 %336, ptr %334, align 8
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 16
   br i1 %exitcond59.not, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %_ZN7OptoReg10as_OptoRegEP9VMRegImpl.exit38, %_ZN7RegMask2ORERKS_.exit24
-  br i1 %2, label %339, label %343
+  br i1 %2, label %337, label %341
 
-339:                                              ; preds = %.loopexit
-  %340 = getelementptr inbounds nuw i64, ptr @_INT_REG_mask, i64 %166
-  %341 = load i64, ptr %340, align 8
-  %342 = and i64 %341, %164
-  store i64 %342, ptr %340, align 8
-  br label %343
+337:                                              ; preds = %.loopexit
+  %338 = getelementptr inbounds nuw i64, ptr @_INT_REG_mask, i64 %165
+  %339 = load i64, ptr %338, align 8
+  %340 = and i64 %339, %163
+  store i64 %340, ptr %338, align 8
+  br label %341
 
-343:                                              ; preds = %339, %.loopexit
-  br i1 %26, label %344, label %355
+341:                                              ; preds = %337, %.loopexit
+  br i1 %26, label %342, label %353
 
-344:                                              ; preds = %343
-  %345 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 96), align 16
-  %346 = and i32 %345, 63
-  %347 = zext nneg i32 %346 to i64
-  %348 = shl nuw i64 1, %347
-  %349 = xor i64 %348, -1
-  %350 = lshr i32 %345, 6
-  %351 = zext nneg i32 %350 to i64
-  %352 = getelementptr inbounds nuw i64, ptr @_INT_REG_mask, i64 %351
-  %353 = load i64, ptr %352, align 8
-  %354 = and i64 %353, %349
-  store i64 %354, ptr %352, align 8
-  br label %355
+342:                                              ; preds = %341
+  %343 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN7OptoReg7vm2optoE, i64 96), align 16
+  %344 = and i32 %343, 63
+  %345 = zext nneg i32 %344 to i64
+  %346 = shl nuw i64 1, %345
+  %347 = xor i64 %346, -1
+  %348 = lshr i32 %343, 6
+  %349 = zext nneg i32 %348 to i64
+  %350 = getelementptr inbounds nuw i64, ptr @_INT_REG_mask, i64 %349
+  %351 = load i64, ptr %350, align 8
+  %352 = and i64 %351, %347
+  store i64 %352, ptr %350, align 8
+  br label %353
 
-355:                                              ; preds = %344, %343
+353:                                              ; preds = %342, %341
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_STACK_OR_INT_REG_mask, ptr noundef nonnull align 8 dereferenceable(96) @_INT_REG_mask, i64 96, i1 false)
-  %356 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_INT_REG_mask, i64 88), align 8
-  %357 = icmp ugt i32 %356, %141
-  br i1 %357, label %358, label %359
+  %354 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_INT_REG_mask, i64 88), align 8
+  %355 = icmp ugt i32 %354, %140
+  br i1 %355, label %356, label %357
 
-358:                                              ; preds = %355
-  store i32 %141, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_INT_REG_mask, i64 88), align 8
-  br label %359
+356:                                              ; preds = %353
+  store i32 %140, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_INT_REG_mask, i64 88), align 8
+  br label %357
 
-359:                                              ; preds = %358, %355
-  %360 = phi i32 [ %141, %358 ], [ %356, %355 ]
-  %361 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_INT_REG_mask, i64 92), align 4
-  %362 = icmp ult i32 %361, %147
-  br i1 %362, label %363, label %364
+357:                                              ; preds = %356, %353
+  %358 = phi i32 [ %140, %356 ], [ %354, %353 ]
+  %359 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_INT_REG_mask, i64 92), align 4
+  %360 = icmp ult i32 %359, %146
+  br i1 %360, label %361, label %362
 
-363:                                              ; preds = %359
-  store i32 %147, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_INT_REG_mask, i64 92), align 4
-  br label %364
+361:                                              ; preds = %357
+  store i32 %146, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_INT_REG_mask, i64 92), align 4
+  br label %362
 
-364:                                              ; preds = %363, %359
-  %365 = phi i32 [ %147, %363 ], [ %361, %359 ]
-  %.not11.i41 = icmp ugt i32 %360, %365
+362:                                              ; preds = %361, %357
+  %363 = phi i32 [ %146, %361 ], [ %359, %357 ]
+  %.not11.i41 = icmp ugt i32 %358, %363
   br i1 %.not11.i41, label %_ZN7RegMask2ORERKS_.exit45, label %.lr.ph.i42
 
-.lr.ph.i42:                                       ; preds = %364, %.lr.ph.i42
-  %.012.i43 = phi i32 [ %372, %.lr.ph.i42 ], [ %360, %364 ]
-  %366 = zext i32 %.012.i43 to i64
-  %367 = getelementptr inbounds nuw i64, ptr @_STACK_OR_STACK_SLOTS_mask, i64 %366
+.lr.ph.i42:                                       ; preds = %362, %.lr.ph.i42
+  %.012.i43 = phi i32 [ %370, %.lr.ph.i42 ], [ %358, %362 ]
+  %364 = zext i32 %.012.i43 to i64
+  %365 = getelementptr inbounds nuw i64, ptr @_STACK_OR_STACK_SLOTS_mask, i64 %364
+  %366 = load i64, ptr %365, align 8
+  %367 = getelementptr inbounds nuw i64, ptr @_STACK_OR_INT_REG_mask, i64 %364
   %368 = load i64, ptr %367, align 8
-  %369 = getelementptr inbounds nuw i64, ptr @_STACK_OR_INT_REG_mask, i64 %366
-  %370 = load i64, ptr %369, align 8
-  %371 = or i64 %370, %368
-  store i64 %371, ptr %369, align 8
-  %372 = add i32 %.012.i43, 1
-  %373 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_INT_REG_mask, i64 92), align 4
-  %.not.i44 = icmp ugt i32 %372, %373
+  %369 = or i64 %368, %366
+  store i64 %369, ptr %367, align 8
+  %370 = add i32 %.012.i43, 1
+  %371 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_STACK_OR_INT_REG_mask, i64 92), align 4
+  %.not.i44 = icmp ugt i32 %370, %371
   br i1 %.not.i44, label %_ZN7RegMask2ORERKS_.exit45, label %.lr.ph.i42, !llvm.loop !8
 
-_ZN7RegMask2ORERKS_.exit45:                       ; preds = %.lr.ph.i42, %364
+_ZN7RegMask2ORERKS_.exit45:                       ; preds = %.lr.ph.i42, %362
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_INT_NO_RAX_RDX_REG_mask, ptr noundef nonnull align 8 dereferenceable(96) @_INT_REG_mask, i64 96, i1 false)
-  %374 = getelementptr inbounds nuw i64, ptr @_INT_NO_RAX_RDX_REG_mask, i64 %186
-  %375 = load i64, ptr %374, align 8
-  %376 = and i64 %375, %184
-  store i64 %376, ptr %374, align 8
-  %377 = getelementptr inbounds nuw i64, ptr @_INT_NO_RAX_RDX_REG_mask, i64 %250
-  %378 = load i64, ptr %377, align 8
-  %379 = and i64 %378, %248
-  store i64 %379, ptr %377, align 8
+  %372 = getelementptr inbounds nuw i64, ptr @_INT_NO_RAX_RDX_REG_mask, i64 %185
+  %373 = load i64, ptr %372, align 8
+  %374 = and i64 %373, %183
+  store i64 %374, ptr %372, align 8
+  %375 = getelementptr inbounds nuw i64, ptr @_INT_NO_RAX_RDX_REG_mask, i64 %249
+  %376 = load i64, ptr %375, align 8
+  %377 = and i64 %376, %247
+  store i64 %377, ptr %375, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_INT_NO_RCX_REG_mask, ptr noundef nonnull align 8 dereferenceable(96) @_INT_REG_mask, i64 96, i1 false)
-  %380 = getelementptr inbounds nuw i64, ptr @_INT_NO_RCX_REG_mask, i64 %270
-  %381 = load i64, ptr %380, align 8
-  %382 = and i64 %381, %268
-  store i64 %382, ptr %380, align 8
+  %378 = getelementptr inbounds nuw i64, ptr @_INT_NO_RCX_REG_mask, i64 %269
+  %379 = load i64, ptr %378, align 8
+  %380 = and i64 %379, %267
+  store i64 %380, ptr %378, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_INT_NO_RBP_R13_REG_mask, ptr noundef nonnull align 8 dereferenceable(96) @_INT_REG_mask, i64 96, i1 false)
-  %383 = getelementptr inbounds nuw i64, ptr @_INT_NO_RBP_R13_REG_mask, i64 %166
-  %384 = load i64, ptr %383, align 8
-  %385 = and i64 %384, %164
-  store i64 %385, ptr %383, align 8
-  %386 = getelementptr inbounds nuw i64, ptr @_INT_NO_RBP_R13_REG_mask, i64 %296
-  %387 = load i64, ptr %386, align 8
-  %388 = and i64 %387, %294
-  store i64 %388, ptr %386, align 8
-  %389 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
-  %390 = and i64 %389, 134217728
-  %.not = icmp eq i64 %390, 0
+  %381 = getelementptr inbounds nuw i64, ptr @_INT_NO_RBP_R13_REG_mask, i64 %165
+  %382 = load i64, ptr %381, align 8
+  %383 = and i64 %382, %163
+  store i64 %383, ptr %381, align 8
+  %384 = getelementptr inbounds nuw i64, ptr @_INT_NO_RBP_R13_REG_mask, i64 %295
+  %385 = load i64, ptr %384, align 8
+  %386 = and i64 %385, %293
+  store i64 %386, ptr %384, align 8
+  %387 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
+  %388 = and i64 %387, 134217728
+  %.not = icmp eq i64 %388, 0
   %_FLOAT_REG_EVEX_mask._FLOAT_REG_LEGACY_mask = select i1 %.not, ptr @_FLOAT_REG_LEGACY_mask, ptr @_FLOAT_REG_EVEX_mask
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) @_FLOAT_REG_mask, ptr noundef nonnull align 8 dereferenceable(96) %_FLOAT_REG_EVEX_mask._FLOAT_REG_LEGACY_mask, i64 96, i1 false)
   ret void
