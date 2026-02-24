@@ -20,9 +20,9 @@ define internal void @diff_int16_c(ptr noundef writeonly captures(none) %0, ptr 
 
 .preheader:                                       ; preds = %5
   %8 = icmp sgt i32 %4, 3
-  br i1 %8, label %.lr.ph.preheader, label %.loopexit
+  br i1 %8, label %.lr.ph, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %.preheader
+.lr.ph:                                           ; preds = %.preheader
   %9 = zext nneg i32 %4 to i64
   %invariant.op = add nsw i64 %9, -3
   br label %.lr.ph
@@ -90,45 +90,45 @@ define internal void @diff_int16_c(ptr noundef writeonly captures(none) %0, ptr 
   br i1 %.not6164, label %.loopexit, label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %55, %.lr.ph66
-  %.265 = phi i64 [ %73, %.lr.ph66 ], [ 0, %55 ]
-  %61 = getelementptr inbounds nuw i16, ptr %1, i64 %.265
-  %62 = load i32, ptr %61, align 4, !tbaa !14
-  %63 = getelementptr inbounds nuw i16, ptr %2, i64 %.265
-  %64 = load i32, ptr %63, align 1, !tbaa !14
-  %65 = or i32 %62, %58
-  %66 = and i32 %64, %57
-  %67 = sub i32 %65, %66
-  %68 = xor i32 %62, %64
-  %69 = xor i32 %68, -1
-  %70 = and i32 %58, %69
-  %71 = xor i32 %67, %70
-  %72 = getelementptr inbounds nuw i16, ptr %0, i64 %.265
-  store i32 %71, ptr %72, align 4, !tbaa !14
-  %73 = add nuw nsw i64 %.265, 2
-  %.not61 = icmp sgt i64 %73, %60
+  %.265 = phi i64 [ %74, %.lr.ph66 ], [ 0, %55 ]
+  %62 = getelementptr inbounds nuw i16, ptr %1, i64 %.265
+  %63 = load i32, ptr %62, align 4, !tbaa !14
+  %64 = getelementptr inbounds nuw i16, ptr %2, i64 %.265
+  %65 = load i32, ptr %64, align 1, !tbaa !14
+  %66 = or i32 %63, %58
+  %67 = and i32 %65, %57
+  %68 = sub i32 %66, %67
+  %69 = xor i32 %63, %65
+  %70 = xor i32 %69, -1
+  %71 = and i32 %58, %70
+  %72 = xor i32 %68, %71
+  %73 = getelementptr inbounds nuw i16, ptr %0, i64 %.265
+  store i32 %72, ptr %73, align 4, !tbaa !14
+  %74 = add nuw nsw i64 %.265, 2
+  %.not61 = icmp sgt i64 %74, %60
   br i1 %.not61, label %.loopexit, label %.lr.ph66, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph66, %.preheader, %55
-  %.1 = phi i64 [ %73, %.lr.ph66 ], [ 0, %55 ], [ 0, %.preheader ], [ %53, %.lr.ph ]
-  %74 = sext i32 %4 to i64
-  %75 = icmp slt i64 %.1, %74
-  br i1 %75, label %.lr.ph69, label %._crit_edge
+  %.1 = phi i64 [ %74, %.lr.ph66 ], [ 0, %55 ], [ 0, %.preheader ], [ %53, %.lr.ph ]
+  %75 = sext i32 %4 to i64
+  %76 = icmp slt i64 %.1, %75
+  br i1 %76, label %.lr.ph69, label %._crit_edge
 
 .lr.ph69:                                         ; preds = %.loopexit, %.lr.ph69
-  %.368 = phi i64 [ %86, %.lr.ph69 ], [ %.1, %.loopexit ]
-  %76 = getelementptr inbounds nuw i16, ptr %1, i64 %.368
-  %77 = load i16, ptr %76, align 2, !tbaa !10
-  %78 = zext i16 %77 to i32
-  %79 = getelementptr inbounds nuw i16, ptr %2, i64 %.368
-  %80 = load i16, ptr %79, align 2, !tbaa !10
-  %81 = zext i16 %80 to i32
-  %82 = sub nsw i32 %78, %81
-  %83 = and i32 %82, %3
-  %84 = trunc i32 %83 to i16
-  %85 = getelementptr inbounds nuw i16, ptr %0, i64 %.368
-  store i16 %84, ptr %85, align 2, !tbaa !10
-  %86 = add nuw nsw i64 %.368, 1
-  %exitcond.not = icmp eq i64 %86, %74
+  %.368 = phi i64 [ %87, %.lr.ph69 ], [ %.1, %.loopexit ]
+  %77 = getelementptr inbounds nuw i16, ptr %1, i64 %.368
+  %78 = load i16, ptr %77, align 2, !tbaa !10
+  %79 = zext i16 %78 to i32
+  %80 = getelementptr inbounds nuw i16, ptr %2, i64 %.368
+  %81 = load i16, ptr %80, align 2, !tbaa !10
+  %82 = zext i16 %81 to i32
+  %83 = sub nsw i32 %79, %82
+  %84 = and i32 %83, %3
+  %85 = trunc i32 %84 to i16
+  %86 = getelementptr inbounds nuw i16, ptr %0, i64 %.368
+  store i16 %85, ptr %86, align 2, !tbaa !10
+  %87 = add nuw nsw i64 %.368, 1
+  %exitcond.not = icmp eq i64 %87, %75
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph69, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph69, %.loopexit

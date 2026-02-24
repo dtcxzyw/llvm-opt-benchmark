@@ -1603,8 +1603,8 @@ PACKET_get_quic_vlint.exit:                       ; preds = %3
 define internal range(i32 0, 2) i32 @test_PACKET_get_quic_length_prefixed() #0 {
   br label %1
 
-1:                                                ; preds = %0, %34
-  %.052 = phi i64 [ 0, %0 ], [ %35, %34 ]
+1:                                                ; preds = %0, %35
+  %.052 = phi i64 [ 0, %0 ], [ %36, %34 ]
   %.sroa.5.051 = phi i64 [ 0, %0 ], [ %.sroa.5.1, %34 ]
   %.sroa.0.050 = phi ptr [ null, %0 ], [ %.sroa.0.1, %34 ]
   %2 = getelementptr inbounds nuw %struct.quic_test_case.0, ptr @test_PACKET_get_quic_length_prefixed.cases, i64 %.052
@@ -1612,84 +1612,84 @@ define internal range(i32 0, 2) i32 @test_PACKET_get_quic_length_prefixed() #0 {
   br i1 %.not, label %PACKET_buf_init.exit, label %PACKET_buf_init.exit.thread
 
 PACKET_buf_init.exit:                             ; preds = %1
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4 = load i64, ptr %3, align 8, !tbaa !18
-  %5 = add i64 %4, 1
-  %6 = icmp sgt i64 %5, -1
-  %.0.i = zext i1 %6 to i32
-  %7 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 552, ptr noundef nonnull @.str.131, i32 noundef %.0.i) #7
-  %.not14 = icmp eq i32 %7, 0
-  br i1 %.not14, label %split, label %9
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %5 = load i64, ptr %4, align 8, !tbaa !18
+  %6 = add i64 %5, 1
+  %7 = icmp sgt i64 %6, -1
+  %.0.i = zext i1 %7 to i32
+  %8 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 552, ptr noundef nonnull @.str.131, i32 noundef %.0.i) #7
+  %.not14 = icmp eq i32 %8, 0
+  br i1 %.not14, label %split, label %10
 
 PACKET_buf_init.exit.thread:                      ; preds = %1
-  %8 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 552, ptr noundef nonnull @.str.131, i32 noundef 1) #7
-  %.not1426 = icmp eq i32 %8, 0
+  %9 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 552, ptr noundef nonnull @.str.131, i32 noundef 1) #7
+  %.not1426 = icmp eq i32 %9, 0
   br i1 %.not1426, label %split, label %.thread29
 
-9:                                                ; preds = %PACKET_buf_init.exit
-  %.sroa.7.0 = tail call i64 @llvm.smax.i64(i64 %5, i64 0)
-  %.sroa.022.0 = select i1 %6, ptr %2, ptr null
+10:                                               ; preds = %PACKET_buf_init.exit
+  %.sroa.7.0 = tail call i64 @llvm.smax.i64(i64 %6, i64 0)
+  %.sroa.022.0 = select i1 %7, ptr %2, ptr null
   br label %.thread29
 
-.thread29:                                        ; preds = %9, %PACKET_buf_init.exit.thread
+.thread29:                                        ; preds = %10, %PACKET_buf_init.exit.thread
   %.sroa.022.02733 = phi ptr [ %.sroa.022.0, %9 ], [ %2, %PACKET_buf_init.exit.thread ]
   %.sroa.7.02832 = phi i64 [ %.sroa.7.0, %9 ], [ 16, %PACKET_buf_init.exit.thread ]
-  %10 = load i8, ptr %.sroa.022.02733, align 1, !tbaa !4
-  %11 = lshr i8 %10, 6
-  %12 = zext nneg i8 %11 to i32
-  %13 = shl nuw nsw i32 1, %12
-  %14 = zext nneg i32 %13 to i64
-  %15 = icmp samesign ult i64 %.sroa.7.02832, %14
-  br i1 %15, label %PACKET_get_quic_length_prefixed.exit, label %16
+  %11 = load i8, ptr %.sroa.022.02733, align 1, !tbaa !4
+  %12 = lshr i8 %11, 6
+  %13 = zext nneg i8 %12 to i32
+  %14 = shl nuw nsw i32 1, %13
+  %15 = zext nneg i32 %14 to i64
+  %16 = icmp samesign ult i64 %.sroa.7.02832, %15
+  br i1 %16, label %PACKET_get_quic_length_prefixed.exit, label %17
 
-16:                                               ; preds = %.thread29
-  %17 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %.sroa.022.02733) #7
-  %18 = sub nuw nsw i64 %.sroa.7.02832, %14
-  %19 = icmp ult i64 %18, %17
-  br i1 %19, label %PACKET_get_quic_length_prefixed.exit, label %20
+17:                                               ; preds = %.thread29
+  %18 = tail call i64 @ossl_quic_vlint_decode_unchecked(ptr noundef nonnull %.sroa.022.02733) #7
+  %19 = sub nuw nsw i64 %.sroa.7.02832, %15
+  %20 = icmp ult i64 %19, %18
+  br i1 %110, label %PACKET_get_quic_length_prefixed.exit, label %21
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.022.02733, i64 %14
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %17
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.022.02733, i64 %15
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %18
   br label %PACKET_get_quic_length_prefixed.exit
 
-PACKET_get_quic_length_prefixed.exit:             ; preds = %.thread29, %16, %20
-  %.sroa.022.1 = phi ptr [ %22, %20 ], [ %.sroa.022.02733, %.thread29 ], [ %.sroa.022.02733, %16 ]
-  %.sroa.0.1 = phi ptr [ %21, %20 ], [ %.sroa.0.050, %.thread29 ], [ %.sroa.0.050, %16 ]
-  %.sroa.5.1 = phi i64 [ %17, %20 ], [ %.sroa.5.051, %.thread29 ], [ %.sroa.5.051, %16 ]
+PACKET_get_quic_length_prefixed.exit:             ; preds = %.thread29, %17, %21
+  %.sroa.022.1 = phi ptr [ %23, %20 ], [ %.sroa.022.02733, %.thread29 ], [ %.sroa.022.02733, %16 ]
+  %.sroa.0.1 = phi ptr [ %22, %20 ], [ %.sroa.0.050, %.thread29 ], [ %.sroa.0.050, %16 ]
+  %.sroa.5.1 = phi i64 [ %18, %20 ], [ %.sroa.5.051, %.thread29 ], [ %.sroa.5.051, %16 ]
   %.0.i21 = phi i32 [ 1, %20 ], [ 0, %.thread29 ], [ 0, %16 ]
-  %23 = zext i1 %.not to i32
-  %24 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.25, i32 noundef 555, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.133, i32 noundef %.0.i21, i32 noundef %23) #7
-  %.not16 = icmp eq i32 %24, 0
-  br i1 %.not16, label %split, label %25
+  %24 = zext i1 %.not to i32
+  %25 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.25, i32 noundef 555, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.133, i32 noundef %.0.i21, i32 noundef %24) #7
+  %.not16 = icmp eq i32 %25, 0
+  br i1 %.not16, label %split, label %26
 
-25:                                               ; preds = %PACKET_get_quic_length_prefixed.exit
-  br i1 %.not, label %.thread42, label %26
+26:                                               ; preds = %PACKET_get_quic_length_prefixed.exit
+  br i1 %.not, label %.thread42, label %27
 
-26:                                               ; preds = %25
-  %27 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.25, i32 noundef 559, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, ptr noundef nonnull %.sroa.022.1, ptr noundef nonnull %2) #7
-  %.not20 = icmp eq i32 %27, 0
-  br i1 %.not20, label %split, label %34
+27:                                               ; preds = %26
+  %28 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.25, i32 noundef 559, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.135, ptr noundef nonnull %.sroa.022.1, ptr noundef nonnull %2) #7
+  %.not20 = icmp eq i32 %28, 0
+  br i1 %.not20, label %split, label %35
 
-.thread42:                                        ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %29 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.25, i32 noundef 564, ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.137, ptr noundef %.sroa.0.1, ptr noundef nonnull %28) #7
-  %.not18 = icmp eq i32 %29, 0
-  br i1 %.not18, label %split, label %30
+.thread42:                                        ; preds = %26
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %30 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.25, i32 noundef 564, ptr noundef nonnull @.str.136, ptr noundef nonnull @.str.137, ptr noundef %.sroa.0.1, ptr noundef nonnull %29) #7
+  %.not18 = icmp eq i32 %210, 0
+  br i1 %.not18, label %split, label %31
 
-30:                                               ; preds = %.thread42
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %32 = load i64, ptr %31, align 8, !tbaa !18
-  %33 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.25, i32 noundef 567, ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.139, i64 noundef %.sroa.5.1, i64 noundef %32) #7
-  %.not19 = icmp eq i32 %33, 0
-  br i1 %.not19, label %split, label %34
+31:                                               ; preds = %.thread42
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %33 = load i64, ptr %32, align 8, !tbaa !18
+  %34 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.25, i32 noundef 567, ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.139, i64 noundef %.sroa.5.1, i64 noundef %33) #7
+  %.not19 = icmp eq i32 %34, 0
+  br i1 %.not19, label %split, label %35
 
-34:                                               ; preds = %30, %26
-  %35 = add nuw nsw i64 %.052, 1
-  %exitcond.not = icmp eq i64 %35, 8
+35:                                               ; preds = %31, %27
+  %36 = add nuw nsw i64 %.052, 1
+  %exitcond.not = icmp eq i64 %36, 8
   br i1 %exitcond.not, label %split, label %1, !llvm.loop !21
 
-split:                                            ; preds = %PACKET_buf_init.exit.thread, %34, %30, %.thread42, %26, %PACKET_get_quic_length_prefixed.exit, %PACKET_buf_init.exit
+split:                                            ; preds = %PACKET_buf_init.exit.thread, %35, %31, %.thread42, %27, %PACKET_get_quic_length_prefixed.exit, %PACKET_buf_init.exit
   %.013.ph = phi i32 [ 0, %PACKET_buf_init.exit.thread ], [ 1, %34 ], [ 0, %30 ], [ 0, %PACKET_buf_init.exit ], [ 0, %26 ], [ 0, %.thread42 ], [ 0, %PACKET_get_quic_length_prefixed.exit ]
   ret i32 %.013.ph
 }

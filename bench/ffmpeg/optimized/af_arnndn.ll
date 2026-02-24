@@ -2538,7 +2538,7 @@ frame_analysis.exit.i.i:                          ; preds = %.loopexit.i.i.i.i
   %168 = load float, ptr %68, align 8, !tbaa !25
   br label %169
 
-.lr.ph48.i.i.i.i.i:                               ; preds = %169
+.lr.ph47.i.i.i.i.i:                               ; preds = %169
   store float %202, ptr %25, align 16, !tbaa !25
   store float %203, ptr %69, align 4, !tbaa !25
   store float %204, ptr %70, align 8, !tbaa !25
@@ -2590,9 +2590,9 @@ frame_analysis.exit.i.i:                          ; preds = %.loopexit.i.i.i.i
   %205 = call nsz float @llvm.fmuladd.f32(float %199, float %201, float %197)
   %206 = add nuw nsw i32 %.0115120.i.i.i.i.i.i, 4
   %207 = icmp samesign ult i32 %.0115120.i.i.i.i.i.i, 853
-  br i1 %207, label %169, label %.lr.ph48.i.i.i.i.i, !llvm.loop !150
+  br i1 %207, label %169, label %.lr.ph47.i.i.i.i.i, !llvm.loop !150
 
-208:                                              ; preds = %208, %.lr.ph48.i.i.i.i.i
+208:                                              ; preds = %208, %.lr.ph47.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph48.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i, %208 ]
   %.089.i.i.i.i.i.i = phi float [ 0.000000e+00, %.lr.ph48.i.i.i.i.i ], [ %213, %208 ]
   %209 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.i.i.i.i.i.i
@@ -2883,14 +2883,14 @@ pitch_downsample.exit.i.i:                        ; preds = %283
   store float %342, ptr %348, align 4, !tbaa !25
   %indvars.iv.next.i.i206.i.i = add nuw nsw i64 %indvars.iv.i.i205.i.i, 4
   %349 = icmp samesign ult i64 %indvars.iv.i.i205.i.i, 140
-  br i1 %349, label %.preheader91.i.i.i, label %.lr.ph48.i.i.i.i, !llvm.loop !162
+  br i1 %349, label %.preheader91.i.i.i, label %.lr.ph47.i.i.i.i, !llvm.loop !162
 
-.lr.ph48.i.i.i.i:                                 ; preds = %._crit_edge.i.i.i.i.i, %celt_inner_prod.exit.i.i.i.i
-  %indvars.iv61.i.i.i.i = phi i64 [ %indvars.iv.next62.i.i.i.i, %celt_inner_prod.exit.i.i.i.i ], [ 144, %._crit_edge.i.i.i.i.i ]
-  %350 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv61.i.i.i.i
+.lr.ph47.i.i.i.i:                                 ; preds = %._crit_edge.i.i.i.i.i, %celt_inner_prod.exit.i.i.i.i
+  %indvars.iv60.i.i.i.i = phi i64 [ %indvars.iv.next61.i.i.i.i, %celt_inner_prod.exit.i.i.i.i ], [ 144, %._crit_edge.i.i.i.i.i ]
+  %350 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv60.i.i.i.i
   br label %351
 
-351:                                              ; preds = %351, %.lr.ph48.i.i.i.i
+351:                                              ; preds = %351, %.lr.ph47.i.i.i.i
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %.lr.ph48.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i, %351 ]
   %.089.i.i.i.i.i = phi float [ 0.000000e+00, %.lr.ph48.i.i.i.i ], [ %356, %351 ]
   %352 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv.i.i.i.i.i
@@ -2903,11 +2903,11 @@ pitch_downsample.exit.i.i:                        ; preds = %283
   br i1 %exitcond.not.i.i.i.i.i, label %celt_inner_prod.exit.i.i.i.i, label %351, !llvm.loop !151
 
 celt_inner_prod.exit.i.i.i.i:                     ; preds = %351
-  %357 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv61.i.i.i.i
+  %357 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv60.i.i.i.i
   store float %356, ptr %357, align 4, !tbaa !25
-  %indvars.iv.next62.i.i.i.i = add nuw nsw i64 %indvars.iv61.i.i.i.i, 1
-  %exitcond.not.i.i207.i.i = icmp eq i64 %indvars.iv.next62.i.i.i.i, 147
-  br i1 %exitcond.not.i.i207.i.i, label %celt_pitch_xcorr.exit.i.i.i, label %.lr.ph48.i.i.i.i, !llvm.loop !163
+  %indvars.iv.next61.i.i.i.i = add nuw nsw i64 %indvars.iv60.i.i.i.i, 1
+  %exitcond.not.i.i207.i.i = icmp eq i64 %indvars.iv.next61.i.i.i.i, 147
+  br i1 %exitcond.not.i.i207.i.i, label %celt_pitch_xcorr.exit.i.i.i, label %.lr.ph47.i.i.i.i, !llvm.loop !163
 
 celt_pitch_xcorr.exit.i.i.i:                      ; preds = %celt_inner_prod.exit.i.i.i.i, %celt_pitch_xcorr.exit.i.i.i
   %indvars.iv.i58.i208.i.i = phi i64 [ %indvars.iv.next.i59.i210.i.i, %celt_pitch_xcorr.exit.i.i.i ], [ 0, %celt_inner_prod.exit.i.i.i.i ]

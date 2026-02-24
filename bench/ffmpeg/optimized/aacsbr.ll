@@ -8327,15 +8327,15 @@ define internal void @sbr_hf_assemble(ptr noundef %0, ptr noundef %1, ptr nounde
   %110 = icmp samesign ult i64 %indvars.iv.next, %109
   br i1 %110, label %103, label %.loopexit188, !llvm.loop !249
 
-.loopexit186.loopexit:                            ; preds = %194
+.loopexit186.loopexit:                            ; preds = %195
   %.pre262 = load i32, ptr %71, align 8, !tbaa !56
   br label %.loopexit186
 
 .loopexit186:                                     ; preds = %.loopexit186.loopexit, %115
   %111 = phi i32 [ %116, %115 ], [ %.pre262, %.loopexit186.loopexit ]
-  %112 = phi i8 [ %119, %115 ], [ %199, %.loopexit186.loopexit ]
-  %.1173.lcssa = phi i32 [ %.0172222, %115 ], [ %198, %.loopexit186.loopexit ]
-  %.1171.lcssa = phi i32 [ %.0170223, %115 ], [ %196, %.loopexit186.loopexit ]
+  %112 = phi i8 [ %119, %115 ], [ %200, %.loopexit186.loopexit ]
+  %.1173.lcssa = phi i32 [ %.0172222, %115 ], [ %199, %.loopexit186.loopexit ]
+  %.1171.lcssa = phi i32 [ %.0170223, %115 ], [ %197, %.loopexit186.loopexit ]
   %113 = zext i32 %111 to i64
   %114 = icmp samesign ult i64 %indvars.iv.next259, %113
   br i1 %114, label %115, label %._crit_edge226, !llvm.loop !250
@@ -8358,10 +8358,10 @@ define internal void @sbr_hf_assemble(ptr noundef %0, ptr noundef %1, ptr nounde
   %123 = shl nuw nsw i64 %122, 1
   br label %124
 
-124:                                              ; preds = %.lr.ph216, %194
+124:                                              ; preds = %.lr.ph216, %195
   %indvars.iv255 = phi i64 [ %123, %.lr.ph216 ], [ %indvars.iv.next256, %194 ]
-  %.1171212 = phi i32 [ %.0170223, %.lr.ph216 ], [ %196, %194 ]
-  %.1173211 = phi i32 [ %.0172222, %.lr.ph216 ], [ %198, %194 ]
+  %.1171212 = phi i32 [ %.0170223, %.lr.ph216 ], [ %197, %194 ]
+  %.1173211 = phi i32 [ %.0172222, %.lr.ph216 ], [ %199, %194 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br i1 %.not, label %125, label %146
@@ -8445,7 +8445,7 @@ define internal void @sbr_hf_assemble(ptr noundef %0, ptr noundef %1, ptr nounde
   %157 = getelementptr inbounds ptr, ptr %86, i64 %156
   %158 = load ptr, ptr %157, align 8, !tbaa !102
   call void %158(ptr noundef %gep221, ptr noundef nonnull %121, ptr noundef %.0174, i32 noundef %.1171212, i32 noundef %12, i32 noundef %14) #15
-  br label %194
+  br label %195
 
 159:                                              ; preds = %152, %.loopexit
   %160 = and i32 %.1173211, 1
@@ -8484,39 +8484,39 @@ define internal void @sbr_hf_assemble(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %182, label %171, label %._crit_edge.loopexit, !llvm.loop !254
 
 ._crit_edge.loopexit:                             ; preds = %171
-  %183 = trunc nuw nsw i64 %indvars.iv.next253 to i32
+  %184 = trunc nuw nsw i64 %indvars.iv.next253 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %159
-  %.1169.lcssa = phi i32 [ 0, %159 ], [ %183, %._crit_edge.loopexit ]
-  br i1 %.not184, label %194, label %184
+  %.1169.lcssa = phi i32 [ 0, %159 ], [ %184, %._crit_edge.loopexit ]
+  br i1 %.not184, label %195, label %185
 
-184:                                              ; preds = %._crit_edge
-  %185 = zext nneg i32 %.1169.lcssa to i64
-  %186 = getelementptr inbounds nuw float, ptr %121, i64 %185
-  %187 = load float, ptr %186, align 4, !tbaa !26
-  %188 = sitofp i32 %163 to float
-  %189 = shl nuw nsw i32 %.1169.lcssa, 1
-  %190 = zext nneg i32 %189 to i64
-  %191 = getelementptr inbounds nuw float, ptr %165, i64 %190
-  %192 = load float, ptr %191, align 4, !tbaa !26
-  %193 = call nsz float @llvm.fmuladd.f32(float %187, float %188, float %192)
-  store float %193, ptr %191, align 4, !tbaa !26
-  br label %194
+185:                                              ; preds = %._crit_edge
+  %186 = zext nneg i32 %.1169.lcssa to i64
+  %187 = getelementptr inbounds nuw float, ptr %121, i64 %186
+  %188 = load float, ptr %187, align 4, !tbaa !26
+  %189 = sitofp i32 %163 to float
+  %190 = shl nuw nsw i32 %.1169.lcssa, 1
+  %191 = zext nneg i32 %190 to i64
+  %192 = getelementptr inbounds nuw float, ptr %165, i64 %191
+  %193 = load float, ptr %192, align 4, !tbaa !26
+  %194 = call nsz float @llvm.fmuladd.f32(float %188, float %189, float %193)
+  store float %194, ptr %192, align 4, !tbaa !26
+  br label %195
 
-194:                                              ; preds = %._crit_edge, %184, %155
-  %195 = add nsw i32 %.1171212, %14
-  %196 = and i32 %195, 511
-  %197 = add nsw i32 %.1173211, 1
-  %198 = and i32 %197, 3
+195:                                              ; preds = %._crit_edge, %185, %155
+  %196 = add nsw i32 %.1171212, %14
+  %197 = and i32 %196, 511
+  %198 = add nsw i32 %.1173211, 1
+  %199 = and i32 %198, 3
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
-  %199 = load i8, ptr %118, align 1, !tbaa !9
-  %200 = zext i8 %199 to i64
-  %201 = shl nuw nsw i64 %200, 1
-  %202 = icmp samesign ult i64 %indvars.iv.next256, %201
-  br i1 %202, label %124, label %.loopexit186.loopexit, !llvm.loop !255
+  %200 = load i8, ptr %118, align 1, !tbaa !9
+  %201 = zext i8 %200 to i64
+  %202 = shl nuw nsw i64 %201, 1
+  %203 = icmp samesign ult i64 %indvars.iv.next256, %202
+  br i1 %203, label %124, label %.loopexit186.loopexit, !llvm.loop !255
 
 ._crit_edge226:                                   ; preds = %.loopexit186, %.loopexit190
   %.0172.lcssa = phi i32 [ %20, %.loopexit190 ], [ %.1173.lcssa, %.loopexit186 ]
