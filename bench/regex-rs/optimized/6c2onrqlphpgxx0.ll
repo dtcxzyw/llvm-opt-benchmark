@@ -4292,7 +4292,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h6f
   %.not17.i = icmp eq i64 %28, 0
   br i1 %.not17.i, label %.thread.i, label %.lr.ph.i
 
-.thread.i:                                        ; preds = %43, %.lr.ph.i, %26
+.thread.i:                                        ; preds = %44, %.lr.ph.i, %26
   %.sroa.5.0.lcssa.i = phi ptr [ %27, %26 ], [ %.sroa.5.018.i, %.lr.ph.i ], [ %0, %43 ]
   store i64 %.sroa.010.0.copyload.i, ptr %.sroa.5.0.lcssa.i, align 8, !alias.scope !745
   %.sroa.5.0..sroa.5.0.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.5.0.lcssa.i, i64 8
@@ -4306,7 +4306,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h6f
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i)
   br label %_ZN4core5slice4sort11insert_tail17h8dcf42bd1a58aa57E.exit
 
-.lr.ph.i:                                         ; preds = %26, %43
+.lr.ph.i:                                         ; preds = %26, %44
   %.sroa.4.019.i = phi i64 [ %29, %43 ], [ %28, %26 ]
   %.sroa.5.018.i = phi ptr [ %30, %43 ], [ %27, %26 ]
   %29 = add i64 %.sroa.4.019.i, -1
@@ -4332,7 +4332,7 @@ define internal fastcc void @_ZN4core5slice4sort25insertion_sort_shift_left17h6f
   %42 = select i1 %37, i1 %40, i1 %41
   br i1 %42, label %43, label %.thread.i
 
-43:                                               ; preds = %.lr.ph.i
+44:                                               ; preds = %.lr.ph.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.018.i, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 32, i1 false), !alias.scope !745
   %.not.i6 = icmp eq i64 %29, 0
   br i1 %.not.i6, label %.thread.i, label %.lr.ph.i

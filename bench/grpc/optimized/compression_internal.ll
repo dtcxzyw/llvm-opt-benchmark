@@ -1282,7 +1282,7 @@ define internal void @_GLOBAL__sub_I_compression_internal.cc() #24 section ".tex
 2:                                                ; preds = %4
   %3 = sub i64 %5, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 128) to i64)
   %.not.i.i = icmp eq i64 %3, 86
-  br i1 %.not.i.i, label %__cxx_global_var_init.3.exit, label %33
+  br i1 %.not.i.i, label %__cxx_global_var_init.3.exit, label %39
 
 4:                                                ; preds = %.loopexit.i.i
   %5 = ptrtoint ptr %.4.i.i to i64
@@ -1297,7 +1297,7 @@ define internal void @_GLOBAL__sub_I_compression_internal.cc() #24 section ".tex
   br i1 %exitcond25.not.i.i, label %2, label %.preheader.i.i, !llvm.loop !94
 
 10:                                               ; preds = %.loopexit.i.i, %.preheader.i.i
-  %.01622.i.i = phi i64 [ 0, %.preheader.i.i ], [ %32, %.loopexit.i.i ]
+  %.01622.i.i = phi i64 [ 0, %.preheader.i.i ], [ %38, %.loopexit.i.i ]
   %.121.i.i = phi ptr [ %.0823.i.i, %.preheader.i.i ], [ %.4.i.i, %.loopexit.i.i ]
   %11 = trunc nuw nsw i64 %.01622.i.i to i32
   %12 = shl nuw nsw i32 1, %11
@@ -1314,65 +1314,65 @@ define internal void @_GLOBAL__sub_I_compression_internal.cc() #24 section ".tex
   %18 = icmp eq ptr %.121.i.i, inttoptr (i64 add (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 128) to i64), i64 86) to ptr)
   br i1 %18, label %19, label %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit.i.i
 
-19:                                               ; preds = %17
+21:                                               ; preds = %17
   tail call void @abort() #30
   unreachable
 
 _ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit.i.i: ; preds = %17
-  %20 = getelementptr inbounds nuw i8, ptr %.121.i.i, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.121.i.i, i64 1
   store i8 44, ptr %.121.i.i, align 1, !tbaa !6
   %21 = icmp eq ptr %20, inttoptr (i64 add (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 128) to i64), i64 86) to ptr)
   br i1 %21, label %22, label %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit26.i.i
 
-22:                                               ; preds = %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit.i.i
+26:                                               ; preds = %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit.i.i
   tail call void @abort() #30
   unreachable
 
 _ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit26.i.i: ; preds = %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit.i.i
-  %23 = getelementptr inbounds nuw i8, ptr %.121.i.i, i64 2
-  store i8 32, ptr %20, align 1, !tbaa !6
+  %27 = getelementptr inbounds nuw i8, ptr %.121.i.i, i64 2
+  store i8 32, ptr %22, align 1, !tbaa !6
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %16, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit26.i.i
-  %.2.i.i = phi ptr [ %.0823.i.i, %16 ], [ %23, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit26.i.i ]
-  %24 = and i64 %.01622.i.i, 4294967295
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._GLOBAL__sub_I_compression_internal.cc, i64 %24
+  %.2.i.i = phi ptr [ %.0823.i.i, %16 ], [ %27, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit26.i.i ]
+  %28 = and i64 %.01622.i.i, 4294967295
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._GLOBAL__sub_I_compression_internal.cc, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %25 = load i8, ptr %switch.load, align 1, !tbaa !6
-  %.not2018.i.i = icmp eq i8 %25, 0
+  %29 = load i8, ptr %switch.load, align 1, !tbaa !6
+  %.not2018.i.i = icmp eq i8 %29, 0
   br i1 %.not2018.i.i, label %.loopexit.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %switch.lookup, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit27.i.i
-  %26 = phi i8 [ %31, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit27.i.i ], [ %25, %switch.lookup ]
-  %.020.i.i = phi ptr [ %30, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit27.i.i ], [ %switch.load, %switch.lookup ]
-  %.319.i.i = phi ptr [ %29, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit27.i.i ], [ %.2.i.i, %switch.lookup ]
+  %30 = phi i8 [ %37, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit27.i.i ], [ %29, %switch.lookup ]
+  %.020.i.i = phi ptr [ %36, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit27.i.i ], [ %switch.load, %switch.lookup ]
+  %.319.i.i = phi ptr [ %35, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit27.i.i ], [ %.2.i.i, %switch.lookup ]
   %27 = icmp eq ptr %.319.i.i, inttoptr (i64 add (i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE, i64 128) to i64), i64 86) to ptr)
   br i1 %27, label %28, label %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit27.i.i
 
-28:                                               ; preds = %.lr.ph.i.i
+28:     ; preds = %.lr.ph.i.i
   tail call void @abort() #30
   unreachable
 
 _ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit27.i.i: ; preds = %.lr.ph.i.i
-  %29 = getelementptr inbounds nuw i8, ptr %.319.i.i, i64 1
-  store i8 %26, ptr %.319.i.i, align 1, !tbaa !6
-  %30 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 1
-  %31 = load i8, ptr %30, align 1, !tbaa !6
-  %.not20.i.i = icmp eq i8 %31, 0
+  %35 = getelementptr inbounds nuw i8, ptr %.319.i.i, i64 1
+  store i8 %30, ptr %.319.i.i, align 1, !tbaa !6
+  %36 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 1
+  %37 = load i8, ptr %36, align 1, !tbaa !6
+  %.not20.i.i = icmp eq i8 %37, 0
   br i1 %.not20.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !95
 
 .loopexit.i.i:                                    ; preds = %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit27.i.i, %switch.lookup, %10
-  %.4.i.i = phi ptr [ %.121.i.i, %10 ], [ %.2.i.i, %switch.lookup ], [ %29, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit27.i.i ]
-  %32 = add nuw nsw i64 %.01622.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %32, 3
+  %.4.i.i = phi ptr [ %.121.i.i, %10 ], [ %.2.i.i, %switch.lookup ], [ %35, %_ZZN9grpc_core12_GLOBAL__N_119CommaSeparatedListsC1EvENKUlcE_clEc.exit27.i.i ]
+  %38 = add nuw nsw i64 %.01622.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %38, 3
   br i1 %exitcond.not.i.i, label %4, label %10, !llvm.loop !96
 
-33:                                               ; preds = %2
+39:                                               ; preds = %2
   tail call void @abort() #30
   unreachable
 
 __cxx_global_var_init.3.exit:                     ; preds = %2
-  %34 = tail call ptr @llvm.invariant.start.p0(i64 216, ptr nonnull @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE)
+  %40 = tail call ptr @llvm.invariant.start.p0(i64 216, ptr nonnull @_ZN9grpc_core12_GLOBAL__N_120kCommaSeparatedListsE)
   ret void
 }
 

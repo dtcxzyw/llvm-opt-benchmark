@@ -2129,7 +2129,7 @@ calculate_x_coordinate.exit:                      ; preds = %84, %89, %.loopexit
   %.not98 = icmp eq i32 %94, 0
   br label %95
 
-95:                                               ; preds = %.lr.ph131, %121
+95:                                               ; preds = %.lr.ph131, %122
   %.079130 = phi i32 [ 0, %.lr.ph131 ], [ %.180, %121 ]
   %.0105129 = phi i32 [ %.2107, %.lr.ph131 ], [ %.1106, %121 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2170,7 +2170,7 @@ calculate_x_coordinate.exit:                      ; preds = %84, %89, %.loopexit
   %116 = getelementptr inbounds nuw i8, ptr %21, i64 %115
   %117 = load i8, ptr %116, align 1, !tbaa !25
   %118 = icmp eq i8 %117, 0
-  br i1 %118, label %.thread112, label %119
+  br i1 %118, label %.thread112, label %120
 
 .thread112:                                       ; preds = %103, %110, %113
   store i32 %.079130, ptr %7, align 4, !tbaa !48
@@ -2178,21 +2178,21 @@ calculate_x_coordinate.exit:                      ; preds = %84, %89, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
-119:                                              ; preds = %113
-  %120 = add nsw i32 %108, %.sroa.0.0.extract.trunc.i103
-  br label %121
+120:                                              ; preds = %113
+  %121 = add nsw i32 %108, %.sroa.0.0.extract.trunc.i103
+  br label %122
 
-121:                                              ; preds = %._crit_edge, %119
-  %122 = phi i32 [ %.pre, %._crit_edge ], [ %111, %119 ]
-  %.1106 = phi i32 [ %.0105129, %._crit_edge ], [ %120, %119 ]
-  %.180 = phi i32 [ %.079130, %._crit_edge ], [ %111, %119 ]
+122:                                              ; preds = %._crit_edge, %120
+  %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %111, %119 ]
+  %123 = phi i32 [ %.0105129, %._crit_edge ], [ %121, %119 ]
+  %.1106 = phi i32 [ %.079130, %._crit_edge ], [ %111, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %123 = add i32 %122, %.076121
+  %123 = add i32 %.pre-phi, %.076121
   %124 = icmp ult i32 %123, %.177
   br i1 %124, label %95, label %.loopexit
 
-.loopexit:                                        ; preds = %121, %.thread112, %calculate_x_coordinate.exit
+.loopexit:                                        ; preds = %122, %.thread112, %calculate_x_coordinate.exit
   %125 = phi i32 [ 0, %calculate_x_coordinate.exit ], [ %.079130, %.thread112 ], [ %122, %121 ]
   %126 = load ptr, ptr @lv_text_encoded_get_char_id, align 8, !tbaa !67
   %127 = call i32 %126(ptr noundef nonnull %80, i32 noundef %125) #7

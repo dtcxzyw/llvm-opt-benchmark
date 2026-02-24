@@ -3548,21 +3548,21 @@ define dso_local void @nfs_pageio_cond_complete(ptr noundef %0, i64 noundef %1) 
   %53 = icmp eq ptr %52, null
   br i1 %53, label %56, label %54
 
-54:                                               ; preds = %.split
+47:                                               ; preds = %.split
   %55 = tail call ptr %52(ptr noundef %0, i32 noundef %49) #11
   br label %58
 
-56:                                               ; preds = %.split
+.split:                                           ; preds = %.split
   %57 = load ptr, ptr %8, align 8
   br label %58
 
-58:                                               ; preds = %56, %54
+55:                                               ; preds = %.split, %54
   %59 = phi ptr [ %55, %54 ], [ %57, %56 ]
   %60 = load volatile ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, %59
   br i1 %61, label %90, label %62
 
-62:                                               ; preds = %58
+57:                                               ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 56
@@ -3577,9 +3577,9 @@ define dso_local void @nfs_pageio_cond_complete(ptr noundef %0, i64 noundef %1) 
   %72 = icmp eq ptr %71, null
   br i1 %72, label %.thread, label %73
 
-73:                                               ; preds = %69
-  %74 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  %75 = load i64, ptr %74, align 16
+63:                                               ; preds = %69
+  %64 = getelementptr inbounds nuw i8, ptr %71, i64 32
+  %65 = load i64, ptr %64, align 16
   %76 = load volatile i64, ptr %71, align 16
   %77 = and i64 %76, 64
   %78 = icmp eq i64 %77, 0
@@ -3591,29 +3591,29 @@ define dso_local void @nfs_pageio_cond_complete(ptr noundef %0, i64 noundef %1) 
   %82 = zext i32 %81 to i64
   br label %83
 
-83:                                               ; preds = %79, %73
-  %84 = phi i64 [ %82, %79 ], [ 1, %73 ]
-  %85 = add i64 %84, %75
-  %86 = icmp eq i64 %85, %1
-  br i1 %86, label %90, label %.split5.us
+84:                                               ; preds = %79, %73
+  %85 = phi i64 [ %82, %79 ], [ 1, %73 ]
+  %86 = add i64 %85, %75
+  %87 = icmp eq i64 %86, %1
+  br i1 %87, label %92, label %.split5.us
 
 .thread:                                          ; preds = %62, %69
-  %87 = getelementptr inbounds nuw i8, ptr %64, i64 32
-  %88 = load i64, ptr %87, align 8
-  %89 = icmp eq i64 %88, %invariant.op
+  %88 = getelementptr inbounds nuw i8, ptr %64, i64 32
+  %89 = load i64, ptr %88, align 8
+  %89 = icmp eq i64 %89, %invariant.op
   br i1 %89, label %90, label %.split5.us
 
-.split5.us:                                       ; preds = %83, %.thread, %39, %.thread.us
+.split5.us:                                       ; preds = %84, %.thread, %39, %.thread.us
   tail call void @nfs_pageio_complete(ptr noundef %0)
   br label %.loopexit
 
-90:                                               ; preds = %.thread, %83, %58
-  %91 = add nuw i32 %49, 1
-  %92 = load i32, ptr %3, align 4
-  %93 = icmp ult i32 %91, %92
-  br i1 %93, label %.split, label %.loopexit, !llvm.loop !92
+92:                                               ; preds = %.thread, %84, %58
+  %93 = add nuw i32 %49, 1
+  %94 = load i32, ptr %3, align 4
+  %95 = icmp ult i32 %93, %94
+  br i1 %95, label %.split, label %.loopexit, !llvm.loop !92
 
-.loopexit:                                        ; preds = %90, %46, %.split5.us, %2
+.loopexit:                                        ; preds = %92, %46, %.split5.us, %2
   ret void
 }
 

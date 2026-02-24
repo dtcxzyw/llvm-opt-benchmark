@@ -4399,9 +4399,9 @@ opj_dwt_max_resolution.exit.i:                    ; preds = %.lr.ph.i.i
   %51 = tail call ptr @opj_aligned_malloc(i64 noundef %50) #16, !noalias !181
   store ptr %51, ptr %6, align 8, !tbaa !187, !noalias !181
   %.not.i = icmp eq ptr %51, null
-  br i1 %.not.i, label %opj_dwt_decode_tile_97.exit, label %.lr.ph351.i
+  br i1 %.not.i, label %opj_dwt_decode_tile_97.exit, label %.lr.ph350.i
 
-.lr.ph351.i:                                      ; preds = %opj_dwt_max_resolution.exit.i
+.lr.ph350.i:                                      ; preds = %opj_dwt_max_resolution.exit.i
   store ptr %51, ptr %7, align 8, !tbaa !187, !noalias !181
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %53 = load ptr, ptr %52, align 8, !tbaa !15, !alias.scope !181
@@ -4434,29 +4434,29 @@ opj_dwt_max_resolution.exit.i:                    ; preds = %.lr.ph.i.i
   %74 = tail call i32 @llvm.umax.i32(i32 %73, i32 2)
   br label %75
 
-75:                                               ; preds = %.loopexit.i, %.lr.ph351.i
+75:                                               ; preds = %.loopexit.i, %.lr.ph350.i
   %76 = phi i32 [ %36, %.lr.ph351.i ], [ %358, %.loopexit.i ]
-  %.0224349.i = phi ptr [ %14, %.lr.ph351.i ], [ %77, %.loopexit.i ]
-  %.0225348.i = phi i32 [ %18, %.lr.ph351.i ], [ %81, %.loopexit.i ]
-  %.0250346.i = phi i32 [ %23, %.lr.ph351.i ], [ %86, %.loopexit.i ]
-  store i32 %.0225348.i, ptr %54, align 4, !tbaa !189, !noalias !181
-  store i32 %.0250346.i, ptr %55, align 4, !tbaa !189, !noalias !181
-  %77 = getelementptr inbounds nuw i8, ptr %.0224349.i, i64 192
-  %78 = getelementptr inbounds nuw i8, ptr %.0224349.i, i64 200
+  %.0224348.i = phi ptr [ %14, %.lr.ph351.i ], [ %77, %.loopexit.i ]
+  %.0225347.i = phi i32 [ %18, %.lr.ph351.i ], [ %81, %.loopexit.i ]
+  %.0250345.i = phi i32 [ %23, %.lr.ph351.i ], [ %86, %.loopexit.i ]
+  store i32 %.0225347.i, ptr %54, align 4, !tbaa !189, !noalias !181
+  store i32 %.0250345.i, ptr %55, align 4, !tbaa !189, !noalias !181
+  %77 = getelementptr inbounds nuw i8, ptr %.0224348.i, i64 192
+  %78 = getelementptr inbounds nuw i8, ptr %.0224348.i, i64 200
   %79 = load i32, ptr %78, align 8, !tbaa !23, !noalias !181
   %80 = load i32, ptr %77, align 8, !tbaa !28, !noalias !181
   %81 = sub i32 %79, %80
-  %82 = getelementptr inbounds nuw i8, ptr %.0224349.i, i64 204
+  %82 = getelementptr inbounds nuw i8, ptr %.0224348.i, i64 204
   %83 = load i32, ptr %82, align 4, !tbaa !29, !noalias !181
-  %84 = getelementptr inbounds nuw i8, ptr %.0224349.i, i64 196
+  %84 = getelementptr inbounds nuw i8, ptr %.0224348.i, i64 196
   %85 = load i32, ptr %84, align 4, !tbaa !30, !noalias !181
   %86 = sub i32 %83, %85
-  %87 = sub i32 %81, %.0225348.i
+  %87 = sub i32 %81, %.0225347.i
   store i32 %87, ptr %56, align 8, !tbaa !190, !noalias !181
   %88 = srem i32 %80, 2
   store i32 %88, ptr %57, align 8, !tbaa !191, !noalias !181
   store i32 0, ptr %58, align 4, !tbaa !192, !noalias !181
-  store i32 %.0225348.i, ptr %59, align 8, !tbaa !193, !noalias !181
+  store i32 %.0225347.i, ptr %59, align 8, !tbaa !193, !noalias !181
   store i32 0, ptr %60, align 4, !tbaa !194, !noalias !181
   store i32 %87, ptr %61, align 8, !tbaa !195, !noalias !181
   %89 = icmp ult i32 %86, 16
@@ -4472,8 +4472,8 @@ opj_dwt_max_resolution.exit.i:                    ; preds = %.lr.ph.i.i
   %92 = getelementptr inbounds %union.opj_v8_t, ptr %51, i64 %91
   %93 = sub nsw i64 0, %91
   %94 = getelementptr inbounds %union.opj_v8_t, ptr %63, i64 %93
-  %95 = sext i32 %.0225348.i to i64
-  %.not353.i = icmp eq i32 %81, 0
+  %95 = sext i32 %.0225347.i to i64
+  %.not352.i = icmp eq i32 %81, 0
   %wide.trip.count.i = zext i32 %81 to i64
   br label %96
 
@@ -4485,7 +4485,7 @@ opj_dwt_max_resolution.exit.i:                    ; preds = %.lr.ph.i.i
   br label %.split.split.i.i
 
 .split.split.i.i:                                 ; preds = %.loopexit.i.i, %96
-  %.0113136.i.i = phi i32 [ %87, %.loopexit.i.i ], [ %.0225348.i, %96 ]
+  %.0113136.i.i = phi i32 [ %87, %.loopexit.i.i ], [ %.0225347.i, %96 ]
   %.0132.i.i = phi ptr [ %189, %.loopexit.i.i ], [ %.0235325.i, %96 ]
   %.0111131.i.i = phi ptr [ %94, %.loopexit.i.i ], [ %92, %96 ]
   %.0114.in130.i.i = phi ptr [ %60, %.loopexit.i.i ], [ %58, %96 ]
@@ -4633,7 +4633,7 @@ opj_dwt_max_resolution.exit.i:                    ; preds = %.lr.ph.i.i
 
 opj_v8dwt_interleave_h.exit.i:                    ; preds = %.loopexit.i.i
   call fastcc void @opj_v8dwt_decode(ptr noundef nonnull %6), !noalias !181
-  br i1 %.not353.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not352.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %opj_v8dwt_interleave_h.exit.i
   %190 = getelementptr inbounds nuw i8, ptr %.0235325.i, i64 %.idx277.i
@@ -4666,31 +4666,31 @@ opj_v8dwt_interleave_h.exit.i:                    ; preds = %.loopexit.i.i
   %208 = getelementptr inbounds nuw float, ptr %191, i64 %indvars.iv.i
   store float %207, ptr %208, align 4, !tbaa !160, !noalias !181
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond371.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond371.not.i, label %.lr.ph324.i, label %196, !llvm.loop !206
+  %exitcond370.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond370.not.i, label %.lr.ph324.i, label %196, !llvm.loop !206
 
 209:                                              ; preds = %209, %.lr.ph324.i
-  %indvars.iv372.i = phi i64 [ 0, %.lr.ph324.i ], [ %indvars.iv.next373.i, %209 ]
-  %210 = getelementptr inbounds nuw %union.opj_v8_t, ptr %51, i64 %indvars.iv372.i
+  %indvars.iv371.i = phi i64 [ 0, %.lr.ph324.i ], [ %indvars.iv.next372.i, %209 ]
+  %210 = getelementptr inbounds nuw %union.opj_v8_t, ptr %51, i64 %indvars.iv371.i
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 16
   %212 = load float, ptr %211, align 4, !tbaa !57, !noalias !181
-  %213 = getelementptr inbounds nuw float, ptr %192, i64 %indvars.iv372.i
+  %213 = getelementptr inbounds nuw float, ptr %192, i64 %indvars.iv371.i
   store float %212, ptr %213, align 4, !tbaa !160, !noalias !181
   %214 = getelementptr inbounds nuw i8, ptr %210, i64 20
   %215 = load float, ptr %214, align 4, !tbaa !57, !noalias !181
-  %216 = getelementptr inbounds nuw float, ptr %193, i64 %indvars.iv372.i
+  %216 = getelementptr inbounds nuw float, ptr %193, i64 %indvars.iv371.i
   store float %215, ptr %216, align 4, !tbaa !160, !noalias !181
   %217 = getelementptr inbounds nuw i8, ptr %210, i64 24
   %218 = load float, ptr %217, align 4, !tbaa !57, !noalias !181
-  %219 = getelementptr inbounds nuw float, ptr %194, i64 %indvars.iv372.i
+  %219 = getelementptr inbounds nuw float, ptr %194, i64 %indvars.iv371.i
   store float %218, ptr %219, align 4, !tbaa !160, !noalias !181
   %220 = getelementptr inbounds nuw i8, ptr %210, i64 28
   %221 = load float, ptr %220, align 4, !tbaa !57, !noalias !181
-  %222 = getelementptr inbounds nuw float, ptr %195, i64 %indvars.iv372.i
+  %222 = getelementptr inbounds nuw float, ptr %195, i64 %indvars.iv371.i
   store float %221, ptr %222, align 4, !tbaa !160, !noalias !181
-  %indvars.iv.next373.i = add nuw nsw i64 %indvars.iv372.i, 1
-  %exitcond376.not.i = icmp eq i64 %indvars.iv.next373.i, %wide.trip.count.i
-  br i1 %exitcond376.not.i, label %._crit_edge.i, label %209, !llvm.loop !207
+  %indvars.iv.next372.i = add nuw nsw i64 %indvars.iv371.i, 1
+  %exitcond375.not.i = icmp eq i64 %indvars.iv.next372.i, %wide.trip.count.i
+  br i1 %exitcond375.not.i, label %._crit_edge.i, label %209, !llvm.loop !207
 
 ._crit_edge.i:                                    ; preds = %209, %opj_v8dwt_interleave_h.exit.i
   %223 = getelementptr inbounds nuw float, ptr %.0235325.i, i64 %66
@@ -4734,13 +4734,13 @@ opj_v8dwt_interleave_h.exit.i:                    ; preds = %.loopexit.i.i
   %239 = getelementptr inbounds nuw i8, ptr %233, i64 8
   store i32 %87, ptr %239, align 8, !tbaa !212, !noalias !181
   %240 = getelementptr inbounds nuw i8, ptr %233, i64 12
-  store i32 %.0225348.i, ptr %240, align 4, !tbaa !213, !noalias !181
+  store i32 %.0225347.i, ptr %240, align 4, !tbaa !213, !noalias !181
   %241 = getelementptr inbounds nuw i8, ptr %233, i64 16
   store i32 %88, ptr %241, align 8, !tbaa !214, !noalias !181
   %242 = getelementptr inbounds nuw i8, ptr %233, i64 20
   store i32 0, ptr %242, align 4, !tbaa !215, !noalias !181
   %243 = getelementptr inbounds nuw i8, ptr %233, i64 24
-  store i32 %.0225348.i, ptr %243, align 8, !tbaa !216, !noalias !181
+  store i32 %.0225347.i, ptr %243, align 8, !tbaa !216, !noalias !181
   %244 = getelementptr inbounds nuw i8, ptr %233, i64 28
   store i32 0, ptr %244, align 4, !tbaa !217, !noalias !181
   %245 = getelementptr inbounds nuw i8, ptr %233, i64 32
@@ -4779,44 +4779,44 @@ opj_v8dwt_interleave_h.exit.i:                    ; preds = %.loopexit.i.i
   %262 = sub nuw i32 %86, %.1230.i
   call fastcc void @opj_v8dwt_interleave_h(ptr noundef nonnull %6, ptr noundef %.1236.i, i32 noundef %32, i32 noundef %262), !noalias !181
   call fastcc void @opj_v8dwt_decode(ptr noundef nonnull %6), !noalias !181
-  %.not355.i = icmp eq i32 %81, 0
-  br i1 %.not355.i, label %.loopexit311.i, label %.preheader.us.preheader.i
+  %.not354.i = icmp eq i32 %81, 0
+  br i1 %.not354.i, label %.loopexit311.i, label %.preheader.us.preheader.i
 
 .preheader.us.preheader.i:                        ; preds = %261
-  %wide.trip.count386.i = zext i32 %81 to i64
-  %wide.trip.count381.i = zext i32 %262 to i64
+  %wide.trip.count385.i = zext i32 %81 to i64
+  %wide.trip.count380.i = zext i32 %262 to i64
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge331.us.i, %.preheader.us.preheader.i
-  %indvars.iv383.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next384.i, %._crit_edge331.us.i ]
-  %263 = getelementptr inbounds nuw %union.opj_v8_t, ptr %51, i64 %indvars.iv383.i
-  %invariant.gep.us.i = getelementptr float, ptr %.1236.i, i64 %indvars.iv383.i
+  %indvars.iv382.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next383.i, %._crit_edge331.us.i ]
+  %263 = getelementptr inbounds nuw %union.opj_v8_t, ptr %51, i64 %indvars.iv382.i
+  %invariant.gep.us.i = getelementptr float, ptr %.1236.i, i64 %indvars.iv382.i
   br label %264
 
 264:                                              ; preds = %264, %.preheader.us.i
-  %indvars.iv377.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next378.i, %264 ]
-  %265 = getelementptr inbounds nuw float, ptr %263, i64 %indvars.iv377.i
+  %indvars.iv376.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next377.i, %264 ]
+  %265 = getelementptr inbounds nuw float, ptr %263, i64 %indvars.iv376.i
   %266 = load float, ptr %265, align 4, !tbaa !57, !noalias !181
-  %267 = mul nuw i64 %indvars.iv377.i, %64
+  %267 = mul nuw i64 %indvars.iv376.i, %64
   %gep.us.i = getelementptr float, ptr %invariant.gep.us.i, i64 %267
   store float %266, ptr %gep.us.i, align 4, !tbaa !160, !noalias !181
-  %indvars.iv.next378.i = add nuw nsw i64 %indvars.iv377.i, 1
-  %exitcond382.not.i = icmp eq i64 %indvars.iv.next378.i, %wide.trip.count381.i
-  br i1 %exitcond382.not.i, label %._crit_edge331.us.i, label %264, !llvm.loop !224
+  %indvars.iv.next377.i = add nuw nsw i64 %indvars.iv376.i, 1
+  %exitcond381.not.i = icmp eq i64 %indvars.iv.next377.i, %wide.trip.count380.i
+  br i1 %exitcond381.not.i, label %._crit_edge331.us.i, label %264, !llvm.loop !224
 
 ._crit_edge331.us.i:                              ; preds = %264
-  %indvars.iv.next384.i = add nuw nsw i64 %indvars.iv383.i, 1
-  %exitcond387.not.i = icmp eq i64 %indvars.iv.next384.i, %wide.trip.count386.i
-  br i1 %exitcond387.not.i, label %.loopexit311.i, label %.preheader.us.i, !llvm.loop !225
+  %indvars.iv.next383.i = add nuw nsw i64 %indvars.iv382.i, 1
+  %exitcond386.not.i = icmp eq i64 %indvars.iv.next383.i, %wide.trip.count385.i
+  br i1 %exitcond386.not.i, label %.loopexit311.i, label %.preheader.us.i, !llvm.loop !225
 
 .loopexit311.i:                                   ; preds = %._crit_edge331.us.i, %261, %.loopexit313.i
-  %268 = sub i32 %86, %.0250346.i
+  %268 = sub i32 %86, %.0250345.i
   store i32 %268, ptr %67, align 8, !tbaa !190, !noalias !181
   %269 = load i32, ptr %84, align 4, !tbaa !30, !noalias !181
   %270 = srem i32 %269, 2
   store i32 %270, ptr %68, align 8, !tbaa !191, !noalias !181
   store i32 0, ptr %69, align 4, !tbaa !192, !noalias !181
-  store i32 %.0250346.i, ptr %70, align 8, !tbaa !193, !noalias !181
+  store i32 %.0250345.i, ptr %70, align 8, !tbaa !193, !noalias !181
   store i32 0, ptr %71, align 4, !tbaa !194, !noalias !181
   store i32 %268, ptr %72, align 8, !tbaa !195, !noalias !181
   %271 = icmp ult i32 %81, 16
@@ -4825,25 +4825,25 @@ opj_v8dwt_interleave_h.exit.i:                    ; preds = %.loopexit.i.i
 
 .preheader309.i:                                  ; preds = %.loopexit311.i
   %272 = icmp ugt i32 %81, 7
-  br i1 %272, label %.lr.ph341.i, label %.loopexit310.i
+  br i1 %272, label %.lr.ph340.i, label %.loopexit310.i
 
-.lr.ph341.i:                                      ; preds = %.preheader309.i
+.lr.ph340.i:                                      ; preds = %.preheader309.i
   %273 = sext i32 %270 to i64
   %274 = getelementptr inbounds %union.opj_v8_t, ptr %51, i64 %273
-  %.not305.i = icmp eq i32 %.0250346.i, 0
-  %wide.trip.count.i.i = zext i32 %.0250346.i to i64
+  %.not305.i = icmp eq i32 %.0250345.i, 0
+  %wide.trip.count.i.i = zext i32 %.0250345.i to i64
   %275 = mul nuw i64 %wide.trip.count.i.i, %64
   %276 = sub nsw i64 0, %273
   %277 = getelementptr inbounds %union.opj_v8_t, ptr %63, i64 %276
-  %.not306.i = icmp eq i32 %86, %.0250346.i
+  %.not306.i = icmp eq i32 %86, %.0250345.i
   %wide.trip.count35.i.i = zext i32 %268 to i64
-  %.not357.i = icmp eq i32 %86, 0
-  %wide.trip.count393.i = zext i32 %86 to i64
+  %.not356.i = icmp eq i32 %86, 0
+  %wide.trip.count392.i = zext i32 %86 to i64
   br label %278
 
-278:                                              ; preds = %._crit_edge338.i, %.lr.ph341.i
-  %.4233340.i = phi i32 [ %81, %.lr.ph341.i ], [ %294, %._crit_edge338.i ]
-  %.5240339.i = phi ptr [ %53, %.lr.ph341.i ], [ %293, %._crit_edge338.i ]
+278:                                              ; preds = %._crit_edge337.i, %.lr.ph340.i
+  %.4233339.i = phi i32 [ %81, %.lr.ph341.i ], [ %294, %._crit_edge338.i ]
+  %.5240338.i = phi ptr [ %53, %.lr.ph341.i ], [ %293, %._crit_edge338.i ]
   br i1 %.not305.i, label %._crit_edge.i.i, label %.lr.ph.i281.i
 
 .lr.ph.i281.i:                                    ; preds = %278, %.lr.ph.i281.i
@@ -4852,14 +4852,14 @@ opj_v8dwt_interleave_h.exit.i:                    ; preds = %.loopexit.i.i
   %280 = and i64 %279, 4294967294
   %281 = getelementptr inbounds nuw %union.opj_v8_t, ptr %274, i64 %280
   %282 = mul nuw i64 %indvars.iv.i.i, %64
-  %283 = getelementptr inbounds nuw float, ptr %.5240339.i, i64 %282
+  %283 = getelementptr inbounds nuw float, ptr %.5240338.i, i64 %282
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %281, ptr noundef nonnull readonly align 4 dereferenceable(32) %283, i64 32, i1 false), !noalias !226
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i281.i, !llvm.loop !229
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i281.i, %278
-  %284 = getelementptr inbounds nuw float, ptr %.5240339.i, i64 %275
+  %284 = getelementptr inbounds nuw float, ptr %.5240338.i, i64 %275
   br i1 %.not306.i, label %opj_v8dwt_interleave_v.exit.i, label %.lr.ph29.i.i
 
 .lr.ph29.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph29.i.i
@@ -4876,21 +4876,21 @@ opj_v8dwt_interleave_h.exit.i:                    ; preds = %.loopexit.i.i
 
 opj_v8dwt_interleave_v.exit.i:                    ; preds = %.lr.ph29.i.i, %._crit_edge.i.i
   call fastcc void @opj_v8dwt_decode(ptr noundef nonnull %7), !noalias !181
-  br i1 %.not357.i, label %._crit_edge338.i, label %.lr.ph337.i
+  br i1 %.not356.i, label %._crit_edge337.i, label %.lr.ph336.i
 
-.lr.ph337.i:                                      ; preds = %opj_v8dwt_interleave_v.exit.i, %.lr.ph337.i
-  %indvars.iv390.i = phi i64 [ %indvars.iv.next391.i, %.lr.ph337.i ], [ 0, %opj_v8dwt_interleave_v.exit.i ]
-  %290 = mul nuw i64 %indvars.iv390.i, %64
-  %291 = getelementptr inbounds nuw float, ptr %.5240339.i, i64 %290
-  %292 = getelementptr inbounds nuw %union.opj_v8_t, ptr %51, i64 %indvars.iv390.i
+.lr.ph336.i:                                      ; preds = %opj_v8dwt_interleave_v.exit.i, %.lr.ph336.i
+  %indvars.iv389.i = phi i64 [ %indvars.iv.next390.i, %.lr.ph337.i ], [ 0, %opj_v8dwt_interleave_v.exit.i ]
+  %290 = mul nuw i64 %indvars.iv389.i, %64
+  %291 = getelementptr inbounds nuw float, ptr %.5240338.i, i64 %290
+  %292 = getelementptr inbounds nuw %union.opj_v8_t, ptr %51, i64 %indvars.iv389.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %291, ptr noundef nonnull align 4 dereferenceable(32) %292, i64 32, i1 false), !noalias !181
-  %indvars.iv.next391.i = add nuw nsw i64 %indvars.iv390.i, 1
-  %exitcond394.not.i = icmp eq i64 %indvars.iv.next391.i, %wide.trip.count393.i
-  br i1 %exitcond394.not.i, label %._crit_edge338.i, label %.lr.ph337.i, !llvm.loop !231
+  %indvars.iv.next390.i = add nuw nsw i64 %indvars.iv389.i, 1
+  %exitcond393.not.i = icmp eq i64 %indvars.iv.next390.i, %wide.trip.count392.i
+  br i1 %exitcond393.not.i, label %._crit_edge337.i, label %.lr.ph336.i, !llvm.loop !231
 
-._crit_edge338.i:                                 ; preds = %.lr.ph337.i, %opj_v8dwt_interleave_v.exit.i
-  %293 = getelementptr inbounds nuw i8, ptr %.5240339.i, i64 32
-  %294 = add i32 %.4233340.i, -8
+._crit_edge337.i:                                 ; preds = %.lr.ph336.i, %opj_v8dwt_interleave_v.exit.i
+  %293 = getelementptr inbounds nuw i8, ptr %.5240338.i, i64 32
+  %294 = add i32 %.4233339.i, -8
   %295 = icmp ugt i32 %294, 7
   br i1 %295, label %278, label %.loopexit310.i, !llvm.loop !232
 
@@ -4904,8 +4904,8 @@ opj_v8dwt_interleave_v.exit.i:                    ; preds = %.lr.ph29.i.i, %._cr
   br label %301
 
 301:                                              ; preds = %307, %296
-  %.5234335.i = phi i32 [ 0, %296 ], [ %326, %307 ]
-  %.7242334.i = phi ptr [ %53, %296 ], [ %324, %307 ]
+  %.5234334.i = phi i32 [ 0, %296 ], [ %326, %307 ]
+  %.7242333.i = phi ptr [ %53, %296 ], [ %324, %307 ]
   %302 = tail call ptr @opj_malloc(i64 noundef 64) #16, !noalias !181
   %.not270.i = icmp eq ptr %302, null
   br i1 %.not270.i, label %303, label %304
@@ -4929,13 +4929,13 @@ opj_v8dwt_interleave_v.exit.i:                    ; preds = %.lr.ph29.i.i, %._cr
   %308 = getelementptr inbounds nuw i8, ptr %302, i64 8
   store i32 %268, ptr %308, align 8, !tbaa !212, !noalias !181
   %309 = getelementptr inbounds nuw i8, ptr %302, i64 12
-  store i32 %.0250346.i, ptr %309, align 4, !tbaa !213, !noalias !181
+  store i32 %.0250345.i, ptr %309, align 4, !tbaa !213, !noalias !181
   %310 = getelementptr inbounds nuw i8, ptr %302, i64 16
   store i32 %270, ptr %310, align 8, !tbaa !214, !noalias !181
   %311 = getelementptr inbounds nuw i8, ptr %302, i64 20
   store i32 0, ptr %311, align 4, !tbaa !215, !noalias !181
   %312 = getelementptr inbounds nuw i8, ptr %302, i64 24
-  store i32 %.0250346.i, ptr %312, align 8, !tbaa !216, !noalias !181
+  store i32 %.0250345.i, ptr %312, align 8, !tbaa !216, !noalias !181
   %313 = getelementptr inbounds nuw i8, ptr %302, i64 28
   store i32 0, ptr %313, align 4, !tbaa !217, !noalias !181
   %314 = getelementptr inbounds nuw i8, ptr %302, i64 32
@@ -4945,8 +4945,8 @@ opj_v8dwt_interleave_v.exit.i:                    ; preds = %.lr.ph29.i.i, %._cr
   %316 = getelementptr inbounds nuw i8, ptr %302, i64 44
   store i32 %32, ptr %316, align 4, !tbaa !220, !noalias !181
   %317 = getelementptr inbounds nuw i8, ptr %302, i64 48
-  store ptr %.7242334.i, ptr %317, align 8, !tbaa !221, !noalias !181
-  %318 = icmp eq i32 %.5234335.i, %invariant.op333.i
+  store ptr %.7242333.i, ptr %317, align 8, !tbaa !221, !noalias !181
+  %318 = icmp eq i32 %.5234334.i, %invariant.op333.i
   %319 = mul i32 %.5234335.i, %299
   %320 = sub i32 %300, %319
   %321 = select i1 %318, i32 %320, i32 %299
@@ -4963,7 +4963,7 @@ opj_v8dwt_interleave_v.exit.i:                    ; preds = %.lr.ph29.i.i, %._cr
   tail call void @opj_thread_pool_wait_completion(ptr noundef %12, i32 noundef 0) #16, !noalias !181
   br label %.loopexit310.i
 
-.loopexit310.i:                                   ; preds = %._crit_edge338.i, %327, %.preheader309.i
+.loopexit310.i:                                   ; preds = %._crit_edge337.i, %327, %.preheader309.i
   %.6241.i = phi ptr [ %324, %327 ], [ %53, %.preheader309.i ], [ %293, %._crit_edge338.i ]
   %328 = and i32 %81, 7
   %.not273.i = icmp eq i32 %328, 0
@@ -4972,13 +4972,13 @@ opj_v8dwt_interleave_v.exit.i:                    ; preds = %.lr.ph29.i.i, %._cr
 329:                                              ; preds = %.loopexit310.i
   %330 = sext i32 %270 to i64
   %331 = getelementptr inbounds %union.opj_v8_t, ptr %51, i64 %330
-  %.not303.i = icmp eq i32 %.0250346.i, 0
+  %.not303.i = icmp eq i32 %.0250345.i, 0
   br i1 %.not303.i, label %._crit_edge.i282.i, label %.lr.ph.i288.i
 
 .lr.ph.i288.i:                                    ; preds = %329
   %332 = shl nuw nsw i32 %328, 2
   %333 = zext nneg i32 %332 to i64
-  %wide.trip.count.i289.i = zext i32 %.0250346.i to i64
+  %wide.trip.count.i289.i = zext i32 %.0250345.i to i64
   br label %334
 
 334:                                              ; preds = %334, %.lr.ph.i288.i
@@ -5002,7 +5002,7 @@ opj_v8dwt_interleave_v.exit.i:                    ; preds = %.lr.ph29.i.i, %._cr
   %341 = getelementptr inbounds nuw float, ptr %.6241.i, i64 %.pre-phi.i
   %342 = sub nsw i64 0, %330
   %343 = getelementptr inbounds %union.opj_v8_t, ptr %63, i64 %342
-  %.not304.i = icmp eq i32 %86, %.0250346.i
+  %.not304.i = icmp eq i32 %86, %.0250345.i
   br i1 %.not304.i, label %opj_v8dwt_interleave_v.exit293.i, label %.lr.ph29.i283.i
 
 .lr.ph29.i283.i:                                  ; preds = %._crit_edge.i282.i
@@ -5025,24 +5025,24 @@ opj_v8dwt_interleave_v.exit.i:                    ; preds = %.lr.ph29.i.i, %._cr
 
 opj_v8dwt_interleave_v.exit293.i:                 ; preds = %346, %._crit_edge.i282.i
   call fastcc void @opj_v8dwt_decode(ptr noundef nonnull %7), !noalias !181
-  %.not358.i = icmp eq i32 %86, 0
-  br i1 %.not358.i, label %.loopexit.i, label %.lr.ph344.i
+  %.not357.i = icmp eq i32 %86, 0
+  br i1 %.not357.i, label %.loopexit.i, label %.lr.ph343.i
 
-.lr.ph344.i:                                      ; preds = %opj_v8dwt_interleave_v.exit293.i
+.lr.ph343.i:                                      ; preds = %opj_v8dwt_interleave_v.exit293.i
   %352 = shl nuw nsw i32 %328, 2
   %353 = zext nneg i32 %352 to i64
-  %wide.trip.count398.i = zext i32 %86 to i64
+  %wide.trip.count397.i = zext i32 %86 to i64
   br label %354
 
-354:                                              ; preds = %354, %.lr.ph344.i
-  %indvars.iv395.i = phi i64 [ 0, %.lr.ph344.i ], [ %indvars.iv.next396.i, %354 ]
-  %355 = mul nuw i64 %indvars.iv395.i, %64
+354:                                              ; preds = %354, %.lr.ph343.i
+  %indvars.iv394.i = phi i64 [ 0, %.lr.ph344.i ], [ %indvars.iv.next395.i, %354 ]
+  %355 = mul nuw i64 %indvars.iv394.i, %64
   %356 = getelementptr inbounds nuw float, ptr %.6241.i, i64 %355
-  %357 = getelementptr inbounds nuw %union.opj_v8_t, ptr %51, i64 %indvars.iv395.i
+  %357 = getelementptr inbounds nuw %union.opj_v8_t, ptr %51, i64 %indvars.iv394.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %356, ptr nonnull align 4 %357, i64 %353, i1 false), !noalias !181
-  %indvars.iv.next396.i = add nuw nsw i64 %indvars.iv395.i, 1
-  %exitcond399.not.i = icmp eq i64 %indvars.iv.next396.i, %wide.trip.count398.i
-  br i1 %exitcond399.not.i, label %.loopexit.i, label %354, !llvm.loop !237
+  %indvars.iv.next395.i = add nuw nsw i64 %indvars.iv394.i, 1
+  %exitcond398.not.i = icmp eq i64 %indvars.iv.next395.i, %wide.trip.count397.i
+  br i1 %exitcond398.not.i, label %.loopexit.i, label %354, !llvm.loop !237
 
 .loopexit.i:                                      ; preds = %354, %opj_v8dwt_interleave_v.exit293.i, %.loopexit310.i
   %358 = add i32 %76, -1

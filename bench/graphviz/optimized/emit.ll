@@ -1363,8 +1363,8 @@ define i32 @stripedBox(ptr noundef %0, ptr noundef readonly captures(none) %1, p
   br label %25
 
 25:                                               ; preds = %20, %15
-  %.sink44 = phi i64 [ 48, %20 ], [ 16, %15 ]
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink44
+  %.sink45 = phi i64 [ 48, %20 ], [ 16, %15 ]
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %28 = load double, ptr %27, align 16, !tbaa !127
@@ -1396,7 +1396,7 @@ define i32 @stripedBox(ptr noundef %0, ptr noundef readonly captures(none) %1, p
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 48
   br label %42
 
-42:                                               ; preds = %.lr.ph, %54
+42:                                               ; preds = %.lr.ph, %55
   %.038 = phi i64 [ 0, %.lr.ph ], [ %55, %54 ]
   %43 = add i64 %38, %.038
   %44 = urem i64 %43, %40
@@ -1420,17 +1420,17 @@ define i32 @stripedBox(ptr noundef %0, ptr noundef readonly captures(none) %1, p
   store double %storemerge, ptr %31, align 16, !tbaa !127
   store double %storemerge, ptr %27, align 16, !tbaa !127
   call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 4, i32 noundef 1) #28
-  %53 = load double, ptr %27, align 16, !tbaa !127
-  store double %53, ptr %41, align 16, !tbaa !127
-  store double %53, ptr %6, align 16, !tbaa !127
-  br label %54
+  %54 = load double, ptr %27, align 16, !tbaa !127
+  store double %54, ptr %41, align 16, !tbaa !127
+  store double %54, ptr %6, align 16, !tbaa !127
+  br label %55
 
-54:                                               ; preds = %49, %47
+55:                                               ; preds = %49, %47
   %55 = add nuw i64 %.038, 1
   %exitcond.not = icmp eq i64 %55, %.val35
   br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !131
 
-._crit_edge:                                      ; preds = %54, %42, %34
+._crit_edge:                                      ; preds = %55, %42, %34
   br i1 %32, label %56, label %57
 
 56:                                               ; preds = %._crit_edge

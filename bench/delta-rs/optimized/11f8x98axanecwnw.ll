@@ -41963,7 +41963,7 @@ define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17he8
   br label %11
 
 11:                                               ; preds = %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h47afb88dabb9161fE.llvm.8226331118977765550.exit", %2
-  %12 = phi i64 [ %53, %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h47afb88dabb9161fE.llvm.8226331118977765550.exit" ], [ %.promoted, %2 ]
+  %12 = phi i64 [ %56, %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h47afb88dabb9161fE.llvm.8226331118977765550.exit" ], [ %.promoted, %2 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10058)
   %13 = getelementptr inbounds i8, ptr %4, i64 %12
   %14 = icmp eq i64 %6, %12
@@ -41986,7 +41986,7 @@ define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17he8
   br i1 %24, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h14913723a7083b26E.exit21.i.i", label %46
 
 .thread18.i:                                      ; preds = %15
-  %25 = zext nneg i8 %17 to i32
+  %26 = zext nneg i8 %17 to i32
   br label %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h47afb88dabb9161fE.llvm.8226331118977765550.exit"
 
 "_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h14913723a7083b26E.exit21.i.i": ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h14913723a7083b26E.exit19.i.i"
@@ -42010,45 +42010,45 @@ define hidden void @_ZN4core3str7pattern15ReverseSearcher16next_reject_back17he8
   %38 = and i8 %28, 63
   %39 = zext nneg i8 %38 to i32
   %40 = or disjoint i32 %37, %39
-  br label %41
+  br label %44
 
-41:                                               ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h14913723a7083b26E.exit23.i.i", %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h14913723a7083b26E.exit21.i.i"
+44:                                               ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h14913723a7083b26E.exit23.i.i", %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h14913723a7083b26E.exit21.i.i"
   %.sroa.6.1.i = phi ptr [ %33, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h14913723a7083b26E.exit23.i.i" ], [ %27, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h14913723a7083b26E.exit21.i.i" ]
   %.1.i.i = phi i32 [ %40, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h14913723a7083b26E.exit23.i.i" ], [ %30, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h14913723a7083b26E.exit21.i.i" ]
-  %42 = shl nuw nsw i32 %.1.i.i, 6
-  %43 = and i8 %21, 63
-  %44 = zext nneg i8 %43 to i32
-  %45 = or disjoint i32 %42, %44
-  br label %46
+  %45 = shl nuw nsw i32 %.1.i.i, 6
+  %46 = and i8 %21, 63
+  %47 = zext nneg i8 %46 to i32
+  %48 = or disjoint i32 %45, %47
+  br label %49
 
-46:                                               ; preds = %41, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h14913723a7083b26E.exit19.i.i"
+49:                                               ; preds = %44, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h14913723a7083b26E.exit19.i.i"
   %.sroa.6.0.i = phi ptr [ %.sroa.6.1.i, %41 ], [ %20, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h14913723a7083b26E.exit19.i.i" ]
-  %.013.i.i = phi i32 [ %45, %41 ], [ %23, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h14913723a7083b26E.exit19.i.i" ]
-  %47 = shl nuw nsw i32 %.013.i.i, 6
-  %48 = and i8 %17, 63
-  %49 = zext nneg i8 %48 to i32
-  %50 = or disjoint i32 %47, %49
-  %.not.i = icmp eq i32 %50, 1114112
+  %.013.i.i = phi i32 [ %48, %41 ], [ %23, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h14913723a7083b26E.exit19.i.i" ]
+  %50 = shl nuw nsw i32 %.013.i.i, 6
+  %51 = and i8 %17, 63
+  %52 = zext nneg i8 %51 to i32
+  %53 = or disjoint i32 %50, %52
+  %.not.i = icmp eq i32 %53, 1114112
   br i1 %.not.i, label %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h47afb88dabb9161fE.llvm.8226331118977765550.exit.thread", label %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h47afb88dabb9161fE.llvm.8226331118977765550.exit"
 
-"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h47afb88dabb9161fE.llvm.8226331118977765550.exit": ; preds = %.thread18.i, %46
-  %.sroa.4.1.i.ph23.i = phi i32 [ %25, %.thread18.i ], [ %50, %46 ]
+"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h47afb88dabb9161fE.llvm.8226331118977765550.exit": ; preds = %.thread18.i, %49
+  %.sroa.4.1.i.ph23.i = phi i32 [ %26, %.thread18.i ], [ %53, %46 ]
   %.sroa.6.2.ph22.i = phi ptr [ %16, %.thread18.i ], [ %.sroa.6.0.i, %46 ]
-  %51 = ptrtoint ptr %.sroa.6.2.ph22.i to i64
-  %52 = sub nuw i64 %51, %8
-  %53 = add i64 %52, %6
-  store i64 %53, ptr %3, align 8, !alias.scope !10058, !noalias !10061
+  %54 = ptrtoint ptr %.sroa.6.2.ph22.i to i64
+  %55 = sub nuw i64 %54, %8
+  %56 = add i64 %55, %6
+  store i64 %56, ptr %3, align 8, !alias.scope !10058, !noalias !10061
   %.not = icmp eq i32 %.sroa.4.1.i.ph23.i, %10
-  br i1 %.not, label %11, label %54
+  br i1 %.not, label %11, label %57
 
-54:                                               ; preds = %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h47afb88dabb9161fE.llvm.8226331118977765550.exit"
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %53, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %12, ptr %56, align 8
+57:                                               ; preds = %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h47afb88dabb9161fE.llvm.8226331118977765550.exit"
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %56, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %12, ptr %59, align 8
   br label %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h47afb88dabb9161fE.llvm.8226331118977765550.exit.thread"
 
-"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h47afb88dabb9161fE.llvm.8226331118977765550.exit.thread": ; preds = %11, %46, %54
+"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h47afb88dabb9161fE.llvm.8226331118977765550.exit.thread": ; preds = %11, %49, %57
   %storemerge = phi i64 [ 1, %54 ], [ 0, %46 ], [ 0, %11 ]
   store i64 %storemerge, ptr %0, align 8
   ret void

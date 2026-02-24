@@ -986,18 +986,18 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %26, %44, %57, %_ZNS
   %73 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #25
-  br label %149
+  br label %153
 
 74:                                               ; preds = %80, %69
   %75 = landingpad { ptr, i32 }
           cleanup
-  br label %141
+  br label %145
 
 76:                                               ; preds = %70
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #25
-  br label %141
+  br label %145
 
 78:                                               ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit
   store i32 %3, ptr %10, align 4
@@ -1021,14 +1021,14 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %26, %44, %57, %_ZNS
   %84 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #25
-  br label %141
+  br label %145
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i.i:               ; preds = %78
   %85 = mul nuw nsw i32 %3, %2
   %86 = zext nneg i32 %85 to i64
   %87 = shl nuw nsw i64 %86, 2
   %88 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %87) #27
-          to label %.preheader.preheader unwind label %120
+          to label %.preheader.preheader unwind label %123
 
 .preheader.preheader:                             ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %88, i8 0, i64 %87, i1 false)
@@ -1042,16 +1042,16 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %26, %44, %57, %_ZNS
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
-  %93 = phi i32 [ %132, %._crit_edge ], [ %3, %.preheader.preheader ]
-  %94 = phi i32 [ %133, %._crit_edge ], [ %3, %.preheader.preheader ]
-  %.01739 = phi i32 [ %invariant.op, %._crit_edge ], [ 0, %.preheader.preheader ]
+  %93 = phi i32 [ %135, %._crit_edge ], [ %3, %.preheader.preheader ]
+  %94 = phi i32 [ %136, %._crit_edge ], [ %3, %.preheader.preheader ]
+  %.01738 = phi i32 [ %invariant.op, %._crit_edge ], [ 0, %.preheader.preheader ]
   %invariant.op = add nuw nsw i32 %.01739, 1
   %invariant.op36 = add nuw i32 %.01739, 2
   %95 = icmp sgt i32 %94, 0
   br i1 %95, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  switch i32 %.01739, label %.lr.ph.split.split.us [
+  switch i32 %.01738, label %.lr.ph.split.split.us [
     i32 0, label %.split.us
     i32 1, label %.lr.ph.split.split
   ]
@@ -1067,10 +1067,10 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %26, %44, %57, %_ZNS
   %100 = icmp slt i64 %indvars.iv.next, %99
   br i1 %100, label %.split.us, label %._crit_edge, !llvm.loop !4
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph, %113
-  %101 = phi i32 [ %114, %113 ], [ %93, %.lr.ph ]
-  %102 = phi i32 [ %114, %113 ], [ %94, %.lr.ph ]
-  %.037.us38 = phi i32 [ %115, %113 ], [ 0, %.lr.ph ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph, %116
+  %101 = phi i32 [ %117, %113 ], [ %93, %.lr.ph ]
+  %102 = phi i32 [ %117, %113 ], [ %94, %.lr.ph ]
+  %.036.us37 = phi i32 [ %118, %113 ], [ 0, %.lr.ph ]
   %103 = load i32, ptr %65, align 8
   %104 = icmp sgt i32 %103, 5
   %105 = icmp eq i32 %103, %invariant.op
@@ -1079,7 +1079,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %26, %44, %57, %_ZNS
   %or.cond = or i1 %105, %or.cond26.us
   br i1 %or.cond, label %107, label %113
 
-107:                                              ; preds = %.lr.ph.split.split.us
+107:; preds = %.lr.ph.split.split.us
   %108 = mul nsw i32 %102, %.01739
   %109 = add nsw i32 %108, %.037.us38
   %110 = sext i32 %109 to i64
@@ -1087,85 +1087,85 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %26, %44, %57, %_ZNS
   %112 = getelementptr inbounds i32, ptr %111, i64 %110
   store i32 2, ptr %112, align 4
   %.pre = load i32, ptr %66, align 4
-  br label %113
+  br label %116
 
-113:                                              ; preds = %.lr.ph.split.split.us, %107
-  %114 = phi i32 [ %101, %.lr.ph.split.split.us ], [ %.pre, %107 ]
-  %115 = add nuw nsw i32 %.037.us38, 1
-  %116 = icmp slt i32 %115, %114
-  br i1 %116, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !4
+116:                                              ; preds = %.lr.ph.split.split.us, %107
+  %117 = phi i32 [ %101, %.lr.ph.split.split.us ], [ %.pre, %107 ]
+  %118 = add nuw nsw i32 %.036.us37, 1
+  %119 = icmp slt i32 %118, %117
+  br i1 %119, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !4
 
-.lr.ph.split.split:                               ; preds = %.lr.ph, %128
-  %117 = phi i32 [ %130, %128 ], [ %94, %.lr.ph ]
-  %.037 = phi i32 [ %129, %128 ], [ 0, %.lr.ph ]
-  %118 = load i32, ptr %65, align 8
-  %119 = icmp sgt i32 %118, 5
-  br i1 %119, label %.sink.split, label %122
+.lr.ph.split.split:                               ; preds = %.lr.ph, %131
+  %120 = phi i32 [ %133, %128 ], [ %94, %.lr.ph ]
+  %.036 = phi i32 [ %132, %128 ], [ 0, %.lr.ph ]
+  %121 = load i32, ptr %65, align 8
+  %122 = icmp sgt i32 %121, 5
+  br i1 %122, label %.sink.split, label %125
 
-120:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
-  %121 = landingpad { ptr, i32 }
+123:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
+  %124 = landingpad { ptr, i32 }
           cleanup
-  br label %141
+  br label %145
 
-122:                                              ; preds = %.lr.ph.split.split
-  %123 = icmp eq i32 %118, %invariant.op
-  br i1 %123, label %.sink.split, label %128
+125:                                              ; preds = %.lr.ph.split.split
+  %126 = icmp eq i32 %121, %invariant.op
+  br i1 %126, label %.sink.split, label %131
 
-.sink.split:                                      ; preds = %122, %.lr.ph.split.split
+.sink.split:                                      ; preds = %125, %.lr.ph.split.split
   %.sink = phi i32 [ 1, %.lr.ph.split.split ], [ 2, %122 ]
-  %124 = add nsw i32 %117, %.037
-  %125 = sext i32 %124 to i64
-  %126 = load ptr, ptr %67, align 8
-  %127 = getelementptr inbounds i32, ptr %126, i64 %125
-  store i32 %.sink, ptr %127, align 4
-  br label %128
+  %127 = add nsw i32 %120, %.036
+  %128 = sext i32 %127 to i64
+  %129 = load ptr, ptr %67, align 8
+  %130 = getelementptr inbounds i32, ptr %129, i64 %128
+  store i32 %.sink, ptr %130, align 4
+  br label %131
 
-128:                                              ; preds = %.sink.split, %122
-  %129 = add nuw nsw i32 %.037, 1
-  %130 = load i32, ptr %66, align 4
-  %131 = icmp slt i32 %129, %130
-  br i1 %131, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !4
+131:                                              ; preds = %.sink.split, %125
+  %132 = add nuw nsw i32 %.036, 1
+  %133 = load i32, ptr %66, align 4
+  %134 = icmp slt i32 %132, %133
+  br i1 %134, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %128, %.split.us, %113, %.preheader
-  %132 = phi i32 [ %114, %113 ], [ %98, %.split.us ], [ %93, %.preheader ], [ %130, %128 ]
-  %133 = phi i32 [ %114, %113 ], [ %98, %.split.us ], [ %94, %.preheader ], [ %130, %128 ]
+._crit_edge:                                      ; preds = %131, %.split.us, %116, %.preheader
+  %135 = phi i32 [ %117, %113 ], [ %98, %.split.us ], [ %93, %.preheader ], [ %133, %128 ]
+  %136 = phi i32 [ %117, %113 ], [ %98, %.split.us ], [ %94, %.preheader ], [ %133, %128 ]
   %134 = load i32, ptr %65, align 8
   %135 = icmp slt i32 %invariant.op, %134
   br i1 %135, label %.preheader, label %._crit_edge42, !llvm.loop !6
 
 ._crit_edge42:                                    ; preds = %._crit_edge
   store i32 -3, ptr %63, align 8
-  %136 = icmp sgt i32 %134, 5
-  %137 = zext i1 %136 to i32
-  %138 = shl i32 %132, %137
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 %138, ptr %140, align 4
-  store i32 %138, ptr %139, align 8
+  %140 = icmp sgt i32 %134, 5
+  %141 = zext i1 %140 to i32
+  %142 = shl i32 %135, %141
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  store i32 %142, ptr %144, align 4
+  store i32 %142, ptr %143, align 8
   store i32 0, ptr %62, align 4
   store i32 0, ptr %64, align 4
   ret void
 
-141:                                              ; preds = %120, %83, %76, %74
-  %.pn = phi { ptr, i32 } [ %121, %120 ], [ %84, %83 ], [ %75, %74 ], [ %77, %76 ]
-  %142 = load ptr, ptr %67, align 8
-  %.not.i.i.i32 = icmp eq ptr %142, null
-  br i1 %.not.i.i.i32, label %_ZNSt6vectorIN10open_spiel12breakthrough9CellStateESaIS2_EED2Ev.exit33, label %143
+145:                                              ; preds = %123, %83, %76, %74
+  %.pn = phi { ptr, i32 } [ %124, %120 ], [ %84, %83 ], [ %75, %74 ], [ %77, %76 ]
+  %146 = load ptr, ptr %67, align 8
+  %.not.i.i.i32 = icmp eq ptr %146, null
+  br i1 %.not.i.i.i32, label %_ZNSt6vectorIN10open_spiel12breakthrough9CellStateESaIS2_EED2Ev.exit33, label %147
 
-143:                                              ; preds = %141
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %145 = load ptr, ptr %144, align 8
-  %146 = ptrtoint ptr %145 to i64
-  %147 = ptrtoint ptr %142 to i64
-  %148 = sub i64 %146, %147
-  call void @_ZdlPvm(ptr noundef nonnull %142, i64 noundef %148) #28
+147:                                              ; preds = %145
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %149 = load ptr, ptr %148, align 8
+  %150 = ptrtoint ptr %149 to i64
+  %151 = ptrtoint ptr %146 to i64
+  %152 = sub i64 %150, %151
+  call void @_ZdlPvm(ptr noundef nonnull %146, i64 noundef %152) #28
   br label %_ZNSt6vectorIN10open_spiel12breakthrough9CellStateESaIS2_EED2Ev.exit33
 
-_ZNSt6vectorIN10open_spiel12breakthrough9CellStateESaIS2_EED2Ev.exit33: ; preds = %141, %143
+_ZNSt6vectorIN10open_spiel12breakthrough9CellStateESaIS2_EED2Ev.exit33: ; preds = %145, %147
   call void @_ZN10open_spiel5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #25
-  br label %149
+  br label %153
 
-149:                                              ; preds = %_ZNSt6vectorIN10open_spiel12breakthrough9CellStateESaIS2_EED2Ev.exit33, %72
+153:                                              ; preds = %_ZNSt6vectorIN10open_spiel12breakthrough9CellStateESaIS2_EED2Ev.exit33, %72
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt6vectorIN10open_spiel12breakthrough9CellStateESaIS2_EED2Ev.exit33 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn.pn
 }

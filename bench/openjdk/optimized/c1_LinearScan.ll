@@ -11614,17 +11614,17 @@ define hidden noundef ptr @_ZN10LinearScan15compute_oop_mapEP14IntervalWalkerP6L
 
 _ZN10LinearScan20operand_for_intervalEP8Interval.exit.i: ; preds = %38, %34
   %.sroa.0.0.i.i = phi i64 [ %39, %38 ], [ %.sroa.0.0.copyload.i.i.i, %34 ]
-  %40 = load ptr, ptr %9, align 8
-  %41 = tail call noundef ptr @_ZNK8FrameMap7regnameE7LIR_Opr(ptr noundef nonnull align 8 dereferenceable(40) %40, i64 %.sroa.0.0.i.i) #22
-  store ptr %41, ptr %30, align 8
-  %.pre = ptrtoint ptr %41 to i64
+  %41 = load ptr, ptr %9, align 8
+  %42 = tail call noundef ptr @_ZNK8FrameMap7regnameE7LIR_Opr(ptr noundef nonnull align 8 dereferenceable(40) %41, i64 %.sroa.0.0.i.i) #22
+  store ptr %42, ptr %30, align 8
+  %.pre = ptrtoint ptr %42 to i64
   %.pre41 = trunc i64 %.pre to i32
   br label %_ZN10LinearScan19vm_reg_for_intervalEP8Interval.exit
 
 _ZN10LinearScan19vm_reg_for_intervalEP8Interval.exit: ; preds = %29, %_ZN10LinearScan20operand_for_intervalEP8Interval.exit.i
-  %.pre-phi42 = phi i32 [ %33, %29 ], [ %.pre41, %_ZN10LinearScan20operand_for_intervalEP8Interval.exit.i ]
-  %.0.i = phi ptr [ %31, %29 ], [ %41, %_ZN10LinearScan20operand_for_intervalEP8Interval.exit.i ]
-  %42 = sub i32 %.pre-phi42, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
+  %.pre-phi44 = phi i32 [ %33, %29 ], [ %.pre41, %_ZN10LinearScan20operand_for_intervalEP8Interval.exit.i ]
+  %.0.i = phi ptr [ %31, %29 ], [ %42, %_ZN10LinearScan20operand_for_intervalEP8Interval.exit.i ]
+  %42 = sub i32 %.pre-phi44, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_VMRegs, i64 1) to i32)
   %43 = icmp ult i32 %42, 16384
   br i1 %43, label %44, label %45
 

@@ -7809,7 +7809,7 @@ define linkonce_odr void @_ZN7rocksdb14CoreLocalArrayINS_14StatisticsImpl14Stati
   %14 = or disjoint i64 %13, 64
   %15 = select i1 %12, i64 -1, i64 %14
   %16 = invoke noundef ptr @_ZN7rocksdb4port23cacheline_aligned_allocEm(i64 noundef %15)
-          to label %_ZN7rocksdb14StatisticsImpl14StatisticsDatanaEm.exit unwind label %32
+          to label %_ZN7rocksdb14StatisticsImpl14StatisticsDatanaEm.exit unwind label %33
 
 _ZN7rocksdb14StatisticsImpl14StatisticsDatanaEm.exit: ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
@@ -7851,48 +7851,48 @@ _ZN7rocksdb14StatisticsImpl14StatisticsDataC2Ev.exit: ; preds = %.noexc15
   %25 = icmp eq i64 %.idx, %invariant.op
   br i1 %25, label %26, label %18
 
-26:                                               ; preds = %_ZN7rocksdb14StatisticsImpl14StatisticsDataC2Ev.exit
+27:                                               ; preds = %_ZN7rocksdb14StatisticsImpl14StatisticsDataC2Ev.exit
   %.ptr7 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  %27 = load ptr, ptr %0, align 8, !tbaa !156
+  %28 = load ptr, ptr %0, align 8, !tbaa !156
   store ptr %.ptr7, ptr %0, align 8, !tbaa !156
-  %.not.i.i = icmp eq ptr %27, null
+  %.not.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIA_N7rocksdb14StatisticsImpl14StatisticsDataESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit, label %.loopexit.i.i.i
 
-.loopexit.i.i.i:                                  ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %27, i64 -64
-  invoke void @_ZN7rocksdb4port22cacheline_aligned_freeEPv(ptr noundef nonnull %28)
-          to label %_ZNSt10unique_ptrIA_N7rocksdb14StatisticsImpl14StatisticsDataESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit unwind label %29
+.loopexit.i.i.i:                                  ; preds = %27
+  %29 = getelementptr inbounds i8, ptr %28, i64 -64
+  invoke void @_ZN7rocksdb4port22cacheline_aligned_freeEPv(ptr noundef nonnull %29)
+          to label %_ZNSt10unique_ptrIA_N7rocksdb14StatisticsImpl14StatisticsDataESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit unwind label %30
 
-29:                                               ; preds = %.loopexit.i.i.i
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %.loopexit.i.i.i
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #34
+  %32 = extractvalue { ptr, i32 } %31, 0
+  tail call void @__clang_call_terminate(ptr %32) #34
   unreachable
 
-_ZNSt10unique_ptrIA_N7rocksdb14StatisticsImpl14StatisticsDataESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit: ; preds = %26, %.loopexit.i.i.i
+_ZNSt10unique_ptrIA_N7rocksdb14StatisticsImpl14StatisticsDataESt14default_deleteIS3_EE5resetIPS2_vEEvT_.exit: ; preds = %27, %.loopexit.i.i.i
   ret void
 
-32:                                               ; preds = %7
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %7
+  %34 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7rocksdb14StatisticsImpl14StatisticsDatadaEPv.exit
 
 .loopexit:                                        ; preds = %.noexc, %.preheader16.i
-  %34 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN7rocksdb4port22cacheline_aligned_freeEPv(ptr noundef nonnull %16)
-          to label %_ZN7rocksdb14StatisticsImpl14StatisticsDatadaEPv.exit unwind label %35
+          to label %_ZN7rocksdb14StatisticsImpl14StatisticsDatadaEPv.exit unwind label %36
 
-35:                                               ; preds = %.loopexit
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %.loopexit
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #34
+  %38 = extractvalue { ptr, i32 } %37, 0
+  tail call void @__clang_call_terminate(ptr %38) #34
   unreachable
 
-_ZN7rocksdb14StatisticsImpl14StatisticsDatadaEPv.exit: ; preds = %.loopexit, %32
-  %.pn = phi { ptr, i32 } [ %33, %32 ], [ %34, %.loopexit ]
+_ZN7rocksdb14StatisticsImpl14StatisticsDatadaEPv.exit: ; preds = %.loopexit, %33
+  %.pn = phi { ptr, i32 } [ %34, %32 ], [ %35, %.loopexit ]
   tail call void @_ZNSt10unique_ptrIA_N7rocksdb14StatisticsImpl14StatisticsDataESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #32
   resume { ptr, i32 } %.pn
 }

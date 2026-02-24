@@ -8018,13 +8018,13 @@ define internal fastcc void @dissect_sip_session_id_header(ptr noundef %0, ptr n
   %20 = sub i32 %3, %19
   %21 = tail call i32 @tvb_skip_wsp(ptr noundef %0, i32 noundef %19, i32 noundef %20)
   %22 = icmp slt i32 %21, %3
-  br i1 %22, label %23, label %167
+  br i1 %22, label %23, label %168
 
 23:                                               ; preds = %18
   %24 = add nsw i32 %21, 1
   %25 = tail call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %24, i32 noundef %10, i8 noundef zeroext 61)
   %.not131 = icmp eq i32 %25, -1
-  br i1 %.not131, label %163, label %26
+  br i1 %.not131, label %164, label %26
 
 26:                                               ; preds = %23
   %27 = tail call ptr @g_byte_array_sized_new(i32 noundef 16)
@@ -8037,12 +8037,12 @@ define internal fastcc void @dissect_sip_session_id_header(ptr noundef %0, ptr n
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 16
-  br i1 %36, label %37, label %157
+  br i1 %36, label %37, label %158
 
 37:                                               ; preds = %26
   %38 = tail call i32 @g_ascii_strcasecmp(ptr noundef %33, ptr noundef nonnull @.str.1083)
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %157
+  br i1 %39, label %40, label %158
 
 40:                                               ; preds = %37
   %41 = add nuw i32 %25, 1
@@ -8050,13 +8050,13 @@ define internal fastcc void @dissect_sip_session_id_header(ptr noundef %0, ptr n
   %43 = add i32 %3, %42
   %44 = tail call ptr @tvb_get_string_bytes(ptr noundef %0, i32 noundef %41, i32 noundef %43, i32 noundef 33619970, ptr noundef %27, ptr noundef null)
   %.not132 = icmp eq ptr %44, null
-  br i1 %.not132, label %157, label %45
+  br i1 %.not132, label %158, label %45
 
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 16
-  br i1 %48, label %49, label %157
+  br i1 %48, label %49, label %158
 
 49:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -8167,20 +8167,20 @@ proto_item_set_hidden.exit:                       ; preds = %49, %50, %53
   %136 = sub i32 %3, %21
   %137 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %21, i32 noundef %136, i8 noundef zeroext 59)
   %.not133136 = icmp eq i32 %137, -1
-  br i1 %.not133136, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not133136, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %proto_item_set_hidden.exit
+.lr.ph:                                           ; preds = %proto_item_set_hidden.exit
   %invariant.op = add i32 %3, -1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %154
+.lr.ph:; preds = %.lr.ph, %154
   %.1137 = phi i32 [ %156, %154 ], [ %137, %.lr.ph.preheader ]
   %.not134 = icmp eq i32 %.1137, %invariant.op
   br i1 %.not134, label %154, label %138
 
-138:                                              ; preds = %.lr.ph
+138:; preds = %.lr.ph
   %139 = add i32 %.1137, 6
-  %140 = call i32 @tvb_skip_wsp_return(ptr noundef %0, i32 noundef %.1137)
+  %144 = call i32 @tvb_skip_wsp_return(ptr noundef %0, i32 noundef %.1137)
   %141 = load ptr, ptr %28, align 8
   %142 = sub i32 %139, %140
   %143 = call ptr @tvb_get_string_enc(ptr noundef %141, ptr noundef %0, i32 noundef %140, i32 noundef %142, i32 noundef 2)
@@ -8188,7 +8188,7 @@ proto_item_set_hidden.exit:                       ; preds = %49, %50, %53
   %145 = icmp eq i32 %144, 0
   br i1 %145, label %146, label %149
 
-146:                                              ; preds = %138
+146:; preds = %138
   %147 = load i32, ptr @hf_sip_session_id_logme, align 4
   %148 = call ptr @proto_tree_add_boolean(ptr noundef %1, i32 noundef %147, ptr noundef %0, i32 noundef %140, i32 noundef %142, i64 noundef 1)
   br label %154
@@ -8197,13 +8197,13 @@ proto_item_set_hidden.exit:                       ; preds = %49, %50, %53
   %.not135 = icmp eq i32 %140, %3
   br i1 %.not135, label %154, label %150
 
-150:                                              ; preds = %149
+150:  ; preds = %149
   %151 = load i32, ptr @hf_sip_session_id_param, align 4
   %152 = sub i32 %3, %140
   %153 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %151, ptr noundef %0, i32 noundef %140, i32 noundef %152, i32 noundef 2)
   br label %154
 
-154:                                              ; preds = %146, %150, %149, %.lr.ph
+154:; preds = %146, %150, %149, %.lr.ph
   %.0 = phi i32 [ %3, %.lr.ph ], [ %3, %149 ], [ %140, %150 ], [ %140, %146 ]
   %155 = sub i32 %3, %.0
   %156 = call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %.0, i32 noundef %155, i8 noundef zeroext 59)
@@ -8212,26 +8212,26 @@ proto_item_set_hidden.exit:                       ; preds = %49, %50, %53
 
 ._crit_edge:                                      ; preds = %154, %proto_item_set_hidden.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %161
+  br label %162
 
-157:                                              ; preds = %45, %40, %37, %26
-  %158 = load i32, ptr @hf_sip_session_id_param, align 4
-  %159 = sub i32 %3, %21
-  %160 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %158, ptr noundef %0, i32 noundef %21, i32 noundef %159, i32 noundef 2)
-  br label %161
+158:                                              ; preds = %45, %40, %37, %26
+  %159 = load i32, ptr @hf_sip_session_id_param, align 4
+  %160 = sub i32 %3, %21
+  %161 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %159, ptr noundef %0, i32 noundef %21, i32 noundef %160, i32 noundef 2)
+  br label %162
 
-161:                                              ; preds = %157, %._crit_edge
-  %162 = call ptr @g_byte_array_free(ptr noundef %27, i32 noundef 1)
-  br label %167
+162:                                              ; preds = %158, %._crit_edge
+  %163 = call ptr @g_byte_array_free(ptr noundef %27, i32 noundef 1)
+  br label %168
 
-163:                                              ; preds = %23
-  %164 = load i32, ptr @hf_sip_session_id_param, align 4
-  %165 = sub i32 %3, %21
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %164, ptr noundef %0, i32 noundef %21, i32 noundef %165, i32 noundef 2)
-  br label %167
+164:                                              ; preds = %23
+  %165 = load i32, ptr @hf_sip_session_id_param, align 4
+  %166 = sub i32 %3, %21
+  %167 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %165, ptr noundef %0, i32 noundef %21, i32 noundef %166, i32 noundef 2)
+  br label %168
 
-167:                                              ; preds = %161, %163, %18
-  %168 = call ptr @g_byte_array_free(ptr noundef %11, i32 noundef 1)
+168:                                              ; preds = %162, %164, %18
+  %169 = call ptr @g_byte_array_free(ptr noundef %11, i32 noundef 1)
   ret void
 }
 

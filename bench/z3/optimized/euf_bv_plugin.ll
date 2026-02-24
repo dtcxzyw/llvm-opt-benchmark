@@ -3007,7 +3007,7 @@ _ZN3euf9bv_plugin15push_undo_splitEPNS_5enodeE.exit: ; preds = %84, %90
   store i32 %96, ptr %93, align 4, !tbaa !112
   %97 = load i32, ptr %11, align 8, !tbaa !141
   tail call void @_ZN3euf6plugin16push_plugin_undoEj(ptr noundef nonnull align 8 dereferenceable(156) %0, i32 noundef %97)
-  br label %179
+  br label %180
 
 _ZNK3euf9bv_plugin9is_concatEPNS_5enodeE.exit:    ; preds = %29, %_ZNK3euf9bv_plugin9is_concatEPNS_5enodeE.exit.i
   %98 = load i32, ptr %22, align 8, !tbaa !148
@@ -3042,7 +3042,7 @@ _ZNK3euf9bv_plugin9is_concatEPNS_5enodeE.exit:    ; preds = %29, %_ZNK3euf9bv_pl
 ._crit_edge:                                      ; preds = %116, %107
   %.0.lcssa = phi ptr [ %112, %107 ], [ %125, %116 ]
   call void @_ZN3euf6plugin10push_mergeEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.0.lcssa, ptr noundef nonnull %1)
-  br label %179
+  br label %180
 
 116:                                              ; preds = %.lr.ph, %116
   %indvars.iv = phi i64 [ %110, %.lr.ph ], [ %117, %116 ]
@@ -3071,7 +3071,7 @@ _ZNK3euf9bv_plugin9is_concatEPNS_5enodeE.exit.thread: ; preds = %18, %2, %104, %
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %126 = call noundef zeroext i1 @_ZNK14bv_recognizers10is_extractEPK4exprRjS3_RPS0_(ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull %12, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %126, label %127, label %179
+  br i1 %126, label %127, label %180
 
 127:                                              ; preds = %_ZNK3euf9bv_plugin9is_concatEPNS_5enodeE.exit.thread
   %128 = load i32, ptr %9, align 4, !tbaa !112
@@ -3105,7 +3105,7 @@ _ZN3euf9bv_plugin5widthEPNS_5enodeE.exit35:       ; preds = %129
   %144 = add i32 %130, 1
   %145 = load i32, ptr %138, align 4, !tbaa !112
   %.not29 = icmp eq i32 %144, %145
-  br i1 %.not29, label %179, label %146
+  br i1 %.not29, label %180, label %146
 
 146:                                              ; preds = %_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit35, %127
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 176
@@ -3143,9 +3143,9 @@ _ZNK3euf13enode_parents3endEv.exit.i:             ; preds = %_ZN3euf9bv_plugin5w
   %166 = shl nuw nsw i64 %165, 3
   %167 = getelementptr inbounds nuw i8, ptr %.val.val, i64 %166
   %.not2.i = icmp eq i32 %164, 0
-  br i1 %.not2.i, label %.loopexit, label %.lr.ph.i.preheader
+  br i1 %.not2.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i.preheader:                               ; preds = %_ZNK3euf13enode_parents3endEv.exit.i
+.lr.ph.i:                                         ; preds = %_ZNK3euf13enode_parents3endEv.exit.i
   %invariant.op = add i32 %160, -1
   br label %.lr.ph.i
 
@@ -3166,33 +3166,33 @@ _ZNK3euf13enode_parents3endEv.exit.i:             ; preds = %_ZN3euf9bv_plugin5w
 "_ZZN3euf9bv_plugin23propagate_register_nodeEPNS_5enodeEENK3$_0clES2_.exit.thread.i": ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %173
+  br label %174
 
 "_ZZN3euf9bv_plugin23propagate_register_nodeEPNS_5enodeEENK3$_0clES2_.exit.i": ; preds = %.lr.ph.i
   %172 = load i32, ptr %5, align 4, !tbaa !112
   %.not1.i = icmp eq i32 %172, %invariant.op
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not1.i, label %"_Z6all_ofIN3euf13enode_parentsEZNS0_9bv_plugin23propagate_register_nodeEPNS0_5enodeEE3$_0EbRKT_RKT0_.exit", label %173
+  br i1 %.not1.i, label %"_Z6all_ofIN3euf13enode_parentsEZNS0_9bv_plugin23propagate_register_nodeEPNS0_5enodeEE3$_0EbRKT_RKT0_.exit", label %174
 
-173:                                              ; preds = %"_ZZN3euf9bv_plugin23propagate_register_nodeEPNS_5enodeEENK3$_0clES2_.exit.i", %"_ZZN3euf9bv_plugin23propagate_register_nodeEPNS_5enodeEENK3$_0clES2_.exit.thread.i"
-  %174 = getelementptr inbounds nuw i8, ptr %.0133.i, i64 8
-  %.not.i = icmp eq ptr %174, %167
+174:                                              ; preds = %"_ZZN3euf9bv_plugin23propagate_register_nodeEPNS_5enodeEENK3$_0clES2_.exit.i", %"_ZZN3euf9bv_plugin23propagate_register_nodeEPNS_5enodeEENK3$_0clES2_.exit.thread.i"
+  %175 = getelementptr inbounds nuw i8, ptr %.0133.i, i64 8
+  %.not.i = icmp eq ptr %175, %167
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
-.loopexit:                                        ; preds = %173, %_ZNK3euf13enode_parents3endEv.exit.i, %_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit37
-  %175 = add i32 %160, -1
-  %176 = call noundef ptr @_ZN3euf9bv_plugin10mk_extractEPNS_5enodeEjj(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull %148, i32 noundef 0, i32 noundef %175)
-  call void @_ZN3euf6plugin10push_mergeEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %176, ptr noundef nonnull %148)
+.loopexit:                                        ; preds = %174, %_ZNK3euf13enode_parents3endEv.exit.i, %_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit37
+  %176 = add i32 %160, -1
+  %177 = call noundef ptr @_ZN3euf9bv_plugin10mk_extractEPNS_5enodeEjj(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull %148, i32 noundef 0, i32 noundef %176)
+  call void @_ZN3euf6plugin10push_mergeEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %177, ptr noundef nonnull %148)
   br label %"_Z6all_ofIN3euf13enode_parentsEZNS0_9bv_plugin23propagate_register_nodeEPNS0_5enodeEE3$_0EbRKT_RKT0_.exit"
 
 "_Z6all_ofIN3euf13enode_parentsEZNS0_9bv_plugin23propagate_register_nodeEPNS0_5enodeEE3$_0EbRKT_RKT0_.exit": ; preds = %"_ZZN3euf9bv_plugin23propagate_register_nodeEPNS_5enodeEENK3$_0clES2_.exit.i", %.loopexit
-  %177 = load i32, ptr %9, align 4, !tbaa !112
-  %178 = load i32, ptr %10, align 4, !tbaa !112
-  call void @_ZN3euf9bv_plugin12ensure_sliceEPNS_5enodeEjj(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull %148, i32 noundef %177, i32 noundef %178)
-  br label %179
+  %178 = load i32, ptr %9, align 4, !tbaa !112
+  %179 = load i32, ptr %10, align 4, !tbaa !112
+  call void @_ZN3euf9bv_plugin12ensure_sliceEPNS_5enodeEjj(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull %148, i32 noundef %178, i32 noundef %179)
+  br label %180
 
-179:                                              ; preds = %._crit_edge, %"_Z6all_ofIN3euf13enode_parentsEZNS0_9bv_plugin23propagate_register_nodeEPNS0_5enodeEE3$_0EbRKT_RKT0_.exit", %_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit35, %_ZNK3euf9bv_plugin9is_concatEPNS_5enodeE.exit.thread, %_ZN3euf9bv_plugin15push_undo_splitEPNS_5enodeE.exit
+180:                                              ; preds = %._crit_edge, %"_Z6all_ofIN3euf13enode_parentsEZNS0_9bv_plugin23propagate_register_nodeEPNS0_5enodeEE3$_0EbRKT_RKT0_.exit", %_ZN3euf9bv_plugin5widthEPNS_5enodeE.exit35, %_ZNK3euf9bv_plugin9is_concatEPNS_5enodeE.exit.thread, %_ZN3euf9bv_plugin15push_undo_splitEPNS_5enodeE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void

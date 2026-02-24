@@ -905,12 +905,12 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L32isAvailab
 7:                                                ; preds = %1
   %8 = load atomic i32, ptr @_ZL28gAvailableLocaleListInitOnce acquire, align 4
   %.not11.i = icmp eq i32 %8, 2
-  br i1 %.not11.i, label %58, label %9
+  br i1 %.not11.i, label %57, label %9
 
 9:                                                ; preds = %7
   %10 = tail call noundef signext i8 @_ZN6icu_7720umtx_initImplPreInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL28gAvailableLocaleListInitOnce)
   %.not12.i = icmp eq i8 %10, 0
-  br i1 %.not12.i, label %58, label %11
+  br i1 %.not12.i, label %57, label %11
 
 11:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -941,7 +941,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L32isAvailab
   %26 = select i1 %23, i64 -1, i64 %25
   %27 = call noundef ptr @_ZN6icu_777UMemorynaEm(i64 noundef %26) #16
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %35, label %29
+  br i1 %28, label %34, label %29
 
 29:                                               ; preds = %20
   store i64 %21, ptr %27, align 8
@@ -953,52 +953,52 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L32isAvailab
   %invariant.op.i = add nsw i64 %24, -216
   br label %32
 
-32:                                               ; preds = %33, %31
+.preheader:                                       ; preds = %33, %31
   %.idx.i = phi i64 [ 8, %31 ], [ %.add.i, %33 ]
   %.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i
   invoke void @_ZN6icu_776LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %.ptr.ptr.i)
-          to label %33 unwind label %46
+          to label %33 unwind label %45
 
-33:                                               ; preds = %32
+31:                                               ; preds = %.preheader
   %.add.i = add nuw nsw i64 %.idx.i, 224
   %34 = icmp eq i64 %.idx.i, %invariant.op.i
   br i1 %34, label %.loopexit35.i, label %32
 
-35:                                               ; preds = %20
+34:                                               ; preds = %20
   store ptr null, ptr @_ZL19availableLocaleList, align 8, !tbaa !37
   br label %.loopexit32.i
 
-.loopexit35.i:                                    ; preds = %33, %29
+.loopexit35.i:                                    ; preds = %31, %29
   store ptr %.ptr21.i, ptr @_ZL19availableLocaleList, align 8, !tbaa !37
   invoke void @ures_resetIterator_77(ptr noundef nonnull %2)
           to label %.preheader.i unwind label %.loopexit.split-lp.i
 
-.preheader.i:                                     ; preds = %.loopexit35.i, %42
+.preheader.i:                                     ; preds = %.loopexit35.i, %41
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %42 ], [ 0, %.loopexit35.i ]
-  %36 = invoke signext i8 @ures_hasNext_77(ptr noundef nonnull %2)
+  %35 = invoke signext i8 @ures_hasNext_77(ptr noundef nonnull %2)
           to label %37 unwind label %.loopexit.i
 
-37:                                               ; preds = %.preheader.i
-  %.not28.i = icmp eq i8 %36, 0
-  br i1 %.not28.i, label %.loopexit32.i, label %38
+36:                                               ; preds = %.preheader.i
+  %.not28.i = icmp eq i8 %35, 0
+  br i1 %.not28.i, label %.loopexit32.i, label %37
 
-38:                                               ; preds = %37
+37:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !31
-  %39 = invoke ptr @ures_getNextString_77(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(4) %0)
-          to label %40 unwind label %50
+  %38 = invoke ptr @ures_getNextString_77(ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(4) %0)
+          to label %40 unwind label %49
 
-40:                                               ; preds = %38
+39:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %41 = load ptr, ptr %3, align 8, !tbaa !31
-  invoke void @_ZN6icu_776LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %4, ptr noundef %41, ptr noundef null, ptr noundef null, ptr noundef null)
-          to label %42 unwind label %52
+  %40 = load ptr, ptr %3, align 8, !tbaa !31
+  invoke void @_ZN6icu_776LocaleC1EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(217) %4, ptr noundef %40, ptr noundef null, ptr noundef null, ptr noundef null)
+          to label %42 unwind label %51
 
-42:                                               ; preds = %40
-  %43 = load ptr, ptr @_ZL19availableLocaleList, align 8, !tbaa !37
+41:                                               ; preds = %39
+  %42 = load ptr, ptr @_ZL19availableLocaleList, align 8, !tbaa !37
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %44 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %43, i64 %indvars.iv.i
-  %45 = call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776LocaleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(217) %44, ptr noundef nonnull align 8 dereferenceable(217) %4) #16
+  %43 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %42, i64 %indvars.iv.i
+  %44 = call noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776LocaleaSEOS0_(ptr noundef nonnull align 8 dereferenceable(217) %43, ptr noundef nonnull align 8 dereferenceable(217) %4) #16
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %4) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1007,83 +1007,83 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L32isAvailab
 .loopexit.i:                                      ; preds = %.preheader.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  br label %56
+  br label %55
 
-.loopexit.split-lp.i:                             ; preds = %55, %.loopexit32.i, %.loopexit35.i, %18, %13, %11
+.loopexit.split-lp.i:                             ; preds = %54, %.loopexit32.i, %.loopexit35.i, %18, %13, %11
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
-  br label %56
+  br label %55
 
-46:                                               ; preds = %32
-  %47 = landingpad { ptr, i32 }
+45:                                               ; preds = %.preheader
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %48 = icmp eq i64 %.idx.i, 8
-  br i1 %48, label %.loopexit34.i, label %.preheader33.i
+  %47 = icmp eq i64 %.idx.i, 8
+  br i1 %47, label %.loopexit34.i, label %.preheader33.i
 
-.preheader33.i:                                   ; preds = %46, %.preheader33.i
+.preheader33.i:                                   ; preds = %45, %.preheader33.i
   %.idx22.i = phi i64 [ %.add23.i, %.preheader33.i ], [ %.idx.i, %46 ]
   %.add23.i = add nsw i64 %.idx22.i, -224
   %.ptr25.i = getelementptr inbounds i8, ptr %27, i64 %.add23.i
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %.ptr25.i) #16
-  %49 = icmp eq i64 %.add23.i, 8
-  br i1 %49, label %.loopexit34.i, label %.preheader33.i
+  %48 = icmp eq i64 %.add23.i, 8
+  br i1 %48, label %.loopexit34.i, label %.preheader33.i
 
-.loopexit34.i:                                    ; preds = %.preheader33.i, %46
+.loopexit34.i:                                    ; preds = %.preheader33.i, %45
   call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %27) #16
-  br label %56
+  br label %55
 
-50:                                               ; preds = %38
-  %51 = landingpad { ptr, i32 }
+49:                                               ; preds = %37
+  %50 = landingpad { ptr, i32 }
           cleanup
-  br label %54
+  br label %53
 
-52:                                               ; preds = %40
-  %53 = landingpad { ptr, i32 }
+51:                                               ; preds = %39
+  %52 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %54
+  br label %53
 
-54:                                               ; preds = %52, %50
-  %.pn.i = phi { ptr, i32 } [ %53, %52 ], [ %51, %50 ]
+53:                                               ; preds = %51, %49
+  %.pn.i = phi { ptr, i32 } [ %52, %52 ], [ %50, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %56
+  br label %55
 
-.loopexit32.i:                                    ; preds = %37, %35, %15
+.loopexit32.i:                                    ; preds = %36, %34, %15
   invoke void @ures_close_77(ptr noundef %12)
           to label %55 unwind label %.loopexit.split-lp.i
 
-55:                                               ; preds = %.loopexit32.i
+54:                                               ; preds = %.loopexit32.i
   invoke void @ucln_i18n_registerCleanup_77(i32 noundef 28, ptr noundef nonnull @_ZL16collator_cleanupv)
           to label %_ZN6icu_77L23initAvailableLocaleListER10UErrorCode.exit unwind label %.loopexit.split-lp.i
 
-56:                                               ; preds = %54, %.loopexit34.i, %.loopexit.split-lp.i, %.loopexit.i
-  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %54 ], [ %47, %.loopexit34.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
+55:                                               ; preds = %53, %.loopexit34.i, %.loopexit.split-lp.i, %.loopexit.i
+  %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %54 ], [ %46, %.loopexit34.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @_ZN6icu_7720StackUResourceBundleD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %2) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn.i
 
-_ZN6icu_77L23initAvailableLocaleListER10UErrorCode.exit: ; preds = %55
+_ZN6icu_77L23initAvailableLocaleListER10UErrorCode.exit: ; preds = %54
   call void @_ZN6icu_7720StackUResourceBundleD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %2) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %57 = load i32, ptr %0, align 4, !tbaa !6
-  store i32 %57, ptr getelementptr inbounds nuw (i8, ptr @_ZL28gAvailableLocaleListInitOnce, i64 4), align 4, !tbaa !40
+  %56 = load i32, ptr %0, align 4, !tbaa !6
+  store i32 %56, ptr getelementptr inbounds nuw (i8, ptr @_ZL28gAvailableLocaleListInitOnce, i64 4), align 4, !tbaa !40
   call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL28gAvailableLocaleListInitOnce)
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
-58:                                               ; preds = %9, %7
-  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL28gAvailableLocaleListInitOnce, i64 4), align 4, !tbaa !40
-  %60 = icmp slt i32 %59, 1
-  br i1 %60, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %61
+57:                                               ; preds = %9, %7
+  %58 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL28gAvailableLocaleListInitOnce, i64 4), align 4, !tbaa !40
+  %59 = icmp slt i32 %58, 1
+  br i1 %59, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %60
 
-61:                                               ; preds = %58
-  store i32 %59, ptr %0, align 4, !tbaa !6
+60:                                               ; preds = %57
+  store i32 %58, ptr %0, align 4, !tbaa !6
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
-_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %1, %_ZN6icu_77L23initAvailableLocaleListER10UErrorCode.exit, %58, %61
-  %62 = load i32, ptr %0, align 4, !tbaa !6
-  %63 = icmp slt i32 %62, 1
-  %64 = zext i1 %63 to i8
-  ret i8 %64
+_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %1, %_ZN6icu_77L23initAvailableLocaleListER10UErrorCode.exit, %57, %60
+  %61 = load i32, ptr %0, align 4, !tbaa !6
+  %62 = icmp slt i32 %61, 1
+  %63 = zext i1 %62 to i8
+  ret i8 %63
 }
 
 ; Function Attrs: mustprogress uwtable

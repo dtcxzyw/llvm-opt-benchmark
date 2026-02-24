@@ -5414,71 +5414,71 @@ define hidden void @"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4h
   %.not48 = icmp eq i64 %1, 0
   br i1 %.not48, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %3
+._crit_edge:                                      ; preds = %3
   %5 = add i64 %1, -2
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %16, %3
+._crit_edge:; preds = %15, %3
   %.033.lcssa = phi i64 [ 0, %3 ], [ %.2, %16 ]
   %.0.lcssa = phi i64 [ 0, %3 ], [ %.1, %16 ]
   %6 = icmp ult i64 %.0.lcssa, %1
   br i1 %6, label %8, label %7
 
-7:                                                ; preds = %._crit_edge, %8
-  %.134 = phi i64 [ %11, %8 ], [ %.033.lcssa, %._crit_edge ]
+6:                                                ; preds = %._crit_edge, %7
+  %.134 = phi i64 [ %10, %8 ], [ %.033.lcssa, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1608
   store i64 %.134, ptr %4, align 8, !noalias !1608
   call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h8d26e9746a504159E.llvm.1648887574124572298"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef 8)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1608
   ret void
 
-8:                                                ; preds = %._crit_edge
-  %9 = sub nuw i64 %1, %.0.lcssa
-  %10 = getelementptr inbounds i8, ptr %0, i64 %.0.lcssa
-  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h8d26e9746a504159E.llvm.1648887574124572298"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2, ptr noalias noundef nonnull readonly align 1 %10, i64 noundef %9)
-  %11 = add i64 %9, %.033.lcssa
-  br label %7
+7:                                                ; preds = %._crit_edge
+  %8 = sub nuw i64 %1, %.0.lcssa
+  %9 = getelementptr inbounds i8, ptr %0, i64 %.0.lcssa
+  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h8d26e9746a504159E.llvm.1648887574124572298"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2, ptr noalias noundef nonnull readonly align 1 %9, i64 noundef %8)
+  %10 = add i64 %8, %.033.lcssa
+  br label %6
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %16
+.lr.ph:                                           ; preds = %._crit_edge, %15
   %.046 = phi i64 [ %.1, %16 ], [ 0, %.lr.ph.preheader ]
   %.03345 = phi i64 [ %.2, %16 ], [ 0, %.lr.ph.preheader ]
-  %.sroa.09.044 = phi i64 [ %12, %16 ], [ 0, %.lr.ph.preheader ]
-  %12 = add nuw i64 %.sroa.09.044, 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 %.sroa.09.044
-  %14 = load i8, ptr %13, align 1, !noundef !8
-  %15 = icmp eq i8 %14, 47
-  br i1 %15, label %17, label %16
+  %.sroa.09.044 = phi i64 [ %11, %16 ], [ 0, %.lr.ph.preheader ]
+  %11 = add nuw i64 %.sroa.09.044, 1
+  %12 = getelementptr inbounds i8, ptr %0, i64 %.sroa.09.044
+  %13 = load i8, ptr %12, align 1, !noundef !8
+  %14 = icmp eq i8 %13, 47
+  br i1 %14, label %16, label %15
 
-16:                                               ; preds = %30, %.lr.ph
+15:                                               ; preds = %30, %.lr.ph
   %.2 = phi i64 [ %.3, %30 ], [ %.03345, %.lr.ph ]
   %.1 = phi i64 [ %31, %30 ], [ %.046, %.lr.ph ]
-  %exitcond.not = icmp eq i64 %12, %1
+  %exitcond.not = icmp eq i64 %11, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-17:                                               ; preds = %.lr.ph
-  %18 = icmp ugt i64 %.sroa.09.044, %.046
-  br i1 %18, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8658a1b51fbcd7edE.exit", label %22
+16:                                               ; preds = %.lr.ph
+  %17 = icmp ugt i64 %.sroa.09.044, %.046
+  br i1 %17, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8658a1b51fbcd7edE.exit", label %21
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8658a1b51fbcd7edE.exit": ; preds = %17
-  %19 = sub nuw i64 %.sroa.09.044, %.046
-  %20 = getelementptr inbounds i8, ptr %0, i64 %.046
-  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h8d26e9746a504159E.llvm.1648887574124572298"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2, ptr noalias noundef nonnull readonly align 1 %20, i64 noundef %19)
-  %21 = add i64 %19, %.03345
-  br label %22
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8658a1b51fbcd7edE.exit": ; preds = %16
+  %18 = sub nuw i64 %.sroa.09.044, %.046
+  %19 = getelementptr inbounds i8, ptr %0, i64 %.046
+  tail call void @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$5write17h8d26e9746a504159E.llvm.1648887574124572298"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %18)
+  %20 = add i64 %18, %.03345
+  br label %21
 
-22:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8658a1b51fbcd7edE.exit", %17
-  %.3 = phi i64 [ %21, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8658a1b51fbcd7edE.exit" ], [ %.03345, %17 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 %12
+21:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8658a1b51fbcd7edE.exit", %16
+  %.3 = phi i64 [ %20, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8658a1b51fbcd7edE.exit" ], [ %.03345, %17 ]
+  %23 = getelementptr inbounds i8, ptr %0, i64 %11
   %24 = icmp eq i64 %.sroa.09.044, %5
   br i1 %24, label %25, label %28
 
-25:                                               ; preds = %22
+25:                                               ; preds = %21
   %26 = load i8, ptr %23, align 1, !noundef !8
   %27 = icmp eq i8 %26, 46
   br i1 %27, label %30, label %29
 
-28:                                               ; preds = %22
-  %.not = icmp eq i64 %1, %12
+28:                                               ; preds = %21
+  %.not = icmp eq i64 %1, %11
   br i1 %.not, label %29, label %32
 
 29:                                               ; preds = %35, %32, %28, %25
@@ -5486,8 +5486,8 @@ define hidden void @"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4h
 
 30:                                               ; preds = %35, %25, %29
   %.035 = phi i64 [ 1, %25 ], [ 0, %29 ], [ 1, %35 ]
-  %31 = add i64 %.035, %12
-  br label %16
+  %31 = add i64 %.035, %11
+  br label %15
 
 32:                                               ; preds = %28
   %33 = load i8, ptr %23, align 1, !noundef !8

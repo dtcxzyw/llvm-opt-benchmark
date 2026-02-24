@@ -4324,7 +4324,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK3net25QuicStreamSequencerBuffe
 
 11:                                               ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  br label %71
+  br label %72
 
 12:                                               ; preds = %3
   %13 = load i64, ptr %0, align 8, !tbaa !13
@@ -4350,7 +4350,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK3net25QuicStreamSequencerBuffe
   %28 = sub i64 %7, %9
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %28, ptr %29, align 8, !tbaa !137
-  br label %71
+  br label %72
 
 ._crit_edge66:                                    ; preds = %12
   %30 = add nuw nsw i64 %15, 1
@@ -4380,7 +4380,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK3net25QuicStreamSequencerBuffe
 
 47:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %.061 = phi i64 [ %42, %.lr.ph ], [ %58, %47 ]
+  %.061 = phi i64 [ %42, %.lr.ph ], [ %59, %47 ]
   %48 = getelementptr inbounds nuw ptr, ptr %23, i64 %.061
   %49 = load ptr, ptr %48, align 8, !tbaa !56
   %50 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %indvars.iv
@@ -4390,39 +4390,39 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK3net25QuicStreamSequencerBuffe
   %53 = and i64 %52, 8191
   %54 = icmp ne i64 %53, 0
   %55 = select i1 %51, i1 %54, i1 false
-  %.0.i49 = select i1 %55, i64 %53, i64 8192
+  %56 = select i1 %55, i64 %53, i64 8192
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i64 %.0.i49, ptr %56, align 8, !tbaa !137
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %57 = add nuw nsw i64 %15, %indvars.iv.next
-  %58 = urem i64 %57, %32
-  %59 = icmp ne i64 %58, %19
-  %60 = icmp samesign ult i64 %indvars.iv.next, %46
-  %61 = and i1 %59, %60
-  br i1 %61, label %47, label %._crit_edge.loopexit, !llvm.loop !148
+  %58 = add nuw nsw i64 %15, %indvars.iv.next
+  %59 = urem i64 %58, %32
+  %60 = icmp ne i64 %59, %19
+  %61 = icmp samesign ult i64 %indvars.iv.next, %46
+  %62 = and i1 %60, %61
+  br i1 %62, label %47, label %._crit_edge.loopexit, !llvm.loop !148
 
 ._crit_edge.loopexit:                             ; preds = %47
-  %62 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br i1 %60, label %63, label %71
+  %63 = trunc nuw nsw i64 %indvars.iv.next to i32
+  br i1 %61, label %64, label %72
 
 ._crit_edge:                                      ; preds = %._crit_edge66
-  br i1 %44, label %63, label %71
+  br i1 %44, label %64, label %72
 
-63:                                               ; preds = %._crit_edge.loopexit, %._crit_edge
-  %.042.lcssa73 = phi i32 [ %62, %._crit_edge.loopexit ], [ 1, %._crit_edge ]
-  %64 = getelementptr inbounds nuw ptr, ptr %23, i64 %19
-  %65 = load ptr, ptr %64, align 8, !tbaa !56
-  %66 = zext nneg i32 %.042.lcssa73 to i64
-  %67 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %66
-  store ptr %65, ptr %67, align 8, !tbaa !139
-  %68 = add nuw nsw i64 %18, 1
-  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store i64 %68, ptr %69, align 8, !tbaa !137
-  %70 = add nuw nsw i32 %.042.lcssa73, 1
-  br label %71
+64:                                               ; preds = %._crit_edge.loopexit, %._crit_edge
+  %.042.lcssa73 = phi i32 [ %63, %._crit_edge.loopexit ], [ 1, %._crit_edge ]
+  %65 = getelementptr inbounds nuw ptr, ptr %23, i64 %19
+  %66 = load ptr, ptr %65, align 8, !tbaa !56
+  %67 = zext nneg i32 %.042.lcssa73 to i64
+  %68 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %67
+  store ptr %66, ptr %68, align 8, !tbaa !139
+  %69 = add nuw nsw i64 %18, 1
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  store i64 %69, ptr %70, align 8, !tbaa !137
+  %71 = add nuw nsw i32 %.042.lcssa73, 1
+  br label %72
 
-71:                                               ; preds = %._crit_edge.loopexit, %27, %63, %._crit_edge, %11
-  %.043 = phi i32 [ 0, %11 ], [ 1, %27 ], [ %70, %63 ], [ 1, %._crit_edge ], [ %62, %._crit_edge.loopexit ]
+72:                                               ; preds = %._crit_edge.loopexit, %27, %64, %._crit_edge, %11
+  %.043 = phi i32 [ 0, %11 ], [ 1, %27 ], [ %71, %63 ], [ 1, %._crit_edge ], [ %63, %._crit_edge.loopexit ]
   ret i32 %.043
 }
 

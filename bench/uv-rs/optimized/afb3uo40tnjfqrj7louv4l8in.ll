@@ -1969,8 +1969,8 @@ define internal fastcc void @_ZN8unscanny7Scanner9eat_until17hf2fbad3ff3b79464E(
   %.val.pre = load ptr, ptr %0, align 8
   br i1 %7, label %"_ZN8unscanny96_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$$u5b$char$u3b$$u20$N$u5d$$GT$7matches17h091ac11f944e3212E.exit.thread", label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %92
-  %8 = phi i64 [ %93, %92 ], [ %4, %1 ]
+.lr.ph:                                           ; preds = %1, %95
+  %8 = phi i64 [ %96, %92 ], [ %4, %1 ]
   %9 = sub nuw i64 %6, %8
   %10 = getelementptr inbounds i8, ptr %.val.pre, i64 %8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !410)
@@ -2044,7 +2044,7 @@ define internal fastcc void @_ZN8unscanny7Scanner9eat_until17hf2fbad3ff3b79464E(
   %49 = icmp eq i32 %.val4.i.i.i, %.sroa.4.0.i.ph.i.i
   br i1 %49, label %"_ZN8unscanny96_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$$u5b$char$u3b$$u20$N$u5d$$GT$7matches17h091ac11f944e3212E.exit.thread", label %47
 
-"_ZN8unscanny96_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$$u5b$char$u3b$$u20$N$u5d$$GT$7matches17h091ac11f944e3212E.exit.thread": ; preds = %92, %48, %1
+"_ZN8unscanny96_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$$u5b$char$u3b$$u20$N$u5d$$GT$7matches17h091ac11f944e3212E.exit.thread": ; preds = %95, %48, %1
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %6, i64 %4)
   %50 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i, 0
   br i1 %50, label %_ZN8unscanny7Scanner4snap17hc50e865a57a26991E.exit, label %.lr.ph.i
@@ -2084,7 +2084,7 @@ _ZN8unscanny7Scanner4snap17hc50e865a57a26991E.exit: ; preds = %.lr.ph.i, %51, %"
   br i1 %67, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde2e180c68aa9c3fE.exit14.i.i", label %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit.thread
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde2e180c68aa9c3fE.exit14.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde2e180c68aa9c3fE.exit12.i.i"
-  %68 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %69 = icmp ne i64 %8, %invariant.op16
   tail call void @llvm.assume(i1 %69)
   %70 = load i8, ptr %68, align 1, !noalias !427, !noundef !3
@@ -2098,7 +2098,7 @@ _ZN8unscanny7Scanner4snap17hc50e865a57a26991E.exit: ; preds = %.lr.ph.i, %51, %"
   br i1 %77, label %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit, label %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit.thread
 
 _ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde2e180c68aa9c3fE.exit14.i.i"
-  %78 = getelementptr inbounds nuw i8, ptr %10, i64 3
+  %80 = getelementptr inbounds nuw i8, ptr %10, i64 3
   %79 = icmp ne i64 %8, %invariant.op17
   tail call void @llvm.assume(i1 %79)
   %80 = load i8, ptr %78, align 1, !noalias !427, !noundef !3
@@ -2108,36 +2108,36 @@ _ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit: ; preds = %"_ZN91_$LT$core..
   %84 = and i8 %80, 63
   %85 = zext nneg i8 %84 to i32
   %86 = or disjoint i32 %83, %85
-  %87 = or disjoint i32 %86, %82
-  %88 = icmp eq i32 %87, 1114112
+  %89 = or disjoint i32 %86, %82
+  %88 = icmp eq i32 %89, 1114112
   br i1 %88, label %92, label %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit.thread
 
 _ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit.thread: ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde2e180c68aa9c3fE.exit14.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde2e180c68aa9c3fE.exit12.i.i", %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit
-  %89 = phi i32 [ %87, %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit ], [ %66, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde2e180c68aa9c3fE.exit12.i.i" ], [ %76, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde2e180c68aa9c3fE.exit14.i.i" ]
-  %90 = icmp samesign ult i32 %89, 1114112
-  tail call void @llvm.assume(i1 %90)
-  %91 = icmp samesign ult i32 %89, 128
-  br i1 %91, label %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit.thread.thread, label %95
+  %92 = phi i32 [ %87, %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit ], [ %66, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde2e180c68aa9c3fE.exit12.i.i" ], [ %76, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde2e180c68aa9c3fE.exit14.i.i" ]
+  %93 = icmp samesign ult i32 %92, 1114112
+  tail call void @llvm.assume(i1 %93)
+  %94 = icmp samesign ult i32 %92, 128
+  br i1 %94, label %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit.thread.thread, label %98
 
-92:                                               ; preds = %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit, %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit.thread.thread
-  %93 = phi i64 [ %8, %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit ], [ %99, %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit.thread.thread ]
-  %94 = icmp eq i64 %93, %6
-  br i1 %94, label %"_ZN8unscanny96_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$$u5b$char$u3b$$u20$N$u5d$$GT$7matches17h091ac11f944e3212E.exit.thread", label %.lr.ph
+95:                                               ; preds = %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit, %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit.thread.thread
+  %96 = phi i64 [ %8, %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit ], [ %102, %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit.thread.thread ]
+  %97 = icmp eq i64 %96, %6
+  br i1 %97, label %"_ZN8unscanny96_$LT$impl$u20$unscanny..sealed..Sealed$LT$$LP$$RP$$GT$$u20$for$u20$$u5b$char$u3b$$u20$N$u5d$$GT$7matches17h091ac11f944e3212E.exit.thread", label %.lr.ph
 
-95:                                               ; preds = %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit.thread
-  %96 = icmp samesign ult i32 %89, 2048
-  br i1 %96, label %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit.thread.thread, label %97
+98:                                               ; preds = %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit.thread
+  %99 = icmp samesign ult i32 %92, 2048
+  br i1 %99, label %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit.thread.thread, label %100
 
-97:                                               ; preds = %95
-  %98 = icmp samesign ult i32 %89, 65536
-  %. = select i1 %98, i64 3, i64 4
+100:                                              ; preds = %98
+  %101 = icmp samesign ult i32 %92, 65536
+  %. = select i1 %101, i64 3, i64 4
   br label %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit.thread.thread
 
-_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit.thread.thread: ; preds = %57, %95, %97, %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit.thread
+_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit.thread.thread: ; preds = %57, %98, %100, %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit.thread
   %.sroa.04.0 = phi i64 [ 2, %95 ], [ %., %97 ], [ 1, %_ZN8unscanny7Scanner4peek17hbb57d3750d6f7627E.exit.thread ], [ 1, %57 ]
-  %99 = add i64 %.sroa.04.0, %8
-  store i64 %99, ptr %3, align 8
-  br label %92
+  %102 = add i64 %.sroa.04.0, %8
+  store i64 %102, ptr %3, align 8
+  br label %95
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: write, target_mem0: none, target_mem1: none) uwtable

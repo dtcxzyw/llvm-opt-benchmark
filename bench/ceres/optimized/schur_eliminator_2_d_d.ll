@@ -27473,7 +27473,7 @@ thread-pre-split.i.i.i.i.i.i:                     ; preds = %_ZN5Eigen15PlainObj
   %invariant.op.i.i.i.i.i.i.i = sub i64 %13, %11
   br label %21
 
-21:                                               ; preds = %21, %.lr.ph.i.i.i.i.i.i.i
+21:; preds = %21, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i ], [ %25, %21 ]
   %22 = getelementptr inbounds nuw double, ptr %19, i64 %.05.i.i.i.i.i.i.i
   %23 = icmp eq i64 %.05.i.i.i.i.i.i.i, %invariant.op.i.i.i.i.i.i.i

@@ -683,10 +683,10 @@ define dso_local range(i64 -9223372036854775808, 9223372036854775807) i64 @bit_f
 .critedge:                                        ; preds = %15, %.lr.ph, %.preheader, %11
   %.117 = phi i64 [ -1, %11 ], [ -1, %.preheader ], [ %.220, %15 ], [ -1, %.lr.ph ]
   %.1 = phi i64 [ %12, %11 ], [ %.028, %.preheader ], [ %.220, %.lr.ph ], [ %.220, %15 ]
-  %21 = icmp slt i64 %.1, %3
-  %22 = icmp eq i64 %.117, -1
-  %23 = and i1 %22, %21
-  br i1 %23, label %.lr.ph29, label %._crit_edge
+  %22 = icmp slt i64 %.1, %3
+  %23 = icmp eq i64 %.117, -1
+  %24 = and i1 %23, %22
+  br i1 %24, label %.lr.ph29, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.critedge, %19, %1
   %.016.lcssa = phi i64 [ -1, %1 ], [ -1, %19 ], [ %.117, %.critedge ]

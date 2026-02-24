@@ -8263,7 +8263,7 @@ define internal fastcc void @Abc_SclWriteSurfaceText(ptr noundef nonnull capture
   %38 = getelementptr i8, ptr %1, i64 48
   br label %39
 
-39:                                               ; preds = %.lr.ph75, %66
+39:                                               ; preds = %.lr.ph75, %67
   %.val87 = phi i32 [ %.val5173, %.lr.ph75 ], [ %.val51, %66 ]
   %indvars.iv83 = phi i64 [ 0, %.lr.ph75 ], [ %indvars.iv.next84, %66 ]
   %.val58 = load ptr, ptr %38, align 8, !tbaa !19
@@ -8297,9 +8297,9 @@ define internal fastcc void @Abc_SclWriteSurfaceText(ptr noundef nonnull capture
   %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.64, double noundef %48, ptr noundef nonnull %55) #21
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %.val53 = load i32, ptr %42, align 4, !tbaa !74
-  %57 = sext i32 %.val53 to i64
-  %58 = icmp slt i64 %indvars.iv.next81, %57
-  br i1 %58, label %45, label %.critedge6.loopexit, !llvm.loop !139
+  %58 = sext i32 %.val53 to i64
+  %59 = icmp slt i64 %indvars.iv.next81, %58
+  br i1 %59, label %45, label %.critedge6.loopexit, !llvm.loop !139
 
 .critedge6.loopexit:                              ; preds = %45
   %.val.pre = load i32, ptr %36, align 4, !tbaa !21
@@ -8307,27 +8307,27 @@ define internal fastcc void @Abc_SclWriteSurfaceText(ptr noundef nonnull capture
 
 .critedge6:                                       ; preds = %.critedge6.loopexit, %39
   %.val = phi i32 [ %.val.pre, %.critedge6.loopexit ], [ %.val87, %39 ]
-  %59 = add nsw i32 %.val, -1
-  %60 = zext i32 %59 to i64
-  %61 = icmp eq i64 %indvars.iv83, %60
-  br i1 %61, label %62, label %63
-
-62:                                               ; preds = %.critedge6
-  %fputc = tail call i32 @fputc(i32 10, ptr nonnull %0)
-  br label %66
+  %60 = add nsw i32 %.val, -1
+  %61 = zext i32 %60 to i64
+  %62 = icmp eq i64 %indvars.iv83, %61
+  br i1 %62, label %63, label %64
 
 63:                                               ; preds = %.critedge6
-  %64 = tail call i64 @fwrite(ptr nonnull @.str.71, i64 2, i64 1, ptr nonnull %0)
-  %65 = tail call i64 @fwrite(ptr nonnull @.str.72, i64 19, i64 1, ptr nonnull %0)
-  br label %66
+  %fputc = tail call i32 @fputc(i32 10, ptr nonnull %0)
+  br label %67
 
-66:                                               ; preds = %62, %63
+64:                                               ; preds = %.critedge6
+  %65 = tail call i64 @fwrite(ptr nonnull @.str.71, i64 2, i64 1, ptr nonnull %0)
+  %66 = tail call i64 @fwrite(ptr nonnull @.str.72, i64 19, i64 1, ptr nonnull %0)
+  br label %67
+
+67:                                               ; preds = %63, %64
   %.val51 = load i32, ptr %36, align 4, !tbaa !21
-  %67 = sext i32 %.val51 to i64
-  %68 = icmp slt i64 %indvars.iv.next84, %67
-  br i1 %68, label %39, label %.critedge4, !llvm.loop !140
+  %68 = sext i32 %.val51 to i64
+  %69 = icmp slt i64 %indvars.iv.next84, %68
+  br i1 %69, label %39, label %.critedge4, !llvm.loop !140
 
-.critedge4:                                       ; preds = %66, %.critedge2
+.critedge4:                                       ; preds = %67, %.critedge2
   ret void
 }
 

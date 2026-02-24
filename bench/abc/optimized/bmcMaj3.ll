@@ -6694,8 +6694,8 @@ define internal fastcc void @Zyx_ManPrintSolution(ptr noundef readonly captures(
   %47 = xor i32 %42, %46
   %48 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.64, i32 noundef %47)
   %49 = add nsw i32 %.044, -1
-  %.not72 = icmp eq i32 %.044, 0
-  br i1 %.not72, label %.loopexit, label %.lr.ph, !llvm.loop !188
+  %.not73 = icmp eq i32 %.044, 0
+  br i1 %.not73, label %.loopexit, label %.lr.ph, !llvm.loop !188
 
 .loopexit:                                        ; preds = %.lr.ph, %30, %28
   %putchar = tail call i32 @putchar(i32 40)
@@ -6750,7 +6750,7 @@ define internal fastcc void @Zyx_ManPrintSolution(ptr noundef readonly captures(
   %75 = getelementptr inbounds nuw i8, ptr %.lcssa43, i64 16
   %76 = load i32, ptr %75, align 8, !tbaa !85
   %.not38 = icmp eq i32 %76, 0
-  br i1 %.not38, label %77, label %234
+  br i1 %.not38, label %77, label %236
 
 77:                                               ; preds = %._crit_edge53
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -7048,20 +7048,20 @@ Abc_TtNot.exit66.i:                               ; preds = %.lr.ph.i62.i, %Abc_
   br i1 %.not52.i, label %228, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.lr.ph88.i
-  %224 = load ptr, ptr %0, align 8, !tbaa !84
-  %225 = load i32, ptr %224, align 8, !tbaa !92
-  %226 = icmp slt i32 %.187.i, %225
-  %..i = select i1 %226, i32 97, i32 65
-  %227 = add nuw nsw i32 %..i, %.187.i
-  %fputc53.i = call i32 @fputc(i32 %227, ptr nonnull %180)
-  br label %228
+  %225 = load ptr, ptr %0, align 8, !tbaa !84
+  %226 = load i32, ptr %225, align 8, !tbaa !92
+  %227 = icmp slt i32 %.187.i, %226
+  %..i = select i1 %227, i32 97, i32 65
+  %228 = add nuw nsw i32 %..i, %.187.i
+  %fputc53.i = call i32 @fputc(i32 %228, ptr nonnull %180)
+  br label %229
 
-228:                                              ; preds = %.sink.split.i, %.lr.ph88.i
-  %229 = add nuw nsw i32 %.187.i, 1
-  %exitcond96.not.i = icmp eq i32 %229, %.04889.i
+229:                                              ; preds = %.sink.split.i, %.lr.ph88.i
+  %230 = add nuw nsw i32 %.187.i, 1
+  %exitcond96.not.i = icmp eq i32 %230, %.04889.i
   br i1 %exitcond96.not.i, label %.loopexit.i, label %.lr.ph88.i, !llvm.loop !194
 
-.loopexit.i:                                      ; preds = %228, %.preheader.i, %195
+.loopexit.i:                                      ; preds = %229, %.preheader.i, %195
   %fputc55.i = call i32 @fputc(i32 10, ptr nonnull %180)
   %230 = load i32, ptr %15, align 8, !tbaa !88
   %231 = icmp slt i32 %invariant.op.i, %230
@@ -7069,16 +7069,16 @@ Abc_TtNot.exit66.i:                               ; preds = %.lr.ph.i62.i, %Abc_
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i, %182
   %fputc.i = call i32 @fputc(i32 10, ptr nonnull %180)
-  %232 = call i32 @fclose(ptr noundef nonnull %180)
+  %234 = call i32 @fclose(ptr noundef nonnull %180)
   br label %Zyx_ManPrintSolutionFile.exit
 
 Zyx_ManPrintSolutionFile.exit:                    ; preds = %Abc_TtNot.exit66.i, %._crit_edge.i
   %.str.71.sink.i = phi ptr [ @.str.71, %._crit_edge.i ], [ @.str.35, %Abc_TtNot.exit66.i ]
-  %233 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.71.sink.i, ptr noundef nonnull %4)
+  %235 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.71.sink.i, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %234
+  br label %236
 
-234:                                              ; preds = %Zyx_ManPrintSolutionFile.exit, %._crit_edge53
+236:                                              ; preds = %Zyx_ManPrintSolutionFile.exit, %._crit_edge53
   ret void
 }
 

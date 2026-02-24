@@ -2201,7 +2201,7 @@ Vec_IntFill.exit64:                               ; preds = %Vec_IntGrow.exit.i5
   %45 = zext nneg i32 %3 to i64
   %46 = getelementptr inbounds nuw i32, ptr %42, i64 %45
   %47 = icmp sgt i32 %4, 0
-  br i1 %47, label %.preheader.us.preheader, label %._crit_edge69
+  br i1 %47, label %.preheader.us.preheader, label %._crit_edge68
 
 Vec_IntFill.exit64.thread:                        ; preds = %Vec_IntGrow.exit.i57
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -2217,17 +2217,17 @@ Vec_IntFill.exit64.thread:                        ; preds = %Vec_IntGrow.exit.i5
   %invariant.op67 = add nsw i32 %4, -1
   %.not54 = icmp ne i32 %7, 0
   %invariant.op = add nsw i32 %3, -1
-  %53 = zext nneg i32 %invariant.op to i64
+  %54 = zext nneg i32 %invariant.op to i64
   %54 = zext nneg i32 %invariant.op67 to i64
   %wide.trip.count77 = zext nneg i32 %4 to i64
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %indvars.iv74 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next75, %._crit_edge.us ]
-  %55 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv74
-  %56 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv74
-  %57 = icmp eq i64 %indvars.iv74, %54
+  %indvars.iv73 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next75, %._crit_edge.us ]
+  %55 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv73
+  %56 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv73
+  %57 = icmp eq i64 %indvars.iv73, %54
   br label %58
 
 58:                                               ; preds = %.preheader.us, %58
@@ -2271,23 +2271,23 @@ Vec_IntFill.exit64.thread:                        ; preds = %Vec_IntGrow.exit.i5
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
   br i1 %exitcond78.not, label %._crit_edge69, label %.preheader.us, !llvm.loop !61
 
-._crit_edge69:                                    ; preds = %._crit_edge.us, %Vec_IntFill.exit64
+._crit_edge68:                                    ; preds = %._crit_edge.us, %Vec_IntFill.exit64
   %85 = getelementptr i32, ptr %46, i64 %45
   %86 = getelementptr i8, ptr %85, i64 -4
   store i32 %7, ptr %86, align 4, !tbaa !11
   %87 = sext i32 %4 to i64
-  %wide.trip.count82 = zext nneg i32 %3 to i64
+  %wide.trip.count81 = zext nneg i32 %3 to i64
   %invariant.gep = getelementptr i32, ptr %24, i64 %87
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %._crit_edge69, %.lr.ph
-  %indvars.iv79 = phi i64 [ 0, %._crit_edge69 ], [ %indvars.iv.next80, %.lr.ph ]
-  %.06570 = phi i32 [ %7, %._crit_edge69 ], [ %104, %.lr.ph ]
-  %88 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv79
+.lr.ph:                                           ; preds = %._crit_edge68, %.lr.ph
+  %indvars.iv78 = phi i64 [ 0, %._crit_edge69 ], [ %indvars.iv.next79, %.lr.ph ]
+  %.06569 = phi i32 [ %7, %._crit_edge69 ], [ %104, %.lr.ph ]
+  %88 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv78
   %89 = load i32, ptr %88, align 4, !tbaa !11
-  %90 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv79
+  %90 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv78
   %91 = load i32, ptr %90, align 4, !tbaa !11
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv79
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv78
   %92 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef 1, i32 noundef %89) #24
   %93 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %92, i32 noundef %91) #24
   %94 = xor i32 %92, 1
@@ -2295,16 +2295,16 @@ Vec_IntFill.exit64.thread:                        ; preds = %Vec_IntGrow.exit.i5
   %96 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %94, i32 noundef %95) #24
   %97 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %93, i32 noundef %96) #24
   %98 = xor i32 %97, 1
-  %99 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.06570, i32 noundef %98) #24
-  %100 = xor i32 %.06570, 1
+  %99 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.06569, i32 noundef %98) #24
+  %100 = xor i32 %.06569, 1
   %101 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %100, i32 noundef %97) #24
   %102 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %99, i32 noundef %101) #24
   %103 = xor i32 %102, 1
   store i32 %103, ptr %gep, align 4, !tbaa !11
   %104 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %93, i32 noundef %99) #24
-  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
-  %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
+  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
+  %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
+  br i1 %exitcond82.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Vec_IntFill.exit64.thread
   ret void

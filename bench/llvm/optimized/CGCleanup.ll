@@ -1012,29 +1012,29 @@ define dso_local noundef zeroext i1 @_ZNK5clang7CodeGen12EHScopeStack24containsO
   br i1 %.not1316, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %_ZN5clang7CodeGen12EHScopeStack8iteratorppEi.exit
-  %.sroa.0.017 = phi ptr [ %21, %_ZN5clang7CodeGen12EHScopeStack8iteratorppEi.exit ], [ %4, %2 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.017, i64 24
-  %10 = load i8, ptr %9, align 8
-  %11 = and i8 %10, 7
-  %12 = icmp eq i8 %11, 0
+  %.sroa.0.017 = phi ptr [ %22, %_ZN5clang7CodeGen12EHScopeStack8iteratorppEi.exit ], [ %4, %2 ]
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.017, i64 24
+  %11 = load i8, ptr %10, align 8
+  %12 = and i8 %11, 7
+  %13 = icmp eq i8 %12, 0
   %.not14 = icmp ne ptr %.sroa.0.017, null
-  %.not.not25 = and i1 %.not14, %12
-  %or.cond.not = icmp ugt i8 %10, 63
+  %.not.not25 = and i1 %.not14, %13
+  %or.cond.not = icmp ugt i8 %11, 63
   %or.cond.not23 = and i1 %.not.not25, %or.cond.not
   br i1 %or.cond.not23, label %_ZN5clang7CodeGen12EHScopeStack8iteratorppEi.exit, label %._crit_edge
 
 _ZN5clang7CodeGen12EHScopeStack8iteratorppEi.exit: ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.017, i64 25
-  %14 = load i16, ptr %13, align 1
-  %15 = lshr i16 %14, 2
-  %16 = and i16 %15, 4095
-  %17 = add nuw nsw i16 %16, 127
-  %18 = and i16 %17, 8184
-  %19 = zext nneg i16 %18 to i64
-  %20 = getelementptr i8, ptr %.sroa.0.017, i64 %19
-  %21 = getelementptr i8, ptr %20, i64 8
-  %22 = ptrtoint ptr %21 to i64
-  %.not13 = icmp eq i64 %invariant.op, %22
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.017, i64 25
+  %15 = load i16, ptr %14, align 1
+  %16 = lshr i16 %15, 2
+  %17 = and i16 %16, 4095
+  %18 = add nuw nsw i16 %17, 127
+  %19 = and i16 %18, 8184
+  %20 = zext nneg i16 %19 to i64
+  %21 = getelementptr i8, ptr %.sroa.0.017, i64 %20
+  %22 = getelementptr i8, ptr %21, i64 8
+  %23 = ptrtoint ptr %22 to i64
+  %.not13 = icmp eq i64 %invariant.op, %23
   br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !661
 
 ._crit_edge:                                      ; preds = %_ZN5clang7CodeGen12EHScopeStack8iteratorppEi.exit, %.lr.ph, %2
