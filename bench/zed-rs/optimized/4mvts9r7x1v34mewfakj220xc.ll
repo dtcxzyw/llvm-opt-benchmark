@@ -13836,8 +13836,8 @@ define void @_ZN3vim6motion6Motion5range17hd9c51ba7d6e31534E(ptr dead_on_unwind 
   %17 = alloca [16 x i8], align 4
   %18 = alloca [16 x i8], align 4
   %19 = alloca [40 x i8], align 8
-  %20 = alloca [12 x i8], align 4
-  %21 = alloca [20 x i8], align 4
+  %20 = alloca [20 x i8], align 4
+  %21 = alloca [12 x i8], align 4
   %22 = alloca [8 x i8], align 4
   %23 = alloca [8 x i8], align 4
   %24 = load i8, ptr %1, align 8, !range !604, !noundef !4
@@ -13859,7 +13859,6 @@ define void @_ZN3vim6motion6Motion5range17hd9c51ba7d6e31534E(ptr dead_on_unwind 
   br i1 %31, label %71, label %40
 
 32:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %34 = load i8, ptr %33, align 4, !range !89, !alias.scope !2849, !noundef !4
   %35 = trunc nuw i8 %34 to i1
@@ -13869,12 +13868,12 @@ define void @_ZN3vim6motion6Motion5range17hd9c51ba7d6e31534E(ptr dead_on_unwind 
   %.pn3.in.i = getelementptr inbounds nuw i8, ptr %3, i64 %.pn3.in.v.i
   %.pn3.i = load i32, ptr %.pn3.in.i, align 4, !alias.scope !2849, !noundef !4
   %.pn5.i = load i32, ptr %.pn5.in.i, align 8, !alias.scope !2849, !noundef !4
-  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %20, ptr noundef nonnull align 8 dereferenceable(12) %36, i64 12, i1 false)
-  call void @_ZN3vim6motion6Motion10move_point17hd7b1cd2df869ce83E(ptr noalias noundef nonnull sret([20 x i8]) align 4 captures(none) dereferenceable(20) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %2, i32 noundef %.pn5.i, i32 noundef %.pn3.i, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %20, i64 noundef %4, i64 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(1208) %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %37 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %21, ptr noundef nonnull align 8 dereferenceable(12) %36, i64 12, i1 false)
+  call void @_ZN3vim6motion6Motion10move_point17hd7b1cd2df869ce83E(ptr noalias noundef nonnull sret([20 x i8]) align 4 captures(none) dereferenceable(20) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %2, i32 noundef %.pn5.i, i32 noundef %.pn3.i, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %21, i64 noundef %4, i64 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(1208) %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
+  %37 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %38 = load i32, ptr %37, align 4, !range !2852, !noundef !4
   %39 = icmp eq i32 %38, 4
   br i1 %39, label %103, label %75
@@ -13960,12 +13959,12 @@ define void @_ZN3vim6motion6Motion5range17hd9c51ba7d6e31534E(ptr dead_on_unwind 
   store i32 1, ptr %0, align 4
   br label %74
 
-74:                                               ; preds = %71, %73, %72, %231, %204
+74:                                               ; preds = %103, %177, %71, %73, %72, %204
   ret void
 
 75:                                               ; preds = %32
-  %76 = load i32, ptr %21, align 4, !noundef !4
-  %77 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %76 = load i32, ptr %20, align 4, !noundef !4
+  %77 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %78 = load i32, ptr %77, align 4, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2855)
@@ -14084,7 +14083,7 @@ _ZN3vim6motion6Motion8linewise17h23edaf0a1a0fd512E.exit: ; preds = %"_ZN4text9se
 
 103:                                              ; preds = %32
   store i32 0, ptr %0, align 4
-  br label %231
+  br label %74
 
 104:                                              ; preds = %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit", %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit", %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit", %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit", %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit", %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit", %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit", %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit", %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit", %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit", %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit", %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit", %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit", %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit", %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit", %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit", %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit", %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit", %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit", %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit", %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit", %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit", %"_ZN4text9selection18Selection$LT$T$GT$8set_head17h44391866442a9cd8E.exit"
   %105 = icmp eq i8 %24, 6
@@ -14263,7 +14262,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   store i32 %178, ptr %.sroa.628.0..sroa_idx, align 4
   store i32 1, ptr %0, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %231
+  br label %74
 
 183:                                              ; preds = %217, %202, %_ZN3vim6motion6Motion8linewise17h23edaf0a1a0fd512E.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -14322,7 +14321,6 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   store i32 %213, ptr %.sroa.617.0..sroa_idx, align 4
   store i32 1, ptr %0, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %74
 
 217:                                              ; preds = %202
@@ -14344,10 +14342,6 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   store i32 %229, ptr %.sink13.i.sroa.gep, align 8
   store i32 %230, ptr %.sink11.i.sroa.gep, align 4
   br label %183
-
-231:                                              ; preds = %177, %103
-  call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %74
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -19835,7 +19829,7 @@ _ZN3vim6object16around_next_word17h2e7ebcd1ac46218eE.exit: ; preds = %114, %101,
 
 129:                                              ; preds = %"_ZN4core3ptr466drop_in_place$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..map..Map$LT$multi_buffer..MultiBufferChunks$C$multi_buffer..MultiBufferSnapshot..text_for_range$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..str..iter..Chars$C$multi_buffer..MultiBufferSnapshot..chars_at$LT$usize$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$editor..display_map..DisplaySnapshot..buffer_chars_at..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h432d2e003715639eE.exit19"
   call void @llvm.experimental.noalias.scope.decl(metadata !4500)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !4503
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @_ZN3vim6object7in_word17h5969cae77315986eE.llvm.2345482801186077863(ptr noalias noundef nonnull sret([20 x i8]) align 4 captures(none) dereferenceable(20) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(632) %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4)
           to label %.noexc20 unwind label %34
 
@@ -19853,7 +19847,7 @@ _ZN3vim6object16around_next_word17h2e7ebcd1ac46218eE.exit: ; preds = %114, %101,
 _ZN3vim6object22around_containing_word17hb7ea010915d15035E.exit: ; preds = %131, %.noexc20
   %.sink.i = phi i32 [ 0, %.noexc20 ], [ 1, %131 ]
   store i32 %.sink.i, ptr %0, align 4, !alias.scope !4500, !noalias !4505
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !4503
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %134
 
 134:                                              ; preds = %_ZN3vim6object22around_containing_word17hb7ea010915d15035E.exit, %_ZN3vim6object16around_next_word17h2e7ebcd1ac46218eE.exit

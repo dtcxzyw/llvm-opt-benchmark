@@ -18291,8 +18291,8 @@ define internal fastcc void @"_ZN13deltalake_aws18DynamoDbLockClient16get_latest
   %8 = alloca { i64, [39 x i64] }, align 8
   %.sroa.5.i.i = alloca [200 x i8], align 8
   %9 = alloca { { [2 x i32], i32, [1 x i32] }, double, double, { i64, i32, [1 x i32] }, { i64, i32, [1 x i32] }, { i64, i32, [1 x i32] }, { { { i64, i32, [1 x i32] } } }, {} }, align 8
-  %10 = alloca { { i64, ptr, {} }, i64 }, align 8
   %.sroa.3.sroa.7.i = alloca [34 x i64], align 8
+  %10 = alloca { { i64, ptr, {} }, i64 }, align 8
   %.sroa.850.sroa.8.i = alloca [34 x i64], align 8
   %11 = alloca { { i64, [26 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, [5 x i64] }, i32, i32 }, align 8
   %12 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
@@ -23332,7 +23332,8 @@ define internal void @"_ZN98_$LT$deltalake_aws..logstore..S3DynamoDbLogStore$u20
   %80 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %81 = alloca { { i64, [4 x i64] } }, align 8
   %.sroa.10234 = alloca [5 x i64], align 8
-  %.sroa.11236 = alloca [3 x i64], align 8
+  %.sroa.15.sroa.0 = alloca [5 x i64], align 8
+  %.sroa.15.sroa.2 = alloca [3 x i64], align 8
   %.sroa.10225.sroa.6 = alloca [5 x i64], align 8
   %.sroa.10225.sroa.7 = alloca [3 x i64], align 8
   %82 = alloca { { ptr, ptr }, i64, [24 x i8], i8, [807 x i8] }, align 8
@@ -23390,7 +23391,7 @@ common.ret:                                       ; preds = %1396, %283, %242, %
   %.sroa.10234.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.10234.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.10234, i64 40, i1 false)
   %.sroa.11236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11236.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11236, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11236.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.sroa.2, i64 24, i1 false)
   br label %common.ret
 
 103:                                              ; preds = %3
@@ -23838,6 +23839,7 @@ common.ret:                                       ; preds = %1396, %283, %242, %
 
 253:                                              ; preds = %"_ZN4core3ptr101drop_in_place$LT$deltalake_aws..DynamoDbLockClient..get_latest_entry..$u7b$$u7b$closure$u7d$$u7d$$GT$17hac93af9a50fd3fceE.exit"
   %254 = inttoptr i64 %217 to ptr
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.15.sroa.0, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6190, i64 40, i1 false)
   %255 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store i8 1, ptr %255, align 8
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -23899,6 +23901,7 @@ common.ret:                                       ; preds = %1396, %283, %242, %
   %.sroa.6190.8..sroa_idx191 = getelementptr inbounds nuw i8, ptr %246, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6190.8..sroa_idx191, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.6190, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %81), !noalias !3943
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.10234, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.15.sroa.0, i64 40, i1 false)
   %271 = ptrtoint ptr %246 to i64
   br label %101
 
@@ -24025,7 +24028,7 @@ common.ret:                                       ; preds = %1396, %283, %242, %
   %.sroa.10234.0..sroa_idx235 = getelementptr inbounds nuw i8, ptr %78, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.10234, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.10234.0..sroa_idx235, i64 40, i1 false), !noalias !3978
   %.sroa.11236.0..sroa_idx237 = getelementptr inbounds nuw i8, ptr %78, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11236, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11236.0..sroa_idx237, i64 24, i1 false), !noalias !3978
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.sroa.2, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11236.0..sroa_idx237, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %78), !noalias !3976
   call void @llvm.lifetime.end.p0(ptr nonnull %79)
   %310 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -27253,7 +27256,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i105
   %.sroa.0146.0.i268 = phi i64 [ %.sroa.043.1.i169.i, %.thread263 ], [ %.sroa.0146.0.copyload.i, %1394 ]
   %.sroa.6151.i.sroa.0.0267 = phi ptr [ %.sroa.6151.i.sroa.0.0.ph, %.thread263 ], [ %.sroa.6151.i.sroa.0.0.copyload238, %1394 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.10234, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.10225.sroa.6, i64 40, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11236, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10225.sroa.7, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.15.sroa.2, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.10225.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10225.sroa.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10225.sroa.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %83)

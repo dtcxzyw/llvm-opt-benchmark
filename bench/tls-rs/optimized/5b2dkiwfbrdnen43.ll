@@ -303,11 +303,11 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %11, label %24, label %12
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %14 = load i64, ptr %13, align 8, !alias.scope !14, !noalias !11, !noundef !13
-  call void @_ZN6rustls4msgs7message8outbound14OutboundChunks8split_at17h87280a3cc8187261E(ptr noalias noundef nonnull sret({ { ptr, [3 x i64] }, { ptr, [3 x i64] } }) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, i64 noundef %14)
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %15 = load i64, ptr %14, align 8, !alias.scope !14, !noalias !11, !noundef !13
+  call void @_ZN6rustls4msgs7message8outbound14OutboundChunks8split_at17h87280a3cc8187261E(ptr noalias noundef nonnull sret({ { ptr, [3 x i64] }, { ptr, [3 x i64] } }) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, i64 noundef %15)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %18 = load i8, ptr %17, align 4, !range !15, !alias.scope !16, !noalias !21, !noundef !13
@@ -20838,8 +20838,8 @@ define hidden { i64, i64 } @_ZN6rustls12common_state11CommonState19check_require
   br i1 %16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -20862,9 +20862,9 @@ define hidden { i64, i64 } @_ZN6rustls12common_state11CommonState19check_require
 27:                                               ; preds = %.lr.ph, %27
   %.124 = phi i64 [ %spec.select, %.lr.ph ], [ %34, %27 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !516)
-  %28 = load i64, ptr %17, align 8, !alias.scope !518, !noalias !513, !noundef !13
+  %28 = load i64, ptr %18, align 8, !alias.scope !518, !noalias !513, !noundef !13
   call void @_ZN6rustls4msgs7message8outbound14OutboundChunks8split_at17h87280a3cc8187261E(ptr noalias noundef nonnull sret({ { ptr, [3 x i64] }, { ptr, [3 x i64] } }) align 8 captures(none) dereferenceable(64) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %8, i64 noundef %28), !noalias !519
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false), !noalias !519
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false), !noalias !519
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %7, align 8, !noalias !516
   %.sroa.0.sroa.6.0.copyload = load i64, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8, !noalias !516
   %.sroa.0.sroa.7.0.copyload = load i64, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8, !noalias !516

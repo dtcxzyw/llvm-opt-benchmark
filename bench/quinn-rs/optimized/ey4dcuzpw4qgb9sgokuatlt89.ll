@@ -2323,84 +2323,82 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %6 = alloca [48 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [24 x i8], align 8
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %10 = load i64, ptr %9, align 8, !noundef !12
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %15
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %11 = load i64, ptr %10, align 8, !noundef !12
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %13, label %16
 
-12:                                               ; preds = %2
+13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !314
   call void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17h232f8417a0f48512E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
-  %13 = load ptr, ptr %8, align 8, !noalias !314, !noundef !12
-  %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h6f38181cc0aba1cfE.exit", label %14
+  %14 = load ptr, ptr %8, align 8, !noalias !314, !noundef !12
+  %.not.i = icmp eq ptr %14, null
+  br i1 %.not.i, label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h6f38181cc0aba1cfE.exit", label %15
 
-14:                                               ; preds = %12
+15:                                               ; preds = %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !314
   call void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17he911f4eff6b58e18E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h6f38181cc0aba1cfE.exit"
 
-"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h6f38181cc0aba1cfE.exit": ; preds = %12, %14
+"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h6f38181cc0aba1cfE.exit": ; preds = %13, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !314
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr null, ptr %0, align 8
   br label %28
 
-15:                                               ; preds = %2
-  %16 = add i64 %10, -1
-  store i64 %16, ptr %9, align 8
-  %17 = tail call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h49007829e8dbfcaeE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !317
-  %.not.i1 = icmp eq ptr %17, null
-  br i1 %.not.i1, label %26, label %18, !prof !14
+16:                                               ; preds = %2
+  %17 = add i64 %11, -1
+  store i64 %17, ptr %10, align 8
+  %18 = tail call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h49007829e8dbfcaeE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !317
+  %.not.i1 = icmp eq ptr %18, null
+  br i1 %.not.i1, label %27, label %19, !prof !14
 
-18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !320
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !noalias !325
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !noalias !325
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !326
   invoke void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$17deallocating_next17h5696599d0905976eE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
-          to label %.noexc.i.i unwind label %21, !noalias !330
+          to label %.noexc.i.i unwind label %22, !noalias !330
 
-.noexc.i.i:                                       ; preds = %18
-  %19 = load ptr, ptr %4, align 8, !noalias !326, !noundef !12
-  %.not.i.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i.i, label %20, label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$27deallocating_next_unchecked17hb9f0278104610d7fE.exit", !prof !14
+.noexc.i.i:                                       ; preds = %19
+  %20 = load ptr, ptr %4, align 8, !noalias !326, !noundef !12
+  %.not.i.i.i = icmp eq ptr %20, null
+  br i1 %.not.i.i.i, label %21, label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$27deallocating_next_unchecked17hb9f0278104610d7fE.exit", !prof !14
 
-20:                                               ; preds = %.noexc.i.i
+21:                                               ; preds = %.noexc.i.i
   invoke void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.85ea543aef322f1415db305fd562884a.40) #19
-          to label %.noexc1.i.i unwind label %21, !noalias !330
+          to label %.noexc1.i.i unwind label %22, !noalias !330
 
-.noexc1.i.i:                                      ; preds = %20
+.noexc1.i.i:                                      ; preds = %21
   unreachable
 
-21:                                               ; preds = %20, %18
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %21, %19
+  %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..mem..replace..PanicGuard$GT$17h8f58d7ab81a16606E"(ptr noalias noundef nonnull align 1 %3) #20
-          to label %25 unwind label %23, !noalias !330
+          to label %26 unwind label %24, !noalias !330
 
-23:                                               ; preds = %21
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %22
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #21, !noalias !330
   unreachable
 
-25:                                               ; preds = %21
-  resume { ptr, i32 } %22
+26:                                               ; preds = %22
+  resume { ptr, i32 } %23
 
-26:                                               ; preds = %15
+27:                                               ; preds = %16
   tail call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.85ea543aef322f1415db305fd562884a.43) #19, !noalias !317
   unreachable
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$27deallocating_next_unchecked17hb9f0278104610d7fE.exit": ; preds = %.noexc.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !320
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !326
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !320
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !325
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   br label %28
 
 28:                                               ; preds = %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$27deallocating_next_unchecked17hb9f0278104610d7fE.exit", %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h6f38181cc0aba1cfE.exit"
@@ -2415,84 +2413,82 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %6 = alloca [48 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [24 x i8], align 8
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %10 = load i64, ptr %9, align 8, !noundef !12
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %15
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %11 = load i64, ptr %10, align 8, !noundef !12
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %13, label %16
 
-12:                                               ; preds = %2
+13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !331
   call void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17ha7b32fe18c531f2dE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
-  %13 = load ptr, ptr %8, align 8, !noalias !331, !noundef !12
-  %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h23dec4c7cd503bedE.exit", label %14
+  %14 = load ptr, ptr %8, align 8, !noalias !331, !noundef !12
+  %.not.i = icmp eq ptr %14, null
+  br i1 %.not.i, label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h23dec4c7cd503bedE.exit", label %15
 
-14:                                               ; preds = %12
+15:                                               ; preds = %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !331
   call void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17h73a509875d1e0629E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h23dec4c7cd503bedE.exit"
 
-"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h23dec4c7cd503bedE.exit": ; preds = %12, %14
+"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h23dec4c7cd503bedE.exit": ; preds = %13, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !331
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr null, ptr %0, align 8
   br label %28
 
-15:                                               ; preds = %2
-  %16 = add i64 %10, -1
-  store i64 %16, ptr %9, align 8
-  %17 = tail call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h08b6b18fbd58e4f0E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !334
-  %.not.i1 = icmp eq ptr %17, null
-  br i1 %.not.i1, label %26, label %18, !prof !14
+16:                                               ; preds = %2
+  %17 = add i64 %11, -1
+  store i64 %17, ptr %10, align 8
+  %18 = tail call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h08b6b18fbd58e4f0E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !334
+  %.not.i1 = icmp eq ptr %18, null
+  br i1 %.not.i1, label %27, label %19, !prof !14
 
-18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !337
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !noalias !342
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !noalias !342
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !343
   invoke void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$17deallocating_next17h9219adb4acfe833dE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
-          to label %.noexc.i.i unwind label %21, !noalias !347
+          to label %.noexc.i.i unwind label %22, !noalias !347
 
-.noexc.i.i:                                       ; preds = %18
-  %19 = load ptr, ptr %4, align 8, !noalias !343, !noundef !12
-  %.not.i.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i.i, label %20, label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$27deallocating_next_unchecked17hc7825bbd64f9e1f0E.exit", !prof !14
+.noexc.i.i:                                       ; preds = %19
+  %20 = load ptr, ptr %4, align 8, !noalias !343, !noundef !12
+  %.not.i.i.i = icmp eq ptr %20, null
+  br i1 %.not.i.i.i, label %21, label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$27deallocating_next_unchecked17hc7825bbd64f9e1f0E.exit", !prof !14
 
-20:                                               ; preds = %.noexc.i.i
+21:                                               ; preds = %.noexc.i.i
   invoke void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.85ea543aef322f1415db305fd562884a.40) #19
-          to label %.noexc1.i.i unwind label %21, !noalias !347
+          to label %.noexc1.i.i unwind label %22, !noalias !347
 
-.noexc1.i.i:                                      ; preds = %20
+.noexc1.i.i:                                      ; preds = %21
   unreachable
 
-21:                                               ; preds = %20, %18
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %21, %19
+  %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..mem..replace..PanicGuard$GT$17h8f58d7ab81a16606E"(ptr noalias noundef nonnull align 1 %3) #20
-          to label %25 unwind label %23, !noalias !347
+          to label %26 unwind label %24, !noalias !347
 
-23:                                               ; preds = %21
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %22
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #21, !noalias !347
   unreachable
 
-25:                                               ; preds = %21
-  resume { ptr, i32 } %22
+26:                                               ; preds = %22
+  resume { ptr, i32 } %23
 
-26:                                               ; preds = %15
+27:                                               ; preds = %16
   tail call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.85ea543aef322f1415db305fd562884a.43) #19, !noalias !334
   unreachable
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$27deallocating_next_unchecked17hc7825bbd64f9e1f0E.exit": ; preds = %.noexc.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !337
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !343
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !337
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !342
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   br label %28
 
 28:                                               ; preds = %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$27deallocating_next_unchecked17hc7825bbd64f9e1f0E.exit", %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17h23dec4c7cd503bedE.exit"
@@ -2507,84 +2503,82 @@ define hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$
   %6 = alloca [48 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [24 x i8], align 8
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %10 = load i64, ptr %9, align 8, !noundef !12
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %12, label %15
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %11 = load i64, ptr %10, align 8, !noundef !12
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %13, label %16
 
-12:                                               ; preds = %2
+13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !348
   call void @"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$10take_front17ha859d20b20655d42E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
-  %13 = load ptr, ptr %8, align 8, !noalias !348, !noundef !12
-  %.not.i = icmp eq ptr %13, null
-  br i1 %.not.i, label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17hb7c1bc1a0f1be906E.exit", label %14
+  %14 = load ptr, ptr %8, align 8, !noalias !348, !noundef !12
+  %.not.i = icmp eq ptr %14, null
+  br i1 %.not.i, label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17hb7c1bc1a0f1be906E.exit", label %15
 
-14:                                               ; preds = %12
+15:                                               ; preds = %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !348
   call void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$16deallocating_end17hdc582b93ec014456E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7)
   br label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17hb7c1bc1a0f1be906E.exit"
 
-"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17hb7c1bc1a0f1be906E.exit": ; preds = %12, %14
+"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17hb7c1bc1a0f1be906E.exit": ; preds = %13, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !348
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr null, ptr %0, align 8
   br label %28
 
-15:                                               ; preds = %2
-  %16 = add i64 %10, -1
-  store i64 %16, ptr %9, align 8
-  %17 = tail call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h6ffb89bb8832f51cE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !351
-  %.not.i1 = icmp eq ptr %17, null
-  br i1 %.not.i1, label %26, label %18, !prof !14
+16:                                               ; preds = %2
+  %17 = add i64 %11, -1
+  store i64 %17, ptr %10, align 8
+  %18 = tail call noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11collections5btree8navigate39LazyLeafRange$LT$BorrowType$C$K$C$V$GT$10init_front17h6ffb89bb8832f51cE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !351
+  %.not.i1 = icmp eq ptr %18, null
+  br i1 %.not.i1, label %27, label %19, !prof !14
 
-18:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !354
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !noalias !359
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !noalias !359
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !360
   invoke void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$17deallocating_next17hfd4f559beaafad7dE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
-          to label %.noexc.i.i unwind label %21, !noalias !364
+          to label %.noexc.i.i unwind label %22, !noalias !364
 
-.noexc.i.i:                                       ; preds = %18
-  %19 = load ptr, ptr %4, align 8, !noalias !360, !noundef !12
-  %.not.i.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i.i, label %20, label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$27deallocating_next_unchecked17h541fddb925953e9dE.exit", !prof !14
+.noexc.i.i:                                       ; preds = %19
+  %20 = load ptr, ptr %4, align 8, !noalias !360, !noundef !12
+  %.not.i.i.i = icmp eq ptr %20, null
+  br i1 %.not.i.i.i, label %21, label %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$27deallocating_next_unchecked17h541fddb925953e9dE.exit", !prof !14
 
-20:                                               ; preds = %.noexc.i.i
+21:                                               ; preds = %.noexc.i.i
   invoke void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.85ea543aef322f1415db305fd562884a.40) #19
-          to label %.noexc1.i.i unwind label %21, !noalias !364
+          to label %.noexc1.i.i unwind label %22, !noalias !364
 
-.noexc1.i.i:                                      ; preds = %20
+.noexc1.i.i:                                      ; preds = %21
   unreachable
 
-21:                                               ; preds = %20, %18
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %21, %19
+  %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$alloc..collections..btree..mem..replace..PanicGuard$GT$17h8f58d7ab81a16606E"(ptr noalias noundef nonnull align 1 %3) #20
-          to label %25 unwind label %23, !noalias !364
+          to label %26 unwind label %24, !noalias !364
 
-23:                                               ; preds = %21
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %22
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #21, !noalias !364
   unreachable
 
-25:                                               ; preds = %21
-  resume { ptr, i32 } %22
+26:                                               ; preds = %22
+  resume { ptr, i32 } %23
 
-26:                                               ; preds = %15
+27:                                               ; preds = %16
   tail call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.85ea543aef322f1415db305fd562884a.43) #19, !noalias !351
   unreachable
 
 "_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$27deallocating_next_unchecked17h541fddb925953e9dE.exit": ; preds = %.noexc.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !354
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !360
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !354
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !359
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   br label %28
 
 28:                                               ; preds = %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$27deallocating_next_unchecked17h541fddb925953e9dE.exit", %"_ZN5alloc11collections5btree8navigate75LazyLeafRange$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$GT$16deallocating_end17hb7c1bc1a0f1be906E.exit"

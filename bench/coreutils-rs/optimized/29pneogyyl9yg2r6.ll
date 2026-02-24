@@ -791,7 +791,6 @@ define hidden void @"_ZN96_$LT$$LP$A$C$B$C$C$C$D$C$E$C$F$RP$$u20$as$u20$nom..bra
   br i1 %.not, label %119, label %76
 
 91:                                               ; preds = %"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17he0b648c729f91cc9E.exit"
-  call void @llvm.lifetime.start.p0(ptr nonnull %18)
   invoke void @"_ZN3nom10combinator3map28_$u7b$$u7b$closure$u7d$$u7d$17he7536617319a6a5aE.llvm.10490459382562086296"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %18, ptr noalias noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
           to label %"_ZN60_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$C$O$C$E$GT$$GT$5parse17h96f35c0a0d01b08eE.exit" unwind label %88
 
@@ -824,7 +823,6 @@ define hidden void @"_ZN96_$LT$$LP$A$C$B$C$C$C$D$C$E$C$F$RP$$u20$as$u20$nom..bra
   unreachable
 
 103:                                              ; preds = %98, %97
-  call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %104 = load i64, ptr %19, align 8, !range !14
   %.not212 = icmp eq i64 %104, 0
   br i1 %.not212, label %105, label %120

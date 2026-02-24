@@ -5479,30 +5479,30 @@ define void @_ZN9uu_mktemp4exec17h928dc3ff22380017E(ptr noalias noundef writeonl
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !1233
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %54, i64 16
   %.sroa.3.0.copyload.i = load i32, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !1233
-  call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !1240
+  call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !1233
   invoke void @_ZN8tempfile4file8TempPath4keep17h350ef3a79b8859e9E(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %41, ptr noalias noundef nonnull align 1 %70, i64 noundef %.sroa.2.0.copyload.i)
-          to label %75 unwind label %72, !noalias !1244
+          to label %75 unwind label %72, !noalias !1240
 
 72:                                               ; preds = %71
   %73 = landingpad { ptr, i32 }
           cleanup
   %74 = invoke noundef i32 @close(i32 noundef %.sroa.3.0.copyload.i)
-          to label %common.resume unwind label %82, !noalias !1244
+          to label %common.resume unwind label %82, !noalias !1240
 
 75:                                               ; preds = %71
-  %76 = load i64, ptr %41, align 8, !range !284, !noalias !1240, !noundef !5
+  %76 = load i64, ptr %41, align 8, !range !284, !noalias !1244, !noundef !5
   %trunc.i29.i = trunc nuw i64 %76 to i1
   %77 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %78 = load ptr, ptr %77, align 8, !noalias !1240
+  %78 = load ptr, ptr %77, align 8, !noalias !1244
   %79 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %80 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %81 = load i64, ptr %80, align 8, !noalias !1240
+  %81 = load i64, ptr %80, align 8, !noalias !1244
   br i1 %trunc.i29.i, label %87, label %_ZN9uu_mktemp14make_temp_file17h0a31a1240447a4c0E.exit
 
 82:                                               ; preds = %72
   %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #18, !noalias !1244
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #18, !noalias !1240
   unreachable
 
 84:                                               ; preds = %61
@@ -5512,8 +5512,8 @@ define void @_ZN9uu_mktemp4exec17h928dc3ff22380017E(ptr noalias noundef writeonl
   br i1 %86, label %104, label %105
 
 87:                                               ; preds = %75
-  %88 = load ptr, ptr %79, align 8, !noalias !1240, !nonnull !5, !align !369, !noundef !5
-  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !1240
+  %88 = load ptr, ptr %79, align 8, !noalias !1244, !nonnull !5, !align !369, !noundef !5
+  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !1233
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !1233
   store ptr %78, ptr %53, align 8, !noalias !1233
   %.sroa.10.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -5885,8 +5885,8 @@ _ZN9uu_mktemp14make_temp_file17h0a31a1240447a4c0E.exit.thread: ; preds = %194, %
   br label %340
 
 _ZN9uu_mktemp14make_temp_file17h0a31a1240447a4c0E.exit: ; preds = %75
-  %.sroa.4.i.sroa.5.4.copyload.i = load i64, ptr %79, align 8, !noalias !1240
-  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !1240
+  %.sroa.4.i.sroa.5.4.copyload.i = load i64, ptr %79, align 8, !noalias !1244
+  call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !1233
   %197 = inttoptr i64 %81 to ptr
   %198 = call noundef i32 @close(i32 noundef %.sroa.3.0.copyload.i), !noalias !1239
   call void @llvm.lifetime.end.p0(ptr nonnull %55), !noalias !1233
@@ -8371,11 +8371,11 @@ attributes #19 = { noreturn }
 !1237 = distinct !{!1237, !1235, !"_ZN9uu_mktemp14make_temp_file17h0a31a1240447a4c0E: argument 2"}
 !1238 = distinct !{!1238, !1235, !"_ZN9uu_mktemp14make_temp_file17h0a31a1240447a4c0E: argument 3"}
 !1239 = !{!1234}
-!1240 = !{!1241, !1243, !1234, !1236, !1237, !1238}
+!1240 = !{!1241, !1243, !1234}
 !1241 = distinct !{!1241, !1242, !"_ZN8tempfile4file22NamedTempFile$LT$F$GT$4keep17h899cb8e75846f104E: argument 0"}
 !1242 = distinct !{!1242, !"_ZN8tempfile4file22NamedTempFile$LT$F$GT$4keep17h899cb8e75846f104E"}
 !1243 = distinct !{!1243, !1242, !"_ZN8tempfile4file22NamedTempFile$LT$F$GT$4keep17h899cb8e75846f104E: argument 1"}
-!1244 = !{!1241, !1243, !1234}
+!1244 = !{!1241, !1243, !1234, !1236, !1237, !1238}
 !1245 = !{!1246, !1234, !1236, !1237, !1238}
 !1246 = distinct !{!1246, !1247, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4a64f3b3971a3fe4E: argument 0"}
 !1247 = distinct !{!1247, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h4a64f3b3971a3fe4E"}

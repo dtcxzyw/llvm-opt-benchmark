@@ -7824,166 +7824,166 @@ _ZN7doctest10AssertData14StringContainsD2Ev.exit8: ; preds = %76, %80
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7doctest6detail13ResultBuilderC2ENS_10assertType4EnumEPKciS5_S5_RKNS_8ContainsE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(144) initializes((0, 12), (16, 28), (32, 42), (48, 49), (71, 73), (95, 97), (104, 112), (135, 136)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.doctest::Contains", align 8
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 23
-  %10 = load i8, ptr %9, align 1, !tbaa !37
-  %11 = icmp sgt i8 %10, -1
-  br i1 %11, label %12, label %13
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 23
+  %11 = load i8, ptr %10, align 1, !tbaa !37
+  %12 = icmp sgt i8 %11, -1
+  br i1 %12, label %13, label %14
 
-12:                                               ; preds = %7
+13:                                               ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull readonly align 8 dereferenceable(24) %6, i64 24, i1 false)
   br label %_ZN7doctest8ContainsC2ERKS0_.exit
 
-13:                                               ; preds = %7
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !37
-  %16 = icmp ult i32 %15, 24
-  br i1 %16, label %17, label %23
+14:                                               ; preds = %7
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %16 = load i32, ptr %15, align 8, !tbaa !37
+  %17 = icmp ult i32 %16, 24
+  br i1 %17, label %18, label %24
 
-17:                                               ; preds = %13
-  %18 = zext nneg i32 %15 to i64
-  %19 = getelementptr inbounds nuw i8, ptr %8, i64 %18
-  store i8 0, ptr %19, align 1, !tbaa !37
-  %20 = trunc nuw nsw i32 %15 to i8
-  %21 = sub nuw nsw i8 23, %20
-  %22 = getelementptr inbounds nuw i8, ptr %8, i64 23
-  store i8 %21, ptr %22, align 1, !tbaa !37
+18:                                               ; preds = %14
+  %19 = zext nneg i32 %16 to i64
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 %19
+  store i8 0, ptr %20, align 1
+  %21 = trunc nuw nsw i32 %16 to i8
+  %22 = sub nuw nsw i8 23, %21
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 23
+  store i8 %22, ptr %23, align 1
   br label %_ZN7doctest6String8allocateEj.exit.i.i.i
 
-23:                                               ; preds = %13
-  %24 = getelementptr inbounds nuw i8, ptr %8, i64 23
-  store i8 -128, ptr %24, align 1, !tbaa !37
-  %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %15, ptr %25, align 8, !tbaa !37
-  %26 = add i32 %15, 1
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 %26, ptr %27, align 4, !tbaa !37
-  %28 = zext i32 %26 to i64
-  %29 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %28) #51
-  store ptr %29, ptr %8, align 8, !tbaa !37
-  %30 = zext i32 %15 to i64
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
-  store i8 0, ptr %31, align 1, !tbaa !37
+24:                                               ; preds = %14
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 23
+  store i8 -128, ptr %25, align 1
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 %16, ptr %26, align 8
+  %27 = add i32 %16, 1
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store i32 %27, ptr %28, align 4
+  %29 = zext i32 %27 to i64
+  %30 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %29) #51
+  store ptr %30, ptr %8, align 8
+  %31 = zext i32 %16 to i64
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31
+  store i8 0, ptr %32, align 1, !tbaa !37
   br label %_ZN7doctest6String8allocateEj.exit.i.i.i
 
-_ZN7doctest6String8allocateEj.exit.i.i.i:         ; preds = %23, %17
-  %.pre-phi22 = phi i64 [ %30, %23 ], [ %18, %17 ]
-  %.0.i.i.i.i = phi ptr [ %29, %23 ], [ %8, %17 ]
-  %32 = load ptr, ptr %6, align 8, !tbaa !37
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i, ptr align 1 %32, i64 %.pre-phi22, i1 false)
+_ZN7doctest6String8allocateEj.exit.i.i.i:         ; preds = %24, %18
+  %.pre-phi22 = phi i64 [ %31, %24 ], [ %19, %18 ]
+  %.0.i.i.i.i = phi ptr [ %30, %24 ], [ %8, %18 ]
+  %33 = load ptr, ptr %6, align 8, !tbaa !37
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i, ptr align 1 %33, i64 %.pre-phi22, i1 false)
   br label %_ZN7doctest8ContainsC2ERKS0_.exit
 
-_ZN7doctest8ContainsC2ERKS0_.exit:                ; preds = %12, %_ZN7doctest6String8allocateEj.exit.i.i.i
+_ZN7doctest8ContainsC2ERKS0_.exit:                ; preds = %13, %_ZN7doctest6String8allocateEj.exit.i.i.i
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.8.0.copyload = load i32, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.1017.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 23
   %.sroa.1017.0.copyload = load i8, ptr %.sroa.1017.0..sroa_idx, align 1
-  %33 = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8, !tbaa !72
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !292
-  store ptr %35, ptr %0, align 8, !tbaa !293
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %1, ptr %36, align 8, !tbaa !298
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %37, align 8, !tbaa !299
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %3, ptr %38, align 8, !tbaa !300
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %4, ptr %39, align 8, !tbaa !301
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 1, ptr %40, align 8, !tbaa !302
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  store i8 0, ptr %41, align 1, !tbaa !303
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 0, ptr %42, align 8, !tbaa !37
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 71
-  store i8 23, ptr %43, align 1, !tbaa !37
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i8 0, ptr %44, align 8, !tbaa !37
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 95
-  store i8 23, ptr %45, align 1, !tbaa !37
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i8 0, ptr %46, align 8, !tbaa !304
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %5, ptr %47, align 8, !tbaa !305
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %49 = icmp sgt i8 %.sroa.1017.0.copyload, -1
-  br i1 %49, label %.thread, label %51
+  %34 = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8, !tbaa !72
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %36 = load ptr, ptr %35, align 8, !tbaa !292
+  store ptr %36, ptr %0, align 8, !tbaa !293
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %1, ptr %37, align 8, !tbaa !298
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %2, ptr %38, align 8, !tbaa !299
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %3, ptr %39, align 8, !tbaa !300
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %4, ptr %40, align 8, !tbaa !301
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i8 1, ptr %41, align 8, !tbaa !302
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 41
+  store i8 0, ptr %42, align 1, !tbaa !303
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i8 0, ptr %43, align 8, !tbaa !37
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 71
+  store i8 23, ptr %44, align 1, !tbaa !37
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i8 0, ptr %45, align 8, !tbaa !37
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 95
+  store i8 23, ptr %46, align 1, !tbaa !37
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i8 0, ptr %47, align 8, !tbaa !304
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr %5, ptr %48, align 8, !tbaa !305
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %50 = icmp sgt i8 %.sroa.1017.0.copyload, -1
+  br i1 %50, label %.thread, label %52
 
 .thread:                                          ; preds = %_ZN7doctest8ContainsC2ERKS0_.exit
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store ptr %.sroa.0.0.copyload, ptr %48, align 8
+  store ptr %.sroa.0.0.copyload, ptr %49, align 8
   %.sroa.8.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %.sroa.8.0.copyload, ptr %.sroa.8.0..sroa_idx13, align 8
   %.sroa.10.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %.sroa.10.0..sroa_idx16, ptr noundef nonnull align 4 dereferenceable(11) %.sroa.10.0..sroa_idx, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(11) %.sroa.10.0..sroa_idx16, ptr noundef nonnull align 4 dereferenceable(11) %9, i64 11, i1 false)
   %.sroa.1017.0..sroa_idx18 = getelementptr inbounds nuw i8, ptr %0, i64 135
   store i8 %.sroa.1017.0.copyload, ptr %.sroa.1017.0..sroa_idx18, align 1
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i8 1, ptr %50, align 8, !tbaa !306
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i8 1, ptr %51, align 8, !tbaa !306
   br label %_ZN7doctest8ContainsD2Ev.exit
 
-51:                                               ; preds = %_ZN7doctest8ContainsC2ERKS0_.exit
-  %52 = icmp ult i32 %.sroa.8.0.copyload, 24
-  br i1 %52, label %53, label %.noexc.i
+52:                                               ; preds = %_ZN7doctest8ContainsC2ERKS0_.exit
+  %53 = icmp ult i32 %.sroa.8.0.copyload, 24
+  br i1 %53, label %54, label %.noexc.i
 
-53:                                               ; preds = %51
-  %54 = zext nneg i32 %.sroa.8.0.copyload to i64
-  %55 = getelementptr inbounds nuw i8, ptr %48, i64 %54
-  store i8 0, ptr %55, align 1, !tbaa !37
-  %56 = trunc nuw nsw i32 %.sroa.8.0.copyload to i8
-  %57 = sub nuw nsw i8 23, %56
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 135
-  store i8 %57, ptr %58, align 1, !tbaa !37
-  br label %67
-
-.noexc.i:                                         ; preds = %51
+54:                                               ; preds = %52
+  %55 = zext nneg i32 %.sroa.8.0.copyload to i64
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 %55
+  store i8 0, ptr %56, align 1, !tbaa !37
+  %57 = trunc nuw nsw i32 %.sroa.8.0.copyload to i8
+  %58 = sub nuw nsw i8 23, %57
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 135
-  store i8 -128, ptr %59, align 1, !tbaa !37
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 %.sroa.8.0.copyload, ptr %60, align 8, !tbaa !37
-  %61 = add i32 %.sroa.8.0.copyload, 1
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  store i32 %61, ptr %62, align 4, !tbaa !37
-  %63 = zext i32 %61 to i64
-  %64 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %63) #51
-          to label %.noexc unwind label %71
+  store i8 %58, ptr %59, align 1, !tbaa !37
+  br label %68
+
+.noexc.i:                                         ; preds = %52
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 135
+  store i8 -128, ptr %60, align 1, !tbaa !37
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 %.sroa.8.0.copyload, ptr %61, align 8, !tbaa !37
+  %62 = add i32 %.sroa.8.0.copyload, 1
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  store i32 %62, ptr %63, align 4, !tbaa !37
+  %64 = zext i32 %62 to i64
+  %65 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %64) #51
+          to label %.noexc unwind label %72
 
 .noexc:                                           ; preds = %.noexc.i
-  store ptr %64, ptr %48, align 8, !tbaa !37
-  %65 = zext i32 %.sroa.8.0.copyload to i64
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %65
-  store i8 0, ptr %66, align 1, !tbaa !37
-  br label %67
+  store ptr %65, ptr %49, align 8, !tbaa !37
+  %66 = zext i32 %.sroa.8.0.copyload to i64
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 %66
+  store i8 0, ptr %67, align 1, !tbaa !37
+  br label %68
 
-67:                                               ; preds = %.noexc, %53
-  %.pre-phi = phi i64 [ %65, %.noexc ], [ %54, %53 ]
-  %.0.i.i.i.i.i.i = phi ptr [ %64, %.noexc ], [ %48, %53 ]
+68:                                               ; preds = %.noexc, %54
+  %.pre-phi = phi i64 [ %66, %.noexc ], [ %55, %54 ]
+  %.0.i.i.i.i.i.i = phi ptr [ %65, %.noexc ], [ %49, %54 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i.i.i.i, ptr align 1 %.sroa.0.0.copyload, i64 %.pre-phi, i1 false)
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i8 1, ptr %68, align 8, !tbaa !306
-  %69 = icmp eq ptr %.sroa.0.0.copyload, null
-  br i1 %69, label %_ZN7doctest8ContainsD2Ev.exit, label %70
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i8 1, ptr %69, align 8, !tbaa !306
+  %70 = icmp eq ptr %.sroa.0.0.copyload, null
+  br i1 %70, label %_ZN7doctest8ContainsD2Ev.exit, label %71
 
-70:                                               ; preds = %67
+71:                                               ; preds = %68
   tail call void @_ZdaPv(ptr noundef nonnull %.sroa.0.0.copyload) #48
   br label %_ZN7doctest8ContainsD2Ev.exit
 
-_ZN7doctest8ContainsD2Ev.exit:                    ; preds = %70, %67, %.thread
+_ZN7doctest8ContainsD2Ev.exit:                    ; preds = %71, %68, %.thread
   ret void
 
-71:                                               ; preds = %.noexc.i
-  %72 = landingpad { ptr, i32 }
+72:                                               ; preds = %.noexc.i
+  %73 = landingpad { ptr, i32 }
           cleanup
-  %73 = icmp eq ptr %.sroa.0.0.copyload, null
-  br i1 %73, label %_ZN7doctest8ContainsD2Ev.exit9, label %74
+  %74 = icmp eq ptr %.sroa.0.0.copyload, null
+  br i1 %74, label %_ZN7doctest8ContainsD2Ev.exit9, label %75
 
-74:                                               ; preds = %71
+75:                                               ; preds = %72
   tail call void @_ZdaPv(ptr noundef nonnull %.sroa.0.0.copyload) #48
   br label %_ZN7doctest8ContainsD2Ev.exit9
 
-_ZN7doctest8ContainsD2Ev.exit9:                   ; preds = %74, %71
-  resume { ptr, i32 } %72
+_ZN7doctest8ContainsD2Ev.exit9:                   ; preds = %75, %72
+  resume { ptr, i32 } %73
 }
 
 ; Function Attrs: mustprogress uwtable

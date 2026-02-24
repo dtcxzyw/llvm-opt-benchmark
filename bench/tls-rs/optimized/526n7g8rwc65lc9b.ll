@@ -13638,13 +13638,11 @@ define void @_ZN6rustls4quic10connection10Connection13zero_rtt_keys17h3e2200be2f
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN6rustls4quic10connection10Connection7read_hs17hbc50de4ee1ada16aE(ptr noalias noundef writeonly sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) initializes((0, 1)) %0, ptr noalias noundef align 8 dereferenceable(1096) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #5 {
-  %.sroa.77.i1 = alloca [31 x i8], align 1
-  %.sroa.216.i2 = alloca [31 x i8], align 1
   %5 = alloca { i8, [31 x i8] }, align 8
+  %.sroa.216.i1 = alloca [31 x i8], align 1
   %6 = alloca { i8, [31 x i8] }, align 8
-  %.sroa.77.i = alloca [31 x i8], align 1
-  %.sroa.216.i = alloca [31 x i8], align 1
   %7 = alloca { i8, [31 x i8] }, align 8
+  %.sroa.216.i = alloca [31 x i8], align 1
   %8 = alloca { i8, [31 x i8] }, align 8
   %9 = load i64, ptr %1, align 8, !range !106, !noundef !4
   %10 = icmp eq i64 %9, 2
@@ -13652,7 +13650,7 @@ define void @_ZN6rustls4quic10connection10Connection7read_hs17hbc50de4ee1ada16aE
 
 11:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2560)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.77.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.216.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !2563
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 816
@@ -13665,7 +13663,6 @@ define void @_ZN6rustls4quic10connection10Connection7read_hs17hbc50de4ee1ada16aE
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !2563
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2563
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 936
   call void @"_ZN6rustls4conn26ConnectionCore$LT$Data$GT$19process_new_packets17hdaa87f227a030882E"(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(1008) %17, ptr noalias noundef nonnull align 8 dereferenceable(32) %13, ptr noalias noundef nonnull align 8 dereferenceable(48) %18), !noalias !2560
   %19 = load i8, ptr %7, align 8, !range !1613, !noalias !2563, !noundef !4
@@ -13682,28 +13679,25 @@ define void @_ZN6rustls4quic10connection10Connection7read_hs17hbc50de4ee1ada16aE
   br label %"_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$7read_hs17h52f49c795d49a5c5E.exit"
 
 22:                                               ; preds = %16
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2563
   store i8 20, ptr %0, align 8, !alias.scope !2560, !noalias !2566
   br label %"_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$7read_hs17h52f49c795d49a5c5E.exit"
 
 23:                                               ; preds = %16
   %.sroa.420.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.77.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.420.0..sroa_idx.i, i64 31, i1 false), !noalias !2563
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2563
   store i8 %19, ptr %0, align 8, !alias.scope !2560, !noalias !2566
   %.sroa.222.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.222.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.77.i, i64 31, i1 false), !noalias !2566
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.222.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.420.0..sroa_idx.i, i64 31, i1 false), !noalias !2566
   br label %"_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$7read_hs17h52f49c795d49a5c5E.exit"
 
 "_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$7read_hs17h52f49c795d49a5c5E.exit": ; preds = %21, %22, %23
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.77.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.216.i)
   br label %36
 
 24:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2567)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.77.i1)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.216.i2)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.216.i1)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2570
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 776
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 1064
@@ -13714,7 +13708,6 @@ define void @_ZN6rustls4quic10connection10Connection7read_hs17hbc50de4ee1ada16aE
 
 29:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2570
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !2570
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 1016
   call void @"_ZN6rustls4conn26ConnectionCore$LT$Data$GT$19process_new_packets17hdd735a9b5f955f4eE"(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull align 8 dereferenceable(1096) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %26, ptr noalias noundef nonnull align 8 dereferenceable(48) %30), !noalias !2567
   %31 = load i8, ptr %5, align 8, !range !1613, !noalias !2570, !noundef !4
@@ -13722,31 +13715,28 @@ define void @_ZN6rustls4quic10connection10Connection7read_hs17hbc50de4ee1ada16aE
   br i1 %32, label %34, label %35
 
 33:                                               ; preds = %24
-  %.sroa.414.0..sroa_idx.i3 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.216.i2, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.414.0..sroa_idx.i3, i64 31, i1 false), !noalias !2570
+  %.sroa.414.0..sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.216.i1, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.414.0..sroa_idx.i2, i64 31, i1 false), !noalias !2570
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2570
   store i8 %27, ptr %0, align 8, !alias.scope !2567, !noalias !2573
-  %.sroa.216.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.216.0..sroa_idx.i4, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.216.i2, i64 31, i1 false), !noalias !2573
+  %.sroa.216.0..sroa_idx.i3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.216.0..sroa_idx.i3, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.216.i1, i64 31, i1 false), !noalias !2573
   br label %"_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$7read_hs17hdd22cc84f4294390E.exit"
 
 34:                                               ; preds = %29
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2570
   store i8 20, ptr %0, align 8, !alias.scope !2567, !noalias !2573
   br label %"_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$7read_hs17hdd22cc84f4294390E.exit"
 
 35:                                               ; preds = %29
-  %.sroa.420.0..sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.77.i1, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.420.0..sroa_idx.i5, i64 31, i1 false), !noalias !2570
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !2570
+  %.sroa.420.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %31, ptr %0, align 8, !alias.scope !2567, !noalias !2573
-  %.sroa.222.0..sroa_idx.i6 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.222.0..sroa_idx.i6, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.77.i1, i64 31, i1 false), !noalias !2573
+  %.sroa.222.0..sroa_idx.i5 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.222.0..sroa_idx.i5, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.420.0..sroa_idx.i4, i64 31, i1 false), !noalias !2573
   br label %"_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$7read_hs17hdd22cc84f4294390E.exit"
 
 "_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$7read_hs17hdd22cc84f4294390E.exit": ; preds = %33, %34, %35
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.77.i1)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.216.i2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.216.i1)
   br label %36
 
 36:                                               ; preds = %"_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$7read_hs17hdd22cc84f4294390E.exit", %"_ZN6rustls4quic10connection28ConnectionCommon$LT$Data$GT$7read_hs17h52f49c795d49a5c5E.exit"

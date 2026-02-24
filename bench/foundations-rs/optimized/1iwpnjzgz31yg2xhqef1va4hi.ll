@@ -107,7 +107,6 @@ define hidden void @"_ZN102_$LT$tokio_stream..stream_ext..try_next..TryNext$LT$S
   %.sroa.6.sroa.6 = alloca [24 x i8], align 8
   %.sroa.8 = alloca [136 x i8], align 8
   %4 = alloca [176 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   call void @"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdbe7145bd5006c94E"(ptr noalias noundef nonnull sret([176 x i8]) align 8 captures(none) dereferenceable(176) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %6 = load i64, ptr %4, align 8, !range !5, !noundef !3
@@ -154,7 +153,6 @@ define hidden void @"_ZN102_$LT$tokio_stream..stream_ext..try_next..TryNext$LT$S
   br label %10
 
 13:                                               ; preds = %10, %8
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 

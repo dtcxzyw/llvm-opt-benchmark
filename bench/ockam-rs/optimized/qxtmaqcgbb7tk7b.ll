@@ -1901,7 +1901,6 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h75
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h4f49fddffe57843fE"(ptr noalias noundef writeonly sret({ i64, [66 x i64] }) align 8 captures(none) dereferenceable(536) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(48) %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #1 {
   %4 = alloca { [1 x i64], i64, [66 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h160c9db97e7d9b9bE.llvm.12405231282958420040"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [66 x i64] }) align 8 captures(none) dereferenceable(544) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8, !range !732, !noundef !4
@@ -1917,7 +1916,6 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6remove17h4f
   br label %10
 
 10:                                               ; preds = %8, %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 

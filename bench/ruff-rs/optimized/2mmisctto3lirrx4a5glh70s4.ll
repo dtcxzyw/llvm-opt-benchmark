@@ -7016,11 +7016,11 @@ define hidden noundef ptr @_ZN9ty_server6server6client9Requester7request17hc1b2a
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN9ty_server6server10connection21ConnectionInitializer5stdio17hc4bfbe4395eaac40E(ptr dead_on_unwind noalias noundef writable writeonly sret([80 x i8]) align 8 captures(none) dereferenceable(80) initializes((0, 80)) %0) unnamed_addr #1 {
   %2 = alloca [80 x i8], align 8
-  call void @_ZN10lsp_server10Connection5stdio17hd445d78ecac81295E(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  call void @_ZN10lsp_server10Connection5stdio17hd445d78ecac81295E(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %2)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   ret void
 }
 

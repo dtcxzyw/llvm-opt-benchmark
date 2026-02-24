@@ -177,7 +177,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %61
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h52e82587607c2075E.exit", %63
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h7371f7aa4b854bcbE"(ptr noalias noundef align 8 captures(none) dereferenceable(80) %6, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias noundef align 8 dereferenceable(8) %2)
   %60 = load i64, ptr %6, align 8, !range !40, !noundef !4
   switch i64 %60, label %70 [
@@ -234,7 +233,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %73
 
 73:                                               ; preds = %69, %70, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h666ee08a2f51a463E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -358,7 +356,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %61
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h52e82587607c2075E.exit", %63
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h7371f7aa4b854bcbE"(ptr noalias noundef align 8 captures(none) dereferenceable(80) %6, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias noundef align 8 dereferenceable(8) %2)
   %60 = load i64, ptr %6, align 8, !range !40, !noundef !4
   switch i64 %60, label %70 [
@@ -415,7 +412,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %73
 
 73:                                               ; preds = %69, %70, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h666ee08a2f51a463E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -423,13 +419,13 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
 define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h544c21d7425186e2E"(ptr noalias noundef writeonly sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, [9 x i64] }, i64 } }, align 8
   %5 = alloca { { i64, [9 x i64] }, i64 }, align 8
-  %.sroa.6.i.i = alloca [10 x i64], align 8
   %6 = alloca { { i64, [9 x i64] }, i64 }, align 8
   %7 = alloca { i64, [10 x i64] }, align 8
   %.sroa.4.i = alloca [80 x i8], align 8
   %.sroa.3.i.i = alloca [9 x i64], align 8
   %8 = alloca { i64, [9 x i64] }, align 8
   %9 = alloca { { { i64, [9 x i64] }, ptr, [40 x i8], i8, [7 x i8] }, i64 }, align 8
+  %.sroa.10 = alloca [9 x i64], align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -514,9 +510,10 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h5fc1535f0ff0898eE.exit.thread"
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17hc35957e3717ef032E.exit", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h5fc1535f0ff0898eE.exit.thread"
-  %51 = phi i64 [ %.pr, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h5fc1535f0ff0898eE.exit.thread" ], [ %34, %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17hc35957e3717ef032E.exit" ]
+  %51 = phi i64 [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h5fc1535f0ff0898eE.exit.thread" ], [ %34, %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17hc35957e3717ef032E.exit" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i", label %53
 
@@ -534,7 +531,7 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %61 = add i64 %57, 1
   store i64 %61, ptr %58, align 8, !alias.scope !100, !noalias !103
   tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !106
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
   %62 = add i64 %51, -1
@@ -552,32 +549,22 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !122
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.4.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.0..sroa_idx2.i.i.i, i64 80, i1 false), !noalias !122
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !122
   store i64 %.sroa.0.0.copyload1.i.i.i, ptr %4, align 8, !noalias !122
   call void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h4dd82be7970158a3E.llvm.3231017819854299114"(ptr noalias noundef nonnull sret({ { i64, [9 x i64] }, i64 }) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %4), !noalias !123
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !122
   %.sroa.09.0.copyload10.i.i = load i64, ptr %5, align 8, !noalias !124
-  %.sroa.6.0..sroa_idx11.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.i.i, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.0..sroa_idx11.i.i, i64 80, i1 false), !noalias !124
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !122
   %67 = icmp eq i64 %.sroa.09.0.copyload10.i.i, 17
-  br i1 %67, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.thread.i.i", label %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17hba70c2ed5f351c21E.exit.i"
+  br i1 %67, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.thread.i.i", label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h3d8945bf1187e3f0E.exit"
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.thread.i.i": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h1fa4358876fb128dE.llvm.3231017819854299114.exit.i.i.i"
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.014cf6e08a16d8eb4de17facb328ce71.22.llvm.3231017819854299114) #18, !noalias !123
   unreachable
 
-"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17hba70c2ed5f351c21E.exit.i": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.i.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.i.i, i64 80, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i.i)
-  br label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h3d8945bf1187e3f0E.exit"
-
 "_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i": ; preds = %53, %.loopexit
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !106
   call void @"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h6f7d1f93b622f4b8E"(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !125
   %68 = load i64, ptr %7, align 8, !range !40, !noalias !106, !noundef !4
   %69 = icmp eq i64 %68, 18
-  br i1 %69, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %69, label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h3d8945bf1187e3f0E.exit.thread", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i"
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -590,7 +577,7 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
 73:                                               ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i", %.lr.ph.i
   %74 = phi i64 [ %68, %.lr.ph.i ], [ %96, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i" ]
   %75 = icmp eq i64 %74, 17
-  br i1 %75, label %._crit_edge.i, label %76
+  br i1 %75, label %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit", label %76
 
 76:                                               ; preds = %73
   store i64 %74, ptr %6, align 8, !noalias !106
@@ -598,12 +585,7 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %77 = load i64, ptr %70, align 8, !noalias !106, !noundef !4
   %78 = load i64, ptr %71, align 8, !alias.scope !100, !noalias !103, !noundef !4
   %79 = icmp eq i64 %77, %78
-  br i1 %79, label %98, label %80
-
-._crit_edge.i:                                    ; preds = %73, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i", %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i", %98
-  %.sroa.010.0 = phi i64 [ %74, %98 ], [ 18, %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i" ], [ 17, %73 ], [ 18, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i" ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !106
-  br label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h3d8945bf1187e3f0E.exit"
+  br i1 %79, label %104, label %80
 
 80:                                               ; preds = %76
   %81 = load i64, ptr %14, align 8, !alias.scope !126, !noalias !129, !noundef !4
@@ -643,30 +625,28 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %94 = add i64 %93, 1
   store i64 %94, ptr %14, align 8, !alias.scope !131, !noalias !134
   %95 = tail call noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17hdecb1a6b9d26201cE.llvm.3231017819854299114"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i64 noundef 0, i64 noundef %81), !noalias !137
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !106
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !106
   call void @"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h6f7d1f93b622f4b8E"(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !125
   %96 = load i64, ptr %7, align 8, !range !40, !noalias !106, !noundef !4
   %97 = icmp eq i64 %96, 18
-  br i1 %97, label %._crit_edge.i, label %73
+  br i1 %97, label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h3d8945bf1187e3f0E.exit.thread", label %73
 
-98:                                               ; preds = %76
-  %99 = add i64 %77, 1
-  store i64 %99, ptr %71, align 8, !alias.scope !100, !noalias !103
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.3.0..sroa_idx.i, i64 72, i1 false)
-  br label %._crit_edge.i
-
-"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h3d8945bf1187e3f0E.exit": ; preds = %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17hba70c2ed5f351c21E.exit.i", %._crit_edge.i
-  %.sroa.010.1 = phi i64 [ %.sroa.010.0, %._crit_edge.i ], [ %.sroa.09.0.copyload10.i.i, %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17hba70c2ed5f351c21E.exit.i" ]
+"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h3d8945bf1187e3f0E.exit.thread": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i", %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  switch i64 %.sroa.010.1, label %105 [
-    i64 18, label %104
-    i64 17, label %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit"
-  ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %106
+
+"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h3d8945bf1187e3f0E.exit": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.i.i"
+  %98 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(80) %98, i64 80, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !106
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %99 = icmp eq i64 %.sroa.09.0.copyload10.i.i, 18
+  br i1 %99, label %106, label %.thread
 
 "_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h5fc1535f0ff0898eE.exit.thread": ; preds = %38, %50, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h5fc1535f0ff0898eE.exit.thread19"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i.i)
-  %.pr = load i64, ptr %14, align 8, !alias.scope !100, !noalias !103
+  %.pre = load i64, ptr %14, align 8, !alias.scope !100, !noalias !103
   br label %.loopexit
 
 100:                                              ; preds = %48
@@ -685,24 +665,36 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %20
 
-104:                                              ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h3d8945bf1187e3f0E.exit"
+104:                                              ; preds = %76
+  %105 = add i64 %77, 1
+  store i64 %105, ptr %71, align 8, !alias.scope !100, !noalias !103
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.3.0..sroa_idx.i, i64 72, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %.thread
+
+106:                                              ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h3d8945bf1187e3f0E.exit.thread", %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h3d8945bf1187e3f0E.exit"
   store i64 18, ptr %0, align 8
-  br label %108
+  br label %109
 
-105:                                              ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h3d8945bf1187e3f0E.exit"
-  store i64 %.sroa.010.1, ptr %0, align 8
+.thread:                                          ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h3d8945bf1187e3f0E.exit", %104
+  %.sroa.0.0 = phi i64 [ %74, %104 ], [ %.sroa.09.0.copyload10.i.i, %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h3d8945bf1187e3f0E.exit" ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, i64 72, i1 false)
+  store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, i64 72, i1 false)
-  br label %108
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10, i64 72, i1 false)
+  br label %109
 
-"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit": ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h3d8945bf1187e3f0E.exit"
-  %106 = load i8, ptr %15, align 8, !range !10, !noundef !4
-  %107 = trunc nuw i8 %106 to i1
-  %. = select i1 %107, i64 17, i64 18
+"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit": ; preds = %73
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %107 = load i8, ptr %15, align 8, !range !10, !noundef !4
+  %108 = trunc nuw i8 %107 to i1
+  %. = select i1 %108, i64 17, i64 18
   store i64 %., ptr %0, align 8
-  br label %108
+  br label %109
 
-108:                                              ; preds = %104, %105, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit"
+109:                                              ; preds = %106, %.thread, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit"
   ret void
 }
 
@@ -710,13 +702,13 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
 define internal void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h69954d4f91ccb092E"(ptr noalias noundef writeonly sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, [9 x i64] }, i64 } }, align 8
   %5 = alloca { { i64, [9 x i64] }, i64 }, align 8
-  %.sroa.6.i.i = alloca [10 x i64], align 8
   %6 = alloca { { i64, [9 x i64] }, i64 }, align 8
   %7 = alloca { i64, [10 x i64] }, align 8
   %.sroa.4.i = alloca [80 x i8], align 8
   %.sroa.3.i.i = alloca [9 x i64], align 8
   %8 = alloca { i64, [9 x i64] }, align 8
   %9 = alloca { { { i64, [9 x i64] }, ptr, [40 x i8], i8, [7 x i8] }, i64 }, align 8
+  %.sroa.10 = alloca [9 x i64], align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -801,9 +793,10 @@ define internal void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffer
   br label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h70a35f14716ec8f6E.exit.thread"
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17hc1ebfc9732730384E.exit", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h70a35f14716ec8f6E.exit.thread"
-  %51 = phi i64 [ %.pr, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h70a35f14716ec8f6E.exit.thread" ], [ %34, %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17hc1ebfc9732730384E.exit" ]
+  %51 = phi i64 [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h70a35f14716ec8f6E.exit.thread" ], [ %34, %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17hc1ebfc9732730384E.exit" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i", label %53
 
@@ -821,7 +814,7 @@ define internal void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffer
   %61 = add i64 %57, 1
   store i64 %61, ptr %58, align 8, !alias.scope !172, !noalias !175
   tail call void @llvm.experimental.noalias.scope.decl(metadata !179)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !178
   tail call void @llvm.experimental.noalias.scope.decl(metadata !182)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
   %62 = add i64 %51, -1
@@ -839,32 +832,22 @@ define internal void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffer
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !194
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.4.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.0..sroa_idx2.i.i.i, i64 80, i1 false), !noalias !194
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !194
   store i64 %.sroa.0.0.copyload1.i.i.i, ptr %4, align 8, !noalias !194
   call void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h4dd82be7970158a3E.llvm.3231017819854299114"(ptr noalias noundef nonnull sret({ { i64, [9 x i64] }, i64 }) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %4), !noalias !195
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !194
   %.sroa.09.0.copyload10.i.i = load i64, ptr %5, align 8, !noalias !196
-  %.sroa.6.0..sroa_idx11.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.i.i, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.0..sroa_idx11.i.i, i64 80, i1 false), !noalias !196
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !194
   %67 = icmp eq i64 %.sroa.09.0.copyload10.i.i, 17
-  br i1 %67, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.thread.i.i", label %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17hba70c2ed5f351c21E.exit.i"
+  br i1 %67, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.thread.i.i", label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he81c2b7796fab23fE.exit"
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.thread.i.i": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h1fa4358876fb128dE.llvm.3231017819854299114.exit.i.i.i"
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.014cf6e08a16d8eb4de17facb328ce71.22.llvm.3231017819854299114) #18, !noalias !195
   unreachable
 
-"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17hba70c2ed5f351c21E.exit.i": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.i.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.i.i, i64 80, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i.i)
-  br label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he81c2b7796fab23fE.exit"
-
 "_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i": ; preds = %53, %.loopexit
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !178
   call void @"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hca9c75aa9e05783fE"(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !197
   %68 = load i64, ptr %7, align 8, !range !40, !noalias !178, !noundef !4
   %69 = icmp eq i64 %68, 18
-  br i1 %69, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %69, label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he81c2b7796fab23fE.exit.thread", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i"
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -877,7 +860,7 @@ define internal void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffer
 73:                                               ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i", %.lr.ph.i
   %74 = phi i64 [ %68, %.lr.ph.i ], [ %96, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i" ]
   %75 = icmp eq i64 %74, 17
-  br i1 %75, label %._crit_edge.i, label %76
+  br i1 %75, label %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit", label %76
 
 76:                                               ; preds = %73
   store i64 %74, ptr %6, align 8, !noalias !178
@@ -885,12 +868,7 @@ define internal void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffer
   %77 = load i64, ptr %70, align 8, !noalias !178, !noundef !4
   %78 = load i64, ptr %71, align 8, !alias.scope !172, !noalias !175, !noundef !4
   %79 = icmp eq i64 %77, %78
-  br i1 %79, label %98, label %80
-
-._crit_edge.i:                                    ; preds = %73, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i", %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i", %98
-  %.sroa.010.0 = phi i64 [ %74, %98 ], [ 18, %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i" ], [ 17, %73 ], [ 18, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i" ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !178
-  br label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he81c2b7796fab23fE.exit"
+  br i1 %79, label %104, label %80
 
 80:                                               ; preds = %76
   %81 = load i64, ptr %14, align 8, !alias.scope !198, !noalias !201, !noundef !4
@@ -930,30 +908,28 @@ define internal void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffer
   %94 = add i64 %93, 1
   store i64 %94, ptr %14, align 8, !alias.scope !203, !noalias !206
   %95 = tail call noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17hdecb1a6b9d26201cE.llvm.3231017819854299114"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i64 noundef 0, i64 noundef %81), !noalias !209
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !178
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !178
   call void @"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hca9c75aa9e05783fE"(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !197
   %96 = load i64, ptr %7, align 8, !range !40, !noalias !178, !noundef !4
   %97 = icmp eq i64 %96, 18
-  br i1 %97, label %._crit_edge.i, label %73
+  br i1 %97, label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he81c2b7796fab23fE.exit.thread", label %73
 
-98:                                               ; preds = %76
-  %99 = add i64 %77, 1
-  store i64 %99, ptr %71, align 8, !alias.scope !172, !noalias !175
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.3.0..sroa_idx.i, i64 72, i1 false)
-  br label %._crit_edge.i
-
-"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he81c2b7796fab23fE.exit": ; preds = %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17hba70c2ed5f351c21E.exit.i", %._crit_edge.i
-  %.sroa.010.1 = phi i64 [ %.sroa.010.0, %._crit_edge.i ], [ %.sroa.09.0.copyload10.i.i, %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17hba70c2ed5f351c21E.exit.i" ]
+"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he81c2b7796fab23fE.exit.thread": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i", %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  switch i64 %.sroa.010.1, label %105 [
-    i64 18, label %104
-    i64 17, label %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit"
-  ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %106
+
+"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he81c2b7796fab23fE.exit": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.i.i"
+  %98 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(80) %98, i64 80, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !178
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %99 = icmp eq i64 %.sroa.09.0.copyload10.i.i, 18
+  br i1 %99, label %106, label %.thread
 
 "_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h70a35f14716ec8f6E.exit.thread": ; preds = %38, %50, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h70a35f14716ec8f6E.exit.thread19"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i.i)
-  %.pr = load i64, ptr %14, align 8, !alias.scope !172, !noalias !175
+  %.pre = load i64, ptr %14, align 8, !alias.scope !172, !noalias !175
   br label %.loopexit
 
 100:                                              ; preds = %48
@@ -972,24 +948,36 @@ define internal void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffer
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %20
 
-104:                                              ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he81c2b7796fab23fE.exit"
+104:                                              ; preds = %76
+  %105 = add i64 %77, 1
+  store i64 %105, ptr %71, align 8, !alias.scope !172, !noalias !175
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.3.0..sroa_idx.i, i64 72, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %.thread
+
+106:                                              ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he81c2b7796fab23fE.exit.thread", %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he81c2b7796fab23fE.exit"
   store i64 18, ptr %0, align 8
-  br label %108
+  br label %109
 
-105:                                              ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he81c2b7796fab23fE.exit"
-  store i64 %.sroa.010.1, ptr %0, align 8
+.thread:                                          ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he81c2b7796fab23fE.exit", %104
+  %.sroa.0.0 = phi i64 [ %74, %104 ], [ %.sroa.09.0.copyload10.i.i, %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he81c2b7796fab23fE.exit" ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, i64 72, i1 false)
+  store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, i64 72, i1 false)
-  br label %108
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10, i64 72, i1 false)
+  br label %109
 
-"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit": ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he81c2b7796fab23fE.exit"
-  %106 = load i8, ptr %15, align 8, !range !10, !noundef !4
-  %107 = trunc nuw i8 %106 to i1
-  %. = select i1 %107, i64 17, i64 18
+"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit": ; preds = %73
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %107 = load i8, ptr %15, align 8, !range !10, !noundef !4
+  %108 = trunc nuw i8 %107 to i1
+  %. = select i1 %108, i64 17, i64 18
   store i64 %., ptr %0, align 8
-  br label %108
+  br label %109
 
-108:                                              ; preds = %104, %105, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit"
+109:                                              ; preds = %106, %.thread, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit"
   ret void
 }
 
@@ -997,13 +985,13 @@ define internal void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffer
 define internal void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h6bcdb26dfe5349d3E"(ptr noalias noundef writeonly sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, [9 x i64] }, i64 } }, align 8
   %5 = alloca { { i64, [9 x i64] }, i64 }, align 8
-  %.sroa.6.i.i = alloca [10 x i64], align 8
   %6 = alloca { { i64, [9 x i64] }, i64 }, align 8
   %7 = alloca { i64, [10 x i64] }, align 8
   %.sroa.4.i = alloca [80 x i8], align 8
   %.sroa.3.i.i = alloca [9 x i64], align 8
   %8 = alloca { i64, [9 x i64] }, align 8
   %9 = alloca { { { i64, [9 x i64] }, ptr, [40 x i8], i8, [7 x i8] }, i64 }, align 8
+  %.sroa.10 = alloca [9 x i64], align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1088,9 +1076,10 @@ define internal void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffer
   br label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he180a8f4e43d1704E.exit.thread"
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h60ba1a3843299221E.exit", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he180a8f4e43d1704E.exit.thread"
-  %51 = phi i64 [ %.pr, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he180a8f4e43d1704E.exit.thread" ], [ %34, %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h60ba1a3843299221E.exit" ]
+  %51 = phi i64 [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he180a8f4e43d1704E.exit.thread" ], [ %34, %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h60ba1a3843299221E.exit" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i", label %53
 
@@ -1108,7 +1097,7 @@ define internal void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffer
   %61 = add i64 %57, 1
   store i64 %61, ptr %58, align 8, !alias.scope !244, !noalias !247
   tail call void @llvm.experimental.noalias.scope.decl(metadata !251)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !250
   tail call void @llvm.experimental.noalias.scope.decl(metadata !254)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !257)
   %62 = add i64 %51, -1
@@ -1126,32 +1115,22 @@ define internal void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffer
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !266
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.4.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.0..sroa_idx2.i.i.i, i64 80, i1 false), !noalias !266
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !266
   store i64 %.sroa.0.0.copyload1.i.i.i, ptr %4, align 8, !noalias !266
   call void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h4dd82be7970158a3E.llvm.3231017819854299114"(ptr noalias noundef nonnull sret({ { i64, [9 x i64] }, i64 }) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %4), !noalias !267
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !266
   %.sroa.09.0.copyload10.i.i = load i64, ptr %5, align 8, !noalias !268
-  %.sroa.6.0..sroa_idx11.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.i.i, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.0..sroa_idx11.i.i, i64 80, i1 false), !noalias !268
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !266
   %67 = icmp eq i64 %.sroa.09.0.copyload10.i.i, 17
-  br i1 %67, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.thread.i.i", label %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17hba70c2ed5f351c21E.exit.i"
+  br i1 %67, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.thread.i.i", label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdc9bd2e414a0ab8bE.exit"
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.thread.i.i": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h1fa4358876fb128dE.llvm.3231017819854299114.exit.i.i.i"
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.014cf6e08a16d8eb4de17facb328ce71.22.llvm.3231017819854299114) #18, !noalias !267
   unreachable
 
-"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17hba70c2ed5f351c21E.exit.i": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.i.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.i.i, i64 80, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i.i)
-  br label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdc9bd2e414a0ab8bE.exit"
-
 "_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i": ; preds = %53, %.loopexit
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !250
   call void @"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h36215f4ac460d26cE"(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !269
   %68 = load i64, ptr %7, align 8, !range !40, !noalias !250, !noundef !4
   %69 = icmp eq i64 %68, 18
-  br i1 %69, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %69, label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdc9bd2e414a0ab8bE.exit.thread", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i"
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1164,7 +1143,7 @@ define internal void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffer
 73:                                               ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i", %.lr.ph.i
   %74 = phi i64 [ %68, %.lr.ph.i ], [ %96, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i" ]
   %75 = icmp eq i64 %74, 17
-  br i1 %75, label %._crit_edge.i, label %76
+  br i1 %75, label %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit", label %76
 
 76:                                               ; preds = %73
   store i64 %74, ptr %6, align 8, !noalias !250
@@ -1172,12 +1151,7 @@ define internal void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffer
   %77 = load i64, ptr %70, align 8, !noalias !250, !noundef !4
   %78 = load i64, ptr %71, align 8, !alias.scope !244, !noalias !247, !noundef !4
   %79 = icmp eq i64 %77, %78
-  br i1 %79, label %98, label %80
-
-._crit_edge.i:                                    ; preds = %73, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i", %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i", %98
-  %.sroa.010.0 = phi i64 [ %74, %98 ], [ 18, %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i" ], [ 17, %73 ], [ 18, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i" ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !250
-  br label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdc9bd2e414a0ab8bE.exit"
+  br i1 %79, label %104, label %80
 
 80:                                               ; preds = %76
   %81 = load i64, ptr %14, align 8, !alias.scope !270, !noalias !273, !noundef !4
@@ -1217,30 +1191,28 @@ define internal void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffer
   %94 = add i64 %93, 1
   store i64 %94, ptr %14, align 8, !alias.scope !275, !noalias !278
   %95 = tail call noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17hdecb1a6b9d26201cE.llvm.3231017819854299114"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i64 noundef 0, i64 noundef %81), !noalias !281
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !250
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !250
   call void @"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h36215f4ac460d26cE"(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !269
   %96 = load i64, ptr %7, align 8, !range !40, !noalias !250, !noundef !4
   %97 = icmp eq i64 %96, 18
-  br i1 %97, label %._crit_edge.i, label %73
+  br i1 %97, label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdc9bd2e414a0ab8bE.exit.thread", label %73
 
-98:                                               ; preds = %76
-  %99 = add i64 %77, 1
-  store i64 %99, ptr %71, align 8, !alias.scope !244, !noalias !247
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.3.0..sroa_idx.i, i64 72, i1 false)
-  br label %._crit_edge.i
-
-"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdc9bd2e414a0ab8bE.exit": ; preds = %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17hba70c2ed5f351c21E.exit.i", %._crit_edge.i
-  %.sroa.010.1 = phi i64 [ %.sroa.010.0, %._crit_edge.i ], [ %.sroa.09.0.copyload10.i.i, %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17hba70c2ed5f351c21E.exit.i" ]
+"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdc9bd2e414a0ab8bE.exit.thread": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i", %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  switch i64 %.sroa.010.1, label %105 [
-    i64 18, label %104
-    i64 17, label %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit"
-  ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %106
+
+"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdc9bd2e414a0ab8bE.exit": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.i.i"
+  %98 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(80) %98, i64 80, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !250
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %99 = icmp eq i64 %.sroa.09.0.copyload10.i.i, 18
+  br i1 %99, label %106, label %.thread
 
 "_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he180a8f4e43d1704E.exit.thread": ; preds = %38, %50, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he180a8f4e43d1704E.exit.thread19"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i.i)
-  %.pr = load i64, ptr %14, align 8, !alias.scope !244, !noalias !247
+  %.pre = load i64, ptr %14, align 8, !alias.scope !244, !noalias !247
   br label %.loopexit
 
 100:                                              ; preds = %48
@@ -1259,24 +1231,36 @@ define internal void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffer
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %20
 
-104:                                              ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdc9bd2e414a0ab8bE.exit"
+104:                                              ; preds = %76
+  %105 = add i64 %77, 1
+  store i64 %105, ptr %71, align 8, !alias.scope !244, !noalias !247
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.3.0..sroa_idx.i, i64 72, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %.thread
+
+106:                                              ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdc9bd2e414a0ab8bE.exit.thread", %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdc9bd2e414a0ab8bE.exit"
   store i64 18, ptr %0, align 8
-  br label %108
+  br label %109
 
-105:                                              ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdc9bd2e414a0ab8bE.exit"
-  store i64 %.sroa.010.1, ptr %0, align 8
+.thread:                                          ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdc9bd2e414a0ab8bE.exit", %104
+  %.sroa.0.0 = phi i64 [ %74, %104 ], [ %.sroa.09.0.copyload10.i.i, %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdc9bd2e414a0ab8bE.exit" ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, i64 72, i1 false)
+  store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, i64 72, i1 false)
-  br label %108
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10, i64 72, i1 false)
+  br label %109
 
-"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit": ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hdc9bd2e414a0ab8bE.exit"
-  %106 = load i8, ptr %15, align 8, !range !10, !noundef !4
-  %107 = trunc nuw i8 %106 to i1
-  %. = select i1 %107, i64 17, i64 18
+"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit": ; preds = %73
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %107 = load i8, ptr %15, align 8, !range !10, !noundef !4
+  %108 = trunc nuw i8 %107 to i1
+  %. = select i1 %108, i64 17, i64 18
   store i64 %., ptr %0, align 8
-  br label %108
+  br label %109
 
-108:                                              ; preds = %104, %105, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit"
+109:                                              ; preds = %106, %.thread, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit"
   ret void
 }
 
@@ -1284,13 +1268,13 @@ define internal void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffer
 define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h877cc70b2ea812e5E"(ptr noalias noundef writeonly sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, [9 x i64] }, i64 } }, align 8
   %5 = alloca { { i64, [9 x i64] }, i64 }, align 8
-  %.sroa.6.i.i = alloca [10 x i64], align 8
   %6 = alloca { { i64, [9 x i64] }, i64 }, align 8
   %7 = alloca { i64, [10 x i64] }, align 8
   %.sroa.4.i = alloca [80 x i8], align 8
   %.sroa.3.i.i = alloca [9 x i64], align 8
   %8 = alloca { i64, [9 x i64] }, align 8
   %9 = alloca { { { i64, [9 x i64] }, ptr, [40 x i8], i8, [7 x i8] }, i64 }, align 8
+  %.sroa.10 = alloca [9 x i64], align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1375,9 +1359,10 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd0590a13d4aeff86E.exit.thread"
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h910b56ce39a8b945E.exit", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd0590a13d4aeff86E.exit.thread"
-  %51 = phi i64 [ %.pr, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd0590a13d4aeff86E.exit.thread" ], [ %34, %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h910b56ce39a8b945E.exit" ]
+  %51 = phi i64 [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd0590a13d4aeff86E.exit.thread" ], [ %34, %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h910b56ce39a8b945E.exit" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !316)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i", label %53
 
@@ -1395,7 +1380,7 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %61 = add i64 %57, 1
   store i64 %61, ptr %58, align 8, !alias.scope !316, !noalias !319
   tail call void @llvm.experimental.noalias.scope.decl(metadata !323)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !322
   tail call void @llvm.experimental.noalias.scope.decl(metadata !326)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !329)
   %62 = add i64 %51, -1
@@ -1413,32 +1398,22 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !338
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.4.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.0..sroa_idx2.i.i.i, i64 80, i1 false), !noalias !338
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !338
   store i64 %.sroa.0.0.copyload1.i.i.i, ptr %4, align 8, !noalias !338
   call void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h4dd82be7970158a3E.llvm.3231017819854299114"(ptr noalias noundef nonnull sret({ { i64, [9 x i64] }, i64 }) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %4), !noalias !339
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !338
   %.sroa.09.0.copyload10.i.i = load i64, ptr %5, align 8, !noalias !340
-  %.sroa.6.0..sroa_idx11.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.i.i, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.0..sroa_idx11.i.i, i64 80, i1 false), !noalias !340
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !338
   %67 = icmp eq i64 %.sroa.09.0.copyload10.i.i, 17
-  br i1 %67, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.thread.i.i", label %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17hba70c2ed5f351c21E.exit.i"
+  br i1 %67, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.thread.i.i", label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h16957b17323ac158E.exit"
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.thread.i.i": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h1fa4358876fb128dE.llvm.3231017819854299114.exit.i.i.i"
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.014cf6e08a16d8eb4de17facb328ce71.22.llvm.3231017819854299114) #18, !noalias !339
   unreachable
 
-"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17hba70c2ed5f351c21E.exit.i": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.i.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.i.i, i64 80, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i.i)
-  br label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h16957b17323ac158E.exit"
-
 "_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i": ; preds = %53, %.loopexit
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !322
   call void @"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h204c01e1567bd603E"(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !341
   %68 = load i64, ptr %7, align 8, !range !40, !noalias !322, !noundef !4
   %69 = icmp eq i64 %68, 18
-  br i1 %69, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %69, label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h16957b17323ac158E.exit.thread", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i"
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1451,7 +1426,7 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
 73:                                               ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i", %.lr.ph.i
   %74 = phi i64 [ %68, %.lr.ph.i ], [ %96, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i" ]
   %75 = icmp eq i64 %74, 17
-  br i1 %75, label %._crit_edge.i, label %76
+  br i1 %75, label %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit", label %76
 
 76:                                               ; preds = %73
   store i64 %74, ptr %6, align 8, !noalias !322
@@ -1459,12 +1434,7 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %77 = load i64, ptr %70, align 8, !noalias !322, !noundef !4
   %78 = load i64, ptr %71, align 8, !alias.scope !316, !noalias !319, !noundef !4
   %79 = icmp eq i64 %77, %78
-  br i1 %79, label %98, label %80
-
-._crit_edge.i:                                    ; preds = %73, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i", %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i", %98
-  %.sroa.010.0 = phi i64 [ %74, %98 ], [ 18, %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i" ], [ 17, %73 ], [ 18, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i" ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !322
-  br label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h16957b17323ac158E.exit"
+  br i1 %79, label %104, label %80
 
 80:                                               ; preds = %76
   %81 = load i64, ptr %14, align 8, !alias.scope !342, !noalias !345, !noundef !4
@@ -1504,30 +1474,28 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %94 = add i64 %93, 1
   store i64 %94, ptr %14, align 8, !alias.scope !347, !noalias !350
   %95 = tail call noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17hdecb1a6b9d26201cE.llvm.3231017819854299114"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i64 noundef 0, i64 noundef %81), !noalias !353
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !322
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !322
   call void @"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h204c01e1567bd603E"(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !341
   %96 = load i64, ptr %7, align 8, !range !40, !noalias !322, !noundef !4
   %97 = icmp eq i64 %96, 18
-  br i1 %97, label %._crit_edge.i, label %73
+  br i1 %97, label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h16957b17323ac158E.exit.thread", label %73
 
-98:                                               ; preds = %76
-  %99 = add i64 %77, 1
-  store i64 %99, ptr %71, align 8, !alias.scope !316, !noalias !319
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.3.0..sroa_idx.i, i64 72, i1 false)
-  br label %._crit_edge.i
-
-"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h16957b17323ac158E.exit": ; preds = %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17hba70c2ed5f351c21E.exit.i", %._crit_edge.i
-  %.sroa.010.1 = phi i64 [ %.sroa.010.0, %._crit_edge.i ], [ %.sroa.09.0.copyload10.i.i, %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17hba70c2ed5f351c21E.exit.i" ]
+"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h16957b17323ac158E.exit.thread": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i", %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  switch i64 %.sroa.010.1, label %105 [
-    i64 18, label %104
-    i64 17, label %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit"
-  ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %106
+
+"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h16957b17323ac158E.exit": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.i.i"
+  %98 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(80) %98, i64 80, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !322
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %99 = icmp eq i64 %.sroa.09.0.copyload10.i.i, 18
+  br i1 %99, label %106, label %.thread
 
 "_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd0590a13d4aeff86E.exit.thread": ; preds = %38, %50, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hd0590a13d4aeff86E.exit.thread19"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i.i)
-  %.pr = load i64, ptr %14, align 8, !alias.scope !316, !noalias !319
+  %.pre = load i64, ptr %14, align 8, !alias.scope !316, !noalias !319
   br label %.loopexit
 
 100:                                              ; preds = %48
@@ -1546,24 +1514,36 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %20
 
-104:                                              ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h16957b17323ac158E.exit"
+104:                                              ; preds = %76
+  %105 = add i64 %77, 1
+  store i64 %105, ptr %71, align 8, !alias.scope !316, !noalias !319
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.3.0..sroa_idx.i, i64 72, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %.thread
+
+106:                                              ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h16957b17323ac158E.exit.thread", %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h16957b17323ac158E.exit"
   store i64 18, ptr %0, align 8
-  br label %108
+  br label %109
 
-105:                                              ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h16957b17323ac158E.exit"
-  store i64 %.sroa.010.1, ptr %0, align 8
+.thread:                                          ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h16957b17323ac158E.exit", %104
+  %.sroa.0.0 = phi i64 [ %74, %104 ], [ %.sroa.09.0.copyload10.i.i, %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h16957b17323ac158E.exit" ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, i64 72, i1 false)
+  store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, i64 72, i1 false)
-  br label %108
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10, i64 72, i1 false)
+  br label %109
 
-"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit": ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h16957b17323ac158E.exit"
-  %106 = load i8, ptr %15, align 8, !range !10, !noundef !4
-  %107 = trunc nuw i8 %106 to i1
-  %. = select i1 %107, i64 17, i64 18
+"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit": ; preds = %73
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %107 = load i8, ptr %15, align 8, !range !10, !noundef !4
+  %108 = trunc nuw i8 %107 to i1
+  %. = select i1 %108, i64 17, i64 18
   store i64 %., ptr %0, align 8
-  br label %108
+  br label %109
 
-108:                                              ; preds = %104, %105, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit"
+109:                                              ; preds = %106, %.thread, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit"
   ret void
 }
 
@@ -1571,13 +1551,13 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
 define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered$LT$St$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hc7205e744599481eE"(ptr noalias noundef writeonly sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef align 8 dereferenceable(104) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, [9 x i64] }, i64 } }, align 8
   %5 = alloca { { i64, [9 x i64] }, i64 }, align 8
-  %.sroa.6.i.i = alloca [10 x i64], align 8
   %6 = alloca { { i64, [9 x i64] }, i64 }, align 8
   %7 = alloca { i64, [10 x i64] }, align 8
   %.sroa.4.i = alloca [80 x i8], align 8
   %.sroa.3.i.i = alloca [9 x i64], align 8
   %8 = alloca { i64, [9 x i64] }, align 8
   %9 = alloca { { { i64, [9 x i64] }, ptr, [40 x i8], i8, [7 x i8] }, i64 }, align 8
+  %.sroa.10 = alloca [9 x i64], align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1662,9 +1642,10 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he7c73abe602f85d7E.exit.thread"
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17ha53d0ed766ec9d44E.exit", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he7c73abe602f85d7E.exit.thread"
-  %51 = phi i64 [ %.pr, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he7c73abe602f85d7E.exit.thread" ], [ %34, %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17ha53d0ed766ec9d44E.exit" ]
+  %51 = phi i64 [ %.pre, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he7c73abe602f85d7E.exit.thread" ], [ %34, %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17ha53d0ed766ec9d44E.exit" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !388)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %52 = icmp eq i64 %51, 0
   br i1 %52, label %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i", label %53
 
@@ -1682,7 +1663,7 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %61 = add i64 %57, 1
   store i64 %61, ptr %58, align 8, !alias.scope !388, !noalias !391
   tail call void @llvm.experimental.noalias.scope.decl(metadata !395)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !394
   tail call void @llvm.experimental.noalias.scope.decl(metadata !398)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !401)
   %62 = add i64 %51, -1
@@ -1700,32 +1681,22 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !410
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.4.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.0..sroa_idx2.i.i.i, i64 80, i1 false), !noalias !410
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !410
   store i64 %.sroa.0.0.copyload1.i.i.i, ptr %4, align 8, !noalias !410
   call void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h4dd82be7970158a3E.llvm.3231017819854299114"(ptr noalias noundef nonnull sret({ { i64, [9 x i64] }, i64 }) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %4), !noalias !411
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !410
   %.sroa.09.0.copyload10.i.i = load i64, ptr %5, align 8, !noalias !412
-  %.sroa.6.0..sroa_idx11.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.i.i, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.0..sroa_idx11.i.i, i64 80, i1 false), !noalias !412
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !410
   %67 = icmp eq i64 %.sroa.09.0.copyload10.i.i, 17
-  br i1 %67, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.thread.i.i", label %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17hba70c2ed5f351c21E.exit.i"
+  br i1 %67, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.thread.i.i", label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h7b12f18b5e54aca3E.exit"
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.thread.i.i": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.i.i", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h1fa4358876fb128dE.llvm.3231017819854299114.exit.i.i.i"
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.014cf6e08a16d8eb4de17facb328ce71.22.llvm.3231017819854299114) #18, !noalias !411
   unreachable
 
-"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17hba70c2ed5f351c21E.exit.i": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.i.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.i.i, i64 80, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i.i)
-  br label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h7b12f18b5e54aca3E.exit"
-
 "_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i": ; preds = %53, %.loopexit
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !394
   call void @"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hccce74a83820db25E"(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !413
   %68 = load i64, ptr %7, align 8, !range !40, !noalias !394, !noundef !4
   %69 = icmp eq i64 %68, 18
-  br i1 %69, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %69, label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h7b12f18b5e54aca3E.exit.thread", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i"
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1738,7 +1709,7 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
 73:                                               ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i", %.lr.ph.i
   %74 = phi i64 [ %68, %.lr.ph.i ], [ %96, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i" ]
   %75 = icmp eq i64 %74, 17
-  br i1 %75, label %._crit_edge.i, label %76
+  br i1 %75, label %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit", label %76
 
 76:                                               ; preds = %73
   store i64 %74, ptr %6, align 8, !noalias !394
@@ -1746,12 +1717,7 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %77 = load i64, ptr %70, align 8, !noalias !394, !noundef !4
   %78 = load i64, ptr %71, align 8, !alias.scope !388, !noalias !391, !noundef !4
   %79 = icmp eq i64 %77, %78
-  br i1 %79, label %98, label %80
-
-._crit_edge.i:                                    ; preds = %73, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i", %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i", %98
-  %.sroa.010.0 = phi i64 [ %74, %98 ], [ 18, %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i" ], [ 17, %73 ], [ 18, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i" ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !394
-  br label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h7b12f18b5e54aca3E.exit"
+  br i1 %79, label %104, label %80
 
 80:                                               ; preds = %76
   %81 = load i64, ptr %14, align 8, !alias.scope !414, !noalias !417, !noundef !4
@@ -1791,30 +1757,28 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   %94 = add i64 %93, 1
   store i64 %94, ptr %14, align 8, !alias.scope !419, !noalias !422
   %95 = tail call noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17hdecb1a6b9d26201cE.llvm.3231017819854299114"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, i64 noundef 0, i64 noundef %81), !noalias !425
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !394
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !394
   call void @"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hccce74a83820db25E"(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %2), !noalias !413
   %96 = load i64, ptr %7, align 8, !range !40, !noalias !394, !noundef !4
   %97 = icmp eq i64 %96, 18
-  br i1 %97, label %._crit_edge.i, label %73
+  br i1 %97, label %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h7b12f18b5e54aca3E.exit.thread", label %73
 
-98:                                               ; preds = %76
-  %99 = add i64 %77, 1
-  store i64 %99, ptr %71, align 8, !alias.scope !388, !noalias !391
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.3.0..sroa_idx.i, i64 72, i1 false)
-  br label %._crit_edge.i
-
-"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h7b12f18b5e54aca3E.exit": ; preds = %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17hba70c2ed5f351c21E.exit.i", %._crit_edge.i
-  %.sroa.010.1 = phi i64 [ %.sroa.010.0, %._crit_edge.i ], [ %.sroa.09.0.copyload10.i.i, %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17hba70c2ed5f351c21E.exit.i" ]
+"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h7b12f18b5e54aca3E.exit.thread": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE.exit.i", %"_ZN4core3ptr202drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$$GT$17h4390a8923434e07fE.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  switch i64 %.sroa.010.1, label %105 [
-    i64 18, label %104
-    i64 17, label %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit"
-  ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %106
+
+"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h7b12f18b5e54aca3E.exit": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17h5cc677c765e33c86E.llvm.3231017819854299114.exit.i.i"
+  %98 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(80) %98, i64 80, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !394
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %99 = icmp eq i64 %.sroa.09.0.copyload10.i.i, 18
+  br i1 %99, label %106, label %.thread
 
 "_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he7c73abe602f85d7E.exit.thread": ; preds = %38, %50, %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he7c73abe602f85d7E.exit.thread19"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i.i)
-  %.pr = load i64, ptr %14, align 8, !alias.scope !388, !noalias !391
+  %.pre = load i64, ptr %14, align 8, !alias.scope !388, !noalias !391
   br label %.loopexit
 
 100:                                              ; preds = %48
@@ -1833,24 +1797,36 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %20
 
-104:                                              ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h7b12f18b5e54aca3E.exit"
+104:                                              ; preds = %76
+  %105 = add i64 %77, 1
+  store i64 %105, ptr %71, align 8, !alias.scope !388, !noalias !391
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.3.0..sroa_idx.i, i64 72, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %.thread
+
+106:                                              ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h7b12f18b5e54aca3E.exit.thread", %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h7b12f18b5e54aca3E.exit"
   store i64 18, ptr %0, align 8
-  br label %108
+  br label %109
 
-105:                                              ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h7b12f18b5e54aca3E.exit"
-  store i64 %.sroa.010.1, ptr %0, align 8
+.thread:                                          ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h7b12f18b5e54aca3E.exit", %104
+  %.sroa.0.0 = phi i64 [ %74, %104 ], [ %.sroa.09.0.copyload10.i.i, %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h7b12f18b5e54aca3E.exit" ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, i64 72, i1 false)
+  store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.i, i64 72, i1 false)
-  br label %108
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.10, i64 72, i1 false)
+  br label %109
 
-"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit": ; preds = %"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h7b12f18b5e54aca3E.exit"
-  %106 = load i8, ptr %15, align 8, !range !10, !noundef !4
-  %107 = trunc nuw i8 %106 to i1
-  %. = select i1 %107, i64 17, i64 18
+"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit": ; preds = %73
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %107 = load i8, ptr %15, align 8, !range !10, !noundef !4
+  %108 = trunc nuw i8 %107 to i1
+  %. = select i1 %108, i64 17, i64 18
   store i64 %., ptr %0, align 8
-  br label %108
+  br label %109
 
-108:                                              ; preds = %104, %105, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit"
+109:                                              ; preds = %106, %.thread, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17hc97b1f11c8ae84ffE.exit"
   ret void
 }
 
@@ -1974,7 +1950,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %61
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h52e82587607c2075E.exit", %63
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h7371f7aa4b854bcbE"(ptr noalias noundef align 8 captures(none) dereferenceable(80) %6, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias noundef align 8 dereferenceable(8) %2)
   %60 = load i64, ptr %6, align 8, !range !40, !noundef !4
   switch i64 %60, label %70 [
@@ -2031,7 +2006,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %73
 
 73:                                               ; preds = %69, %70, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h666ee08a2f51a463E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -2624,7 +2598,6 @@ define hidden void @"_ZN109_$LT$futures_util..stream..futures_ordered..OrderWrap
 define internal fastcc void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h7371f7aa4b854bcbE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, [9 x i64] }, i64 } }, align 8
   %5 = alloca { { i64, [9 x i64] }, i64 }, align 8
-  %.sroa.6.i = alloca [10 x i64], align 8
   %6 = alloca { { i64, [9 x i64] }, i64 }, align 8
   %7 = alloca { i64, [10 x i64] }, align 8
   %.sroa.4 = alloca [80 x i8], align 8
@@ -2647,7 +2620,7 @@ define internal fastcc void @"_ZN113_$LT$futures_util..stream..futures_ordered..
   %19 = add i64 %15, 1
   store i64 %19, ptr %16, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !576)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !579)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !582)
   %20 = add i64 %9, -1
@@ -2665,14 +2638,10 @@ define internal fastcc void @"_ZN113_$LT$futures_util..stream..futures_ordered..
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !591
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.0..sroa_idx2.i.i, i64 80, i1 false), !noalias !591
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !591
   store i64 %.sroa.0.0.copyload1.i.i, ptr %4, align 8, !noalias !591
   call void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h068c87030a6bdd58E.llvm.3231017819854299114"(ptr noalias noundef nonnull sret({ { i64, [9 x i64] }, i64 }) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(88) %4), !noalias !592
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !591
   %.sroa.09.0.copyload10.i = load i64, ptr %5, align 8, !noalias !593
-  %.sroa.6.0..sroa_idx11.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.i, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.0..sroa_idx11.i, i64 80, i1 false), !noalias !593
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !591
   %25 = icmp eq i64 %.sroa.09.0.copyload10.i, 17
   br i1 %25, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17ha0dc5f63033b4bbbE.llvm.3231017819854299114.exit.thread.i", label %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17ha7a5f833f77ff472E.exit"
 
@@ -2681,58 +2650,54 @@ define internal fastcc void @"_ZN113_$LT$futures_util..stream..futures_ordered..
   unreachable
 
 "_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17ha7a5f833f77ff472E.exit": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop17ha0dc5f63033b4bbbE.llvm.3231017819854299114.exit.i"
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6.i, i64 80, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(80) %26, i64 80, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i64 %.sroa.09.0.copyload10.i, ptr %0, align 8
   %.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.430.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.4, i64 72, i1 false)
-  br label %26
+  br label %27
 
-26:                                               ; preds = %41, %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17ha7a5f833f77ff472E.exit"
+27:                                               ; preds = %._crit_edge, %37, %60, %"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17ha7a5f833f77ff472E.exit"
   ret void
 
 "_ZN4core3ptr197drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$$GT$17h8e841e96ab26668fE.exit": ; preds = %11, %3
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h716824dfb28c3fe3E"(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %27, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-  %28 = load i64, ptr %7, align 8, !range !40, !noundef !4
-  %29 = icmp eq i64 %28, 18
-  br i1 %29, label %._crit_edge, label %.lr.ph
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  call void @"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h716824dfb28c3fe3E"(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %28, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  %29 = load i64, ptr %7, align 8, !range !40, !noundef !4
+  %30 = icmp eq i64 %29, 18
+  br i1 %30, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %"_ZN4core3ptr197drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$$GT$17h8e841e96ab26668fE.exit"
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.3.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %33
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br label %34
 
-33:                                               ; preds = %.lr.ph, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17hcb2aaa1f160d78c1E.exit"
-  %34 = phi i64 [ %28, %.lr.ph ], [ %58, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17hcb2aaa1f160d78c1E.exit" ]
-  %35 = icmp eq i64 %34, 17
-  br i1 %35, label %36, label %37
+34:                                               ; preds = %.lr.ph, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17hcb2aaa1f160d78c1E.exit"
+  %35 = phi i64 [ %29, %.lr.ph ], [ %58, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17hcb2aaa1f160d78c1E.exit" ]
+  %36 = icmp eq i64 %35, 17
+  br i1 %36, label %37, label %38
 
 ._crit_edge:                                      ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17hcb2aaa1f160d78c1E.exit", %"_ZN4core3ptr197drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$$GT$17h8e841e96ab26668fE.exit"
   store i64 18, ptr %0, align 8
-  br label %41
+  br label %27
 
-36:                                               ; preds = %33
+37:                                               ; preds = %34
   store i64 17, ptr %0, align 8
-  br label %41
+  br label %27
 
-37:                                               ; preds = %33
-  store i64 %34, ptr %6, align 8
+38:                                               ; preds = %34
+  store i64 %35, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.3.0..sroa_idx3, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.3.0..sroa_idx, i64 80, i1 false)
-  %38 = load i64, ptr %30, align 8, !noundef !4
   %39 = load i64, ptr %31, align 8, !noundef !4
-  %40 = icmp eq i64 %38, %39
-  br i1 %40, label %60, label %42
+  %40 = load i64, ptr %32, align 8, !noundef !4
+  %41 = icmp eq i64 %39, %40
+  br i1 %41, label %60, label %42
 
-41:                                               ; preds = %60, %36, %._crit_edge
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %26
-
-42:                                               ; preds = %37
+42:                                               ; preds = %38
   %43 = load i64, ptr %8, align 8, !alias.scope !594, !noalias !597, !noundef !4
   %44 = load i64, ptr %1, align 8, !alias.scope !599, !noalias !602, !noundef !4
   %45 = icmp eq i64 %43, %44
@@ -2763,25 +2728,23 @@ define internal fastcc void @"_ZN113_$LT$futures_util..stream..futures_ordered..
 
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17hcb2aaa1f160d78c1E.exit": ; preds = %42, %._crit_edge.i.i
   %52 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %43, %42 ]
-  %53 = load ptr, ptr %32, align 8, !alias.scope !599, !noalias !602, !nonnull !4, !noundef !4
+  %53 = load ptr, ptr %33, align 8, !alias.scope !599, !noalias !602, !nonnull !4, !noundef !4
   %54 = getelementptr inbounds { { i64, [9 x i64] }, i64 }, ptr %53, i64 %52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %54, ptr noundef nonnull align 8 dereferenceable(88) %6, i64 88, i1 false)
   %55 = load i64, ptr %8, align 8, !alias.scope !599, !noalias !602, !noundef !4
   %56 = add i64 %55, 1
   store i64 %56, ptr %8, align 8, !alias.scope !599, !noalias !602
   %57 = tail call noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17hd25c2d210a7dfcfcE.llvm.3231017819854299114"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef 0, i64 noundef %43), !noalias !597
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h716824dfb28c3fe3E"(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %27, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  call void @"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h716824dfb28c3fe3E"(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %28, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %58 = load i64, ptr %7, align 8, !range !40, !noundef !4
   %59 = icmp eq i64 %58, 18
-  br i1 %59, label %._crit_edge, label %33
+  br i1 %59, label %._crit_edge, label %34
 
-60:                                               ; preds = %37
-  %61 = add i64 %38, 1
-  store i64 %61, ptr %31, align 8
+60:                                               ; preds = %38
+  %61 = add i64 %39, 1
+  store i64 %61, ptr %32, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %6, i64 80, i1 false)
-  br label %41
+  br label %27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -11052,7 +11015,7 @@ attributes #19 = { nounwind }
 !121 = !{!114, !119, !111, !120, !108, !104, !101, !105}
 !122 = !{!119, !111, !120, !108, !104, !101, !105}
 !123 = !{!120, !104, !105}
-!124 = !{!111, !120, !108, !104, !101, !105}
+!124 = !{!120, !108, !104, !101, !105}
 !125 = !{!104}
 !126 = !{!127, !101}
 !127 = distinct !{!127, !128, !"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE: argument 0"}
@@ -11124,7 +11087,7 @@ attributes #19 = { nounwind }
 !193 = !{!186, !191, !183, !192, !180, !176, !173, !177}
 !194 = !{!191, !183, !192, !180, !176, !173, !177}
 !195 = !{!192, !176, !177}
-!196 = !{!183, !192, !180, !176, !173, !177}
+!196 = !{!192, !180, !176, !173, !177}
 !197 = !{!176}
 !198 = !{!199, !173}
 !199 = distinct !{!199, !200, !"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE: argument 0"}
@@ -11196,7 +11159,7 @@ attributes #19 = { nounwind }
 !265 = !{!258, !263, !255, !264, !252, !248, !245, !249}
 !266 = !{!263, !255, !264, !252, !248, !245, !249}
 !267 = !{!264, !248, !249}
-!268 = !{!255, !264, !252, !248, !245, !249}
+!268 = !{!264, !252, !248, !245, !249}
 !269 = !{!248}
 !270 = !{!271, !245}
 !271 = distinct !{!271, !272, !"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE: argument 0"}
@@ -11268,7 +11231,7 @@ attributes #19 = { nounwind }
 !337 = !{!330, !335, !327, !336, !324, !320, !317, !321}
 !338 = !{!335, !327, !336, !324, !320, !317, !321}
 !339 = !{!336, !320, !321}
-!340 = !{!327, !336, !324, !320, !317, !321}
+!340 = !{!336, !324, !320, !317, !321}
 !341 = !{!320}
 !342 = !{!343, !317}
 !343 = distinct !{!343, !344, !"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE: argument 0"}
@@ -11340,7 +11303,7 @@ attributes #19 = { nounwind }
 !409 = !{!402, !407, !399, !408, !396, !392, !389, !393}
 !410 = !{!407, !399, !408, !396, !392, !389, !393}
 !411 = !{!408, !392, !393}
-!412 = !{!399, !408, !396, !392, !389, !393}
+!412 = !{!408, !396, !392, !389, !393}
 !413 = !{!392}
 !414 = !{!415, !389}
 !415 = distinct !{!415, !416, !"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h875b0f84f3bce4ffE: argument 0"}
@@ -11521,7 +11484,7 @@ attributes #19 = { nounwind }
 !590 = !{!583, !588, !580, !589, !577}
 !591 = !{!588, !580, !589, !577}
 !592 = !{!589}
-!593 = !{!580, !589, !577}
+!593 = !{!589, !577}
 !594 = !{!595}
 !595 = distinct !{!595, !596, !"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17hcb2aaa1f160d78c1E: argument 0"}
 !596 = distinct !{!596, !"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17hcb2aaa1f160d78c1E"}

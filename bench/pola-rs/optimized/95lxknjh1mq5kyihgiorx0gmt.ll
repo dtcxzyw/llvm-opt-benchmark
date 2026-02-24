@@ -5183,29 +5183,29 @@ define hidden void @"_ZN140_$LT$rayon..iter..while_some..WhileSomeConsumer$LT$C$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN140_$LT$rayon..iter..while_some..WhileSomeConsumer$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$core..option..Option$LT$T$GT$$GT$$GT$8split_at17h86bc7640fbb0168eE"(ptr dead_on_unwind noalias noundef writable writeonly sret([112 x i8]) align 8 captures(none) dereferenceable(112) initializes((0, 112)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca [96 x i8], align 8
-  %5 = alloca [40 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
-  call void @"_ZN110_$LT$rayon..iter..fold..FoldConsumer$LT$C$C$ID$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hc7b58ba55561211aE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5, i64 noundef %2)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %9 = load ptr, ptr %8, align 8, !nonnull !6, !align !11, !noundef !6
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %11 = load ptr, ptr %10, align 8, !nonnull !6, !align !11, !noundef !6
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %13 = load ptr, ptr %12, align 8, !nonnull !6, !align !11, !noundef !6
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %6 = alloca [40 x i8], align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
+  call void @"_ZN110_$LT$rayon..iter..fold..FoldConsumer$LT$C$C$ID$C$F$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hc7b58ba55561211aE"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, i64 noundef %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %8 = load ptr, ptr %7, align 8, !nonnull !6, !align !11, !noundef !6
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %10 = load ptr, ptr %9, align 8, !nonnull !6, !align !11, !noundef !6
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %12 = load ptr, ptr %11, align 8, !nonnull !6, !align !11, !noundef !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %13, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %12, ptr %.sroa.4.0..sroa_idx, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %13, ptr %.sroa.42.0..sroa_idx, align 8
+  store ptr %12, ptr %.sroa.42.0..sroa_idx, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %9, ptr %14, align 8
+  store ptr %8, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %11, ptr %15, align 8
+  store ptr %10, ptr %15, align 8
   ret void
 }
 
@@ -5219,63 +5219,63 @@ define hidden { ptr, ptr } @"_ZN140_$LT$rayon..iter..while_some..WhileSomeConsum
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN140_$LT$rayon..iter..while_some..WhileSomeConsumer$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$core..option..Option$LT$T$GT$$GT$$GT$8split_at17h8930039f72e2be25E"(ptr dead_on_unwind noalias noundef writable writeonly sret([64 x i8]) align 8 captures(none) dereferenceable(64) initializes((0, 64)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
-  %5 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @"_ZN114_$LT$rayon..iter..unzip..UnzipConsumer$LT$OP$C$CA$C$CB$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17h311bc12e6767eb79E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, i64 noundef %2)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %9 = load ptr, ptr %8, align 8, !nonnull !6, !align !11, !noundef !6
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %6 = alloca [24 x i8], align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  call void @"_ZN114_$LT$rayon..iter..unzip..UnzipConsumer$LT$OP$C$CA$C$CB$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17h311bc12e6767eb79E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6, i64 noundef %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %8 = load ptr, ptr %7, align 8, !nonnull !6, !align !11, !noundef !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %9, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %9, ptr %.sroa.42.0..sroa_idx, align 8
+  store ptr %8, ptr %.sroa.42.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN140_$LT$rayon..iter..while_some..WhileSomeConsumer$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$core..option..Option$LT$T$GT$$GT$$GT$8split_at17h9bea21f1f5bc14b3E"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) initializes((0, 96)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca [80 x i8], align 8
-  %5 = alloca [40 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
-  call void @"_ZN114_$LT$rayon..iter..unzip..UnzipConsumer$LT$OP$C$CA$C$CB$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hf7e1d677291f316dE"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5, i64 noundef %2)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %9 = load ptr, ptr %8, align 8, !nonnull !6, !align !11, !noundef !6
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %6 = alloca [40 x i8], align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
+  call void @"_ZN114_$LT$rayon..iter..unzip..UnzipConsumer$LT$OP$C$CA$C$CB$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17hf7e1d677291f316dE"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %6, i64 noundef %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %8 = load ptr, ptr %7, align 8, !nonnull !6, !align !11, !noundef !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %9, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %9, ptr %.sroa.42.0..sroa_idx, align 8
+  store ptr %8, ptr %.sroa.42.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN140_$LT$rayon..iter..while_some..WhileSomeConsumer$LT$C$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$core..option..Option$LT$T$GT$$GT$$GT$8split_at17hb9868f8d328c9681E"(ptr dead_on_unwind noalias noundef writable writeonly sret([64 x i8]) align 8 captures(none) dereferenceable(64) initializes((0, 64)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
-  %5 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @"_ZN114_$LT$rayon..iter..unzip..UnzipConsumer$LT$OP$C$CA$C$CB$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17h736a023f626af838E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5, i64 noundef %2)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %9 = load ptr, ptr %8, align 8, !nonnull !6, !align !11, !noundef !6
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %6 = alloca [24 x i8], align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
+  call void @"_ZN114_$LT$rayon..iter..unzip..UnzipConsumer$LT$OP$C$CA$C$CB$GT$$u20$as$u20$rayon..iter..plumbing..Consumer$LT$T$GT$$GT$8split_at17h736a023f626af838E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6, i64 noundef %2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %8 = load ptr, ptr %7, align 8, !nonnull !6, !align !11, !noundef !6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %9, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %9, ptr %.sroa.42.0..sroa_idx, align 8
+  store ptr %8, ptr %.sroa.42.0..sroa_idx, align 8
   ret void
 }
 

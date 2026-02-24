@@ -4562,7 +4562,6 @@ define hidden void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$8pop_spin17h
   br label %4
 
 4:                                                ; preds = %9, %2
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h8282d11a0e3026c4E.llvm.4574499244907318280"(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %3, ptr noundef nonnull align 8 %1)
   %5 = load i64, ptr %3, align 8, !range !321, !noundef !8
   switch i64 %5, label %default.unreachable1 [
@@ -4582,13 +4581,11 @@ default.unreachable1:                             ; preds = %4
 
 9:                                                ; preds = %4
   tail call void @_ZN3std6thread9yield_now17h644406618513f1f1E()
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %4
 
 .loopexit:                                        ; preds = %4, %6
   %storemerge = phi i64 [ 1, %6 ], [ 0, %4 ]
   store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 

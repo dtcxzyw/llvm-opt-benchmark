@@ -5353,22 +5353,21 @@ define void @"_ZN134_$LT$ruff_python_formatter..comments..visitor..CommentsMapBu
   %7 = alloca [80 x i8], align 8
   %8 = alloca [80 x i8], align 8
   %9 = alloca [80 x i8], align 8
-  %10 = alloca [12 x i8], align 4
+  %10 = alloca [80 x i8], align 8
   %11 = alloca [12 x i8], align 4
   %12 = alloca [12 x i8], align 4
-  %13 = alloca [80 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  %13 = alloca [12 x i8], align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8, !nonnull !3, !align !4, !noundef !3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = load ptr, ptr %16, align 8, !nonnull !3, !align !13, !noundef !3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %19 = load i64, ptr %18, align 8, !noundef !3
-  call void @_ZN21ruff_python_formatter8comments9placement13place_comment17h51e541e615026e8bE(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %19)
-  %20 = load i64, ptr %13, align 8, !range !481, !noundef !3
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 24
+  call void @_ZN21ruff_python_formatter8comments9placement13place_comment17h51e541e615026e8bE(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %19)
+  %20 = load i64, ptr %10, align 8, !range !481, !noundef !3
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   switch i64 %20, label %30 [
     i64 92, label %21
     i64 93, label %24
@@ -5378,41 +5377,40 @@ define void @"_ZN134_$LT$ruff_python_formatter..comments..visitor..CommentsMapBu
 21:                                               ; preds = %2
   %22 = load i64, ptr %.sroa.10.0..sroa_idx, align 8, !range !421, !noundef !3
   %23 = load ptr, ptr %.sroa.12.0..sroa_idx, align 8, !noundef !3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.14.0..sroa_idx, i64 12, i1 false)
-  call void @_ZN21ruff_python_formatter8comments7visitor18CommentsMapBuilder20push_leading_comment17hc22cd20a3c488c80E(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %22, ptr noundef %23, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %12)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.14.0..sroa_idx, i64 12, i1 false)
+  call void @_ZN21ruff_python_formatter8comments7visitor18CommentsMapBuilder20push_leading_comment17hc22cd20a3c488c80E(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %22, ptr noundef %23, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %13)
   br label %32
 
 24:                                               ; preds = %2
   %25 = load i64, ptr %.sroa.10.0..sroa_idx, align 8, !range !421, !noundef !3
   %26 = load ptr, ptr %.sroa.12.0..sroa_idx, align 8, !noundef !3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.14.0..sroa_idx, i64 12, i1 false)
-  call void @_ZN21ruff_python_formatter8comments7visitor18CommentsMapBuilder21push_trailing_comment17h8c52d821e94756c1E(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %25, ptr noundef %26, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %11)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.14.0..sroa_idx, i64 12, i1 false)
+  call void @_ZN21ruff_python_formatter8comments7visitor18CommentsMapBuilder21push_trailing_comment17h8c52d821e94756c1E(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %25, ptr noundef %26, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %12)
   br label %32
 
 27:                                               ; preds = %2
   %28 = load i64, ptr %.sroa.10.0..sroa_idx, align 8, !range !421, !noundef !3
   %29 = load ptr, ptr %.sroa.12.0..sroa_idx, align 8, !noundef !3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.14.0..sroa_idx, i64 12, i1 false)
-  call void @_ZN21ruff_python_formatter8comments7visitor18CommentsMapBuilder21push_dangling_comment17hfeecd0de39504e75E(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %28, ptr noundef %29, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %10)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.14.0..sroa_idx, i64 12, i1 false)
+  call void @_ZN21ruff_python_formatter8comments7visitor18CommentsMapBuilder21push_dangling_comment17hfeecd0de39504e75E(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %28, ptr noundef %29, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %11)
   br label %32
 
 30:                                               ; preds = %2
   %.sroa.10.0.copyload = load ptr, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.12.0.copyload = load i64, ptr %.sroa.12.0..sroa_idx, align 8
   %.sroa.14.0.copyload = load ptr, ptr %.sroa.14.0..sroa_idx, align 8
-  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.sroa.16.0.copyload = load i64, ptr %.sroa.16.0..sroa_idx, align 8
-  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 40
   %.sroa.18.0.copyload = load ptr, ptr %.sroa.18.0..sroa_idx, align 8
-  %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %.sroa.20107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 72
+  %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %.sroa.20107.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 72
   %.sroa.20107.0.copyload = load i8, ptr %.sroa.20107.0..sroa_idx, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 73
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 73
   %31 = trunc nuw i8 %.sroa.20107.0.copyload to i1
   br i1 %31, label %33, label %34
 
 32:                                               ; preds = %37, %38, %39, %40, %41, %43, %44, %27, %24, %21
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret void
 
 33:                                               ; preds = %30

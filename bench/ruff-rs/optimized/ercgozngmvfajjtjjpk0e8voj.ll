@@ -8796,7 +8796,6 @@ define void @"_ZN159_$LT$ruff_python_formatter..verbatim..FormatVerbatimStatemen
   store i32 %24, ptr %.sroa.3.0..sroa_idx43, align 8
   %.sroa.4.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i32 %26, ptr %.sroa.4.0..sroa_idx44, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @"_ZN108_$LT$ruff_python_formatter..verbatim..LogicalLinesIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h642c6d1a69e2e6dfE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
   %31 = load i32, ptr %15, align 8, !range !492, !noundef !3
   %.not91 = icmp eq i32 %31, 5
@@ -8832,7 +8831,6 @@ define void @"_ZN159_$LT$ruff_python_formatter..verbatim..FormatVerbatimStatemen
   br i1 %.not40, label %50, label %49
 
 ._crit_edge:                                      ; preds = %155, %3
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   store i32 4, ptr %0, align 8
   br label %48
@@ -9100,15 +9098,12 @@ _ZN21ruff_python_formatter8verbatim11Indentation11trim_indent17h4bddbf0f5b961f3e
   br label %155
 
 155:                                              ; preds = %144, %159, %165, %147, %149
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @"_ZN108_$LT$ruff_python_formatter..verbatim..LogicalLinesIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h642c6d1a69e2e6dfE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
   %156 = load i32, ptr %15, align 8, !range !492, !noundef !3
   %.not = icmp eq i32 %156, 5
   br i1 %.not, label %._crit_edge, label %46
 
 157:                                              ; preds = %146, %49
-  call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %48
 

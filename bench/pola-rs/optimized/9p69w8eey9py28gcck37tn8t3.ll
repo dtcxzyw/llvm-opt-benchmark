@@ -29954,11 +29954,11 @@ _ZN8indexmap3map4core12update_index17he348a93a6c4e4b90E.exit.i: ; preds = %97
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 16 dereferenceable(24) %122, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %.sroa.2, ptr noundef nonnull align 16 dereferenceable(160) %5, i64 160, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4351
-  %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %.sroa.53.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(160) %.sroa.2, i64 160, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %0, ptr noundef nonnull align 16 dereferenceable(24) %.sroa.0, i64 24, i1 false)
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %80, ptr %.sroa.42.0..sroa_idx, align 8
+  %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %.sroa.53.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(160) %.sroa.2, i64 160, i1 false)
   br label %125
 
 123:                                              ; preds = %52

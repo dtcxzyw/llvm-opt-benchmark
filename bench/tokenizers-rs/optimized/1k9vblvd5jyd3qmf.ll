@@ -4318,7 +4318,6 @@ _ZN5alloc7raw_vec14handle_reserve17hcb20a06a0df09bdfE.llvm.787574339177529159.ex
   resume { ptr, i32 } %eh.lpad-body
 
 27:                                               ; preds = %44, %_ZN5alloc7raw_vec14handle_reserve17hcb20a06a0df09bdfE.llvm.787574339177529159.exit
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$serde..de..SeqAccess$GT$17next_element_seed17h04eaa108fdabbc1bE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
           to label %_ZN5serde2de9SeqAccess12next_element17h949129f54a036eedE.llvm.787574339177529159.exit unwind label %28
 
@@ -4345,7 +4344,6 @@ _ZN5serde2de9SeqAccess12next_element17h949129f54a036eedE.llvm.787574339177529159
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %33, ptr %34, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @"_ZN4core3ptr101drop_in_place$LT$alloc..vec..Vec$LT$tokenizers..tokenizer..added_vocabulary..AddedTokenWithId$GT$$GT$17hdd3517ba0bad7263E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
   br label %50
 
@@ -4384,11 +4382,9 @@ _ZN5serde2de9SeqAccess12next_element17h949129f54a036eedE.llvm.787574339177529159
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %47, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   %48 = add i64 %45, 1
   store i64 %48, ptr %25, align 8, !alias.scope !640, !noalias !643
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %27
 
 49:                                               ; preds = %_ZN5serde2de9SeqAccess12next_element17h949129f54a036eedE.llvm.787574339177529159.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   br label %50
 

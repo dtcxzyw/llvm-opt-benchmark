@@ -841,7 +841,7 @@ define hidden void @"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..fu
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !121
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17hb3a760fc735c60b0E.llvm.14686985191095695476"(ptr noalias noundef nonnull sret([144 x i8]) align 8 captures(none) dereferenceable(144) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %10, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !118
   %11 = load i64, ptr %4, align 8, !range !117, !noalias !121, !noundef !4
   switch i64 %11, label %13 [
@@ -862,7 +862,7 @@ define hidden void @"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$core..fu
 "_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hff817c9b240834f1E.exit": ; preds = %9, %13
   %storemerge.i = phi i64 [ %11, %13 ], [ 4, %9 ]
   store i64 %storemerge.i, ptr %0, align 8, !alias.scope !118, !noalias !124
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !121
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %16
 
 14:                                               ; preds = %7

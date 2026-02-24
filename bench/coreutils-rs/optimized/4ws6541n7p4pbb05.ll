@@ -843,9 +843,9 @@ define void @_ZN7uu_tail4args8Settings4from17h5fe4abe57ada33c7E(ptr noalias noun
   %20 = alloca { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, align 8
   %21 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %22 = alloca { i64, [4 x i64] }, align 8
-  %23 = alloca { { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, i64 }, { i64, i16, [3 x i16] }, i16, i8, i8, i8, i8, [2 x i8] } }, align 8
-  %24 = alloca { { { ptr, i64 }, i64, ptr, { ptr, [3 x i64] } } }, align 8
-  %25 = alloca { i64, [13 x i64] }, align 8
+  %23 = alloca { i64, [13 x i64] }, align 8
+  %24 = alloca { { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { ptr, i64 }, { i64, i16, [3 x i16] }, i16, i8, i8, i8, i8, [2 x i8] } }, align 8
+  %25 = alloca { { { ptr, i64 }, i64, ptr, { ptr, [3 x i64] } } }, align 8
   %26 = alloca [2 x { ptr, ptr }], align 8
   %27 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %28 = alloca { i128, [4 x i64] }, align 16
@@ -1621,35 +1621,35 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit33.i: ; preds = %236
   %321 = load ptr, ptr %320, align 8, !nonnull !5, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !355)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !358)
+  call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !360
-  call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !360
   %.not.i142 = icmp eq i64 %319, 0
   %..i = select i1 %.not.i142, ptr null, ptr %321
-  store ptr %321, ptr %24, align 8, !noalias !360
-  %.sroa.4.0..sroa_idx.i143 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store ptr %321, ptr %25, align 8, !noalias !360
+  %.sroa.4.0..sroa_idx.i143 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 %319, ptr %.sroa.4.0..sroa_idx.i143, align 8, !noalias !360
-  %.sroa.5.0..sroa_idx.i144 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %.sroa.5.0..sroa_idx.i144 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx.i144, align 8, !noalias !360
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %..i, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !360
-  %.sroa.7.0..sroa_idx.i145 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %.sroa.7.0..sroa_idx.i145 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr null, ptr %.sroa.7.0..sroa_idx.i145, align 8, !noalias !360
-  invoke void @_ZN10fundu_core5parse18ReprParserTemplate5parse17h0fbafb4f7266594cE(ptr noalias noundef nonnull sret({ i64, [13 x i64] }) align 8 captures(none) dereferenceable(112) %25, ptr noalias noundef nonnull align 8 dereferenceable(64) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %71, ptr noundef nonnull align 1 %317, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.87f6e18fecb33f35561fd9552121b522.66, ptr noundef align 1 null, ptr undef, ptr noundef align 1 null, ptr undef)
+  invoke void @_ZN10fundu_core5parse18ReprParserTemplate5parse17h0fbafb4f7266594cE(ptr noalias noundef nonnull sret({ i64, [13 x i64] }) align 8 captures(none) dereferenceable(112) %23, ptr noalias noundef nonnull align 8 dereferenceable(64) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %71, ptr noundef nonnull align 1 %317, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.87f6e18fecb33f35561fd9552121b522.66, ptr noundef align 1 null, ptr undef, ptr noundef align 1 null, ptr undef)
           to label %.noexc146 unwind label %.loopexit.split-lp
 
 .noexc146:                                        ; preds = %316
-  %322 = load i64, ptr %25, align 8, !range !45, !noalias !360, !noundef !5
+  %322 = load i64, ptr %23, align 8, !range !45, !noalias !360, !noundef !5
   %323 = icmp eq i64 %322, 2
   br i1 %323, label %336, label %324
 
 324:                                              ; preds = %.noexc146
-  call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !360
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %23, ptr noundef nonnull align 8 dereferenceable(112) %25, i64 112, i1 false), !noalias !360
+  call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !360
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %24, ptr noundef nonnull align 8 dereferenceable(112) %23, i64 112, i1 false), !noalias !360
   %325 = getelementptr inbounds nuw i8, ptr %71, i64 54
   %.val.i = load i8, ptr %325, align 2, !alias.scope !358, !noalias !362
   call void @llvm.experimental.noalias.scope.decl(metadata !363)
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !360
-  invoke void @_ZN10fundu_core5parse12DurationRepr5parse17h76881df74f2571beE(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %22, ptr noalias noundef nonnull align 8 dereferenceable(112) %23)
+  invoke void @_ZN10fundu_core5parse12DurationRepr5parse17h76881df74f2571beE(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %22, ptr noalias noundef nonnull align 8 dereferenceable(112) %24)
           to label %.noexc147 unwind label %.loopexit.split-lp
 
 .noexc147:                                        ; preds = %324
@@ -1688,17 +1688,17 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit33.i: ; preds = %236
 
 "_ZN10fundu_core5parse6Parser12parse_single28_$u7b$$u7b$closure$u7d$$u7d$17hba2f7180142a37f3E.exit.i": ; preds = %335, %331
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !360
-  call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !360
+  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !360
   br label %338
 
 336:                                              ; preds = %.noexc146
-  %337 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %337 = getelementptr inbounds nuw i8, ptr %23, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %72, ptr noundef nonnull align 8 dereferenceable(40) %337, i64 40, i1 false), !noalias !370
   br label %338
 
 338:                                              ; preds = %336, %"_ZN10fundu_core5parse6Parser12parse_single28_$u7b$$u7b$closure$u7d$$u7d$17hba2f7180142a37f3E.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !360
-  call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !360
+  call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %.pre = load i64, ptr %72, align 8, !range !4
   %339 = icmp eq i64 %.pre, 8
   br i1 %339, label %340, label %349

@@ -27916,14 +27916,6 @@ define void @"_ZN8terminal17terminal_settings1_92_$LT$impl$u20$schemars..JsonSch
 35:                                               ; preds = %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %29, ptr noundef nonnull align 8 dereferenceable(72) %10, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %.sroa.02.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 96
-  store i64 -9223372036854775803, ptr %.sroa.02.sroa.9.0..sroa_idx, align 8
-  %.sroa.02.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store i64 -9223372036854775808, ptr %.sroa.02.sroa.0.sroa.7.0..sroa_idx, align 8
-  %.sroa.149.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 216
-  store ptr null, ptr %.sroa.149.0..sroa_idx, align 8
-  %.sroa.8159.216..sroa.149.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 232
-  store i64 0, ptr %.sroa.8159.216..sroa.149.0..sroa_idx.sroa_idx, align 8
   store i64 -9223372036854775808, ptr %11, align 8
   %.sroa.02.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 1, ptr %.sroa.02.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -27931,12 +27923,20 @@ define void @"_ZN8terminal17terminal_settings1_92_$LT$impl$u20$schemars..JsonSch
   store ptr %29, ptr %.sroa.02.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.02.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i64 1, ptr %.sroa.02.sroa.0.sroa.6.0..sroa_idx, align 8
+  %.sroa.02.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
+  store i64 -9223372036854775808, ptr %.sroa.02.sroa.0.sroa.7.0..sroa_idx, align 8
   %.sroa.02.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 72
   store i64 -9223372036854775808, ptr %.sroa.02.sroa.6.0..sroa_idx, align 8
   %.sroa.02.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 80
   store ptr %18, ptr %.sroa.02.sroa.7.0..sroa_idx, align 8
+  %.sroa.02.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 96
+  store i64 -9223372036854775803, ptr %.sroa.02.sroa.9.0..sroa_idx, align 8
   %.sroa.83.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 168
+  %.sroa.149.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 216
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.83.0..sroa_idx, i8 0, i64 48, i1 false)
+  store ptr null, ptr %.sroa.149.0..sroa_idx, align 8
+  %.sroa.8159.216..sroa.149.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 232
+  store i64 0, ptr %.sroa.8159.216..sroa.149.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

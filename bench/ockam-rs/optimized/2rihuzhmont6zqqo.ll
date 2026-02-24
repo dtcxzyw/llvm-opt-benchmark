@@ -260,7 +260,6 @@ define void @"_ZN91_$LT$ockam_multiaddr..iter..BytesIter$u20$as$u20$core..iter..
   store ptr %57, ptr %6, align 8
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %63, ptr %64, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %66 = load i64, ptr %65, align 8, !range !46, !invariant.load !7
   %67 = add i64 %66, -1
@@ -321,7 +320,6 @@ define void @"_ZN91_$LT$ockam_multiaddr..iter..BytesIter$u20$as$u20$core..iter..
 86:                                               ; preds = %85, %78
   %.sink = phi i64 [ 1, %85 ], [ 0, %78 ]
   store i64 %.sink, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %87 = atomicrmw sub ptr %57, i64 1 release, align 8, !noalias !47
   %88 = icmp eq i64 %87, 1
   br i1 %88, label %89, label %"_ZN4core3ptr75drop_in_place$LT$alloc..sync..Arc$LT$dyn$u20$ockam_multiaddr..Codec$GT$$GT$17h54b9d7184040fb61E.exit"
@@ -578,7 +576,6 @@ _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i47: ; preds = %6
   store ptr %52, ptr %5, align 8
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %85, ptr %86, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %88 = load i64, ptr %87, align 8, !range !46, !invariant.load !7
   %89 = add i64 %88, -1
@@ -648,7 +645,6 @@ _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.i.i47: ; preds = %6
 114:                                              ; preds = %113, %105
   %.sink = phi i64 [ 1, %113 ], [ 0, %105 ]
   store i64 %.sink, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %115 = atomicrmw sub ptr %52, i64 1 release, align 8, !noalias !99
   %116 = icmp eq i64 %115, 1
   br i1 %116, label %117, label %.thread86

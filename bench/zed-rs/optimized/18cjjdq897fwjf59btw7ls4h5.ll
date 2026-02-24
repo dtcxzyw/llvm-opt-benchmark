@@ -43385,7 +43385,6 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h21e062318681b2e0E"(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca [48 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17h56e2141ee959c6afE.llvm.12726036149210647513"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %5 = load i64, ptr %4, align 8, !range !252, !noundef !5
   switch i64 %5, label %7 [
@@ -43406,14 +43405,12 @@ define hidden void @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$co
 8:                                                ; preds = %3, %7
   %storemerge = phi i64 [ %5, %7 ], [ -9223372036854775807, %3 ]
   store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h283a4e9f1369a507E"(ptr dead_on_unwind noalias noundef writable writeonly sret([176 x i8]) align 8 captures(none) dereferenceable(176) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca [176 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17h23368867880814bdE.llvm.12726036149210647513"(ptr noalias noundef nonnull sret([176 x i8]) align 8 captures(none) dereferenceable(176) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %5 = load i64, ptr %4, align 8, !range !2083, !noundef !5
   switch i64 %5, label %7 [
@@ -43434,14 +43431,12 @@ define hidden void @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$co
 8:                                                ; preds = %3, %7
   %storemerge = phi i64 [ %5, %7 ], [ 3, %3 ]
   store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2ff26167f75758b8E"(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca [48 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17hee89889533cea31aE.llvm.12726036149210647513"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %5 = load i64, ptr %4, align 8, !range !504, !noundef !5
   switch i64 %5, label %7 [
@@ -43462,14 +43457,12 @@ define hidden void @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$co
 9:                                                ; preds = %3, %7
   %storemerge = phi i64 [ 0, %7 ], [ 1, %3 ]
   store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h30c5193c7aac3900E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17hb39a62930c813062E.llvm.12726036149210647513"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %5 = load i64, ptr %4, align 8, !range !252, !noundef !5
   switch i64 %5, label %7 [
@@ -43490,14 +43483,12 @@ define hidden void @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$co
 8:                                                ; preds = %3, %7
   %storemerge = phi i64 [ %5, %7 ], [ -9223372036854775807, %3 ]
   store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h48b1632b345c606dE"(ptr dead_on_unwind noalias noundef writable writeonly sret([80 x i8]) align 8 captures(none) dereferenceable(80) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca [80 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17h58b5b760d8293733E.llvm.12726036149210647513"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %5 = load i64, ptr %4, align 8, !range !504, !noundef !5
   switch i64 %5, label %7 [
@@ -43518,7 +43509,6 @@ define hidden void @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$co
 9:                                                ; preds = %3, %7
   %storemerge = phi i64 [ 0, %7 ], [ 1, %3 ]
   store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -43554,7 +43544,6 @@ define hidden { i64, ptr } @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$a
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h4c72c326f7bc7898E"(ptr dead_on_unwind noalias noundef writable writeonly sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca [16 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17h72477aa5fada9166E.llvm.12726036149210647513"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %5 = load i32, ptr %4, align 8, !range !10758, !noundef !5
   switch i32 %5, label %7 [
@@ -43575,14 +43564,12 @@ define hidden void @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$co
 8:                                                ; preds = %3, %7
   %storemerge = phi i32 [ %5, %7 ], [ 2, %3 ]
   store i32 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h551d994efc1cf574E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17h64769231255d88cfE.llvm.12726036149210647513"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %5 = load i64, ptr %4, align 8, !range !252, !noundef !5
   switch i64 %5, label %7 [
@@ -43603,7 +43590,6 @@ define hidden void @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$co
 8:                                                ; preds = %3, %7
   %storemerge = phi i64 [ %5, %7 ], [ -9223372036854775807, %3 ]
   store i64 %storemerge, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 
@@ -76975,9 +76961,6 @@ define hidden void @"_ZN9toml_edit2de21Deserializer$LT$S$GT$5parse17h9a42b3ddb15
   %4 = alloca [24 x i8], align 8
   %5 = alloca [216 x i8], align 8
   %6 = alloca [216 x i8], align 8
-  %.sroa.5 = alloca [96 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN9toml_edit6parser14parse_document17h571e9a7ff7cf132aE(ptr noalias noundef nonnull sret([216 x i8]) align 8 captures(none) dereferenceable(216) %6, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %7 = load i64, ptr %6, align 8, !range !17369, !noundef !5
   %8 = icmp eq i64 %7, 12
@@ -77033,12 +77016,10 @@ define hidden void @"_ZN9toml_edit2de21Deserializer$LT$S$GT$5parse17h9a42b3ddb15
 
 _ZN4core3ops8function6FnOnce9call_once17h2bb48d0b920343deE.llvm.12726036149210647513.exit: ; preds = %10, %"_ZN4core3ptr63drop_in_place$LT$toml_edit..internal_string..InternalString$GT$17h968855dbc01d1e72E.exit.i.i.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(96) %9, i64 96, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.619.0..sroa_idx, i64 72, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.55.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.5, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.55.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(96) %9, i64 96, i1 false)
   store i64 %7, ptr %0, align 8
   %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %12, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx.sroa_idx, align 8
@@ -77047,15 +77028,12 @@ _ZN4core3ops8function6FnOnce9call_once17h2bb48d0b920343deE.llvm.1272603614921064
   br label %29
 
 27:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(96) %9, i64 96, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %28, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.5, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %28, ptr noundef nonnull align 8 dereferenceable(96) %9, i64 96, i1 false)
   store i64 12, ptr %0, align 8
   br label %29
 
 29:                                               ; preds = %27, %_ZN4core3ops8function6FnOnce9call_once17h2bb48d0b920343deE.llvm.12726036149210647513.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   ret void
 }
 

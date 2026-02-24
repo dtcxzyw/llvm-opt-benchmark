@@ -23577,7 +23577,6 @@ _ZN4Luau6Parser25incrementRecursionCounterEPKc.exit: ; preds = %3
   %24 = icmp eq i32 %23, 60
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 32, i1 false), !tbaa.struct !300
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN4Luau6Parser20parseGenericTypeListEbPNS_8PositionEPNS_10TempVectorIS1_EES2_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.191") align 8 %6, ptr noundef nonnull align 8 dereferenceable(1072) %0, i1 noundef zeroext false, ptr noundef null, ptr noundef null, ptr noundef null)
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.0.0.copyload64 = load i32, ptr %22, align 8, !tbaa !276
@@ -23874,9 +23873,9 @@ _ZN4Luau9Allocator5allocINS_19AstTypePackExplicitEJRNS_8LocationENS_11AstTypeLis
 
 .loopexit:                                        ; preds = %.lr.ph.i.i51, %.thread71
   %152 = phi ptr [ null, %.thread71 ], [ %148, %.lr.ph.i.i51 ]
-  %.sroa.0.0.copyload = load ptr, ptr %6, align 8, !tbaa !579
+  %.sroa.0.0.copyload = load ptr, ptr %6, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !19
+  %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   store ptr %86, ptr %13, align 8, !tbaa !409
   %.sroa.7.0..sroa_idx17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %72, ptr %.sroa.7.0..sroa_idx17, align 8, !tbaa !19
@@ -23924,7 +23923,6 @@ _ZN4Luau10TempVectorISt8optionalISt4pairINS_7AstNameENS_8LocationEEEED2Ev.exit: 
 
 _ZN4Luau10TempVectorIPNS_7AstTypeEED2Ev.exit:     ; preds = %_ZN4Luau10TempVectorISt8optionalISt4pairINS_7AstNameENS_8LocationEEEED2Ev.exit, %._crit_edge.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.031.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.6.0, 1
@@ -23962,7 +23960,6 @@ _ZN4Luau10TempVectorISt8optionalISt4pairINS_7AstNameENS_8LocationEEEED2Ev.exit60
 
 _ZN4Luau10TempVectorIPNS_7AstTypeEED2Ev.exit63:   ; preds = %_ZN4Luau10TempVectorISt8optionalISt4pairINS_7AstNameENS_8LocationEEEED2Ev.exit60, %._crit_edge.i.i.i62
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn.pn
 }

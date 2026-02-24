@@ -18363,31 +18363,27 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %3 = alloca [0 x i8], align 1
   %4 = alloca [24 x i8], align 8
   %5 = alloca [96 x i8], align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3056)
-  %6 = load ptr, ptr %1, align 8, !alias.scope !3056, !noundef !3
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %11, label %8
+  %7 = load ptr, ptr %1, align 8, !alias.scope !3056, !noundef !3
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %22, label %9
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3059)
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !alias.scope !3062, !nonnull !3, !noundef !3
-  %.not.i = icmp eq ptr %6, %10
-  br i1 %.not.i, label %11, label %12
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = load ptr, ptr %10, align 8, !alias.scope !3062, !nonnull !3, !noundef !3
+  %.not.i = icmp eq ptr %7, %11
+  br i1 %.not.i, label %22, label %12
 
-11:                                               ; preds = %2, %8
-  store i64 -9223372036854775808, ptr %0, align 8
-  br label %22
-
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 1
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %1, align 8, !alias.scope !3062
-  %14 = load i8, ptr %6, align 1, !noalias !3065, !noundef !3
+  %14 = load i8, ptr %7, align 1, !noalias !3065, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = add i64 %16, 1
   store i64 %17, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = zext i8 %14 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3066
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -18397,12 +18393,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   call void @_ZN5serde2de5Error12invalid_type17hc068075fc9c82aecE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d43ca56429a9eca305d592e0dd2a07be.77.llvm.11454047785800490792)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3066
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
-  store i64 -9223372036854775807, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   br label %22
 
-22:                                               ; preds = %11, %12
+22:                                               ; preds = %9, %2, %12
+  %.sink = phi i64 [ -9223372036854775807, %12 ], [ -9223372036854775808, %2 ], [ -9223372036854775808, %9 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -18781,31 +18777,27 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %3 = alloca [0 x i8], align 1
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3205)
-  %6 = load ptr, ptr %1, align 8, !alias.scope !3205, !noundef !3
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %11, label %8
+  %7 = load ptr, ptr %1, align 8, !alias.scope !3205, !noundef !3
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %22, label %9
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3208)
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !alias.scope !3211, !nonnull !3, !noundef !3
-  %.not.i = icmp eq ptr %6, %10
-  br i1 %.not.i, label %11, label %12
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = load ptr, ptr %10, align 8, !alias.scope !3211, !nonnull !3, !noundef !3
+  %.not.i = icmp eq ptr %7, %11
+  br i1 %.not.i, label %22, label %12
 
-11:                                               ; preds = %2, %8
-  store i64 -9223372036854775808, ptr %0, align 8
-  br label %22
-
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 1
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %1, align 8, !alias.scope !3211
-  %14 = load i8, ptr %6, align 1, !noalias !3214, !noundef !3
+  %14 = load i8, ptr %7, align 1, !noalias !3214, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = add i64 %16, 1
   store i64 %17, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = zext i8 %14 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3215
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -18815,12 +18807,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   call void @_ZN5serde2de5Error12invalid_type17hc068075fc9c82aecE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.72e0c80068e87203f8ea4169309291c4.36.llvm.16324883343328763678)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3215
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
-  store i64 -9223372036854775807, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   br label %22
 
-22:                                               ; preds = %11, %12
+22:                                               ; preds = %9, %2, %12
+  %.sink = phi i64 [ -9223372036854775807, %12 ], [ -9223372036854775808, %2 ], [ -9223372036854775808, %9 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -18901,31 +18893,27 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %3 = alloca [0 x i8], align 1
   %4 = alloca [24 x i8], align 8
   %5 = alloca [120 x i8], align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3246)
-  %6 = load ptr, ptr %1, align 8, !alias.scope !3246, !noundef !3
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %11, label %8
+  %7 = load ptr, ptr %1, align 8, !alias.scope !3246, !noundef !3
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %22, label %9
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3249)
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !alias.scope !3252, !nonnull !3, !noundef !3
-  %.not.i = icmp eq ptr %6, %10
-  br i1 %.not.i, label %11, label %12
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = load ptr, ptr %10, align 8, !alias.scope !3252, !nonnull !3, !noundef !3
+  %.not.i = icmp eq ptr %7, %11
+  br i1 %.not.i, label %22, label %12
 
-11:                                               ; preds = %2, %8
-  store i64 2, ptr %0, align 8
-  br label %22
-
-12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 1
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %13, ptr %1, align 8, !alias.scope !3252
-  %14 = load i8, ptr %6, align 1, !noalias !3255, !noundef !3
+  %14 = load i8, ptr %7, align 1, !noalias !3255, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !3
   %17 = add i64 %16, 1
   store i64 %17, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %18 = zext i8 %14 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3256
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -18935,12 +18923,12 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   call void @_ZN5serde2de5Error12invalid_type17hc068075fc9c82aecE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d43ca56429a9eca305d592e0dd2a07be.78.llvm.11454047785800490792)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3256
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
-  store i64 3, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   br label %22
 
-22:                                               ; preds = %11, %12
+22:                                               ; preds = %9, %2, %12
+  %.sink = phi i64 [ 3, %12 ], [ 2, %2 ], [ 2, %9 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -19124,48 +19112,47 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %3 = alloca [0 x i8], align 1
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3312)
-  %6 = load ptr, ptr %1, align 8, !alias.scope !3312, !noundef !3
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %11, label %8
+  %7 = load ptr, ptr %1, align 8, !alias.scope !3312, !noundef !3
+  %8 = icmp eq ptr %7, null
+  br i1 %8, label %12, label %9
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3315)
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !alias.scope !3318, !nonnull !3, !noundef !3
-  %.not.i = icmp eq ptr %6, %10
-  br i1 %.not.i, label %11, label %13
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %11 = load ptr, ptr %10, align 8, !alias.scope !3318, !nonnull !3, !noundef !3
+  %.not.i = icmp eq ptr %7, %11
+  br i1 %.not.i, label %12, label %14
 
-11:                                               ; preds = %2, %8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 2, ptr %12, align 8
-  store i64 0, ptr %0, align 8
-  br label %23
+12:                                               ; preds = %2, %9
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 2, ptr %13, align 8
+  br label %24
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store ptr %14, ptr %1, align 8, !alias.scope !3318
-  %15 = load i8, ptr %6, align 1, !noalias !3321, !noundef !3
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load i64, ptr %16, align 8, !noundef !3
-  %18 = add i64 %17, 1
-  store i64 %18, ptr %16, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %19 = zext i8 %15 to i64
+14:                                               ; preds = %9
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1
+  store ptr %15, ptr %1, align 8, !alias.scope !3318
+  %16 = load i8, ptr %7, align 1, !noalias !3321, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %18 = load i64, ptr %17, align 8, !noundef !3
+  %19 = add i64 %18, 1
+  store i64 %19, ptr %17, align 8
+  %20 = zext i8 %16 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3322
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %19, ptr %20, align 8, !noalias !3322
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %20, ptr %21, align 8, !noalias !3322
   store i8 1, ptr %4, align 8, !noalias !3322
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @_ZN5serde2de5Error12invalid_type17hc068075fc9c82aecE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %21, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d43ca56429a9eca305d592e0dd2a07be.97.llvm.11454047785800490792)
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @_ZN5serde2de5Error12invalid_type17hc068075fc9c82aecE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %22, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.d43ca56429a9eca305d592e0dd2a07be.97.llvm.11454047785800490792)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3322
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false)
-  store i64 1, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %23
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
+  br label %24
 
-23:                                               ; preds = %11, %13
+24:                                               ; preds = %12, %14
+  %.sink = phi i64 [ 0, %12 ], [ 1, %14 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 

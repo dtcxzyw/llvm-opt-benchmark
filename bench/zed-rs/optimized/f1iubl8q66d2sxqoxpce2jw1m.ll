@@ -2459,7 +2459,6 @@ define hidden void @_ZN11shellexpand17full_with_context17h0b6f631a963d76f4E(ptr 
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %2, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN11shellexpand16env_with_context17h44ccff6d17552992E.llvm.4372470511889325454(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %7 = load i64, ptr %4, align 8, !range !63, !noundef !28
   %8 = icmp eq i64 %7, -9223372036854775808
@@ -2477,7 +2476,6 @@ define hidden void @_ZN11shellexpand17full_with_context17h0b6f631a963d76f4E(ptr 
   br label %13
 
 13:                                               ; preds = %9, %12
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 

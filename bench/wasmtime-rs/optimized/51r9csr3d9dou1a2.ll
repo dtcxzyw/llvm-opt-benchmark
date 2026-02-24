@@ -33233,7 +33233,6 @@ common.ret:                                       ; preds = %90, %"_ZN4core3ptr7
   %.sroa.7174.0 = phi ptr [ %225, %246 ], [ undef, %.preheader ]
   %.sroa.9175.0 = phi ptr [ %226, %246 ], [ undef, %.preheader ]
   %.sroa.10176.0 = phi i32 [ %224, %246 ], [ undef, %.preheader ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %19)
   invoke void %97(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %19, ptr noundef nonnull align 1 %.sroa.0103.0.copyload)
           to label %"_ZN89_$LT$alloc..boxed..Box$LT$I$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf5ed9d9bf8192f8fE.exit" unwind label %119
 
@@ -33248,7 +33247,6 @@ common.ret:                                       ; preds = %90, %"_ZN4core3ptr7
   br i1 %122, label %123, label %124
 
 123:                                              ; preds = %"_ZN89_$LT$alloc..boxed..Box$LT$I$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf5ed9d9bf8192f8fE.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   invoke fastcc void @"_ZN4core3ptr248drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$wasi_common..dir..ReaddirEntity$C$wasi_common..snapshots..preview_1..types..Error$GT$$u2b$core..marker..Send$GT$$GT$17h22394a43bfb95abcE"(ptr nonnull %.sroa.0103.0.copyload, ptr nonnull %.sroa.2.0.copyload)
           to label %128 unwind label %126
 
@@ -33609,7 +33607,6 @@ switch.lookup:                                    ; preds = %137
 246:                                              ; preds = %243, %240, %.noexc91
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !5626
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %118
 
 247:                                              ; preds = %235
@@ -33745,7 +33742,6 @@ switch.lookup:                                    ; preds = %137
   %.sroa.14.4 = phi i32 [ undef, %304 ], [ %.sroa.14.3, %"_ZN4core3ptr52drop_in_place$LT$wasi_common..dir..ReaddirEntity$GT$17heb78656bc887811eE.exit97" ]
   %.sroa.17.4 = phi ptr [ %.sroa.3.0.copyload, %304 ], [ %.sroa.17.3, %"_ZN4core3ptr52drop_in_place$LT$wasi_common..dir..ReaddirEntity$GT$17heb78656bc887811eE.exit97" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %286 = load ptr, ptr %.sroa.2.0.copyload, align 8, !invariant.load !5, !nonnull !5
   invoke void %286(ptr noundef nonnull align 1 %.sroa.0103.0.copyload)
           to label %296 unwind label %287
@@ -33804,7 +33800,6 @@ switch.lookup:                                    ; preds = %137
 
 311:                                              ; preds = %245, %119
   %.pn33.pn = phi { ptr, i32 } [ %.pn33, %245 ], [ %120, %119 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %19)
   invoke fastcc void @"_ZN4core3ptr248drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..iter..traits..iterator..Iterator$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$wasi_common..dir..ReaddirEntity$C$wasi_common..snapshots..preview_1..types..Error$GT$$u2b$core..marker..Send$GT$$GT$17h22394a43bfb95abcE"(ptr nonnull %.sroa.0103.0.copyload, ptr nonnull %.sroa.2.0.copyload) #20
           to label %.body unwind label %283
 }

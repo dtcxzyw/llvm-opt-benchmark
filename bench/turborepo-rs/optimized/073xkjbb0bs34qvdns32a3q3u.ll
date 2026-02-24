@@ -4167,9 +4167,9 @@ define void @_RNvMsj_CseG2FYMysgNb_3waxNtB5_4Glob9partition(ptr dead_on_unwind n
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !917
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(48) %16, i64 48, i1 false), !noalias !917
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !917
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -4544,19 +4544,18 @@ define void @_RNvXsl_CseG2FYMysgNb_3waxNtB5_4GlobNtNtNtCs1LoaDTb72WA_4core3str6t
   %4 = alloca [48 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [32 x i8], align 8
-  %7 = alloca [80 x i8], align 8
-  %8 = alloca [104 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @_RNvMsj_CseG2FYMysgNb_3waxNtB5_4Glob3new(ptr noalias noundef nonnull sret([104 x i8]) align 8 captures(none) dereferenceable(104) %8, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
-  %9 = load i64, ptr %8, align 8, !range !916, !noundef !5
+  %7 = alloca [104 x i8], align 8
+  %8 = alloca [80 x i8], align 8
+  call void @_RNvMsj_CseG2FYMysgNb_3waxNtB5_4Glob3new(ptr noalias noundef nonnull sret([104 x i8]) align 8 captures(none) dereferenceable(104) %7, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
+  %9 = load i64, ptr %7, align 8, !range !916, !noundef !5
   %10 = icmp eq i64 %9, 5
   br i1 %10, label %11, label %22
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !997
-  %13 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !997
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !997
@@ -4581,24 +4580,23 @@ define void @_RNvXsl_CseG2FYMysgNb_3waxNtB5_4GlobNtNtNtCs1LoaDTb72WA_4core3str6t
 
 _RNvYNvMsj_CseG2FYMysgNb_3waxNtB8_4Glob10into_ownedINtNtNtCs1LoaDTb72WA_4core3ops8function6FnOnceTBq_EE9call_onceB8_.exit: ; preds = %11
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !997
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %7, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !noalias !1004
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !noalias !1004
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !997
-  %19 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %20 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !997
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %21, ptr noundef nonnull align 8 dereferenceable(80) %7, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %21, ptr noundef nonnull align 8 dereferenceable(80) %8, i64 80, i1 false)
   store i64 5, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %23
 
 22:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %8, i64 104, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %7, i64 104, i1 false)
   br label %23
 
 23:                                               ; preds = %22, %_RNvYNvMsj_CseG2FYMysgNb_3waxNtB8_4Glob10into_ownedINtNtNtCs1LoaDTb72WA_4core3ops8function6FnOnceTBq_EE9call_onceB8_.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }
 

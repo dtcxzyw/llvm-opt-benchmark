@@ -3234,7 +3234,6 @@ thread-pre-split:                                 ; preds = %.invoke
   br label %101
 
 101:                                              ; preds = %.backedge, %98
-  call void @llvm.lifetime.start.p0(ptr nonnull %30)
   invoke void @"_ZN75_$LT$std..fs..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75f03aa88fc58a24E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %30, ptr noalias noundef nonnull align 8 dereferenceable(16) %31)
           to label %104 unwind label %102
 
@@ -3261,7 +3260,6 @@ thread-pre-split:                                 ; preds = %.invoke
   br i1 %108, label %112, label %117, !prof !5
 
 109:                                              ; preds = %104
-  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   invoke void @"_ZN4core3ptr37drop_in_place$LT$std..fs..ReadDir$GT$17h31474f16e9035e28E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %31)
           to label %110 unwind label %88
 
@@ -3841,7 +3839,6 @@ _ZN4core5alloc6layout6Layout6repeat17hfd062edb70f5ec8fE.exit.i.i.i77: ; preds = 
 
 .backedge:                                        ; preds = %.invoke194, %"_ZN4jiff2tz2db8zoneinfo5inner4walk28_$u7b$$u7b$closure$u7d$$u7d$17h3700ba92ecb60240E.exit107"
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %101
 
 285:                                              ; preds = %195

@@ -133780,11 +133780,11 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_109_$LT$impl$u20
   br i1 %36, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit._crit_edge", label %37
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit._crit_edge": ; preds = %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit"
-  %.pre194.pre195.pre198.pre201.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37579, !noalias !37582
+  %.pre193.pre194.pre197.pre200.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37579, !noalias !37582
   br label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit.thread"
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit.thread": ; preds = %33, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit._crit_edge"
-  %.pre194.pre195.pre198.pre201.pre = phi i64 [ %.pre194.pre195.pre198.pre201.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit._crit_edge" ], [ -9223372036854775808, %33 ]
+  %.pre193.pre194.pre197.pre200.pre = phi i64 [ %.pre193.pre194.pre197.pre200.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit._crit_edge" ], [ -9223372036854775808, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %39
 
@@ -133796,12 +133796,12 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_109_$LT$impl$u20
   br label %75
 
 39:                                               ; preds = %30, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit.thread"
-  %.pre194.pre195.pre198.pre201 = phi i64 [ %27, %30 ], [ %.pre194.pre195.pre198.pre201.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit.thread" ]
+  %.pre193.pre194.pre197.pre200 = phi i64 [ %27, %30 ], [ %.pre193.pre194.pre197.pre200.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit.thread" ]
   br i1 %.not145, label %40, label %46
 
 40:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %41 = icmp eq i64 %.pre194.pre195.pre198.pre201, -9223372036854775808
+  %41 = icmp eq i64 %.pre193.pre194.pre197.pre200, -9223372036854775808
   br i1 %41, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit.thread", label %42
 
 42:                                               ; preds = %40
@@ -133809,16 +133809,16 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_109_$LT$impl$u20
           to label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit" unwind label %89
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit": ; preds = %42
-  %.pr174 = load i64, ptr %9, align 8
-  %43 = icmp eq i64 %.pr174, -9223372036854775803
+  %.pr173 = load i64, ptr %9, align 8
+  %43 = icmp eq i64 %.pr173, -9223372036854775803
   br i1 %43, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit._crit_edge", label %44
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit._crit_edge": ; preds = %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit"
-  %.pre194.pre195.pre198.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37579, !noalias !37582
+  %.pre193.pre194.pre197.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37579, !noalias !37582
   br label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit.thread"
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit.thread": ; preds = %40, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit._crit_edge"
-  %.pre194.pre195.pre198.pre = phi i64 [ %.pre194.pre195.pre198.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit._crit_edge" ], [ -9223372036854775808, %40 ]
+  %.pre193.pre194.pre197.pre = phi i64 [ %.pre193.pre194.pre197.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit._crit_edge" ], [ -9223372036854775808, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %46
 
@@ -133828,17 +133828,17 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_109_$LT$impl$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.283.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.481.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.pr174, ptr %45, align 8
+  store i64 %.pr173, ptr %45, align 8
   store i64 8, ptr %0, align 8
   br label %75
 
 46:                                               ; preds = %39, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit.thread"
-  %.pre194.pre195.pre198 = phi i64 [ %.pre194.pre195.pre198.pre201, %39 ], [ %.pre194.pre195.pre198.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit.thread" ]
+  %.pre193.pre194.pre197 = phi i64 [ %.pre193.pre194.pre197.pre200, %39 ], [ %.pre193.pre194.pre197.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit.thread" ]
   br i1 %.not146.not, label %53, label %47
 
 47:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %48 = icmp eq i64 %.pre194.pre195.pre198, -9223372036854775808
+  %48 = icmp eq i64 %.pre193.pre194.pre197, -9223372036854775808
   br i1 %48, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit.thread", label %49
 
 49:                                               ; preds = %47
@@ -133846,16 +133846,16 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_109_$LT$impl$u20
           to label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit" unwind label %89
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit": ; preds = %49
-  %.pr178 = load i64, ptr %8, align 8
-  %50 = icmp eq i64 %.pr178, -9223372036854775803
+  %.pr177 = load i64, ptr %8, align 8
+  %50 = icmp eq i64 %.pr177, -9223372036854775803
   br i1 %50, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit._crit_edge", label %51
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit._crit_edge": ; preds = %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit"
-  %.pre194.pre195.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37579, !noalias !37582
+  %.pre193.pre194.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37579, !noalias !37582
   br label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit.thread"
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit.thread": ; preds = %47, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit._crit_edge"
-  %.pre194.pre195.pre = phi i64 [ %.pre194.pre195.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit._crit_edge" ], [ -9223372036854775808, %47 ]
+  %.pre193.pre194.pre = phi i64 [ %.pre193.pre194.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit._crit_edge" ], [ -9223372036854775808, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %53
 
@@ -133865,19 +133865,19 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_109_$LT$impl$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.295.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.493.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.pr178, ptr %52, align 8
+  store i64 %.pr177, ptr %52, align 8
   store i64 8, ptr %0, align 8
   br label %75
 
 53:                                               ; preds = %46, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit.thread"
-  %.pre194.pre195 = phi i64 [ %.pre194.pre195.pre198, %46 ], [ %.pre194.pre195.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit.thread" ]
+  %.pre193.pre194 = phi i64 [ %.pre193.pre194.pre197, %46 ], [ %.pre193.pre194.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit.thread" ]
   br i1 %.not147.not, label %60, label %54
 
 54:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %18, ptr %6, align 8
-  %55 = icmp eq i64 %.pre194.pre195, -9223372036854775808
+  %55 = icmp eq i64 %.pre193.pre194, -9223372036854775808
   br i1 %55, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf563f92dedf04cb9E.exit.thread", label %56
 
 56:                                               ; preds = %54
@@ -133885,16 +133885,16 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_109_$LT$impl$u20
           to label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf563f92dedf04cb9E.exit" unwind label %89
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf563f92dedf04cb9E.exit": ; preds = %56
-  %.pr182 = load i64, ptr %7, align 8
-  %57 = icmp eq i64 %.pr182, -9223372036854775803
+  %.pr181 = load i64, ptr %7, align 8
+  %57 = icmp eq i64 %.pr181, -9223372036854775803
   br i1 %57, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf563f92dedf04cb9E.exit._crit_edge", label %58
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf563f92dedf04cb9E.exit._crit_edge": ; preds = %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf563f92dedf04cb9E.exit"
-  %.pre194.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37579, !noalias !37582
+  %.pre193.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37579, !noalias !37582
   br label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf563f92dedf04cb9E.exit.thread"
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf563f92dedf04cb9E.exit.thread": ; preds = %54, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf563f92dedf04cb9E.exit._crit_edge"
-  %.pre194.pre = phi i64 [ %.pre194.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf563f92dedf04cb9E.exit._crit_edge" ], [ -9223372036854775808, %54 ]
+  %.pre193.pre = phi i64 [ %.pre193.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf563f92dedf04cb9E.exit._crit_edge" ], [ -9223372036854775808, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %60
@@ -133905,18 +133905,18 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_109_$LT$impl$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2107.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4105.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.pr182, ptr %59, align 8
+  store i64 %.pr181, ptr %59, align 8
   store i64 8, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %75
 
 60:                                               ; preds = %53, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf563f92dedf04cb9E.exit.thread"
-  %.pre194 = phi i64 [ %.pre194.pre195, %53 ], [ %.pre194.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf563f92dedf04cb9E.exit.thread" ]
+  %.pre193 = phi i64 [ %.pre193.pre194, %53 ], [ %.pre193.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf563f92dedf04cb9E.exit.thread" ]
   br i1 %.not148, label %61, label %67
 
 61:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %62 = icmp eq i64 %.pre194, -9223372036854775808
+  %62 = icmp eq i64 %.pre193, -9223372036854775808
   br i1 %62, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit158.thread", label %63
 
 63:                                               ; preds = %61
@@ -133924,8 +133924,8 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_109_$LT$impl$u20
           to label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit158" unwind label %89
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit158": ; preds = %63
-  %.pr186 = load i64, ptr %5, align 8
-  %64 = icmp eq i64 %.pr186, -9223372036854775803
+  %.pr185 = load i64, ptr %5, align 8
+  %64 = icmp eq i64 %.pr185, -9223372036854775803
   br i1 %64, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit158._crit_edge", label %65
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit158._crit_edge": ; preds = %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit158"
@@ -133943,12 +133943,12 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_109_$LT$impl$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2119.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4117.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.pr186, ptr %66, align 8
+  store i64 %.pr185, ptr %66, align 8
   store i64 8, ptr %0, align 8
   br label %75
 
 67:                                               ; preds = %60, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit158.thread"
-  %68 = phi i64 [ %.pre194, %60 ], [ %.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit158.thread" ]
+  %68 = phi i64 [ %.pre193, %60 ], [ %.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit158.thread" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %69 = icmp eq i64 %68, -9223372036854775808
   br i1 %69, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h36e6bde3d30a2263E.exit.thread", label %70
@@ -133959,8 +133959,8 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_109_$LT$impl$u20
           to label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h36e6bde3d30a2263E.exit" unwind label %89
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h36e6bde3d30a2263E.exit": ; preds = %70
-  %.pr190 = load i64, ptr %4, align 8
-  %72 = icmp eq i64 %.pr190, -9223372036854775803
+  %.pr189 = load i64, ptr %4, align 8
+  %72 = icmp eq i64 %.pr189, -9223372036854775803
   br i1 %72, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h36e6bde3d30a2263E.exit.thread", label %73
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h36e6bde3d30a2263E.exit.thread": ; preds = %67, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h36e6bde3d30a2263E.exit"
@@ -133977,7 +133977,7 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_109_$LT$impl$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2131.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4129.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.pr190, ptr %74, align 8
+  store i64 %.pr189, ptr %74, align 8
   store i64 8, ptr %0, align 8
   br label %75
 
@@ -134125,11 +134125,11 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
   br i1 %36, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h59098e4edf37dcdfE.exit._crit_edge", label %37
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h59098e4edf37dcdfE.exit._crit_edge": ; preds = %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h59098e4edf37dcdfE.exit"
-  %.pre193.pre194.pre197.pre200.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37597, !noalias !37600
+  %.pre192.pre193.pre196.pre199.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37597, !noalias !37600
   br label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h59098e4edf37dcdfE.exit.thread"
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h59098e4edf37dcdfE.exit.thread": ; preds = %33, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h59098e4edf37dcdfE.exit._crit_edge"
-  %.pre193.pre194.pre197.pre200.pre = phi i64 [ %.pre193.pre194.pre197.pre200.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h59098e4edf37dcdfE.exit._crit_edge" ], [ -9223372036854775808, %33 ]
+  %.pre192.pre193.pre196.pre199.pre = phi i64 [ %.pre192.pre193.pre196.pre199.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h59098e4edf37dcdfE.exit._crit_edge" ], [ -9223372036854775808, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %39
 
@@ -134141,12 +134141,12 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
   br label %75
 
 39:                                               ; preds = %30, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h59098e4edf37dcdfE.exit.thread"
-  %.pre193.pre194.pre197.pre200 = phi i64 [ %27, %30 ], [ %.pre193.pre194.pre197.pre200.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h59098e4edf37dcdfE.exit.thread" ]
+  %.pre192.pre193.pre196.pre199 = phi i64 [ %27, %30 ], [ %.pre192.pre193.pre196.pre199.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h59098e4edf37dcdfE.exit.thread" ]
   br i1 %.not145, label %40, label %46
 
 40:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %41 = icmp eq i64 %.pre193.pre194.pre197.pre200, -9223372036854775808
+  %41 = icmp eq i64 %.pre192.pre193.pre196.pre199, -9223372036854775808
   br i1 %41, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit.thread", label %42
 
 42:                                               ; preds = %40
@@ -134154,16 +134154,16 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
           to label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit" unwind label %89
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit": ; preds = %42
-  %.pr173 = load i64, ptr %9, align 8
-  %43 = icmp eq i64 %.pr173, -9223372036854775803
+  %.pr172 = load i64, ptr %9, align 8
+  %43 = icmp eq i64 %.pr172, -9223372036854775803
   br i1 %43, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit._crit_edge", label %44
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit._crit_edge": ; preds = %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit"
-  %.pre193.pre194.pre197.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37597, !noalias !37600
+  %.pre192.pre193.pre196.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37597, !noalias !37600
   br label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit.thread"
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit.thread": ; preds = %40, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit._crit_edge"
-  %.pre193.pre194.pre197.pre = phi i64 [ %.pre193.pre194.pre197.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit._crit_edge" ], [ -9223372036854775808, %40 ]
+  %.pre192.pre193.pre196.pre = phi i64 [ %.pre192.pre193.pre196.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit._crit_edge" ], [ -9223372036854775808, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %46
 
@@ -134173,17 +134173,17 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.283.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.481.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.pr173, ptr %45, align 8
+  store i64 %.pr172, ptr %45, align 8
   store i64 8, ptr %0, align 8
   br label %75
 
 46:                                               ; preds = %39, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit.thread"
-  %.pre193.pre194.pre197 = phi i64 [ %.pre193.pre194.pre197.pre200, %39 ], [ %.pre193.pre194.pre197.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit.thread" ]
+  %.pre192.pre193.pre196 = phi i64 [ %.pre192.pre193.pre196.pre199, %39 ], [ %.pre192.pre193.pre196.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit.thread" ]
   br i1 %.not146, label %47, label %53
 
 47:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %48 = icmp eq i64 %.pre193.pre194.pre197, -9223372036854775808
+  %48 = icmp eq i64 %.pre192.pre193.pre196, -9223372036854775808
   br i1 %48, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit.thread", label %49
 
 49:                                               ; preds = %47
@@ -134191,16 +134191,16 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
           to label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit" unwind label %89
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit": ; preds = %49
-  %.pr177 = load i64, ptr %8, align 8
-  %50 = icmp eq i64 %.pr177, -9223372036854775803
+  %.pr176 = load i64, ptr %8, align 8
+  %50 = icmp eq i64 %.pr176, -9223372036854775803
   br i1 %50, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit._crit_edge", label %51
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit._crit_edge": ; preds = %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit"
-  %.pre193.pre194.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37597, !noalias !37600
+  %.pre192.pre193.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37597, !noalias !37600
   br label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit.thread"
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit.thread": ; preds = %47, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit._crit_edge"
-  %.pre193.pre194.pre = phi i64 [ %.pre193.pre194.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit._crit_edge" ], [ -9223372036854775808, %47 ]
+  %.pre192.pre193.pre = phi i64 [ %.pre192.pre193.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit._crit_edge" ], [ -9223372036854775808, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %53
 
@@ -134210,19 +134210,19 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.295.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.493.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.pr177, ptr %52, align 8
+  store i64 %.pr176, ptr %52, align 8
   store i64 8, ptr %0, align 8
   br label %75
 
 53:                                               ; preds = %46, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit.thread"
-  %.pre193.pre194 = phi i64 [ %.pre193.pre194.pre197, %46 ], [ %.pre193.pre194.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit.thread" ]
+  %.pre192.pre193 = phi i64 [ %.pre192.pre193.pre196, %46 ], [ %.pre192.pre193.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit.thread" ]
   br i1 %.not147.not, label %60, label %54
 
 54:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 8
-  %55 = icmp eq i64 %.pre193.pre194, -9223372036854775808
+  %55 = icmp eq i64 %.pre192.pre193, -9223372036854775808
   br i1 %55, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h4b64b1acbf053c2aE.exit.thread", label %56
 
 56:                                               ; preds = %54
@@ -134230,16 +134230,16 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
           to label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h4b64b1acbf053c2aE.exit" unwind label %89
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h4b64b1acbf053c2aE.exit": ; preds = %56
-  %.pr181 = load i64, ptr %7, align 8
-  %57 = icmp eq i64 %.pr181, -9223372036854775803
+  %.pr180 = load i64, ptr %7, align 8
+  %57 = icmp eq i64 %.pr180, -9223372036854775803
   br i1 %57, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h4b64b1acbf053c2aE.exit._crit_edge", label %58
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h4b64b1acbf053c2aE.exit._crit_edge": ; preds = %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h4b64b1acbf053c2aE.exit"
-  %.pre193.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37597, !noalias !37600
+  %.pre192.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37597, !noalias !37600
   br label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h4b64b1acbf053c2aE.exit.thread"
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h4b64b1acbf053c2aE.exit.thread": ; preds = %54, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h4b64b1acbf053c2aE.exit._crit_edge"
-  %.pre193.pre = phi i64 [ %.pre193.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h4b64b1acbf053c2aE.exit._crit_edge" ], [ -9223372036854775808, %54 ]
+  %.pre192.pre = phi i64 [ %.pre192.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h4b64b1acbf053c2aE.exit._crit_edge" ], [ -9223372036854775808, %54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %60
@@ -134250,18 +134250,18 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2107.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4105.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.pr181, ptr %59, align 8
+  store i64 %.pr180, ptr %59, align 8
   store i64 8, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %75
 
 60:                                               ; preds = %53, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h4b64b1acbf053c2aE.exit.thread"
-  %.pre193 = phi i64 [ %.pre193.pre194, %53 ], [ %.pre193.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h4b64b1acbf053c2aE.exit.thread" ]
+  %.pre192 = phi i64 [ %.pre192.pre193, %53 ], [ %.pre192.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h4b64b1acbf053c2aE.exit.thread" ]
   br i1 %.not148.not, label %67, label %61
 
 61:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %62 = icmp eq i64 %.pre193, -9223372036854775808
+  %62 = icmp eq i64 %.pre192, -9223372036854775808
   br i1 %62, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit.thread", label %63
 
 63:                                               ; preds = %61
@@ -134269,8 +134269,8 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
           to label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit" unwind label %89
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit": ; preds = %63
-  %.pr185 = load i64, ptr %5, align 8
-  %64 = icmp eq i64 %.pr185, -9223372036854775803
+  %.pr184 = load i64, ptr %5, align 8
+  %64 = icmp eq i64 %.pr184, -9223372036854775803
   br i1 %64, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit._crit_edge", label %65
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit._crit_edge": ; preds = %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit"
@@ -134288,12 +134288,12 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2119.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4117.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.pr185, ptr %66, align 8
+  store i64 %.pr184, ptr %66, align 8
   store i64 8, ptr %0, align 8
   br label %75
 
 67:                                               ; preds = %60, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit.thread"
-  %68 = phi i64 [ %.pre193, %60 ], [ %.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit.thread" ]
+  %68 = phi i64 [ %.pre192, %60 ], [ %.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit.thread" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %69 = icmp eq i64 %68, -9223372036854775808
   br i1 %69, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h36e6bde3d30a2263E.exit.thread", label %70
@@ -134304,8 +134304,8 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
           to label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h36e6bde3d30a2263E.exit" unwind label %89
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h36e6bde3d30a2263E.exit": ; preds = %70
-  %.pr189 = load i64, ptr %4, align 8
-  %72 = icmp eq i64 %.pr189, -9223372036854775803
+  %.pr188 = load i64, ptr %4, align 8
+  %72 = icmp eq i64 %.pr188, -9223372036854775803
   br i1 %72, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h36e6bde3d30a2263E.exit.thread", label %73
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h36e6bde3d30a2263E.exit.thread": ; preds = %67, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h36e6bde3d30a2263E.exit"
@@ -134322,7 +134322,7 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2131.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4129.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.pr189, ptr %74, align 8
+  store i64 %.pr188, ptr %74, align 8
   store i64 8, ptr %0, align 8
   br label %75
 
@@ -134471,11 +134471,11 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
   br i1 %37, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he9cff8f80ee0ed1aE.exit._crit_edge", label %38
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he9cff8f80ee0ed1aE.exit._crit_edge": ; preds = %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he9cff8f80ee0ed1aE.exit"
-  %.pre193.pre194.pre197.pre200.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37615, !noalias !37618
+  %.pre192.pre193.pre196.pre199.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37615, !noalias !37618
   br label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he9cff8f80ee0ed1aE.exit.thread"
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he9cff8f80ee0ed1aE.exit.thread": ; preds = %34, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he9cff8f80ee0ed1aE.exit._crit_edge"
-  %.pre193.pre194.pre197.pre200.pre = phi i64 [ %.pre193.pre194.pre197.pre200.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he9cff8f80ee0ed1aE.exit._crit_edge" ], [ -9223372036854775808, %34 ]
+  %.pre192.pre193.pre196.pre199.pre = phi i64 [ %.pre192.pre193.pre196.pre199.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he9cff8f80ee0ed1aE.exit._crit_edge" ], [ -9223372036854775808, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %40
 
@@ -134487,12 +134487,12 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
   br label %76
 
 40:                                               ; preds = %31, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he9cff8f80ee0ed1aE.exit.thread"
-  %.pre193.pre194.pre197.pre200 = phi i64 [ %28, %31 ], [ %.pre193.pre194.pre197.pre200.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he9cff8f80ee0ed1aE.exit.thread" ]
+  %.pre192.pre193.pre196.pre199 = phi i64 [ %28, %31 ], [ %.pre192.pre193.pre196.pre199.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17he9cff8f80ee0ed1aE.exit.thread" ]
   br i1 %.not145, label %41, label %47
 
 41:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %42 = icmp eq i64 %.pre193.pre194.pre197.pre200, -9223372036854775808
+  %42 = icmp eq i64 %.pre192.pre193.pre196.pre199, -9223372036854775808
   br i1 %42, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit.thread", label %43
 
 43:                                               ; preds = %41
@@ -134500,16 +134500,16 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
           to label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit" unwind label %90
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit": ; preds = %43
-  %.pr173 = load i64, ptr %9, align 8
-  %44 = icmp eq i64 %.pr173, -9223372036854775803
+  %.pr172 = load i64, ptr %9, align 8
+  %44 = icmp eq i64 %.pr172, -9223372036854775803
   br i1 %44, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit._crit_edge", label %45
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit._crit_edge": ; preds = %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit"
-  %.pre193.pre194.pre197.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37615, !noalias !37618
+  %.pre192.pre193.pre196.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37615, !noalias !37618
   br label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit.thread"
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit.thread": ; preds = %41, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit._crit_edge"
-  %.pre193.pre194.pre197.pre = phi i64 [ %.pre193.pre194.pre197.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit._crit_edge" ], [ -9223372036854775808, %41 ]
+  %.pre192.pre193.pre196.pre = phi i64 [ %.pre192.pre193.pre196.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit._crit_edge" ], [ -9223372036854775808, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %47
 
@@ -134519,17 +134519,17 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.283.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.481.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.pr173, ptr %46, align 8
+  store i64 %.pr172, ptr %46, align 8
   store i64 8, ptr %0, align 8
   br label %76
 
 47:                                               ; preds = %40, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit.thread"
-  %.pre193.pre194.pre197 = phi i64 [ %.pre193.pre194.pre197.pre200, %40 ], [ %.pre193.pre194.pre197.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit.thread" ]
+  %.pre192.pre193.pre196 = phi i64 [ %.pre192.pre193.pre196.pre199, %40 ], [ %.pre192.pre193.pre196.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb3207b8bc2606ac1E.exit.thread" ]
   br i1 %.not146, label %48, label %54
 
 48:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %49 = icmp eq i64 %.pre193.pre194.pre197, -9223372036854775808
+  %49 = icmp eq i64 %.pre192.pre193.pre196, -9223372036854775808
   br i1 %49, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit.thread", label %50
 
 50:                                               ; preds = %48
@@ -134537,16 +134537,16 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
           to label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit" unwind label %90
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit": ; preds = %50
-  %.pr177 = load i64, ptr %8, align 8
-  %51 = icmp eq i64 %.pr177, -9223372036854775803
+  %.pr176 = load i64, ptr %8, align 8
+  %51 = icmp eq i64 %.pr176, -9223372036854775803
   br i1 %51, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit._crit_edge", label %52
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit._crit_edge": ; preds = %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit"
-  %.pre193.pre194.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37615, !noalias !37618
+  %.pre192.pre193.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37615, !noalias !37618
   br label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit.thread"
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit.thread": ; preds = %48, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit._crit_edge"
-  %.pre193.pre194.pre = phi i64 [ %.pre193.pre194.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit._crit_edge" ], [ -9223372036854775808, %48 ]
+  %.pre192.pre193.pre = phi i64 [ %.pre192.pre193.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit._crit_edge" ], [ -9223372036854775808, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %54
 
@@ -134556,19 +134556,19 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.295.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.493.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.pr177, ptr %53, align 8
+  store i64 %.pr176, ptr %53, align 8
   store i64 8, ptr %0, align 8
   br label %76
 
 54:                                               ; preds = %47, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit.thread"
-  %.pre193.pre194 = phi i64 [ %.pre193.pre194.pre197, %47 ], [ %.pre193.pre194.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit.thread" ]
+  %.pre192.pre193 = phi i64 [ %.pre192.pre193.pre196, %47 ], [ %.pre192.pre193.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h16919cae7d9e4ef1E.exit.thread" ]
   br i1 %.not147.not, label %61, label %55
 
 55:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 8
-  %56 = icmp eq i64 %.pre193.pre194, -9223372036854775808
+  %56 = icmp eq i64 %.pre192.pre193, -9223372036854775808
   br i1 %56, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb89403ba83304d88E.exit.thread", label %57
 
 57:                                               ; preds = %55
@@ -134576,16 +134576,16 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
           to label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb89403ba83304d88E.exit" unwind label %90
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb89403ba83304d88E.exit": ; preds = %57
-  %.pr181 = load i64, ptr %7, align 8
-  %58 = icmp eq i64 %.pr181, -9223372036854775803
+  %.pr180 = load i64, ptr %7, align 8
+  %58 = icmp eq i64 %.pr180, -9223372036854775803
   br i1 %58, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb89403ba83304d88E.exit._crit_edge", label %59
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb89403ba83304d88E.exit._crit_edge": ; preds = %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb89403ba83304d88E.exit"
-  %.pre193.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37615, !noalias !37618
+  %.pre192.pre.pre = load i64, ptr %12, align 8, !range !17, !alias.scope !37615, !noalias !37618
   br label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb89403ba83304d88E.exit.thread"
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb89403ba83304d88E.exit.thread": ; preds = %55, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb89403ba83304d88E.exit._crit_edge"
-  %.pre193.pre = phi i64 [ %.pre193.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb89403ba83304d88E.exit._crit_edge" ], [ -9223372036854775808, %55 ]
+  %.pre192.pre = phi i64 [ %.pre192.pre.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb89403ba83304d88E.exit._crit_edge" ], [ -9223372036854775808, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %61
@@ -134596,18 +134596,18 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2107.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4105.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.pr181, ptr %60, align 8
+  store i64 %.pr180, ptr %60, align 8
   store i64 8, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %76
 
 61:                                               ; preds = %54, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb89403ba83304d88E.exit.thread"
-  %.pre193 = phi i64 [ %.pre193.pre194, %54 ], [ %.pre193.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb89403ba83304d88E.exit.thread" ]
+  %.pre192 = phi i64 [ %.pre192.pre193, %54 ], [ %.pre192.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hb89403ba83304d88E.exit.thread" ]
   br i1 %.not148.not, label %68, label %62
 
 62:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %63 = icmp eq i64 %.pre193, -9223372036854775808
+  %63 = icmp eq i64 %.pre192, -9223372036854775808
   br i1 %63, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit.thread", label %64
 
 64:                                               ; preds = %62
@@ -134615,8 +134615,8 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
           to label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit" unwind label %90
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit": ; preds = %64
-  %.pr185 = load i64, ptr %5, align 8
-  %65 = icmp eq i64 %.pr185, -9223372036854775803
+  %.pr184 = load i64, ptr %5, align 8
+  %65 = icmp eq i64 %.pr184, -9223372036854775803
   br i1 %65, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit._crit_edge", label %66
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit._crit_edge": ; preds = %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit"
@@ -134634,12 +134634,12 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2119.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4117.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.pr185, ptr %67, align 8
+  store i64 %.pr184, ptr %67, align 8
   store i64 8, ptr %0, align 8
   br label %76
 
 68:                                               ; preds = %61, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit.thread"
-  %69 = phi i64 [ %.pre193, %61 ], [ %.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit.thread" ]
+  %69 = phi i64 [ %.pre192, %61 ], [ %.pre, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17hf2eff917971a2e8aE.exit.thread" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %70 = icmp eq i64 %69, -9223372036854775808
   br i1 %70, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h36e6bde3d30a2263E.exit.thread", label %71
@@ -134650,8 +134650,8 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
           to label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h36e6bde3d30a2263E.exit" unwind label %90
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h36e6bde3d30a2263E.exit": ; preds = %71
-  %.pr189 = load i64, ptr %4, align 8
-  %73 = icmp eq i64 %.pr189, -9223372036854775803
+  %.pr188 = load i64, ptr %4, align 8
+  %73 = icmp eq i64 %.pr188, -9223372036854775803
   br i1 %73, label %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h36e6bde3d30a2263E.exit.thread", label %74
 
 "_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h36e6bde3d30a2263E.exit.thread": ; preds = %68, %"_ZN81_$LT$toml_edit..ser..map..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$15serialize_field17h36e6bde3d30a2263E.exit"
@@ -134668,7 +134668,7 @@ define hidden void @"_ZN11uv_resolver4lock6export11pylock_toml1_107_$LT$impl$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2131.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4129.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.pr189, ptr %75, align 8
+  store i64 %.pr188, ptr %75, align 8
   store i64 8, ptr %0, align 8
   br label %76
 

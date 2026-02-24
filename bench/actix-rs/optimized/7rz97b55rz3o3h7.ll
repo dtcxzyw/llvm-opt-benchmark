@@ -12301,17 +12301,17 @@ _ZN4core3cmp10PartialOrd2gt17h539e6bae9f78b4a8E.exit99.thread: ; preds = %_ZN4co
           to label %.noexc115 unwind label %388
 
 .noexc115:                                        ; preds = %370
-  %372 = load i8, ptr %49, align 8, !range !1703, !noalias !1696, !noundef !4
+  %372 = load i8, ptr %49, align 8, !range !1700, !noalias !1701, !noundef !4
   %373 = icmp eq i8 %372, 4
   br i1 %373, label %384, label %374
 
 374:                                              ; preds = %.noexc115
   %.sroa.36.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %.sroa.36.0.copyload.i.i = load i64, ptr %.sroa.36.0..sroa_idx.i.i, align 8, !noalias !1696
+  %.sroa.36.0.copyload.i.i = load i64, ptr %.sroa.36.0..sroa_idx.i.i, align 8, !noalias !1701
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !1696
+  %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !1701
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %.sroa.5.0.copyload.i.i = load ptr, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !1696
+  %.sroa.5.0.copyload.i.i = load ptr, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !1701
   %375 = icmp eq i8 %372, 3
   br i1 %375, label %376, label %"_ZN107_$LT$awc..client..connector..TcpConnectorInnerFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hebcc384ae48b6087E.exit.i"
 
@@ -12369,10 +12369,10 @@ default.unreachable1.i.i.i.i.i:                   ; preds = %376
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %49, i64 32
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %49, i64 1
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %48, i64 25
-  call void @llvm.lifetime.start.p0(ptr nonnull %48), !noalias !1704
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.3.0..sroa_idx.i.i, i64 7, i1 false), !noalias !1711
+  call void @llvm.lifetime.start.p0(ptr nonnull %48), !noalias !1705
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.7.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.3.0..sroa_idx.i.i, i64 7, i1 false), !noalias !1696
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %48, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.13.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.6.0..sroa_idx.i.i, i64 56, i1 false), !noalias !1711
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.13.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.6.0..sroa_idx.i.i, i64 56, i1 false), !noalias !1696
   %.sroa.13.i.sroa.4.0..sroa.6.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 88
   %.sroa.13.i.sroa.4.0.copyload = load ptr, ptr %.sroa.13.i.sroa.4.0..sroa.6.0..sroa_idx.i.i.sroa_idx, align 8, !noalias !1712
   %.sroa.13.i.sroa.6.0..sroa.6.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 96
@@ -12397,7 +12397,7 @@ default.unreachable1.i.i.i.i.i:                   ; preds = %376
           to label %.noexc118 unwind label %388
 
 .noexc118:                                        ; preds = %"_ZN107_$LT$awc..client..connector..TcpConnectorInnerFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hebcc384ae48b6087E.exit.i"
-  call void @llvm.lifetime.end.p0(ptr nonnull %48), !noalias !1704
+  call void @llvm.lifetime.end.p0(ptr nonnull %48), !noalias !1705
   br label %"_ZN107_$LT$awc..client..connector..TcpConnectorInnerFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hebcc384ae48b6087E.exit.thread16.i"
 
 388:                                              ; preds = %"_ZN107_$LT$awc..client..connector..TcpConnectorInnerFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hebcc384ae48b6087E.exit.i", %384, %380, %370
@@ -17369,24 +17369,24 @@ attributes #31 = { nounwind }
 !1693 = !{!1694}
 !1694 = distinct !{!1694, !1695, !"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$awc..client..pool..PooledConnection$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$17hb90c70d44fdfa45cE: argument 0"}
 !1695 = distinct !{!1695, !"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$awc..client..pool..PooledConnection$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$$GT$17hb90c70d44fdfa45cE"}
-!1696 = !{!1697, !1699, !1700, !1702}
-!1697 = distinct !{!1697, !1698, !"_ZN107_$LT$awc..client..connector..TcpConnectorInnerFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hebcc384ae48b6087E: argument 0"}
-!1698 = distinct !{!1698, !"_ZN107_$LT$awc..client..connector..TcpConnectorInnerFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hebcc384ae48b6087E"}
-!1699 = distinct !{!1699, !1698, !"_ZN107_$LT$awc..client..connector..TcpConnectorInnerFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hebcc384ae48b6087E: argument 1"}
-!1700 = distinct !{!1700, !1701, !"_ZN102_$LT$awc..client..connector..TcpConnectorFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf31c893a6c0e011fE: argument 0"}
-!1701 = distinct !{!1701, !"_ZN102_$LT$awc..client..connector..TcpConnectorFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf31c893a6c0e011fE"}
-!1702 = distinct !{!1702, !1701, !"_ZN102_$LT$awc..client..connector..TcpConnectorFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf31c893a6c0e011fE: argument 1"}
-!1703 = !{i8 0, i8 5}
-!1704 = !{!1705, !1707, !1708, !1710, !1700, !1702}
-!1705 = distinct !{!1705, !1706, !"_ZN102_$LT$awc..client..connector..TcpConnectorFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h04906789c0ce77cfE: argument 0"}
-!1706 = distinct !{!1706, !"_ZN102_$LT$awc..client..connector..TcpConnectorFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h04906789c0ce77cfE"}
-!1707 = distinct !{!1707, !1706, !"_ZN102_$LT$awc..client..connector..TcpConnectorFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h04906789c0ce77cfE: argument 1"}
-!1708 = distinct !{!1708, !1709, !"_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17hb15e51c634f9c89fE: argument 0"}
-!1709 = distinct !{!1709, !"_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17hb15e51c634f9c89fE"}
-!1710 = distinct !{!1710, !1709, !"_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17hb15e51c634f9c89fE: argument 1"}
-!1711 = !{!1700, !1702}
-!1712 = !{!1699, !1700, !1702}
-!1713 = !{!1705, !1708, !1700, !1702}
+!1696 = !{!1697, !1699}
+!1697 = distinct !{!1697, !1698, !"_ZN102_$LT$awc..client..connector..TcpConnectorFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf31c893a6c0e011fE: argument 0"}
+!1698 = distinct !{!1698, !"_ZN102_$LT$awc..client..connector..TcpConnectorFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf31c893a6c0e011fE"}
+!1699 = distinct !{!1699, !1698, !"_ZN102_$LT$awc..client..connector..TcpConnectorFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf31c893a6c0e011fE: argument 1"}
+!1700 = !{i8 0, i8 5}
+!1701 = !{!1702, !1704, !1697, !1699}
+!1702 = distinct !{!1702, !1703, !"_ZN107_$LT$awc..client..connector..TcpConnectorInnerFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hebcc384ae48b6087E: argument 0"}
+!1703 = distinct !{!1703, !"_ZN107_$LT$awc..client..connector..TcpConnectorInnerFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hebcc384ae48b6087E"}
+!1704 = distinct !{!1704, !1703, !"_ZN107_$LT$awc..client..connector..TcpConnectorInnerFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hebcc384ae48b6087E: argument 1"}
+!1705 = !{!1706, !1708, !1709, !1711, !1697, !1699}
+!1706 = distinct !{!1706, !1707, !"_ZN102_$LT$awc..client..connector..TcpConnectorFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h04906789c0ce77cfE: argument 0"}
+!1707 = distinct !{!1707, !"_ZN102_$LT$awc..client..connector..TcpConnectorFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h04906789c0ce77cfE"}
+!1708 = distinct !{!1708, !1707, !"_ZN102_$LT$awc..client..connector..TcpConnectorFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h04906789c0ce77cfE: argument 1"}
+!1709 = distinct !{!1709, !1710, !"_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17hb15e51c634f9c89fE: argument 0"}
+!1710 = distinct !{!1710, !"_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17hb15e51c634f9c89fE"}
+!1711 = distinct !{!1711, !1710, !"_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$6map_ok17hb15e51c634f9c89fE: argument 1"}
+!1712 = !{!1704, !1697, !1699}
+!1713 = !{!1706, !1709, !1697, !1699}
 !1714 = !{!1715, !1717}
 !1715 = distinct !{!1715, !1716, !"_ZN3awc6client10connection24ConnectionType$LT$Io$GT$7from_h117h42b005c777268f45E: argument 0"}
 !1716 = distinct !{!1716, !"_ZN3awc6client10connection24ConnectionType$LT$Io$GT$7from_h117h42b005c777268f45E"}

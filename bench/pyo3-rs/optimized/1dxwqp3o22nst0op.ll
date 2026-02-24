@@ -2633,7 +2633,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   %17 = alloca [24 x i8], align 8
   %18 = alloca [32 x i8], align 8
   %19 = alloca [32 x i8], align 8
-  %20 = alloca [24 x i8], align 8
+  %20 = alloca [32 x i8], align 8
   %21 = alloca [32 x i8], align 8
   %22 = alloca [24 x i8], align 8
   %23 = alloca [32 x i8], align 8
@@ -2643,9 +2643,9 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   %27 = alloca [32 x i8], align 8
   %28 = alloca [24 x i8], align 8
   %29 = alloca [32 x i8], align 8
-  %30 = alloca [32 x i8], align 8
-  %31 = alloca [24 x i8], align 8
-  %32 = alloca [32 x i8], align 8
+  %30 = alloca [24 x i8], align 8
+  %31 = alloca [32 x i8], align 8
+  %32 = alloca [24 x i8], align 8
   %33 = alloca [24 x i8], align 8
   %.sroa.24.i.i.sroa.7 = alloca [16 x i8], align 8
   %34 = alloca [24 x i8], align 8
@@ -2835,8 +2835,8 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
 
 112:                                              ; preds = %104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %39, i64 40, i1 false), !noalias !9
-  %113 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %114 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.35.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %36, i64 4
   %.sroa.35.sroa.2.0..sroa.35.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.24.i.i.sroa.7.0..sroa.35.sroa.2.0..sroa.35.0..sroa_idx.sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -2915,11 +2915,11 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br i1 %124, label %130, label %128
 
 125:                                              ; preds = %.noexc.i.i
-  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute19ensure_no_arguments17he1aa8ca2f035751cE(ptr noalias align 8 %28, ptr nonnull align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.106, i64 3)
+  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute19ensure_no_arguments17he1aa8ca2f035751cE(ptr noalias align 8 %30, ptr nonnull align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.106, i64 3)
           to label %.noexc18.i.i unwind label %.body.thread46.i.i.loopexit.split-lp, !noalias !9
 
 .noexc18.i.i:                                     ; preds = %125
-  %126 = load i64, ptr %28, align 8, !noalias !12
+  %126 = load i64, ptr %30, align 8, !noalias !12
   %127 = icmp eq i64 %126, -9223372036854775808
   br i1 %127, label %175, label %180
 
@@ -2931,11 +2931,11 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br i1 %129, label %136, label %134
 
 130:                                              ; preds = %.noexc17.i.i
-  invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17heba82a6e8182a931E(ptr nonnull sret([32 x i8]) align 8 %27, ptr nonnull align 8 %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel)
+  invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17heba82a6e8182a931E(ptr nonnull sret([32 x i8]) align 8 %29, ptr nonnull align 8 %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel)
           to label %.noexc20.i.i unwind label %.body.thread46.i.i.loopexit.split-lp, !noalias !9
 
 .noexc20.i.i:                                     ; preds = %130
-  %131 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %27)
+  %131 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %29)
           to label %.noexc21.i.i unwind label %.body.thread46.i.i.loopexit.split-lp, !noalias !9
 
 .noexc21.i.i:                                     ; preds = %.noexc20.i.i
@@ -2943,11 +2943,11 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
           to label %.noexc22.i.i unwind label %.body.thread46.i.i.loopexit.split-lp, !noalias !9
 
 .noexc22.i.i:                                     ; preds = %.noexc21.i.i
-  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute19ensure_no_arguments17he1aa8ca2f035751cE(ptr noalias align 8 %26, ptr nonnull align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.107, i64 7)
+  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute19ensure_no_arguments17he1aa8ca2f035751cE(ptr noalias align 8 %28, ptr nonnull align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.107, i64 7)
           to label %.noexc23.i.i unwind label %.body.thread46.i.i.loopexit.split-lp, !noalias !9
 
 .noexc23.i.i:                                     ; preds = %.noexc22.i.i
-  %132 = load i64, ptr %26, align 8, !noalias !12
+  %132 = load i64, ptr %28, align 8, !noalias !12
   %133 = icmp eq i64 %132, -9223372036854775808
   br i1 %133, label %182, label %180
 
@@ -2959,11 +2959,11 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br i1 %135, label %141, label %139
 
 136:                                              ; preds = %.noexc19.i.i
-  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute19ensure_no_arguments17he1aa8ca2f035751cE(ptr noalias align 8 %24, ptr nonnull align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.108, i64 11)
+  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute19ensure_no_arguments17he1aa8ca2f035751cE(ptr noalias align 8 %26, ptr nonnull align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.108, i64 11)
           to label %.noexc25.i.i unwind label %.body.thread46.i.i.loopexit.split-lp, !noalias !9
 
 .noexc25.i.i:                                     ; preds = %136
-  %137 = load i64, ptr %24, align 8, !noalias !12
+  %137 = load i64, ptr %26, align 8, !noalias !12
   %138 = icmp eq i64 %137, -9223372036854775808
   br i1 %138, label %173, label %180
 
@@ -2975,11 +2975,11 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br i1 %140, label %146, label %144
 
 141:                                              ; preds = %.noexc24.i.i
-  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute19ensure_no_arguments17he1aa8ca2f035751cE(ptr noalias align 8 %22, ptr nonnull align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.109, i64 12)
+  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute19ensure_no_arguments17he1aa8ca2f035751cE(ptr noalias align 8 %24, ptr nonnull align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.109, i64 12)
           to label %.noexc27.i.i unwind label %.body.thread46.i.i.loopexit.split-lp, !noalias !9
 
 .noexc27.i.i:                                     ; preds = %141
-  %142 = load i64, ptr %22, align 8, !noalias !12
+  %142 = load i64, ptr %24, align 8, !noalias !12
   %143 = icmp eq i64 %142, -9223372036854775808
   br i1 %143, label %171, label %180
 
@@ -2991,11 +2991,11 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br i1 %145, label %151, label %149
 
 146:                                              ; preds = %.noexc26.i.i
-  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute19ensure_no_arguments17he1aa8ca2f035751cE(ptr noalias align 8 %20, ptr nonnull align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.110, i64 9)
+  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute19ensure_no_arguments17he1aa8ca2f035751cE(ptr noalias align 8 %22, ptr nonnull align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.110, i64 9)
           to label %.noexc29.i.i unwind label %.body.thread46.i.i.loopexit.split-lp, !noalias !9
 
 .noexc29.i.i:                                     ; preds = %146
-  %147 = load i64, ptr %20, align 8, !noalias !12
+  %147 = load i64, ptr %22, align 8, !noalias !12
   %148 = icmp eq i64 %147, -9223372036854775808
   br i1 %148, label %169, label %180
 
@@ -3007,36 +3007,36 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br i1 %150, label %154, label %181
 
 151:                                              ; preds = %.noexc28.i.i
-  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute12extract_name17h25aa3bdeccb7f337E(ptr noalias align 8 %32, ptr nonnull align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.111)
+  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute12extract_name17h25aa3bdeccb7f337E(ptr noalias align 8 %20, ptr nonnull align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.111)
           to label %.noexc31.i.i unwind label %.body.thread46.i.i.loopexit.split-lp
 
 .noexc31.i.i:                                     ; preds = %151
-  %152 = load i64, ptr %32, align 8, !noalias !12
+  %152 = load i64, ptr %20, align 8, !noalias !12
   %153 = icmp eq i64 %152, 0
   br i1 %153, label %164, label %180
 
 154:                                              ; preds = %.noexc30.i.i
-  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute12extract_name17h25aa3bdeccb7f337E(ptr noalias align 8 %30, ptr nonnull align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.112)
+  invoke fastcc void @_ZN19pyo3_macros_backend6method19MethodTypeAttribute27parse_if_matching_attribute12extract_name17h25aa3bdeccb7f337E(ptr noalias align 8 %18, ptr nonnull align 8 %37, ptr nonnull align 1 @anon.9cdb0f1de315f2edc7144e26a729bf42.112)
           to label %.noexc32.i.i unwind label %.body.thread46.i.i.loopexit.split-lp
 
 .noexc32.i.i:                                     ; preds = %154
-  %155 = load i64, ptr %30, align 8, !noalias !12
+  %155 = load i64, ptr %18, align 8, !noalias !12
   %156 = icmp eq i64 %155, 0
   br i1 %156, label %157, label %180
 
 157:                                              ; preds = %.noexc32.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %113, i64 24, i1 false), !noalias !12
-  invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17heba82a6e8182a931E(ptr nonnull sret([32 x i8]) align 8 %18, ptr nonnull align 8 %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %113, i64 24, i1 false), !noalias !12
+  invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17heba82a6e8182a931E(ptr nonnull sret([32 x i8]) align 8 %19, ptr nonnull align 8 %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel)
           to label %160 unwind label %158, !noalias !12
 
 158:                                              ; preds = %160, %157
   %159 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$17h154378133945f6bdE"(ptr nonnull align 8 %31) #9
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$17h154378133945f6bdE"(ptr nonnull align 8 %32) #9
           to label %.body.thread.i.i unwind label %162, !noalias !12
 
 160:                                              ; preds = %157
-  %161 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %18)
+  %161 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %19)
           to label %.sink.split.i.i unwind label %158, !noalias !12
 
 162:                                              ; preds = %165, %158
@@ -3047,7 +3047,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
 
 164:                                              ; preds = %.noexc31.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %114, i64 24, i1 false), !noalias !12
-  invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17heba82a6e8182a931E(ptr nonnull sret([32 x i8]) align 8 %19, ptr nonnull align 8 %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel)
+  invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17heba82a6e8182a931E(ptr nonnull sret([32 x i8]) align 8 %21, ptr nonnull align 8 %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel)
           to label %167 unwind label %165, !noalias !12
 
 165:                                              ; preds = %167, %164
@@ -3057,39 +3057,39 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
           to label %.body.thread.i.i unwind label %162, !noalias !12
 
 167:                                              ; preds = %164
-  %168 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %19)
+  %168 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %21)
           to label %.sink.split.i.i unwind label %165, !noalias !12
 
 169:                                              ; preds = %.noexc29.i.i
-  invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17heba82a6e8182a931E(ptr nonnull sret([32 x i8]) align 8 %21, ptr nonnull align 8 %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel)
+  invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17heba82a6e8182a931E(ptr nonnull sret([32 x i8]) align 8 %23, ptr nonnull align 8 %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel)
           to label %.noexc33.i.i unwind label %.body.thread46.i.i.loopexit.split-lp, !noalias !9
 
 .noexc33.i.i:                                     ; preds = %169
-  %170 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %21)
+  %170 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %23)
           to label %182 unwind label %.body.thread46.i.i.loopexit.split-lp, !noalias !9
 
 171:                                              ; preds = %.noexc27.i.i
-  invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17heba82a6e8182a931E(ptr nonnull sret([32 x i8]) align 8 %23, ptr nonnull align 8 %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel)
+  invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17heba82a6e8182a931E(ptr nonnull sret([32 x i8]) align 8 %25, ptr nonnull align 8 %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel)
           to label %.noexc35.i.i unwind label %.body.thread46.i.i.loopexit.split-lp, !noalias !9
 
 .noexc35.i.i:                                     ; preds = %171
-  %172 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %23)
+  %172 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %25)
           to label %182 unwind label %.body.thread46.i.i.loopexit.split-lp, !noalias !9
 
 173:                                              ; preds = %.noexc25.i.i
-  invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17heba82a6e8182a931E(ptr nonnull sret([32 x i8]) align 8 %25, ptr nonnull align 8 %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel)
+  invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17heba82a6e8182a931E(ptr nonnull sret([32 x i8]) align 8 %27, ptr nonnull align 8 %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel)
           to label %.noexc37.i.i unwind label %.body.thread46.i.i.loopexit.split-lp, !noalias !9
 
 .noexc37.i.i:                                     ; preds = %173
-  %174 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %25)
+  %174 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %27)
           to label %182 unwind label %.body.thread46.i.i.loopexit.split-lp, !noalias !9
 
 175:                                              ; preds = %.noexc18.i.i
-  invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17heba82a6e8182a931E(ptr nonnull sret([32 x i8]) align 8 %29, ptr nonnull align 8 %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel)
+  invoke void @_ZN5quote9to_tokens8ToTokens17into_token_stream17heba82a6e8182a931E(ptr nonnull sret([32 x i8]) align 8 %31, ptr nonnull align 8 %.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel)
           to label %.noexc39.i.i unwind label %.body.thread46.i.i.loopexit.split-lp, !noalias !9
 
 .noexc39.i.i:                                     ; preds = %175
-  %176 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %29)
+  %176 = invoke i32 @_ZN5quote7spanned10join_spans17h3bdea0c35a14c843E(ptr nonnull align 8 %31)
           to label %182 unwind label %.body.thread46.i.i.loopexit.split-lp, !noalias !9
 
 177:                                              ; preds = %118
@@ -3119,7 +3119,7 @@ define hidden void @_ZN19pyo3_macros_backend6method6FnSpec5parse17hdd172ccc207a6
   br label %.loopexit.i.i
 
 180:                                              ; preds = %.noexc32.i.i, %.noexc31.i.i, %.noexc29.i.i, %.noexc27.i.i, %.noexc25.i.i, %.noexc23.i.i, %.noexc18.i.i
-  %.sink.i.i = phi ptr [ %26, %.noexc23.i.i ], [ %113, %.noexc32.i.i ], [ %114, %.noexc31.i.i ], [ %20, %.noexc29.i.i ], [ %22, %.noexc27.i.i ], [ %24, %.noexc25.i.i ], [ %28, %.noexc18.i.i ]
+  %.sink.i.i = phi ptr [ %28, %.noexc23.i.i ], [ %113, %.noexc32.i.i ], [ %114, %.noexc31.i.i ], [ %22, %.noexc29.i.i ], [ %24, %.noexc27.i.i ], [ %26, %.noexc25.i.i ], [ %30, %.noexc18.i.i ]
   %.sroa.24.i.i.sroa.0.0.copyload = load i64, ptr %.sink.i.i, align 8, !noalias !9
   %.sroa.24.i.i.sroa.7.0..sink.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.24.i.i.sroa.7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.24.i.i.sroa.7.0..sink.i.i.sroa_idx, i64 16, i1 false), !noalias !9

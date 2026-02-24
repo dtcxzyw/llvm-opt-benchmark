@@ -6273,7 +6273,6 @@ define internal fastcc void @"_ZN2h25proto8settings8Settings9poll_send28_$u7b$$u
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN2h26client20SendRequest$LT$B$GT$10poll_ready17hd0480c506db1f283E"(ptr noalias noundef writeonly sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [39 x i8] }, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !noundef !5
   %7 = icmp eq ptr %6, null
@@ -6287,10 +6286,9 @@ define hidden void @"_ZN2h26client20SendRequest$LT$B$GT$10poll_ready17hd0480c506
 
 9:                                                ; preds = %3
   store i8 6, ptr %0, align 8
-  br label %27
+  br label %26
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %11 = load ptr, ptr %5, align 8, !alias.scope !460, !noundef !5
   %12 = icmp eq ptr %11, null
   br i1 %12, label %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$h2..proto..streams..streams..OpaqueStreamRef$GT$$GT$17h332af50bea0d0c29E.llvm.14108317313071697234.exit", label %13
@@ -6332,7 +6330,7 @@ define hidden void @"_ZN2h26client20SendRequest$LT$B$GT$10poll_ready17hd0480c506
   store i8 %8, ptr %0, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.419.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.3.0..sroa_idx, i64 39, i1 false)
-  br label %27
+  br label %26
 
 24:                                               ; preds = %.noexc, %20
   %25 = landingpad { ptr, i32 }
@@ -6349,12 +6347,8 @@ define hidden void @"_ZN2h26client20SendRequest$LT$B$GT$10poll_ready17hd0480c506
   store i8 5, ptr %0, align 8
   br label %26
 
-26:                                               ; preds = %27, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$h2..proto..streams..streams..OpaqueStreamRef$GT$$GT$17h332af50bea0d0c29E.llvm.14108317313071697234.exit"
+26:                                               ; preds = %9, %23, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$h2..proto..streams..streams..OpaqueStreamRef$GT$$GT$17h332af50bea0d0c29E.llvm.14108317313071697234.exit"
   ret void
-
-27:                                               ; preds = %23, %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %26
 }
 
 ; Function Attrs: nonlazybind uwtable

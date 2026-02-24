@@ -403,9 +403,9 @@ define void @"_ZN88_$LT$perf..noprotection..NoProtectionSession$u20$as$u20$quinn
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN88_$LT$perf..noprotection..NoProtectionSession$u20$as$u20$quinn_proto..crypto..Session$GT$15write_handshake17h8c2aff506e15f613E"(ptr dead_on_unwind noalias noundef writable writeonly sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = alloca [32 x i8], align 8
+  %4 = alloca [64 x i8], align 8
   %5 = alloca [32 x i8], align 8
-  %6 = alloca [64 x i8], align 8
+  %6 = alloca [32 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %8 = alloca [64 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -420,14 +420,14 @@ define void @"_ZN88_$LT$perf..noprotection..NoProtectionSession$u20$as$u20$quinn
   br i1 %.not, label %17, label %15
 
 15:                                               ; preds = %3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  invoke fastcc void @_ZN4perf12noprotection19NoProtectionSession16wrap_packet_keys17he79438e18fe18088E(ptr noalias noundef align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef align 8 captures(none) dereferenceable(32) %16)
+  invoke fastcc void @_ZN4perf12noprotection19NoProtectionSession16wrap_packet_keys17he79438e18fe18088E(ptr noalias noundef align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef align 8 captures(none) dereferenceable(32) %16)
           to label %21 unwind label %19
 
 17:                                               ; preds = %3
@@ -441,17 +441,17 @@ define void @"_ZN88_$LT$perf..noprotection..NoProtectionSession$u20$as$u20$quinn
 19:                                               ; preds = %15
   %20 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr120drop_in_place$LT$quinn_proto..crypto..KeyPair$LT$alloc..boxed..Box$LT$dyn$u20$quinn_proto..crypto..HeaderKey$GT$$GT$$GT$17h67ab7269aa5b41f1E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #15
+  invoke void @"_ZN4core3ptr120drop_in_place$LT$quinn_proto..crypto..KeyPair$LT$alloc..boxed..Box$LT$dyn$u20$quinn_proto..crypto..HeaderKey$GT$$GT$$GT$17h67ab7269aa5b41f1E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6) #15
           to label %25 unwind label %23
 
 21:                                               ; preds = %15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %18
 
 23:                                               ; preds = %19

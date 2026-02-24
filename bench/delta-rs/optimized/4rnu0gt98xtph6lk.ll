@@ -529,7 +529,6 @@ define internal void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffer
   br label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hed50f59782aae96cE.exit.thread"
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h60d113dfe35beb76E.exit", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hed50f59782aae96cE.exit.thread"
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hbce82ea3c52ad908E"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %48 = load i64, ptr %6, align 8, !range !17, !noundef !13
   switch i64 %48, label %54 [
@@ -576,7 +575,6 @@ define internal void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffer
   br label %57
 
 57:                                               ; preds = %53, %54, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17h5a01dc6f24449b0fE.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -670,7 +668,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hf480658401b76e44E.exit.thread"
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h134991e6767dd082E.exit", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hf480658401b76e44E.exit.thread"
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h245301d381120943E"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %48 = load i64, ptr %6, align 8, !range !17, !noundef !13
   switch i64 %48, label %54 [
@@ -717,7 +714,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %57
 
 57:                                               ; preds = %53, %54, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17h5a01dc6f24449b0fE.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -841,7 +837,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %61
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17hfb9af9e209da93f5E.exit", %63
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h233125d648f8f81dE"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %60 = load i64, ptr %6, align 8, !range !17, !noundef !13
   switch i64 %60, label %70 [
@@ -898,7 +893,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %73
 
 73:                                               ; preds = %69, %70, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h739706c3233188bbE.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 

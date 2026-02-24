@@ -6245,9 +6245,9 @@ _ZN12polars_arrow3ffi4mmap5slice17h560163959f0e8e67E.exit: ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !432
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !432
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.2, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0.sroa.0, i64 32, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store ptr null, ptr %28, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -6349,9 +6349,9 @@ _ZN12polars_arrow3ffi4mmap5slice17h560163959f0e8e67E.exit: ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.018.sroa.0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !440
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !440
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.018.sroa.0, i64 32, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.018.sroa.2, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.018.sroa.0, i64 32, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 56
   store ptr null, ptr %62, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)

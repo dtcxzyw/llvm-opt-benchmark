@@ -3528,7 +3528,6 @@ define hidden void @"_ZN6wiggle17GuestPtr$LT$T$GT$8as_array17hd3a96b24b7429334E"
 define hidden void @_ZN6wiggle19validate_size_align17h1fb99b171e917751E(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { ptr, [3 x i64] }, align 8
-  %.sroa.5106 = alloca [10 x i32], align 8
   %8 = alloca { i32, [15 x i32] }, align 8
   %9 = alloca { i32, [15 x i32] }, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -3548,7 +3547,6 @@ define hidden void @_ZN6wiggle19validate_size_align17h1fb99b171e917751E(ptr noal
   br i1 %19, label %.thread, label %21
 
 .thread:                                          ; preds = %5
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %4, ptr %20, align 8
   br label %35
@@ -3557,7 +3555,6 @@ define hidden void @_ZN6wiggle19validate_size_align17h1fb99b171e917751E(ptr noal
   %22 = sub nuw i64 %14, %15
   %23 = zext i32 %4 to i64
   %24 = icmp ult i64 %22, %23
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %3, ptr %25, align 4
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3567,7 +3564,6 @@ define hidden void @_ZN6wiggle19validate_size_align17h1fb99b171e917751E(ptr noal
 
 27:                                               ; preds = %21
   call void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h53b7a5574d8a440aE.llvm.5331966815222788767"(ptr noalias noundef nonnull align 8 dereferenceable(64) %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !244
   call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16split_at_checked17hfbb3bd1f7d976261E.llvm.7437452962731462277"(ptr noalias noundef nonnull sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) %7, ptr noundef nonnull align 1 %17, i64 noundef %23, i64 noundef 0), !noalias !244
   %28 = load ptr, ptr %7, align 8, !noalias !244, !noundef !7
@@ -3602,16 +3598,11 @@ define hidden void @_ZN6wiggle19validate_size_align17h1fb99b171e917751E(ptr noal
 35:                                               ; preds = %.thread, %21
   %36 = phi ptr [ %20, %.thread ], [ %26, %21 ]
   %.sroa.588.0.copyload = load ptr, ptr %36, align 8
-  %.sroa.790.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5106, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.790.0..sroa_idx, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i32 3, ptr %0, align 8
   %.sroa.2103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %3, ptr %.sroa.2103.0..sroa_idx, align 4
   %.sroa.3104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.588.0.copyload, ptr %.sroa.3104.0..sroa_idx, align 8
-  %.sroa.5106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5106.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5106, i64 40, i1 false)
   br label %40
 
 37:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17h6b7ea157e031d01bE.exit"
@@ -3644,7 +3635,6 @@ define hidden void @_ZN6wiggle19validate_size_align17h1fb99b171e917751E(ptr noal
 define hidden void @_ZN6wiggle19validate_size_align17h471ea62db683fac1E(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { ptr, [3 x i64] }, align 8
-  %.sroa.5106 = alloca [10 x i32], align 8
   %8 = alloca { i32, [15 x i32] }, align 8
   %9 = alloca { i32, [15 x i32] }, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -3669,7 +3659,6 @@ define hidden void @_ZN6wiggle19validate_size_align17h471ea62db683fac1E(ptr noal
   br i1 %22, label %.thread121, label %25
 
 .thread121:                                       ; preds = %15
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %13, ptr %23, align 8
   br label %49
@@ -3685,7 +3674,6 @@ define hidden void @_ZN6wiggle19validate_size_align17h471ea62db683fac1E(ptr noal
   %26 = sub nuw i64 %16, %18
   %27 = zext i32 %13 to i64
   %28 = icmp ult i64 %26, %27
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %3, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3695,7 +3683,6 @@ define hidden void @_ZN6wiggle19validate_size_align17h471ea62db683fac1E(ptr noal
 
 31:                                               ; preds = %25
   call void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h53b7a5574d8a440aE.llvm.5331966815222788767"(ptr noalias noundef nonnull align 8 dereferenceable(64) %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %32 = ptrtoint ptr %20 to i64
   %33 = add i64 %32, 7
   %34 = and i64 %33, -8
@@ -3749,16 +3736,11 @@ define hidden void @_ZN6wiggle19validate_size_align17h471ea62db683fac1E(ptr noal
 49:                                               ; preds = %.thread121, %25
   %50 = phi ptr [ %23, %.thread121 ], [ %30, %25 ]
   %.sroa.588.0.copyload = load ptr, ptr %50, align 8
-  %.sroa.790.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5106, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.790.0..sroa_idx, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i32 3, ptr %0, align 8
   %.sroa.2103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %3, ptr %.sroa.2103.0..sroa_idx, align 4
   %.sroa.3104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.588.0.copyload, ptr %.sroa.3104.0..sroa_idx, align 8
-  %.sroa.5106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5106.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5106, i64 40, i1 false)
   br label %54
 
 51:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17hee425af40dedac5dE.exit"
@@ -3791,7 +3773,6 @@ define hidden void @_ZN6wiggle19validate_size_align17h471ea62db683fac1E(ptr noal
 define hidden void @_ZN6wiggle19validate_size_align17h7511fafcfbb2b349E(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { ptr, [3 x i64] }, align 8
-  %.sroa.5106 = alloca [10 x i32], align 8
   %8 = alloca { i32, [15 x i32] }, align 8
   %9 = alloca { i32, [15 x i32] }, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -3816,7 +3797,6 @@ define hidden void @_ZN6wiggle19validate_size_align17h7511fafcfbb2b349E(ptr noal
   br i1 %22, label %.thread121, label %25
 
 .thread121:                                       ; preds = %15
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %13, ptr %23, align 8
   br label %50
@@ -3832,7 +3812,6 @@ define hidden void @_ZN6wiggle19validate_size_align17h7511fafcfbb2b349E(ptr noal
   %26 = sub nuw i64 %16, %18
   %27 = zext i32 %13 to i64
   %28 = icmp ult i64 %26, %27
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %3, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3842,7 +3821,6 @@ define hidden void @_ZN6wiggle19validate_size_align17h7511fafcfbb2b349E(ptr noal
 
 31:                                               ; preds = %25
   call void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h53b7a5574d8a440aE.llvm.5331966815222788767"(ptr noalias noundef nonnull align 8 dereferenceable(64) %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %32 = ptrtoint ptr %20 to i64
   %33 = add i64 %32, 1
   %34 = and i64 %33, -2
@@ -3890,16 +3868,11 @@ define hidden void @_ZN6wiggle19validate_size_align17h7511fafcfbb2b349E(ptr noal
 50:                                               ; preds = %.thread121, %25
   %51 = phi ptr [ %23, %.thread121 ], [ %30, %25 ]
   %.sroa.588.0.copyload = load ptr, ptr %51, align 8
-  %.sroa.790.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5106, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.790.0..sroa_idx, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i32 3, ptr %0, align 8
   %.sroa.2103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %3, ptr %.sroa.2103.0..sroa_idx, align 4
   %.sroa.3104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.588.0.copyload, ptr %.sroa.3104.0..sroa_idx, align 8
-  %.sroa.5106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5106.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5106, i64 40, i1 false)
   br label %54
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17heb59a7c5c5bdc790E.exit.thread": ; preds = %31, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17heb59a7c5c5bdc790E.exit"
@@ -3934,7 +3907,6 @@ define hidden void @_ZN6wiggle19validate_size_align17h7511fafcfbb2b349E(ptr noal
 define hidden void @_ZN6wiggle19validate_size_align17hfab9d8c251dfdd4dE(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { ptr, [3 x i64] }, align 8
-  %.sroa.5106 = alloca [10 x i32], align 8
   %8 = alloca { i32, [15 x i32] }, align 8
   %9 = alloca { i32, [15 x i32] }, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -3959,7 +3931,6 @@ define hidden void @_ZN6wiggle19validate_size_align17hfab9d8c251dfdd4dE(ptr noal
   br i1 %22, label %.thread121, label %25
 
 .thread121:                                       ; preds = %15
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %13, ptr %23, align 8
   br label %49
@@ -3975,7 +3946,6 @@ define hidden void @_ZN6wiggle19validate_size_align17hfab9d8c251dfdd4dE(ptr noal
   %26 = sub nuw i64 %16, %18
   %27 = zext i32 %13 to i64
   %28 = icmp ult i64 %26, %27
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %3, ptr %29, align 4
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3985,7 +3955,6 @@ define hidden void @_ZN6wiggle19validate_size_align17hfab9d8c251dfdd4dE(ptr noal
 
 31:                                               ; preds = %25
   call void @"_ZN4core3ptr46drop_in_place$LT$wiggle..error..GuestError$GT$17h53b7a5574d8a440aE.llvm.5331966815222788767"(ptr noalias noundef nonnull align 8 dereferenceable(64) %8)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %32 = ptrtoint ptr %20 to i64
   %33 = add i64 %32, 3
   %34 = and i64 %33, -4
@@ -4039,16 +4008,11 @@ define hidden void @_ZN6wiggle19validate_size_align17hfab9d8c251dfdd4dE(ptr noal
 49:                                               ; preds = %.thread121, %25
   %50 = phi ptr [ %23, %.thread121 ], [ %30, %25 ]
   %.sroa.588.0.copyload = load ptr, ptr %50, align 8
-  %.sroa.790.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5106, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.790.0..sroa_idx, i64 40, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   store i32 3, ptr %0, align 8
   %.sroa.2103.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %3, ptr %.sroa.2103.0..sroa_idx, align 4
   %.sroa.3104.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.588.0.copyload, ptr %.sroa.3104.0..sroa_idx, align 8
-  %.sroa.5106.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5106.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5106, i64 40, i1 false)
   br label %54
 
 51:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17h7d6bda58600f782dE.exit"

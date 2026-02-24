@@ -39221,9 +39221,9 @@ define internal fastcc void @_ZN7hir_def9find_path20find_path_for_module17ha13e1
   %25 = alloca { i8, [23 x i8] }, align 8
   %.sroa.4175 = alloca [15 x i8], align 1
   %26 = alloca { i32, [4 x i32] }, align 4
+  %27 = alloca { i8, [39 x i8] }, align 8
   %.sroa.4173 = alloca [15 x i8], align 1
-  %27 = alloca { i32, [4 x i32] }, align 4
-  %28 = alloca { i8, [39 x i8] }, align 8
+  %28 = alloca { i32, [4 x i32] }, align 4
   %.sroa.022.sroa.4 = alloca { i64, { [3 x i64] } }, align 8
   %29 = alloca { ptr, ptr }, align 8
   %30 = alloca { [16 x i8], i8, [15 x i8] }, align 4
@@ -39762,34 +39762,32 @@ _ZN10hir_expand8mod_path7ModPath13from_segments17h5434fa4d410f90faE.exit13.i: ; 
 ._crit_edge:                                      ; preds = %.noexc113.us, %.noexc113, %"_ZN92_$LT$hir_def..ModuleId$u20$as$u20$core..cmp..PartialEq$LT$hir_def..CrateRootModuleId$GT$$GT$2eq17hb34894f8b93d95f2E.exit117.thread", %169
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4173)
   %.sroa.4173.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4173, i64 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.sroa.4173.4..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 12, i1 false), !alias.scope !9507
-  %198 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %198 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i8 0, ptr %198, align 4
-  %.sroa.4173.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 5
+  %.sroa.4173.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.4173.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.4173, i64 15, i1 false)
-  store i32 0, ptr %27, align 4
+  store i32 0, ptr %28, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4173)
-  invoke fastcc void @_ZN7hir_def9find_path15find_in_prelude17h65a28a688121b7eaE(ptr noalias noundef align 8 captures(none) dereferenceable(40) %28, ptr noundef nonnull align 1 %78, ptr noalias noundef readonly align 8 dereferenceable(24) %80, ptr noalias noundef readonly align 8 dereferenceable(192) %170, ptr noalias noundef readonly align 8 dereferenceable(192) %2, ptr noalias noundef align 4 captures(none) dereferenceable(20) %27, ptr noalias noundef align 4 captures(none) dereferenceable(12) %5)
+  invoke fastcc void @_ZN7hir_def9find_path15find_in_prelude17h65a28a688121b7eaE(ptr noalias noundef align 8 captures(none) dereferenceable(40) %27, ptr noundef nonnull align 1 %78, ptr noalias noundef readonly align 8 dereferenceable(24) %80, ptr noalias noundef readonly align 8 dereferenceable(192) %170, ptr noalias noundef readonly align 8 dereferenceable(192) %2, ptr noalias noundef align 4 captures(none) dereferenceable(20) %28, ptr noalias noundef align 4 captures(none) dereferenceable(12) %5)
           to label %199 unwind label %.loopexit.split-lp
 
 199:                                              ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  %200 = load i8, ptr %28, align 8, !range !6277, !noundef !4
+  call void @llvm.lifetime.end.p0(ptr nonnull %28)
+  %200 = load i8, ptr %27, align 8, !range !6277, !noundef !4
   %.not74 = icmp eq i8 %200, 5
   br i1 %.not74, label %210, label %201
 
 201:                                              ; preds = %199
-  %.sroa.3257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 1
+  %.sroa.3257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 1
   call void @llvm.experimental.noalias.scope.decl(metadata !9511)
   store i8 %200, ptr %0, align 8, !alias.scope !9514
   %.sroa.3257.0..sroa_idx258 = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.3257.0..sroa_idx258, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.3257.0..sroa_idx, i64 39, i1 false)
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 1, ptr %202, align 8, !alias.scope !9516, !noalias !9511
-  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %203
 
 203:                                              ; preds = %270, %201
@@ -39814,7 +39812,6 @@ _ZN10hir_expand8mod_path7ModPath13from_segments17h5434fa4d410f90faE.exit13.i: ; 
   br label %106
 
 210:                                              ; preds = %199
-  call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4175)
   %.sroa.4175.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.4175, i64 3

@@ -8550,7 +8550,6 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb384b3dee9
   %12 = alloca [16 x i8], align 8
   %13 = alloca [40 x i8], align 8
   %14 = alloca [48 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @"_ZN79_$LT$fs_err..dir..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0d9a49d7638e877cE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
   %15 = load i64, ptr %14, align 8, !range !211, !noundef !12
   %trunc53 = trunc nuw i64 %15 to i1
@@ -8886,13 +8885,10 @@ common.resume.i:                                  ; preds = %110, %96, %34
   br label %.loopexit
 
 "_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$fs_err..dir..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17h1e3df455fddba88eE.exit": ; preds = %112, %3
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   store i64 -9223372036854775807, ptr %0, align 8, !alias.scope !3008
   br label %114
 
 112:                                              ; preds = %"_ZN12uv_installer13site_packages12SitePackages16from_interpreter28_$u7b$$u7b$closure$u7d$$u7d$17hcc541096f6076dc7E.exit.i"
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @"_ZN79_$LT$fs_err..dir..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0d9a49d7638e877cE"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef nonnull align 8 dereferenceable(40) %1)
   %113 = load i64, ptr %14, align 8, !range !211, !noundef !12
   %trunc = trunc nuw i64 %113 to i1
@@ -8907,7 +8903,6 @@ common.resume.i:                                  ; preds = %110, %96, %34
   store ptr %.sroa.76.1.ph, ptr %.sroa.210.0..sroa_idx, align 8, !alias.scope !3011
   %.sroa.311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.9.1.ph, ptr %.sroa.311.0..sroa_idx, align 8, !alias.scope !3011
-  call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %114
 
 114:                                              ; preds = %"_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$fs_err..dir..DirEntry$C$std..io..error..Error$GT$$GT$$GT$17h1e3df455fddba88eE.exit", %.loopexit

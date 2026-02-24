@@ -3213,7 +3213,6 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   resume { ptr, i32 } %eh.lpad-body
 
 18:                                               ; preds = %35, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h98eae5db719a9c74E.exit"
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @"_ZN66_$LT$serde_yaml..de..SeqAccess$u20$as$u20$serde..de..SeqAccess$GT$17next_element_seed17hd1ecf91f3fdd15ddE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
           to label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..SeqAccess$GT$12next_element17haabf14c16f323bf3E.exit" unwind label %19
 
@@ -3240,7 +3239,6 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %24, ptr %25, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h0618e9f9ce11b81bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6)
   br label %40
 
@@ -3274,11 +3272,9 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %38 = add i64 %27, 1
   store i64 %38, ptr %16, align 8, !alias.scope !432, !noalias !435
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %18
 
 39:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..SeqAccess$GT$12next_element17haabf14c16f323bf3E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   br label %40
 

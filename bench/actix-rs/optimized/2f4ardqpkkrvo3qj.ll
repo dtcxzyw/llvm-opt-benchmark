@@ -8101,12 +8101,11 @@ define void @_ZN10actix_http2h27Payload3new17he01297054758e31fE(ptr noalias noun
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN72_$LT$actix_http..h2..Payload$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h474c90e281372005E"(ptr noalias noundef writeonly sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #6 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [39 x i8] }, align 8
+  %5 = alloca { i8, [39 x i8] }, align 8
   %.sroa.45 = alloca [39 x i8], align 1
-  %5 = alloca { ptr, ptr, i64, { ptr } }, align 8
-  %6 = alloca { i8, [39 x i8] }, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @_ZN2h25share10RecvStream9poll_data17h0825778c8d4efd6eE(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-  %7 = load i8, ptr %6, align 8, !range !918, !noundef !4
+  %6 = alloca { ptr, ptr, i64, { ptr } }, align 8
+  call void @_ZN2h25share10RecvStream9poll_data17h0825778c8d4efd6eE(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
+  %7 = load i8, ptr %4, align 8, !range !918, !noundef !4
   switch i8 %7, label %14 [
     i8 7, label %8
     i8 6, label %9
@@ -8122,16 +8121,16 @@ define void @"_ZN72_$LT$actix_http..h2..Payload$u20$as$u20$futures_core..stream.
   br label %35
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false)
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !4
-  invoke void @_ZN2h25share11FlowControl16release_capacity17h798ce73b953305f4E(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %13)
+  invoke void @_ZN2h25share11FlowControl16release_capacity17h798ce73b953305f4E(ptr noalias noundef nonnull sret({ i8, [39 x i8] }) align 8 captures(none) dereferenceable(40) %5, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %13)
           to label %23 unwind label %15
 
 14:                                               ; preds = %3
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 %7, ptr %0, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.419.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.4.0..sroa_idx, i64 39, i1 false)
@@ -8142,17 +8141,17 @@ define void @"_ZN72_$LT$actix_http..h2..Payload$u20$as$u20$futures_core..stream.
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !919)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !922)
-  %17 = load ptr, ptr %5, align 8, !alias.scope !925, !nonnull !4, !align !102, !noundef !4
+  %17 = load ptr, ptr %6, align 8, !alias.scope !925, !nonnull !4, !align !102, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8, !noalias !925, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !925, !noundef !4
   invoke void %19(ptr noalias noundef nonnull align 8 dereferenceable(8) %20, ptr noundef %22, i64 noundef %13)
           to label %"_ZN4core3ptr40drop_in_place$LT$bytes..bytes..Bytes$GT$17h374780ec0ac323bfE.exit" unwind label %33
 
 23:                                               ; preds = %10
-  %24 = load i8, ptr %4, align 8, !range !845, !noundef !4
+  %24 = load i8, ptr %5, align 8, !range !845, !noundef !4
   %.not = icmp eq i8 %24, 5
   br i1 %.not, label %.thread, label %26
 
@@ -8165,18 +8164,18 @@ define void @"_ZN72_$LT$actix_http..h2..Payload$u20$as$u20$futures_core..stream.
   br label %25
 
 25:                                               ; preds = %.thread, %26
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %35
 
 26:                                               ; preds = %23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !926)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !929)
-  %27 = load ptr, ptr %5, align 8, !alias.scope !932, !nonnull !4, !align !102, !noundef !4
+  %27 = load ptr, ptr %6, align 8, !alias.scope !932, !nonnull !4, !align !102, !noundef !4
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8, !noalias !932, !nonnull !4, !noundef !4
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %32 = load ptr, ptr %31, align 8, !alias.scope !932, !noundef !4
   call void %29(ptr noalias noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %32, i64 noundef %13)
   br label %25
@@ -8191,7 +8190,6 @@ define void @"_ZN72_$LT$actix_http..h2..Payload$u20$as$u20$futures_core..stream.
   resume { ptr, i32 } %16
 
 35:                                               ; preds = %9, %14, %25, %8
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -9667,61 +9665,57 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit: ;
 
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN10actix_http2ws5frame6Parser19parse_close_payload17hf13eae2c3bb7b4a4E(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) initializes((0, 8)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #6 personality ptr @rust_eh_personality {
-  %.sroa.3 = alloca [2 x i64], align 8
-  %4 = alloca { i64, [2 x i64] }, align 8
-  %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %6 = icmp ugt i64 %2, 1
-  br i1 %6, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hace82f5207c773ecE.exit", label %7
+  %4 = alloca { { { i64, ptr, {} }, i64 } }, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %6 = alloca { i64, [2 x i64] }, align 8
+  %7 = icmp ugt i64 %2, 1
+  br i1 %7, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hace82f5207c773ecE.exit", label %8
 
-7:                                                ; preds = %3
+8:                                                ; preds = %3
   store i64 -9223372036854775807, ptr %0, align 8
-  br label %11
+  br label %12
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hace82f5207c773ecE.exit": ; preds = %3
   %.val.i = load i16, ptr %1, align 1, !alias.scope !1109
-  %8 = tail call i16 @llvm.bswap.i16(i16 %.val.i)
-  %switch.tableidx = add i16 %8, -1000
-  %9 = icmp ult i16 %switch.tableidx, 16
-  br i1 %9, label %switch.lookup, label %"_ZN83_$LT$actix_http..ws..proto..CloseCode$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17hb42c1f28800de142E.exit"
+  %9 = tail call i16 @llvm.bswap.i16(i16 %.val.i)
+  %switch.tableidx = add i16 %9, -1000
+  %10 = icmp ult i16 %switch.tableidx, 16
+  br i1 %10, label %switch.lookup, label %"_ZN83_$LT$actix_http..ws..proto..CloseCode$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17hb42c1f28800de142E.exit"
 
 switch.lookup:                                    ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hace82f5207c773ecE.exit"
-  %10 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN10actix_http2ws5frame6Parser19parse_close_payload17hf13eae2c3bb7b4a4E, i64 %10
+  %11 = zext nneg i16 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN10actix_http2ws5frame6Parser19parse_close_payload17hf13eae2c3bb7b4a4E, i64 %11
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %"_ZN83_$LT$actix_http..ws..proto..CloseCode$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17hb42c1f28800de142E.exit"
 
 "_ZN83_$LT$actix_http..ws..proto..CloseCode$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17hb42c1f28800de142E.exit": ; preds = %switch.lookup, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hace82f5207c773ecE.exit"
   %.sroa.0.0.i15 = phi i16 [ 13, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hace82f5207c773ecE.exit" ], [ %switch.load, %switch.lookup ]
   %.not = icmp eq i64 %2, 2
-  br i1 %.not, label %15, label %12
+  br i1 %.not, label %16, label %13
 
-11:                                               ; preds = %15, %7
+12:                                               ; preds = %16, %8
   ret void
 
-12:                                               ; preds = %"_ZN83_$LT$actix_http..ws..proto..CloseCode$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17hb42c1f28800de142E.exit"
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %13 = add i64 %2, -2
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  call void @_ZN5alloc6string6String15from_utf8_lossy17h315d013babe5ee7cE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %13)
-  call void @"_ZN98_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$4from17ha4fbfe9c665077ecE"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.03.0.copyload = load i64, ptr %5, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %15
+13:                                               ; preds = %"_ZN83_$LT$actix_http..ws..proto..CloseCode$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17hb42c1f28800de142E.exit"
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  %14 = add i64 %2, -2
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  call void @_ZN5alloc6string6String15from_utf8_lossy17h315d013babe5ee7cE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %14)
+  call void @"_ZN98_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$alloc..borrow..Cow$LT$str$GT$$GT$$GT$4from17ha4fbfe9c665077ecE"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  %.sroa.03.0.copyload = load i64, ptr %4, align 8
+  br label %16
 
-15:                                               ; preds = %"_ZN83_$LT$actix_http..ws..proto..CloseCode$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17hb42c1f28800de142E.exit", %12
-  %.sroa.03.0 = phi i64 [ %.sroa.03.0.copyload, %12 ], [ -9223372036854775808, %"_ZN83_$LT$actix_http..ws..proto..CloseCode$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17hb42c1f28800de142E.exit" ]
+16:                                               ; preds = %"_ZN83_$LT$actix_http..ws..proto..CloseCode$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17hb42c1f28800de142E.exit", %13
+  %.sroa.03.0 = phi i64 [ %.sroa.03.0.copyload, %13 ], [ -9223372036854775808, %"_ZN83_$LT$actix_http..ws..proto..CloseCode$u20$as$u20$core..convert..From$LT$u16$GT$$GT$4from17hb42c1f28800de142E.exit" ]
   store i64 %.sroa.03.0, ptr %0, align 8
   %.sroa.02.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.02.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.02.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i16 %.sroa.0.0.i15, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 26
-  store i16 %8, ptr %.sroa.5.0..sroa_idx, align 2
-  br label %11
+  store i16 %9, ptr %.sroa.5.0..sroa_idx, align 2
+  br label %12
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

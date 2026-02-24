@@ -863,10 +863,10 @@ define hidden void @"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$12next_message1
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %13
 
 13:                                               ; preds = %15, %11
-  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !167
   call void @"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h8282d11a0e3026c4E.llvm.4574499244907318280"(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %6, ptr noundef nonnull align 8 %12), !noalias !167
   %14 = load i64, ptr %6, align 8, !range !170, !noalias !167, !noundef !4
   switch i64 %14, label %default.unreachable [
@@ -880,14 +880,13 @@ default.unreachable:                              ; preds = %13
 
 15:                                               ; preds = %13
   tail call void @_ZN3std6thread9yield_now17h644406618513f1f1E(), !noalias !167
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !167
   br label %13
 
 16:                                               ; preds = %86, %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$16dec_num_messages17hcded678b515a6cb0E.exit", %10
   ret void
 
 17:                                               ; preds = %13
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !167
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %19 = load atomic i64, ptr %18 seq_cst, align 8
   %20 = icmp eq i64 %19, 0
@@ -897,7 +896,7 @@ default.unreachable:                              ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !167
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 32
   br label %.noexc13
 

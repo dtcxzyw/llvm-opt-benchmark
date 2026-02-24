@@ -6638,8 +6638,8 @@ declare noundef ptr @_ZNK9grpc_core11ChannelArgs14GetVoidPointerESt17basic_strin
 ; Function Attrs: uwtable
 define linkonce_odr void @_ZN9grpc_core21promise_filter_detail7RunCallIMNS_16ServerAuthFilter4CallEFNS_2IfIbNS_17ImmediateOkStatusEZNS3_23OnClientInitialMetadataER19grpc_metadata_batchPS2_EUlvE_EES7_S8_ES2_EEDaT_NS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrIS6_NS_5Arena13PooledDeleterEEEESE_EEPNS0_14FilterCallDataIT0_EE(ptr dead_on_unwind noalias writable sret(%"class.grpc_core::promise_detail::TrySeq") align 16 %0, i64 %1, i64 %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.grpc_core::ServerAuthFilter::RunApplicationCode", align 8
-  %.sroa.13.i = alloca { i64, i64 }, align 8
   %8 = alloca %class.anon.246, align 8
+  %.sroa.13.i = alloca { i64, i64 }, align 8
   %9 = alloca %"struct.grpc_core::CallArgs", align 8
   %10 = alloca %"class.std::function", align 8
   %11 = load i8, ptr %3, align 1, !tbaa !144
@@ -6715,7 +6715,7 @@ _ZN9grpc_core16ServerAuthFilter4Call23OnClientInitialMetadataER19grpc_metadata_b
   br i1 %.not.i.i.not.i.i, label %_ZNSt8functionIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEEC2EOSA_.exit.i, label %41
 
 41:                                               ; preds = %_ZN9grpc_core16ServerAuthFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS0_.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 16, i1 false), !tbaa.struct !153, !noalias !460
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 16, i1 false), !noalias !460
   br label %_ZNSt8functionIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEEC2EOSA_.exit.i
 
 _ZNSt8functionIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEENS0_8CallArgsEEEC2EOSA_.exit.i: ; preds = %41, %_ZN9grpc_core16ServerAuthFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS0_.exit.i
@@ -6737,7 +6737,7 @@ _ZN9grpc_core14promise_detail11PromiseLikeINS_2IfIbNS_17ImmediateOkStatusEZNS_16
   br i1 %.not.i.i.not.i.i, label %_ZZN9grpc_core21promise_filter_detail11RunCallImplIMNS_16ServerAuthFilter4CallEFNS_2IfIbNS_17ImmediateOkStatusEZNS3_23OnClientInitialMetadataER19grpc_metadata_batchPS2_EUlvE_EES7_S8_ES2_vE3RunENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrIS6_NS_5Arena13PooledDeleterEEEESE_EEPNS0_14FilterCallDataIS2_EEENUlvE_C2EOSR_.exit.i, label %47
 
 47:                                               ; preds = %_ZN9grpc_core14promise_detail11PromiseLikeINS_2IfIbNS_17ImmediateOkStatusEZNS_16ServerAuthFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS4_EUlvE_EEvEC2EOSA_.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13.i, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false), !tbaa.struct !153, !noalias !460
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.13.i, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false), !noalias !460
   br label %_ZZN9grpc_core21promise_filter_detail11RunCallImplIMNS_16ServerAuthFilter4CallEFNS_2IfIbNS_17ImmediateOkStatusEZNS3_23OnClientInitialMetadataER19grpc_metadata_batchPS2_EUlvE_EES7_S8_ES2_vE3RunENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrIS6_NS_5Arena13PooledDeleterEEEESE_EEPNS0_14FilterCallDataIS2_EEENUlvE_C2EOSR_.exit.i
 
 _ZZN9grpc_core21promise_filter_detail11RunCallImplIMNS_16ServerAuthFilter4CallEFNS_2IfIbNS_17ImmediateOkStatusEZNS3_23OnClientInitialMetadataER19grpc_metadata_batchPS2_EUlvE_EES7_S8_ES2_vE3RunENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrIS6_NS_5Arena13PooledDeleterEEEESE_EEPNS0_14FilterCallDataIS2_EEENUlvE_C2EOSR_.exit.i: ; preds = %47, %_ZN9grpc_core14promise_detail11PromiseLikeINS_2IfIbNS_17ImmediateOkStatusEZNS_16ServerAuthFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS4_EUlvE_EEvEC2EOSA_.exit.i

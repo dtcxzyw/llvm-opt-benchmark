@@ -11412,7 +11412,6 @@ define void @_ZN12pingora_core9protocols2l46socket10SocketAddr8set_port17h4d639c
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN12pingora_core9protocols2l46socket10SocketAddr11from_raw_fd17h244c4662f4840eb6E(ptr dead_on_unwind noalias noundef writable writeonly sret([120 x i8]) align 4 captures(none) dereferenceable(120) initializes((0, 4)) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #1 {
   %4 = alloca [120 x i8], align 8
-  %.sroa.9.i = alloca [116 x i8], align 4
   %5 = alloca [120 x i8], align 8
   %.sroa.016.i = alloca [16 x i8], align 4
   %.sroa.415.sroa.0.i = alloca [18 x i8], align 2
@@ -11444,38 +11443,40 @@ define void @_ZN12pingora_core9protocols2l46socket10SocketAddr11from_raw_fd17h24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, ptr noundef nonnull align 8 dereferenceable(128) %15, i64 128, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1086)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1089)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.415.sroa.0.i)
-  %16 = call noundef align 4 dereferenceable_or_null(16) ptr @_ZN3nix3sys6socket4addr15SockaddrStorage14as_sockaddr_in17h614feed7efeb0ee5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %6), !noalias !1086
-  %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %21, label %17
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %17 = call noundef align 4 dereferenceable_or_null(16) ptr @_ZN3nix3sys6socket4addr15SockaddrStorage14as_sockaddr_in17h614feed7efeb0ee5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %6), !noalias !1086
+  %.not.i = icmp eq ptr %17, null
+  br i1 %.not.i, label %22, label %18
 
-17:                                               ; preds = %14
-  %18 = call noundef i32 @_ZN3nix3sys6socket4addr10SockaddrIn2ip17h2e2cb4374db8249eE(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %16), !noalias !1086
-  %19 = call i32 @llvm.bswap.i32(i32 %18)
-  %20 = call noundef i16 @_ZN3nix3sys6socket4addr10SockaddrIn4port17h4bf101533624efacE(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %16), !noalias !1086
+18:                                               ; preds = %14
+  %19 = call noundef i32 @_ZN3nix3sys6socket4addr10SockaddrIn2ip17h2e2cb4374db8249eE(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %17), !noalias !1086
+  %20 = call i32 @llvm.bswap.i32(i32 %19)
+  %21 = call noundef i16 @_ZN3nix3sys6socket4addr10SockaddrIn4port17h4bf101533624efacE(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %17), !noalias !1086
   store i32 0, ptr %0, align 4, !alias.scope !1086, !noalias !1089
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 0, ptr %.sroa.4.0..sroa_idx.i, align 4, !alias.scope !1086, !noalias !1089
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 6
-  store i32 %19, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !1086, !noalias !1089
+  store i32 %20, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 2, !alias.scope !1086, !noalias !1089
   %.sroa.4.sroa.4.sroa.4.0..sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 %20, ptr %.sroa.4.sroa.4.sroa.4.0..sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.sroa_idx.i, align 2, !alias.scope !1086, !noalias !1089
+  store i16 %21, ptr %.sroa.4.sroa.4.sroa.4.0..sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.sroa_idx.i, align 2, !alias.scope !1086, !noalias !1089
   br label %_ZN12pingora_core9protocols2l46socket10SocketAddr21from_sockaddr_storage17hebbc03c136230d1aE.exit
 
-21:                                               ; preds = %14
-  %22 = call noundef align 4 dereferenceable_or_null(28) ptr @_ZN3nix3sys6socket4addr15SockaddrStorage15as_sockaddr_in617h766a5477d97b5b6bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %6), !noalias !1086
-  %.not62.i = icmp eq ptr %22, null
-  br i1 %.not62.i, label %30, label %23
+22:                                               ; preds = %14
+  %23 = call noundef align 4 dereferenceable_or_null(28) ptr @_ZN3nix3sys6socket4addr15SockaddrStorage15as_sockaddr_in617h766a5477d97b5b6bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %6), !noalias !1086
+  %.not62.i = icmp eq ptr %23, null
+  br i1 %.not62.i, label %31, label %24
 
-23:                                               ; preds = %21
+24:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.016.i)
-  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.016.i, ptr noundef nonnull align 4 dereferenceable(16) %24, i64 16, i1 false), !noalias !1086
-  %25 = call noundef i16 @_ZN3nix3sys6socket4addr11SockaddrIn64port17h9b8297f19025f506E(ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %22), !noalias !1086
-  %26 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %27 = load i32, ptr %26, align 4, !noalias !1086, !noundef !7
-  %28 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %29 = load i32, ptr %28, align 4, !noalias !1086, !noundef !7
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.016.i, ptr noundef nonnull align 4 dereferenceable(16) %25, i64 16, i1 false), !noalias !1086
+  %26 = call noundef i16 @_ZN3nix3sys6socket4addr11SockaddrIn64port17h9b8297f19025f506E(ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %23), !noalias !1086
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %28 = load i32, ptr %27, align 4, !noalias !1086, !noundef !7
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %30 = load i32, ptr %29, align 4, !noalias !1086, !noundef !7
   %.sroa.415.sroa.0.2..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.415.sroa.0.i, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %.sroa.415.sroa.0.2..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.016.i, i64 16, i1 false), !noalias !1091
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.016.i)
@@ -11485,88 +11486,79 @@ define void @_ZN12pingora_core9protocols2l46socket10SocketAddr11from_raw_fd17h24
   %.sroa.412.sroa.4.0..sroa.412.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %.sroa.412.sroa.4.0..sroa.412.0..sroa_idx.sroa_idx.i, ptr noundef nonnull align 2 dereferenceable(18) %.sroa.415.sroa.0.i, i64 18, i1 false), !noalias !1089
   %.sroa.412.sroa.4.sroa.4.0..sroa.412.sroa.4.0..sroa.412.0..sroa_idx.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %27, ptr %.sroa.412.sroa.4.sroa.4.0..sroa.412.sroa.4.0..sroa.412.0..sroa_idx.sroa_idx.sroa_idx.i, align 4, !alias.scope !1086, !noalias !1089
+  store i32 %28, ptr %.sroa.412.sroa.4.sroa.4.0..sroa.412.sroa.4.0..sroa.412.0..sroa_idx.sroa_idx.sroa_idx.i, align 4, !alias.scope !1086, !noalias !1089
   %.sroa.412.sroa.4.sroa.5.0..sroa.412.sroa.4.0..sroa.412.0..sroa_idx.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %29, ptr %.sroa.412.sroa.4.sroa.5.0..sroa.412.sroa.4.0..sroa.412.0..sroa_idx.sroa_idx.sroa_idx.i, align 4, !alias.scope !1086, !noalias !1089
+  store i32 %30, ptr %.sroa.412.sroa.4.sroa.5.0..sroa.412.sroa.4.0..sroa.412.0..sroa_idx.sroa_idx.sroa_idx.i, align 4, !alias.scope !1086, !noalias !1089
   %.sroa.412.sroa.4.sroa.6.0..sroa.412.sroa.4.0..sroa.412.0..sroa_idx.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i16 %25, ptr %.sroa.412.sroa.4.sroa.6.0..sroa.412.sroa.4.0..sroa.412.0..sroa_idx.sroa_idx.sroa_idx.i, align 4, !alias.scope !1086, !noalias !1089
+  store i16 %26, ptr %.sroa.412.sroa.4.sroa.6.0..sroa.412.sroa.4.0..sroa.412.0..sroa_idx.sroa_idx.sroa_idx.i, align 4, !alias.scope !1086, !noalias !1089
   br label %_ZN12pingora_core9protocols2l46socket10SocketAddr21from_sockaddr_storage17hebbc03c136230d1aE.exit
 
-30:                                               ; preds = %21
+31:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1091
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9.i)
-  %31 = load i16, ptr %6, align 8, !alias.scope !1092, !noalias !1086, !noundef !7
-  %cond.i.i = icmp eq i16 %31, 1
-  br i1 %cond.i.i, label %32, label %42
+  %32 = load i16, ptr %6, align 8, !alias.scope !1092, !noalias !1086, !noundef !7
+  %cond.i.i = icmp eq i16 %32, 1
+  br i1 %cond.i.i, label %33, label %43
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 110
-  %34 = load i8, ptr %33, align 2, !alias.scope !1092, !noalias !1086, !noundef !7
-  %35 = add i8 %34, -111
-  %or.cond.i.i = icmp ult i8 %35, -109
-  br i1 %or.cond.i.i, label %42, label %_ZN3nix3sys6socket4addr15SockaddrStorage12as_unix_addr17he7bcb4459035ba3cE.exit.i
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 110
+  %35 = load i8, ptr %34, align 2, !alias.scope !1092, !noalias !1086, !noundef !7
+  %36 = add i8 %35, -111
+  %or.cond.i.i = icmp ult i8 %36, -109
+  br i1 %or.cond.i.i, label %43, label %_ZN3nix3sys6socket4addr15SockaddrStorage12as_unix_addr17he7bcb4459035ba3cE.exit.i
 
-_ZN3nix3sys6socket4addr15SockaddrStorage12as_unix_addr17he7bcb4459035ba3cE.exit.i: ; preds = %32
-  %36 = call { ptr, i64 } @_ZN3nix3sys6socket4addr8UnixAddr4path17heb9d89247def5674E(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %6), !noalias !1086
-  %37 = extractvalue { ptr, i64 } %36, 0
-  %.not64.i = icmp eq ptr %37, null
-  br i1 %.not64.i, label %41, label %38
+_ZN3nix3sys6socket4addr15SockaddrStorage12as_unix_addr17he7bcb4459035ba3cE.exit.i: ; preds = %33
+  %37 = call { ptr, i64 } @_ZN3nix3sys6socket4addr8UnixAddr4path17heb9d89247def5674E(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %6), !noalias !1086
+  %38 = extractvalue { ptr, i64 } %37, 0
+  %.not64.i = icmp eq ptr %38, null
+  br i1 %.not64.i, label %42, label %39
 
-38:                                               ; preds = %_ZN3nix3sys6socket4addr15SockaddrStorage12as_unix_addr17he7bcb4459035ba3cE.exit.i
-  %39 = extractvalue { ptr, i64 } %36, 1
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1091
-  call void @_ZN3std2os4unix3net4addr10SocketAddr13from_pathname17had58866a86e136c6E(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %4, ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %39), !noalias !1086
+39:                                               ; preds = %_ZN3nix3sys6socket4addr15SockaddrStorage12as_unix_addr17he7bcb4459035ba3cE.exit.i
+  %40 = extractvalue { ptr, i64 } %37, 1
+  call void @_ZN3std2os4unix3net4addr10SocketAddr13from_pathname17had58866a86e136c6E(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %4, ptr noalias noundef nonnull readonly align 1 %38, i64 noundef %40), !noalias !1086
   %.sroa.046.0.copyload.i = load i32, ptr %4, align 8, !noalias !1091
-  %.sroa.747.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(116) %.sroa.9.i, ptr noundef nonnull align 4 dereferenceable(116) %.sroa.747.0..sroa_idx.i, i64 116, i1 false), !noalias !1091
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1091
-  %40 = icmp eq i32 %.sroa.046.0.copyload.i, 3
-  br i1 %40, label %42, label %43
+  %41 = icmp eq i32 %.sroa.046.0.copyload.i, 3
+  br i1 %41, label %43, label %44
 
-41:                                               ; preds = %_ZN3nix3sys6socket4addr15SockaddrStorage12as_unix_addr17he7bcb4459035ba3cE.exit.i
+42:                                               ; preds = %_ZN3nix3sys6socket4addr15SockaddrStorage12as_unix_addr17he7bcb4459035ba3cE.exit.i
   store i32 2, ptr %0, align 4, !alias.scope !1086, !noalias !1089
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1091
-  br label %50
+  br label %_ZN12pingora_core9protocols2l46socket10SocketAddr21from_sockaddr_storage17hebbc03c136230d1aE.exit
 
-42:                                               ; preds = %38, %32, %30
+43:                                               ; preds = %39, %33, %31
   store i32 2, ptr %0, align 4, !alias.scope !1086, !noalias !1089
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1091
-  br label %50
+  br label %_ZN12pingora_core9protocols2l46socket10SocketAddr21from_sockaddr_storage17hebbc03c136230d1aE.exit
 
-43:                                               ; preds = %38
+44:                                               ; preds = %39
   %.sroa.458.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(116) %.sroa.458.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(116) %.sroa.9.i, i64 116, i1 false), !noalias !1091
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(116) %.sroa.458.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(116) %16, i64 116, i1 false), !noalias !1091
   store i32 %.sroa.046.0.copyload.i, ptr %5, align 8, !noalias !1091
-  %44 = trunc i32 %.sroa.046.0.copyload.i to i1
-  br i1 %44, label %46, label %45
+  %45 = trunc i32 %.sroa.046.0.copyload.i to i1
+  br i1 %45, label %47, label %46
 
-45:                                               ; preds = %43
+46:                                               ; preds = %44
   %.sroa.620.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(116) %.sroa.620.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(116) %.sroa.9.i, i64 116, i1 false), !noalias !1089
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(116) %.sroa.620.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(116) %16, i64 116, i1 false), !noalias !1089
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1091
   store i32 1, ptr %0, align 4, !alias.scope !1086, !noalias !1089
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.i)
   br label %_ZN12pingora_core9protocols2l46socket10SocketAddr21from_sockaddr_storage17hebbc03c136230d1aE.exit
 
-46:                                               ; preds = %43
-  %47 = icmp eq i32 %.sroa.046.0.copyload.i, 0
-  br i1 %47, label %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$std..os..unix..net..addr..SocketAddr$C$std..io..error..Error$GT$$GT$17h3d7f2c4eb0838c4eE.exit65.i", label %48
+47:                                               ; preds = %44
+  %48 = icmp eq i32 %.sroa.046.0.copyload.i, 0
+  br i1 %48, label %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$std..os..unix..net..addr..SocketAddr$C$std..io..error..Error$GT$$GT$17h3d7f2c4eb0838c4eE.exit65.i", label %49
 
-48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdd4a828948364accE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %49), !noalias !1086
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdd4a828948364accE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %50), !noalias !1086
   br label %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$std..os..unix..net..addr..SocketAddr$C$std..io..error..Error$GT$$GT$17h3d7f2c4eb0838c4eE.exit65.i"
 
-"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$std..os..unix..net..addr..SocketAddr$C$std..io..error..Error$GT$$GT$17h3d7f2c4eb0838c4eE.exit65.i": ; preds = %48, %46
+"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$std..os..unix..net..addr..SocketAddr$C$std..io..error..Error$GT$$GT$17h3d7f2c4eb0838c4eE.exit65.i": ; preds = %49, %47
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1091
   store i32 2, ptr %0, align 4, !alias.scope !1086, !noalias !1089
-  br label %50
-
-50:                                               ; preds = %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$std..os..unix..net..addr..SocketAddr$C$std..io..error..Error$GT$$GT$17h3d7f2c4eb0838c4eE.exit65.i", %42, %41
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9.i)
   br label %_ZN12pingora_core9protocols2l46socket10SocketAddr21from_sockaddr_storage17hebbc03c136230d1aE.exit
 
-_ZN12pingora_core9protocols2l46socket10SocketAddr21from_sockaddr_storage17hebbc03c136230d1aE.exit: ; preds = %17, %23, %45, %50
+_ZN12pingora_core9protocols2l46socket10SocketAddr21from_sockaddr_storage17hebbc03c136230d1aE.exit: ; preds = %42, %43, %"_ZN4core3ptr109drop_in_place$LT$core..result..Result$LT$std..os..unix..net..addr..SocketAddr$C$std..io..error..Error$GT$$GT$17h3d7f2c4eb0838c4eE.exit65.i", %18, %24, %46
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.415.sroa.0.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %51

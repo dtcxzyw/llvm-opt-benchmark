@@ -1511,16 +1511,15 @@ define hidden void @"_ZN120_$LT$futures_util..stream..stream..filter_map..Filter
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h24b744852ad728f4E.exit"
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !432)
   %26 = load ptr, ptr %10, align 8, !alias.scope !435, !noalias !438, !nonnull !4, !align !69, !noundef !4
   %27 = load ptr, ptr %20, align 8, !alias.scope !435, !noalias !438, !nonnull !4, !align !6, !noundef !4
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8, !invariant.load !4, !noalias !441, !nonnull !4
-  call void %29(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noundef nonnull align 1 %26, ptr noalias noundef nonnull align 8 dereferenceable(32) %2), !noalias !432
+  call void %29(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noundef nonnull align 1 %26, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %30 = load i64, ptr %9, align 8, !range !20, !noundef !4
   switch i64 %30, label %57 [
-    i64 -9223372036854775806, label %74
+    i64 -9223372036854775806, label %73
     i64 -9223372036854775807, label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..path..PathBuf$C$anyhow..Error$GT$$GT$$GT$17hf1c383fec093deecE.exit"
   ]
 
@@ -1541,7 +1540,7 @@ default.unreachable:                              ; preds = %31
 
 35:                                               ; preds = %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx.i, i64 16, i1 false)
-  br label %75
+  br label %74
 
 36:                                               ; preds = %_ZN3log13__private_api3log17h8283b0c56fbdbfabE.exit.i, %37
   invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
@@ -1622,7 +1621,7 @@ common.resume:                                    ; preds = %55, %"_ZN4core3ptr3
 
 "_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17he0f4ef49e49bac05E.exit.i": ; preds = %36
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !443
-  br label %75
+  br label %74
 
 51:                                               ; preds = %46
   %52 = landingpad { ptr, i32 }
@@ -1691,39 +1690,33 @@ common.resume:                                    ; preds = %55, %"_ZN4core3ptr3
   store i64 %30, ptr %1, align 8, !noalias !452
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.448.0..sroa_idx, i64 16, i1 false)
   store i8 0, ptr %11, align 8, !noalias !452
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h24b744852ad728f4E.exit.backedge"
 
-"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..path..PathBuf$C$anyhow..Error$GT$$GT$$GT$17hf1c383fec093deecE.exit": ; preds = %25
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %73
-
-73:                                               ; preds = %76, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..path..PathBuf$C$anyhow..Error$GT$$GT$$GT$17hf1c383fec093deecE.exit"
-  %.sroa.0.0 = phi i64 [ -9223372036854775808, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..path..PathBuf$C$anyhow..Error$GT$$GT$$GT$17hf1c383fec093deecE.exit" ], [ %23, %76 ]
+"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..path..PathBuf$C$anyhow..Error$GT$$GT$$GT$17hf1c383fec093deecE.exit": ; preds = %25, %75
+  %.sroa.0.0 = phi i64 [ %23, %75 ], [ -9223372036854775808, %25 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
-  br label %77
+  br label %76
 
-74:                                               ; preds = %25
+73:                                               ; preds = %25
   store i64 -9223372036854775807, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %77
+  br label %76
 
-75:                                               ; preds = %35, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17he0f4ef49e49bac05E.exit.i"
+74:                                               ; preds = %35, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17he0f4ef49e49bac05E.exit.i"
   store i8 1, ptr %11, align 8, !noalias !443
   store i64 -9223372036854775807, ptr %1, align 8, !noalias !471
-  br i1 %34, label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h24b744852ad728f4E.exit.backedge", label %76
+  br i1 %34, label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h24b744852ad728f4E.exit.backedge", label %75
 
-"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h24b744852ad728f4E.exit.backedge": ; preds = %75, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h8de552e7280a33bcE.exit"
-  %.be = phi i64 [ %30, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h8de552e7280a33bcE.exit" ], [ -9223372036854775807, %75 ]
+"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h24b744852ad728f4E.exit.backedge": ; preds = %74, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h8de552e7280a33bcE.exit"
+  %.be = phi i64 [ %30, %"_ZN4core3pin14Pin$LT$Ptr$GT$3set17h8de552e7280a33bcE.exit" ], [ -9223372036854775807, %74 ]
   br label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h24b744852ad728f4E.exit"
 
-76:                                               ; preds = %75
+75:                                               ; preds = %74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.i, i64 16, i1 false)
-  br label %73
+  br label %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..path..PathBuf$C$anyhow..Error$GT$$GT$$GT$17hf1c383fec093deecE.exit"
 
-77:                                               ; preds = %74, %73
+76:                                               ; preds = %73, %"_ZN4core3ptr111drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$std..path..PathBuf$C$anyhow..Error$GT$$GT$$GT$17hf1c383fec093deecE.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   ret void
 }

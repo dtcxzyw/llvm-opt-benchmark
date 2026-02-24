@@ -5503,7 +5503,6 @@ define hidden { ptr, ptr } @_ZN4gpui3app10AppContext16observe_internal17h9923d45
   %4 = load i32, ptr %1, align 8, !range !482, !alias.scope !1580, !noundef !9
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4, !alias.scope !1580, !noundef !9
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4gpui3app10entity_map8AnyModel9downgrade17h6c2c803c3d783904E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
   %.sroa.0.0.copyload = load i64, ptr %3, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5543,15 +5542,14 @@ define hidden { ptr, ptr } @_ZN4gpui3app10AppContext16observe_internal17h9923d45
   resume { ptr, i32 } %12
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h6f343148a65d2435E.llvm.13975500011170185901.exit": ; preds = %2
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.sroa.0.0.copyload, ptr %8, align 8
   %.sroa.4.0..sroa_idx3 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx3, align 8
   %.sroa.5.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
-  %20 = tail call { ptr, ptr } @_ZN4gpui3app10AppContext12new_observer17h07816e1f1e8d7e46E(ptr noalias noundef nonnull align 8 dereferenceable(1176) %0, i32 noundef %4, i32 noundef %6, ptr noundef nonnull align 1 %8, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.bb46821115d1a825b60fd8624bb687fa.57.llvm.13975500011170185901)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret { ptr, ptr } %20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx5, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false)
+  %21 = tail call { ptr, ptr } @_ZN4gpui3app10AppContext12new_observer17h07816e1f1e8d7e46E(ptr noalias noundef nonnull align 8 dereferenceable(1176) %0, i32 noundef %4, i32 noundef %6, ptr noundef nonnull align 1 %8, ptr noalias noundef readonly align 8 dereferenceable(40) @anon.bb46821115d1a825b60fd8624bb687fa.57.llvm.13975500011170185901)
+  ret { ptr, ptr } %21
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

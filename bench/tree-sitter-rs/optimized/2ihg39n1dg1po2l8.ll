@@ -3795,7 +3795,6 @@ define noundef ptr @_ZN18tree_sitter_loader6Loader18find_all_languages17hc3c3853
 
 65:                                               ; preds = %131, %64
   %.sroa.6.2 = phi i64 [ %.sroa.6.0115, %64 ], [ %.sroa.6.3, %131 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @"_ZN75_$LT$std..fs..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9f241b2ed3fe0106E"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %13, ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
           to label %71 unwind label %.loopexit
 
@@ -3831,7 +3830,6 @@ define noundef ptr @_ZN18tree_sitter_loader6Loader18find_all_languages17hc3c3853
   br i1 %trunc, label %78, label %73
 
 73:                                               ; preds = %71
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !676)
   call void @llvm.experimental.noalias.scope.decl(metadata !679)
   call void @llvm.experimental.noalias.scope.decl(metadata !682)
@@ -4048,12 +4046,10 @@ _ZN3std4path4Path4join17h8e2678d728bc481aE.exit:  ; preds = %108
 131:                                              ; preds = %.noexc67, %128
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !738
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %65
 
 132:                                              ; preds = %82
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !749)
   call void @llvm.experimental.noalias.scope.decl(metadata !752)
   call void @llvm.experimental.noalias.scope.decl(metadata !755)

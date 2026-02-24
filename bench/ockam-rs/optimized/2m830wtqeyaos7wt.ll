@@ -1690,8 +1690,8 @@ define internal { i64, ptr } @"_ZN114_$LT$ockam_transport_ble..driver..btleplug.
   %.sroa.12849.i = alloca [23 x i8], align 1
   %56 = alloca i8, align 1
   %57 = alloca { { i32, i32 }, { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } }, { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } }, { { ptr, i64 }, i64 }, { ptr, [2 x i64] }, { i16, i16 }, { i16, i16 }, { [6 x i8] }, i8, [1 x i8] }, align 8
-  %.sroa.3827.i = alloca [9 x i32], align 4
   %.sroa.5828.i = alloca [32 x i32], align 8
+  %.sroa.3827.i = alloca [9 x i32], align 4
   %58 = alloca { i32, [41 x i32] }, align 8
   %.sroa.9823.i = alloca [9 x i32], align 4
   %.sroa.9817.i = alloca [9 x i32], align 4
@@ -2726,8 +2726,8 @@ common.ret:                                       ; preds = %1873, %214, %179
   %465 = getelementptr inbounds nuw i8, ptr %0, i64 88
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.14911.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4855.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3827.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5828.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3827.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3136.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3734.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i)
@@ -6616,8 +6616,8 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   store i8 1, ptr %1871, align 1, !noalias !369
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14911.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4855.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3827.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5828.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3827.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3136.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3734.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i)
@@ -6633,8 +6633,8 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   store i8 %.sink.i325.ph, ptr %1874, align 1, !noalias !369
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14911.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4855.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3827.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5828.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3827.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3136.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3734.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.3.i)
@@ -7170,8 +7170,8 @@ _ZN4core3str11validations15next_code_point17h77da06ce959de82eE.exit.thread.i.i.i
   %2053 = getelementptr inbounds nuw i8, ptr %0, i64 88
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.14911.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4855.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3827.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5828.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3827.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3136.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3734.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i)

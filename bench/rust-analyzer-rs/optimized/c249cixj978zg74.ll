@@ -14233,18 +14233,18 @@ define hidden void @"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$
   tail call void @llvm.assume(i1 %22)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3990)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3993)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3995
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3988
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %24 = load ptr, ptr %23, align 8, !alias.scope !3996, !noalias !3997, !nonnull !10, !align !736, !noundef !10
-  %.val.i.i = load ptr, ptr %24, align 8, !noalias !3995, !nonnull !10, !align !736, !noundef !10
+  %24 = load ptr, ptr %23, align 8, !alias.scope !3995, !noalias !3996, !nonnull !10, !align !736, !noundef !10
+  %.val.i.i = load ptr, ptr %24, align 8, !noalias !3997, !nonnull !10, !align !736, !noundef !10
   %25 = getelementptr i8, ptr %24, i64 8
-  %.val3.i.i = load ptr, ptr %25, align 8, !noalias !3995, !nonnull !10, !align !736, !noundef !10
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3995
+  %.val3.i.i = load ptr, ptr %25, align 8, !noalias !3997, !nonnull !10, !align !736, !noundef !10
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3997
   store ptr %19, ptr %4, align 8, !noalias !3998
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %20, ptr %26, align 8, !noalias !3998
   invoke void @_ZN3hir11term_search11LookupTable4find17h86f0d1c16cfafb81E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(200) %.val.i.i, ptr noundef nonnull align 1 %.val3.i.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.389b156ed0d687635b4f4e61c90fb6c1.20.llvm.2919776409019166437, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
-          to label %"_ZN3hir11term_search7tactics10make_tuple28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha215ff6fe2619aa7E.exit.i.i" unwind label %27, !noalias !3995
+          to label %"_ZN3hir11term_search7tactics10make_tuple28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha215ff6fe2619aa7E.exit.i.i" unwind label %27, !noalias !3997
 
 27:                                               ; preds = %"_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h4a7d1cfa07f6dd3dE.llvm.2919776409019166437.exit"
   %28 = landingpad { ptr, i32 }
@@ -14263,10 +14263,10 @@ define hidden void @"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$
 
 "_ZN3hir11term_search7tactics10make_tuple28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha215ff6fe2619aa7E.exit.i.i": ; preds = %"_ZN3hir4Type14type_arguments28_$u7b$$u7b$closure$u7d$$u7d$17h4a7d1cfa07f6dd3dE.llvm.2919776409019166437.exit"
   call void @"_ZN4core3ptr30drop_in_place$LT$hir..Type$GT$17hd1776b932bd6974cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !3998
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3995
-  %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8, !noalias !3995
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3997
+  %.sroa.0.0.copyload.i.i = load i64, ptr %5, align 8, !noalias !3997
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val4.i.i = load ptr, ptr %32, align 8, !alias.scope !3996, !noalias !3997
+  %.val4.i.i = load ptr, ptr %32, align 8, !alias.scope !3995, !noalias !3996
   call void @llvm.experimental.noalias.scope.decl(metadata !4001)
   %33 = icmp eq i64 %.sroa.0.0.copyload.i.i, -9223372036854775808
   br i1 %33, label %34, label %36
@@ -14280,12 +14280,12 @@ define hidden void @"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$
 36:                                               ; preds = %"_ZN3hir11term_search7tactics10make_tuple28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha215ff6fe2619aa7E.exit.i.i"
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.415.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.415.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i.i, i64 16, i1 false), !noalias !3996
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.415.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i.i, i64 16, i1 false), !noalias !3995
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h48900c112bd9cf0bE.llvm.2919776409019166437.exit"
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h48900c112bd9cf0bE.llvm.2919776409019166437.exit": ; preds = %34, %36
   store i64 %.sroa.0.0.copyload.i.i, ptr %0, align 8, !alias.scope !4006, !noalias !4007
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3995
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3988
   br label %37
 
 37:                                               ; preds = %14, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h48900c112bd9cf0bE.llvm.2919776409019166437.exit"
@@ -16382,7 +16382,7 @@ define hidden void @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closur
   tail call void @llvm.assume(i1 %13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4590)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4593)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !4595
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8, !alias.scope !4593, !noalias !4590, !nonnull !10, !align !736, !noundef !10
   %.val.i = load ptr, ptr %15, align 8, !noalias !4595, !nonnull !10, !align !736, !noundef !10
@@ -16434,7 +16434,7 @@ define hidden void @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closur
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf9591a283c4070d6E.llvm.2919776409019166437.exit": ; preds = %25, %27
   store i64 %.sroa.0.0.copyload.i, ptr %0, align 8, !alias.scope !4604, !noalias !4605
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4595
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
 
@@ -16591,7 +16591,6 @@ define hidden void @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closur
 define hidden void @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf9591a283c4070d6E.llvm.2919776409019166437"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { ptr, ptr }, align 8
   %6 = alloca { i64, [2 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !nonnull !10, !align !736, !noundef !10
   %.val = load ptr, ptr %8, align 8, !nonnull !10, !align !736, !noundef !10
@@ -16643,7 +16642,6 @@ define hidden void @"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closur
 
 "_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf81976f75c1ff443E.exit": ; preds = %18, %20
   store i64 %.sroa.0.0.copyload, ptr %0, align 8, !alias.scope !4672, !noalias !4677
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -60483,9 +60481,9 @@ attributes #72 = { noreturn }
 !3992 = distinct !{!3992, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf9591a283c4070d6E.llvm.2919776409019166437"}
 !3993 = !{!3994}
 !3994 = distinct !{!3994, !3992, !"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf9591a283c4070d6E.llvm.2919776409019166437: argument 1"}
-!3995 = !{!3991, !3994, !3981, !3984}
-!3996 = !{!3994, !3984}
-!3997 = !{!3991, !3981}
+!3995 = !{!3994, !3984}
+!3996 = !{!3991, !3981}
+!3997 = !{!3991, !3994, !3981, !3984}
 !3998 = !{!3999, !3991, !3994, !3981, !3984}
 !3999 = distinct !{!3999, !4000, !"_ZN3hir11term_search7tactics10make_tuple28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha215ff6fe2619aa7E: argument 0"}
 !4000 = distinct !{!4000, !"_ZN3hir11term_search7tactics10make_tuple28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17ha215ff6fe2619aa7E"}

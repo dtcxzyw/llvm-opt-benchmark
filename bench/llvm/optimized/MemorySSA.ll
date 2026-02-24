@@ -5145,11 +5145,11 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MemoryAccessELb1EE9push_backES2_.exit:
   %3 = alloca ptr, align 8
   %4 = alloca %"class.std::optional.299", align 8
   %5 = alloca %"class.std::optional.299", align 8
-  %6 = alloca ptr, align 8
-  %7 = alloca %"class.(anonymous namespace)::MemoryLocOrCall", align 8
-  %8 = alloca ptr, align 8
-  %9 = alloca %"class.std::optional.299", align 8
-  %10 = alloca %"class.(anonymous namespace)::MemoryLocOrCall", align 8
+  %6 = alloca %"class.(anonymous namespace)::MemoryLocOrCall", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %"class.(anonymous namespace)::MemoryLocOrCall", align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %"class.std::optional.299", align 8
   %11 = alloca i32, align 4
   %12 = alloca %"class.(anonymous namespace)::MemoryLocOrCall", align 8
   %13 = alloca %"class.(anonymous namespace)::MemoryLocOrCall", align 8
@@ -5295,10 +5295,10 @@ _ZNK4llvm14iterator_rangeINS_11df_iteratorIPNS_15DomTreeNodeBaseINS_10BasicBlock
   store ptr %.0.lcssa.i.i.i.i.i.i.i10, ptr %77, align 8, !tbaa !428, !alias.scope !434
   %78 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %79 = getelementptr inbounds nuw i8, ptr %18, i64 96
-  %80 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %81 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.4.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sroa.5.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.4.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sroa.5.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 24
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5537,6 +5537,7 @@ _ZN4llvm11SmallVectorIPNS_12MemoryAccessELj16EED2Ev.exit: ; preds = %_ZN4llvm8De
   %180 = getelementptr inbounds i8, ptr %91, i64 -24
   %181 = load ptr, ptr %180, align 8, !tbaa !168
   %182 = load ptr, ptr %181, align 8, !tbaa !149
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %183 = load ptr, ptr %0, align 8, !tbaa !422
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 56
   %185 = load ptr, ptr %184, align 8, !tbaa !127
@@ -5651,13 +5652,13 @@ _ZNK4llvm9MemorySSA24getWritableBlockAccessesEPKNS_10BasicBlockE.exit.i: ; preds
   %249 = call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE9dominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %248, ptr noundef %246, ptr noundef %182) #26
   br i1 %249, label %.preheader.i, label %.preheader132.i
 
-.lr.ph154.i:                                      ; preds = %.preheader.i, %579
-  %.sroa.10.1 = phi i32 [ %.sroa.10.2, %579 ], [ %.sroa.10.0, %.preheader.i ]
-  %.sroa.17.1 = phi i32 [ %.sroa.17.2, %579 ], [ %.sroa.17.0, %.preheader.i ]
-  %.sroa.0.1 = phi ptr [ %.sroa.0.2, %579 ], [ %.sroa.0.0, %.preheader.i ]
-  %.sroa.22.1 = phi i32 [ %.sroa.22.2, %579 ], [ %.sroa.22.0, %.preheader.i ]
-  %.166 = phi i64 [ %.267, %579 ], [ %.065, %.preheader.i ]
-  %.sroa.0121.0153.i = phi ptr [ %.sroa.0121.0.i, %579 ], [ %.sroa.0121.0151.i, %.preheader.i ]
+.lr.ph154.i:                                      ; preds = %.preheader.i, %578
+  %.sroa.10.1 = phi i32 [ %.sroa.10.2, %578 ], [ %.sroa.10.0, %.preheader.i ]
+  %.sroa.17.1 = phi i32 [ %.sroa.17.2, %578 ], [ %.sroa.17.0, %.preheader.i ]
+  %.sroa.0.1 = phi ptr [ %.sroa.0.2, %578 ], [ %.sroa.0.0, %.preheader.i ]
+  %.sroa.22.1 = phi i32 [ %.sroa.22.2, %578 ], [ %.sroa.22.0, %.preheader.i ]
+  %.166 = phi i64 [ %.267, %578 ], [ %.065, %.preheader.i ]
+  %.sroa.0121.0153.i = phi ptr [ %.sroa.0121.0.i, %578 ], [ %.sroa.0121.0151.i, %.preheader.i ]
   %250 = getelementptr inbounds i8, ptr %.sroa.0121.0153.i, i64 -32
   %251 = load i8, ptr %250, align 8, !tbaa !108
   %.not.i = icmp eq i8 %251, 26
@@ -5688,7 +5689,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MemoryAccessELb1EE9push_backES2_.exit.i:
   %264 = add i32 %263, 1
   store i32 %264, ptr %20, align 8, !tbaa !26
   %265 = add i64 %.166, 1
-  br label %579
+  br label %578
 
 266:                                              ; preds = %.lr.ph154.i
   %.1.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0121.0153.i, i64 -64
@@ -5705,10 +5706,9 @@ _ZNK4llvm9MemoryUse11isOptimizedEv.exit.i:        ; preds = %266
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %267, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load i32, ptr %.1.in.i.i.i, align 8, !tbaa !71
   %272 = icmp eq i32 %269, %.1.i.i.i
-  br i1 %272, label %579, label %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.thread.i
+  br i1 %272, label %578, label %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.thread.i
 
 _ZNK4llvm9MemoryUse11isOptimizedEv.exit.thread.i: ; preds = %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.i, %266
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %273 = getelementptr i8, ptr %.sroa.0121.0153.i, i64 40
   %.val.i19 = load ptr, ptr %273, align 8, !tbaa !91
   %274 = load i8, ptr %.val.i19, align 8, !tbaa !108
@@ -5719,32 +5719,32 @@ _ZNK4llvm9MemoryUse11isOptimizedEv.exit.thread.i: ; preds = %_ZNK4llvm9MemoryUse
   ]
 
 _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.i.i.i: ; preds = %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.thread.i, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.thread.i, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.thread.i
-  store i8 1, ptr %10, align 8, !tbaa !446
-  store ptr %.val.i19, ptr %80, align 8, !tbaa !38
+  store i8 1, ptr %6, align 8
+  store ptr %.val.i19, ptr %80, align 8
   br label %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.exit.i
 
 275:                                              ; preds = %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.thread.i
-  store i8 0, ptr %10, align 8, !tbaa !446
+  store i8 0, ptr %6, align 8
   %276 = icmp eq i8 %274, 64
   br i1 %276, label %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.exit.i, label %277
 
 277:                                              ; preds = %275
-  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !462
-  call void @_ZN4llvm14MemoryLocation9getOrNoneEPKNS_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.299") align 8 %9, ptr noundef nonnull %.val.i19) #26, !noalias !462
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %80, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !462
+  call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !462
+  call void @_ZN4llvm14MemoryLocation9getOrNoneEPKNS_11InstructionE(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.299") align 8 %10, ptr noundef nonnull %.val.i19) #26, !noalias !462
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %80, ptr noundef nonnull align 8 dereferenceable(48) %10, i64 48, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !462
   br label %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.exit.i
 
 _ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.exit.i: ; preds = %277, %275, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.i.i.i
   %278 = phi i1 [ true, %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.i.i.i ], [ false, %275 ], [ false, %277 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %279 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_(ptr %.sroa.0.1, i32 %.sroa.22.1, ptr noundef nonnull readonly align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %280 = load ptr, ptr %8, align 8, !tbaa !465
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  %279 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_(ptr %.sroa.0.1, i32 %.sroa.22.1, ptr noundef nonnull readonly align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %280 = load ptr, ptr %9, align 8, !tbaa !465
   br i1 %279, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_EixERKS3_.exit.i, label %281
 
 281:                                              ; preds = %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.exit.i
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr %280, ptr %6, align 8, !tbaa !465
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  store ptr %280, ptr %7, align 8, !tbaa !465
   %282 = shl i32 %.sroa.10.1, 2
   %283 = add i32 %282, 4
   %284 = mul i32 %.sroa.22.1, 3
@@ -5867,8 +5867,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemoryS
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4growEj.exit: ; preds = %.lr.ph.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E18moveFromOldBucketsEPSB_SE_.exit.i.i
   %.sroa.10.8 = phi i32 [ %.sroa.10.7, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E18moveFromOldBucketsEPSB_SE_.exit.i.i ], [ 0, %.lr.ph.i.i.i ]
-  %323 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_(ptr nonnull %306, i32 %.sroa.speculated.i.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %.pre.i.i.i = load ptr, ptr %6, align 8, !tbaa !465
+  %323 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_(ptr nonnull %306, i32 %.sroa.speculated.i.i, ptr noundef nonnull readonly align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %.pre.i.i.i = load ptr, ptr %7, align 8, !tbaa !465
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E16InsertIntoBucketIRKS3_JEEEPSB_SH_OT_DpOT0_.exit.i.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E16InsertIntoBucketIRKS3_JEEEPSB_SH_OT_DpOT0_.exit.i.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4growEj.exit, %287
@@ -5878,18 +5878,18 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemoryS
   %324 = phi ptr [ %280, %287 ], [ %.pre.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4growEj.exit ]
   %.val.i.i.i.i.i = phi i32 [ %.sroa.10.1, %287 ], [ %.sroa.10.8, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4growEj.exit ]
   %325 = add i32 %.val.i.i.i.i.i, 1
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i8 0, ptr %7, align 8, !tbaa !446, !alias.scope !481
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  store i8 0, ptr %8, align 8, !tbaa !446, !alias.scope !481
   store ptr inttoptr (i64 -4096 to ptr), ptr %81, align 8, !tbaa !112, !alias.scope !481
   store i64 -3, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !47, !alias.scope !481
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx.i.i.i.i.i.i, i8 0, i64 32, i1 false), !alias.scope !481
-  %326 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_115MemoryLocOrCallEvE7isEqualERKS2_S5_(ptr noundef nonnull align 8 dereferenceable(56) %324, ptr noundef nonnull align 8 dereferenceable(56) %7)
+  %326 = call fastcc noundef zeroext i1 @_ZN4llvm12DenseMapInfoIN12_GLOBAL__N_115MemoryLocOrCallEvE7isEqualERKS2_S5_(ptr noundef nonnull align 8 dereferenceable(56) %324, ptr noundef nonnull align 8 dereferenceable(56) %8)
   %not. = xor i1 %326, true
   %327 = sext i1 %not. to i32
   %spec.select = add i32 %.sroa.17.3, %327
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %324, ptr noundef nonnull readonly align 8 dereferenceable(56) %10, i64 56, i1 false), !tbaa.struct !478
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %324, ptr noundef nonnull readonly align 8 dereferenceable(56) %6, i64 56, i1 false)
   %328 = getelementptr inbounds nuw i8, ptr %324, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %328, i8 0, i64 48, i1 false)
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_EixERKS3_.exit.i
@@ -5901,7 +5901,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemoryS
   %.sroa.22.4 = phi i32 [ %.sroa.22.1, %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.exit.i ], [ %.sroa.22.3, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E16InsertIntoBucketIRKS3_JEEEPSB_SH_OT_DpOT0_.exit.i.i ]
   %.pn.i.i = phi ptr [ %280, %_ZN12_GLOBAL__N_115MemoryLocOrCallC2EPN4llvm14MemoryUseOrDefE.exit.i ], [ %324, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS_9MemorySSA12OptimizeUses15MemlocStackInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E16InsertIntoBucketIRKS3_JEEEPSB_SH_OT_DpOT0_.exit.i.i ]
   %.0.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 56
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %329 = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 64
   %330 = load i64, ptr %329, align 8, !tbaa !486
   %.not94.i = icmp eq i64 %330, %.2
@@ -6487,28 +6487,25 @@ _ZN4llvm14MemoryUseOrDef17setDefiningAccessEPNS_12MemoryAccessEb.exit120.i: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %578
 
-578:                                              ; preds = %_ZN4llvm14MemoryUseOrDef17setDefiningAccessEPNS_12MemoryAccessEb.exit120.i, %359
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %579
-
-579:                                              ; preds = %578, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MemoryAccessELb1EE9push_backES2_.exit.i
-  %.sroa.10.2 = phi i32 [ %.sroa.10.3, %578 ], [ %.sroa.10.1, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.i ], [ %.sroa.10.1, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MemoryAccessELb1EE9push_backES2_.exit.i ]
-  %.sroa.17.2 = phi i32 [ %.sroa.17.5, %578 ], [ %.sroa.17.1, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.i ], [ %.sroa.17.1, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MemoryAccessELb1EE9push_backES2_.exit.i ]
-  %.sroa.0.2 = phi ptr [ %.sroa.0.4, %578 ], [ %.sroa.0.1, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.i ], [ %.sroa.0.1, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MemoryAccessELb1EE9push_backES2_.exit.i ]
-  %.sroa.22.2 = phi i32 [ %.sroa.22.4, %578 ], [ %.sroa.22.1, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.i ], [ %.sroa.22.1, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MemoryAccessELb1EE9push_backES2_.exit.i ]
-  %.267 = phi i64 [ %.166, %578 ], [ %.166, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.i ], [ %265, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MemoryAccessELb1EE9push_backES2_.exit.i ]
+578:                                              ; preds = %_ZN4llvm14MemoryUseOrDef17setDefiningAccessEPNS_12MemoryAccessEb.exit120.i, %359, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MemoryAccessELb1EE9push_backES2_.exit.i
+  %.sroa.10.2 = phi i32 [ %.sroa.10.3, %359 ], [ %.sroa.10.3, %_ZN4llvm14MemoryUseOrDef17setDefiningAccessEPNS_12MemoryAccessEb.exit120.i ], [ %.sroa.10.1, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.i ], [ %.sroa.10.1, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MemoryAccessELb1EE9push_backES2_.exit.i ]
+  %.sroa.17.2 = phi i32 [ %.sroa.17.5, %359 ], [ %.sroa.17.5, %_ZN4llvm14MemoryUseOrDef17setDefiningAccessEPNS_12MemoryAccessEb.exit120.i ], [ %.sroa.17.1, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.i ], [ %.sroa.17.1, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MemoryAccessELb1EE9push_backES2_.exit.i ]
+  %.sroa.0.2 = phi ptr [ %.sroa.0.4, %359 ], [ %.sroa.0.4, %_ZN4llvm14MemoryUseOrDef17setDefiningAccessEPNS_12MemoryAccessEb.exit120.i ], [ %.sroa.0.1, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.i ], [ %.sroa.0.1, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MemoryAccessELb1EE9push_backES2_.exit.i ]
+  %.sroa.22.2 = phi i32 [ %.sroa.22.4, %359 ], [ %.sroa.22.4, %_ZN4llvm14MemoryUseOrDef17setDefiningAccessEPNS_12MemoryAccessEb.exit120.i ], [ %.sroa.22.1, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.i ], [ %.sroa.22.1, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MemoryAccessELb1EE9push_backES2_.exit.i ]
+  %.267 = phi i64 [ %.166, %359 ], [ %.166, %_ZN4llvm14MemoryUseOrDef17setDefiningAccessEPNS_12MemoryAccessEb.exit120.i ], [ %.166, %_ZNK4llvm9MemoryUse11isOptimizedEv.exit.i ], [ %265, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MemoryAccessELb1EE9push_backES2_.exit.i ]
   %.sroa.0121.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0121.0153.i, i64 8
   %.sroa.0121.0.i = load ptr, ptr %.sroa.0121.0.in.i, align 8, !tbaa !138
   %.not131.i = icmp eq ptr %.sroa.0121.0.i, %215
   br i1 %.not131.i, label %_ZN4llvm9MemorySSA12OptimizeUses19optimizeUsesInBlockEPKNS_10BasicBlockERmS5_RNS_15SmallVectorImplIPNS_12MemoryAccessEEERNS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS1_15MemlocStackInfoENS_12DenseMapInfoISD_vEENS_6detail12DenseMapPairISD_SE_EEEE.exit, label %.lr.ph154.i
 
-_ZN4llvm9MemorySSA12OptimizeUses19optimizeUsesInBlockEPKNS_10BasicBlockERmS5_RNS_15SmallVectorImplIPNS_12MemoryAccessEEERNS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS1_15MemlocStackInfoENS_12DenseMapInfoISD_vEENS_6detail12DenseMapPairISD_SE_EEEE.exit: ; preds = %579, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrINS_6iplistINS_12MemoryAccessEJNS_9ilist_tagINS_11MSSAHelpers12AllAccessTagEEEEEESt14default_deleteISC_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SF_EEEES4_SF_SH_SK_E4findES4_.exit.i.i, %_ZNK4llvm9MemorySSA24getWritableBlockAccessesEPKNS_10BasicBlockE.exit.i, %.preheader.i
-  %.sroa.10.4 = phi i32 [ %.sroa.10.0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrINS_6iplistINS_12MemoryAccessEJNS_9ilist_tagINS_11MSSAHelpers12AllAccessTagEEEEEESt14default_deleteISC_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SF_EEEES4_SF_SH_SK_E4findES4_.exit.i.i ], [ %.sroa.10.0, %_ZNK4llvm9MemorySSA24getWritableBlockAccessesEPKNS_10BasicBlockE.exit.i ], [ %.sroa.10.0, %.preheader.i ], [ %.sroa.10.2, %579 ]
-  %.sroa.17.6 = phi i32 [ %.sroa.17.0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrINS_6iplistINS_12MemoryAccessEJNS_9ilist_tagINS_11MSSAHelpers12AllAccessTagEEEEEESt14default_deleteISC_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SF_EEEES4_SF_SH_SK_E4findES4_.exit.i.i ], [ %.sroa.17.0, %_ZNK4llvm9MemorySSA24getWritableBlockAccessesEPKNS_10BasicBlockE.exit.i ], [ %.sroa.17.0, %.preheader.i ], [ %.sroa.17.2, %579 ]
-  %.sroa.0.5 = phi ptr [ %.sroa.0.0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrINS_6iplistINS_12MemoryAccessEJNS_9ilist_tagINS_11MSSAHelpers12AllAccessTagEEEEEESt14default_deleteISC_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SF_EEEES4_SF_SH_SK_E4findES4_.exit.i.i ], [ %.sroa.0.0, %_ZNK4llvm9MemorySSA24getWritableBlockAccessesEPKNS_10BasicBlockE.exit.i ], [ %.sroa.0.0, %.preheader.i ], [ %.sroa.0.2, %579 ]
-  %.sroa.22.5 = phi i32 [ %.sroa.22.0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrINS_6iplistINS_12MemoryAccessEJNS_9ilist_tagINS_11MSSAHelpers12AllAccessTagEEEEEESt14default_deleteISC_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SF_EEEES4_SF_SH_SK_E4findES4_.exit.i.i ], [ %.sroa.22.0, %_ZNK4llvm9MemorySSA24getWritableBlockAccessesEPKNS_10BasicBlockE.exit.i ], [ %.sroa.22.0, %.preheader.i ], [ %.sroa.22.2, %579 ]
-  %.368 = phi i64 [ %.065, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrINS_6iplistINS_12MemoryAccessEJNS_9ilist_tagINS_11MSSAHelpers12AllAccessTagEEEEEESt14default_deleteISC_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SF_EEEES4_SF_SH_SK_E4findES4_.exit.i.i ], [ %.065, %_ZNK4llvm9MemorySSA24getWritableBlockAccessesEPKNS_10BasicBlockE.exit.i ], [ %.065, %.preheader.i ], [ %.267, %579 ]
-  %.3 = phi i64 [ %.0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrINS_6iplistINS_12MemoryAccessEJNS_9ilist_tagINS_11MSSAHelpers12AllAccessTagEEEEEESt14default_deleteISC_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SF_EEEES4_SF_SH_SK_E4findES4_.exit.i.i ], [ %.0, %_ZNK4llvm9MemorySSA24getWritableBlockAccessesEPKNS_10BasicBlockE.exit.i ], [ %.2, %.preheader.i ], [ %.2, %579 ]
+_ZN4llvm9MemorySSA12OptimizeUses19optimizeUsesInBlockEPKNS_10BasicBlockERmS5_RNS_15SmallVectorImplIPNS_12MemoryAccessEEERNS_8DenseMapIN12_GLOBAL__N_115MemoryLocOrCallENS1_15MemlocStackInfoENS_12DenseMapInfoISD_vEENS_6detail12DenseMapPairISD_SE_EEEE.exit: ; preds = %578, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrINS_6iplistINS_12MemoryAccessEJNS_9ilist_tagINS_11MSSAHelpers12AllAccessTagEEEEEESt14default_deleteISC_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SF_EEEES4_SF_SH_SK_E4findES4_.exit.i.i, %_ZNK4llvm9MemorySSA24getWritableBlockAccessesEPKNS_10BasicBlockE.exit.i, %.preheader.i
+  %.sroa.10.4 = phi i32 [ %.sroa.10.0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrINS_6iplistINS_12MemoryAccessEJNS_9ilist_tagINS_11MSSAHelpers12AllAccessTagEEEEEESt14default_deleteISC_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SF_EEEES4_SF_SH_SK_E4findES4_.exit.i.i ], [ %.sroa.10.0, %_ZNK4llvm9MemorySSA24getWritableBlockAccessesEPKNS_10BasicBlockE.exit.i ], [ %.sroa.10.0, %.preheader.i ], [ %.sroa.10.2, %578 ]
+  %.sroa.17.6 = phi i32 [ %.sroa.17.0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrINS_6iplistINS_12MemoryAccessEJNS_9ilist_tagINS_11MSSAHelpers12AllAccessTagEEEEEESt14default_deleteISC_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SF_EEEES4_SF_SH_SK_E4findES4_.exit.i.i ], [ %.sroa.17.0, %_ZNK4llvm9MemorySSA24getWritableBlockAccessesEPKNS_10BasicBlockE.exit.i ], [ %.sroa.17.0, %.preheader.i ], [ %.sroa.17.2, %578 ]
+  %.sroa.0.5 = phi ptr [ %.sroa.0.0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrINS_6iplistINS_12MemoryAccessEJNS_9ilist_tagINS_11MSSAHelpers12AllAccessTagEEEEEESt14default_deleteISC_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SF_EEEES4_SF_SH_SK_E4findES4_.exit.i.i ], [ %.sroa.0.0, %_ZNK4llvm9MemorySSA24getWritableBlockAccessesEPKNS_10BasicBlockE.exit.i ], [ %.sroa.0.0, %.preheader.i ], [ %.sroa.0.2, %578 ]
+  %.sroa.22.5 = phi i32 [ %.sroa.22.0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrINS_6iplistINS_12MemoryAccessEJNS_9ilist_tagINS_11MSSAHelpers12AllAccessTagEEEEEESt14default_deleteISC_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SF_EEEES4_SF_SH_SK_E4findES4_.exit.i.i ], [ %.sroa.22.0, %_ZNK4llvm9MemorySSA24getWritableBlockAccessesEPKNS_10BasicBlockE.exit.i ], [ %.sroa.22.0, %.preheader.i ], [ %.sroa.22.2, %578 ]
+  %.368 = phi i64 [ %.065, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrINS_6iplistINS_12MemoryAccessEJNS_9ilist_tagINS_11MSSAHelpers12AllAccessTagEEEEEESt14default_deleteISC_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SF_EEEES4_SF_SH_SK_E4findES4_.exit.i.i ], [ %.065, %_ZNK4llvm9MemorySSA24getWritableBlockAccessesEPKNS_10BasicBlockE.exit.i ], [ %.065, %.preheader.i ], [ %.267, %578 ]
+  %.3 = phi i64 [ %.0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt10unique_ptrINS_6iplistINS_12MemoryAccessEJNS_9ilist_tagINS_11MSSAHelpers12AllAccessTagEEEEEESt14default_deleteISC_EENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_SF_EEEES4_SF_SH_SK_E4findES4_.exit.i.i ], [ %.0, %_ZNK4llvm9MemorySSA24getWritableBlockAccessesEPKNS_10BasicBlockE.exit.i ], [ %.2, %.preheader.i ], [ %.2, %578 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN4llvm11df_iteratorIPNS_15DomTreeNodeBaseINS_10BasicBlockEEENS_23df_iterator_default_setIS4_Lj8EEELb0ENS_11GraphTraitsIS4_EEE6toNextEv(ptr noundef nonnull align 8 dereferenceable(112) %17)
   %.pre = load ptr, ptr %79, align 8, !tbaa !428
   %.pre128 = load ptr, ptr %55, align 8, !tbaa !431

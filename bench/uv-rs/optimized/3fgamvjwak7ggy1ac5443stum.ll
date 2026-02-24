@@ -2015,7 +2015,6 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h28bcbc63f9
   %.sroa.14.i = alloca [24 x i8], align 8
   %11 = alloca [16 x i8], align 8
   %12 = alloca [64 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !677)
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !680
   %13 = load ptr, ptr %1, align 8, !alias.scope !677, !noalias !682, !nonnull !12, !align !37, !noundef !12
@@ -2248,7 +2247,6 @@ common.resume.i:                                  ; preds = %83, %52
   br label %85
 
 "_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uv_install_wheel..record..RecordEntry$C$csv..error..Error$GT$$GT$$GT$17h250bd7681493f7a0E.exit": ; preds = %"_ZN107_$LT$csv..reader..DeserializeRecordsIter$LT$R$C$D$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1e1d83feea96659dE.exit", %"_ZN107_$LT$csv..reader..DeserializeRecordsIter$LT$R$C$D$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1e1d83feea96659dE.exit.thread"
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   store i64 3, ptr %0, align 8, !alias.scope !727
   br label %86
 
@@ -2269,7 +2267,6 @@ common.resume.i:                                  ; preds = %83, %52
   store i64 %.sroa.9.1, ptr %.sroa.514.0..sroa_idx, align 8, !alias.scope !730
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.14.i, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %86
 
 86:                                               ; preds = %"_ZN4core3ptr134drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$uv_install_wheel..record..RecordEntry$C$csv..error..Error$GT$$GT$$GT$17h250bd7681493f7a0E.exit", %85

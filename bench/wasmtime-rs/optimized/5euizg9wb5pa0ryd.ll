@@ -3656,7 +3656,6 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   br label %188
 
 188:                                              ; preds = %.backedge, %135
-  call void @llvm.lifetime.start.p0(ptr nonnull %112)
   invoke void @"_ZN75_$LT$std..fs..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca7494759dbe8cd8E"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %112, ptr noalias noundef nonnull align 8 dereferenceable(16) %113)
           to label %191 unwind label %189
 
@@ -3676,7 +3675,6 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i: ; 
   br i1 %trunc, label %198, label %193
 
 193:                                              ; preds = %191
-  call void @llvm.lifetime.end.p0(ptr nonnull %112)
   call void @llvm.experimental.noalias.scope.decl(metadata !734)
   call void @llvm.experimental.noalias.scope.decl(metadata !737)
   call void @llvm.experimental.noalias.scope.decl(metadata !740)
@@ -5473,7 +5471,6 @@ _ZN3std4path4Path14with_extension17h55d376ffffd64a79E.exit332: ; preds = %331
 
 .backedge:                                        ; preds = %"_ZN4core3ptr54drop_in_place$LT$std..sys..pal..unix..fs..DirEntry$GT$17hed7c23b00fe28145E.llvm.1979644106479486265.exit.i469.invoke", %854, %809
   call void @llvm.lifetime.end.p0(ptr nonnull %111)
-  call void @llvm.lifetime.end.p0(ptr nonnull %112)
   br label %188
 
 794:                                              ; preds = %.critedge320
@@ -6601,7 +6598,6 @@ common.resume:                                    ; preds = %.body, %.body98.thr
   br label %192
 
 95:                                               ; preds = %.backedge, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h688bd7e17e389d4bE.exit"
-  call void @llvm.lifetime.start.p0(ptr nonnull %39)
   invoke void @"_ZN75_$LT$std..fs..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hca7494759dbe8cd8E"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %39, ptr noalias noundef nonnull align 8 dereferenceable(16) %40)
           to label %96 unwind label %.loopexit
 
@@ -6626,7 +6622,6 @@ common.resume:                                    ; preds = %.body, %.body98.thr
   br i1 %trunc, label %126, label %98
 
 98:                                               ; preds = %96
-  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.experimental.noalias.scope.decl(metadata !1440)
   call void @llvm.experimental.noalias.scope.decl(metadata !1443)
   call void @llvm.experimental.noalias.scope.decl(metadata !1446)
@@ -7123,7 +7118,6 @@ _ZN3std2fs11OpenOptions4open17h6bdce1c926310749E.exit: ; preds = %_ZN3std4path4P
 
 .backedge:                                        ; preds = %"_ZN4core3ptr54drop_in_place$LT$std..sys..pal..unix..fs..DirEntry$GT$17hed7c23b00fe28145E.llvm.1979644106479486265.exit.i.invoke"
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %95
 
 255:                                              ; preds = %242
@@ -7180,7 +7174,6 @@ _ZN3std2fs11OpenOptions4open17h6bdce1c926310749E.exit: ; preds = %_ZN3std4path4P
 
 271:                                              ; preds = %270, %196
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.experimental.noalias.scope.decl(metadata !1639)
   call void @llvm.experimental.noalias.scope.decl(metadata !1642)
   call void @llvm.experimental.noalias.scope.decl(metadata !1645)

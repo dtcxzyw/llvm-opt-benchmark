@@ -6358,14 +6358,13 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread11MultiThread3new17
   %8 = alloca { { i32, i32 }, i64, { ptr, ptr }, { ptr, ptr }, { { { { i32 } }, { { i8 } }, [3 x i8], { i32, i32 } } }, i32, i8, i8, [2 x i8] }, align 8
   %9 = alloca { { [17 x i32], i32 }, ptr, { { {}, { { { i8 } }, [7 x i8], { { { i64, i32 }, { i64, i32 }, i64, i8, [7 x i8] } } } } }, { [20 x i32], i32, [1 x i32] } }, align 8
   %10 = alloca { ptr, { { { i64, ptr }, i64 } } }, align 8
-  %.sroa.0 = alloca { { i64, ptr }, i64 }, align 8
   %11 = alloca ptr, align 8
   store ptr %4, ptr %11, align 8
   %12 = invoke noundef nonnull ptr @_ZN5tokio7runtime9scheduler12multi_thread4park6Parker3new17h73296d5369d61a8bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %2)
           to label %13 unwind label %17
 
 13:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %9, ptr noundef nonnull align 8 dereferenceable(224) %3, i64 224, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -6373,13 +6372,10 @@ define hidden void @_ZN5tokio7runtime9scheduler12multi_thread11MultiThread3new17
   call void @_ZN5tokio7runtime9scheduler12multi_thread6worker6create17he227dd63b1207ef9E(ptr noalias noundef nonnull sret({ ptr, { { { i64, ptr }, i64 } } }) align 8 captures(none) dereferenceable(32) %10, i64 noundef %1, ptr noundef nonnull %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(224) %9, ptr noundef nonnull %4, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %14 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
-  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  store ptr %14, ptr %0, align 8
+  %15 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
+  store ptr %15, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   ret void
 
 17:                                               ; preds = %7

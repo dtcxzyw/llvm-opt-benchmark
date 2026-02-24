@@ -471,10 +471,11 @@ define void @_ZN14ockam_executor8executor8Executor9poll_task17h11f618e72fe568e9E
 28:                                               ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load i64, ptr %29, align 8, !alias.scope !32, !noalias !35, !noundef !5
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !37
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !37
-  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !38
-  call void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17he2fc915ebbf6f083E.llvm.9530856623662163121"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %9, ptr noundef nonnull %26, i64 noundef %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %24), !noalias !42
-  %31 = load i64, ptr %9, align 8, !range !43, !noalias !38, !noundef !5
+  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !37
+  call void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17he2fc915ebbf6f083E.llvm.9530856623662163121"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %9, ptr noundef nonnull %26, i64 noundef %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %24), !noalias !38
+  %31 = load i64, ptr %9, align 8, !range !41, !noalias !42, !noundef !5
   %trunc3.i.i = trunc nuw i64 %31 to i1
   br i1 %trunc3.i.i, label %.lr.ph.i.i, label %.loopexit
 
@@ -486,33 +487,29 @@ define void @_ZN14ockam_executor8executor8Executor9poll_task17h11f618e72fe568e9E
   br label %34
 
 34:                                               ; preds = %36, %.lr.ph.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false), !noalias !38
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !38
-  call void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17h65f1cbe410bf9e4dE.llvm.9530856623662163121"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8), !noalias !42
-  %35 = load i64, ptr %7, align 8, !range !43, !noalias !38, !noundef !5
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false), !noalias !42
+  call void @"_ZN5alloc11collections5btree4node145Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$Type$GT$5force17h65f1cbe410bf9e4dE.llvm.9530856623662163121"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %8), !noalias !38
+  %35 = load i64, ptr %7, align 8, !range !41, !noalias !42, !noundef !5
   %trunc1.i.i = trunc nuw i64 %35 to i1
   br i1 %trunc1.i.i, label %36, label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hf45e1ae9325e1db3E.exit.i"
 
 36:                                               ; preds = %34
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %33, align 8, !noalias !38, !nonnull !5, !noundef !5
-  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !38
-  %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !38
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %33, align 8, !noalias !42, !nonnull !5, !noundef !5
+  %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !42
+  %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !42
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 280
   %38 = getelementptr inbounds ptr, ptr %37, i64 %.sroa.3.0.copyload.i.i
   %39 = load ptr, ptr %38, align 8, !noalias !44, !nonnull !5, !noundef !5
   %40 = add i64 %.sroa.2.0.copyload.i.i, -1
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !38
-  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !38
-  call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !38
-  call void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17he2fc915ebbf6f083E.llvm.9530856623662163121"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %9, ptr noundef nonnull %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %24), !noalias !42
-  %41 = load i64, ptr %9, align 8, !range !43, !noalias !38, !noundef !5
+  call void @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$$GT$11search_node17he2fc915ebbf6f083E.llvm.9530856623662163121"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %9, ptr noundef nonnull %39, i64 noundef %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %24), !noalias !38
+  %41 = load i64, ptr %9, align 8, !range !41, !noalias !42, !noundef !5
   %trunc.i.i = trunc nuw i64 %41 to i1
   br i1 %trunc.i.i, label %34, label %.loopexit
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hf45e1ae9325e1db3E.exit.i": ; preds = %34
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !38
-  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !38
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !37
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !37
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !37
   br label %42
 
 42:                                               ; preds = %2, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hf45e1ae9325e1db3E.exit.i"
@@ -522,12 +519,13 @@ define void @_ZN14ockam_executor8executor8Executor9poll_task17h11f618e72fe568e9E
 
 .loopexit:                                        ; preds = %36, %28
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.5.sroa.0.0.copyload.i = load ptr, ptr %45, align 8, !noalias !47, !nonnull !5, !noundef !5
-  %.sroa.5.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.sroa.5.sroa.6.0.copyload.i = load i64, ptr %.sroa.5.sroa.6.0..sroa_idx.i, align 8, !noalias !47
-  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !38
+  %.sroa.4.sroa.0.0.copyload11.i = load ptr, ptr %45, align 8, !noalias !47, !nonnull !5, !noundef !5
+  %.sroa.4.sroa.5.0..sink5.i.sroa_idx13.i = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sroa.4.sroa.5.0.copyload14.i = load i64, ptr %.sroa.4.sroa.5.0..sink5.i.sroa_idx13.i, align 8, !noalias !47
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !37
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !37
-  %46 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.5.sroa.0.0.copyload.i, i64 %.sroa.5.sroa.6.0.copyload.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !37
+  %46 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.4.sroa.0.0.copyload11.i, i64 %.sroa.4.sroa.5.0.copyload14.i
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %48 = load i64, ptr %24, align 8, !noundef !5
@@ -1216,16 +1214,16 @@ attributes #21 = { noreturn }
 !35 = !{!36}
 !36 = distinct !{!36, !34, !"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$7get_mut17h18d12d8082daa807E: argument 1"}
 !37 = !{!33, !36}
-!38 = !{!39, !41, !33, !36}
+!38 = !{!39, !33}
 !39 = distinct !{!39, !40, !"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hf45e1ae9325e1db3E: argument 0"}
 !40 = distinct !{!40, !"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hf45e1ae9325e1db3E"}
-!41 = distinct !{!41, !40, !"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hf45e1ae9325e1db3E: argument 1"}
-!42 = !{!39, !33}
-!43 = !{i64 0, i64 2}
+!41 = !{i64 0, i64 2}
+!42 = !{!39, !43, !33, !36}
+!43 = distinct !{!43, !40, !"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hf45e1ae9325e1db3E: argument 1"}
 !44 = !{!45, !39, !33}
 !45 = distinct !{!45, !46, !"_ZN5alloc11collections5btree4node180Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..Edge$GT$7descend17h7e5cd5eaa5f2b01aE.llvm.9530856623662163121: argument 0"}
 !46 = distinct !{!46, !"_ZN5alloc11collections5btree4node180Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..Edge$GT$7descend17h7e5cd5eaa5f2b01aE.llvm.9530856623662163121"}
-!47 = !{!41, !33, !36}
+!47 = !{!43, !33, !36}
 !48 = !{i8 0, i8 3}
 !49 = !{i64 1}
 !50 = !{!51}

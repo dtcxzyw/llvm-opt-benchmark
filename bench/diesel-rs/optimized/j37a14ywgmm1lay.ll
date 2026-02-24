@@ -971,7 +971,6 @@ define void @_ZN13dsl_auto_type30auto_type_proc_macro_attribute17h40a38c58ad5a48
   %8 = alloca { { { i64, ptr }, i64 } }, align 8
   %9 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %10 = alloca { i64, [10 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2ea6E(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %3)
           to label %11 unwind label %30
 
@@ -990,7 +989,6 @@ define void @_ZN13dsl_auto_type30auto_type_proc_macro_attribute17h40a38c58ad5a48
 17:                                               ; preds = %23, %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %26
 
 18:                                               ; preds = %15
@@ -1037,7 +1035,6 @@ define void @_ZN13dsl_auto_type30auto_type_proc_macro_attribute17h40a38c58ad5a48
 
 27:                                               ; preds = %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   tail call void @"_ZN4core3ptr50drop_in_place$LT$proc_macro2..imp..TokenStream$GT$17h6f75cf75d6fe1f04E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   br label %26
 

@@ -3527,7 +3527,6 @@ _ZN4core3ops8function6FnOnce9call_once17h08faf13855b2e534E.exit: ; preds = %344
   store ptr %393, ptr %37, align 8
   %402 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 %395, ptr %402, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %36)
   invoke void @_ZN13uv_pypi_types11simple_json6Hashes14parse_fragment17h19a164d321a8b989E(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %36, ptr noalias noundef nonnull readonly align 1 %393, i64 noundef %395)
           to label %404 unwind label %397
 
@@ -3554,7 +3553,6 @@ _ZN4core3ops8function6FnOnce9call_once17h08faf13855b2e534E.exit: ; preds = %344
   br label %408
 
 408:                                              ; preds = %442, %406
-  call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   br label %443
 

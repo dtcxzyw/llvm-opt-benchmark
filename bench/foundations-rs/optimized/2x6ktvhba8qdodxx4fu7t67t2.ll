@@ -19623,7 +19623,6 @@ define hidden void @"_ZN94_$LT$hyper..proto..h2..client..ClientTask$LT$B$GT$$u20
   %58 = alloca [40 x i8], align 8
   %59 = alloca [40 x i8], align 8
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   call void @"_ZN2h26client20SendRequest$LT$B$GT$10poll_ready17h0ec5808a1c3160e2E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %59, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %61 = load i8, ptr %59, align 8, !range !25, !noundef !3
   %62 = icmp eq i8 %61, 6
@@ -19689,7 +19688,7 @@ define hidden void @"_ZN94_$LT$hyper..proto..h2..client..ClientTask$LT$B$GT$$u20
 
 ._crit_edge:                                      ; preds = %.backedge, %3
   store i64 3, ptr %0, align 8
-  br label %402
+  br label %359
 
 92:                                               ; preds = %.lr.ph, %.backedge
   %93 = phi i8 [ %61, %.lr.ph ], [ %99, %.backedge ]
@@ -19703,10 +19702,9 @@ define hidden void @"_ZN94_$LT$hyper..proto..h2..client..ClientTask$LT$B$GT$$u20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.3.0..sroa_idx9, ptr noundef nonnull align 1 dereferenceable(39) %.sroa.3.0..sroa_idx, i64 39, i1 false)
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %96 = invoke noundef align 8 ptr @_ZN5hyper5proto2h24ping8Recorder20ensure_not_timed_out17heac7e4783f9a47c2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %95)
-          to label %360 unwind label %403
+          to label %360 unwind label %402
 
 97:                                               ; preds = %92
-  call void @llvm.lifetime.end.p0(ptr nonnull %59)
   %.sroa.034.0.copyload = load i64, ptr %1, align 8
   store i64 2, ptr %1, align 8
   %.not236 = icmp eq i64 %.sroa.034.0.copyload, 2
@@ -19719,7 +19717,6 @@ define hidden void @"_ZN94_$LT$hyper..proto..h2..client..ClientTask$LT$B$GT$$u20
   br label %.backedge
 
 .backedge:                                        ; preds = %98, %331
-  call void @llvm.lifetime.start.p0(ptr nonnull %59)
   call void @"_ZN2h26client20SendRequest$LT$B$GT$10poll_ready17h0ec5808a1c3160e2E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %59, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %99 = load i8, ptr %59, align 8, !range !25, !noundef !3
   %100 = icmp eq i8 %99, 6
@@ -19806,8 +19803,8 @@ define hidden void @"_ZN94_$LT$hyper..proto..h2..client..ClientTask$LT$B$GT$$u20
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #25, !noalias !1133
   unreachable
 
-common.resume:                                    ; preds = %329, %334, %403, %.thread355, %243, %.critedge283, %238, %133
-  %common.resume.op = phi { ptr, i32 } [ %134, %133 ], [ %lpad.thr_comm435, %403 ], [ %.pn, %238 ], [ %.pn263423, %334 ], [ %.pn261, %329 ], [ %.pn244354, %.critedge283 ], [ %241, %.thread355 ], [ %.pn244354, %243 ]
+common.resume:                                    ; preds = %329, %334, %402, %.thread355, %243, %.critedge283, %238, %133
+  %common.resume.op = phi { ptr, i32 } [ %134, %133 ], [ %lpad.thr_comm435, %402 ], [ %.pn, %238 ], [ %.pn263423, %334 ], [ %.pn261, %329 ], [ %.pn244354, %.critedge283 ], [ %241, %.thread355 ], [ %.pn244354, %243 ]
   resume { ptr, i32 } %common.resume.op
 
 139:                                              ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h68919c4da95d0f38E.exit.i", %129, %103
@@ -20176,7 +20173,7 @@ switch.lookup:                                    ; preds = %189
   call void @"_ZN4core3ptr119drop_in_place$LT$http_body..combinators..box_body..UnsyncBoxBody$LT$bytes..bytes..Bytes$C$tonic..status..Status$GT$$GT$17h556da9bae3b44bacE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %78)
   br label %300
 
-236:                                              ; preds = %403, %334, %333, %.thread402, %.thread330, %304, %273, %271, %243, %.critedge282, %242, %.thread346, %239, %238, %231
+236:                                              ; preds = %402, %334, %333, %.thread402, %.thread330, %304, %273, %271, %243, %.critedge282, %242, %.thread346, %239, %238, %231
   %237 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #25
@@ -20728,7 +20725,7 @@ switch.lookup:                                    ; preds = %189
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %359
 
-359:                                              ; preds = %402, %358
+359:                                              ; preds = %._crit_edge, %401, %358
   ret void
 
 360:                                              ; preds = %94
@@ -20803,7 +20800,7 @@ switch.lookup:                                    ; preds = %189
 
 382:                                              ; preds = %380
   %383 = invoke noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h2255f81eb7667e37E(ptr noundef nonnull align 8 @"_ZN94_$LT$hyper..proto..h2..client..ClientTask$LT$B$GT$$u20$as$u20$core..future..future..Future$GT$4poll10__CALLSITE17h7a94f284cc9005deE")
-          to label %384 unwind label %403
+          to label %384 unwind label %402
 
 384:                                              ; preds = %382
   %385 = icmp eq i8 %383, 0
@@ -20813,7 +20810,7 @@ switch.lookup:                                    ; preds = %189
   %.sroa.018.0444 = phi i8 [ %383, %384 ], [ %381, %380 ], [ %381, %380 ]
   %386 = load ptr, ptr @"_ZN94_$LT$hyper..proto..h2..client..ClientTask$LT$B$GT$$u20$as$u20$core..future..future..Future$GT$4poll10__CALLSITE17h7a94f284cc9005deE", align 8, !nonnull !3, !align !108, !noundef !3
   %387 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h84e04cb52732a18dE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %386, i8 noundef %.sroa.018.0444)
-          to label %388 unwind label %403
+          to label %388 unwind label %402
 
 388:                                              ; preds = %.thread442
   br i1 %387, label %389, label %.critedge298
@@ -20861,11 +20858,11 @@ switch.lookup:                                    ; preds = %189
   %.sroa.322.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %391, ptr %.sroa.322.0..sroa_idx, align 8
   invoke void @_ZN12tracing_core5event5Event8dispatch17ha4ef22fc47242eeeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %390, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
-          to label %400 unwind label %403
+          to label %400 unwind label %402
 
 .thread447:                                       ; preds = %389, %394
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.a050844006ed878c94dea3ed76d4dc70.32, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a050844006ed878c94dea3ed76d4dc70.267) #23
-          to label %266 unwind label %403
+          to label %266 unwind label %402
 
 400:                                              ; preds = %395
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -20876,17 +20873,13 @@ switch.lookup:                                    ; preds = %189
 
 401:                                              ; preds = %.critedge296, %.critedge300
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
-  br label %402
+  br label %359
 
 .critedge300:                                     ; preds = %361, %.critedge298
   call void @"_ZN4core3ptr37drop_in_place$LT$h2..error..Error$GT$17hf3e24d8d489a6b34E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %58)
   br label %401
 
-402:                                              ; preds = %401, %._crit_edge
-  call void @llvm.lifetime.end.p0(ptr nonnull %59)
-  br label %359
-
-403:                                              ; preds = %395, %.thread447, %.thread442, %382, %94
+402:                                              ; preds = %395, %.thread447, %.thread442, %382, %94
   %lpad.thr_comm435 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr37drop_in_place$LT$h2..error..Error$GT$17hf3e24d8d489a6b34E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %58) #24

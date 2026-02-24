@@ -27709,7 +27709,6 @@ _ZN3std2fs4read17hb8b84d157cd25298E.exit:         ; preds = %328
           to label %574 unwind label %.loopexit.split-lp524
 
 377:                                              ; preds = %565, %374
-  call void @llvm.lifetime.start.p0(ptr nonnull %55)
   invoke void @"_ZN94_$LT$tree_sitter_tags..TagsIter$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha127c369b76a2523E"(ptr noalias noundef nonnull sret({ i64, [15 x i64] }) align 8 captures(none) dereferenceable(128) %55, ptr noalias noundef nonnull align 8 dereferenceable(232) %56)
           to label %378 unwind label %.loopexit
 
@@ -27734,7 +27733,6 @@ _ZN3std2fs4read17hb8b84d157cd25298E.exit:         ; preds = %328
   br i1 %380, label %381, label %382
 
 381:                                              ; preds = %378
-  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   invoke void @"_ZN4core3ptr123drop_in_place$LT$tree_sitter_tags..TagsIter$LT$tree_sitter..QueryMatches$LT$$RF$$u5b$u8$u5d$$C$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hdae89483ef91bab7E"(ptr noalias noundef nonnull align 8 dereferenceable(232) %56)
           to label %384 unwind label %.loopexit523
 
@@ -28472,7 +28470,6 @@ select.unfold485:                                 ; preds = %535
 556:                                              ; preds = %.thread489, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit442", %571, %548
   %.10 = phi ptr [ %424, %571 ], [ %.9, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit442" ], [ %.9, %548 ], [ %.8, %.thread489 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
-  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   invoke void @"_ZN4core3ptr123drop_in_place$LT$tree_sitter_tags..TagsIter$LT$tree_sitter..QueryMatches$LT$$RF$$u5b$u8$u5d$$C$$RF$$u5b$u8$u5d$$GT$$GT$$GT$17hdae89483ef91bab7E"(ptr noalias noundef nonnull align 8 dereferenceable(232) %56)
           to label %572 unwind label %.loopexit.split-lp524
 
@@ -28504,7 +28501,6 @@ select.unfold485:                                 ; preds = %535
 
 565:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE.exit446", %437
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
-  call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %377
 
 566:                                              ; preds = %437
@@ -28943,7 +28939,6 @@ define internal fastcc noundef ptr @_ZN15tree_sitter_cli14test_highlight24test_h
 
 138:                                              ; preds = %"_ZN4core3ptr38drop_in_place$LT$std..fs..DirEntry$GT$17h5cfe99c7e5a233d4E.exit", %65
   %.0220 = phi i1 [ false, %65 ], [ %.1221358, %"_ZN4core3ptr38drop_in_place$LT$std..fs..DirEntry$GT$17h5cfe99c7e5a233d4E.exit" ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %60)
   invoke void @"_ZN75_$LT$std..fs..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9f241b2ed3fe0106E"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %60, ptr noalias noundef nonnull align 8 dereferenceable(16) %61)
           to label %143 unwind label %.loopexit
 
@@ -28979,7 +28974,6 @@ define internal fastcc noundef ptr @_ZN15tree_sitter_cli14test_highlight24test_h
   br i1 %trunc, label %150, label %145
 
 145:                                              ; preds = %143
-  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   call void @llvm.experimental.noalias.scope.decl(metadata !3819)
   call void @llvm.experimental.noalias.scope.decl(metadata !3822)
   call void @llvm.experimental.noalias.scope.decl(metadata !3825)
@@ -29885,7 +29879,6 @@ _ZN3std2fs4read17h0d408ceafe94dfb3E.exit:         ; preds = %266
 
 "_ZN4core3ptr38drop_in_place$LT$std..fs..DirEntry$GT$17h5cfe99c7e5a233d4E.exit": ; preds = %"_ZN4core3ptr49drop_in_place$LT$std..sys..unix..fs..DirEntry$GT$17h914860a199d09d22E.llvm.15559585470061597875.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
-  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %138
 
 359:                                              ; preds = %273
@@ -29981,7 +29974,6 @@ _ZN3std2fs4read17h0d408ceafe94dfb3E.exit:         ; preds = %266
 "_ZN4core3ptr38drop_in_place$LT$std..fs..DirEntry$GT$17h5cfe99c7e5a233d4E.exit322": ; preds = %160, %"_ZN4core3ptr49drop_in_place$LT$std..sys..unix..fs..DirEntry$GT$17h914860a199d09d22E.llvm.15559585470061597875.exit.i317"
   %.5 = phi ptr [ %.4, %"_ZN4core3ptr49drop_in_place$LT$std..sys..unix..fs..DirEntry$GT$17h914860a199d09d22E.llvm.15559585470061597875.exit.i317" ], [ %162, %160 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
-  call void @llvm.lifetime.end.p0(ptr nonnull %60)
   call void @llvm.experimental.noalias.scope.decl(metadata !4127)
   call void @llvm.experimental.noalias.scope.decl(metadata !4130)
   call void @llvm.experimental.noalias.scope.decl(metadata !4133)
@@ -33210,7 +33202,6 @@ define noundef ptr @_ZN15tree_sitter_cli9test_tags9test_tags17h0ce167a91cef61a8E
 
 100:                                              ; preds = %272, %54
   %.0144 = phi i1 [ false, %54 ], [ %.1145, %272 ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %44)
   invoke void @"_ZN75_$LT$std..fs..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9f241b2ed3fe0106E"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %44, ptr noalias noundef nonnull align 8 dereferenceable(16) %45)
           to label %105 unwind label %.loopexit
 
@@ -33246,7 +33237,6 @@ define noundef ptr @_ZN15tree_sitter_cli9test_tags9test_tags17h0ce167a91cef61a8E
   br i1 %trunc, label %112, label %107
 
 107:                                              ; preds = %105
-  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.experimental.noalias.scope.decl(metadata !4474)
   call void @llvm.experimental.noalias.scope.decl(metadata !4477)
   call void @llvm.experimental.noalias.scope.decl(metadata !4480)
@@ -33921,7 +33911,6 @@ _ZN3std2fs4read17h0d408ceafe94dfb3E.exit:         ; preds = %167
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !4653
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %100
 
 273:                                              ; preds = %176
@@ -34045,7 +34034,6 @@ _ZN3std2fs4read17h0d408ceafe94dfb3E.exit:         ; preds = %167
 
 308:                                              ; preds = %"_ZN4core3ptr38drop_in_place$LT$std..fs..DirEntry$GT$17h5cfe99c7e5a233d4E.exit251", %"_ZN4core3ptr38drop_in_place$LT$std..fs..DirEntry$GT$17h5cfe99c7e5a233d4E.exit236"
   %.4 = phi ptr [ %.6, %"_ZN4core3ptr38drop_in_place$LT$std..fs..DirEntry$GT$17h5cfe99c7e5a233d4E.exit251" ], [ %175, %"_ZN4core3ptr38drop_in_place$LT$std..fs..DirEntry$GT$17h5cfe99c7e5a233d4E.exit236" ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.experimental.noalias.scope.decl(metadata !4713)
   call void @llvm.experimental.noalias.scope.decl(metadata !4716)
   call void @llvm.experimental.noalias.scope.decl(metadata !4719)

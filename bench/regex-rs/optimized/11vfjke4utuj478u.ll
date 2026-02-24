@@ -12405,29 +12405,25 @@ define hidden void @_ZN14regex_automata4meta8wrappers13ReverseHybrid3new17h21395
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN14regex_automata4meta8wrappers13ReverseHybrid12create_cache17h6ed6d927caa8675aE(ptr noalias noundef writeonly sret({ { i64, [43 x i64] } }) align 8 captures(none) dereferenceable(352) initializes((0, 352)) %0, ptr noalias noundef readonly align 8 dereferenceable(688) %1) unnamed_addr #0 {
   %3 = alloca { { i64, [2 x i64] }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, i64 }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, i64 } }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 } }, { i32, [5 x i32] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i64, i64, i64 }, align 8
-  %.sroa.5.i = alloca [43 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2845)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2848)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load i64, ptr %1, align 8, !range !194, !alias.scope !2848, !noalias !2845, !noundef !5
   %5 = icmp eq i64 %4, 2
   br i1 %5, label %_ZN14regex_automata4meta8wrappers18ReverseHybridCache3new17h0967128c2cf572d9E.llvm.4719928553755522418.exit, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2850
   call void @_ZN14regex_automata6hybrid3dfa5Cache3new17h15b583464acba4f3E(ptr noalias noundef nonnull sret({ { i64, [2 x i64] }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, i64 }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, i64 } }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 } }, { i32, [5 x i32] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i64, i64, i64 }) align 8 captures(none) dereferenceable(352) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %1), !noalias !2845
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8, !noalias !2850
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(344) %.sroa.5.0..sroa_idx.i, i64 344, i1 false), !noalias !2850
-  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2850
   br label %_ZN14regex_automata4meta8wrappers18ReverseHybridCache3new17h0967128c2cf572d9E.llvm.4719928553755522418.exit
 
 _ZN14regex_automata4meta8wrappers18ReverseHybridCache3new17h0967128c2cf572d9E.llvm.4719928553755522418.exit: ; preds = %2, %6
   %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i, %6 ], [ 2, %2 ]
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.0.0.i, ptr %0, align 8, !alias.scope !2845, !noalias !2848
   %.sroa.5.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %.sroa.5.0..sroa_idx2.i, ptr noundef nonnull align 8 dereferenceable(344) %.sroa.5.i, i64 344, i1 false), !noalias !2848
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %.sroa.5.0..sroa_idx2.i, ptr noundef nonnull align 8 dereferenceable(344) %7, i64 344, i1 false), !noalias !2848
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -12730,27 +12726,21 @@ define void @_ZN14regex_automata4meta8wrappers18ReverseHybridCache4none17hd1b117
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN14regex_automata4meta8wrappers18ReverseHybridCache3new17h0967128c2cf572d9E.llvm.4719928553755522418(ptr noalias noundef writeonly sret({ { i64, [43 x i64] } }) align 8 captures(none) dereferenceable(352) initializes((0, 352)) %0, ptr noalias noundef readonly align 8 dereferenceable(688) %1) unnamed_addr #0 {
   %3 = alloca { { i64, [2 x i64] }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, i64 }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, i64 } }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 } }, { i32, [5 x i32] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i64, i64, i64 }, align 8
-  %.sroa.5 = alloca [43 x i64], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   %4 = load i64, ptr %1, align 8, !range !194, !noundef !5
   %5 = icmp eq i64 %4, 2
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN14regex_automata6hybrid3dfa5Cache3new17h15b583464acba4f3E(ptr noalias noundef nonnull sret({ { i64, [2 x i64] }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, i64 }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, i64 } }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 } }, { i32, [5 x i32] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, i64, i64, i64 }) align 8 captures(none) dereferenceable(352) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(688) %1)
   %.sroa.0.0.copyload = load i64, ptr %3, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(344) %.sroa.5.0..sroa_idx, i64 344, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %7
 
 7:                                                ; preds = %2, %6
   %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload, %6 ], [ 2, %2 ]
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %.sroa.5.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(344) %.sroa.5, i64 344, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %.sroa.5.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(344) %8, i64 344, i1 false)
   ret void
 }
 

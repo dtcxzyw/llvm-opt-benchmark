@@ -83142,116 +83142,110 @@ define void @"_ZN137_$LT$ruff_linter..rules..pylint..rules..singledispatch_metho
 define hidden void @_ZN11ruff_linter5rules6pylint5rules15type_bivariance15type_bivariance17h3b3daca28a7572f7E(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [136 x i8], align 8
-  %.sroa.5 = alloca [16 x i8], align 8
-  %5 = alloca [32 x i8], align 8
-  %6 = alloca [120 x i8], align 8
-  %7 = alloca [144 x i8], align 8
-  %8 = tail call noundef align 8 dereferenceable(448) ptr @_ZN11ruff_linter8checkers3ast7Checker8semantic17h7feef6ca145aba79E(ptr noundef nonnull align 8 %0)
-  %9 = tail call noundef zeroext i1 @_ZN20ruff_python_semantic5model13SemanticModel11seen_typing17h84dfed14431f3da8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(448) %8)
-  br i1 %9, label %10, label %13
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %6 = alloca [32 x i8], align 8
+  %7 = alloca [120 x i8], align 8
+  %8 = alloca [144 x i8], align 8
+  %9 = tail call noundef align 8 dereferenceable(448) ptr @_ZN11ruff_linter8checkers3ast7Checker8semantic17h7feef6ca145aba79E(ptr noundef nonnull align 8 %0)
+  %10 = tail call noundef zeroext i1 @_ZN20ruff_python_semantic5model13SemanticModel11seen_typing17h84dfed14431f3da8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(448) %9)
+  br i1 %10, label %11, label %14
 
-10:                                               ; preds = %2
-  %11 = load i32, ptr %1, align 8, !range !371, !noundef !8
-  %12 = icmp eq i32 %11, 16
-  br i1 %12, label %14, label %13
+11:                                               ; preds = %2
+  %12 = load i32, ptr %1, align 8, !range !371, !noundef !8
+  %13 = icmp eq i32 %12, 16
+  br i1 %13, label %15, label %14
 
-13:                                               ; preds = %29, %32, %18, %14, %20, %22, %42, %10, %2
+14:                                               ; preds = %30, %33, %19, %15, %21, %23, %43, %11, %2
   ret void
 
-14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = tail call noundef align 8 ptr @_ZN15ruff_python_ast5nodes9Arguments12find_keyword17hf9e72e013352ee1fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %16, ptr noalias noundef nonnull readonly align 1 @anon.9a3c7070530f84c5ad699604f23a6f35.715, i64 noundef 9)
-  %.not = icmp eq ptr %17, null
-  br i1 %.not, label %13, label %18
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %18 = tail call noundef align 8 ptr @_ZN15ruff_python_ast5nodes9Arguments12find_keyword17hf9e72e013352ee1fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %17, ptr noalias noundef nonnull readonly align 1 @anon.9a3c7070530f84c5ad699604f23a6f35.715, i64 noundef 9)
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %14, label %19
 
-18:                                               ; preds = %14
-  %19 = tail call noundef align 8 ptr @_ZN15ruff_python_ast5nodes9Arguments12find_keyword17hf9e72e013352ee1fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %16, ptr noalias noundef nonnull readonly align 1 @anon.9a3c7070530f84c5ad699604f23a6f35.716, i64 noundef 13)
-  %.not18 = icmp eq ptr %19, null
-  br i1 %.not18, label %13, label %20
+19:                                               ; preds = %15
+  %20 = tail call noundef align 8 ptr @_ZN15ruff_python_ast5nodes9Arguments12find_keyword17hf9e72e013352ee1fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %17, ptr noalias noundef nonnull readonly align 1 @anon.9a3c7070530f84c5ad699604f23a6f35.716, i64 noundef 13)
+  %.not18 = icmp eq ptr %20, null
+  br i1 %.not18, label %14, label %21
 
-20:                                               ; preds = %18
-  %21 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7helpers13is_const_true17hc928c21ae9f6b6c8E(ptr noundef nonnull align 8 %17)
-  br i1 %21, label %22, label %13
+21:                                               ; preds = %19
+  %22 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7helpers13is_const_true17hc928c21ae9f6b6c8E(ptr noundef nonnull align 8 %18)
+  br i1 %22, label %23, label %14
 
-22:                                               ; preds = %20
-  %23 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7helpers13is_const_true17hc928c21ae9f6b6c8E(ptr noundef nonnull align 8 %19)
-  br i1 %23, label %24, label %13
+23:                                               ; preds = %21
+  %24 = tail call noundef zeroext i1 @_ZN15ruff_python_ast7helpers13is_const_true17hc928c21ae9f6b6c8E(ptr noundef nonnull align 8 %20)
+  br i1 %24, label %25, label %14
 
-24:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %25 = tail call noundef align 8 dereferenceable(448) ptr @_ZN11ruff_linter8checkers3ast7Checker8semantic17h7feef6ca145aba79E(ptr noundef nonnull align 8 %0)
-  %26 = load ptr, ptr %15, align 8, !nonnull !8, !align !87, !noundef !8
-  call void @_ZN20ruff_python_semantic5model13SemanticModel22resolve_qualified_name17hfced0eedb574bbe2E(ptr noalias noundef nonnull sret([144 x i8]) align 8 captures(none) dereferenceable(144) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(448) %25, ptr noundef nonnull align 8 %26)
-  %27 = load i64, ptr %7, align 8, !range !26, !noundef !8
-  %28 = trunc nuw i64 %27 to i1
-  br i1 %28, label %29, label %32
+25:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  %26 = tail call noundef align 8 dereferenceable(448) ptr @_ZN11ruff_linter8checkers3ast7Checker8semantic17h7feef6ca145aba79E(ptr noundef nonnull align 8 %0)
+  %27 = load ptr, ptr %16, align 8, !nonnull !8, !align !87, !noundef !8
+  call void @_ZN20ruff_python_semantic5model13SemanticModel22resolve_qualified_name17hfced0eedb574bbe2E(ptr noalias noundef nonnull sret([144 x i8]) align 8 captures(none) dereferenceable(144) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(448) %26, ptr noundef nonnull align 8 %27)
+  %28 = load i64, ptr %8, align 8, !range !26, !noundef !8
+  %29 = trunc nuw i64 %28 to i1
+  br i1 %29, label %30, label %33
 
-29:                                               ; preds = %24
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
+30:                                               ; preds = %25
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 8 dereferenceable(136) %30, i64 136, i1 false)
-  %31 = call fastcc noundef i8 @"_ZN11ruff_linter5rules6pylint5rules15type_bivariance15type_bivariance28_$u7b$$u7b$closure$u7d$$u7d$17hdb2091603be8efc6E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(none) dereferenceable(136) %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 8 dereferenceable(136) %31, i64 136, i1 false)
+  %32 = call fastcc noundef i8 @"_ZN11ruff_linter5rules6pylint5rules15type_bivariance15type_bivariance28_$u7b$$u7b$closure$u7d$$u7d$17hdb2091603be8efc6E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(none) dereferenceable(136) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.not19 = icmp eq i8 %31, 2
-  br i1 %.not19, label %13, label %33
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  %.not19 = icmp eq i8 %32, 2
+  br i1 %.not19, label %14, label %34
 
-32:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %13
+33:                                               ; preds = %25
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %14
 
-33:                                               ; preds = %29
+34:                                               ; preds = %30
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
-  %34 = tail call { ptr, i64 } @_ZN11ruff_linter5rules6pylint7helpers15type_param_name17h0fc21be636239197E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %16)
-  %35 = extractvalue { ptr, i64 } %34, 0
-  %.not20 = icmp eq ptr %35, null
-  br i1 %.not20, label %38, label %36
+  %35 = tail call { ptr, i64 } @_ZN11ruff_linter5rules6pylint7helpers15type_param_name17h0fc21be636239197E(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %17)
+  %36 = extractvalue { ptr, i64 } %35, 0
+  %.not20 = icmp eq ptr %36, null
+  br i1 %.not20, label %39, label %37
 
-36:                                               ; preds = %33
-  %37 = extractvalue { ptr, i64 } %34, 1
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h4e33bd25f53d5eaeE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %35, i64 noundef %37)
+37:                                               ; preds = %34
+  %38 = extractvalue { ptr, i64 } %35, 1
+  call fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h4e33bd25f53d5eaeE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %36, i64 noundef %38)
   %.sroa.015.0.copyload = load i64, ptr %3, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %38
+  br label %39
 
-38:                                               ; preds = %33, %36
-  %.sroa.08.0 = phi i64 [ %.sroa.015.0.copyload, %36 ], [ -9223372036854775808, %33 ]
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i8 %31, ptr %39, align 8
-  store i64 %.sroa.08.0, ptr %5, align 8
-  %.sroa.5.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx10, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  %40 = load ptr, ptr %15, align 8, !nonnull !8, !align !87, !noundef !8
-  %41 = invoke { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %40)
-          to label %42 unwind label %46
+39:                                               ; preds = %34, %37
+  %.sroa.08.0 = phi i64 [ %.sroa.015.0.copyload, %37 ], [ -9223372036854775808, %34 ]
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i8 %32, ptr %40, align 8
+  store i64 %.sroa.08.0, ptr %6, align 8
+  %.sroa.5.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx10, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
+  %41 = load ptr, ptr %16, align 8, !nonnull !8, !align !87, !noundef !8
+  %42 = invoke { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Expr$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0a3403e127caf75eE"(ptr noundef nonnull align 8 %41)
+          to label %43 unwind label %47
 
-42:                                               ; preds = %38
-  %43 = extractvalue { i32, i32 } %41, 0
-  %44 = extractvalue { i32, i32 } %41, 1
-  call void @_ZN16ruff_diagnostics10diagnostic10Diagnostic3new17hd8bcdfa59386cbf1E(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5, i32 noundef %43, i32 noundef %44)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @_ZN11ruff_linter8checkers3ast7Checker17report_diagnostic17heec61577efacc51fE(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(120) %6)
+43:                                               ; preds = %39
+  %44 = extractvalue { i32, i32 } %42, 0
+  %45 = extractvalue { i32, i32 } %42, 1
+  call void @_ZN16ruff_diagnostics10diagnostic10Diagnostic3new17hd8bcdfa59386cbf1E(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6, i32 noundef %44, i32 noundef %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %13
+  call void @_ZN11ruff_linter8checkers3ast7Checker17report_diagnostic17heec61577efacc51fE(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(120) %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %14
 
-45:                                               ; preds = %46
-  resume { ptr, i32 } %47
+46:                                               ; preds = %47
+  resume { ptr, i32 } %48
 
-46:                                               ; preds = %38
-  %47 = landingpad { ptr, i32 }
+47:                                               ; preds = %39
+  %48 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr87drop_in_place$LT$ruff_linter..rules..pylint..rules..type_bivariance..TypeBivariance$GT$17h87d88d13c23b4de5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5) #40
-          to label %45 unwind label %48
+  invoke void @"_ZN4core3ptr87drop_in_place$LT$ruff_linter..rules..pylint..rules..type_bivariance..TypeBivariance$GT$17h87d88d13c23b4de5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6) #40
+          to label %46 unwind label %49
 
-48:                                               ; preds = %46
-  %49 = landingpad { ptr, i32 }
+49:                                               ; preds = %47
+  %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #42
   unreachable

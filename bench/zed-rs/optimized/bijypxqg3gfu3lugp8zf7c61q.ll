@@ -83,7 +83,7 @@ define internal { i32, float } @"_ZN117_$LT$rodio..source..uniform..UniformSourc
   %2 = alloca [160 x i8], align 8
   %3 = alloca [160 x i8], align 8
   %.sroa.321 = alloca [40 x i8], align 8
-  %4 = alloca [32 x i8], align 8
+  %4 = getelementptr inbounds nuw i8, ptr %.sroa.321, i64 8
   %5 = load i64, ptr %0, align 8, !range !6, !noundef !4
   %6 = icmp eq i64 %5, 2
   br i1 %6, label %7, label %8
@@ -99,7 +99,6 @@ define internal { i32, float } @"_ZN117_$LT$rodio..source..uniform..UniformSourc
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.321)
   %.sroa.04.0.copyload = load i64, ptr %0, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.5.sroa.4.0.copyload = load i64, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
@@ -161,9 +160,6 @@ define internal { i32, float } @"_ZN117_$LT$rodio..source..uniform..UniformSourc
   br label %"_ZN5rodio11conversions11sample_rate28SampleRateConverter$LT$I$GT$10into_inner17ha8eaf22197f00d24E.exit"
 
 "_ZN5rodio11conversions11sample_rate28SampleRateConverter$LT$I$GT$10into_inner17ha8eaf22197f00d24E.exit": ; preds = %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$f32$GT$$GT$17h0dd69dcfe80a2a9bE.exit3.i", %27
-  %.sroa.321.16..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.321, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.321.16..sroa_idx, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.321)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %31 = load i16, ptr %30, align 4, !noundef !4

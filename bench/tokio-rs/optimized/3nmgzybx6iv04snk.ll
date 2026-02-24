@@ -5073,7 +5073,6 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
   ]
 
 13:                                               ; preds = %thread-pre-split
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hfc157d8dbd8f5417E"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %14 = load i64, ptr %5, align 8, !range !542, !noundef !53
   switch i64 %14, label %38 [
@@ -5165,12 +5164,12 @@ thread-pre-split.backedge:                        ; preds = %34, %43
   %.pn = phi { ptr, i32 } [ %42, %41 ], [ %33, %32 ]
   resume { ptr, i32 } %.pn
 
-36:                                               ; preds = %28, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h523cc4aa52b9744fE.exit", %44
+36:                                               ; preds = %37, %39, %28, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h523cc4aa52b9744fE.exit"
   ret void
 
 37:                                               ; preds = %13
   store i32 4, ptr %0, align 8
-  br label %44
+  br label %36
 
 38:                                               ; preds = %13
   invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tokio..fs..read_dir..State$GT$17h23c660237e9a9496E"(ptr noalias noundef align 8 dereferenceable(56) %1)
@@ -5184,7 +5183,7 @@ thread-pre-split.backedge:                        ; preds = %34, %43
   %.sroa.446.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %40, ptr %.sroa.446.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %44
+  br label %36
 
 41:                                               ; preds = %38
   %42 = landingpad { ptr, i32 }
@@ -5198,12 +5197,7 @@ thread-pre-split.backedge:                        ; preds = %34, %43
   store i64 %14, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.0..sroa_idx, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.58.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.425.0..sroa_idx, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %thread-pre-split.backedge
-
-44:                                               ; preds = %39, %37
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %36
 }
 
 ; Function Attrs: nonlazybind uwtable

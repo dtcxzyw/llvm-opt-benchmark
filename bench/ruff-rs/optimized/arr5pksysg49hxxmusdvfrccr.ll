@@ -1086,32 +1086,32 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
 16:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !98
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !98
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %19
 
 19:                                               ; preds = %28, %16
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !105
   invoke void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heaca7fe4e7535918E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %6)
-          to label %22 unwind label %20, !noalias !109
+          to label %22 unwind label %20, !noalias !105
 
 20:                                               ; preds = %27, %24, %19
   %21 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr202drop_in_place$LT$hashbrown..raw..RawIntoIter$LT$$LP$ty_python_semantic..semantic_index..definition..Definition$C$ty_python_semantic..semantic_index..use_def..symbol_state..SymbolDeclarations$RP$$GT$$GT$17h5cc26377cb4c69a0E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %6) #28
-          to label %.body.thread unwind label %29, !noalias !109
+          to label %.body.thread unwind label %29, !noalias !105
 
 22:                                               ; preds = %19
-  %23 = load i32, ptr %5, align 8, !noalias !105, !noundef !3
+  %23 = load i32, ptr %5, align 8, !noalias !106, !noundef !3
   %.not.i.i.i = icmp eq i32 %23, 0
   br i1 %.not.i.i.i, label %"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8386ddf58f2e1384E.exit.i", label %24
 
 24:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !110
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %18, i64 40, i1 false), !noalias !105
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %18, i64 40, i1 false), !noalias !106
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !113
   invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h6a85e5948e786e23E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %23, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4)
-          to label %.noexc.i.i.i unwind label %20, !noalias !109
+          to label %.noexc.i.i.i unwind label %20, !noalias !105
 
 .noexc.i.i.i:                                     ; preds = %24
   %25 = load i64, ptr %3, align 8, !range !42, !alias.scope !116, !noalias !113, !noundef !3
@@ -1120,23 +1120,22 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
 
 27:                                               ; preds = %.noexc.i.i.i
   invoke void @"_ZN4core3ptr98drop_in_place$LT$ty_python_semantic..semantic_index..use_def..symbol_state..SymbolDeclarations$GT$17h2bf2bd8bb39e31d0E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %17)
-          to label %28 unwind label %20, !noalias !109
+          to label %28 unwind label %20, !noalias !105
 
 28:                                               ; preds = %27, %.noexc.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !113
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !110
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !105
   br label %19
 
 29:                                               ; preds = %20
   %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #29, !noalias !109
+  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #29, !noalias !105
   unreachable
 
 "_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8386ddf58f2e1384E.exit.i": ; preds = %22
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !105
   call void @"_ZN4core3ptr202drop_in_place$LT$hashbrown..raw..RawIntoIter$LT$$LP$ty_python_semantic..semantic_index..definition..Definition$C$ty_python_semantic..semantic_index..use_def..symbol_state..SymbolDeclarations$RP$$GT$$GT$17h5cc26377cb4c69a0E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !98
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !98
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
@@ -1452,57 +1451,56 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
 16:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !197
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !197
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %18
 
 18:                                               ; preds = %27, %16
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !204
   invoke void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf3d03fa62a0d062aE"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %5, ptr noalias noundef nonnull align 8 dereferenceable(64) %6)
-          to label %21 unwind label %19, !noalias !208
+          to label %21 unwind label %19, !noalias !204
 
 19:                                               ; preds = %26, %23, %18
   %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr198drop_in_place$LT$hashbrown..raw..RawIntoIter$LT$$LP$ty_python_semantic..semantic_index..definition..Definition$C$ty_python_semantic..semantic_index..use_def..symbol_state..SymbolBindings$RP$$GT$$GT$17h046006465babc04fE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %6) #28
-          to label %.body.thread unwind label %28, !noalias !208
+          to label %.body.thread unwind label %28, !noalias !204
 
 21:                                               ; preds = %18
-  %22 = load i32, ptr %17, align 8, !range !209, !noalias !204, !noundef !3
+  %22 = load i32, ptr %17, align 8, !range !205, !noalias !206, !noundef !3
   %.not.i.i.i = icmp eq i32 %22, 2
   br i1 %.not.i.i.i, label %"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0f74c72ac42b0990E.exit.i", label %23
 
 23:                                               ; preds = %21
-  %.sroa.05.0.copyload.i.i.i = load i32, ptr %5, align 8, !noalias !204
+  %.sroa.05.0.copyload.i.i.i = load i32, ptr %5, align 8, !noalias !206
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !210
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false), !noalias !204
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %17, i64 64, i1 false), !noalias !206
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !213
   invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h0ddffefd5cf8e97fE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.sroa.05.0.copyload.i.i.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %4)
-          to label %.noexc.i.i.i unwind label %19, !noalias !208
+          to label %.noexc.i.i.i unwind label %19, !noalias !204
 
 .noexc.i.i.i:                                     ; preds = %23
-  %24 = load i32, ptr %3, align 8, !range !209, !alias.scope !216, !noalias !213, !noundef !3
+  %24 = load i32, ptr %3, align 8, !range !205, !alias.scope !216, !noalias !213, !noundef !3
   %25 = icmp eq i32 %24, 2
   br i1 %25, label %27, label %26
 
 26:                                               ; preds = %.noexc.i.i.i
   invoke void @"_ZN4core3ptr94drop_in_place$LT$ty_python_semantic..semantic_index..use_def..symbol_state..SymbolBindings$GT$17hb5a1c33c417031e8E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %3)
-          to label %27 unwind label %19, !noalias !208
+          to label %27 unwind label %19, !noalias !204
 
 27:                                               ; preds = %26, %.noexc.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !213
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !210
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !204
   br label %18
 
 28:                                               ; preds = %19
   %29 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #29, !noalias !208
+  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #29, !noalias !204
   unreachable
 
 "_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0f74c72ac42b0990E.exit.i": ; preds = %21
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !204
   call void @"_ZN4core3ptr198drop_in_place$LT$hashbrown..raw..RawIntoIter$LT$$LP$ty_python_semantic..semantic_index..definition..Definition$C$ty_python_semantic..semantic_index..use_def..symbol_state..SymbolBindings$RP$$GT$$GT$17h046006465babc04fE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !197
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !197
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
@@ -1557,6 +1555,7 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !235)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !236)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !228
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.8..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.4.i.i.i.i.i.i, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1564,9 +1563,8 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   br label %21
 
 21:                                               ; preds = %98, %17
-  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !240
   invoke void @"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h68f2ff664b498533E"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
-          to label %24 unwind label %22, !noalias !242
+          to label %24 unwind label %22, !noalias !240
 
 22:                                               ; preds = %97, %21
   %23 = landingpad { ptr, i32 }
@@ -1576,16 +1574,16 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
 .body.i.i.i:                                      ; preds = %90, %22
   %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %23, %22 ], [ %lpad.phi.i.i.i.i.i.i, %90 ]
   invoke void @"_ZN4core3ptr252drop_in_place$LT$hashbrown..raw..RawIntoIter$LT$$LP$ty_python_semantic..semantic_index..symbol..FileScopeId$C$std..collections..hash..set..HashSet$LT$ty_python_semantic..semantic_index..symbol..ScopedSymbolId$C$rustc_hash..FxBuildHasher$GT$$RP$$GT$$GT$17hbbf78bb665fa0e34E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7) #28
-          to label %.body.thread unwind label %99, !noalias !242
+          to label %.body.thread unwind label %99, !noalias !240
 
 24:                                               ; preds = %21
-  %25 = load i32, ptr %6, align 8, !noalias !240, !noundef !3
+  %25 = load i32, ptr %6, align 8, !noalias !241, !noundef !3
   %.not.i.i.i = icmp eq i32 %25, 0
   br i1 %.not.i.i.i, label %"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0535f6a926f000c6E.exit.i", label %26
 
 26:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !243
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false), !noalias !240
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false), !noalias !241
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !246
   call void @llvm.experimental.noalias.scope.decl(metadata !249)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !246
@@ -1691,7 +1689,7 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %.sroa.3.0.i.ph.i.i.i.i.i.i.i = phi i64 [ %71, %65 ], [ %.sroa.6.1.i.i.i.i.i.i.i.i, %61 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i.i.i.i.i)
   %72 = load i32, ptr %3, align 4, !range !181, !noalias !252, !noundef !3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.8..sroa_idx.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false), !noalias !240
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.4.8..sroa_idx.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false), !noalias !241
   call void @llvm.experimental.noalias.scope.decl(metadata !266)
   %73 = load ptr, ptr %0, align 8, !alias.scope !269, !noalias !270, !nonnull !3, !noundef !3
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 %.sroa.3.0.i.ph.i.i.i.i.i.i.i
@@ -1747,7 +1745,7 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %94 = getelementptr inbounds { i32, [1 x i32], { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } } }, ptr %93, i64 %40
   %95 = getelementptr inbounds i8, ptr %94, i64 -32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %95, i64 32, i1 false), !noalias !275
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false), !noalias !242
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %95, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false), !noalias !240
   %.pr.i.i.i.i.i = load ptr, ptr %4, align 8, !alias.scope !276, !noalias !246
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !246
   %96 = icmp eq ptr %.pr.i.i.i.i.i, null
@@ -1755,23 +1753,22 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
 
 97:                                               ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h513d6f64b45e35f8E.exit.i.i.i.i.i"
   invoke void @"_ZN4core3ptr151drop_in_place$LT$std..collections..hash..set..HashSet$LT$ty_python_semantic..semantic_index..symbol..ScopedSymbolId$C$rustc_hash..FxBuildHasher$GT$$GT$17h6a6d914fdb6ca468E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
-          to label %98 unwind label %22, !noalias !242
+          to label %98 unwind label %22, !noalias !240
 
 98:                                               ; preds = %97, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h513d6f64b45e35f8E.exit.i.i.i.i.i", %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h513d6f64b45e35f8E.exit.thread.i.i.i.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !246
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !243
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !240
   br label %21
 
 99:                                               ; preds = %.body.i.i.i
   %100 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #29, !noalias !242
+  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #29, !noalias !240
   unreachable
 
 "_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0535f6a926f000c6E.exit.i": ; preds = %24
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !240
   call void @"_ZN4core3ptr252drop_in_place$LT$hashbrown..raw..RawIntoIter$LT$$LP$ty_python_semantic..semantic_index..symbol..FileScopeId$C$std..collections..hash..set..HashSet$LT$ty_python_semantic..semantic_index..symbol..ScopedSymbolId$C$rustc_hash..FxBuildHasher$GT$$RP$$GT$$GT$17hbbf78bb665fa0e34E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !228
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !228
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
@@ -40729,9 +40726,9 @@ define internal fastcc noundef zeroext i1 @"_ZN72_$LT$ty_python_semantic..types.
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4804)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4807)
-  %77 = load i32, ptr %75, align 4, !range !209, !alias.scope !4804, !noalias !4807, !noundef !3
+  %77 = load i32, ptr %75, align 4, !range !205, !alias.scope !4804, !noalias !4807, !noundef !3
   %78 = icmp eq i32 %77, 2
-  %79 = load i32, ptr %76, align 4, !range !209, !alias.scope !4807, !noalias !4804, !noundef !3
+  %79 = load i32, ptr %76, align 4, !range !205, !alias.scope !4807, !noalias !4804, !noundef !3
   %80 = icmp eq i32 %79, 2
   %81 = xor i1 %78, %80
   br i1 %81, label %"_ZN96_$LT$ty_python_semantic..types..subclass_of..SubclassOfInner$u20$as$u20$core..cmp..PartialEq$GT$2eq17hde51ecfa352d500bE.exit", label %82
@@ -40777,10 +40774,10 @@ define internal fastcc noundef zeroext i1 @"_ZN72_$LT$ty_python_semantic..types.
 102:                                              ; preds = %6
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.val9 = load i32, ptr %103, align 4, !range !209, !noundef !3
+  %.val9 = load i32, ptr %103, align 4, !range !205, !noundef !3
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val10 = load i32, ptr %105, align 8
-  %.val11 = load i32, ptr %104, align 4, !range !209, !noundef !3
+  %.val11 = load i32, ptr %104, align 4, !range !205, !noundef !3
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val12 = load i32, ptr %106, align 8
   %107 = icmp eq i32 %.val9, 2
@@ -42806,15 +42803,15 @@ attributes #30 = { nounwind }
 !102 = distinct !{!102, !103, !"_ZN4core4iter6traits8iterator8Iterator8for_each17hea8f69627063f6e3E: argument 0"}
 !103 = distinct !{!103, !"_ZN4core4iter6traits8iterator8Iterator8for_each17hea8f69627063f6e3E"}
 !104 = distinct !{!104, !103, !"_ZN4core4iter6traits8iterator8Iterator8for_each17hea8f69627063f6e3E: argument 1"}
-!105 = !{!106, !108, !99, !101, !102, !104}
-!106 = distinct !{!106, !107, !"_ZN4core4iter6traits8iterator8Iterator4fold17hf761f1c92f241960E: argument 0"}
-!107 = distinct !{!107, !"_ZN4core4iter6traits8iterator8Iterator4fold17hf761f1c92f241960E"}
-!108 = distinct !{!108, !107, !"_ZN4core4iter6traits8iterator8Iterator4fold17hf761f1c92f241960E: argument 1"}
-!109 = !{!99, !102}
-!110 = !{!111, !106, !108, !99, !101, !102, !104}
+!105 = !{!99, !102}
+!106 = !{!107, !109, !99, !101, !102, !104}
+!107 = distinct !{!107, !108, !"_ZN4core4iter6traits8iterator8Iterator4fold17hf761f1c92f241960E: argument 0"}
+!108 = distinct !{!108, !"_ZN4core4iter6traits8iterator8Iterator4fold17hf761f1c92f241960E"}
+!109 = distinct !{!109, !108, !"_ZN4core4iter6traits8iterator8Iterator4fold17hf761f1c92f241960E: argument 1"}
+!110 = !{!111, !107, !109, !99, !101, !102, !104}
 !111 = distinct !{!111, !112, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h6328af6bfb4f0101E: argument 0"}
 !112 = distinct !{!112, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h6328af6bfb4f0101E"}
-!113 = !{!114, !111, !106, !108, !99, !101, !102, !104}
+!113 = !{!114, !111, !107, !109, !99, !101, !102, !104}
 !114 = distinct !{!114, !115, !"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend28_$u7b$$u7b$closure$u7d$$u7d$17hd57533fb5fe6fb05E: argument 0"}
 !115 = distinct !{!115, !"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend28_$u7b$$u7b$closure$u7d$$u7d$17hd57533fb5fe6fb05E"}
 !116 = !{!117}
@@ -42905,16 +42902,16 @@ attributes #30 = { nounwind }
 !201 = distinct !{!201, !202, !"_ZN4core4iter6traits8iterator8Iterator8for_each17h00b01eaf81f4354eE: argument 0"}
 !202 = distinct !{!202, !"_ZN4core4iter6traits8iterator8Iterator8for_each17h00b01eaf81f4354eE"}
 !203 = distinct !{!203, !202, !"_ZN4core4iter6traits8iterator8Iterator8for_each17h00b01eaf81f4354eE: argument 1"}
-!204 = !{!205, !207, !198, !200, !201, !203}
-!205 = distinct !{!205, !206, !"_ZN4core4iter6traits8iterator8Iterator4fold17hce01723b29cc9e4cE: argument 0"}
-!206 = distinct !{!206, !"_ZN4core4iter6traits8iterator8Iterator4fold17hce01723b29cc9e4cE"}
-!207 = distinct !{!207, !206, !"_ZN4core4iter6traits8iterator8Iterator4fold17hce01723b29cc9e4cE: argument 1"}
-!208 = !{!198, !201}
-!209 = !{i32 0, i32 3}
-!210 = !{!211, !205, !207, !198, !200, !201, !203}
+!204 = !{!198, !201}
+!205 = !{i32 0, i32 3}
+!206 = !{!207, !209, !198, !200, !201, !203}
+!207 = distinct !{!207, !208, !"_ZN4core4iter6traits8iterator8Iterator4fold17hce01723b29cc9e4cE: argument 0"}
+!208 = distinct !{!208, !"_ZN4core4iter6traits8iterator8Iterator4fold17hce01723b29cc9e4cE"}
+!209 = distinct !{!209, !208, !"_ZN4core4iter6traits8iterator8Iterator4fold17hce01723b29cc9e4cE: argument 1"}
+!210 = !{!211, !207, !209, !198, !200, !201, !203}
 !211 = distinct !{!211, !212, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h313c939eeece48baE: argument 0"}
 !212 = distinct !{!212, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h313c939eeece48baE"}
-!213 = !{!214, !211, !205, !207, !198, !200, !201, !203}
+!213 = !{!214, !211, !207, !209, !198, !200, !201, !203}
 !214 = distinct !{!214, !215, !"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend28_$u7b$$u7b$closure$u7d$$u7d$17hcb72d0c836a901f6E: argument 0"}
 !215 = distinct !{!215, !"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend28_$u7b$$u7b$closure$u7d$$u7d$17hcb72d0c836a901f6E"}
 !216 = !{!217}
@@ -42941,29 +42938,29 @@ attributes #30 = { nounwind }
 !237 = !{!238}
 !238 = distinct !{!238, !239, !"_ZN4core4iter6traits8iterator8Iterator4fold17h734c42ee66e3a061E: argument 1"}
 !239 = distinct !{!239, !"_ZN4core4iter6traits8iterator8Iterator4fold17h734c42ee66e3a061E"}
-!240 = !{!241, !238, !229, !231, !232, !234}
-!241 = distinct !{!241, !239, !"_ZN4core4iter6traits8iterator8Iterator4fold17h734c42ee66e3a061E: argument 0"}
-!242 = !{!229, !232}
-!243 = !{!244, !241, !238, !229, !231, !232, !234}
+!240 = !{!229, !232}
+!241 = !{!242, !238, !229, !231, !232, !234}
+!242 = distinct !{!242, !239, !"_ZN4core4iter6traits8iterator8Iterator4fold17h734c42ee66e3a061E: argument 0"}
+!243 = !{!244, !242, !238, !229, !231, !232, !234}
 !244 = distinct !{!244, !245, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h3952fc8bf6fc0de0E: argument 0"}
 !245 = distinct !{!245, !"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h3952fc8bf6fc0de0E"}
-!246 = !{!247, !244, !241, !238, !229, !231, !232, !234}
+!246 = !{!247, !244, !242, !238, !229, !231, !232, !234}
 !247 = distinct !{!247, !248, !"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend28_$u7b$$u7b$closure$u7d$$u7d$17hd0fae9803d3ecceeE: argument 0"}
 !248 = distinct !{!248, !"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LP$K$C$V$RP$$GT$$GT$6extend28_$u7b$$u7b$closure$u7d$$u7d$17hd0fae9803d3ecceeE"}
 !249 = !{!250}
 !250 = distinct !{!250, !251, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h513d6f64b45e35f8E: argument 1"}
 !251 = distinct !{!251, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h513d6f64b45e35f8E"}
-!252 = !{!253, !250, !254, !247, !244, !241, !238, !229, !231, !232, !234}
+!252 = !{!253, !250, !254, !247, !244, !242, !238, !229, !231, !232, !234}
 !253 = distinct !{!253, !251, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h513d6f64b45e35f8E: argument 0"}
 !254 = distinct !{!254, !251, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h513d6f64b45e35f8E: argument 2"}
 !255 = !{!253, !254, !247, !244, !229, !232}
 !256 = !{!257, !250, !238, !231, !234}
 !257 = distinct !{!257, !258, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17hfb748b44fef229c4E: argument 0"}
 !258 = distinct !{!258, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17hfb748b44fef229c4E"}
-!259 = !{!260, !261, !253, !254, !247, !244, !241, !229, !232}
+!259 = !{!260, !261, !253, !254, !247, !244, !242, !229, !232}
 !260 = distinct !{!260, !258, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17hfb748b44fef229c4E: argument 1"}
 !261 = distinct !{!261, !258, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17hfb748b44fef229c4E: argument 2"}
-!262 = !{!263, !260, !261, !253, !254, !247, !244, !241, !229, !232}
+!262 = !{!263, !260, !261, !253, !254, !247, !244, !242, !229, !232}
 !263 = distinct !{!263, !264, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h4de8d9beff583906E: argument 0"}
 !264 = distinct !{!264, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h4de8d9beff583906E"}
 !265 = !{!"branch_weights", !"expected", i32 2000, i32 1}
@@ -42971,7 +42968,7 @@ attributes #30 = { nounwind }
 !267 = distinct !{!267, !268, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17ha180d4e400e80cdcE: argument 0"}
 !268 = distinct !{!268, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17ha180d4e400e80cdcE"}
 !269 = !{!267, !250, !238, !231, !234}
-!270 = !{!271, !253, !254, !247, !244, !241, !229, !232}
+!270 = !{!271, !253, !254, !247, !244, !242, !229, !232}
 !271 = distinct !{!271, !268, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17ha180d4e400e80cdcE: argument 1"}
 !272 = !{!267, !271, !253, !254, !247, !244, !229, !232}
 !273 = !{!267, !253, !254, !247, !244, !229, !232}

@@ -1639,62 +1639,56 @@ define noundef zeroext i1 @"_ZN66_$LT$zed_actions..InlineAssist$u20$as$u20$gpui.
 ; Function Attrs: nonlazybind uwtable
 define { ptr, ptr } @"_ZN66_$LT$zed_actions..InlineAssist$u20$as$u20$gpui..action..Action$GT$11boxed_clone17hba56d9ff68d95c60E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [24 x i8], align 8
-  %.sroa.5 = alloca [16 x i8], align 8
-  %3 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
-  %4 = load i64, ptr %0, align 8, !range !15, !noundef !5
-  %5 = icmp eq i64 %4, -9223372036854775808
-  br i1 %5, label %7, label %6
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %4 = alloca [24 x i8], align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %5 = load i64, ptr %0, align 8, !range !15, !noundef !5
+  %6 = icmp eq i64 %5, -9223372036854775808
+  br i1 %6, label %8, label %7
 
-6:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
+7:                                                ; preds = %1
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %7
+  br label %8
 
-7:                                                ; preds = %1, %6
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload, %6 ], [ -9223372036854775808, %1 ]
-  store i64 %.sroa.0.0, ptr %3, align 8
-  %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
-  %8 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !87
-  %9 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 1, 25) 24, i64 noundef range(i64 1, 9) 8) #14, !noalias !87
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc4272df100aa79bdE.exit"
+8:                                                ; preds = %1, %7
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload, %7 ], [ -9223372036854775808, %1 ]
+  store i64 %.sroa.0.0, ptr %4, align 8
+  %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !87
+  %10 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef range(i64 1, 25) 24, i64 noundef range(i64 1, 9) 8) #14, !noalias !87
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %12, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc4272df100aa79bdE.exit"
 
-11:                                               ; preds = %7
+12:                                               ; preds = %8
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h6d7f2bdbc63ffea9E(i64 noundef 8, i64 noundef 24) #16
-          to label %.noexc unwind label %12
+          to label %.noexc unwind label %13
 
-.noexc:                                           ; preds = %11
+.noexc:                                           ; preds = %12
   unreachable
 
-12:                                               ; preds = %11
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %12
+  %14 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr46drop_in_place$LT$zed_actions..InlineAssist$GT$17hfd6088726adf49c0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #17
-          to label %16 unwind label %14
+  invoke void @"_ZN4core3ptr46drop_in_place$LT$zed_actions..InlineAssist$GT$17hfd6088726adf49c0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #17
+          to label %17 unwind label %15
 
-14:                                               ; preds = %12
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %13
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #18
   unreachable
 
-16:                                               ; preds = %12
-  resume { ptr, i32 } %13
+17:                                               ; preds = %13
+  resume { ptr, i32 } %14
 
-"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc4272df100aa79bdE.exit": ; preds = %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %17 = insertvalue { ptr, ptr } poison, ptr %9, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.79, 1
-  ret { ptr, ptr } %18
+"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc4272df100aa79bdE.exit": ; preds = %8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %18 = insertvalue { ptr, ptr } poison, ptr %10, 0
+  %19 = insertvalue { ptr, ptr } %18, ptr @anon.87ca45a344918d6f02278ccbdb92a4fc.79, 1
+  ret { ptr, ptr } %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

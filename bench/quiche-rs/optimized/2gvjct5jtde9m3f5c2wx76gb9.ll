@@ -7831,15 +7831,14 @@ _ZN4core4iter6traits8iterator8Iterator7collect17ha96aca82d2cce464E.exit: ; preds
 define hidden void @"_ZN6quiche6stream15Stream$LT$F$GT$3new17h9d0adf608b264485E"(ptr dead_on_unwind noalias noundef writable writeonly sret([368 x i8]) align 8 captures(none) dereferenceable(368) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i64 noundef %6) unnamed_addr #0 personality ptr @rust_eh_personality {
   %8 = alloca [88 x i8], align 8
   %9 = alloca [32 x i8], align 8
-  %10 = alloca [128 x i8], align 8
-  %11 = alloca [88 x i8], align 8
+  %10 = alloca [88 x i8], align 8
+  %11 = alloca [128 x i8], align 8
   %12 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @"_ZN76_$LT$quiche..stream..StreamPriorityKey$u20$as$u20$core..default..Default$GT$7default17h6c79b75b6b2b60c1E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %11)
-  %13 = getelementptr inbounds nuw i8, ptr %11, i64 80
+  call void @"_ZN76_$LT$quiche..stream..StreamPriorityKey$u20$as$u20$core..default..Default$GT$7default17h6c79b75b6b2b60c1E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %10)
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %14 = load i8, ptr %13, align 8, !noundef !3
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 81
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 81
   %16 = load i8, ptr %15, align 1, !range !405, !noundef !3
   %17 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !695
   %18 = tail call noalias noundef align 8 dereferenceable_or_null(104) ptr @_RNvCshjvJWTf7CV5_7___rustc12___rust_alloc(i64 noundef 104, i64 noundef 8) #27, !noalias !695
@@ -7851,9 +7850,9 @@ define hidden void @"_ZN6quiche6stream15Stream$LT$F$GT$3new17h9d0adf608b264485E"
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %7
-  %21 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  %22 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 1, ptr %18, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 1, ptr %.sroa.414.0..sroa_idx, align 8
@@ -7870,9 +7869,8 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %7
   %.sroa.1019.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 97
   store i8 %16, ptr %.sroa.1019.0..sroa_idx, align 1
   store ptr %18, ptr %12, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  invoke void @_ZN6quiche6stream8recv_buf7RecvBuf3new17h5e53de4089f9fa74E(ptr noalias noundef nonnull sret([128 x i8]) align 8 captures(none) dereferenceable(128) %10, i64 noundef %2, i64 noundef %6)
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  invoke void @_ZN6quiche6stream8recv_buf7RecvBuf3new17h5e53de4089f9fa74E(ptr noalias noundef nonnull sret([128 x i8]) align 8 captures(none) dereferenceable(128) %11, i64 noundef %2, i64 noundef %6)
           to label %30 unwind label %28
 
 24:                                               ; preds = %.body, %28
@@ -7915,7 +7913,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %7
   unreachable
 
 .body:                                            ; preds = %33
-  invoke void @"_ZN4core3ptr54drop_in_place$LT$quiche..stream..recv_buf..RecvBuf$GT$17h86bd69bc6bacf635E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %10) #25
+  invoke void @"_ZN4core3ptr54drop_in_place$LT$quiche..stream..recv_buf..RecvBuf$GT$17h86bd69bc6bacf635E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %11) #25
           to label %24 unwind label %49
 
 37:                                               ; preds = %30
@@ -7927,7 +7925,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %7
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !703
   %38 = load i8, ptr %.sroa.9.0..sroa_idx, align 8, !noundef !3
   %39 = load i8, ptr %.sroa.1019.0..sroa_idx, align 1, !range !405, !noundef !3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %10, i64 128, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %11, i64 128, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 0, ptr %40, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -7954,7 +7952,7 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %7
   store i8 %39, ptr %47, align 2
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %18, ptr %48, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret void
 

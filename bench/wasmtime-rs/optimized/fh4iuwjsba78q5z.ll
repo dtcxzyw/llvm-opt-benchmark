@@ -97,7 +97,7 @@ define void @"_ZN6wiggle19GuestPtr$LT$str$GT$6as_str17h98b5f75d08601f2bE"(ptr no
 
 "_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$13shared_borrow17hb1dee0b3eada26c7E.exit.thread": ; preds = %21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !21
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4core3str8converts9from_utf817hca39c4a07e0467cbE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %.sroa.021.0.copyload.i, i64 noundef %.sroa.422.0.copyload.i)
           to label %32 unwind label %28, !noalias !21
 
@@ -199,7 +199,7 @@ define void @"_ZN6wiggle19GuestPtr$LT$str$GT$6as_str17h98b5f75d08601f2bE"(ptr no
   resume { ptr, i32 } %29
 
 36:                                               ; preds = %32
-  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !21
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.021.0.copyload.i, ptr %37, align 8
   %.sroa.5112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -216,10 +216,10 @@ define void @"_ZN6wiggle19GuestPtr$LT$str$GT$6as_str17h98b5f75d08601f2bE"(ptr no
   %.sroa.4.i.sroa.3.4.copyload = load ptr, ptr %39, align 8, !noalias !21
   %.sroa.4.i.sroa.5.4..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.4.i.sroa.5.4.copyload = load i64, ptr %.sroa.4.i.sroa.5.4..sroa_idx, align 8, !noalias !21
-  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !21
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %41 = load ptr, ptr %40, align 8, !invariant.load !4, !noalias !32, !nonnull !4
   tail call void %41(ptr noundef nonnull align 1 %6), !noalias !32
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 9, ptr %0, align 8
   %.sroa.234.sroa.2.0..sroa.234.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.4.i.sroa.3.4.copyload, ptr %.sroa.234.sroa.2.0..sroa.234.0..sroa_idx.sroa_idx, align 8
@@ -284,7 +284,7 @@ define void @"_ZN6wiggle19GuestPtr$LT$str$GT$10as_str_mut17h171c2e59528cc2c9E"(p
 
 "_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$10mut_borrow17h46ddd4aa7a624729E.exit.thread": ; preds = %21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !50
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN4core3str8converts9from_utf817hca39c4a07e0467cbE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 %.sroa.021.0.copyload.i, i64 noundef %.sroa.422.0.copyload.i)
           to label %32 unwind label %28, !noalias !50
 
@@ -386,7 +386,7 @@ define void @"_ZN6wiggle19GuestPtr$LT$str$GT$10as_str_mut17h171c2e59528cc2c9E"(p
   resume { ptr, i32 } %29
 
 36:                                               ; preds = %32
-  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !50
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.021.0.copyload.i, ptr %37, align 8
   %.sroa.5112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -403,10 +403,10 @@ define void @"_ZN6wiggle19GuestPtr$LT$str$GT$10as_str_mut17h171c2e59528cc2c9E"(p
   %.sroa.4.i.sroa.3.4.copyload = load ptr, ptr %39, align 8, !noalias !50
   %.sroa.4.i.sroa.5.4..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.4.i.sroa.5.4.copyload = load i64, ptr %.sroa.4.i.sroa.5.4..sroa_idx, align 8, !noalias !50
-  call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !50
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %41 = load ptr, ptr %40, align 8, !invariant.load !4, !noalias !60, !nonnull !4
   tail call void %41(ptr noundef nonnull align 1 %6), !noalias !60
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i32 9, ptr %0, align 8
   %.sroa.234.sroa.2.0..sroa.234.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.4.i.sroa.3.4.copyload, ptr %.sroa.234.sroa.2.0..sroa.234.0..sroa_idx.sroa_idx, align 8
@@ -478,7 +478,7 @@ define void @"_ZN6wiggle19GuestPtr$LT$str$GT$6as_cow17h92503b17cd39ccabE"(ptr no
 
 "_ZN6wiggle25UnsafeGuestSlice$LT$T$GT$13shared_borrow17hb1dee0b3eada26c7E.exit.thread": ; preds = %27
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !85
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZN4core3str8converts9from_utf817hca39c4a07e0467cbE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %.sroa.021.0.copyload.i, i64 noundef %.sroa.422.0.copyload.i)
           to label %38 unwind label %34, !noalias !85
 
@@ -581,7 +581,7 @@ common.resume:                                    ; preds = %56, %34
   resume { ptr, i32 } %common.resume.op
 
 42:                                               ; preds = %38
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !85
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.021.0.copyload.i, ptr %43, align 8
   %.sroa.5166.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -598,10 +598,10 @@ common.resume:                                    ; preds = %56, %34
   %.sroa.4.i.sroa.3.4.copyload = load ptr, ptr %45, align 8, !noalias !85
   %.sroa.4.i.sroa.5.4..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.4.i.sroa.5.4.copyload = load i64, ptr %.sroa.4.i.sroa.5.4..sroa_idx, align 8, !noalias !85
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !85
   %46 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %47 = load ptr, ptr %46, align 8, !invariant.load !4, !noalias !95, !nonnull !4
   tail call void %47(ptr noundef nonnull align 1 %11), !noalias !95
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i32 9, ptr %0, align 8
   %.sroa.252.sroa.2.0..sroa.252.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.4.i.sroa.3.4.copyload, ptr %.sroa.252.sroa.2.0..sroa.252.0..sroa_idx.sroa_idx, align 8
@@ -791,7 +791,6 @@ define void @"_ZN6wiggle28GuestPtr$LT$$u5b$u8$u5d$$GT$10as_str_ptr17h8128f2a8686
 define void @"_ZN95_$LT$wiggle..GuestStr$u20$as$u20$core..convert..TryFrom$LT$wiggle..GuestSlice$LT$u8$GT$$GT$$GT$8try_from17h6ea2bdde68c8ca82E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.sroa.4 = alloca [5 x i32], align 4
   %3 = alloca { i64, [2 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !4
@@ -821,7 +820,6 @@ define void @"_ZN95_$LT$wiggle..GuestStr$u20$as$u20$core..convert..TryFrom$LT$wi
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   store i32 11, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %19
 
 19:                                               ; preds = %17, %20
@@ -836,7 +834,6 @@ define void @"_ZN95_$LT$wiggle..GuestStr$u20$as$u20$core..convert..TryFrom$LT$wi
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !135)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -872,7 +869,6 @@ define { ptr, i64 } @"_ZN60_$LT$wiggle..GuestStr$u20$as$u20$core..ops..deref..De
 define void @"_ZN101_$LT$wiggle..GuestStrMut$u20$as$u20$core..convert..TryFrom$LT$wiggle..GuestSliceMut$LT$u8$GT$$GT$$GT$8try_from17ha939e54e77b705d0E"(ptr noalias noundef writeonly sret({ i32, [15 x i32] }) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.sroa.4 = alloca [5 x i32], align 4
   %3 = alloca { i64, [2 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !4
@@ -902,7 +898,6 @@ define void @"_ZN101_$LT$wiggle..GuestStrMut$u20$as$u20$core..convert..TryFrom$L
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   store i32 11, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %19
 
 19:                                               ; preds = %17, %20
@@ -917,7 +912,6 @@ define void @"_ZN101_$LT$wiggle..GuestStrMut$u20$as$u20$core..convert..TryFrom$L
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.4, i64 20, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !149)
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16

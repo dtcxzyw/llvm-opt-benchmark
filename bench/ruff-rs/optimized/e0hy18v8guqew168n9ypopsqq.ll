@@ -7532,14 +7532,6 @@ define void @"_ZN21ruff_python_formatter7options1_93_$LT$impl$u20$schemars..Json
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %.sroa.0.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i8 6, ptr %.sroa.0.sroa.9.0..sroa_idx, align 8
-  %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 -9223372036854775808, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
-  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr null, ptr %.sroa.14.0..sroa_idx, align 8
-  %.sroa.837.176..sroa.14.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i64 0, ptr %.sroa.837.176..sroa.14.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 -9223372036854775808, ptr %0, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7548,8 +7540,16 @@ define void @"_ZN21ruff_python_formatter7options1_93_$LT$impl$u20$schemars..Json
   store ptr %16, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 3, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
+  %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 -9223372036854775808, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
+  %.sroa.0.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i8 6, ptr %.sroa.0.sroa.9.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8.0..sroa_idx, i8 0, i64 48, i1 false)
+  store ptr null, ptr %.sroa.14.0..sroa_idx, align 8
+  %.sroa.837.176..sroa.14.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store i64 0, ptr %.sroa.837.176..sroa.14.0..sroa_idx.sroa_idx, align 8
   ret void
 
 32:                                               ; preds = %28, %24, %11
@@ -7739,14 +7739,6 @@ define void @"_ZN21ruff_python_formatter7options1_96_$LT$impl$u20$schemars..Json
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %.sroa.0.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i8 6, ptr %.sroa.0.sroa.9.0..sroa_idx, align 8
-  %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 -9223372036854775808, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
-  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr null, ptr %.sroa.14.0..sroa_idx, align 8
-  %.sroa.835.176..sroa.14.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i64 0, ptr %.sroa.835.176..sroa.14.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i64 -9223372036854775808, ptr %0, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7755,8 +7747,16 @@ define void @"_ZN21ruff_python_formatter7options1_96_$LT$impl$u20$schemars..Json
   store ptr %15, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 2, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
+  %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 -9223372036854775808, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
+  %.sroa.0.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i8 6, ptr %.sroa.0.sroa.9.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.8.0..sroa_idx, i8 0, i64 48, i1 false)
+  store ptr null, ptr %.sroa.14.0..sroa_idx, align 8
+  %.sroa.835.176..sroa.14.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store i64 0, ptr %.sroa.835.176..sroa.14.0..sroa_idx.sroa_idx, align 8
   ret void
 
 26:                                               ; preds = %23, %10

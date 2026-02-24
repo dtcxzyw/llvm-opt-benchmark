@@ -797,13 +797,13 @@ define hidden void @"_ZN5tokio4sync4mpsc4chan15Tx$LT$T$C$S$GT$4send17hee9a52665e
 define hidden { ptr, ptr } @_ZN5tokio4sync4mpsc4chan7channel17h676c73fb17fed636E(i64 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca [512 x i8], align 128
   %3 = alloca [40 x i8], align 8
-  call void @_ZN5tokio4sync4mpsc4list7channel17hc1b34e23c7e260bfE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.04.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 416
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %.sroa.04.sroa.9.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  call void @_ZN5tokio4sync4mpsc4list7channel17hc1b34e23c7e260bfE(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %3)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  %.sroa.04.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 416
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %.sroa.04.sroa.9.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i64 1, ptr %2, align 128
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %6, align 8
@@ -869,13 +869,13 @@ define hidden { ptr, ptr } @_ZN5tokio4sync4mpsc4chan7channel17h676c73fb17fed636E
 define hidden { ptr, ptr } @_ZN5tokio4sync4mpsc4chan7channel17hcc9d2f1dc0865adcE(i64 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca [512 x i8], align 128
   %3 = alloca [40 x i8], align 8
-  call void @_ZN5tokio4sync4mpsc4list7channel17h6e3a1c3cdc74cee9E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.04.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 416
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %.sroa.04.sroa.9.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  call void @_ZN5tokio4sync4mpsc4list7channel17h6e3a1c3cdc74cee9E(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %3)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
+  %.sroa.04.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 416
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(24) %.sroa.04.sroa.9.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store i64 1, ptr %2, align 128
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %6, align 8

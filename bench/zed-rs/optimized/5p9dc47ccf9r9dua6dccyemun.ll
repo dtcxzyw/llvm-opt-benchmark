@@ -11589,7 +11589,6 @@ _ZN5serde2de9MapAccess10next_value17h0946a4ef4500067bE.exit.i: ; preds = %48
   br label %74
 
 74:                                               ; preds = %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h5b168831a03175ffE.llvm.15070510757330793432.exit39", %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h5b168831a03175ffE.llvm.15070510757330793432.exit"
-  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_entry_seed17h589f062e6aa867d5E"(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %12, ptr noalias noundef nonnull align 8 dereferenceable(72) %1)
           to label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_entry17h93b888584c8b4466E.exit" unwind label %.loopexit
 
@@ -11606,7 +11605,6 @@ _ZN5serde2de9MapAccess10next_value17h0946a4ef4500067bE.exit.i: ; preds = %48
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %78, ptr %79, align 8
   store i64 -9223372036854775803, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %"_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17hffb326be96568ef9E.exit41"
 
 80:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_entry17h93b888584c8b4466E.exit"
@@ -11631,11 +11629,9 @@ _ZN5serde2de9MapAccess10next_value17h0946a4ef4500067bE.exit.i: ; preds = %48
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h5b168831a03175ffE.llvm.15070510757330793432.exit39": ; preds = %81, %84
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %74
 
 85:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_entry17h93b888584c8b4466E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %17, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %"_ZN4core3ptr71drop_in_place$LT$alloc..boxed..Box$LT$serde_json..raw..RawValue$GT$$GT$17he9ddbf99f2025206E.exit47"
@@ -13942,7 +13938,6 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   unreachable
 
 22:                                               ; preds = %62, %16
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$serde..de..SeqAccess$GT$17next_element_seed17ha0e05e2106f63648E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
           to label %_ZN5serde2de9SeqAccess12next_element17h1d9c1c1ef60f8b41E.exit unwind label %23
 
@@ -13968,7 +13963,6 @@ _ZN5serde2de9SeqAccess12next_element17h1d9c1c1ef60f8b41E.exit: ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %27, ptr %28, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !3103)
   call void @llvm.experimental.noalias.scope.decl(metadata !3106)
   %29 = load ptr, ptr %18, align 8, !alias.scope !3109, !nonnull !5, !noundef !5
@@ -14081,11 +14075,9 @@ _ZN5serde2de9SeqAccess12next_element17h1d9c1c1ef60f8b41E.exit: ; preds = %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %64, ptr noundef nonnull align 8 dereferenceable(80) %5, i64 80, i1 false)
   %65 = add i64 %54, 1
   store i64 %65, ptr %19, align 8, !alias.scope !3172, !noalias !3175
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %22
 
 66:                                               ; preds = %_ZN5serde2de9SeqAccess12next_element17h1d9c1c1ef60f8b41E.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   br label %"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$google_ai..CitationSource$GT$$GT$17h2ba01ffda458bb60E.exit"
 
@@ -14344,7 +14336,6 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   unreachable
 
 22:                                               ; preds = %38, %16
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$serde..de..SeqAccess$GT$17next_element_seed17h31a50417037f6195E"(ptr noalias noundef nonnull sret([80 x i8]) align 8 captures(none) dereferenceable(80) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
           to label %_ZN5serde2de9SeqAccess12next_element17h1b8f9874e03c8ca4E.exit unwind label %23
 
@@ -14370,7 +14361,6 @@ _ZN5serde2de9SeqAccess12next_element17h1b8f9874e03c8ca4E.exit: ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %26, ptr %28, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @"_ZN4core3ptr66drop_in_place$LT$alloc..vec..Vec$LT$open_ai..ToolCallChunk$GT$$GT$17h750c868846aa841eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
   br label %43
 
@@ -14417,11 +14407,9 @@ _ZN5serde2de9SeqAccess12next_element17h1b8f9874e03c8ca4E.exit: ; preds = %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %40, ptr noundef nonnull align 8 dereferenceable(80) %5, i64 80, i1 false)
   %41 = add i64 %30, 1
   store i64 %41, ptr %19, align 8, !alias.scope !3216, !noalias !3219
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %22
 
 42:                                               ; preds = %_ZN5serde2de9SeqAccess12next_element17h1b8f9874e03c8ca4E.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   br label %43
 
@@ -14995,7 +14983,6 @@ common.resume:                                    ; preds = %.body.i, %47, %.bod
   unreachable
 
 21:                                               ; preds = %62, %15
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$serde..de..SeqAccess$GT$17next_element_seed17ha84eab67f5873dc1E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
           to label %_ZN5serde2de9SeqAccess12next_element17ha7910c547b89765cE.exit unwind label %22
 
@@ -15022,7 +15009,6 @@ _ZN5serde2de9SeqAccess12next_element17ha7910c547b89765cE.exit: ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %27, ptr %28, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !3330)
   call void @llvm.experimental.noalias.scope.decl(metadata !3333)
   %29 = load ptr, ptr %17, align 8, !alias.scope !3336, !nonnull !5, !noundef !5
@@ -15116,11 +15102,9 @@ _ZN5serde2de9SeqAccess12next_element17ha7910c547b89765cE.exit: ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %64, ptr noundef nonnull align 8 dereferenceable(88) %5, i64 88, i1 false)
   %65 = add i64 %54, 1
   store i64 %65, ptr %18, align 8, !alias.scope !3361, !noalias !3364
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %21
 
 66:                                               ; preds = %_ZN5serde2de9SeqAccess12next_element17ha7910c547b89765cE.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   br label %"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$open_ai..ChoiceDelta$GT$$GT$17hd392e47131fb163cE.exit"
 
@@ -15371,7 +15355,6 @@ common.resume:                                    ; preds = %31, %35, %.body
   unreachable
 
 21:                                               ; preds = %50, %15
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$serde..de..SeqAccess$GT$17next_element_seed17h55394e0abfd46032E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
           to label %_ZN5serde2de9SeqAccess12next_element17h7ed44847471b1ad1E.exit unwind label %22
 
@@ -15398,7 +15381,6 @@ _ZN5serde2de9SeqAccess12next_element17h7ed44847471b1ad1E.exit: ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %27, ptr %28, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !3404)
   %29 = load ptr, ptr %17, align 8, !alias.scope !3407, !nonnull !5, !noundef !5
   %30 = load i64, ptr %18, align 8, !alias.scope !3407, !noundef !5
@@ -15461,11 +15443,9 @@ _ZN5serde2de9SeqAccess12next_element17h7ed44847471b1ad1E.exit: ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %52, ptr noundef nonnull align 8 dereferenceable(88) %5, i64 88, i1 false)
   %53 = add i64 %42, 1
   store i64 %53, ptr %18, align 8, !alias.scope !3434, !noalias !3437
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %21
 
 54:                                               ; preds = %_ZN5serde2de9SeqAccess12next_element17h7ed44847471b1ad1E.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   br label %"_ZN4core3ptr59drop_in_place$LT$alloc..vec..Vec$LT$open_ai..Choice$GT$$GT$17hede8a92af1b95616E.exit"
 
@@ -15523,7 +15503,6 @@ common.resume:                                    ; preds = %31, %35, %.body
   unreachable
 
 21:                                               ; preds = %50, %15
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$serde..de..SeqAccess$GT$17next_element_seed17h0cc53add0f5733b7E"(ptr noalias noundef nonnull sret([200 x i8]) align 8 captures(none) dereferenceable(200) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
           to label %_ZN5serde2de9SeqAccess12next_element17h9b318b93ccdb34b0E.exit unwind label %22
 
@@ -15550,7 +15529,6 @@ _ZN5serde2de9SeqAccess12next_element17h9b318b93ccdb34b0E.exit: ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %27, ptr %28, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !3439)
   %29 = load ptr, ptr %17, align 8, !alias.scope !3442, !nonnull !5, !noundef !5
   %30 = load i64, ptr %18, align 8, !alias.scope !3442, !noundef !5
@@ -15613,11 +15591,9 @@ _ZN5serde2de9SeqAccess12next_element17h9b318b93ccdb34b0E.exit: ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %52, ptr noundef nonnull align 8 dereferenceable(200) %5, i64 200, i1 false)
   %53 = add i64 %42, 1
   store i64 %53, ptr %18, align 8, !alias.scope !3469, !noalias !3472
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %21
 
 54:                                               ; preds = %_ZN5serde2de9SeqAccess12next_element17h9b318b93ccdb34b0E.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   br label %"_ZN4core3ptr69drop_in_place$LT$alloc..vec..Vec$LT$ollama..LocalModelListing$GT$$GT$17h40eb430a03510afdE.exit"
 
@@ -16045,7 +16021,6 @@ common.resume:                                    ; preds = %.body.i, %47, %.bod
   unreachable
 
 21:                                               ; preds = %62, %15
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$serde..de..SeqAccess$GT$17next_element_seed17h6c47659087f7eb68E"(ptr noalias noundef nonnull sret([136 x i8]) align 8 captures(none) dereferenceable(136) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
           to label %_ZN5serde2de9SeqAccess12next_element17h170963ae05e38a7cE.exit unwind label %22
 
@@ -16072,7 +16047,6 @@ _ZN5serde2de9SeqAccess12next_element17h170963ae05e38a7cE.exit: ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %27, ptr %28, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !3566)
   call void @llvm.experimental.noalias.scope.decl(metadata !3569)
   %29 = load ptr, ptr %17, align 8, !alias.scope !3572, !nonnull !5, !noundef !5
@@ -16166,11 +16140,9 @@ _ZN5serde2de9SeqAccess12next_element17h170963ae05e38a7cE.exit: ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %64, ptr noundef nonnull align 8 dereferenceable(136) %5, i64 136, i1 false)
   %65 = add i64 %54, 1
   store i64 %65, ptr %18, align 8, !alias.scope !3597, !noalias !3600
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %21
 
 66:                                               ; preds = %_ZN5serde2de9SeqAccess12next_element17h170963ae05e38a7cE.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   br label %"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$google_ai..GenerateContentCandidate$GT$$GT$17h4bb45f133e3ccba1E.exit"
 
@@ -16490,7 +16462,6 @@ define hidden void @"_ZN167_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   unreachable
 
 22:                                               ; preds = %61, %16
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   invoke void @"_ZN75_$LT$serde_json..de..SeqAccess$LT$R$GT$$u20$as$u20$serde..de..SeqAccess$GT$17next_element_seed17h913bcf804491c284E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %6, ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
           to label %_ZN5serde2de9SeqAccess12next_element17hcf5a915fe3324533E.exit unwind label %23
 
@@ -16516,7 +16487,6 @@ _ZN5serde2de9SeqAccess12next_element17hcf5a915fe3324533E.exit: ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %26, ptr %28, align 8
   store i64 -9223372036854775808, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.experimental.noalias.scope.decl(metadata !3705)
   call void @llvm.experimental.noalias.scope.decl(metadata !3708)
   %29 = load ptr, ptr %18, align 8, !alias.scope !3711, !nonnull !5, !noundef !5
@@ -16624,11 +16594,9 @@ _ZN5serde2de9SeqAccess12next_element17hcf5a915fe3324533E.exit: ; preds = %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %63, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
   %64 = add i64 %53, 1
   store i64 %64, ptr %19, align 8, !alias.scope !3777, !noalias !3780
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %22
 
 65:                                               ; preds = %_ZN5serde2de9SeqAccess12next_element17hcf5a915fe3324533E.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   br label %"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$copilot..copilot_chat..ResponseChoice$GT$$GT$17h833331729a52c244E.exit"
 

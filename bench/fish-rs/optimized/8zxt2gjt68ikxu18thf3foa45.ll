@@ -23824,7 +23824,6 @@ define internal fastcc { i64, i64 } @_ZN4fish10parse_util21job_or_process_extent
   store i8 0, ptr %.sroa.11.0..sroa_idx, align 4
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 61
   store i8 0, ptr %.sroa.12.0..sroa_idx, align 1
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN85_$LT$fish..tokenizer..Tokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he7bcea01774cf308E"(ptr noalias noundef nonnull sret([20 x i8]) align 4 captures(none) dereferenceable(20) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %19 = load i8, ptr %18, align 2, !range !80, !noundef !3
@@ -23862,8 +23861,6 @@ define internal fastcc { i64, i64 } @_ZN4fish10parse_util21job_or_process_extent
   ]
 
 22:                                               ; preds = %.critedge
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN85_$LT$fish..tokenizer..Tokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he7bcea01774cf308E"(ptr noalias noundef nonnull sret([20 x i8]) align 4 captures(none) dereferenceable(20) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
   %23 = load i8, ptr %18, align 2, !range !80, !noundef !3
   %.not13.us.us.us.us = icmp eq i8 %23, 2
@@ -23880,8 +23877,6 @@ define internal fastcc { i64, i64 } @_ZN4fish10parse_util21job_or_process_extent
   %29 = add i64 %27, %28
   %.sroa.3.1.us.us = select i1 %25, i64 %26, i64 %.sroa.3.0.ph70.us.us
   %.sroa.0.1.us.us = select i1 %25, i64 %.sroa.0.0.ph72.us.us, i64 %29
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN85_$LT$fish..tokenizer..Tokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he7bcea01774cf308E"(ptr noalias noundef nonnull sret([20 x i8]) align 4 captures(none) dereferenceable(20) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
   %30 = load i8, ptr %18, align 2, !range !80, !noundef !3
   %.not1343.us.us = icmp eq i8 %30, 2
@@ -23905,8 +23900,6 @@ define internal fastcc { i64, i64 } @_ZN4fish10parse_util21job_or_process_extent
   ]
 
 31:                                               ; preds = %.critedge173
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN85_$LT$fish..tokenizer..Tokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he7bcea01774cf308E"(ptr noalias noundef nonnull sret([20 x i8]) align 4 captures(none) dereferenceable(20) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
   %32 = load i8, ptr %18, align 2, !range !80, !noundef !3
   %.not13.us.us80.us = icmp eq i8 %32, 2
@@ -23922,8 +23915,6 @@ define internal fastcc { i64, i64 } @_ZN4fish10parse_util21job_or_process_extent
   %37 = add i64 %35, %36
   %.sroa.3.1.us.us110 = select i1 %34, i64 %35, i64 %.sroa.3.0.ph70.us.us107
   %.sroa.0.1.us.us111 = select i1 %34, i64 %.sroa.0.0.ph72.us.us106, i64 %37
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN85_$LT$fish..tokenizer..Tokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he7bcea01774cf308E"(ptr noalias noundef nonnull sret([20 x i8]) align 4 captures(none) dereferenceable(20) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
   %38 = load i8, ptr %18, align 2, !range !80, !noundef !3
   %.not1343.us.us112 = icmp eq i8 %38, 2
@@ -23973,7 +23964,6 @@ define internal fastcc { i64, i64 } @_ZN4fish10parse_util21job_or_process_extent
 
 .outer._crit_edge:                                ; preds = %.outer._crit_edge.loopexit127, %.outer._crit_edge.loopexit126, %.outer._crit_edge.loopexit123, %.outer._crit_edge.loopexit122, %.outer._crit_edge.loopexit121, %.outer._crit_edge.loopexit, %15
   %.merged = phi { i64, i64 } [ %50, %.outer._crit_edge.loopexit126 ], [ %48, %.outer._crit_edge.loopexit123 ], [ %8, %15 ], [ %52, %.outer._crit_edge.loopexit127 ], [ %42, %.outer._crit_edge.loopexit ], [ %46, %.outer._crit_edge.loopexit122 ], [ %44, %.outer._crit_edge.loopexit121 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret { i64, i64 } %.merged
 
@@ -24012,8 +24002,6 @@ define internal fastcc { i64, i64 } @_ZN4fish10parse_util21job_or_process_extent
 .outer:                                           ; preds = %.split, %62
   %.sroa.3.1 = phi i64 [ %.sroa.3.0.ph70, %62 ], [ %61, %.split ]
   %.sroa.0.1 = phi i64 [ %64, %62 ], [ %.sroa.0.0.ph72, %.split ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN85_$LT$fish..tokenizer..Tokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he7bcea01774cf308E"(ptr noalias noundef nonnull sret([20 x i8]) align 4 captures(none) dereferenceable(20) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
   %65 = load i8, ptr %18, align 2, !range !80, !noundef !3
   %.not1343 = icmp eq i8 %65, 2
@@ -24043,8 +24031,6 @@ define internal fastcc { i64, i64 } @_ZN4fish10parse_util21job_or_process_extent
   store i16 %.sroa.535.0.copyload, ptr %.sroa.742.0..sroa_idx, align 2
   %69 = add i64 %55, 1
   store i64 %69, ptr %20, align 8, !alias.scope !2151, !noalias !2154
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN85_$LT$fish..tokenizer..Tokenizer$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he7bcea01774cf308E"(ptr noalias noundef nonnull sret([20 x i8]) align 4 captures(none) dereferenceable(20) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
   %70 = load i8, ptr %18, align 2, !range !80, !noundef !3
   %.not13 = icmp eq i8 %70, 2

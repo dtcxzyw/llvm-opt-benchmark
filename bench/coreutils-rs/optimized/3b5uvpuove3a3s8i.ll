@@ -496,7 +496,6 @@ define hidden void @"_ZN8tempfile4file22NamedTempFile$LT$F$GT$4keep17h899cb8e758
   %6 = load ptr, ptr %1, align 8, !nonnull !16, !align !58, !noundef !16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !noundef !16
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN8tempfile4file8TempPath4keep17h350ef3a79b8859e9E(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull align 1 %6, i64 noundef %8)
           to label %12 unwind label %9
 
@@ -542,7 +541,6 @@ define hidden void @"_ZN8tempfile4file22NamedTempFile$LT$F$GT$4keep17h899cb8e758
 24:                                               ; preds = %17, %15
   %.sink = phi i64 [ 1, %17 ], [ 0, %15 ]
   store i64 %.sink, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
 25:                                               ; preds = %9

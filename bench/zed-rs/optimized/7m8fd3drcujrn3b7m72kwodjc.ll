@@ -5019,7 +5019,6 @@ define hidden void @"_ZN120_$LT$futures_util..stream..stream..filter_map..Filter
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hbe8083c9823e739dE.exit23"
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.val12 = load ptr, ptr %5, align 8, !nonnull !4, !align !13, !noundef !4
   %.val13 = load ptr, ptr %10, align 8, !nonnull !4, !align !61, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %.val13, i64 24
@@ -5028,7 +5027,7 @@ define hidden void @"_ZN120_$LT$futures_util..stream..stream..filter_map..Filter
   %16 = load i64, ptr %4, align 8, !range !1419, !noundef !4
   switch i64 %16, label %41 [
     i64 -9223372036854775804, label %39
-    i64 -9223372036854775805, label %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$language_model..LanguageModelCompletionEvent$C$anyhow..Error$GT$$GT$$GT$17hff1c92bc7a796039E.exit"
+    i64 -9223372036854775805, label %.loopexit
   ]
 
 17:                                               ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hbe8083c9823e739dE.exit23"
@@ -5145,7 +5144,6 @@ common.resume:                                    ; preds = %"_ZN4core3ptr253dro
 
 39:                                               ; preds = %13
   store i64 -9223372036854775807, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %51
 
 "_ZN4core3ptr253drop_in_place$LT$core..option..Option$LT$semantic_index..summary_index..SummaryIndex..summarize_code..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hf21dd4f37c0eca02E.exit17": ; preds = %47
@@ -5173,17 +5171,12 @@ common.resume:                                    ; preds = %"_ZN4core3ptr253dro
   store i64 %16, ptr %1, align 8, !noalias !1486
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(112) %.sroa.4.0..sroa_idx, i64 112, i1 false)
   store i8 0, ptr %6, align 8, !noalias !1486
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hbe8083c9823e739dE.exit23.backedge"
 
-"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$language_model..LanguageModelCompletionEvent$C$anyhow..Error$GT$$GT$$GT$17hff1c92bc7a796039E.exit": ; preds = %13
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %48, %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$language_model..LanguageModelCompletionEvent$C$anyhow..Error$GT$$GT$$GT$17hff1c92bc7a796039E.exit"
-  %.sroa.6.sroa.0.0 = phi ptr [ undef, %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$language_model..LanguageModelCompletionEvent$C$anyhow..Error$GT$$GT$$GT$17hff1c92bc7a796039E.exit" ], [ %.sroa.3.i.sroa.0.0.copyload, %48 ]
-  %.sroa.6.sroa.5.0 = phi i64 [ undef, %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$language_model..LanguageModelCompletionEvent$C$anyhow..Error$GT$$GT$$GT$17hff1c92bc7a796039E.exit" ], [ %.sroa.3.i.sroa.4.0.copyload, %48 ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775808, %"_ZN4core3ptr137drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$language_model..LanguageModelCompletionEvent$C$anyhow..Error$GT$$GT$$GT$17hff1c92bc7a796039E.exit" ], [ %.sroa.04.0.copyload.i, %48 ]
+.loopexit:                                        ; preds = %48, %13
+  %.sroa.6.sroa.0.0 = phi ptr [ undef, %13 ], [ %.sroa.3.i.sroa.0.0.copyload, %48 ]
+  %.sroa.6.sroa.5.0 = phi i64 [ undef, %13 ], [ %.sroa.3.i.sroa.4.0.copyload, %48 ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775808, %13 ], [ %.sroa.04.0.copyload.i, %48 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.6.sroa.0.0, ptr %.sroa.6.0..sroa_idx, align 8

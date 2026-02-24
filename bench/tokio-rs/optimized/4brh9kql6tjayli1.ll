@@ -2103,7 +2103,6 @@ default.unreachable205:                           ; preds = %226, %115
 
 50:                                               ; preds = %"_ZN4core3ptr43drop_in_place$LT$tokio..fs..file..State$GT$17h4dcc7cd715f5788cE.exit", %thread-pre-split
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h97bc0a41f92f7563E"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %21, ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.5.0..sroa_idx, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   %51 = load i64, ptr %21, align 8, !range !328, !noundef !4
   %52 = icmp eq i64 %51, 4
@@ -2317,7 +2316,6 @@ common.resume:                                    ; preds = %.invoke, %.thread22
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.24..sroa_idx, i64 32, i1 false)
   store i64 %51, ptr %23, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   switch i64 %51, label %default.unreachable205 [
     i64 0, label %127
@@ -2971,7 +2969,6 @@ thread-pre-split.backedge:                        ; preds = %"_ZN4core3ptr43drop
 .loopexit151:                                     ; preds = %50, %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit"
   %.sroa.6.1 = phi ptr [ %119, %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit" ], [ undef, %50 ]
   %.sroa.0.1 = phi i64 [ 0, %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit" ], [ 1, %50 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   br label %82
 }
@@ -3116,7 +3113,6 @@ default.unreachable59:                            ; preds = %66, %"_ZN4core3ptr4
 
 22:                                               ; preds = %.lr.ph, %.thread46
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h97bc0a41f92f7563E"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %9, ptr noalias noundef nonnull align 8 dereferenceable(8) %14, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %23 = load i64, ptr %9, align 8, !range !328, !noundef !4
   %24 = icmp eq i64 %23, 4
@@ -3144,7 +3140,6 @@ default.unreachable59:                            ; preds = %66, %"_ZN4core3ptr4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.24..sroa_idx, i64 32, i1 false)
   store i64 %23, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   call void @llvm.experimental.noalias.scope.decl(metadata !557)
   %30 = load i64, ptr %11, align 8, !range !302, !alias.scope !557, !noundef !4
@@ -3396,7 +3391,6 @@ _ZN3std2io5error5Error4kind17h2ac5666ac9813c4fE.llvm.3285439092171202888.exit: ;
           to label %common.resume unwind label %91
 
 105:                                              ; preds = %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit", %28
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   br label %25
 }
@@ -3460,7 +3454,6 @@ define void @"_ZN76_$LT$tokio..fs..file..File$u20$as$u20$tokio..io..async_write.
 
 30:                                               ; preds = %.lr.ph, %.thread97
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h97bc0a41f92f7563E"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %10, ptr noalias noundef nonnull align 8 dereferenceable(8) %19, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %31 = load i64, ptr %10, align 8, !range !328, !noundef !4
   %32 = icmp eq i64 %31, 4
@@ -3658,7 +3651,6 @@ common.resume:                                    ; preds = %118, %120, %89, %13
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.24..sroa_idx, i64 32, i1 false)
   store i64 %31, ptr %11, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !646)
   %96 = load i64, ptr %14, align 8, !range !302, !alias.scope !646, !noundef !4
@@ -3799,7 +3791,6 @@ common.resume:                                    ; preds = %118, %120, %89, %13
           to label %common.resume unwind label %90
 
 138:                                              ; preds = %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit", %94
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   br label %28
 }
@@ -3863,7 +3854,6 @@ define void @"_ZN76_$LT$tokio..fs..file..File$u20$as$u20$tokio..io..async_write.
 
 30:                                               ; preds = %.lr.ph, %.thread95
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h97bc0a41f92f7563E"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %10, ptr noalias noundef nonnull align 8 dereferenceable(8) %19, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %31 = load i64, ptr %10, align 8, !range !328, !noundef !4
   %32 = icmp eq i64 %31, 4
@@ -4042,7 +4032,6 @@ common.resume:                                    ; preds = %109, %111, %80, %12
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.24..sroa_idx, i64 32, i1 false)
   store i64 %31, ptr %11, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !709)
   %87 = load i64, ptr %14, align 8, !range !302, !alias.scope !709, !noundef !4
@@ -4183,7 +4172,6 @@ common.resume:                                    ; preds = %109, %111, %80, %12
           to label %common.resume unwind label %81
 
 129:                                              ; preds = %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit", %85
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   br label %28
 }
@@ -4374,20 +4362,19 @@ define internal fastcc { i64, ptr } @_ZN5tokio2fs4file5Inner10poll_flush17h9ce39
   %16 = icmp eq i64 %15, -9223372036854775807
   br i1 %16, label %20, label %17
 
-17:                                               ; preds = %14, %67, %63, %9
-  %.sroa.8.0 = phi ptr [ %13, %9 ], [ %.sroa.8.1, %67 ], [ %.sroa.8.2, %63 ], [ null, %14 ]
-  %.sroa.0.0 = phi i64 [ 0, %9 ], [ %.sroa.0.1, %67 ], [ 0, %63 ], [ 0, %14 ]
+17:                                               ; preds = %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit", %20, %14, %63, %9
+  %.sroa.8.0 = phi ptr [ %13, %9 ], [ null, %14 ], [ %.sroa.8.2, %63 ], [ %51, %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit" ], [ undef, %20 ]
+  %.sroa.0.0 = phi i64 [ 0, %9 ], [ 0, %14 ], [ 0, %63 ], [ 0, %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit" ], [ 1, %20 ]
   %18 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %19 = insertvalue { i64, ptr } %18, ptr %.sroa.8.0, 1
   ret { i64, ptr } %19
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h97bc0a41f92f7563E"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %5, ptr noalias noundef nonnull align 8 dereferenceable(8) %21, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   %22 = load i64, ptr %5, align 8, !range !328, !noundef !4
   %23 = icmp eq i64 %22, 4
-  br i1 %23, label %67, label %24
+  br i1 %23, label %17, label %24
 
 24:                                               ; preds = %20
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -4403,7 +4390,6 @@ define internal fastcc { i64, ptr } @_ZN5tokio2fs4file5Inner10poll_flush17h9ce39
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i64 16, i1 false)
   %.sroa.7.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.416, i64 16
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i64 %22, ptr %6, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !751)
   %27 = load i64, ptr %0, align 8, !range !302, !alias.scope !751, !noundef !4
@@ -4500,7 +4486,7 @@ common.resume:                                    ; preds = %59, %52, %54
 
 "_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit": ; preds = %55, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %67
+  br label %17
 
 59:                                               ; preds = %43, %.noexc23, %36, %31, %28
   %60 = landingpad { ptr, i32 }
@@ -4529,12 +4515,6 @@ common.resume:                                    ; preds = %59, %52, %54
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #33
   unreachable
-
-67:                                               ; preds = %20, %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit"
-  %.sroa.8.1 = phi ptr [ %51, %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit" ], [ undef, %20 ]
-  %.sroa.0.1 = phi i64 [ 0, %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit" ], [ 1, %20 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %17
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4576,7 +4556,6 @@ define hidden { i64, ptr } @"_ZN91_$LT$tokio..io..blocking..Blocking$LT$T$GT$$u2
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr76drop_in_place$LT$tokio..io..blocking..State$LT$std..io..stdio..Stdin$GT$$GT$17h725d7f00cd16f634E.exit", %3
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.sroa.7)
-  call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb447a109c9bd606bE"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %27, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   %28 = load i64, ptr %12, align 8, !range !780, !noundef !4
   %29 = icmp eq i64 %28, 3
@@ -4801,7 +4780,6 @@ common.resume:                                    ; preds = %170, %.thread103, %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.sroa.7, i64 32, i1 false)
   %96 = icmp ne ptr %.sroa.4.sroa.2.0.copyload, null
   call void @llvm.assume(i1 %96)
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.sroa.7)
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.sroa.4.sroa.2.0.copyload, ptr %97, align 8
@@ -5037,7 +5015,6 @@ common.resume:                                    ; preds = %170, %.thread103, %
 171:                                              ; preds = %._crit_edge, %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit"
   %.sroa.6.1 = phi ptr [ %101, %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit" ], [ undef, %._crit_edge ]
   %.sroa.0.1 = phi i64 [ 0, %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit" ], [ 1, %._crit_edge ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.sroa.7)
   br label %60
 }
@@ -5080,7 +5057,6 @@ define hidden void @"_ZN93_$LT$tokio..io..blocking..Blocking$LT$T$GT$$u20$as$u20
 
 21:                                               ; preds = %.lr.ph, %114
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.sroa.7)
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h3930f4aebdaff6cfE"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %10, ptr noalias noundef nonnull align 8 dereferenceable(8) %15, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %22 = load i64, ptr %10, align 8, !range !780, !noundef !4
   %23 = icmp eq i64 %22, 3
@@ -5259,7 +5235,6 @@ common.resume:                                    ; preds = %103, %105, %74, %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.sroa.7, i64 32, i1 false)
   %81 = icmp ne ptr %.sroa.424.sroa.2.0.copyload, null
   tail call void @llvm.assume(i1 %81)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.sroa.7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !930)
   %82 = load i64, ptr %1, align 8, !range !302, !alias.scope !930, !noundef !4
@@ -5383,7 +5358,6 @@ common.resume:                                    ; preds = %103, %105, %74, %11
   br label %73
 
 119:                                              ; preds = %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit", %79
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.sroa.7)
   br label %73
 }
@@ -5426,7 +5400,6 @@ define hidden void @"_ZN93_$LT$tokio..io..blocking..Blocking$LT$T$GT$$u20$as$u20
 
 21:                                               ; preds = %.lr.ph, %114
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.sroa.7)
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h46e5f3bc8f6dab52E"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %10, ptr noalias noundef nonnull align 8 dereferenceable(8) %15, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %22 = load i64, ptr %10, align 8, !range !780, !noundef !4
   %23 = icmp eq i64 %22, 3
@@ -5605,7 +5578,6 @@ common.resume:                                    ; preds = %103, %105, %74, %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.sroa.7, i64 32, i1 false)
   %81 = icmp ne ptr %.sroa.424.sroa.2.0.copyload, null
   tail call void @llvm.assume(i1 %81)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.sroa.7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1000)
   %82 = load i64, ptr %1, align 8, !range !302, !alias.scope !1000, !noundef !4
@@ -5729,7 +5701,6 @@ common.resume:                                    ; preds = %103, %105, %74, %11
   br label %73
 
 119:                                              ; preds = %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit", %79
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.sroa.7)
   br label %73
 }
@@ -5774,7 +5745,6 @@ thread-pre-split:                                 ; preds = %"_ZN4core3ptr77drop
 
 21:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$tokio..io..blocking..State$LT$std..io..stdio..Stderr$GT$$GT$17hc631e614916a6feeE.exit", %thread-pre-split
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.sroa.7)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h3930f4aebdaff6cfE"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.59.0..sroa_idx, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   %22 = load i64, ptr %7, align 8, !range !780, !noundef !4
   %23 = icmp eq i64 %22, 3
@@ -5917,7 +5887,6 @@ common.resume:                                    ; preds = %84, %86, %55, %91, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.sroa.7, i64 32, i1 false)
   %62 = icmp ne ptr %.sroa.4.sroa.2.0.copyload, null
   tail call void @llvm.assume(i1 %62)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.sroa.7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1056)
   %63 = load i64, ptr %0, align 8, !range !302, !alias.scope !1056, !noundef !4
@@ -6032,7 +6001,6 @@ common.resume:                                    ; preds = %84, %86, %55, %91, 
 .loopexit83:                                      ; preds = %21, %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit"
   %.sroa.5.1 = phi ptr [ %83, %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit" ], [ undef, %21 ]
   %.sroa.0.1 = phi i64 [ 0, %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit" ], [ 1, %21 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.sroa.7)
   br label %.loopexit
 }
@@ -6077,7 +6045,6 @@ thread-pre-split:                                 ; preds = %"_ZN4core3ptr77drop
 
 21:                                               ; preds = %"_ZN4core3ptr77drop_in_place$LT$tokio..io..blocking..State$LT$std..io..stdio..Stdout$GT$$GT$17h8c9c8950faa2dc06E.exit", %thread-pre-split
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.sroa.7)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h46e5f3bc8f6dab52E"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(8) %.sroa.59.0..sroa_idx, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   %22 = load i64, ptr %7, align 8, !range !780, !noundef !4
   %23 = icmp eq i64 %22, 3
@@ -6220,7 +6187,6 @@ common.resume:                                    ; preds = %84, %86, %55, %91, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.sroa.7, i64 32, i1 false)
   %62 = icmp ne ptr %.sroa.4.sroa.2.0.copyload, null
   tail call void @llvm.assume(i1 %62)
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.sroa.7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1111)
   %63 = load i64, ptr %0, align 8, !range !302, !alias.scope !1111, !noundef !4
@@ -6335,7 +6301,6 @@ common.resume:                                    ; preds = %84, %86, %55, %91, 
 .loopexit83:                                      ; preds = %21, %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit"
   %.sroa.5.1 = phi ptr [ %83, %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit" ], [ undef, %21 ]
   %.sroa.0.1 = phi i64 [ 0, %"_ZN5tokio7runtime4task5error117_$LT$impl$u20$core..convert..From$LT$tokio..runtime..task..error..JoinError$GT$$u20$for$u20$std..io..error..Error$GT$4from17haa8deef124555818E.exit" ], [ 1, %21 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.sroa.7)
   br label %.loopexit
 }

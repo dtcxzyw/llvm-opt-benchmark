@@ -1914,6 +1914,7 @@ _ZN18serde_wasm_bindgen2de12Deserializer12invalid_type17h0bf7710a7135f92dE.exit:
   call void @llvm.experimental.noalias.scope.decl(metadata !154)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !157
   %104 = invoke { i64, i64 } @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..MapAccess$GT$9size_hint17he72cc08a06cc32b5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %20)
           to label %108 unwind label %106, !noalias !154
@@ -1949,7 +1950,6 @@ _ZN18serde_wasm_bindgen2de12Deserializer12invalid_type17h0bf7710a7135f92dE.exit:
   br label %116
 
 116:                                              ; preds = %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$ty_python_semantic..lint..Level$GT$$GT$$GT$17h61eed31bf66dfcb9E.exit.i19", %113
-  call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !157
   invoke void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_entry_seed17hcd98f55ce8dcf43aE"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %8, ptr noalias noundef nonnull align 8 dereferenceable(32) %20)
           to label %_ZN5serde2de9MapAccess10next_entry17h98d91a3f67a2ad85E.exit.i unwind label %.body.i18, !noalias !154
 
@@ -1971,7 +1971,6 @@ _ZN5serde2de9MapAccess10next_entry17h98d91a3f67a2ad85E.exit.i: ; preds = %116
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %120, ptr %121, align 8, !alias.scope !154, !noalias !160
   store ptr null, ptr %0, align 8, !alias.scope !154, !noalias !160
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !157
   invoke void @"_ZN4core3ptr244drop_in_place$LT$std..collections..hash..map..HashMap$LT$ty_project..metadata..value..RangedValue$LT$alloc..string..String$GT$$C$ty_project..metadata..value..RangedValue$LT$ty_python_semantic..lint..Level$GT$$C$rustc_hash..FxBuildHasher$GT$$GT$17hc9e5be9d21fb5416E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
           to label %128 unwind label %106, !noalias !154
 
@@ -1994,11 +1993,9 @@ _ZN5serde2de9MapAccess10next_entry17h98d91a3f67a2ad85E.exit.i: ; preds = %116
 
 "_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$ty_project..metadata..value..RangedValue$LT$ty_python_semantic..lint..Level$GT$$GT$$GT$17h61eed31bf66dfcb9E.exit.i19": ; preds = %126, %123
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !157
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !157
   br label %116
 
 127:                                              ; preds = %_ZN5serde2de9MapAccess10next_entry17h98d91a3f67a2ad85E.exit.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !157
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false), !noalias !160
   br label %128
 
@@ -2016,6 +2013,7 @@ _ZN5serde2de9MapAccess10next_entry17h98d91a3f67a2ad85E.exit.i: ; preds = %116
 131:                                              ; preds = %128
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   invoke void @"_ZN4core3ptr34drop_in_place$LT$js_sys..Array$GT$17hdbe303c1a173a7b4E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %21)
           to label %132 unwind label %25

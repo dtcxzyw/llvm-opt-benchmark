@@ -49573,18 +49573,18 @@ define hidden void @"_ZN9collab_ui10chat_panel14message_editor13MessageEditor34r
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !7773
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !7773
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.2, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %26 = load ptr, ptr %25, align 8, !nonnull !4, !align !37, !noundef !4
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %28 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull readonly align 8 dereferenceable(32) %27, i64 32, i1 false), !alias.scope !7787
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull readonly align 8 dereferenceable(64) %26, i64 32, i1 false), !alias.scope !7787
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false)
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %25 = load ptr, ptr %24, align 8, !nonnull !4, !align !37, !noundef !4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull readonly align 8 dereferenceable(32) %26, i64 32, i1 false), !alias.scope !7787
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull readonly align 8 dereferenceable(64) %25, i64 32, i1 false), !alias.scope !7787
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.2, i64 64, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 752
   store i64 0, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 592
@@ -49846,18 +49846,18 @@ define hidden void @"_ZN9collab_ui10chat_panel14message_editor13MessageEditor34r
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.2, ptr noundef nonnull align 8 dereferenceable(64) %10, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !7824
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !7824
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %54, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.2, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %56 = load ptr, ptr %55, align 8, !nonnull !4, !align !37, !noundef !4
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %58 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull readonly align 8 dereferenceable(32) %57, i64 32, i1 false), !alias.scope !7842
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull readonly align 8 dereferenceable(64) %56, i64 32, i1 false), !alias.scope !7842
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %59, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 64, i1 false)
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %55 = load ptr, ptr %54, align 8, !nonnull !4, !align !37, !noundef !4
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull readonly align 8 dereferenceable(32) %56, i64 32, i1 false), !alias.scope !7842
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull readonly align 8 dereferenceable(64) %55, i64 32, i1 false), !alias.scope !7842
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %58, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %59, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.2, i64 64, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 752
   store i64 0, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 592

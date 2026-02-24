@@ -3821,31 +3821,29 @@ define hidden void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOr
   %4 = alloca [72 x i8], align 8
   %5 = alloca [72 x i8], align 8
   %6 = alloca [72 x i8], align 8
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i64, ptr %7, align 8, !noundef !4
-  %9 = icmp eq i64 %8, 0
-  br i1 %9, label %.thread, label %10
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = load i64, ptr %8, align 8, !noundef !4
+  %10 = icmp eq i64 %9, 0
+  br i1 %10, label %.thread, label %11
 
-10:                                               ; preds = %3
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !noalias !1224, !nonnull !4, !noundef !4
-  %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %15 = load i64, ptr %14, align 8, !noundef !4
-  %16 = icmp eq i64 %13, %15
-  br i1 %16, label %17, label %.thread
+11:                                               ; preds = %3
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = load ptr, ptr %12, align 8, !noalias !1224, !nonnull !4, !noundef !4
+  %14 = load i64, ptr %13, align 8, !noundef !4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %16 = load i64, ptr %15, align 8, !noundef !4
+  %17 = icmp eq i64 %14, %16
+  br i1 %17, label %18, label %.thread
 
-17:                                               ; preds = %10
-  %18 = add i64 %13, 1
-  store i64 %18, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+18:                                               ; preds = %11
+  %19 = add i64 %14, 1
+  store i64 %19, ptr %15, align 8
   call void @"_ZN5alloc11collections11binary_heap20PeekMut$LT$T$C$A$GT$3pop17hfa87c97cf2f38313E"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %6, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef 0)
-  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %19, i64 64, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
   br label %26
 
-.thread:                                          ; preds = %10, %3
+.thread:                                          ; preds = %11, %3
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h303839882e921decE"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -3861,7 +3859,7 @@ define hidden void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOr
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %27
 
-26:                                               ; preds = %._crit_edge, %31, %51, %17
+26:                                               ; preds = %._crit_edge, %31, %51, %18
   ret void
 
 common.resume:                                    ; preds = %41
@@ -3892,7 +3890,7 @@ common.resume:                                    ; preds = %41
   br i1 %35, label %51, label %36
 
 36:                                               ; preds = %32
-  %37 = load i64, ptr %7, align 8, !alias.scope !1228, !noalias !1231, !noundef !4
+  %37 = load i64, ptr %8, align 8, !alias.scope !1228, !noalias !1231, !noundef !4
   %38 = load i64, ptr %1, align 8, !alias.scope !1233, !noalias !1236, !noundef !4
   %39 = icmp eq i64 %37, %38
   br i1 %39, label %40, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17h099825497288b966E.exit"
@@ -3918,7 +3916,7 @@ common.resume:                                    ; preds = %41
   %46 = getelementptr inbounds { i64, { [5 x i64], i64, [2 x i64] } }, ptr %45, i64 %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %46, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
   %47 = add i64 %37, 1
-  store i64 %47, ptr %7, align 8, !alias.scope !1233, !noalias !1236
+  store i64 %47, ptr %8, align 8, !alias.scope !1233, !noalias !1236
   %48 = tail call noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17h1d1bcd43677ffdbeE.llvm.10001063849049604789"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, i64 noundef 0, i64 noundef %37), !noalias !1231
   call void @"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h303839882e921decE"(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %20, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
   %49 = load i64, ptr %21, align 8, !range !1227, !noundef !4

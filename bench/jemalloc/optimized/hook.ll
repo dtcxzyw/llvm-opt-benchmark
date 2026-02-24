@@ -108,8 +108,8 @@ malloc_mutex_lock.exit:                           ; preds = %7, %11
   %.not12.i.i = icmp ne i64 %16, %20
   %.sroa.5.0.copyload.i = load i8, ptr %.sroa.5.0..sroa_idx.i, align 16
   %21 = trunc nuw i8 %.sroa.5.0.copyload.i to i1
-  %or.cond = select i1 %.not12.i.i, i1 true, i1 %21
-  br i1 %or.cond, label %seq_try_load_hooks.exit.thread.i, label %27
+  %or.cond.i = select i1 %.not12.i.i, i1 true, i1 %21
+  br i1 %or.cond.i, label %seq_try_load_hooks.exit.thread.i, label %27
 
 22:                                               ; preds = %22, %.preheader.i.i
   %.01113.i.i = phi i64 [ 0, %.preheader.i.i ], [ %26, %22 ]

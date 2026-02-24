@@ -4719,7 +4719,6 @@ define hidden { ptr, ptr } @"_ZN5alloc5boxed7convert156_$LT$impl$u20$core..conve
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN5serde2de5impls79_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$alloc..boxed..Box$LT$T$GT$$GT$11deserialize17hd7b39b7def3c3c43E"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN5serde2de5impls76_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$$u5b$T$u3b$$u20$16$u5d$$GT$11deserialize17ha652fb36235ec4e4E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
   %4 = load i8, ptr %3, align 8, !range !386, !noundef !5
   %.not = icmp eq i8 %4, 9
@@ -4748,7 +4747,6 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit: ; preds = %6
   br label %13
 
 13:                                               ; preds = %_ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit, %5
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 

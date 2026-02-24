@@ -58,7 +58,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.75.llvm.15740990321789950213 = hidden unnamed_addr constant <{ [18 x i8] }> <{ [18 x i8] c"\0D\0Acontent-length: " }>, align 1
 @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.76.llvm.15740990321789950213 = hidden unnamed_addr constant <{ [18 x i8] }> <{ [18 x i8] c"\0D\0AContent-Length: " }>, align 1
 @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.77.llvm.15740990321789950213 = hidden unnamed_addr constant <{ [2 x i8] }> <{ [2 x i8] c"\0D\0A" }>, align 1
-@anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.78 = private unnamed_addr constant <{ [1 x i8], [23 x i8] }> <{ [1 x i8] c"\01", [23 x i8] undef }>, align 8
 @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.79 = private unnamed_addr constant <{ [1 x i8] }> <{ [1 x i8] c"/" }>, align 1
 @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.80 = private unnamed_addr constant <{ [22 x i8] }> <{ [22 x i8] c"actix-http/src/test.rs" }>, align 1
 @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.81 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.80, [16 x i8] c"\16\00\00\00\00\00\00\00%\00\00\00%\00\00\00" }>, align 8
@@ -8941,11 +8940,9 @@ define void @"_ZN72_$LT$actix_http..test..TestRequest$u20$as$u20$core..default..
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.sroa.01.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.01.sroa.5, i64 88, i1 false)
   %.sroa.01.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i8 1, ptr %.sroa.01.sroa.6.0..sroa_idx, align 8
-  %.sroa.01.sroa.6.sroa.4.0..sroa.01.sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 113
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.01.sroa.6.sroa.4.0..sroa.01.sroa.6.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) getelementptr inbounds nuw (i8, ptr @anon.a4c2b4dbb23f07b39da98ce0ee6c7a08.78, i64 1), i64 7, i1 false)
   %.sroa.01.sroa.6.sroa.5.0..sroa.01.sroa.6.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.sroa.01.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i64 72340172838076673, ptr %.sroa.01.sroa.6.0..sroa_idx, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.01.sroa.6.sroa.5.0..sroa.01.sroa.6.0..sroa_idx.sroa_idx, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.01.sroa.7.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.01.sroa.7, i64 64, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 200

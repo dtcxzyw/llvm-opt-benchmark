@@ -1169,161 +1169,157 @@ define hidden void @_ZN12futures_task8arc_wake7ArcWake4wake17h165fc1e23689fd1aE(
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc noundef ptr @"_ZN12futures_util6future6future6shared16Inner$LT$Fut$GT$20take_or_clone_output17h23b7998b1b004915E"(ptr noundef nonnull %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = alloca [24 x i8], align 8
-  %3 = alloca [32 x i8], align 8
+  %2 = alloca [32 x i8], align 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %4 = alloca [24 x i8], align 8
   %.sroa.8 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
-  %4 = cmpxchg ptr %0, i64 1, i64 0 monotonic monotonic, align 8, !noalias !137
-  %.sroa.18.0.in.i.i = extractvalue { i64, i1 } %4, 1
-  br i1 %.sroa.18.0.in.i.i, label %5, label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17h1cc030434766c717E.exit.thread"
+  %5 = cmpxchg ptr %0, i64 1, i64 0 monotonic monotonic, align 8, !noalias !137
+  %.sroa.18.0.in.i.i = extractvalue { i64, i1 } %5, 1
+  br i1 %.sroa.18.0.in.i.i, label %6, label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17h1cc030434766c717E.exit.thread"
 
-5:                                                ; preds = %1
+6:                                                ; preds = %1
   fence acquire
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.0.0.copyload6 = load ptr, ptr %6, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sroa.0.0.copyload6 = load ptr, ptr %7, align 8
   %.sroa.6.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.6.0.copyload8 = load ptr, ptr %.sroa.6.0..sroa_idx7, align 8
   %.sroa.8.0..sroa_idx9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.0..sroa_idx9, i64 16, i1 false)
-  %7 = icmp eq ptr %0, inttoptr (i64 -1 to ptr)
-  br i1 %7, label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17h1cc030434766c717E.exit", label %8
+  %8 = icmp eq ptr %0, inttoptr (i64 -1 to ptr)
+  br i1 %8, label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17h1cc030434766c717E.exit", label %9
 
-8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = atomicrmw sub ptr %9, i64 1 release, align 8, !noalias !140
-  %11 = icmp eq i64 %10, 1
-  br i1 %11, label %12, label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17h1cc030434766c717E.exit"
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = atomicrmw sub ptr %10, i64 1 release, align 8, !noalias !140
+  %12 = icmp eq i64 %11, 1
+  br i1 %12, label %13, label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17h1cc030434766c717E.exit"
 
-12:                                               ; preds = %8
+13:                                               ; preds = %9
   fence acquire
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 48, i64 noundef 8) #33, !noalias !140
   br label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17h1cc030434766c717E.exit"
 
-"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17h1cc030434766c717E.exit": ; preds = %5, %8, %12
-  %13 = icmp eq ptr %.sroa.0.0.copyload6, null
-  br i1 %13, label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17h1cc030434766c717E.exit.thread", label %14
+"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17h1cc030434766c717E.exit": ; preds = %6, %9, %13
+  %14 = icmp eq ptr %.sroa.0.0.copyload6, null
+  br i1 %14, label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17h1cc030434766c717E.exit.thread", label %15
 
-14:                                               ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17h1cc030434766c717E.exit"
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %.sroa.0.0.copyload6, ptr %3, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+15:                                               ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17h1cc030434766c717E.exit"
+  store ptr %.sroa.0.0.copyload6, ptr %2, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.sroa.6.0.copyload8, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.0..sroa_idx, i64 24, i1 false)
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %16 = load i8, ptr %15, align 8, !range !63, !noundef !5
-  %17 = icmp eq i8 %16, 5
-  br i1 %17, label %32, label %22
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %17 = load i8, ptr %16, align 8, !range !63, !noundef !5
+  %18 = icmp eq i8 %17, 5
+  br i1 %18, label %33, label %23
 
 "_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17h1cc030434766c717E.exit.thread": ; preds = %1, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17h1cc030434766c717E.exit"
   %.sroa.6.014 = phi ptr [ %.sroa.6.0.copyload8, %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17h1cc030434766c717E.exit" ], [ %0, %1 ]
-  %18 = icmp ne ptr %.sroa.6.014, null
-  tail call void @llvm.assume(i1 %18)
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.6.014, i64 40
-  %20 = load i8, ptr %19, align 8, !range !63, !noundef !5
-  %21 = icmp eq i8 %20, 5
-  br i1 %21, label %38, label %37
+  %19 = icmp ne ptr %.sroa.6.014, null
+  tail call void @llvm.assume(i1 %19)
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.6.014, i64 40
+  %21 = load i8, ptr %20, align 8, !range !63, !noundef !5
+  %22 = icmp eq i8 %21, 5
+  br i1 %22, label %39, label %38
 
-22:                                               ; preds = %14
+23:                                               ; preds = %15
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0bab78850dbd44f7fc064e33351f2d85.0, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0bab78850dbd44f7fc064e33351f2d85.20) #30
-          to label %23 unwind label %28
+          to label %24 unwind label %29
 
-23:                                               ; preds = %37, %22
+24:                                               ; preds = %38, %23
   unreachable
 
-24:                                               ; preds = %28
-  %25 = atomicrmw sub ptr %.sroa.0.0.copyload6, i64 1 release, align 8, !noalias !145
-  %26 = icmp eq i64 %25, 1
-  br i1 %26, label %27, label %"_ZN4core3ptr91drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Notifier$GT$$GT$17hf68d4e1a4f35b8abE.llvm.9856359229311746364.exit"
+25:                                               ; preds = %29
+  %26 = atomicrmw sub ptr %.sroa.0.0.copyload6, i64 1 release, align 8, !noalias !145
+  %27 = icmp eq i64 %26, 1
+  br i1 %27, label %28, label %"_ZN4core3ptr91drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Notifier$GT$$GT$17hf68d4e1a4f35b8abE.llvm.9856359229311746364.exit"
 
-27:                                               ; preds = %24
+28:                                               ; preds = %25
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17ha3144347725b3e8dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
-          to label %"_ZN4core3ptr91drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Notifier$GT$$GT$17hf68d4e1a4f35b8abE.llvm.9856359229311746364.exit" unwind label %30
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17ha3144347725b3e8dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
+          to label %"_ZN4core3ptr91drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Notifier$GT$$GT$17hf68d4e1a4f35b8abE.llvm.9856359229311746364.exit" unwind label %31
 
-28:                                               ; preds = %22
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %23
+  %30 = landingpad { ptr, i32 }
           cleanup
-  invoke fastcc void @"_ZN4core3ptr287drop_in_place$LT$futures_util..future..future..shared..FutureOrOutput$LT$futures_util..future..future..Map$LT$language..language_registry..LanguageRegistry..language_for_name..$u7b$$u7b$closure$u7d$$u7d$$C$markdown..MarkdownElement..load_language..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h9840b9c3eb019c7dE"(ptr noundef nonnull align 8 %2) #31
-          to label %24 unwind label %30
+  invoke fastcc void @"_ZN4core3ptr287drop_in_place$LT$futures_util..future..future..shared..FutureOrOutput$LT$futures_util..future..future..Map$LT$language..language_registry..LanguageRegistry..language_for_name..$u7b$$u7b$closure$u7d$$u7d$$C$markdown..MarkdownElement..load_language..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h9840b9c3eb019c7dE"(ptr noundef nonnull align 8 %4) #31
+          to label %25 unwind label %31
 
-30:                                               ; preds = %27, %45, %28
-  %31 = landingpad { ptr, i32 }
+31:                                               ; preds = %28, %46, %29
+  %32 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #32
   unreachable
 
-32:                                               ; preds = %14
-  %33 = load ptr, ptr %2, align 8, !noundef !5
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %34 = atomicrmw sub ptr %.sroa.0.0.copyload6, i64 1 release, align 8, !noalias !150
-  %35 = icmp eq i64 %34, 1
-  br i1 %35, label %36, label %"_ZN4core3ptr91drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Notifier$GT$$GT$17hf68d4e1a4f35b8abE.llvm.9856359229311746364.exit5"
+33:                                               ; preds = %15
+  %34 = load ptr, ptr %4, align 8, !noundef !5
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %35 = atomicrmw sub ptr %.sroa.0.0.copyload6, i64 1 release, align 8, !noalias !150
+  %36 = icmp eq i64 %35, 1
+  br i1 %36, label %37, label %"_ZN4core3ptr302drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Inner$LT$futures_util..future..future..Map$LT$language..language_registry..LanguageRegistry..language_for_name..$u7b$$u7b$closure$u7d$$u7d$$C$markdown..MarkdownElement..load_language..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h6668d25cefb15d0eE.exit"
 
-36:                                               ; preds = %32
+37:                                               ; preds = %33
   fence acquire
-  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17ha3144347725b3e8dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
-  br label %"_ZN4core3ptr91drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Notifier$GT$$GT$17hf68d4e1a4f35b8abE.llvm.9856359229311746364.exit5"
-
-"_ZN4core3ptr91drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Notifier$GT$$GT$17hf68d4e1a4f35b8abE.llvm.9856359229311746364.exit5": ; preds = %32, %36
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17ha3144347725b3e8dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
   br label %"_ZN4core3ptr302drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Inner$LT$futures_util..future..future..Map$LT$language..language_registry..LanguageRegistry..language_for_name..$u7b$$u7b$closure$u7d$$u7d$$C$markdown..MarkdownElement..load_language..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h6668d25cefb15d0eE.exit"
 
-"_ZN4core3ptr302drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Inner$LT$futures_util..future..future..Map$LT$language..language_registry..LanguageRegistry..language_for_name..$u7b$$u7b$closure$u7d$$u7d$$C$markdown..MarkdownElement..load_language..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h6668d25cefb15d0eE.exit": ; preds = %56, %52, %49, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcc357b16319a2309E.exit", %"_ZN4core3ptr91drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Notifier$GT$$GT$17hf68d4e1a4f35b8abE.llvm.9856359229311746364.exit5"
-  %.sroa.0.0 = phi ptr [ %33, %"_ZN4core3ptr91drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Notifier$GT$$GT$17hf68d4e1a4f35b8abE.llvm.9856359229311746364.exit5" ], [ %.val4, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcc357b16319a2309E.exit" ], [ %.val4, %49 ], [ %.val4, %52 ], [ %.val4, %56 ]
+"_ZN4core3ptr302drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Inner$LT$futures_util..future..future..Map$LT$language..language_registry..LanguageRegistry..language_for_name..$u7b$$u7b$closure$u7d$$u7d$$C$markdown..MarkdownElement..load_language..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h6668d25cefb15d0eE.exit": ; preds = %37, %33, %57, %53, %50, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcc357b16319a2309E.exit"
+  %.sroa.0.0 = phi ptr [ %.val4, %57 ], [ %.val4, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcc357b16319a2309E.exit" ], [ %.val4, %50 ], [ %.val4, %53 ], [ %34, %33 ], [ %34, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   ret ptr %.sroa.0.0
 
-"_ZN4core3ptr91drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Notifier$GT$$GT$17hf68d4e1a4f35b8abE.llvm.9856359229311746364.exit": ; preds = %24, %27, %45
-  %.pn = phi { ptr, i32 } [ %46, %45 ], [ %29, %27 ], [ %29, %24 ]
+"_ZN4core3ptr91drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Notifier$GT$$GT$17hf68d4e1a4f35b8abE.llvm.9856359229311746364.exit": ; preds = %25, %28, %46
+  %.pn = phi { ptr, i32 } [ %47, %46 ], [ %30, %28 ], [ %30, %25 ]
   resume { ptr, i32 } %.pn
 
-37:                                               ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17h1cc030434766c717E.exit.thread"
-  invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0bab78850dbd44f7fc064e33351f2d85.0, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0bab78850dbd44f7fc064e33351f2d85.21) #30
-          to label %23 unwind label %45
-
 38:                                               ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17h1cc030434766c717E.exit.thread"
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.6.014, i64 24
-  %.val4 = load ptr, ptr %39, align 8, !noundef !5
-  %40 = icmp eq ptr %.val4, null
-  br i1 %40, label %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcc357b16319a2309E.exit", label %41
+  invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.0bab78850dbd44f7fc064e33351f2d85.0, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0bab78850dbd44f7fc064e33351f2d85.21) #30
+          to label %24 unwind label %46
 
-41:                                               ; preds = %38
-  %42 = atomicrmw add ptr %.val4, i64 1 monotonic, align 8
-  %43 = icmp slt i64 %42, 0
-  br i1 %43, label %44, label %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcc357b16319a2309E.exit"
+39:                                               ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$10try_unwrap17h1cc030434766c717E.exit.thread"
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.6.014, i64 24
+  %.val4 = load ptr, ptr %40, align 8, !noundef !5
+  %41 = icmp eq ptr %.val4, null
+  br i1 %41, label %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcc357b16319a2309E.exit", label %42
 
-44:                                               ; preds = %41
+42:                                               ; preds = %39
+  %43 = atomicrmw add ptr %.val4, i64 1 monotonic, align 8
+  %44 = icmp slt i64 %43, 0
+  br i1 %44, label %45, label %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcc357b16319a2309E.exit"
+
+45:                                               ; preds = %42
   tail call void @llvm.trap()
   unreachable
 
-45:                                               ; preds = %37
-  %46 = landingpad { ptr, i32 }
+46:                                               ; preds = %38
+  %47 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr302drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Inner$LT$futures_util..future..future..Map$LT$language..language_registry..LanguageRegistry..language_for_name..$u7b$$u7b$closure$u7d$$u7d$$C$markdown..MarkdownElement..load_language..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h6668d25cefb15d0eE"(ptr nonnull %.sroa.6.014) #31
-          to label %"_ZN4core3ptr91drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Notifier$GT$$GT$17hf68d4e1a4f35b8abE.llvm.9856359229311746364.exit" unwind label %30
+          to label %"_ZN4core3ptr91drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Notifier$GT$$GT$17hf68d4e1a4f35b8abE.llvm.9856359229311746364.exit" unwind label %31
 
-"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcc357b16319a2309E.exit": ; preds = %41, %38
-  %47 = atomicrmw sub ptr %.sroa.6.014, i64 1 release, align 8
-  %48 = icmp eq i64 %47, 1
-  br i1 %48, label %49, label %"_ZN4core3ptr302drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Inner$LT$futures_util..future..future..Map$LT$language..language_registry..LanguageRegistry..language_for_name..$u7b$$u7b$closure$u7d$$u7d$$C$markdown..MarkdownElement..load_language..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h6668d25cefb15d0eE.exit"
+"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcc357b16319a2309E.exit": ; preds = %42, %39
+  %48 = atomicrmw sub ptr %.sroa.6.014, i64 1 release, align 8
+  %49 = icmp eq i64 %48, 1
+  br i1 %49, label %50, label %"_ZN4core3ptr302drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Inner$LT$futures_util..future..future..Map$LT$language..language_registry..LanguageRegistry..language_for_name..$u7b$$u7b$closure$u7d$$u7d$$C$markdown..MarkdownElement..load_language..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h6668d25cefb15d0eE.exit"
 
-49:                                               ; preds = %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcc357b16319a2309E.exit"
+50:                                               ; preds = %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcc357b16319a2309E.exit"
   fence acquire
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.6.014, i64 16
-  tail call void @"_ZN4core3ptr278drop_in_place$LT$futures_util..future..future..shared..Inner$LT$futures_util..future..future..Map$LT$language..language_registry..LanguageRegistry..language_for_name..$u7b$$u7b$closure$u7d$$u7d$$C$markdown..MarkdownElement..load_language..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb8abe2c1394d6ddfE"(ptr noundef nonnull align 8 %50), !noalias !155
-  %51 = icmp eq ptr %.sroa.6.014, inttoptr (i64 -1 to ptr)
-  br i1 %51, label %"_ZN4core3ptr302drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Inner$LT$futures_util..future..future..Map$LT$language..language_registry..LanguageRegistry..language_for_name..$u7b$$u7b$closure$u7d$$u7d$$C$markdown..MarkdownElement..load_language..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h6668d25cefb15d0eE.exit", label %52
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.6.014, i64 16
+  tail call void @"_ZN4core3ptr278drop_in_place$LT$futures_util..future..future..shared..Inner$LT$futures_util..future..future..Map$LT$language..language_registry..LanguageRegistry..language_for_name..$u7b$$u7b$closure$u7d$$u7d$$C$markdown..MarkdownElement..load_language..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hb8abe2c1394d6ddfE"(ptr noundef nonnull align 8 %51), !noalias !155
+  %52 = icmp eq ptr %.sroa.6.014, inttoptr (i64 -1 to ptr)
+  br i1 %52, label %"_ZN4core3ptr302drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Inner$LT$futures_util..future..future..Map$LT$language..language_registry..LanguageRegistry..language_for_name..$u7b$$u7b$closure$u7d$$u7d$$C$markdown..MarkdownElement..load_language..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h6668d25cefb15d0eE.exit", label %53
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.6.014, i64 8
-  %54 = atomicrmw sub ptr %53, i64 1 release, align 8, !noalias !158
-  %55 = icmp eq i64 %54, 1
-  br i1 %55, label %56, label %"_ZN4core3ptr302drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Inner$LT$futures_util..future..future..Map$LT$language..language_registry..LanguageRegistry..language_for_name..$u7b$$u7b$closure$u7d$$u7d$$C$markdown..MarkdownElement..load_language..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h6668d25cefb15d0eE.exit"
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.6.014, i64 8
+  %55 = atomicrmw sub ptr %54, i64 1 release, align 8, !noalias !158
+  %56 = icmp eq i64 %55, 1
+  br i1 %56, label %57, label %"_ZN4core3ptr302drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Inner$LT$futures_util..future..future..Map$LT$language..language_registry..LanguageRegistry..language_for_name..$u7b$$u7b$closure$u7d$$u7d$$C$markdown..MarkdownElement..load_language..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h6668d25cefb15d0eE.exit"
 
-56:                                               ; preds = %52
+57:                                               ; preds = %53
   fence acquire
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.6.014, i64 noundef 48, i64 noundef 8) #33, !noalias !158
   br label %"_ZN4core3ptr302drop_in_place$LT$alloc..sync..Arc$LT$futures_util..future..future..shared..Inner$LT$futures_util..future..future..Map$LT$language..language_registry..LanguageRegistry..language_for_name..$u7b$$u7b$closure$u7d$$u7d$$C$markdown..MarkdownElement..load_language..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17h6668d25cefb15d0eE.exit"

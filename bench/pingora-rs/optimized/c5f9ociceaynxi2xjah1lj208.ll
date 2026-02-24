@@ -22903,9 +22903,9 @@ define internal { i64, ptr } @"_ZN123_$LT$pingora_load_balancing..health_check..
   %97 = alloca [40 x i8], align 8
   %98 = alloca [72 x i8], align 8
   %99 = alloca [24 x i8], align 8
+  %.sroa.760.i.i = alloca [112 x i8], align 8
   %100 = alloca [232 x i8], align 8
   %101 = alloca [232 x i8], align 8
-  %.sroa.760.i.i = alloca [112 x i8], align 8
   %102 = alloca [16 x i8], align 8
   %103 = alloca [112 x i8], align 8
   %104 = alloca [128 x i8], align 8

@@ -379,7 +379,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %61
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h4a1aedac7727b4e8E.exit", %63
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hcb3cb9f8548e7f5bE"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %60 = load i64, ptr %6, align 8, !range !40, !noundef !4
   switch i64 %60, label %70 [
@@ -436,7 +435,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %73
 
 73:                                               ; preds = %69, %70, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h195d2bc8f080a4a2E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -560,7 +558,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %61
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h4a1aedac7727b4e8E.exit", %63
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hcb3cb9f8548e7f5bE"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %60 = load i64, ptr %6, align 8, !range !40, !noundef !4
   switch i64 %60, label %70 [
@@ -617,7 +614,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %73
 
 73:                                               ; preds = %69, %70, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h195d2bc8f080a4a2E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -741,7 +737,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %61
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h4a1aedac7727b4e8E.exit", %63
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hcb3cb9f8548e7f5bE"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %60 = load i64, ptr %6, align 8, !range !40, !noundef !4
   switch i64 %60, label %70 [
@@ -798,7 +793,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %73
 
 73:                                               ; preds = %69, %70, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h195d2bc8f080a4a2E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -922,7 +916,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %61
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h4a1aedac7727b4e8E.exit", %63
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hcb3cb9f8548e7f5bE"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %60 = load i64, ptr %6, align 8, !range !40, !noundef !4
   switch i64 %60, label %70 [
@@ -979,7 +972,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %73
 
 73:                                               ; preds = %69, %70, %"_ZN4core3ptr118drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$GT$$GT$17h195d2bc8f080a4a2E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1073,7 +1065,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hda923be284f60b51E.exit.thread"
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h475ece3f2477ae9bE.exit", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hda923be284f60b51E.exit.thread"
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hb1af437eefa89283E"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %48 = load i64, ptr %6, align 8, !range !40, !noundef !4
   switch i64 %48, label %54 [
@@ -1120,7 +1111,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %57
 
 57:                                               ; preds = %53, %54, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17h98e7ae41769aef57E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1214,7 +1204,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h25d92cdd6819e432E.exit.thread"
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17hc1fa9ad336b54c4dE.exit", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h25d92cdd6819e432E.exit.thread"
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hc25461962327818cE"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %48 = load i64, ptr %6, align 8, !range !40, !noundef !4
   switch i64 %48, label %54 [
@@ -1261,7 +1250,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %57
 
 57:                                               ; preds = %53, %54, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17h98e7ae41769aef57E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1355,7 +1343,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h4387f57c417e2205E.exit.thread"
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h5ceeb460feb66465E.exit", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h4387f57c417e2205E.exit.thread"
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h0675803b7ba1594aE"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %48 = load i64, ptr %6, align 8, !range !40, !noundef !4
   switch i64 %48, label %54 [
@@ -1402,7 +1389,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %57
 
 57:                                               ; preds = %53, %54, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17h98e7ae41769aef57E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1496,7 +1482,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hf2db6497b3c60613E.exit.thread"
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17hfa0cb914be740db7E.exit", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17hf2db6497b3c60613E.exit.thread"
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17he03c3f70840c949fE"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %48 = load i64, ptr %6, align 8, !range !40, !noundef !4
   switch i64 %48, label %54 [
@@ -1543,7 +1528,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %57
 
 57:                                               ; preds = %53, %54, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17h98e7ae41769aef57E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1637,7 +1621,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h765f398f637fadedE.exit.thread"
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h1219018445ac99faE.exit", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h765f398f637fadedE.exit.thread"
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h77cd6b6d6f371605E"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %48 = load i64, ptr %6, align 8, !range !40, !noundef !4
   switch i64 %48, label %54 [
@@ -1684,7 +1667,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %57
 
 57:                                               ; preds = %53, %54, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17h98e7ae41769aef57E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 
@@ -1778,7 +1760,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h98d019c179beb195E.exit.thread"
 
 .loopexit:                                        ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17h1c2faa96dc0c4e8cE.exit", %"_ZN98_$LT$futures_util..stream..stream..fuse..Fuse$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h98d019c179beb195E.exit.thread"
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @"_ZN113_$LT$futures_util..stream..futures_ordered..FuturesOrdered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h367e8abffaeb335bE"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %6, ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %48 = load i64, ptr %6, align 8, !range !40, !noundef !4
   switch i64 %48, label %54 [
@@ -1825,7 +1806,6 @@ define hidden void @"_ZN107_$LT$futures_util..stream..stream..buffered..Buffered
   br label %57
 
 57:                                               ; preds = %53, %54, %"_ZN4core3ptr123drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$object_store..path..Path$C$object_store..Error$GT$$GT$$GT$17h98e7ae41769aef57E.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }
 

@@ -79,8 +79,8 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   %8 = alloca ptr, align 8
   %9 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %10 = alloca { { { i64, ptr, {} }, i64 } }, align 8
-  %11 = alloca { { i64, ptr, {} }, i64 }, align 8
-  %12 = alloca { i64, [3 x i64] }, align 8
+  %11 = alloca { i64, [3 x i64] }, align 8
+  %12 = alloca { { i64, ptr, {} }, i64 }, align 8
   %13 = alloca { i8, [23 x i8] }, align 8
   %14 = alloca ptr, align 8
   %15 = alloca ptr, align 8
@@ -660,7 +660,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
 
 231:                                              ; preds = %234, %230
   %.346.i.i = phi i8 [ 0, %230 ], [ %.043.i.i, %234 ]
-  invoke fastcc void @_ZN22cranelift_codegen_meta4cdsl12instructions25is_ctrl_typevar_candidate17h60a5f0ddfebbcfa8E(ptr noalias align 8 %12, ptr align 8 %212, ptr nonnull align 8 %67, i64 %69, ptr nonnull align 8 %77, i64 %79)
+  invoke fastcc void @_ZN22cranelift_codegen_meta4cdsl12instructions25is_ctrl_typevar_candidate17h60a5f0ddfebbcfa8E(ptr noalias align 8 %11, ptr align 8 %212, ptr nonnull align 8 %67, i64 %69, ptr nonnull align 8 %77, i64 %79)
           to label %238 unwind label %224
 
 232:                                              ; preds = %309, %308, %282, %265, %255, %245, %226
@@ -680,13 +680,13 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
   br i1 %237, label %254, label %200
 
 238:                                              ; preds = %231
-  %239 = load i64, ptr %12, align 8, !range !6, !noundef !3
+  %239 = load i64, ptr %11, align 8, !range !6, !noundef !3
   %240 = icmp eq i64 %239, 0
-  %241 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %241 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br i1 %240, label %242, label %244
 
 242:                                              ; preds = %238
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %241, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %241, i64 24, i1 false)
   %243 = load ptr, ptr %212, align 8, !nonnull !3, !noundef !3
   invoke void @_ZN5alloc2rc10RcInnerPtr10inc_strong17h8dfc2302679bdee6E(ptr nonnull align 8 %243)
           to label %247 unwind label %245
@@ -698,11 +698,11 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionG
 245:                                              ; preds = %242
   %246 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr90drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$17h9979510f148df1c8E"(ptr nonnull align 8 %11) #10
+  invoke void @"_ZN4core3ptr90drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$17h9979510f148df1c8E"(ptr nonnull align 8 %12) #10
           to label %222 unwind label %232
 
 247:                                              ; preds = %242
-  invoke void @"_ZN4core3ptr90drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$17h9979510f148df1c8E"(ptr nonnull align 8 %11)
+  invoke void @"_ZN4core3ptr90drop_in_place$LT$alloc..vec..Vec$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$17h9979510f148df1c8E"(ptr nonnull align 8 %12)
           to label %248 unwind label %224
 
 248:                                              ; preds = %247

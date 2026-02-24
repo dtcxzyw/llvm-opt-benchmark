@@ -4002,7 +4002,6 @@ define void @_ZN9uv_client10flat_index15FlatIndexClient19read_from_directory17ha
   br label %158
 
 140:                                              ; preds = %.backedge, %63
-  call void @llvm.lifetime.start.p0(ptr nonnull %57)
   invoke void @"_ZN75_$LT$std..fs..ReadDir$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf973f1b9f2718b30E"(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %57, ptr noalias noundef nonnull align 8 dereferenceable(16) %58)
           to label %145 unwind label %.loopexit
 
@@ -4038,7 +4037,6 @@ define void @_ZN9uv_client10flat_index15FlatIndexClient19read_from_directory17ha
   br i1 %trunc, label %152, label %147
 
 147:                                              ; preds = %145
-  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   call void @llvm.experimental.noalias.scope.decl(metadata !725)
   call void @llvm.experimental.noalias.scope.decl(metadata !728)
   call void @llvm.experimental.noalias.scope.decl(metadata !731)
@@ -4742,7 +4740,6 @@ default.unreachable:                              ; preds = %302
 
 .backedge:                                        ; preds = %"_ZN4core3ptr54drop_in_place$LT$std..sys..pal..unix..fs..DirEntry$GT$17hd45126093a6f8da4E.llvm.8889172534577806058.exit.i.invoke"
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
-  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %140
 
 345:                                              ; preds = %299
@@ -5091,7 +5088,6 @@ default.unreachable:                              ; preds = %302
 
 "_ZN4core3ptr38drop_in_place$LT$std..fs..DirEntry$GT$17h8ed563630194dafaE.exit252": ; preds = %"_ZN4core3ptr54drop_in_place$LT$std..sys..pal..unix..fs..DirEntry$GT$17hd45126093a6f8da4E.llvm.8889172534577806058.exit.i247", %451
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
-  call void @llvm.lifetime.end.p0(ptr nonnull %57)
   call void @llvm.experimental.noalias.scope.decl(metadata !1009)
   call void @llvm.experimental.noalias.scope.decl(metadata !1012)
   call void @llvm.experimental.noalias.scope.decl(metadata !1015)

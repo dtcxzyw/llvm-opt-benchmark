@@ -2015,7 +2015,6 @@ define hidden void @"_ZN165_$LT$serde_json..value..de..$LT$impl$u20$serde..de..D
   %15 = alloca { { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64 }, {}, {} } }, { i64, i64 } } }, align 8
   %16 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %17 = alloca { i64, [2 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..MapAccess$GT$13next_key_seed17h40e3847f17e75717E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %18 = load i64, ptr %17, align 8, !range !744, !noundef !13
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -2215,7 +2214,6 @@ _ZN5serde2de9MapAccess10next_value17hb31cc50a62ffea8aE.exit.i: ; preds = %37
   br label %70
 
 70:                                               ; preds = %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit34", %"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit"
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @"_ZN87_$LT$serde..de..value..MapDeserializer$LT$I$C$E$GT$$u20$as$u20$serde..de..MapAccess$GT$15next_entry_seed17hd65dbc9874a4413cE"(ptr noalias noundef nonnull sret({ i64, [11 x i64] }) align 8 captures(none) dereferenceable(96) %10, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
           to label %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_entry17h371f2299c43639ecE.exit" unwind label %.loopexit
 
@@ -2232,7 +2230,6 @@ _ZN5serde2de9MapAccess10next_value17hb31cc50a62ffea8aE.exit.i: ; preds = %37
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %74, ptr %75, align 8
   store i64 -9223372036854775803, ptr %0, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %"_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h3ff537450c9b5d95E.exit36"
 
 76:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_entry17h371f2299c43639ecE.exit"
@@ -2257,18 +2254,15 @@ _ZN5serde2de9MapAccess10next_value17hb31cc50a62ffea8aE.exit.i: ; preds = %37
 
 "_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$serde_json..value..Value$GT$$GT$17h9351df0ccf133c67E.exit34": ; preds = %77, %80
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %70
 
 81:                                               ; preds = %"_ZN54_$LT$$RF$mut$u20$A$u20$as$u20$serde..de..MapAccess$GT$10next_entry17h371f2299c43639ecE.exit"
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %15, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %82
 
-82:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfeb418033d86c7bbE.exit", %81, %20, %"_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h3ff537450c9b5d95E.exit36"
-  call void @llvm.lifetime.end.p0(ptr nonnull %17)
+82:                                               ; preds = %20, %"_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h3ff537450c9b5d95E.exit36", %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hfeb418033d86c7bbE.exit", %81
   ret void
 
 "_ZN4core3ptr97drop_in_place$LT$serde_json..map..Map$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h3ff537450c9b5d95E.exit36": ; preds = %83, %72

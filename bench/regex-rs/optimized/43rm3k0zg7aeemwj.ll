@@ -2300,7 +2300,6 @@ _ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit: ; pr
   call void @llvm.assume(i1 %46)
   store i64 %.sroa.545.0.copyload, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.0..sroa_idx, i64 24, i1 false)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN12regex_syntax3hir7visitor11HeapVisitor3pop17h37ec2ebcf539a063E(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5)
   %47 = load i64, ptr %4, align 8, !range !293, !noundef !4
   %.not23 = icmp eq i64 %47, 4
@@ -2314,7 +2313,6 @@ _ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit: ; pr
   ]
 
 49:                                               ; preds = %45
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %50 = call noundef zeroext i1 @"_ZN97_$LT$regex_syntax..hir..print..Writer$LT$W$GT$$u20$as$u20$regex_syntax..hir..visitor..Visitor$GT$10visit_post17h424aaeb6cbe312a8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.044.0.copyload)
   br i1 %50, label %.loopexit, label %.preheader
 
@@ -2362,7 +2360,6 @@ _ZN12regex_syntax3hir7visitor5Frame5child17h7989d29082ddd62fE.exit31: ; preds = 
   %65 = load i64, ptr %7, align 8, !alias.scope !294, !noalias !297, !noundef !4
   %66 = add i64 %65, 1
   store i64 %66, ptr %7, align 8, !alias.scope !294, !noalias !297
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %67 = call noundef zeroext i1 @"_ZN97_$LT$regex_syntax..hir..print..Writer$LT$W$GT$$u20$as$u20$regex_syntax..hir..visitor..Visitor$GT$9visit_pre17h23e30531a2cb5d0bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6, ptr noalias noundef readonly align 8 dereferenceable(48) %.0.in.i28.sroa.speculated)
   br i1 %67, label %.loopexit, label %10
 
@@ -2371,14 +2368,10 @@ _ZN12regex_syntax3hir7visitor5Frame5child17h7989d29082ddd62fE.exit31: ; preds = 
   call void @llvm.experimental.noalias.scope.decl(metadata !302)
   %69 = load ptr, ptr %6, align 8, !alias.scope !305, !noalias !306, !nonnull !4, !align !5, !noundef !4
   %70 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %69, ptr noalias noundef nonnull readonly align 1 @anon.a0cf07ee2bf0c4ef13b938348e5442a5.63.llvm.746658106587683372, i64 noundef 1), !noalias !305
-  br i1 %70, label %71, label %.thread95
+  br i1 %70, label %.loopexit, label %.thread95
 
-71:                                               ; preds = %68
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit33", %_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit, %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha7298382b4c38916E.exit", %.preheader, %3, %71
-  %.017 = phi i1 [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit33" ], [ true, %71 ], [ true, %49 ], [ true, %3 ], [ false, %.preheader ], [ false, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha7298382b4c38916E.exit" ], [ true, %_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit" ]
+.loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit33", %_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit, %68, %49, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha7298382b4c38916E.exit", %.preheader, %3
+  %.017 = phi i1 [ true, %3 ], [ false, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17ha7298382b4c38916E.exit" ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit33" ], [ false, %.preheader ], [ true, %49 ], [ true, %68 ], [ true, %_ZN12regex_syntax3hir7visitor11HeapVisitor6induct17hcc11919c1d8feaaaE.exit ], [ true, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6559da0a4fc85048E.exit" ]
   ret i1 %.017
 }
 
