@@ -85304,47 +85304,47 @@ _ZNK2OT16List16OfOffsetToINS_6Layout9GPOS_impl12AnchorMatrixENS_7IntTypeItLj2EEE
   %narrow.i = select i1 %.not.i166, i8 %327, i8 0
   %.0.i167 = zext nneg i8 %narrow.i to i32
   %.not118 = icmp eq i8 %321, 0
-  br i1 %.not118, label %334, label %328
+  br i1 %.not118, label %333, label %328
 
 328:                                              ; preds = %317
   %329 = lshr i8 %.val125, 5
   %330 = icmp eq i8 %321, %329
   %331 = icmp ne i8 %narrow.i, 0
   %or.cond3 = and i1 %330, %331
-  br i1 %or.cond3, label %332, label %334
+  br i1 %or.cond3, label %332, label %333
 
 332:                                              ; preds = %328
-  %333 = tail call i32 @llvm.umin.i32(i32 %269, i32 %.0.i167)
-  br label %334
+  %.099.in.pre = tail call i32 @llvm.umin.i32(i32 %269, i32 %.0.i167)
+  br label %333
 
-334:                                              ; preds = %317, %328, %332
-  %.099.in = phi i32 [ %333, %332 ], [ %269, %328 ], [ %269, %317 ]
+333:                                              ; preds = %317, %328, %332
+  %.099.in = phi i32 [ %.099.in.pre, %332 ], [ %269, %328 ], [ %269, %317 ]
   %.099 = add nsw i32 %.099.in, -1
-  %335 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %336 = load i8, ptr %335, align 1
-  %337 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %338 = load i8, ptr %337, align 1
-  %339 = or i8 %338, %336
-  %340 = icmp eq i8 %339, 0
-  %341 = zext i8 %336 to i64
-  %342 = shl nuw nsw i64 %341, 8
-  %343 = zext i8 %338 to i64
-  %344 = getelementptr inbounds nuw i8, ptr %0, i64 %342
-  %345 = getelementptr inbounds nuw i8, ptr %344, i64 %343
-  %.0.i.i172 = select i1 %340, ptr @_hb_NullPool, ptr %345
-  %346 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %347 = load i8, ptr %346, align 1
-  %348 = zext i8 %347 to i32
-  %349 = shl nuw nsw i32 %348, 8
-  %350 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %351 = load i8, ptr %350, align 1
-  %352 = zext i8 %351 to i32
-  %353 = or disjoint i32 %349, %352
-  %354 = tail call noundef zeroext i1 @_ZNK2OT6Layout9GPOS_impl9MarkArray5applyEPNS_21hb_ot_apply_context_tEjjRKNS1_12AnchorMatrixEjj(ptr noundef nonnull align 1 dereferenceable(6) %.0.i.i172, ptr noundef nonnull %1, i32 noundef %23, i32 noundef %.099, ptr noundef nonnull align 1 dereferenceable(4) %.0.i149, i32 noundef %353, i32 noundef %119)
+  %334 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %335 = load i8, ptr %334, align 1
+  %336 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %337 = load i8, ptr %336, align 1
+  %338 = or i8 %337, %335
+  %339 = icmp eq i8 %338, 0
+  %340 = zext i8 %335 to i64
+  %341 = shl nuw nsw i64 %340, 8
+  %342 = zext i8 %337 to i64
+  %343 = getelementptr inbounds nuw i8, ptr %0, i64 %341
+  %344 = getelementptr inbounds nuw i8, ptr %343, i64 %342
+  %.0.i.i172 = select i1 %339, ptr @_hb_NullPool, ptr %344
+  %345 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %346 = load i8, ptr %345, align 1
+  %347 = zext i8 %346 to i32
+  %348 = shl nuw nsw i32 %347, 8
+  %349 = getelementptr inbounds nuw i8, ptr %0, i64 7
+  %350 = load i8, ptr %349, align 1
+  %351 = zext i8 %350 to i32
+  %352 = or disjoint i32 %348, %351
+  %353 = tail call noundef zeroext i1 @_ZNK2OT6Layout9GPOS_impl9MarkArray5applyEPNS_21hb_ot_apply_context_tEjjRKNS1_12AnchorMatrixEjj(ptr noundef nonnull align 1 dereferenceable(6) %.0.i.i172, ptr noundef nonnull %1, i32 noundef %23, i32 noundef %.099, ptr noundef nonnull align 1 dereferenceable(4) %.0.i149, i32 noundef %352, i32 noundef %119)
   br label %_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit
 
-_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit:    ; preds = %288, %311, %201, %224, %137, %159, %270, %286, %._crit_edge.i156, %183, %199, %._crit_edge.i137, %121, %136, %._crit_edge.i, %2, %334
-  %.0102 = phi i1 [ false, %183 ], [ false, %2 ], [ false, %121 ], [ %354, %334 ], [ false, %270 ], [ false, %._crit_edge.i ], [ false, %137 ], [ false, %136 ], [ false, %224 ], [ false, %._crit_edge.i137 ], [ false, %201 ], [ false, %199 ], [ false, %311 ], [ false, %._crit_edge.i156 ], [ false, %159 ], [ false, %286 ], [ false, %288 ]
+_ZN11hb_buffer_t16_set_glyph_flagsEjjjbb.exit:    ; preds = %288, %311, %201, %224, %137, %159, %270, %286, %._crit_edge.i156, %183, %199, %._crit_edge.i137, %121, %136, %._crit_edge.i, %2, %333
+  %.0102 = phi i1 [ false, %183 ], [ false, %2 ], [ false, %121 ], [ %353, %334 ], [ false, %270 ], [ false, %._crit_edge.i ], [ false, %137 ], [ false, %136 ], [ false, %224 ], [ false, %._crit_edge.i137 ], [ false, %201 ], [ false, %199 ], [ false, %311 ], [ false, %._crit_edge.i156 ], [ false, %159 ], [ false, %286 ], [ false, %288 ]
   ret i1 %.0102
 }
 

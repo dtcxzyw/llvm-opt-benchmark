@@ -1237,7 +1237,7 @@ define internal fastcc range(i32 0, 2) i32 @IncreasePreviousDuration(ptr noundef
   %14 = load i32, ptr %13, align 8, !tbaa !91
   %15 = add nsw i32 %14, %1
   %16 = icmp sgt i32 %15, 16777215
-  br i1 %16, label %17, label %54
+  br i1 %16, label %17, label %56
 
 17:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1290,13 +1290,13 @@ define internal fastcc range(i32 0, 2) i32 @IncreasePreviousDuration(ptr noundef
   %.not18.i = icmp eq i64 %37, 0
   br i1 %.not18.i, label %45, label %38
 
-38:                                               ; preds = %35
+38: ; preds = %35
   %39 = call ptr @WebPMalloc(i64 noundef %37) #15
   store ptr %39, ptr %12, align 8, !tbaa !55
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.critedge, label %41
 
-41:                                               ; preds = %38
+41:; preds = %38
   %42 = load ptr, ptr %., align 8, !tbaa !55
   %43 = load i64, ptr %36, align 8, !tbaa !92
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %42, i64 %43, i1 false)
@@ -1304,7 +1304,7 @@ define internal fastcc range(i32 0, 2) i32 @IncreasePreviousDuration(ptr noundef
   store i64 %43, ptr %44, align 8, !tbaa !92
   br label %45
 
-45:                                               ; preds = %41, %35
+45: ; preds = %41, %35
   %46 = load i64, ptr %7, align 8, !tbaa !67
   %47 = add i64 %46, 1
   store i64 %47, ptr %7, align 8, !tbaa !67
@@ -1322,22 +1322,22 @@ define internal fastcc range(i32 0, 2) i32 @IncreasePreviousDuration(ptr noundef
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %56
+  br label %58
 
-54:                                               ; preds = %2
+56:                                               ; preds = %2
   store i32 %15, ptr %13, align 8, !tbaa !91
-  %55 = getelementptr i8, ptr %12, i64 -32
-  store i32 %15, ptr %55, align 8, !tbaa !100
-  br label %56
+  %57 = getelementptr i8, ptr %12, i64 -32
+  store i32 %15, ptr %57, align 8, !tbaa !100
+  br label %58
 
 .critedge:                                        ; preds = %38, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %56
+  br label %58
 
-56:                                               ; preds = %54, %45, %.critedge
+58:                                               ; preds = %56, %45, %.critedge
   %.1 = phi i32 [ 0, %.critedge ], [ 1, %45 ], [ 1, %54 ]
   ret i32 %.1
 }

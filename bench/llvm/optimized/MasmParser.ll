@@ -41840,7 +41840,7 @@ _ZNSt6vectorIN12_GLOBAL__N_19FieldInfoESaIS1_EE12emplace_backIJRNS0_9FieldTypeEE
   store i32 %142, ptr %127, align 4, !tbaa !886
   br label %143
 
-143:                                              ; preds = %140, %_ZNSt6vectorIN12_GLOBAL__N_19FieldInfoESaIS1_EE12emplace_backIJRNS0_9FieldTypeEEEERS1_DpOT_.exit
+143:; preds = %140, %_ZNSt6vectorIN12_GLOBAL__N_19FieldInfoESaIS1_EE12emplace_backIJRNS0_9FieldTypeEEEERS1_DpOT_.exit
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %145 = load i32, ptr %144, align 8, !tbaa !499
   %.sroa.speculated = call i32 @llvm.umax.i32(i32 %145, i32 %4)

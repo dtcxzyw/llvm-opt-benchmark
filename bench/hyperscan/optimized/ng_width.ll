@@ -273,7 +273,7 @@ define hidden i32 @_ZN3ue212findMinWidthERKNS_8NGHolderE(ptr noundef nonnull rea
   br label %_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit
 
 _ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit: ; preds = %1, %7, %9
-  %.sroa.08.0.i = phi i32 [ %10, %9 ], [ %5, %1 ], [ %3, %7 ]
+  %.sroa.08.0.in.i = phi i32 [ %10, %9 ], [ %5, %1 ], [ %3, %7 ]
   ret i32 %.sroa.08.0.i
 }
 
@@ -304,7 +304,7 @@ define hidden i32 @_ZN3ue212findMinWidthERKNS_8NGHolderEj(ptr noundef nonnull re
   br label %_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit
 
 _ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit: ; preds = %2, %8, %10
-  %.sroa.08.0.i = phi i32 [ %11, %10 ], [ %6, %2 ], [ %4, %8 ]
+  %.sroa.08.0.in.i = phi i32 [ %11, %10 ], [ %6, %2 ], [ %4, %8 ]
   ret i32 %.sroa.08.0.i
 }
 
@@ -339,7 +339,7 @@ define hidden i32 @_ZN3ue212findMaxWidthERKNS_8NGHolderE(ptr noundef nonnull ali
   br label %_ZN3ue2L12findMaxWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit
 
 _ZN3ue2L12findMaxWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit: ; preds = %1, %10, %12
-  %.sroa.08.0.i = phi i32 [ %13, %12 ], [ %8, %1 ], [ %6, %10 ]
+  %.sroa.08.0.in.i = phi i32 [ %13, %12 ], [ %8, %1 ], [ %6, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.sroa.08.0.i
 }
@@ -375,7 +375,7 @@ define hidden i32 @_ZN3ue212findMaxWidthERKNS_8NGHolderEj(ptr noundef nonnull al
   br label %_ZN3ue2L12findMaxWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit
 
 _ZN3ue2L12findMaxWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit: ; preds = %2, %11, %13
-  %.sroa.08.0.i = phi i32 [ %14, %13 ], [ %9, %2 ], [ %7, %11 ]
+  %.sroa.08.0.in.i = phi i32 [ %14, %13 ], [ %9, %2 ], [ %7, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.sroa.08.0.i
 }

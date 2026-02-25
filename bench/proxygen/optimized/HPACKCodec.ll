@@ -4673,24 +4673,24 @@ cond.true14:                                      ; preds = %if.then12
   ]
 
 sw.bb2.i13:                                       ; preds = %cond.true14
-  %10 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i14 = getelementptr inbounds i8, ptr %10, i64 -8
-  %11 = load atomic i64, ptr %add.ptr.i.i.i14 acquire, align 8
-  %cmp.i15 = icmp ugt i64 %11, 1
+  %9 = load ptr, ptr %this, align 8
+  %add.ptr.i.i.i14 = getelementptr inbounds i8, ptr %9, i64 -8
+  %10 = load atomic i64, ptr %add.ptr.i.i.i14 acquire, align 8
+  %cmp.i15 = icmp ugt i64 %10, 1
   br i1 %cmp.i15, label %if.then.i20, label %sw.epilog.i16
 
 if.then.i20:                                      ; preds = %sw.bb2.i13
-  %12 = load i64, ptr %size_, align 8
+  %11 = load i64, ptr %size_, align 8
   br label %_ZNK5folly13fbstring_coreIcE8capacityEv.exit22
 
 sw.epilog.i16:                                    ; preds = %sw.bb2.i13, %cond.true14
   %capacity_.i.i17 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %13 = load i64, ptr %capacity_.i.i17, align 8
-  %and.i.i18 = and i64 %13, 4611686018427387903
+  %12 = load i64, ptr %capacity_.i.i17, align 8
+  %and.i.i18 = and i64 %12, 4611686018427387903
   br label %_ZNK5folly13fbstring_coreIcE8capacityEv.exit22
 
 _ZNK5folly13fbstring_coreIcE8capacityEv.exit22:   ; preds = %cond.true14, %if.then.i20, %sw.epilog.i16
-  %retval.0.i19 = phi i64 [ %and.i.i18, %sw.epilog.i16 ], [ %12, %if.then.i20 ], [ 23, %cond.true14 ]
+  %.pre = phi i64 [ %and.i.i18, %sw.epilog.i16 ], [ %12, %if.then.i20 ], [ 23, %cond.true14 ]
   %mul = mul i64 %retval.0.i19, 3
   %div7 = lshr i64 %mul, 1
   %add17 = add nuw i64 %div7, 1
@@ -4698,7 +4698,7 @@ _ZNK5folly13fbstring_coreIcE8capacityEv.exit22:   ; preds = %cond.true14, %if.th
   br label %cond.end20
 
 cond.end20:                                       ; preds = %if.then12, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit22
-  %cond21 = phi i64 [ %14, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit22 ], [ %add9, %if.then12 ]
+  %15 = phi i64 [ %14, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit22 ], [ %add9, %if.then12 ]
   %15 = load i8, ptr %arrayidx.i, align 1
   %16 = and i8 %15, -64
   switch i8 %16, label %sw.default.i [
@@ -4723,7 +4723,7 @@ sw.default.i:                                     ; preds = %cond.end20
   unreachable
 
 if.end23:                                         ; preds = %_ZNK5folly13fbstring_coreIcE8capacityEv.exit, %sw.bb3.i, %sw.bb2.i27, %sw.bb.i, %if.end
-  %newSz.0.newSz.0. = phi i64 [ %add, %if.end ], [ %add9, %sw.bb3.i ], [ %add9, %sw.bb.i ], [ %add9, %sw.bb2.i27 ], [ %add9, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit ]
+  %sz.0 = phi i64 [ %add, %if.end ], [ %add9, %sw.bb3.i ], [ %add9, %sw.bb.i ], [ %add9, %sw.bb2.i27 ], [ %add9, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit ]
   %sz.0 = phi i64 [ %sub.i, %if.end ], [ %3, %sw.bb3.i ], [ %3, %sw.bb.i ], [ %3, %sw.bb2.i27 ], [ %3, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit ]
   %size_24 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %newSz.0.newSz.0., ptr %size_24, align 8

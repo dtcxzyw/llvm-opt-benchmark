@@ -4073,7 +4073,7 @@ define dso_local noundef i32 @_ZNK4llvm2gi25CodeGenInstructionPattern18getNumIns
   %38 = tail call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(328) %0) #26
   br i1 %38, label %39, label %43
 
-39:                                               ; preds = %23
+39:; preds = %23
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load i32, ptr %40, align 8, !tbaa !148
   %42 = tail call i32 @llvm.umax.i32(i32 %41, i32 %34)

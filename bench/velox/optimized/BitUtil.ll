@@ -584,7 +584,7 @@ if.end:                                           ; preds = %entry
   %and = and i32 %numTarget, 7
   %sub = add nsw i32 %div, -7
   %cmp.i23 = icmp sgt i32 %numTarget, 63
-  %6 = select i1 %cmp.i23, i32 %sub, i32 0
+  %__b.__a.i = select i1 %cmp.i23, i32 %sub, i32 0
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end25, %if.end
@@ -601,17 +601,17 @@ for.cond:                                         ; preds = %if.end25, %if.end
 if.then4:                                         ; preds = %for.cond
   %idx.ext = sext i32 %lowByte.0 to i64
   %add.ptr = getelementptr inbounds i8, ptr %targetMask, i64 %idx.ext
-  %7 = load i64, ptr %add.ptr, align 8
-  %8 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %7)
-  %cast = trunc nuw nsw i64 %8 to i32
+  %6 = load i64, ptr %add.ptr, align 8
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
+  %cast = trunc nuw nsw i64 %7 to i32
   %sub.i24 = sub nsw i32 %numSource.addr.0, %cast
   %div1.i = sdiv i32 %sub.i24, 8
   %and.i = and i32 %sub.i24, 7
   %idx.ext.i = sext i32 %div1.i to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %source, i64 %idx.ext.i
-  %9 = load i64, ptr %add.ptr.i, align 8
+  %8 = load i64, ptr %add.ptr.i, align 8
   %sh_prom.i = zext nneg i32 %and.i to i64
-  %shr.i = lshr i64 %9, %sh_prom.i
+  %shr.i = lshr i64 %8, %sh_prom.i
   %add.i = add nuw nsw i32 %and.i, %cast
   %cmp.i25 = icmp samesign ugt i32 %add.i, 64
   br i1 %cmp.i25, label %if.then.i, label %_ZN8facebook5velox4bits12_GLOBAL__N_111getBitFieldEPKciRi.exit
@@ -621,12 +621,12 @@ if.then.i:                                        ; preds = %if.then4
   %sub4.i = add nsw i32 %add.i, -64
   %idx.ext5.i = sext i32 %div.i to i64
   %add.ptr6.i = getelementptr inbounds i8, ptr %source, i64 %idx.ext5.i
-  %10 = load i8, ptr %add.ptr6.i, align 1
+  %9 = load i8, ptr %add.ptr6.i, align 1
   %sh_prom.i.i = zext nneg i32 %sub4.i to i64
   %notmask.i.i = shl nsw i64 -1, %sh_prom.i.i
-  %11 = trunc nsw i64 %notmask.i.i to i8
-  %12 = xor i8 %11, -1
-  %conv8.i = and i8 %10, %12
+  %10 = trunc nsw i64 %notmask.i.i to i8
+  %11 = xor i8 %10, -1
+  %conv8.i = and i8 %9, %11
   %conv9.i = zext nneg i8 %conv8.i to i64
   %sub10.i = sub nuw nsw i32 64, %and.i
   %sh_prom11.i = zext nneg i32 %sub10.i to i64
@@ -636,9 +636,9 @@ if.then.i:                                        ; preds = %if.then4
 
 _ZN8facebook5velox4bits12_GLOBAL__N_111getBitFieldEPKciRi.exit: ; preds = %if.then4, %if.then.i
   %bits.0.i = phi i64 [ %or.i, %if.then.i ], [ %shr.i, %if.then4 ]
-  %13 = tail call noundef i64 @llvm.x86.bmi.pdep.64(i64 %bits.0.i, i64 %7)
+  %12 = tail call noundef i64 @llvm.x86.bmi.pdep.64(i64 %bits.0.i, i64 %6)
   %add.ptr8 = getelementptr inbounds i8, ptr %target, i64 %idx.ext
-  store i64 %13, ptr %add.ptr8, align 8
+  store i64 %12, ptr %add.ptr8, align 8
   br label %if.end23
 
 if.else:                                          ; preds = %for.cond
@@ -647,18 +647,18 @@ if.else:                                          ; preds = %for.cond
   %sub.i27 = xor i64 %notmask.i, -1
   %idx.ext11 = sext i32 %lowByte.0 to i64
   %add.ptr12 = getelementptr inbounds i8, ptr %targetMask, i64 %idx.ext11
-  %14 = load i64, ptr %add.ptr12, align 8
-  %and13 = and i64 %14, %sub.i27
-  %15 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and13)
-  %cast15 = trunc nuw nsw i64 %15 to i32
+  %13 = load i64, ptr %add.ptr12, align 8
+  %and13 = and i64 %13, %sub.i27
+  %14 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and13)
+  %cast15 = trunc nuw nsw i64 %14 to i32
   %sub.i28 = sub nsw i32 %numSource.addr.0, %cast15
   %div1.i29 = sdiv i32 %sub.i28, 8
   %and.i30 = and i32 %sub.i28, 7
   %idx.ext.i31 = sext i32 %div1.i29 to i64
   %add.ptr.i32 = getelementptr inbounds i8, ptr %source, i64 %idx.ext.i31
-  %16 = load i64, ptr %add.ptr.i32, align 8
+  %15 = load i64, ptr %add.ptr.i32, align 8
   %sh_prom.i33 = zext nneg i32 %and.i30 to i64
-  %shr.i34 = lshr i64 %16, %sh_prom.i33
+  %shr.i34 = lshr i64 %15, %sh_prom.i33
   %add.i35 = add nuw nsw i32 %and.i30, %cast15
   %cmp.i36 = icmp samesign ugt i32 %add.i35, 64
   br i1 %cmp.i36, label %if.then.i38, label %_ZN8facebook5velox4bits12_GLOBAL__N_111getBitFieldEPKciRi.exit51
@@ -668,12 +668,12 @@ if.then.i38:                                      ; preds = %if.else
   %sub4.i40 = add nsw i32 %add.i35, -64
   %idx.ext5.i41 = sext i32 %div.i39 to i64
   %add.ptr6.i42 = getelementptr inbounds i8, ptr %source, i64 %idx.ext5.i41
-  %17 = load i8, ptr %add.ptr6.i42, align 1
+  %16 = load i8, ptr %add.ptr6.i42, align 1
   %sh_prom.i.i43 = zext nneg i32 %sub4.i40 to i64
   %notmask.i.i44 = shl nsw i64 -1, %sh_prom.i.i43
-  %18 = trunc nsw i64 %notmask.i.i44 to i8
-  %19 = xor i8 %18, -1
-  %conv8.i45 = and i8 %17, %19
+  %17 = trunc nsw i64 %notmask.i.i44 to i8
+  %18 = xor i8 %17, -1
+  %conv8.i45 = and i8 %16, %18
   %conv9.i46 = zext nneg i8 %conv8.i45 to i64
   %sub10.i47 = sub nuw nsw i32 64, %and.i30
   %sh_prom11.i48 = zext nneg i32 %sub10.i47 to i64
@@ -684,10 +684,10 @@ if.then.i38:                                      ; preds = %if.else
 _ZN8facebook5velox4bits12_GLOBAL__N_111getBitFieldEPKciRi.exit51: ; preds = %if.else, %if.then.i38
   %bits.0.i37 = phi i64 [ %or.i50, %if.then.i38 ], [ %shr.i34, %if.else ]
   %add.ptr19 = getelementptr inbounds i8, ptr %target, i64 %idx.ext11
-  %20 = tail call noundef i64 @llvm.x86.bmi.pdep.64(i64 %bits.0.i37, i64 %and13)
-  %21 = load i64, ptr %add.ptr19, align 8
-  %and21 = and i64 %21, %notmask.i
-  %and22 = and i64 %20, %sub.i27
+  %19 = tail call noundef i64 @llvm.x86.bmi.pdep.64(i64 %bits.0.i37, i64 %and13)
+  %20 = load i64, ptr %add.ptr19, align 8
+  %and21 = and i64 %20, %notmask.i
+  %and22 = and i64 %19, %sub.i27
   %or = or disjoint i64 %and21, %and22
   store i64 %or, ptr %add.ptr19, align 8
   br label %if.end23

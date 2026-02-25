@@ -4461,7 +4461,7 @@ _ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit.lr.ph: ; preds = %3
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %14 = load float, ptr %13, align 8, !tbaa !619
-  br i1 %.0131720, label %15, label %22
+  br i1 %.0131720, label %15, label %21
 
 15:                                               ; preds = %12
   %16 = load float, ptr %1, align 4, !tbaa !558
@@ -4470,19 +4470,19 @@ _ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit.lr.ph: ; preds = %3
   store float %18, ptr %1, align 4, !tbaa !558
   %19 = load float, ptr %2, align 4, !tbaa !558
   %20 = fcmp olt float %19, %14
-  %21 = select i1 %20, float %14, float %19
-  br label %23
+  %storemerge.pre = select i1 %20, float %14, float %19
+  br label %22
 
-22:                                               ; preds = %12
+21:                                               ; preds = %12
   store float %14, ptr %1, align 4, !tbaa !558
-  br label %23
+  br label %22
 
-23:                                               ; preds = %22, %15
-  %storemerge = phi float [ %14, %22 ], [ %21, %15 ]
+22:                                               ; preds = %21, %15
+  %storemerge = phi float [ %14, %22 ], [ %storemerge.pre, %15 ]
   store float %storemerge, ptr %2, align 4, !tbaa !558
   br label %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit
 
-_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit: ; preds = %.lr.ph, %23
+_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit: ; preds = %.lr.ph, %22
   %.2 = phi i1 [ %.0131720, %.lr.ph ], [ true, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4544,25 +4544,25 @@ _ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit.lr.ph.i: ; preds = %_ZNK6vec
   %24 = fcmp olt float %22, %.09
   %25 = select i1 %24, float %22, float %.09
   %26 = fcmp olt float %.0, %22
-  %27 = select i1 %26, float %22, float %.0
+  %storemerge.pre.i = select i1 %26, float %22, float %.0
   br label %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit.i
 
 _ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit.i: ; preds = %23, %20, %.lr.ph.i
   %.110 = phi float [ %.09, %.lr.ph.i ], [ %25, %23 ], [ %22, %20 ]
-  %.1 = phi float [ %.0, %.lr.ph.i ], [ %27, %23 ], [ %22, %20 ]
+  %.1 = phi float [ %.0, %.lr.ph.i ], [ %storemerge.pre.i, %23 ], [ %22, %20 ]
   %.2.i = phi i1 [ %.0131720.i, %.lr.ph.i ], [ true, %23 ], [ true, %20 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZNK3smt8qi_queue17get_min_max_costsERfS1_.exit.loopexit, label %.lr.ph.i
 
 _ZNK3smt8qi_queue17get_min_max_costsERfS1_.exit.loopexit: ; preds = %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit.i
-  %28 = fpext float %.110 to double
-  %29 = fpext float %.1 to double
+  %27 = fpext float %.110 to double
+  %28 = fpext float %.1 to double
   br label %_ZNK3smt8qi_queue17get_min_max_costsERfS1_.exit
 
 _ZNK3smt8qi_queue17get_min_max_costsERfS1_.exit:  ; preds = %_ZNK3smt8qi_queue17get_min_max_costsERfS1_.exit.loopexit, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit.lr.ph.i
-  %.3 = phi double [ 0.000000e+00, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit ], [ 0.000000e+00, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit.lr.ph.i ], [ %28, %_ZNK3smt8qi_queue17get_min_max_costsERfS1_.exit.loopexit ]
-  %.2 = phi double [ 0.000000e+00, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit ], [ 0.000000e+00, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit.lr.ph.i ], [ %29, %_ZNK3smt8qi_queue17get_min_max_costsERfS1_.exit.loopexit ]
+  %.3 = phi double [ 0.000000e+00, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit ], [ 0.000000e+00, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit.lr.ph.i ], [ %27, %_ZNK3smt8qi_queue17get_min_max_costsERfS1_.exit.loopexit ]
+  %.2 = phi double [ 0.000000e+00, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit ], [ 0.000000e+00, %_ZNK6vectorIN3smt8qi_queue5entryELb0EjE4sizeEv.exit.lr.ph.i ], [ %28, %_ZNK3smt8qi_queue17get_min_max_costsERfS1_.exit.loopexit ]
   tail call void @_ZN10statistics6updateEPKcd(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.41, double noundef %.3)
   tail call void @_ZN10statistics6updateEPKcd(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull @.str.42, double noundef %.2)
   ret void

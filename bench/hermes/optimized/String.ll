@@ -7953,13 +7953,13 @@ if.end33:                                         ; preds = %_ZN6hermes2vm15Hand
   %14 = extractvalue { i32, i64 } %call29, 1
   %15 = bitcast i64 %14 to double
   %16 = bitcast i64 %14 to double
-  %17 = load i32, ptr %argCount_.i, align 8
-  %cmp.i13 = icmp ugt i32 %17, 1
+  %16 = load i32, ptr %argCount_.i, align 8
+  %cmp.i13 = icmp ugt i32 %16, 1
   br i1 %cmp.i13, label %_ZNK6hermes2vm10NativeArgs6getArgEj.exit, label %if.end55
 
 _ZNK6hermes2vm10NativeArgs6getArgEj.exit:         ; preds = %if.end33
-  %18 = load ptr, ptr %args, align 8, !noalias !186
-  %incdec.ptr.i.i.i15 = getelementptr inbounds i8, ptr %18, i64 -16
+  %17 = load ptr, ptr %args, align 8, !noalias !186
+  %incdec.ptr.i.i.i15 = getelementptr inbounds i8, ptr %17, i64 -16
   %retval.sroa.0.0.copyload.i = load i64, ptr %incdec.ptr.i.i.i15, align 8
   %shr.i.mask.i = and i64 %retval.sroa.0.0.copyload.i, -140737488355328
   %cmp.i16 = icmp eq i64 %shr.i.mask.i, -1688849860263936
@@ -7967,33 +7967,33 @@ _ZNK6hermes2vm10NativeArgs6getArgEj.exit:         ; preds = %if.end33
 
 if.else:                                          ; preds = %_ZNK6hermes2vm10NativeArgs6getArgEj.exit
   %call47 = call { i32, i64 } @_ZN6hermes2vm19toIntegerOrInfinityERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %incdec.ptr.i.i.i15) #14
-  %19 = extractvalue { i32, i64 } %call47, 0
-  %cmp.i22 = icmp eq i32 %19, 0
+  %18 = extractvalue { i32, i64 } %call47, 0
+  %cmp.i22 = icmp eq i32 %18, 0
   br i1 %cmp.i22, label %return, label %if.end52
 
 if.end52:                                         ; preds = %if.else
-  %20 = extractvalue { i32, i64 } %call47, 1
-  %21 = bitcast i64 %20 to double
+  %19 = extractvalue { i32, i64 } %call47, 1
+  %20 = bitcast i64 %19 to double
   br label %if.end55
 
 if.end55:                                         ; preds = %if.end33, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit, %if.end52
-  %storemerge = phi double [ %21, %if.end52 ], [ %conv, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit ], [ %conv, %if.end33 ]
+  %storemerge = phi double [ %20, %if.end52 ], [ %conv, %_ZNK6hermes2vm10NativeArgs6getArgEj.exit ], [ %conv, %if.end33 ]
   %cmp56 = fcmp olt double %15, 0.000000e+00
   br i1 %cmp56, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.end55
   %add = fadd double %conv, %15
   %cmp.i24 = fcmp olt double %add, 0.000000e+00
-  %22 = select i1 %cmp.i24, double 0.000000e+00, double %add
+  %__b.__a.i = select i1 %cmp.i24, double 0.000000e+00, double %add
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end55
   %cmp.i25 = fcmp olt double %conv, %15
-  %cond.pre = select i1 %cmp.i25, double %conv, double %16
+  %__b.__a.i26 = select i1 %cmp.i25, double %conv, double %16
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi double [ %22, %cond.true ], [ %cond.pre, %cond.false ]
+  %cond.in = phi double [ %__b.__a.i, %cond.true ], [ %__b.__a.i26, %cond.false ]
   %conv61 = fptoui double %cond to i64
   %cmp62 = fcmp olt double %storemerge, 0.000000e+00
   br i1 %cmp62, label %cond.true63, label %cond.false68
@@ -8001,26 +8001,26 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 cond.true63:                                      ; preds = %cond.end
   %add65 = fadd double %storemerge, %conv
   %cmp.i27 = fcmp olt double %add65, 0.000000e+00
-  %23 = select i1 %cmp.i27, double 0.000000e+00, double %add65
+  %__b.__a.i28 = select i1 %cmp.i27, double 0.000000e+00, double %add65
   br label %cond.end70
 
 cond.false68:                                     ; preds = %cond.end
   %cmp.i29 = fcmp ogt double %storemerge, %conv
-  %cond71.pre = select i1 %cmp.i29, double %conv, double %storemerge
+  %__b.__a.i30 = select i1 %cmp.i29, double %conv, double %storemerge
   br label %cond.end70
 
 cond.end70:                                       ; preds = %cond.false68, %cond.true63
-  %cond71 = phi double [ %23, %cond.true63 ], [ %cond71.pre, %cond.false68 ]
+  %cond71.in = phi double [ %__b.__a.i28, %cond.true63 ], [ %__b.__a.i30, %cond.false68 ]
   %conv72 = fptoui double %cond71 to i64
   %cond77 = call i64 @llvm.usub.sat.i64(i64 %conv72, i64 %conv61)
   %call81 = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive5sliceERNS0_7RuntimeENS0_6HandleIS1_EEmm(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nonnull %retval.0.i.i.i.i.i.i, i64 noundef %conv61, i64 noundef %cond77) #14
-  %24 = extractvalue { i32, i64 } %call81, 0
-  %25 = extractvalue { i32, i64 } %call81, 1
+  %21 = extractvalue { i32, i64 } %call81, 0
+  %22 = extractvalue { i32, i64 } %call81, 1
   br label %return
 
 return:                                           ; preds = %if.else, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit, %if.end, %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit, %cond.end70
-  %retval.sroa.0.0 = phi i32 [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ 0, %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit ], [ 0, %if.end ], [ %24, %cond.end70 ], [ 0, %if.else ]
-  %retval.sroa.6.0 = phi i64 [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ undef, %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit ], [ undef, %if.end ], [ %25, %cond.end70 ], [ undef, %if.else ]
+  %retval.sroa.0.0 = phi i32 [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ 0, %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit ], [ 0, %if.end ], [ %21, %cond.end70 ], [ 0, %if.else ]
+  %retval.sroa.6.0 = phi i64 [ undef, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ], [ undef, %_ZN6hermes2vm20checkObjectCoercibleERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE.exit ], [ undef, %if.end ], [ %22, %cond.end70 ], [ undef, %if.else ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { i32, i64 } %.fca.1.insert

@@ -2000,8 +2000,8 @@ for.cond.cleanup:                                 ; preds = %if.end57, %entry
   ret double %mul59
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end57
-  %5 = phi ptr [ %3, %for.body.lr.ph ], [ %43, %if.end57 ]
-  %6 = phi ptr [ %2, %for.body.lr.ph ], [ %44, %if.end57 ]
+  %5 = phi ptr [ %3, %for.body.lr.ph ], [ %42, %if.end57 ]
+  %6 = phi ptr [ %2, %for.body.lr.ph ], [ %43, %if.end57 ]
   %npv.084 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %npv.1, %if.end57 ]
   %pastFixings.083 = phi i64 [ 0, %for.body.lr.ph ], [ %pastFixings.1, %if.end57 ]
   %i.082 = phi i64 [ 0, %for.body.lr.ph ], [ %inc58, %if.end57 ]
@@ -2143,9 +2143,9 @@ cond.false43:                                     ; preds = %_ZNK5boost10shared_
   br label %cond.end48
 
 cond.end48:                                       ; preds = %cond.false43, %cond.true39
-  %sub45.sink93 = phi double [ %sub45, %cond.false43 ], [ %sub40, %cond.true39 ]
-  %cmp.i70 = fcmp olt double %sub45.sink93, 0.000000e+00
-  %37 = select i1 %cmp.i70, double 0.000000e+00, double %sub45.sink93
+  %cond49.in = phi double [ %sub45, %cond.false43 ], [ %sub40, %cond.true39 ]
+  %cmp.i70 = fcmp olt double %cond49.in, 0.000000e+00
+  %37 = select i1 %cmp.i70, double 0.000000e+00, double %cond49.in
   %mul = fmul double %8, %37
   %38 = load ptr, ptr %gearings, align 8, !tbaa !45
   %add.ptr.i72 = getelementptr inbounds nuw double, ptr %38, i64 %i.082
@@ -2157,17 +2157,17 @@ cond.end48:                                       ; preds = %cond.false43, %cond
   %mul55 = fmul double %mul52, %41
   %42 = tail call double @llvm.fmuladd.f64(double %mul55, double %div33, double %npv.084)
   %.pre = load ptr, ptr %_M_finish.i, align 8, !tbaa !44
-  %.pre86 = load ptr, ptr %fixingTimes_, align 8, !tbaa !45
+  %.pre85 = load ptr, ptr %fixingTimes_, align 8, !tbaa !45
   br label %if.end57
 
 if.end57:                                         ; preds = %cond.end48, %if.then
-  %43 = phi ptr [ %5, %if.then ], [ %.pre86, %cond.end48 ]
-  %44 = phi ptr [ %6, %if.then ], [ %.pre, %cond.end48 ]
+  %42 = phi ptr [ %5, %if.then ], [ %.pre85, %cond.end48 ]
+  %43 = phi ptr [ %6, %if.then ], [ %.pre, %cond.end48 ]
   %pastFixings.1 = phi i64 [ %inc, %if.then ], [ %pastFixings.2, %cond.end48 ]
   %npv.1 = phi double [ %npv.084, %if.then ], [ %42, %cond.end48 ]
   %inc58 = add nuw i64 %i.082, 1
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %44 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %43 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %43 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %42 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp2 = icmp ult i64 %inc58, %sub.ptr.div.i

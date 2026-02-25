@@ -9525,7 +9525,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort13sort9_optimal17h93db4d
   %spec.store.select.i.i.i.i.i.i.i24 = select i1 %98, i64 %95, i64 %97
   %99 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i24, 0
   %100 = select i1 %99, ptr %88, ptr %87
-  %101 = select i1 %99, i64 %72, i64 %55
+  %.3.i25 = select i1 %99, i64 %72, i64 %55
   store i64 %101, ptr %39, align 8
   store ptr %100, ptr %56, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2044)
@@ -9691,7 +9691,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort13sort9_optimal17h93db4d
   %spec.store.select.i.i.i.i.i.i.i59 = select i1 %198, i64 %195, i64 %197
   %199 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i59, 0
   %200 = select i1 %199, ptr %188, ptr %187
-  %201 = select i1 %199, i64 %173, i64 %159
+  %.3.i60 = select i1 %199, i64 %173, i64 %159
   store i64 %201, ptr %22, align 8
   store ptr %200, ptr %56, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2178)
@@ -9853,7 +9853,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort13sort9_optimal17h93db4d
   %spec.store.select.i.i.i.i.i.i.i94 = select i1 %296, i64 %293, i64 %295
   %297 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i94, 0
   %298 = select i1 %297, ptr %286, ptr %285
-  %299 = select i1 %297, i64 %271, i64 %256
+  %.3.i95 = select i1 %297, i64 %271, i64 %256
   store i64 %299, ptr %39, align 8
   store ptr %298, ptr %6, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2308)

@@ -932,7 +932,7 @@ define void @_Z23unwrap_periodic_pmegridP9gmx_pme_tN3gmx8ArrayRefIfEE(ptr nounde
 
 31:                                               ; preds = %3
   %32 = icmp eq i32 %30, 1
-  %33 = select i1 %32, i32 %16, i32 %20
+  %.in = select i1 %32, i32 %16, i32 %20
   %34 = icmp sgt i32 %24, 1
   %35 = icmp sgt i32 %33, 0
   %or.cond = select i1 %34, i1 %35, i1 false
