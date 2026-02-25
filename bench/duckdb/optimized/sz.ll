@@ -230,8 +230,8 @@ sz_boot_index2size_tab.exit:                      ; preds = %sz_boot_pind2sz_tab
   %64 = trunc nuw i64 %indvars.iv.i6 to i8
   %scevgep.i = getelementptr i8, ptr @duckdb_je_sz_size2index_tab, i64 %.020.i
   %65 = tail call i64 @llvm.umin.i64(i64 %63, i64 512)
-  %reass.sub = sub nsw i64 %65, %.020.i
-  %66 = add nsw i64 %reass.sub, 1
+  %66 = sub nsw i64 %65, %.020.i
+  %66 = add nsw i64 %66, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 %64, i64 %66, i1 false), !tbaa !19
   %67 = add nuw nsw i64 %65, 1
   br label %._crit_edge.i
@@ -239,10 +239,10 @@ sz_boot_index2size_tab.exit:                      ; preds = %sz_boot_pind2sz_tab
 ._crit_edge.i:                                    ; preds = %.lr.ph.i7, %sz_boot_index2size_tab.exit
   %.1.lcssa.i = phi i64 [ %.020.i, %sz_boot_index2size_tab.exit ], [ %67, %.lr.ph.i7 ]
   %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i6, 1
-  %68 = icmp samesign ult i64 %indvars.iv.i6, 231
-  %69 = icmp ult i64 %.1.lcssa.i, 513
-  %70 = and i1 %68, %69
-  br i1 %70, label %sz_boot_index2size_tab.exit, label %sz_boot_size2index_tab.exit
+  %70 = icmp samesign ult i64 %indvars.iv.i6, 231
+  %71 = icmp ult i64 %.1.lcssa.i, 513
+  %72 = and i1 %70, %71
+  br i1 %72, label %sz_boot_index2size_tab.exit, label %sz_boot_size2index_tab.exit
 
 sz_boot_size2index_tab.exit:                      ; preds = %._crit_edge.i
   ret void

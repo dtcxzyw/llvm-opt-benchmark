@@ -10886,18 +10886,18 @@ thread-pre-split:                                 ; preds = %30
   br i1 %32, label %thread-pre-split.thread, label %.loopexit
 
 thread-pre-split.thread:                          ; preds = %align_get_bits.exit, %10, %thread-pre-split
-  %.val3778 = phi i32 [ %.val3770, %thread-pre-split ], [ %.val3770, %align_get_bits.exit ], [ %.val.i, %10 ]
+  %.val3779 = phi i32 [ %.val3770, %thread-pre-split ], [ %.val3770, %align_get_bits.exit ], [ %.val.i, %10 ]
   %33 = getelementptr i8, ptr %0, i64 32
-  %.in = sub nsw i32 0, %.val3778
+  %.in = sub nsw i32 0, %.val3779
   %34 = and i32 %.in, 7
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val46 = load ptr, ptr %35, align 8, !tbaa !57
-  %36 = lshr i32 %.val3778, 3
+  %36 = lshr i32 %.val3779, 3
   %37 = zext nneg i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %.val46, i64 %37
   %39 = load i32, ptr %38, align 1, !tbaa !67
   %40 = tail call i32 @llvm.bswap.i32(i32 %39)
-  %41 = and i32 %.val3778, 7
+  %41 = and i32 %.val3779, 7
   %42 = shl i32 %40, %41
   %43 = sub nuw nsw i32 24, %34
   %44 = lshr i32 %42, %43
@@ -10915,13 +10915,13 @@ thread-pre-split.thread:                          ; preds = %align_get_bits.exit
 50:                                               ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = load i32, ptr %51, align 8, !tbaa !59
-  %53 = add i32 %34, %.val3778
+  %53 = add i32 %34, %.val3779
   %54 = tail call i32 @llvm.umin.i32(i32 %52, i32 %53)
   store i32 %54, ptr %33, align 8, !tbaa !61
   br label %align_get_bits.exit50
 
 align_get_bits.exit50:                            ; preds = %49, %50
-  %.promoted = phi i32 [ %.val3778, %49 ], [ %54, %50 ]
+  %.promoted = phi i32 [ %.val3779, %49 ], [ %54, %50 ]
   %55 = getelementptr i8, ptr %0, i64 36
   %.val41 = load i32, ptr %55, align 4, !tbaa !58
   %56 = sub nsw i32 %.val41, %.promoted
@@ -10985,7 +10985,7 @@ align_get_bits.exit50..critedge_crit_edge:        ; preds = %align_get_bits.exit
 .critedge:                                        ; preds = %70, %align_get_bits.exit50..critedge_crit_edge, %73
   %83 = phi i32 [ %.pre, %align_get_bits.exit50..critedge_crit_edge ], [ %59, %73 ], [ %59, %70 ]
   %84 = icmp slt i32 %.val3778, 0
-  %85 = tail call i32 @llvm.smin.i32(i32 %.val3778, i32 %83)
+  %85 = tail call i32 @llvm.smin.i32(i32 %.val3779, i32 %83)
   %.0.i.i.v = select i1 %84, i32 0, i32 %85
   store i32 %.0.i.i.v, ptr %33, align 8, !tbaa !61
   br label %.loopexit
