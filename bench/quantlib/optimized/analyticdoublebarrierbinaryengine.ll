@@ -1156,25 +1156,21 @@ _ZN8QuantLib12InterestRateD2Ev.exit156:           ; preds = %_ZNK5boost10shared_
   %div138 = fdiv double %mul, %div
   %sub139 = fadd double %div138, -1.000000e+00
   %mul140 = fmul double %sub139, -5.000000e-01
-  %square = fmul double %sub139, %sub139
+  %call.i = call noundef double @pow(double noundef %sub139, double noundef 2.000000e+00) #25, !tbaa !70
   %91 = fmul double %70, -2.000000e+00
   %neg = fdiv double %91, %div
-  %92 = call double @llvm.fmuladd.f64(double %square, double -2.500000e-01, double %neg)
+  %92 = call double @llvm.fmuladd.f64(double %call.i, double -2.500000e-01, double %neg)
   %div148 = fdiv double %64, %63
   %call149 = call double @log(double noundef %div148) #25, !tbaa !70
   %mul151 = fmul double %61, 0x401921FB54442D18
-  %square318 = fmul double %call149, %call149
-  %div153 = fdiv double %mul151, %square318
+  %call.i157 = call noundef double @pow(double noundef %call149, double noundef 2.000000e+00) #25, !tbaa !70
+  %div153 = fdiv double %mul151, %call.i157
   %div154 = fdiv double %spot, %63
   %call155 = call double @pow(double noundef %div154, double noundef %mul140) #25, !tbaa !70
   %div156 = fdiv double %spot, %64
   %call157 = call double @pow(double noundef %div156, double noundef %mul140) #25, !tbaa !70
-  %cmp158322 = icmp ugt i64 %maxIteration, 1
-  br i1 %cmp158322, label %for.body.lr.ph, label %for.cond.cleanup
-
-for.body.lr.ph:                                   ; preds = %_ZN8QuantLib12InterestRateD2Ev.exit156
-  %square319 = fmul double %mul140, %mul140
-  br label %for.body
+  %cmp158318 = icmp ugt i64 %maxIteration, 1
+  br i1 %cmp158318, label %for.body, label %for.cond.cleanup
 
 for.cond.cleanup.loopexit:                        ; preds = %for.body
   %93 = call double @llvm.fabs.f64(double %mul187)
@@ -1186,33 +1182,35 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup.lo
   %cmp190 = fcmp olt double %term.0.lcssa, %requiredConvergence
   br i1 %cmp190, label %do.end229, label %if.then191
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %i.0324 = phi i64 [ 1, %for.body.lr.ph ], [ %inc, %for.body ]
-  %tot.0323 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %add188, %for.body ]
-  %conv = trunc i64 %i.0324 to i32
+for.body:                                         ; preds = %_ZN8QuantLib12InterestRateD2Ev.exit156, %for.body
+  %i.0320 = phi i64 [ %inc, %for.body ], [ 1, %_ZN8QuantLib12InterestRateD2Ev.exit156 ]
+  %tot.0319 = phi double [ %add188, %for.body ], [ 0.000000e+00, %_ZN8QuantLib12InterestRateD2Ev.exit156 ]
+  %conv = trunc i64 %i.0320 to i32
   %conv.i = sitofp i32 %conv to double
   %call.i158 = call noundef double @pow(double noundef -1.000000e+00, double noundef %conv.i) #25, !tbaa !70
   %neg161 = fneg double %call.i158
   %94 = call double @llvm.fmuladd.f64(double %neg161, double %call157, double %call155)
-  %conv163 = uitofp i64 %i.0324 to double
+  %call.i159 = call noundef double @pow(double noundef %mul140, double noundef 2.000000e+00) #25, !tbaa !70
+  %conv163 = uitofp i64 %i.0320 to double
   %mul164 = fmul nnan double %conv163, 0x400921FB54442D18
   %div165 = fdiv double %mul164, %call149
-  %square320 = fmul double %div165, %div165
-  %add = fadd double %square319, %square320
+  %call.i160 = call noundef double @pow(double noundef %div165, double noundef 2.000000e+00) #25, !tbaa !70
+  %add = fadd double %call.i159, %call.i160
   %div167 = fdiv double %94, %add
   %call172 = call double @log(double noundef %div154) #25, !tbaa !70
   %mul173 = fmul double %div165, %call172
   %call174 = call double @sin(double noundef %mul173) #25, !tbaa !70
-  %sub179 = fsub double %square320, %92
+  %call.i161 = call noundef double @pow(double noundef %div165, double noundef 2.000000e+00) #25, !tbaa !70
+  %sub179 = fsub double %call.i161, %92
   %mul180 = fmul double %sub179, -5.000000e-01
   %mul181 = fmul double %variance, %mul180
   %call182 = call double @exp(double noundef %mul181) #25, !tbaa !70
   %mul184 = fmul double %div153, %conv163
   %mul185 = fmul double %mul184, %div167
   %mul186 = fmul double %call174, %mul185
-  %mul187 = fmul double %call182, %mul186
-  %add188 = fadd double %tot.0323, %mul187
-  %inc = add nuw i64 %i.0324, 1
+  %mul187 = fmul double %mul186, %call182
+  %add188 = fadd double %tot.0319, %mul187
+  %inc = add nuw i64 %i.0320, 1
   %exitcond.not = icmp eq i64 %inc, %maxIteration
   br i1 %exitcond.not, label %for.cond.cleanup.loopexit, label %for.body, !llvm.loop !72
 
@@ -1536,9 +1534,9 @@ do.end286:                                        ; preds = %_ZNK5boost10shared_
   br label %cleanup
 
 cleanup:                                          ; preds = %do.end229, %do.end286
-  %.sink377 = phi double [ %137, %do.end286 ], [ %tot.0.lcssa, %do.end229 ]
-  %cmp.i223 = fcmp olt double %.sink377, 0.000000e+00
-  %.sroa.speculated = select i1 %cmp.i223, double 0.000000e+00, double %.sink377
+  %.sink373 = phi double [ %137, %do.end286 ], [ %tot.0.lcssa, %do.end229 ]
+  %cmp.i223 = fcmp olt double %.sink373, 0.000000e+00
+  %.sroa.speculated = select i1 %cmp.i223, double 0.000000e+00, double %.sink373
   ret double %.sroa.speculated
 
 eh.resume:                                        ; preds = %ehcleanup225, %ehcleanup282, %ehcleanup106, %ehcleanup61, %ehcleanup23
@@ -2373,16 +2371,16 @@ _ZN8QuantLib12InterestRateD2Ev.exit144:           ; preds = %_ZNK5boost10shared_
   %div141 = fdiv double %mul, %div
   %sub142 = fadd double %div141, -1.000000e+00
   %mul143 = fmul double %sub142, -5.000000e-01
-  %square = fmul double %sub142, %sub142
+  %call.i = call noundef double @pow(double noundef %sub142, double noundef 2.000000e+00) #25, !tbaa !70
   %91 = fmul double %70, -2.000000e+00
   %neg = fdiv double %91, %div
-  %92 = call double @llvm.fmuladd.f64(double %square, double -2.500000e-01, double %neg)
+  %92 = call double @llvm.fmuladd.f64(double %call.i, double -2.500000e-01, double %neg)
   %div151 = fdiv double %barrier_hi.0, %barrier_lo.0
   %call152 = call double @log(double noundef %div151) #25, !tbaa !70
   %div153 = fdiv double %spot, %barrier_lo.0
   %call154 = call double @log(double noundef %div153) #25, !tbaa !70
-  %cmp155249 = icmp ugt i64 %maxIteration, 1
-  br i1 %cmp155249, label %for.body, label %for.cond.cleanup
+  %cmp155248 = icmp ugt i64 %maxIteration, 1
+  br i1 %cmp155248, label %for.body, label %for.cond.cleanup
 
 for.cond.cleanup.loopexit:                        ; preds = %for.body
   %93 = call double @llvm.fabs.f64(double %mul179)
@@ -2396,17 +2394,17 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup.lo
   br i1 %cmp188, label %do.end227, label %if.then189
 
 for.body:                                         ; preds = %_ZN8QuantLib12InterestRateD2Ev.exit144, %for.body
-  %i.0251 = phi i64 [ %inc, %for.body ], [ 1, %_ZN8QuantLib12InterestRateD2Ev.exit144 ]
-  %tot.0250 = phi double [ %add, %for.body ], [ 0.000000e+00, %_ZN8QuantLib12InterestRateD2Ev.exit144 ]
-  %conv = uitofp i64 %i.0251 to double
+  %i.0250 = phi i64 [ %inc, %for.body ], [ 1, %_ZN8QuantLib12InterestRateD2Ev.exit144 ]
+  %tot.0249 = phi double [ %add, %for.body ], [ 0.000000e+00, %_ZN8QuantLib12InterestRateD2Ev.exit144 ]
+  %conv = uitofp i64 %i.0250 to double
   %mul156 = fmul nnan double %conv, 0x400921FB54442D18
   %div157 = fdiv double %mul156, %call152
-  %square248 = fmul double %div157, %div157
-  %sub159 = fsub double %square248, %92
+  %call.i145 = call noundef double @pow(double noundef %div157, double noundef 2.000000e+00) #25, !tbaa !70
+  %sub159 = fsub double %call.i145, %92
   %mul164 = fmul double %sub159, -5.000000e-01
   %mul165 = fmul double %variance, %mul164
   %call166 = call double @exp(double noundef %mul165) #25, !tbaa !70
-  %neg168 = fneg double %square248
+  %neg168 = fneg double %call.i145
   %94 = call double @llvm.fmuladd.f64(double %neg168, double %call166, double %92)
   %div169 = fdiv double %94, %sub159
   %mul173 = fmul double %call154, %div157
@@ -2414,8 +2412,8 @@ for.body:                                         ; preds = %_ZN8QuantLib12Inter
   %div177 = fdiv nnan double 2.000000e+00, %mul156
   %mul178 = fmul double %div177, %div169
   %mul179 = fmul double %call174, %mul178
-  %add = fadd double %tot.0250, %mul179
-  %inc = add nuw i64 %i.0251, 1
+  %add = fadd double %tot.0249, %mul179
+  %inc = add nuw i64 %i.0250, 1
   %exitcond.not = icmp eq i64 %inc, %maxIteration
   br i1 %exitcond.not, label %for.cond.cleanup.loopexit, label %for.body, !llvm.loop !76
 

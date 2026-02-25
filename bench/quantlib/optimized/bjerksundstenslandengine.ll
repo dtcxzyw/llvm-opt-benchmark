@@ -5239,9 +5239,9 @@ entry:
   %mul59 = fmul double %8, %v
   %12 = tail call double @llvm.fmuladd.f64(double %bT, double 2.000000e+00, double %mul59)
   %13 = tail call double @llvm.fmuladd.f64(double %call, double 2.000000e+00, double %12)
-  %square = fmul double %13, %13
+  %call.i = tail call noundef double @pow(double noundef %13, double noundef 2.000000e+00) #28, !tbaa !46
   %mul62 = fmul double %v, 8.000000e+00
-  %div63 = fdiv double %square, %mul62
+  %div63 = fdiv double %call.i, %mul62
   %call64 = tail call double @exp(double noundef %div63) #28, !tbaa !46
   %mul65 = fmul double %call64, 2.000000e+00
   %mul66 = fmul double %mul65, 0x3FF6A09E667F3BCD

@@ -3051,14 +3051,14 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN3$_58__invo
   %5 = load ptr, ptr %1, align 8
   %6 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %5)
   %7 = fsub double 1.000000e+00, %6
-  %square.i.i = fmul double %7, %7
-  %8 = fsub double 1.000000e+00, %square.i.i
+  %8 = tail call noundef double @pow(double noundef %7, double noundef 2.000000e+00) #21
+  %9 = fsub double 1.000000e+00, %8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store double %8, ptr %4, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %9, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  store double %9, ptr %4, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %10, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %10
+  ret ptr %11
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
@@ -3079,19 +3079,19 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN3$_68__invo
 
 11:                                               ; preds = %3
   %12 = tail call double @llvm.fmuladd.f64(double %6, double -2.000000e+00, double 2.000000e+00)
-  %square.i.i = fmul double %12, %12
-  %13 = fmul double %square.i.i, 5.000000e-01
-  %14 = fsub double 1.000000e+00, %13
+  %13 = tail call noundef double @pow(double noundef %12, double noundef 2.000000e+00) #21
+  %14 = fmul double %13, 5.000000e-01
+  %15 = fsub double 1.000000e+00, %14
   br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK3$_6clES1_NS_8ArgsViewE.exit"
 
 "_ZZN4pkpy17add_module_easingEPNS_2VMEENK3$_6clES1_NS_8ArgsViewE.exit": ; preds = %8, %11
-  %.0.i.i = phi double [ %10, %8 ], [ %14, %11 ]
+  %.0.i.i = phi double [ %10, %8 ], [ %15, %11 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double %.0.i.i, ptr %4, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %15, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %16, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %16
+  ret ptr %17
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
@@ -3370,16 +3370,16 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_198__inv
   %4 = alloca double, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %5)
-  %square.i.i = fmul double %6, %6
-  %7 = fsub double 1.000000e+00, %square.i.i
-  %8 = tail call double @sqrt(double noundef %7) #21
-  %9 = fsub double 1.000000e+00, %8
+  %7 = tail call noundef double @pow(double noundef %6, double noundef 2.000000e+00) #21
+  %8 = fsub double 1.000000e+00, %7
+  %9 = tail call double @sqrt(double noundef %8) #21
+  %10 = fsub double 1.000000e+00, %9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store double %9, ptr %4, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %10, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  store double %10, ptr %4, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %11, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %11
+  ret ptr %12
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
@@ -3391,15 +3391,15 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_208__inv
   %5 = load ptr, ptr %1, align 8
   %6 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %5)
   %7 = fadd double %6, -1.000000e+00
-  %square.i.i = fmul double %7, %7
-  %8 = fsub double 1.000000e+00, %square.i.i
-  %9 = tail call noundef double @sqrt(double noundef %8) #21
+  %8 = tail call noundef double @pow(double noundef %7, double noundef 2.000000e+00) #21
+  %9 = fsub double 1.000000e+00, %8
+  %10 = tail call noundef double @sqrt(double noundef %9) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store double %9, ptr %4, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %10, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  store double %10, ptr %4, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %11, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %11
+  ret ptr %12
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3408,33 +3408,33 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_218__inv
   %5 = load ptr, ptr %1, align 8
   %6 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %5)
   %7 = fcmp olt double %6, 5.000000e-01
-  br i1 %7, label %8, label %13
+  br i1 %7, label %8, label %14
 
 8:                                                ; preds = %3
   %9 = fmul nnan double %6, 2.000000e+00
-  %square5.i.i = fmul double %9, %9
-  %10 = fsub double 1.000000e+00, %square5.i.i
-  %11 = tail call double @sqrt(double noundef %10) #21
-  %12 = fsub double 1.000000e+00, %11
+  %10 = tail call noundef double @pow(double noundef %9, double noundef 2.000000e+00) #21
+  %11 = fsub double 1.000000e+00, %10
+  %12 = tail call double @sqrt(double noundef %11) #21
+  %13 = fsub double 1.000000e+00, %12
   br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_21clES1_NS_8ArgsViewE.exit"
 
-13:                                               ; preds = %3
-  %14 = tail call double @llvm.fmuladd.f64(double %6, double -2.000000e+00, double 2.000000e+00)
-  %square.i.i = fmul double %14, %14
-  %15 = fsub double 1.000000e+00, %square.i.i
-  %16 = tail call double @sqrt(double noundef %15) #21
-  %17 = fadd double %16, 1.000000e+00
+14:                                               ; preds = %3
+  %15 = tail call double @llvm.fmuladd.f64(double %6, double -2.000000e+00, double 2.000000e+00)
+  %16 = tail call noundef double @pow(double noundef %15, double noundef 2.000000e+00) #21
+  %17 = fsub double 1.000000e+00, %16
+  %18 = tail call double @sqrt(double noundef %17) #21
+  %19 = fadd double %18, 1.000000e+00
   br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_21clES1_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_21clES1_NS_8ArgsViewE.exit": ; preds = %8, %13
-  %.0.in.i.i = phi double [ %12, %8 ], [ %17, %13 ]
+"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_21clES1_NS_8ArgsViewE.exit": ; preds = %8, %14
+  %.0.in.i.i = phi double [ %13, %8 ], [ %19, %14 ]
   %.0.i.i = fmul double %.0.in.i.i, 5.000000e-01
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double %.0.i.i, ptr %4, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %18, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %21 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %20, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %19
+  ret ptr %21
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3464,14 +3464,14 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_238__inv
   %7 = fadd double %6, -1.000000e+00
   %8 = tail call noundef double @pow(double noundef %7, double noundef 3.000000e+00) #21
   %9 = tail call double @llvm.fmuladd.f64(double %8, double 2.701580e+00, double 1.000000e+00)
-  %square.i.i = fmul double %7, %7
-  %10 = tail call noundef double @llvm.fmuladd.f64(double %square.i.i, double 1.701580e+00, double %9)
+  %10 = tail call noundef double @pow(double noundef %7, double noundef 2.000000e+00) #21
+  %11 = tail call noundef double @llvm.fmuladd.f64(double %10, double 1.701580e+00, double %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store double %10, ptr %4, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %11, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  store double %11, ptr %4, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %12, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %12
+  ret ptr %13
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3480,31 +3480,31 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_248__inv
   %5 = load ptr, ptr %1, align 8
   %6 = tail call noundef double @_ZN4pkpy18_py_cast__internalIdLb1EEET_PNS_2VMEPNS_8PyObjectE(ptr noundef %0, ptr noundef %5)
   %7 = fcmp olt double %6, 5.000000e-01
-  br i1 %7, label %8, label %12
+  br i1 %7, label %8, label %13
 
 8:                                                ; preds = %3
   %9 = fmul nnan double %6, 2.000000e+00
-  %square7.i.i = fmul double %9, %9
-  %10 = tail call nnan double @llvm.fmuladd.f64(double %6, double 0x401CC25FE974A340, double 0xC004C25FE974A340)
-  %11 = fmul double %10, %square7.i.i
+  %10 = tail call noundef double @pow(double noundef %9, double noundef 2.000000e+00) #21
+  %11 = tail call nnan double @llvm.fmuladd.f64(double %6, double 0x401CC25FE974A340, double 0xC004C25FE974A340)
+  %12 = fmul double %11, %10
   br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_24clES1_NS_8ArgsViewE.exit"
 
-12:                                               ; preds = %3
-  %13 = tail call double @llvm.fmuladd.f64(double %6, double 2.000000e+00, double -2.000000e+00)
-  %square.i.i = fmul double %13, %13
-  %14 = tail call double @llvm.fmuladd.f64(double %13, double 0x400CC25FE974A340, double 0x4004C25FE974A340)
-  %15 = tail call double @llvm.fmuladd.f64(double %square.i.i, double %14, double 2.000000e+00)
+13:                                               ; preds = %3
+  %14 = tail call double @llvm.fmuladd.f64(double %6, double 2.000000e+00, double -2.000000e+00)
+  %15 = tail call noundef double @pow(double noundef %14, double noundef 2.000000e+00) #21
+  %16 = tail call double @llvm.fmuladd.f64(double %14, double 0x400CC25FE974A340, double 0x4004C25FE974A340)
+  %17 = tail call double @llvm.fmuladd.f64(double %15, double %16, double 2.000000e+00)
   br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_24clES1_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_24clES1_NS_8ArgsViewE.exit": ; preds = %8, %12
-  %.0.in.i.i = phi double [ %11, %8 ], [ %15, %12 ]
+"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_24clES1_NS_8ArgsViewE.exit": ; preds = %8, %13
+  %.0.in.i.i = phi double [ %12, %8 ], [ %17, %13 ]
   %.0.i.i = fmul double %.0.in.i.i, 5.000000e-01
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store double %.0.i.i, ptr %4, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %16, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = call noundef ptr @_ZN4pkpy11ManagedHeap5gcnewIdJRdEEEPNS_8PyObjectENS_4TypeEDpOT0_(ptr noundef nonnull align 8 dereferenceable(84) %18, i16 3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret ptr %17
+  ret ptr %19
 }
 
 ; Function Attrs: mustprogress uwtable

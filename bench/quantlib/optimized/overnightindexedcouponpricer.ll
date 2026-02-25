@@ -3755,8 +3755,8 @@ invoke.cont224:                                   ; preds = %invoke.cont221
   %mul11.i = fmul double %sub10.i, %fneg.i
   %call12.i = call double @exp(double noundef %mul11.i) #28, !tbaa !123
   %sub13.i = fsub double 1.000000e+00, %call12.i
-  %square.i = fmul double %sub13.i, %sub13.i
-  %mul15.i = fmul double %mul8.i, %square.i
+  %call14.i = call double @pow(double noundef %sub13.i, double noundef 2.000000e+00) #28, !tbaa !123
+  %mul15.i = fmul double %mul8.i, %call14.i
   %sub = fsub double %call211, %mul15.i
   %call229 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_18YieldTermStructureEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %curve)
           to label %invoke.cont228 unwind label %lpad203
@@ -3809,16 +3809,16 @@ invoke.cont240:                                   ; preds = %invoke.cont237
   %152 = load double, ptr %vol_.i, align 8, !tbaa !124
   %mul.i321 = fmul double %152, %152
   %153 = load double, ptr %mrs_.i, align 8, !tbaa !125
-  %square.i323 = fmul double %153, %153
-  %mul3.i324 = fmul double %square.i323, 2.000000e+00
+  %call.i323 = call double @pow(double noundef %153, double noundef 2.000000e+00) #28, !tbaa !123
+  %mul3.i324 = fmul double %call.i323, 2.000000e+00
   %div.i325 = fdiv double %mul.i321, %mul3.i324
   %sub.i326 = fsub double %call241, %call234
   %fneg.i327 = fneg double %153
   %mul6.i328 = fmul double %sub.i326, %fneg.i327
   %call7.i329 = call double @exp(double noundef %mul6.i328) #28, !tbaa !123
   %sub8.i = fsub double 1.000000e+00, %call7.i329
-  %square5.i = fmul double %sub8.i, %sub8.i
-  %div11.i = fdiv double %square5.i, %153
+  %call9.i = call double @pow(double noundef %sub8.i, double noundef 2.000000e+00) #28, !tbaa !123
+  %div11.i = fdiv double %call9.i, %153
   %sub12.i = fsub double %sub.i326, %div11.i
   %mul14.i = fmul double %153, -2.000000e+00
   %mul16.i = fmul double %sub.i326, %mul14.i
@@ -4238,8 +4238,8 @@ invoke.cont350:                                   ; preds = %.noexc430, %invoke.
 
 invoke.cont354:                                   ; preds = %invoke.cont350
   %212 = load double, ptr %vol_, align 8, !tbaa !124
-  %square = fmul double %212, %212
-  %mul = fmul double %square, 5.000000e-01
+  %call356 = call double @pow(double noundef %212, double noundef 2.000000e+00) #28, !tbaa !123
+  %mul = fmul double %call356, 5.000000e-01
   %213 = load double, ptr %mrs_, align 8, !tbaa !125
   %call357 = call double @pow(double noundef %213, double noundef 3.000000e+00) #28, !tbaa !123
   %div358 = fdiv double %mul, %call357
@@ -4437,8 +4437,8 @@ entry:
   %mul11 = fmul double %sub10, %fneg
   %call12 = tail call double @exp(double noundef %mul11) #28, !tbaa !123
   %sub13 = fsub double 1.000000e+00, %call12
-  %square = fmul double %sub13, %sub13
-  %mul15 = fmul double %mul8, %square
+  %call14 = tail call double @pow(double noundef %sub13, double noundef 2.000000e+00) #28, !tbaa !123
+  %mul15 = fmul double %mul8, %call14
   ret double %mul15
 }
 
@@ -4450,16 +4450,16 @@ entry:
   %mul = fmul double %0, %0
   %mrs_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load double, ptr %mrs_, align 8, !tbaa !125
-  %square = fmul double %1, %1
-  %mul3 = fmul double %square, 2.000000e+00
+  %call = tail call double @pow(double noundef %1, double noundef 2.000000e+00) #28, !tbaa !123
+  %mul3 = fmul double %call, 2.000000e+00
   %div = fdiv double %mul, %mul3
   %sub = fsub double %te, %ts
   %fneg = fneg double %1
   %mul6 = fmul double %sub, %fneg
   %call7 = tail call double @exp(double noundef %mul6) #28, !tbaa !123
   %sub8 = fsub double 1.000000e+00, %call7
-  %square5 = fmul double %sub8, %sub8
-  %div11 = fdiv double %square5, %1
+  %call9 = tail call double @pow(double noundef %sub8, double noundef 2.000000e+00) #28, !tbaa !123
+  %div11 = fdiv double %call9, %1
   %sub12 = fsub double %sub, %div11
   %mul14 = fmul double %1, -2.000000e+00
   %mul16 = fmul double %sub, %mul14

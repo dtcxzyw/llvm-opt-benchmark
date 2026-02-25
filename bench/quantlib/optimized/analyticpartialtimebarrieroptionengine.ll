@@ -7067,9 +7067,9 @@ _ZNK8QuantLib38AnalyticPartialTimeBarrierOptionEngine12residualTimeEv.exit: ; pr
   %call9 = call noundef double @_ZNK8QuantLib38AnalyticPartialTimeBarrierOptionEngine12riskFreeRateEv(ptr noundef nonnull align 8 dereferenceable(384) %this)
   %call10 = call noundef double @_ZNK8QuantLib38AnalyticPartialTimeBarrierOptionEngine13dividendYieldEv(ptr noundef nonnull align 8 dereferenceable(384) %this)
   %sub = fsub double %call9, %call10
-  %square = fmul double %call3, %call3
-  %div12 = fmul double %square, 5.000000e-01
-  %add = fadd double %div12, %sub
+  %call.i = call noundef double @pow(double noundef %call3, double noundef 2.000000e+00) #29, !tbaa !93
+  %div12 = fmul double %call.i, 5.000000e-01
+  %add = fadd double %sub, %div12
   %10 = call double @llvm.fmuladd.f64(double %add, double %call4.i, double %9)
   %call13 = call double @sqrt(double noundef %call4.i) #29, !tbaa !93
   %mul = fmul double %call3, %call13

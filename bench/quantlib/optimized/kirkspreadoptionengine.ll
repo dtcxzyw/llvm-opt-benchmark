@@ -1938,11 +1938,11 @@ invoke.cont139:                                   ; preds = %call.i.noexc173
   %.pre = load double, ptr %strike_.i.phi.trans.insert, align 8, !tbaa !74
   %add = fadd double %call94, %.pre
   %div = fdiv double %call81, %add
-  %square = fmul double %call3.i145, %call3.i145
+  %call.i = call noundef double @pow(double noundef %call3.i145, double noundef 2.000000e+00) #25, !tbaa !80
   %div147 = fdiv double %call94, %add
   %mul = fmul double %call3.i162, %div147
-  %square271 = fmul double %mul, %mul
-  %add150 = fadd double %square, %square271
+  %call.i180 = call noundef double @pow(double noundef %mul, double noundef 2.000000e+00) #25, !tbaa !80
+  %add150 = fadd double %call.i, %call.i180
   %rho_ = getelementptr inbounds nuw i8, ptr %this, i64 320
   %call152 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_5QuoteEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %rho_)
           to label %invoke.cont151 unwind label %lpad143
@@ -2100,8 +2100,8 @@ invoke.cont228:                                   ; preds = %invoke.cont207
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp202)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp193)
   %call213 = call double @log(double noundef %div) #25, !tbaa !80
-  %square272 = fmul double %call165, %call165
-  %mul217 = fmul double %square272, 5.000000e-01
+  %call.i211 = call noundef double @pow(double noundef %call165, double noundef 2.000000e+00) #25, !tbaa !80
+  %mul217 = fmul double %call.i211, 5.000000e-01
   %86 = call double @llvm.fmuladd.f64(double %mul217, double %call209, double %call213)
   %call219 = call double @sqrt(double noundef %call209) #25, !tbaa !80
   %mul220 = fmul double %call165, %call219
@@ -2141,8 +2141,8 @@ invoke.cont236:                                   ; preds = %invoke.cont233
 
 invoke.cont243:                                   ; preds = %invoke.cont236
   %type_.i218.phi.trans.insert = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %.pre273 = load i32, ptr %type_.i218.phi.trans.insert, align 8, !tbaa !92
-  %cmp247 = icmp eq i32 %.pre273, 1
+  %.pre271 = load i32, ptr %type_.i218.phi.trans.insert, align 8, !tbaa !92
+  %cmp247 = icmp eq i32 %.pre271, 1
   br i1 %cmp247, label %cond.true, label %cond.false
 
 lpad71:                                           ; preds = %cond.false.i115, %cond.false.i112, %invoke.cont78, %invoke.cont74, %invoke.cont72
@@ -4864,6 +4864,9 @@ ehcleanup12:                                      ; preds = %ehcleanup, %lpad
 }
 
 declare noundef double @_ZNK8QuantLib18YieldTermStructure8discountEdb(ptr noundef nonnull align 8 dereferenceable(152), double noundef, i1 noundef zeroext) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #10
 
 declare void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 

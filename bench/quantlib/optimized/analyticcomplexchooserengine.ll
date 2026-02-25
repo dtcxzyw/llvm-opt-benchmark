@@ -924,8 +924,8 @@ _ZNK8QuantLib28AnalyticComplexChooserEngine11putMaturityEv.exit: ; preds = %_ZNK
   %call12 = call noundef double @_ZNK8QuantLib28AnalyticComplexChooserEngine10volatilityEd(ptr noundef nonnull align 8 dereferenceable(408) %this, double noundef %call2.i)
   %div = fdiv double %call2, %call8
   %call13 = call double @log(double noundef %div) #24, !tbaa !74
-  %square = fmul double %call12, %call12
-  %div15 = fmul double %square, 5.000000e-01
+  %call.i = call noundef double @pow(double noundef %call12, double noundef 2.000000e+00) #24, !tbaa !74
+  %div15 = fmul double %call.i, 5.000000e-01
   %add = fadd double %sub11, %div15
   %18 = call double @llvm.fmuladd.f64(double %add, double %call2.i, double %call13)
   %call16 = call double @sqrt(double noundef %call2.i) #24, !tbaa !74
@@ -940,8 +940,8 @@ _ZNK8QuantLib28AnalyticComplexChooserEngine11putMaturityEv.exit: ; preds = %_ZNK
   %call25 = call noundef double @_ZNK8QuantLib28AnalyticComplexChooserEngine10volatilityEd(ptr noundef nonnull align 8 dereferenceable(408) %this, double noundef %sub)
   %div26 = fdiv double %call2, %3
   %call27 = call double @log(double noundef %div26) #24, !tbaa !74
-  %square93 = fmul double %call25, %call25
-  %div29 = fmul double %square93, 5.000000e-01
+  %call.i91 = call noundef double @pow(double noundef %call25, double noundef 2.000000e+00) #24, !tbaa !74
+  %div29 = fmul double %call.i91, 5.000000e-01
   %add30 = fadd double %sub24, %div29
   %20 = call double @llvm.fmuladd.f64(double %add30, double %sub, double %call27)
   %call32 = call double @sqrt(double noundef %sub) #24, !tbaa !74
@@ -954,8 +954,8 @@ _ZNK8QuantLib28AnalyticComplexChooserEngine11putMaturityEv.exit: ; preds = %_ZNK
   %call40 = call noundef double @_ZNK8QuantLib28AnalyticComplexChooserEngine10volatilityEd(ptr noundef nonnull align 8 dereferenceable(408) %this, double noundef %sub7)
   %div41 = fdiv double %call2, %4
   %call42 = call double @log(double noundef %div41) #24, !tbaa !74
-  %square94 = fmul double %call40, %call40
-  %div44 = fmul double %square94, 5.000000e-01
+  %call.i92 = call noundef double @pow(double noundef %call40, double noundef 2.000000e+00) #24, !tbaa !74
+  %div44 = fmul double %call.i92, 5.000000e-01
   %add45 = fadd double %sub39, %div44
   %21 = call double @llvm.fmuladd.f64(double %add45, double %sub7, double %call42)
   %call47 = call double @sqrt(double noundef %sub7) #24, !tbaa !74
@@ -4084,6 +4084,9 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #19
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #9
 
 declare noundef double @_ZNK8QuantLib15BlackCalculator5deltaEd(ptr noundef nonnull align 8 dereferenceable(152), double noundef) unnamed_addr #5
 

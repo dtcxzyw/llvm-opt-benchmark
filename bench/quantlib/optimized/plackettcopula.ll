@@ -779,12 +779,12 @@ do.end75:                                         ; preds = %do.body30
   %sub = fadd double %34, -1.000000e+00
   %add = fadd double %x, %y
   %35 = tail call double @llvm.fmuladd.f64(double %sub, double %add, double 1.000000e+00)
-  %square = fmul double %35, %35
+  %call79 = tail call double @pow(double noundef %35, double noundef 2.000000e+00) #15, !tbaa !21
   %mul = fmul nnan double %x, 4.000000e+00
   %mul80 = fmul double %mul, %y
   %36 = fneg double %34
   %neg = fmul double %mul80, %36
-  %37 = tail call double @llvm.fmuladd.f64(double %neg, double %sub, double %square)
+  %37 = tail call double @llvm.fmuladd.f64(double %neg, double %sub, double %call79)
   %call86 = tail call double @sqrt(double noundef %37) #15, !tbaa !21
   %sub87 = fsub double %35, %call86
   %mul90 = fmul double %sub, 2.000000e+00
@@ -804,6 +804,9 @@ declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @sqrt(double noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7

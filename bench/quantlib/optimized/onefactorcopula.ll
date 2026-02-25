@@ -1279,8 +1279,8 @@ entry:
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(12) %this)
   %steps_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load i64, ptr %steps_.i, align 8, !tbaa !43
-  %cmp477.not = icmp eq i64 %1, 0
-  br i1 %cmp477.not, label %for.cond.cleanup, label %for.body
+  %cmp476.not = icmp eq i64 %1, 0
+  br i1 %cmp476.not, label %for.cond.cleanup, label %for.body
 
 for.cond.cleanup.loopexit:                        ; preds = %for.body
   %2 = fadd double %add, -1.000000e+00
@@ -1298,20 +1298,20 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup.lo
   br i1 %cmp8, label %do.body33, label %if.then
 
 for.body:                                         ; preds = %entry, %for.body
-  %norm.0481 = phi double [ %add, %for.body ], [ 0.000000e+00, %entry ]
-  %mean.0480 = phi double [ %7, %for.body ], [ 0.000000e+00, %entry ]
-  %var.0479 = phi double [ %8, %for.body ], [ 0.000000e+00, %entry ]
-  %i.0478 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
-  %call2 = tail call noundef double @_ZNK8QuantLib15OneFactorCopula9densitydmEm(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %i.0478)
-  %add = fadd double %norm.0481, %call2
-  %call3 = tail call noundef double @_ZNK8QuantLib15OneFactorCopula1mEm(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %i.0478)
-  %call4 = tail call noundef double @_ZNK8QuantLib15OneFactorCopula9densitydmEm(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %i.0478)
-  %7 = tail call double @llvm.fmuladd.f64(double %call3, double %call4, double %mean.0480)
-  %call5 = tail call noundef double @_ZNK8QuantLib15OneFactorCopula1mEm(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %i.0478)
-  %square476 = fmul double %call5, %call5
-  %call7 = tail call noundef double @_ZNK8QuantLib15OneFactorCopula9densitydmEm(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %i.0478)
-  %8 = tail call double @llvm.fmuladd.f64(double %square476, double %call7, double %var.0479)
-  %inc = add nuw i64 %i.0478, 1
+  %norm.0480 = phi double [ %add, %for.body ], [ 0.000000e+00, %entry ]
+  %mean.0479 = phi double [ %7, %for.body ], [ 0.000000e+00, %entry ]
+  %var.0478 = phi double [ %8, %for.body ], [ 0.000000e+00, %entry ]
+  %i.0477 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
+  %call2 = tail call noundef double @_ZNK8QuantLib15OneFactorCopula9densitydmEm(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %i.0477)
+  %add = fadd double %norm.0480, %call2
+  %call3 = tail call noundef double @_ZNK8QuantLib15OneFactorCopula1mEm(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %i.0477)
+  %call4 = tail call noundef double @_ZNK8QuantLib15OneFactorCopula9densitydmEm(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %i.0477)
+  %7 = tail call double @llvm.fmuladd.f64(double %call3, double %call4, double %mean.0479)
+  %call5 = tail call noundef double @_ZNK8QuantLib15OneFactorCopula1mEm(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %i.0477)
+  %call.i = tail call noundef double @pow(double noundef %call5, double noundef 2.000000e+00) #22, !tbaa !19
+  %call7 = tail call noundef double @_ZNK8QuantLib15OneFactorCopula9densitydmEm(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %i.0477)
+  %8 = tail call double @llvm.fmuladd.f64(double %call.i, double %call7, double %var.0478)
+  %inc = add nuw i64 %i.0477, 1
   %9 = load i64, ptr %steps_.i, align 8, !tbaa !43
   %cmp = icmp ult i64 %inc, %9
   br i1 %cmp, label %for.body, label %for.cond.cleanup.loopexit, !llvm.loop !49
@@ -1724,14 +1724,14 @@ for.cond.cleanup119:                              ; preds = %for.body120
   br i1 %cmp144, label %do.body184, label %if.then145
 
 for.body120:                                      ; preds = %do.body74, %for.body120
-  %norm.1487 = phi double [ %add137, %for.body120 ], [ 0.000000e+00, %do.body74 ]
-  %mean.1486 = phi double [ %66, %for.body120 ], [ 0.000000e+00, %do.body74 ]
-  %var.1485 = phi double [ %67, %for.body120 ], [ 0.000000e+00, %do.body74 ]
-  %i116.0484 = phi i64 [ %inc140, %for.body120 ], [ 1, %do.body74 ]
-  %sub122 = add nsw i64 %i116.0484, -1
+  %norm.1486 = phi double [ %add137, %for.body120 ], [ 0.000000e+00, %do.body74 ]
+  %mean.1485 = phi double [ %66, %for.body120 ], [ 0.000000e+00, %do.body74 ]
+  %var.1484 = phi double [ %67, %for.body120 ], [ 0.000000e+00, %do.body74 ]
+  %i116.0483 = phi i64 [ %inc140, %for.body120 ], [ 1, %do.body74 ]
+  %sub122 = add nsw i64 %i116.0483, -1
   %conv123 = uitofp i64 %sub122 to double
   %62 = tail call double @llvm.fmuladd.f64(double %conv123, double 1.000000e-01, double -1.000000e+01)
-  %conv127 = uitofp nneg i64 %i116.0484 to double
+  %conv127 = uitofp nneg i64 %i116.0483 to double
   %63 = tail call double @llvm.fmuladd.f64(double %conv127, double 1.000000e-01, double -1.000000e+01)
   %add128 = fadd double %63, %62
   %div129 = fmul double %add128, 5.000000e-01
@@ -1744,11 +1744,11 @@ for.body120:                                      ; preds = %do.body74, %for.bod
   %65 = load ptr, ptr %vfn134, align 8
   %call135 = tail call noundef double %65(ptr noundef nonnull align 8 dereferenceable(104) %this, double noundef %62)
   %sub136 = fsub double %call132, %call135
-  %add137 = fadd double %norm.1487, %sub136
-  %66 = tail call double @llvm.fmuladd.f64(double %div129, double %sub136, double %mean.1486)
-  %square = fmul double %div129, %div129
-  %67 = tail call double @llvm.fmuladd.f64(double %square, double %sub136, double %var.1485)
-  %inc140 = add nuw nsw i64 %i116.0484, 1
+  %add137 = fadd double %norm.1486, %sub136
+  %66 = tail call double @llvm.fmuladd.f64(double %div129, double %sub136, double %mean.1485)
+  %call.i169 = tail call noundef double @pow(double noundef %div129, double noundef 2.000000e+00) #22, !tbaa !19
+  %67 = tail call double @llvm.fmuladd.f64(double %call.i169, double %sub136, double %var.1484)
+  %inc140 = add nuw nsw i64 %i116.0483, 1
   %exitcond.not = icmp eq i64 %inc140, 200
   br i1 %exitcond.not, label %for.cond.cleanup119, label %for.body120, !llvm.loop !50
 
@@ -2163,14 +2163,14 @@ for.cond.cleanup270:                              ; preds = %for.body271
   br i1 %cmp297, label %do.body337, label %if.then298
 
 for.body271:                                      ; preds = %do.body225, %for.body271
-  %norm.2491 = phi double [ %add290, %for.body271 ], [ 0.000000e+00, %do.body225 ]
-  %mean.2490 = phi double [ %126, %for.body271 ], [ 0.000000e+00, %do.body225 ]
-  %var.2489 = phi double [ %127, %for.body271 ], [ 0.000000e+00, %do.body225 ]
-  %i267.0488 = phi i64 [ %inc293, %for.body271 ], [ 1, %do.body225 ]
-  %sub275 = add nsw i64 %i267.0488, -1
+  %norm.2490 = phi double [ %add290, %for.body271 ], [ 0.000000e+00, %do.body225 ]
+  %mean.2489 = phi double [ %126, %for.body271 ], [ 0.000000e+00, %do.body225 ]
+  %var.2488 = phi double [ %127, %for.body271 ], [ 0.000000e+00, %do.body225 ]
+  %i267.0487 = phi i64 [ %inc293, %for.body271 ], [ 1, %do.body225 ]
+  %sub275 = add nsw i64 %i267.0487, -1
   %conv276 = uitofp i64 %sub275 to double
   %122 = tail call double @llvm.fmuladd.f64(double %conv276, double 1.000000e-01, double -1.000000e+01)
-  %conv280 = uitofp nneg i64 %i267.0488 to double
+  %conv280 = uitofp nneg i64 %i267.0487 to double
   %123 = tail call double @llvm.fmuladd.f64(double %conv280, double 1.000000e-01, double -1.000000e+01)
   %add281 = fadd double %123, %122
   %div282 = fmul double %add281, 5.000000e-01
@@ -2183,13 +2183,13 @@ for.body271:                                      ; preds = %do.body225, %for.bo
   %125 = load ptr, ptr %vfn287, align 8
   %call288 = tail call noundef double %125(ptr noundef nonnull align 8 dereferenceable(104) %this, double noundef %122)
   %sub289 = fsub double %call285, %call288
-  %add290 = fadd double %norm.2491, %sub289
-  %126 = tail call double @llvm.fmuladd.f64(double %div282, double %sub289, double %mean.2490)
+  %add290 = fadd double %norm.2490, %sub289
+  %126 = tail call double @llvm.fmuladd.f64(double %div282, double %sub289, double %mean.2489)
   %mul = fmul double %div282, %div282
-  %127 = tail call double @llvm.fmuladd.f64(double %mul, double %sub289, double %var.2489)
-  %inc293 = add nuw nsw i64 %i267.0488, 1
-  %exitcond497.not = icmp eq i64 %inc293, 200
-  br i1 %exitcond497.not, label %for.cond.cleanup270, label %for.body271, !llvm.loop !51
+  %127 = tail call double @llvm.fmuladd.f64(double %mul, double %sub289, double %var.2488)
+  %inc293 = add nuw nsw i64 %i267.0487, 1
+  %exitcond496.not = icmp eq i64 %inc293, 200
+  br i1 %exitcond496.not, label %for.cond.cleanup270, label %for.body271, !llvm.loop !51
 
 if.then298:                                       ; preds = %for.cond.cleanup270
   call void @llvm.lifetime.start.p0(ptr nonnull %_ql_msg_stream299)
@@ -3066,6 +3066,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #16
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #7
 
 declare void @__cxa_rethrow() local_unnamed_addr
 

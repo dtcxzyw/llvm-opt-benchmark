@@ -1737,8 +1737,8 @@ define dso_local double @hllTau(double noundef %0) local_unnamed_addr #11 {
   %7 = tail call double @sqrt(double noundef %.016) #22, !tbaa !12
   %8 = fmul double %.014, 5.000000e-01
   %9 = fsub double 1.000000e+00, %7
-  %10 = fneg double %9
-  %11 = fmul double %9, %10
+  %10 = tail call double @pow(double noundef %9, double noundef 2.000000e+00) #22, !tbaa !12
+  %11 = fneg double %10
   %12 = tail call double @llvm.fmuladd.f64(double %11, double %8, double %.0)
   %13 = fcmp une double %.0, %12
   br i1 %13, label %6, label %14, !llvm.loop !55
@@ -1754,6 +1754,9 @@ define dso_local double @hllTau(double noundef %0) local_unnamed_addr #11 {
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @sqrt(double noundef) local_unnamed_addr #12
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @hllCount(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
@@ -1988,8 +1991,8 @@ hllSparseRegHisto.exit:                           ; preds = %116, %68, %._crit_e
   %130 = tail call double @sqrt(double noundef %.016.i) #22, !tbaa !12
   %131 = fmul double %.014.i, 5.000000e-01
   %132 = fsub double 1.000000e+00, %130
-  %133 = fneg double %132
-  %134 = fmul double %132, %133
+  %133 = tail call double @pow(double noundef %132, double noundef 2.000000e+00) #22, !tbaa !12
+  %134 = fneg double %133
   %135 = tail call double @llvm.fmuladd.f64(double %134, double %131, double %.0.i25)
   %136 = fcmp une double %.0.i25, %135
   br i1 %136, label %129, label %137, !llvm.loop !55

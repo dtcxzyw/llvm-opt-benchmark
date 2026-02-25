@@ -703,10 +703,10 @@ define void @_ZNK3g2o18RobustKernelCauchy9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %11, ptr %12, align 8, !tbaa !24
   %13 = fneg double %7
-  %square = fmul double %11, %11
-  %14 = fmul double %square, %13
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store double %14, ptr %15, align 8, !tbaa !24
+  %14 = tail call noundef double @pow(double noundef %11, double noundef 2.000000e+00) #20, !tbaa !15
+  %15 = fmul double %14, %13
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store double %15, ptr %16, align 8, !tbaa !24
   ret void
 }
 
@@ -805,7 +805,7 @@ define void @_ZNK3g2o17RobustKernelTukey9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0
   %5 = load double, ptr %4, align 8, !tbaa !21
   %6 = fmul double %5, %5
   %7 = fcmp ugt double %1, %6
-  br i1 %7, label %16, label %8
+  br i1 %7, label %17, label %8
 
 8:                                                ; preds = %3
   %9 = fdiv double %1, %6
@@ -813,21 +813,21 @@ define void @_ZNK3g2o17RobustKernelTukey9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0
   %11 = tail call noundef double @pow(double noundef %10, double noundef 3.000000e+00) #20, !tbaa !15
   %12 = fsub double 1.000000e+00, %11
   %13 = fmul double %6, %12
-  %square = fmul double %10, %10
-  %14 = fmul double %10, -2.000000e+00
-  %15 = fdiv double %14, %6
-  br label %16
+  %14 = tail call noundef double @pow(double noundef %10, double noundef 2.000000e+00) #20, !tbaa !15
+  %15 = fmul double %10, -2.000000e+00
+  %16 = fdiv double %15, %6
+  br label %17
 
-16:                                               ; preds = %3, %8
-  %.sink18.in = phi double [ %13, %8 ], [ %6, %3 ]
-  %square.sink = phi double [ %square, %8 ], [ 0.000000e+00, %3 ]
-  %.sink = phi double [ %15, %8 ], [ 0.000000e+00, %3 ]
-  %.sink18 = fdiv double %.sink18.in, 3.000000e+00
-  store double %.sink18, ptr %2, align 8, !tbaa !24
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double %square.sink, ptr %17, align 8, !tbaa !24
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store double %.sink, ptr %18, align 8, !tbaa !24
+17:                                               ; preds = %3, %8
+  %.sink19.in = phi double [ %13, %8 ], [ %6, %3 ]
+  %.sink18 = phi double [ %14, %8 ], [ 0.000000e+00, %3 ]
+  %.sink = phi double [ %16, %8 ], [ 0.000000e+00, %3 ]
+  %.sink19 = fdiv double %.sink19.in, 3.000000e+00
+  store double %.sink19, ptr %2, align 8, !tbaa !24
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store double %.sink18, ptr %18, align 8, !tbaa !24
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store double %.sink, ptr %19, align 8, !tbaa !24
   ret void
 }
 

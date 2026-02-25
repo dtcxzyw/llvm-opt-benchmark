@@ -374,12 +374,12 @@ define hidden noundef float @_ZNK19OpenColorIO_v2_5dev16MixingSliderImpl14slider
   br label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118perceptualToLinearEf.exit
 
 33:                                               ; preds = %27
-  %square.i = fmul float %16, %16
+  %34 = tail call noundef float @powf(float noundef %16, float noundef 2.000000e+00) #25, !tbaa !17
   br label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118perceptualToLinearEf.exit
 
 _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118perceptualToLinearEf.exit: ; preds = %33, %29, %25, %2
-  %34 = phi float [ %16, %2 ], [ %26, %25 ], [ %32, %29 ], [ %square.i, %33 ]
-  ret float %34
+  %35 = phi float [ %16, %2 ], [ %26, %25 ], [ %32, %29 ], [ %34, %33 ]
+  ret float %35
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)

@@ -2391,7 +2391,7 @@ if.else.i:                                        ; preds = %entry
   %1 = load double, ptr %rho_.i, align 8, !tbaa !127
   %sigma_.i = getelementptr inbounds nuw i8, ptr %this, i64 416
   %2 = load double, ptr %sigma_.i, align 8, !tbaa !127
-  br i1 %0, label %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit.thread, label %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit.thread45
+  br i1 %0, label %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit.thread, label %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit.thread44
 
 _ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit.thread: ; preds = %if.else.i
   %retval.sroa.0.0.copyload.i.i = load double, ptr %w, align 8
@@ -2403,7 +2403,7 @@ _ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt
   %4 = fdiv double %mul.il.i.i.i, %2
   br label %cleanup
 
-_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit.thread45: ; preds = %if.else.i
+_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit.thread44: ; preds = %if.else.i
   %retval.sroa.0.0.copyload.i7.i = load double, ptr %s, align 8
   %retval.sroa.4.0.__y.sroa_idx.i8.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   %retval.sroa.4.0.copyload.i9.i = load double, ptr %retval.sroa.4.0.__y.sroa_idx.i8.i, align 8, !tbaa !33
@@ -2418,15 +2418,15 @@ _ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt
 _ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit: ; preds = %entry
   br i1 %0, label %cleanup, label %if.else
 
-if.else:                                          ; preds = %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit.thread45, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit
-  %retval.sroa.4.0.i50 = phi double [ %6, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit.thread45 ], [ 0.000000e+00, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit ]
-  %retval.sroa.0.0.i49 = phi double [ %5, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit.thread45 ], [ 0.000000e+00, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit ]
+if.else:                                          ; preds = %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit.thread44, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit
+  %retval.sroa.4.0.i49 = phi double [ %6, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit.thread44 ], [ 0.000000e+00, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit ]
+  %retval.sroa.0.0.i48 = phi double [ %5, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit.thread44 ], [ 0.000000e+00, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit ]
   %add2 = add i64 %k, 1
   %7 = load ptr, ptr %tauK, align 8, !tbaa !125
   %add.ptr.i = getelementptr inbounds nuw double, ptr %7, i64 %add2
   %8 = load double, ptr %add.ptr.i, align 8, !tbaa !127
-  %add.ptr.i15 = getelementptr inbounds nuw double, ptr %7, i64 %k
-  %9 = load double, ptr %add.ptr.i15, align 8, !tbaa !127
+  %add.ptr.i14 = getelementptr inbounds nuw double, ptr %7, i64 %k
+  %9 = load double, ptr %add.ptr.i14, align 8, !tbaa !127
   %sub = fsub double %8, %9
   call void @llvm.lifetime.start.p0(ptr nonnull %z_kp1)
   %call6 = tail call { double, double } @_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine1zERKSt7complexIdES4_mm(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull align 8 dereferenceable(16) %s, ptr noundef nonnull align 8 dereferenceable(16) %w, i64 noundef %add2, i64 noundef %n)
@@ -2494,15 +2494,15 @@ if.end:                                           ; preds = %if.else18, %if.then
   %24 = load double, ptr %kappa_, align 8, !tbaa !113
   %sigma_ = getelementptr inbounds nuw i8, ptr %this, i64 416
   %25 = load double, ptr %sigma_, align 8, !tbaa !117
-  %square = fmul double %25, %25
-  %div = fdiv double %24, %square
-  %add.r.i.i = fadd double %retval.sroa.0.0.i49, %div
+  %call33 = tail call double @pow(double noundef %25, double noundef 2.000000e+00) #30, !tbaa !121
+  %div = fdiv double %24, %call33
+  %add.r.i.i = fadd double %retval.sroa.0.0.i48, %div
   %mul.rl.i.i = fmul double %22, 2.000000e+00
   %mul.il.i.i = fmul double %23, 2.000000e+00
-  %26 = fdiv double %mul.rl.i.i, %square
-  %27 = fdiv double %mul.il.i.i, %square
+  %26 = fdiv double %mul.rl.i.i, %call33
+  %27 = fdiv double %mul.il.i.i, %call33
   %sub.r.i.i = fsub double %add.r.i.i, %26
-  %sub.i.i.i = fsub double %retval.sroa.4.0.i50, %27
+  %sub.i.i.i = fsub double %retval.sroa.4.0.i49, %27
   %call49 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapImSt7complexIdESt4lessImESaISt4pairIKmS1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %omegaTildeLookupTable_, ptr noundef nonnull align 8 dereferenceable(8) %k.addr)
   store double %sub.r.i.i, ptr %call49, align 8
   %retval.sroa.4.0.call49.sroa_idx = getelementptr inbounds nuw i8, ptr %call49, i64 8
@@ -2514,13 +2514,16 @@ if.end:                                           ; preds = %if.else18, %if.then
 cleanup:                                          ; preds = %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit.thread, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit, %if.end
   %sub.r.i.i.pn = phi double [ %sub.r.i.i, %if.end ], [ 0.000000e+00, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit ], [ %3, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit.thread ]
   %sub.i.i.i.pn = phi double [ %sub.i.i.i, %if.end ], [ 0.000000e+00, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit ], [ %4, %_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine5omegaERKSt7complexIdES4_mmm.exit.thread ]
-  %.fca.0.insert.i37.pn = insertvalue { double, double } poison, double %sub.r.i.i.pn, 0
-  %.fca.1.insert.merged = insertvalue { double, double } %.fca.0.insert.i37.pn, double %sub.i.i.i.pn, 1
+  %.fca.0.insert.i36.pn = insertvalue { double, double } poison, double %sub.r.i.i.pn, 0
+  %.fca.1.insert.merged = insertvalue { double, double } %.fca.0.insert.i36.pn, double %sub.i.i.i.pn, 1
   ret { double, double } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapImSt7complexIdESt4lessImESaISt4pairIKmS1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %__k) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2649,12 +2652,12 @@ terminate.lpad.i.i.i.i:                           ; preds = %entry
 _ZNSt8_Rb_treeImSt4pairIKmSt7complexIdEESt10_Select1stIS4_ESt4lessImESaIS4_EE5clearEv.exit.i.i.i: ; preds = %entry
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 504
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8, !tbaa !13
-  %_M_left.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %this, i64 520
-  store ptr %add.ptr.i.i.i.i, ptr %_M_left.i.i.i.i.i20, align 8, !tbaa !14
-  %_M_right.i.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %this, i64 528
-  store ptr %add.ptr.i.i.i.i, ptr %_M_right.i.i.i.i.i21, align 8, !tbaa !15
-  %_M_node_count.i.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %this, i64 536
-  store i64 0, ptr %_M_node_count.i.i.i.i.i22, align 8, !tbaa !16
+  %_M_left.i.i.i.i.i19 = getelementptr inbounds nuw i8, ptr %this, i64 520
+  store ptr %add.ptr.i.i.i.i, ptr %_M_left.i.i.i.i.i19, align 8, !tbaa !14
+  %_M_right.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %this, i64 528
+  store ptr %add.ptr.i.i.i.i, ptr %_M_right.i.i.i.i.i20, align 8, !tbaa !15
+  %_M_node_count.i.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %this, i64 536
+  store i64 0, ptr %_M_node_count.i.i.i.i.i21, align 8, !tbaa !16
   %6 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !3
   %cmp.not.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i.i, label %_ZNSt3mapImSt7complexIdESt4lessImESaISt4pairIKmS1_EEEaSEOS8_.exit, label %if.then.i.i.i
@@ -2664,13 +2667,13 @@ if.then.i.i.i:                                    ; preds = %_ZNSt8_Rb_treeImSt4
   store i32 %7, ptr %add.ptr.i.i.i.i, align 8, !tbaa !8
   store ptr %6, ptr %_M_parent.i.i.i.i.i.i, align 8, !tbaa !13
   %8 = load ptr, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !14
-  store ptr %8, ptr %_M_left.i.i.i.i.i20, align 8, !tbaa !14
+  store ptr %8, ptr %_M_left.i.i.i.i.i19, align 8, !tbaa !14
   %9 = load ptr, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !15
-  store ptr %9, ptr %_M_right.i.i.i.i.i21, align 8, !tbaa !15
+  store ptr %9, ptr %_M_right.i.i.i.i.i20, align 8, !tbaa !15
   %_M_parent16.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %add.ptr.i.i.i.i, ptr %_M_parent16.i.i.i.i.i, align 8, !tbaa !135
   %10 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !16
-  store i64 %10, ptr %_M_node_count.i.i.i.i.i22, align 8, !tbaa !16
+  store i64 %10, ptr %_M_node_count.i.i.i.i.i21, align 8, !tbaa !16
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !13
   store ptr %2, ptr %_M_left.i.i.i.i.i, align 8, !tbaa !14
   store ptr %2, ptr %_M_right.i.i.i.i.i, align 8, !tbaa !15
@@ -2707,10 +2710,11 @@ _ZNSt3mapImSt7complexIdESt4lessImESaISt4pairIKmS1_EEED2Ev.exit: ; preds = %_ZNSt
   %17 = load double, ptr %theta_, align 8, !tbaa !115
   %sigma_ = getelementptr inbounds nuw i8, ptr %this, i64 416
   %18 = load double, ptr %sigma_, align 8, !tbaa !117
+  %call12 = call double @pow(double noundef %18, double noundef 2.000000e+00) #30, !tbaa !121
   %add13 = add nsw i64 %sub.ptr.div.i, 1
-  %i.063 = add i64 %kStar, 1
-  %cmp.not64 = icmp ugt i64 %i.063, %add13
-  br i1 %cmp.not64, label %for.cond.cleanup, label %for.body.lr.ph
+  %i.062 = add i64 %kStar, 1
+  %cmp.not63 = icmp ugt i64 %i.062, %add13
+  br i1 %cmp.not63, label %for.cond.cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNSt3mapImSt7complexIdESt4lessImESaISt4pairIKmS1_EEED2Ev.exit
   %19 = getelementptr inbounds nuw i8, ptr %z_k, i64 8
@@ -2719,13 +2723,13 @@ for.body.lr.ph:                                   ; preds = %_ZNSt3mapImSt7compl
 
 for.cond.cleanup.loopexit:                        ; preds = %for.body
   %.pre = load double, ptr %kappa_, align 8, !tbaa !113
-  %.pre70 = load double, ptr %theta_, align 8, !tbaa !115
-  %.pre71 = load double, ptr %sigma_, align 8, !tbaa !117
+  %.pre69 = load double, ptr %theta_, align 8, !tbaa !115
+  %.pre70 = load double, ptr %sigma_, align 8, !tbaa !117
   br label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %for.cond.cleanup.loopexit, %_ZNSt3mapImSt7complexIdESt4lessImESaISt4pairIKmS1_EEED2Ev.exit
-  %21 = phi double [ %18, %_ZNSt3mapImSt7complexIdESt4lessImESaISt4pairIKmS1_EEED2Ev.exit ], [ %.pre71, %for.cond.cleanup.loopexit ]
-  %22 = phi double [ %17, %_ZNSt3mapImSt7complexIdESt4lessImESaISt4pairIKmS1_EEED2Ev.exit ], [ %.pre70, %for.cond.cleanup.loopexit ]
+  %21 = phi double [ %18, %_ZNSt3mapImSt7complexIdESt4lessImESaISt4pairIKmS1_EEED2Ev.exit ], [ %.pre70, %for.cond.cleanup.loopexit ]
+  %22 = phi double [ %17, %_ZNSt3mapImSt7complexIdESt4lessImESaISt4pairIKmS1_EEED2Ev.exit ], [ %.pre69, %for.cond.cleanup.loopexit ]
   %23 = phi double [ %16, %_ZNSt3mapImSt7complexIdESt4lessImESaISt4pairIKmS1_EEED2Ev.exit ], [ %.pre, %for.cond.cleanup.loopexit ]
   %summation.sroa.0.0.lcssa = phi double [ 0.000000e+00, %_ZNSt3mapImSt7complexIdESt4lessImESaISt4pairIKmS1_EEED2Ev.exit ], [ %add.r.i, %for.cond.cleanup.loopexit ]
   %summation.sroa.6.0.lcssa = phi double [ 0.000000e+00, %_ZNSt3mapImSt7complexIdESt4lessImESaISt4pairIKmS1_EEED2Ev.exit ], [ %add.i.i, %for.cond.cleanup.loopexit ]
@@ -2733,8 +2737,7 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup.lo
   %mul10 = fmul double %mul, %17
   %sub = fsub double %T, %t
   %mul11 = fmul double %sub, %mul10
-  %square = fmul double %18, %18
-  %div = fdiv double %mul11, %square
+  %div = fdiv double %mul11, %call12
   %24 = extractvalue { double, double } %call5, 1
   %mul.il.i.i = fmul double %24, %15
   %25 = extractvalue { double, double } %call5, 0
@@ -2743,38 +2746,38 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup.lo
   %27 = extractvalue { double, double } %call3, 0
   %mul32 = fmul double %23, 2.000000e+00
   %mul34 = fmul double %mul32, %22
-  %mul.rl.i.i27 = fmul double %summation.sroa.0.0.lcssa, %mul34
-  %mul.il.i.i28 = fmul double %summation.sroa.6.0.lcssa, %mul34
-  %square19 = fmul double %21, %21
-  %28 = fdiv double %mul.rl.i.i27, %square19
-  %29 = fdiv double %mul.il.i.i28, %square19
+  %mul.rl.i.i26 = fmul double %summation.sroa.0.0.lcssa, %mul34
+  %mul.il.i.i27 = fmul double %summation.sroa.6.0.lcssa, %mul34
+  %call39 = call double @pow(double noundef %21, double noundef 2.000000e+00) #30, !tbaa !121
+  %28 = fdiv double %mul.rl.i.i26, %call39
+  %29 = fdiv double %mul.il.i.i27, %call39
   %add.r.i.i = fadd double %27, %mul.rl.i.i
   %add.i.i.i = fadd double %26, %mul.il.i.i
-  %add.r.i.i43 = fadd double %add.r.i.i, %div
-  %sub.r.i.i = fsub double %add.r.i.i43, %28
+  %add.r.i.i42 = fadd double %add.r.i.i, %div
+  %sub.r.i.i = fsub double %add.r.i.i42, %28
   %sub.i.i.i = fsub double %add.i.i.i, %29
   %call.i.i = call noundef { double, double } @cexp(double noundef %sub.r.i.i, double noundef %sub.i.i.i) #30
   ret { double, double } %call.i.i
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %i.068 = phi i64 [ %i.063, %for.body.lr.ph ], [ %i.0, %for.body ]
-  %i.0.in67 = phi i64 [ %kStar, %for.body.lr.ph ], [ %i.068, %for.body ]
-  %summation.sroa.6.066 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %add.i.i, %for.body ]
-  %summation.sroa.0.065 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %add.r.i, %for.body ]
+  %i.067 = phi i64 [ %i.062, %for.body.lr.ph ], [ %i.0, %for.body ]
+  %i.0.in66 = phi i64 [ %kStar, %for.body.lr.ph ], [ %i.067, %for.body ]
+  %summation.sroa.6.065 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %add.i.i, %for.body ]
+  %summation.sroa.0.064 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %add.r.i, %for.body ]
   %30 = load ptr, ptr %tauK, align 8, !tbaa !125
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %30, i64 %i.068
+  %add.ptr.i = getelementptr inbounds nuw double, ptr %30, i64 %i.067
   %31 = load double, ptr %add.ptr.i, align 8, !tbaa !127
-  %add.ptr.i54 = getelementptr inbounds nuw double, ptr %30, i64 %i.0.in67
-  %32 = load double, ptr %add.ptr.i54, align 8, !tbaa !127
+  %add.ptr.i53 = getelementptr inbounds nuw double, ptr %30, i64 %i.0.in66
+  %32 = load double, ptr %add.ptr.i53, align 8, !tbaa !127
   %sub17 = fsub double %31, %32
   call void @llvm.lifetime.start.p0(ptr nonnull %z_k)
-  %call18 = call { double, double } @_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine1zERKSt7complexIdES4_mm(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull align 8 dereferenceable(16) %s, ptr noundef nonnull align 8 dereferenceable(16) %w, i64 noundef %i.068, i64 noundef %sub.ptr.div.i)
+  %call18 = call { double, double } @_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine1zERKSt7complexIdES4_mm(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull align 8 dereferenceable(16) %s, ptr noundef nonnull align 8 dereferenceable(16) %w, i64 noundef %i.067, i64 noundef %sub.ptr.div.i)
   %33 = extractvalue { double, double } %call18, 0
   store double %33, ptr %z_k, align 8
   %34 = extractvalue { double, double } %call18, 1
   store double %34, ptr %19, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %omega_tilde_k)
-  %call20 = call { double, double } @_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine11omega_tildeERKSt7complexIdES4_mmmRKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull align 8 dereferenceable(16) %s, ptr noundef nonnull align 8 dereferenceable(16) %w, i64 noundef %i.068, i64 noundef %kStar, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(24) %tauK)
+  %call20 = call { double, double } @_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine11omega_tildeERKSt7complexIdES4_mmmRKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull align 8 dereferenceable(16) %s, ptr noundef nonnull align 8 dereferenceable(16) %w, i64 noundef %i.067, i64 noundef %kStar, i64 noundef %sub.ptr.div.i, ptr noundef nonnull align 8 dereferenceable(24) %tauK)
   %35 = extractvalue { double, double } %call20, 0
   store double %35, ptr %omega_tilde_k, align 8
   %36 = extractvalue { double, double } %call20, 1
@@ -2782,14 +2785,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call24 = call { double, double } @_ZNK8QuantLib54AnalyticDiscreteGeometricAveragePriceAsianHestonEngine1FERKSt7complexIdES4_d(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull align 8 dereferenceable(16) %z_k, ptr noundef nonnull align 8 dereferenceable(16) %omega_tilde_k, double noundef %sub17)
   %37 = extractvalue { double, double } %call24, 0
   %38 = extractvalue { double, double } %call24, 1
-  %call.i.i58 = call noundef { double, double } @clog(double noundef %37, double noundef %38) #30
-  %39 = extractvalue { double, double } %call.i.i58, 0
-  %40 = extractvalue { double, double } %call.i.i58, 1
-  %add.r.i = fadd double %summation.sroa.0.065, %39
-  %add.i.i = fadd double %summation.sroa.6.066, %40
+  %call.i.i57 = call noundef { double, double } @clog(double noundef %37, double noundef %38) #30
+  %39 = extractvalue { double, double } %call.i.i57, 0
+  %40 = extractvalue { double, double } %call.i.i57, 1
+  %add.r.i = fadd double %summation.sroa.0.064, %39
+  %add.i.i = fadd double %summation.sroa.6.065, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %omega_tilde_k)
   call void @llvm.lifetime.end.p0(ptr nonnull %z_k)
-  %i.0 = add i64 %i.068, 1
+  %i.0 = add i64 %i.067, 1
   %cmp.not = icmp ugt i64 %i.0, %add13
   br i1 %cmp.not, label %for.cond.cleanup.loopexit, label %for.body, !llvm.loop !136
 }

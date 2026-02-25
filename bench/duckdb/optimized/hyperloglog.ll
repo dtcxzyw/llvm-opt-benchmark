@@ -1231,8 +1231,8 @@ define noundef double @_ZN10duckdb_hll6hllTauEd(double noundef %0) local_unnamed
   %7 = tail call double @sqrt(double noundef %.016) #21, !tbaa !11
   %8 = fmul double %.014, 5.000000e-01
   %9 = fsub double 1.000000e+00, %7
-  %10 = fneg double %9
-  %11 = fmul double %9, %10
+  %10 = tail call noundef double @pow(double noundef %9, double noundef 2.000000e+00) #21, !tbaa !11
+  %11 = fneg double %10
   %12 = tail call double @llvm.fmuladd.f64(double %11, double %8, double %.0)
   %13 = fcmp une double %.0, %12
   br i1 %13, label %6, label %14, !llvm.loop !35
@@ -1506,8 +1506,8 @@ _ZN10duckdb_hll16hllDenseRegHistoEPhPi.exit:      ; preds = %137, %8, %89, %._cr
   %151 = tail call double @sqrt(double noundef %.016.i) #21, !tbaa !11
   %152 = fmul double %.014.i, 5.000000e-01
   %153 = fsub double 1.000000e+00, %151
-  %154 = fneg double %153
-  %155 = fmul double %153, %154
+  %154 = tail call noundef double @pow(double noundef %153, double noundef 2.000000e+00) #21, !tbaa !11
+  %155 = fneg double %154
   %156 = tail call double @llvm.fmuladd.f64(double %155, double %152, double %.0.i29)
   %157 = fcmp une double %.0.i29, %156
   br i1 %157, label %150, label %158, !llvm.loop !35
@@ -2078,6 +2078,9 @@ define void @_ZN10duckdb_hll12set_registerEPNS_4robjEmh(ptr noundef readonly cap
   store i8 %28, ptr %22, align 1, !tbaa !9
   ret void
 }
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(ptr captures(none)) #19

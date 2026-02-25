@@ -17907,7 +17907,7 @@ _ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit25: ; preds = %_ZNK7x
   br i1 %27, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.033.us = phi i64 [ %52, %.lr.ph.split.us ], [ %17, %.lr.ph ]
+  %.033.us = phi i64 [ %53, %.lr.ph.split.us ], [ %17, %.lr.ph ]
   %29 = getelementptr inbounds nuw float, ptr %11, i64 %.033.us
   %30 = load float, ptr %29, align 4, !tbaa !77
   %31 = getelementptr inbounds nuw float, ptr %13, i64 %.033.us
@@ -17927,61 +17927,61 @@ _ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit25: ; preds = %_ZNK7x
   %44 = fadd float %43, 1.000000e+00
   %45 = fpext float %44 to double
   %46 = fpext float %38 to double
-  %square.i.us = fmul double %46, %46
-  %47 = fdiv double %45, %square.i.us
-  %48 = fptrunc double %47 to float
-  %49 = tail call nsz noundef float @llvm.maxnum.f32(float %48, float 0x3EB0C6F7A0000000)
-  %50 = fmul float %.024.us, %49
-  %51 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %5, i64 %.033.us
-  store float %40, ptr %51, align 4
-  %.sroa_idx26.us = getelementptr inbounds nuw i8, ptr %51, i64 4
-  store float %50, ptr %.sroa_idx26.us, align 4
-  %52 = add nuw i64 %.033.us, 1
-  %53 = icmp ult i64 %52, %.sroa.speculated
-  br i1 %53, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !499
+  %47 = tail call noundef double @pow(double noundef %46, double noundef 2.000000e+00) #21, !tbaa !115
+  %48 = fdiv double %45, %47
+  %49 = fptrunc double %48 to float
+  %50 = tail call nsz noundef float @llvm.maxnum.f32(float %49, float 0x3EB0C6F7A0000000)
+  %51 = fmul float %.024.us, %50
+  %52 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %5, i64 %.033.us
+  store float %40, ptr %52, align 4
+  %.sroa_idx26.us = getelementptr inbounds nuw i8, ptr %52, i64 4
+  store float %51, ptr %.sroa_idx26.us, align 4
+  %53 = add nuw i64 %.033.us, 1
+  %54 = icmp ult i64 %53, %.sroa.speculated
+  br i1 %54, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !499
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %_ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit25
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.033 = phi i64 [ %83, %.lr.ph.split ], [ %17, %.lr.ph ]
-  %54 = getelementptr inbounds nuw float, ptr %11, i64 %.033
-  %55 = load float, ptr %54, align 4, !tbaa !77
-  %56 = load i32, ptr %28, align 8, !tbaa !500
-  %57 = zext i32 %56 to i64
-  %58 = udiv i64 %.033, %57
-  %59 = getelementptr inbounds nuw float, ptr %15, i64 %58
-  %60 = load float, ptr %59, align 4, !tbaa !77
-  %61 = getelementptr inbounds nuw float, ptr %13, i64 %.033
-  %62 = load float, ptr %61, align 4, !tbaa !77
-  %63 = fcmp oeq float %62, 1.000000e+00
-  %64 = fmul float %22, %60
-  %.024 = select i1 %63, float %64, float %60
-  %65 = tail call float @llvm.maxnum.f32(float %55, float 0xBFEFFFFDE0000000)
-  %66 = tail call noundef float @log1pf(float noundef %65) #21, !tbaa !115
-  %67 = tail call noundef float @log1pf(float noundef %62) #21, !tbaa !115
-  %68 = fsub float %66, %67
-  %69 = fadd float %65, 1.000000e+00
-  %70 = fdiv float %68, %69
-  %71 = fmul float %.024, %70
-  %72 = tail call noundef float @log1pf(float noundef %65) #21, !tbaa !115
-  %73 = tail call noundef float @log1pf(float noundef %62) #21, !tbaa !115
-  %74 = fsub float %73, %72
-  %75 = fadd float %74, 1.000000e+00
-  %76 = fpext float %75 to double
-  %77 = fpext float %69 to double
-  %square.i = fmul double %77, %77
-  %78 = fdiv double %76, %square.i
-  %79 = fptrunc double %78 to float
-  %80 = tail call nsz noundef float @llvm.maxnum.f32(float %79, float 0x3EB0C6F7A0000000)
-  %81 = fmul float %.024, %80
-  %82 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %5, i64 %.033
-  store float %71, ptr %82, align 4
-  %.sroa_idx26 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  store float %81, ptr %.sroa_idx26, align 4
-  %83 = add nuw i64 %.033, 1
-  %84 = icmp ult i64 %83, %.sroa.speculated
-  br i1 %84, label %.lr.ph.split, label %._crit_edge, !llvm.loop !499
+  %.033 = phi i64 [ %85, %.lr.ph.split ], [ %17, %.lr.ph ]
+  %55 = getelementptr inbounds nuw float, ptr %11, i64 %.033
+  %56 = load float, ptr %55, align 4, !tbaa !77
+  %57 = load i32, ptr %28, align 8, !tbaa !500
+  %58 = zext i32 %57 to i64
+  %59 = udiv i64 %.033, %58
+  %60 = getelementptr inbounds nuw float, ptr %15, i64 %59
+  %61 = load float, ptr %60, align 4, !tbaa !77
+  %62 = getelementptr inbounds nuw float, ptr %13, i64 %.033
+  %63 = load float, ptr %62, align 4, !tbaa !77
+  %64 = fcmp oeq float %63, 1.000000e+00
+  %65 = fmul float %22, %61
+  %.024 = select i1 %64, float %65, float %61
+  %66 = tail call float @llvm.maxnum.f32(float %56, float 0xBFEFFFFDE0000000)
+  %67 = tail call noundef float @log1pf(float noundef %66) #21, !tbaa !115
+  %68 = tail call noundef float @log1pf(float noundef %63) #21, !tbaa !115
+  %69 = fsub float %67, %68
+  %70 = fadd float %66, 1.000000e+00
+  %71 = fdiv float %69, %70
+  %72 = fmul float %.024, %71
+  %73 = tail call noundef float @log1pf(float noundef %66) #21, !tbaa !115
+  %74 = tail call noundef float @log1pf(float noundef %63) #21, !tbaa !115
+  %75 = fsub float %74, %73
+  %76 = fadd float %75, 1.000000e+00
+  %77 = fpext float %76 to double
+  %78 = fpext float %70 to double
+  %79 = tail call noundef double @pow(double noundef %78, double noundef 2.000000e+00) #21, !tbaa !115
+  %80 = fdiv double %77, %79
+  %81 = fptrunc double %80 to float
+  %82 = tail call nsz noundef float @llvm.maxnum.f32(float %81, float 0x3EB0C6F7A0000000)
+  %83 = fmul float %.024, %82
+  %84 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %5, i64 %.033
+  store float %72, ptr %84, align 4
+  %.sroa_idx26 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  store float %83, ptr %.sroa_idx26, align 4
+  %85 = add nuw i64 %.033, 1
+  %86 = icmp ult i64 %85, %.sroa.speculated
+  br i1 %86, label %.lr.ph.split, label %._crit_edge, !llvm.loop !499
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
@@ -17989,6 +17989,9 @@ declare float @llvm.maxnum.f32(float, float) #29
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @log1pf(float noundef) local_unnamed_addr #30
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #30
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj10RegLossObjINS4_15SquaredLogErrorEE13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E4EvalIJSA_EEEvDpT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #4 comdat align 2 {

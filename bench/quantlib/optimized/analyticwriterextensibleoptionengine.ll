@@ -1870,8 +1870,8 @@ invoke.cont288:                                   ; preds = %invoke.cont270, %co
   %117 = load double, ptr %strike_.i278, align 8, !tbaa !77
   %div278 = fdiv double %call91, %117
   %call279 = call double @log(double noundef %div278) #25, !tbaa !73
-  %square = fmul double %call3.i266, %call3.i266
-  %div282 = fmul double %square, 5.000000e-01
+  %call.i = call noundef double @pow(double noundef %call3.i266, double noundef 2.000000e+00) #25, !tbaa !73
+  %div282 = fmul double %call.i, 5.000000e-01
   %add = fadd double %sub, %div282
   %118 = call double @llvm.fmuladd.f64(double %add, double %call231, double %call279)
   %call284 = call double @sqrt(double noundef %call231) #25, !tbaa !73
@@ -1880,7 +1880,10 @@ invoke.cont288:                                   ; preds = %invoke.cont270, %co
   %119 = load double, ptr %strike_.i, align 8, !tbaa !77
   %div292 = fdiv double %call91, %119
   %call293 = call double @log(double noundef %div292) #25, !tbaa !73
-  %120 = call double @llvm.fmuladd.f64(double %add, double %call197, double %call293)
+  %call.i285 = call noundef double @pow(double noundef %call3.i266, double noundef 2.000000e+00) #25, !tbaa !73
+  %div296 = fmul double %call.i285, 5.000000e-01
+  %add297 = fadd double %sub, %div296
+  %120 = call double @llvm.fmuladd.f64(double %add297, double %call197, double %call293)
   %call299 = call double @sqrt(double noundef %call197) #25, !tbaa !73
   %mul300 = fmul double %call3.i266, %call299
   %div301 = fdiv double %120, %mul300
@@ -4715,6 +4718,9 @@ ehcleanup12:                                      ; preds = %ehcleanup, %lpad
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   resume { ptr, i32 } %.pn.pn
 }
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #10
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #5
 

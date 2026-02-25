@@ -2406,8 +2406,8 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit894: ; preds = %_ZNSt10uni
   %275 = call double @llvm.fmuladd.f64(double %neg1072, double %add1010, double %274)
   %call1073 = call double @pow(double noundef %270, double noundef 1.500000e+00) #26, !tbaa !116
   %div1074 = fdiv double %272, %call1073
-  %square = fmul double %270, %270
-  %div1077 = fdiv double %275, %square
+  %call.i885 = call noundef double @pow(double noundef %270, double noundef 2.000000e+00) #26, !tbaa !116
+  %div1077 = fdiv double %275, %call.i885
   %ex_ = getelementptr inbounds nuw i8, ptr %this, i64 496
   store double %246, ptr %ex_, align 8, !tbaa !152
   %sigma_ = getelementptr inbounds nuw i8, ptr %this, i64 504

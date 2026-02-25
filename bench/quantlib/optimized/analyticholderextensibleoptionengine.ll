@@ -2313,8 +2313,8 @@ _ZNK8QuantLib36AnalyticHolderExtensibleOptionEngine16secondExpiryTimeEv.exit: ; 
   %call2.i = tail call noundef double %6(ptr noundef nonnull align 8 dereferenceable(250) %5, ptr noundef nonnull align 8 dereferenceable(8) %secondExpiryDate.i)
   %div = fdiv double %call2, %3
   %call7 = tail call double @log(double noundef %div) #25, !tbaa !75
-  %square = fmul double %call5, %call5
-  %div9 = fmul double %square, 5.000000e-01
+  %call.i = tail call noundef double @pow(double noundef %call5, double noundef 2.000000e+00) #25, !tbaa !75
+  %div9 = fmul double %call.i, 5.000000e-01
   %add = fadd double %sub, %div9
   %7 = tail call double @llvm.fmuladd.f64(double %add, double %call2.i, double %call7)
   %call10 = tail call double @sqrt(double noundef %call2.i) #25, !tbaa !75
@@ -2381,8 +2381,8 @@ _ZNK8QuantLib36AnalyticHolderExtensibleOptionEngine15firstExpiryTimeEv.exit: ; p
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %div = fdiv double %call2, %call3
   %call8 = call double @log(double noundef %div) #25, !tbaa !75
-  %square = fmul double %call6, %call6
-  %div10 = fmul double %square, 5.000000e-01
+  %call.i = call noundef double @pow(double noundef %call6, double noundef 2.000000e+00) #25, !tbaa !75
+  %div10 = fmul double %call.i, 5.000000e-01
   %add = fadd double %sub, %div10
   %8 = call double @llvm.fmuladd.f64(double %add, double %call4.i, double %call8)
   %call11 = call double @sqrt(double noundef %call4.i) #25, !tbaa !75
@@ -2598,8 +2598,8 @@ _ZNK8QuantLib36AnalyticHolderExtensibleOptionEngine15firstExpiryTimeEv.exit: ; p
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %div = fdiv double %call2, %cond
   %call9 = call double @log(double noundef %div) #25, !tbaa !75
-  %square = fmul double %call7, %call7
-  %div11 = fmul double %square, 5.000000e-01
+  %call.i = call noundef double @pow(double noundef %call7, double noundef 2.000000e+00) #25, !tbaa !75
+  %div11 = fmul double %call.i, 5.000000e-01
   %add = fadd double %sub, %div11
   %8 = call double @llvm.fmuladd.f64(double %add, double %call4.i, double %call9)
   %call12 = call double @sqrt(double noundef %call4.i) #25, !tbaa !75
@@ -2678,8 +2678,8 @@ _ZNK8QuantLib36AnalyticHolderExtensibleOptionEngine15firstExpiryTimeEv.exit: ; p
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   %div = fdiv double %call2, %cond
   %call9 = call double @log(double noundef %div) #25, !tbaa !75
-  %square = fmul double %call7, %call7
-  %div11 = fmul double %square, 5.000000e-01
+  %call.i = call noundef double @pow(double noundef %call7, double noundef 2.000000e+00) #25, !tbaa !75
+  %div11 = fmul double %call.i, 5.000000e-01
   %add = fadd double %sub, %div11
   %8 = call double @llvm.fmuladd.f64(double %add, double %call4.i, double %call9)
   %call12 = call double @sqrt(double noundef %call4.i) #25, !tbaa !75
@@ -5574,6 +5574,9 @@ declare noundef double @_ZNK8QuantLib15BlackCalculator5deltaEd(ptr noundef nonnu
 declare void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(64), double noundef, i1 noundef zeroext) local_unnamed_addr #5
 
 declare void @_ZNK8QuantLib23VolatilityTermStructure11checkStrikeEdb(ptr noundef nonnull align 8 dereferenceable(68), double noundef, i1 noundef zeroext) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #10
 
 declare void @__cxa_rethrow() local_unnamed_addr
 

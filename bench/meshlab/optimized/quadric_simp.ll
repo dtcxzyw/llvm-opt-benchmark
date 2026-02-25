@@ -8360,14 +8360,14 @@ _ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE
   %433 = getelementptr inbounds nuw i8, ptr %1, i64 104
   br label %434
 
-434:                                              ; preds = %.lr.ph270, %488
-  %435 = phi ptr [ %407, %.lr.ph270 ], [ %489, %488 ]
-  %.sroa.0102.0269 = phi ptr [ %408, %.lr.ph270 ], [ %490, %488 ]
+434:                                              ; preds = %.lr.ph270, %489
+  %435 = phi ptr [ %407, %.lr.ph270 ], [ %490, %489 ]
+  %.sroa.0102.0269 = phi ptr [ %408, %.lr.ph270 ], [ %491, %489 ]
   %436 = getelementptr inbounds nuw i8, ptr %.sroa.0102.0269, i64 20
   %437 = load i32, ptr %436, align 4
   %438 = and i32 %437, 5
   %or.cond252 = icmp eq i32 %438, 0
-  br i1 %or.cond252, label %439, label %488
+  br i1 %or.cond252, label %439, label %489
 
 439:                                              ; preds = %434
   %440 = getelementptr inbounds nuw i8, ptr %.sroa.0102.0269, i64 36
@@ -8375,70 +8375,70 @@ _ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE
   %442 = fsub float %441, %.sroa.0.0.vec.extract.i91
   %443 = fdiv float %442, %432
   %444 = fpext float %443 to double
-  %square = fmul double %444, %444
-  %445 = load double, ptr %433, align 8
-  %446 = fadd double %445, -1.000000e+00
-  %447 = tail call double @llvm.fmuladd.f64(double %square, double %446, double 1.000000e+00)
-  %448 = load ptr, ptr @_ZZN3vcg3tri7QHelper3TDpEvE2td, align 8
-  %449 = getelementptr inbounds nuw i8, ptr %448, i64 16
-  %450 = getelementptr inbounds nuw i8, ptr %448, i64 8
-  %451 = load ptr, ptr %450, align 8
+  %445 = tail call double @pow(double noundef %444, double noundef 2.000000e+00) #22
+  %446 = load double, ptr %433, align 8
+  %447 = fadd double %446, -1.000000e+00
+  %448 = tail call double @llvm.fmuladd.f64(double %445, double %447, double 1.000000e+00)
+  %449 = load ptr, ptr @_ZZN3vcg3tri7QHelper3TDpEvE2td, align 8
+  %450 = getelementptr inbounds nuw i8, ptr %449, i64 16
+  %451 = getelementptr inbounds nuw i8, ptr %449, i64 8
   %452 = load ptr, ptr %451, align 8
-  %453 = ptrtoint ptr %.sroa.0102.0269 to i64
-  %454 = ptrtoint ptr %452 to i64
-  %455 = sub i64 %453, %454
-  %456 = sdiv exact i64 %455, 48
-  %457 = load ptr, ptr %449, align 8
-  %458 = getelementptr inbounds %"class.vcg::math::Quadric", ptr %457, i64 %456
-  %459 = load double, ptr %458, align 8
-  %460 = fmul double %447, %459
-  store double %460, ptr %458, align 8
-  %461 = getelementptr inbounds nuw i8, ptr %458, i64 8
-  %462 = load double, ptr %461, align 8
-  %463 = fmul double %447, %462
-  store double %463, ptr %461, align 8
-  %464 = getelementptr inbounds nuw i8, ptr %458, i64 16
-  %465 = load double, ptr %464, align 8
-  %466 = fmul double %447, %465
-  store double %466, ptr %464, align 8
-  %467 = getelementptr inbounds nuw i8, ptr %458, i64 24
-  %468 = load double, ptr %467, align 8
-  %469 = fmul double %447, %468
-  store double %469, ptr %467, align 8
-  %470 = getelementptr inbounds nuw i8, ptr %458, i64 32
-  %471 = load double, ptr %470, align 8
-  %472 = fmul double %447, %471
-  store double %472, ptr %470, align 8
-  %473 = getelementptr inbounds nuw i8, ptr %458, i64 40
-  %474 = load double, ptr %473, align 8
-  %475 = fmul double %447, %474
-  store double %475, ptr %473, align 8
-  %476 = getelementptr inbounds nuw i8, ptr %458, i64 48
-  %477 = load double, ptr %476, align 8
-  %478 = fmul double %447, %477
-  store double %478, ptr %476, align 8
-  %479 = getelementptr inbounds nuw i8, ptr %458, i64 56
-  %480 = load double, ptr %479, align 8
-  %481 = fmul double %447, %480
-  store double %481, ptr %479, align 8
-  %482 = getelementptr inbounds nuw i8, ptr %458, i64 64
-  %483 = load double, ptr %482, align 8
-  %484 = fmul double %447, %483
-  store double %484, ptr %482, align 8
-  %485 = getelementptr inbounds nuw i8, ptr %458, i64 72
-  %486 = load double, ptr %485, align 8
-  %487 = fmul double %447, %486
-  store double %487, ptr %485, align 8
+  %453 = load ptr, ptr %452, align 8
+  %454 = ptrtoint ptr %.sroa.0102.0269 to i64
+  %455 = ptrtoint ptr %453 to i64
+  %456 = sub i64 %454, %455
+  %457 = sdiv exact i64 %456, 48
+  %458 = load ptr, ptr %450, align 8
+  %459 = getelementptr inbounds %"class.vcg::math::Quadric", ptr %458, i64 %457
+  %460 = load double, ptr %459, align 8
+  %461 = fmul double %448, %460
+  store double %461, ptr %459, align 8
+  %462 = getelementptr inbounds nuw i8, ptr %459, i64 8
+  %463 = load double, ptr %462, align 8
+  %464 = fmul double %448, %463
+  store double %464, ptr %462, align 8
+  %465 = getelementptr inbounds nuw i8, ptr %459, i64 16
+  %466 = load double, ptr %465, align 8
+  %467 = fmul double %448, %466
+  store double %467, ptr %465, align 8
+  %468 = getelementptr inbounds nuw i8, ptr %459, i64 24
+  %469 = load double, ptr %468, align 8
+  %470 = fmul double %448, %469
+  store double %470, ptr %468, align 8
+  %471 = getelementptr inbounds nuw i8, ptr %459, i64 32
+  %472 = load double, ptr %471, align 8
+  %473 = fmul double %448, %472
+  store double %473, ptr %471, align 8
+  %474 = getelementptr inbounds nuw i8, ptr %459, i64 40
+  %475 = load double, ptr %474, align 8
+  %476 = fmul double %448, %475
+  store double %476, ptr %474, align 8
+  %477 = getelementptr inbounds nuw i8, ptr %459, i64 48
+  %478 = load double, ptr %477, align 8
+  %479 = fmul double %448, %478
+  store double %479, ptr %477, align 8
+  %480 = getelementptr inbounds nuw i8, ptr %459, i64 56
+  %481 = load double, ptr %480, align 8
+  %482 = fmul double %448, %481
+  store double %482, ptr %480, align 8
+  %483 = getelementptr inbounds nuw i8, ptr %459, i64 64
+  %484 = load double, ptr %483, align 8
+  %485 = fmul double %448, %484
+  store double %485, ptr %483, align 8
+  %486 = getelementptr inbounds nuw i8, ptr %459, i64 72
+  %487 = load double, ptr %486, align 8
+  %488 = fmul double %448, %487
+  store double %488, ptr %486, align 8
   %.pre285 = load ptr, ptr %5, align 8
-  br label %488
+  br label %489
 
-488:                                              ; preds = %434, %439
-  %489 = phi ptr [ %435, %434 ], [ %.pre285, %439 ]
-  %490 = getelementptr inbounds nuw i8, ptr %.sroa.0102.0269, i64 48
-  %.not255 = icmp eq ptr %490, %489
+489:                                              ; preds = %434, %439
+  %490 = phi ptr [ %435, %434 ], [ %.pre285, %439 ]
+  %491 = getelementptr inbounds nuw i8, ptr %.sroa.0102.0269, i64 48
+  %.not255 = icmp eq ptr %491, %490
   br i1 %.not255, label %.loopexit, label %434, !llvm.loop !115
 
-.loopexit:                                        ; preds = %488, %.preheader.i.i.i, %.preheader20.i.i.i, %400
+.loopexit:                                        ; preds = %489, %.preheader.i.i.i, %.preheader20.i.i.i, %400
   ret void
 }
 

@@ -335,7 +335,7 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.threa
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN3g2o21EdgeSE2PointXYBearing14linearizeOplusEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !46
@@ -349,40 +349,40 @@ define void @_ZN3g2o21EdgeSE2PointXYBearing14linearizeOplusEv(ptr noundef nonnul
   %11 = load double, ptr %9, align 8, !tbaa !61
   %12 = load double, ptr %7, align 8, !tbaa !61
   %13 = fsub double %11, %12
-  %square = fmul double %13, %13
-  %14 = load double, ptr %10, align 8, !tbaa !61
-  %15 = load double, ptr %8, align 8, !tbaa !61
-  %16 = fsub double %14, %15
-  %square21 = fmul double %16, %16
-  %17 = fadd double %square, %square21
-  %18 = fsub double %15, %14
-  %19 = fdiv double %18, %17
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %21 = load ptr, ptr %20, align 8, !tbaa !71
-  %22 = load ptr, ptr %21, align 8, !tbaa !109
-  store double %19, ptr %22, align 8, !tbaa !61
-  %23 = load double, ptr %9, align 8, !tbaa !61
-  %24 = load double, ptr %7, align 8, !tbaa !61
-  %25 = fsub double %23, %24
-  %26 = fdiv double %25, %17
-  %27 = getelementptr i8, ptr %22, i64 8
-  store double %26, ptr %27, align 8, !tbaa !61
-  %28 = getelementptr i8, ptr %22, i64 16
-  store double 1.000000e+00, ptr %28, align 8, !tbaa !61
-  %29 = load double, ptr %10, align 8, !tbaa !61
-  %30 = load double, ptr %8, align 8, !tbaa !61
-  %31 = fsub double %29, %30
-  %32 = fdiv double %31, %17
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %34 = load ptr, ptr %33, align 8, !tbaa !110
-  %35 = load ptr, ptr %34, align 8, !tbaa !111
-  store double %32, ptr %35, align 8, !tbaa !61
-  %36 = load double, ptr %7, align 8, !tbaa !61
-  %37 = load double, ptr %9, align 8, !tbaa !61
-  %38 = fsub double %36, %37
-  %39 = fdiv double %38, %17
-  %40 = getelementptr i8, ptr %35, i64 8
-  store double %39, ptr %40, align 8, !tbaa !61
+  %14 = tail call noundef double @pow(double noundef %13, double noundef 2.000000e+00) #19, !tbaa !63
+  %15 = load double, ptr %10, align 8, !tbaa !61
+  %16 = load double, ptr %8, align 8, !tbaa !61
+  %17 = fsub double %15, %16
+  %18 = tail call noundef double @pow(double noundef %17, double noundef 2.000000e+00) #19, !tbaa !63
+  %19 = fadd double %14, %18
+  %20 = fsub double %16, %15
+  %21 = fdiv double %20, %19
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %23 = load ptr, ptr %22, align 8, !tbaa !71
+  %24 = load ptr, ptr %23, align 8, !tbaa !109
+  store double %21, ptr %24, align 8, !tbaa !61
+  %25 = load double, ptr %9, align 8, !tbaa !61
+  %26 = load double, ptr %7, align 8, !tbaa !61
+  %27 = fsub double %25, %26
+  %28 = fdiv double %27, %19
+  %29 = getelementptr i8, ptr %24, i64 8
+  store double %28, ptr %29, align 8, !tbaa !61
+  %30 = getelementptr i8, ptr %24, i64 16
+  store double 1.000000e+00, ptr %30, align 8, !tbaa !61
+  %31 = load double, ptr %10, align 8, !tbaa !61
+  %32 = load double, ptr %8, align 8, !tbaa !61
+  %33 = fsub double %31, %32
+  %34 = fdiv double %33, %19
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %36 = load ptr, ptr %35, align 8, !tbaa !110
+  %37 = load ptr, ptr %36, align 8, !tbaa !111
+  store double %34, ptr %37, align 8, !tbaa !61
+  %38 = load double, ptr %7, align 8, !tbaa !61
+  %39 = load double, ptr %9, align 8, !tbaa !61
+  %40 = fsub double %38, %39
+  %41 = fdiv double %40, %19
+  %42 = getelementptr i8, ptr %37, i64 8
+  store double %41, ptr %42, align 8, !tbaa !61
   ret void
 }
 
@@ -1204,6 +1204,9 @@ declare double @sin(double noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @cos(double noundef) local_unnamed_addr #11
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #11
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
@@ -2067,7 +2070,7 @@ attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #7 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #9 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

@@ -1336,8 +1336,8 @@ sw.bb:                                            ; preds = %entry
   %vfn3 = getelementptr inbounds nuw i8, ptr %vtable2, i64 136
   %2 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef double %2(ptr noundef nonnull align 8 dereferenceable(256) %this, double noundef %t0, double noundef %x0)
-  %square148 = fmul double %call4, %call4
-  %mul6 = fmul double %square148, 5.000000e-01
+  %call.i = tail call noundef double @pow(double noundef %call4, double noundef 2.000000e+00) #21, !tbaa !77
+  %mul6 = fmul double %call.i, 5.000000e-01
   %3 = tail call double @llvm.fmuladd.f64(double %dw, double %dw, double -1.000000e+00)
   %mul8 = fmul double %3, %mul6
   %mul9 = fmul double %dt, %mul8
@@ -1440,8 +1440,8 @@ invoke.cont57:                                    ; preds = %.noexc, %invoke.con
 invoke.cont59:                                    ; preds = %invoke.cont57
   %21 = load double, ptr %ref.tmp51, align 8, !tbaa !69
   %sub = fsub double %18, %21
-  %square = fmul double %call42, %call42
-  %22 = call double @llvm.fmuladd.f64(double %square, double -5.000000e-01, double %sub)
+  %call.i55 = call noundef double @pow(double noundef %call42, double noundef 2.000000e+00) #21, !tbaa !77
+  %22 = call double @llvm.fmuladd.f64(double %call.i55, double -5.000000e-01, double %sub)
   %pn.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp51, i64 16
   %23 = load ptr, ptr %pn.i.i.i, align 8, !tbaa !37
   %cmp.not.i.i.i.i = icmp eq ptr %23, null
@@ -1568,8 +1568,8 @@ invoke.cont83:                                    ; preds = %.noexc79, %invoke.c
 invoke.cont87:                                    ; preds = %invoke.cont83
   %42 = load double, ptr %ref.tmp77, align 8, !tbaa !69
   %sub91 = fsub double %39, %42
-  %square147 = fmul double %call46, %call46
-  %43 = call double @llvm.fmuladd.f64(double %square147, double -5.000000e-01, double %sub91)
+  %call.i81 = call noundef double @pow(double noundef %call46, double noundef 2.000000e+00) #21, !tbaa !77
+  %43 = call double @llvm.fmuladd.f64(double %call.i81, double -5.000000e-01, double %sub91)
   %pn.i.i.i82 = getelementptr inbounds nuw i8, ptr %ref.tmp77, i64 16
   %44 = load ptr, ptr %pn.i.i.i82, align 8, !tbaa !37
   %cmp.not.i.i.i.i83 = icmp eq ptr %44, null
@@ -2625,6 +2625,9 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(64), double noundef, i1 noundef zeroext) local_unnamed_addr #6
 
 declare void @_ZNK8QuantLib23VolatilityTermStructure11checkStrikeEdb(ptr noundef nonnull align 8 dereferenceable(68), double noundef, i1 noundef zeroext) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #10
 
 declare void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 

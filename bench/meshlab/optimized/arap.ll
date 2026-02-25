@@ -5711,12 +5711,12 @@ define noundef double @_ZN4ARAP13ComputeEnergyERKN3vcg6Point2IdEES4_S4_S4_Pd(ptr
   %58 = load <2 x double>, ptr %57, align 16
   %.sroa.0.0.vec.extract = extractelement <2 x double> %58, i64 0
   %59 = fadd double %.sroa.0.0.vec.extract, -1.000000e+00
-  %square = fmul double %59, %59
+  %60 = call double @pow(double noundef %59, double noundef 2.000000e+00) #26
   %.sroa.0.8.vec.extract = extractelement <2 x double> %58, i64 1
-  %60 = fadd double %.sroa.0.8.vec.extract, -1.000000e+00
-  %square8 = fmul double %60, %60
-  %61 = fadd double %square, %square8
-  ret double %61
+  %61 = fadd double %.sroa.0.8.vec.extract, -1.000000e+00
+  %62 = call double @pow(double noundef %61, double noundef 2.000000e+00) #26
+  %63 = fadd double %60, %62
+  ret double %63
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6344,6 +6344,9 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELin1ELi1ELb0EEE
   ret ptr %0
 }
 
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #21
+
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZN4ARAP30ComputeEnergyFromStoredWedgeTCERKSt6vectorIP8MeshFaceSaIS2_EER4MeshPdS9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.Eigen::Matrix.188", align 16
@@ -6370,7 +6373,7 @@ define noundef double @_ZN4ARAP30ComputeEnergyFromStoredWedgeTCERKSt6vectorIP8Me
 20:                                               ; preds = %.lr.ph, %20
   %.058 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %20 ]
   %.01557 = phi double [ 0.000000e+00, %.lr.ph ], [ %.116, %20 ]
-  %.sroa.045.056 = phi ptr [ %8, %.lr.ph ], [ %93, %20 ]
+  %.sroa.045.056 = phi ptr [ %8, %.lr.ph ], [ %95, %20 ]
   %21 = load ptr, ptr %.sroa.045.056, align 8
   %22 = load ptr, ptr %13, align 8
   %23 = load ptr, ptr %22, align 8
@@ -6451,43 +6454,43 @@ define noundef double @_ZN4ARAP30ComputeEnergyFromStoredWedgeTCERKSt6vectorIP8Me
   %86 = load <2 x double>, ptr %19, align 16
   %.sroa.0.0.vec.extract.i = extractelement <2 x double> %86, i64 0
   %87 = fadd double %.sroa.0.0.vec.extract.i, -1.000000e+00
-  %square.i = fmul double %87, %87
+  %88 = call double @pow(double noundef %87, double noundef 2.000000e+00) #26
   %.sroa.0.8.vec.extract.i = extractelement <2 x double> %86, i64 1
-  %88 = fadd double %.sroa.0.8.vec.extract.i, -1.000000e+00
-  %square8.i = fmul double %88, %88
-  %89 = fadd double %square.i, %square8.i
+  %89 = fadd double %.sroa.0.8.vec.extract.i, -1.000000e+00
+  %90 = call double @pow(double noundef %89, double noundef 2.000000e+00) #26
+  %91 = fadd double %88, %90
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %90 = fcmp one double %63, 0.000000e+00
-  %91 = call double @llvm.fmuladd.f64(double %64, double %89, double %.058)
-  %92 = fadd double %.01557, %64
-  %.116 = select i1 %90, double %92, double %.01557
-  %.1 = select i1 %90, double %91, double %.058
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.045.056, i64 8
-  %.not54 = icmp eq ptr %93, %10
+  %92 = fcmp one double %63, 0.000000e+00
+  %93 = call double @llvm.fmuladd.f64(double %64, double %91, double %.058)
+  %94 = fadd double %.01557, %64
+  %.116 = select i1 %92, double %94, double %.01557
+  %.1 = select i1 %92, double %93, double %.058
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.045.056, i64 8
+  %.not54 = icmp eq ptr %95, %10
   br i1 %.not54, label %._crit_edge, label %20
 
 ._crit_edge:                                      ; preds = %20, %4
   %.015.lcssa = phi double [ 0.000000e+00, %4 ], [ %.116, %20 ]
   %.0.lcssa = phi double [ 0.000000e+00, %4 ], [ %.1, %20 ]
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %95, label %94
+  br i1 %.not, label %97, label %96
 
-94:                                               ; preds = %._crit_edge
+96:                                               ; preds = %._crit_edge
   store double %.0.lcssa, ptr %2, align 8
-  br label %95
-
-95:                                               ; preds = %94, %._crit_edge
-  %.not20 = icmp eq ptr %3, null
-  br i1 %.not20, label %97, label %96
-
-96:                                               ; preds = %95
-  store double %.015.lcssa, ptr %3, align 8
   br label %97
 
-97:                                               ; preds = %96, %95
-  %98 = fdiv double %.0.lcssa, %.015.lcssa
-  ret double %98
+97:                                               ; preds = %96, %._crit_edge
+  %.not20 = icmp eq ptr %3, null
+  br i1 %.not20, label %99, label %98
+
+98:                                               ; preds = %97
+  store double %.015.lcssa, ptr %3, align 8
+  br label %99
+
+99:                                               ; preds = %98, %97
+  %100 = fdiv double %.0.lcssa, %.015.lcssa
+  ret double %100
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7226,8 +7229,8 @@ define noundef double @_ZN4ARAP30ComputeEnergyFromStoredWedgeTCER4MeshPdS2_(ptr 
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8
-  %.not6263 = icmp eq ptr %8, %10
-  br i1 %.not6263, label %._crit_edge, label %.lr.ph
+  %.not6162 = icmp eq ptr %8, %10
+  br i1 %.not6162, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %11 = extractvalue { ptr, i32 } %6, 0
@@ -7241,13 +7244,13 @@ define noundef double @_ZN4ARAP30ComputeEnergyFromStoredWedgeTCER4MeshPdS2_(ptr 
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 64
   br label %20
 
-20:                                               ; preds = %.lr.ph, %93
-  %.066 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %93 ]
-  %.02665 = phi double [ 0.000000e+00, %.lr.ph ], [ %.127, %93 ]
-  %.sroa.053.064 = phi ptr [ %8, %.lr.ph ], [ %94, %93 ]
+20:                                               ; preds = %.lr.ph, %95
+  %.065 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %95 ]
+  %.02664 = phi double [ 0.000000e+00, %.lr.ph ], [ %.127, %95 ]
+  %.sroa.052.063 = phi ptr [ %8, %.lr.ph ], [ %96, %95 ]
   %21 = load ptr, ptr %13, align 8
   %22 = load ptr, ptr %21, align 8
-  %23 = ptrtoint ptr %.sroa.053.064 to i64
+  %23 = ptrtoint ptr %.sroa.052.063 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
   %26 = load ptr, ptr %12, align 8
@@ -7272,24 +7275,24 @@ define noundef double @_ZN4ARAP30ComputeEnergyFromStoredWedgeTCER4MeshPdS2_(ptr 
   %45 = fmul double %37, %44
   %46 = call noundef double @llvm.fmuladd.f64(double %32, double %43, double %45)
   %47 = fcmp ueq double %46, 0.000000e+00
-  br i1 %47, label %93, label %48
+  br i1 %47, label %95, label %48
 
 48:                                               ; preds = %20
   %49 = call noundef double @llvm.fabs.f64(double %46)
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.053.064, i64 96
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.053.064, i64 120
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.052.063, i64 96
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.052.063, i64 120
   %52 = load double, ptr %51, align 8
   %53 = load double, ptr %50, align 8
   %54 = fsub double %52, %53
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.053.064, i64 128
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.052.063, i64 128
   %56 = load double, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.053.064, i64 104
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.052.063, i64 104
   %58 = load double, ptr %57, align 8
   %59 = fsub double %56, %58
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.053.064, i64 144
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.052.063, i64 144
   %61 = load double, ptr %60, align 8
   %62 = fsub double %61, %53
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.053.064, i64 152
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.052.063, i64 152
   %64 = load double, ptr %63, align 8
   %65 = fsub double %64, %58
   %.sroa.0.0.vec.insert = insertelement <2 x double> poison, double %54, i64 0
@@ -7324,45 +7327,45 @@ define noundef double @_ZN4ARAP30ComputeEnergyFromStoredWedgeTCER4MeshPdS2_(ptr 
   store i64 0, ptr %18, align 8
   %86 = call noundef nonnull align 16 dereferenceable(224) ptr @_ZN5Eigen9JacobiSVDINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2EE7computeERKS2_j(ptr noundef nonnull align 16 dereferenceable(224) %5, ptr noundef nonnull align 16 dereferenceable(32) %4, i32 noundef 20)
   %87 = load <2 x double>, ptr %19, align 16
-  %88 = fadd double %.02665, %49
+  %88 = fadd double %.02664, %49
   %.sroa.0.0.vec.extract = extractelement <2 x double> %87, i64 0
   %89 = fadd double %.sroa.0.0.vec.extract, -1.000000e+00
-  %square = fmul double %89, %89
+  %90 = call double @pow(double noundef %89, double noundef 2.000000e+00) #26
   %.sroa.0.8.vec.extract = extractelement <2 x double> %87, i64 1
-  %90 = fadd double %.sroa.0.8.vec.extract, -1.000000e+00
-  %square32 = fmul double %90, %90
-  %91 = fadd double %square, %square32
-  %92 = call double @llvm.fmuladd.f64(double %49, double %91, double %.066)
-  br label %93
+  %91 = fadd double %.sroa.0.8.vec.extract, -1.000000e+00
+  %92 = call double @pow(double noundef %91, double noundef 2.000000e+00) #26
+  %93 = fadd double %90, %92
+  %94 = call double @llvm.fmuladd.f64(double %49, double %93, double %.065)
+  br label %95
 
-93:                                               ; preds = %20, %48
-  %.127 = phi double [ %88, %48 ], [ %.02665, %20 ]
-  %.1 = phi double [ %92, %48 ], [ %.066, %20 ]
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.053.064, i64 216
-  %.not62 = icmp eq ptr %94, %10
-  br i1 %.not62, label %._crit_edge, label %20
+95:                                               ; preds = %20, %48
+  %.127 = phi double [ %88, %48 ], [ %.02664, %20 ]
+  %.1 = phi double [ %94, %48 ], [ %.065, %20 ]
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.052.063, i64 216
+  %.not61 = icmp eq ptr %96, %10
+  br i1 %.not61, label %._crit_edge, label %20
 
-._crit_edge:                                      ; preds = %93, %3
-  %.026.lcssa = phi double [ 0.000000e+00, %3 ], [ %.127, %93 ]
-  %.0.lcssa = phi double [ 0.000000e+00, %3 ], [ %.1, %93 ]
+._crit_edge:                                      ; preds = %95, %3
+  %.026.lcssa = phi double [ 0.000000e+00, %3 ], [ %.127, %95 ]
+  %.0.lcssa = phi double [ 0.000000e+00, %3 ], [ %.1, %95 ]
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %96, label %95
+  br i1 %.not, label %98, label %97
 
-95:                                               ; preds = %._crit_edge
+97:                                               ; preds = %._crit_edge
   store double %.0.lcssa, ptr %1, align 8
-  br label %96
-
-96:                                               ; preds = %95, %._crit_edge
-  %.not31 = icmp eq ptr %2, null
-  br i1 %.not31, label %98, label %97
-
-97:                                               ; preds = %96
-  store double %.026.lcssa, ptr %2, align 8
   br label %98
 
-98:                                               ; preds = %97, %96
-  %99 = fdiv double %.0.lcssa, %.026.lcssa
-  ret double %99
+98:                                               ; preds = %97, %._crit_edge
+  %.not31 = icmp eq ptr %2, null
+  br i1 %.not31, label %100, label %99
+
+99:                                               ; preds = %98
+  store double %.026.lcssa, ptr %2, align 8
+  br label %100
+
+100:                                              ; preds = %99, %98
+  %101 = fdiv double %.0.lcssa, %.026.lcssa
+  ret double %101
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7376,8 +7379,8 @@ define noundef double @_ZN4ARAP13CurrentEnergyEv(ptr noundef nonnull readonly al
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %10 = load ptr, ptr %9, align 8
-  %.not64 = icmp eq ptr %8, %10
-  br i1 %.not64, label %._crit_edge, label %.lr.ph
+  %.not63 = icmp eq ptr %8, %10
+  br i1 %.not63, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %11 = extractvalue { ptr, i32 } %5, 0
@@ -7390,17 +7393,17 @@ define noundef double @_ZN4ARAP13CurrentEnergyEv(ptr noundef nonnull readonly al
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %.pre = load ptr, ptr %13, align 8
-  %.pre72 = load ptr, ptr %.pre, align 8
-  %.pre73 = load ptr, ptr %12, align 8
+  %.pre71 = load ptr, ptr %.pre, align 8
+  %.pre72 = load ptr, ptr %12, align 8
   br label %20
 
 20:                                               ; preds = %.lr.ph, %_Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit
-  %21 = phi ptr [ %.pre73, %.lr.ph ], [ %137, %_Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit ]
-  %22 = phi ptr [ %.pre72, %.lr.ph ], [ %134, %_Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit ]
-  %.067 = phi double [ 0.000000e+00, %.lr.ph ], [ %180, %_Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit ]
-  %.02266 = phi double [ 0.000000e+00, %.lr.ph ], [ %176, %_Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit ]
-  %.sroa.051.065 = phi ptr [ %8, %.lr.ph ], [ %181, %_Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit ]
-  %23 = ptrtoint ptr %.sroa.051.065 to i64
+  %21 = phi ptr [ %.pre72, %.lr.ph ], [ %137, %_Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit ]
+  %22 = phi ptr [ %.pre71, %.lr.ph ], [ %134, %_Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit ]
+  %.066 = phi double [ 0.000000e+00, %.lr.ph ], [ %182, %_Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit ]
+  %.02265 = phi double [ 0.000000e+00, %.lr.ph ], [ %176, %_Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit ]
+  %.sroa.050.064 = phi ptr [ %8, %.lr.ph ], [ %183, %_Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit ]
+  %23 = ptrtoint ptr %.sroa.050.064 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
   %26 = sdiv exact i64 %25, 3
@@ -7493,20 +7496,20 @@ _Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit: ; preds 
   %89 = call double @cos(double noundef %.0.i) #26
   %90 = call double @sin(double noundef %.0.i) #26
   %91 = fmul double %.024.i, %90
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.051.065, i64 96
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.051.065, i64 120
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.050.064, i64 96
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.050.064, i64 120
   %94 = load double, ptr %93, align 8
   %95 = load double, ptr %92, align 8
   %96 = fsub double %94, %95
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.051.065, i64 128
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.050.064, i64 128
   %98 = load double, ptr %97, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.051.065, i64 104
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.050.064, i64 104
   %100 = load double, ptr %99, align 8
   %101 = fsub double %98, %100
-  %102 = getelementptr inbounds nuw i8, ptr %.sroa.051.065, i64 144
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.050.064, i64 144
   %103 = load double, ptr %102, align 8
   %104 = fsub double %103, %95
-  %105 = getelementptr inbounds nuw i8, ptr %.sroa.051.065, i64 152
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.050.064, i64 152
   %106 = load double, ptr %105, align 8
   %107 = fsub double %106, %100
   %.sroa.0.0.vec.insert = insertelement <2 x double> poison, double %96, i64 0
@@ -7588,26 +7591,26 @@ _Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit: ; preds 
   %174 = call double @llvm.fmuladd.f64(double %171, double %171, double %173)
   %sqrt.i = call noundef double @llvm.sqrt.f64(double %174)
   %175 = fmul double %sqrt.i, 5.000000e-01
-  %176 = fadd double %.02266, %175
-  %.sroa.032.0.vec.extract = extractelement <2 x double> %132, i64 0
-  %177 = fadd double %.sroa.032.0.vec.extract, -1.000000e+00
-  %square = fmul double %177, %177
-  %.sroa.032.8.vec.extract = extractelement <2 x double> %132, i64 1
-  %178 = fadd double %.sroa.032.8.vec.extract, -1.000000e+00
-  %square23 = fmul double %178, %178
-  %179 = fadd double %square, %square23
-  %180 = call double @llvm.fmuladd.f64(double %175, double %179, double %.067)
-  %181 = getelementptr inbounds nuw i8, ptr %.sroa.051.065, i64 216
-  %.not = icmp eq ptr %181, %10
+  %176 = fadd double %.02265, %175
+  %.sroa.031.0.vec.extract = extractelement <2 x double> %132, i64 0
+  %177 = fadd double %.sroa.031.0.vec.extract, -1.000000e+00
+  %178 = call double @pow(double noundef %177, double noundef 2.000000e+00) #26
+  %.sroa.031.8.vec.extract = extractelement <2 x double> %132, i64 1
+  %179 = fadd double %.sroa.031.8.vec.extract, -1.000000e+00
+  %180 = call double @pow(double noundef %179, double noundef 2.000000e+00) #26
+  %181 = fadd double %178, %180
+  %182 = call double @llvm.fmuladd.f64(double %175, double %181, double %.066)
+  %183 = getelementptr inbounds nuw i8, ptr %.sroa.050.064, i64 216
+  %.not = icmp eq ptr %183, %10
   br i1 %.not, label %._crit_edge.loopexit, label %20
 
 ._crit_edge.loopexit:                             ; preds = %_Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit
-  %182 = fdiv double %180, %176
+  %184 = fdiv double %182, %176
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %183 = phi double [ 0x7FF8000000000000, %1 ], [ %182, %._crit_edge.loopexit ]
-  ret double %183
+  %185 = phi double [ 0x7FF8000000000000, %1 ], [ %184, %._crit_edge.loopexit ]
+  ret double %185
 }
 
 ; Function Attrs: mustprogress uwtable

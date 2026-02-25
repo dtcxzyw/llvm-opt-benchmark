@@ -590,7 +590,7 @@ define hidden noundef range(i32 0, 1028) i32 @_Z24pj_calc_ellipsoid_paramsP8PJco
 41:                                               ; preds = %37
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.4)
   %42 = tail call i32 @proj_errno_set(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %85
+  br label %86
 
 43:                                               ; preds = %37
   %44 = fcmp une double %38, 0.000000e+00
@@ -612,52 +612,52 @@ define hidden noundef range(i32 0, 1028) i32 @_Z24pj_calc_ellipsoid_paramsP8PJco
   store double %56, ptr %57, align 8, !tbaa !66
   %58 = fmul double %13, 5.000000e-01
   %59 = tail call double @tan(double noundef %58) #14, !tbaa !72
-  %square = fmul double %59, %59
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store double %square, ptr %60, align 8, !tbaa !64
-  %61 = fcmp une double %square, 0.000000e+00
-  %62 = fdiv double 1.000000e+00, %square
-  %63 = select i1 %61, double %62, double 0x7FF0000000000000
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store double %63, ptr %64, align 8, !tbaa !67
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %66 = load double, ptr %65, align 8, !tbaa !50
-  %67 = fcmp oeq double %66, 0.000000e+00
-  br i1 %67, label %68, label %71
+  %60 = tail call noundef double @pow(double noundef %59, double noundef 2.000000e+00) #14, !tbaa !72
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  store double %60, ptr %61, align 8, !tbaa !64
+  %62 = fcmp une double %60, 0.000000e+00
+  %63 = fdiv double 1.000000e+00, %60
+  %64 = select i1 %62, double %63, double 0x7FF0000000000000
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  store double %64, ptr %65, align 8, !tbaa !67
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %67 = load double, ptr %66, align 8, !tbaa !50
+  %68 = fcmp oeq double %67, 0.000000e+00
+  br i1 %68, label %69, label %72
 
-68:                                               ; preds = %43
-  %69 = fsub nnan double 1.000000e+00, %38
-  %70 = fmul double %1, %69
-  store double %70, ptr %65, align 8, !tbaa !50
-  br label %71
+69:                                               ; preds = %43
+  %70 = fsub nnan double 1.000000e+00, %38
+  %71 = fmul double %1, %70
+  store double %71, ptr %66, align 8, !tbaa !50
+  br label %72
 
-71:                                               ; preds = %68, %43
-  %72 = phi double [ %70, %68 ], [ %66, %43 ]
-  %73 = fdiv double 1.000000e+00, %72
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store double %73, ptr %74, align 8, !tbaa !52
-  %75 = fdiv double 1.000000e+00, %1
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store double %75, ptr %76, align 8, !tbaa !51
-  %77 = fsub double 1.000000e+00, %2
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store double %77, ptr %78, align 8, !tbaa !60
-  %79 = fcmp oeq double %77, 0.000000e+00
-  br i1 %79, label %80, label %82
+72:                                               ; preds = %69, %43
+  %73 = phi double [ %71, %69 ], [ %67, %43 ]
+  %74 = fdiv double 1.000000e+00, %73
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store double %74, ptr %75, align 8, !tbaa !52
+  %76 = fdiv double 1.000000e+00, %1
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store double %76, ptr %77, align 8, !tbaa !51
+  %78 = fsub double 1.000000e+00, %2
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store double %78, ptr %79, align 8, !tbaa !60
+  %80 = fcmp oeq double %78, 0.000000e+00
+  br i1 %80, label %81, label %83
 
-80:                                               ; preds = %71
+81:                                               ; preds = %72
   tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.4)
-  %81 = tail call i32 @proj_errno_set(ptr noundef nonnull %0, i32 noundef 1027)
-  br label %85
+  %82 = tail call i32 @proj_errno_set(ptr noundef nonnull %0, i32 noundef 1027)
+  br label %86
 
-82:                                               ; preds = %71
-  %83 = fdiv double 1.000000e+00, %77
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store double %83, ptr %84, align 8, !tbaa !61
-  br label %85
+83:                                               ; preds = %72
+  %84 = fdiv double 1.000000e+00, %78
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store double %84, ptr %85, align 8, !tbaa !61
+  br label %86
 
-85:                                               ; preds = %82, %80, %41
-  %.0 = phi i32 [ 1027, %80 ], [ 0, %82 ], [ 1027, %41 ]
+86:                                               ; preds = %83, %81, %41
+  %.0 = phi i32 [ 1027, %81 ], [ 0, %83 ], [ 1027, %41 ]
   ret i32 %.0
 }
 
@@ -1484,6 +1484,9 @@ declare double @llvm.fabs.f64(double) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare void @_ZN16PJCoordOperationD1Ev(ptr noundef nonnull align 8 dereferenceable(188)) unnamed_addr #8

@@ -16241,25 +16241,27 @@ define linkonce_odr void @_ZN20RidgedMFNoiseFunctorIfE4initERfS1_S1_S1_(ptr noun
   %16 = load float, ptr %15, align 4
   %17 = tail call noundef float @llvm.fabs.f32(float %13)
   %18 = fsub float %16, %17
-  %19 = fmul float %18, %18
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store float %19, ptr %20, align 8
-  store float %19, ptr %4, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store float 0.000000e+00, ptr %21, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load float, ptr %22, align 8
-  %24 = load float, ptr %1, align 4
-  %25 = fmul float %23, %24
-  store float %25, ptr %1, align 4
-  %26 = load float, ptr %22, align 8
-  %27 = load float, ptr %2, align 4
-  %28 = fmul float %26, %27
-  store float %28, ptr %2, align 4
-  %29 = load float, ptr %22, align 8
-  %30 = load float, ptr %3, align 4
-  %31 = fmul float %29, %30
-  store float %31, ptr %3, align 4
+  %19 = fpext float %18 to double
+  %20 = tail call noundef double @pow(double noundef %19, double noundef 2.000000e+00) #28
+  %21 = fptrunc double %20 to float
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store float %21, ptr %22, align 8
+  store float %21, ptr %4, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  store float 0.000000e+00, ptr %23, align 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = load float, ptr %24, align 8
+  %26 = load float, ptr %1, align 4
+  %27 = fmul float %25, %26
+  store float %27, ptr %1, align 4
+  %28 = load float, ptr %24, align 8
+  %29 = load float, ptr %2, align 4
+  %30 = fmul float %28, %29
+  store float %30, ptr %2, align 4
+  %31 = load float, ptr %24, align 8
+  %32 = load float, ptr %3, align 4
+  %33 = fmul float %31, %32
+  store float %33, ptr %3, align 4
   ret void
 }
 
@@ -16269,7 +16271,7 @@ define linkonce_odr void @_ZN20RidgedMFNoiseFunctorIfE6updateEiRfS1_S1_S1_(ptr n
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %7, %9
-  br i1 %10, label %46, label %11
+  br i1 %10, label %47, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -16298,24 +16300,24 @@ define linkonce_odr void @_ZN20RidgedMFNoiseFunctorIfE6updateEiRfS1_S1_S1_(ptr n
   %31 = tail call noundef float @llvm.fabs.f32(float %27)
   %32 = fsub float %30, %31
   %33 = fpext float %32 to double
-  %square = fmul double %33, %33
-  %34 = load float, ptr %17, align 4
-  %35 = fpext float %34 to double
-  %36 = fmul double %square, %35
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %38 = sext i32 %7 to i64
-  %39 = getelementptr inbounds float, ptr %37, i64 %38
-  %40 = load float, ptr %39, align 4
-  %41 = fpext float %40 to double
-  %42 = fmul double %36, %41
-  %43 = fptrunc double %42 to float
-  store float %43, ptr %12, align 8
-  %44 = load float, ptr %5, align 4
-  %45 = fadd float %44, %43
-  store float %45, ptr %5, align 4
-  br label %46
+  %34 = tail call noundef double @pow(double noundef %33, double noundef 2.000000e+00) #28
+  %35 = load float, ptr %17, align 4
+  %36 = fpext float %35 to double
+  %37 = fmul double %34, %36
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %39 = sext i32 %7 to i64
+  %40 = getelementptr inbounds float, ptr %38, i64 %39
+  %41 = load float, ptr %40, align 4
+  %42 = fpext float %41 to double
+  %43 = fmul double %37, %42
+  %44 = fptrunc double %43 to float
+  store float %44, ptr %12, align 8
+  %45 = load float, ptr %5, align 4
+  %46 = fadd float %45, %44
+  store float %46, ptr %5, align 4
+  br label %47
 
-46:                                               ; preds = %6, %11
+47:                                               ; preds = %6, %11
   ret void
 }
 
@@ -18209,8 +18211,8 @@ define linkonce_odr noundef float @_ZN13RadialFunctorIfEclERKN3vcg6Point3IfEE(pt
 define linkonce_odr noundef float @_ZN16GaussianBlendingIfEclEf(ptr noundef nonnull align 8 dereferenceable(16) %0, float noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = fmul float %1, 2.000000e+00
   %4 = fpext float %3 to double
-  %5 = fneg double %4
-  %6 = fmul double %4, %5
+  %5 = tail call noundef double @pow(double noundef %4, double noundef 2.000000e+00) #28
+  %6 = fneg double %5
   %7 = tail call double @exp(double noundef %6) #28
   %8 = fptrunc double %7 to float
   ret float %8
@@ -18277,14 +18279,17 @@ _ZN20MultiquadricBlendingIfED2Ev.exit:            ; preds = %1, %5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef float @_ZN20MultiquadricBlendingIfEclEf(ptr noundef nonnull align 8 dereferenceable(16) %0, float noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = fpext float %1 to double
-  %square = fmul double %3, %3
-  %4 = fadd double %square, 1.000000e+00
-  %sqrt = tail call double @llvm.sqrt.f64(double %4)
-  %5 = fadd double %sqrt, 0xBFF6C994286B8408
-  %6 = fdiv double %5, 0xBFDB2650A1AE1020
-  %7 = fptrunc double %6 to float
-  ret float %7
+  %4 = tail call noundef double @pow(double noundef %3, double noundef 2.000000e+00) #28
+  %5 = fadd double %4, 1.000000e+00
+  %6 = tail call double @sqrt(double noundef %5) #28
+  %7 = fadd double %6, 0xBFF6C994286B8408
+  %8 = fdiv double %7, 0xBFDB2650A1AE1020
+  %9 = fptrunc double %8 to float
+  ret float %9
 }
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @sqrt(double noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN10F3BlendingIfED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
@@ -27233,9 +27238,6 @@ declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #26
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #23
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #23

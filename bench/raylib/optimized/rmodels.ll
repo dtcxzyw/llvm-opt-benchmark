@@ -49486,86 +49486,76 @@ define noundef zeroext i1 @CheckCollisionBoxes(ptr noundef readonly byval(%struc
   ret i1 %.1
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable
 define zeroext i1 @CheckCollisionBoxSphere(ptr noundef readonly byval(%struct.BoundingBox) align 8 captures(none) %0, <2 x float> %1, float %2, float noundef %3) local_unnamed_addr #42 {
   %.sroa.09.0.vec.extract = extractelement <2 x float> %1, i64 0
   %5 = load float, ptr %0, align 8
   %6 = fcmp olt float %.sroa.09.0.vec.extract, %5
-  br i1 %6, label %7, label %9
+  br i1 %6, label %.sink.split, label %7
 
 7:                                                ; preds = %4
-  %8 = fsub float %.sroa.09.0.vec.extract, %5
-  %square34 = fmul float %8, %8
-  br label %15
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %9 = load float, ptr %8, align 4
+  %10 = fcmp ogt float %.sroa.09.0.vec.extract, %9
+  br i1 %10, label %.sink.split, label %14
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %11 = load float, ptr %10, align 4
-  %12 = fcmp ogt float %.sroa.09.0.vec.extract, %11
-  br i1 %12, label %13, label %15
+.sink.split:                                      ; preds = %7, %4
+  %.sink = phi float [ %5, %4 ], [ %9, %7 ]
+  %11 = fsub float %.sroa.09.0.vec.extract, %.sink
+  %12 = tail call float @powf(float noundef %11, float noundef 2.000000e+00) #63
+  %13 = fadd float %12, 0.000000e+00
+  br label %14
 
-13:                                               ; preds = %9
-  %14 = fsub float %.sroa.09.0.vec.extract, %11
-  %square = fmul float %14, %14
-  br label %15
-
-15:                                               ; preds = %9, %13, %7
-  %.0 = phi float [ %square34, %7 ], [ %square, %13 ], [ 0.000000e+00, %9 ]
+14:                                               ; preds = %.sink.split, %7
+  %.0 = phi float [ 0.000000e+00, %7 ], [ %13, %.sink.split ]
   %.sroa.09.4.vec.extract = extractelement <2 x float> %1, i64 1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %17 = load float, ptr %16, align 4
-  %18 = fcmp olt float %.sroa.09.4.vec.extract, %17
-  br i1 %18, label %19, label %22
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %16 = load float, ptr %15, align 4
+  %17 = fcmp olt float %.sroa.09.4.vec.extract, %16
+  br i1 %17, label %.sink.split43, label %18
 
-19:                                               ; preds = %15
-  %20 = fsub float %.sroa.09.4.vec.extract, %17
-  %square36 = fmul float %20, %20
-  %21 = fadd float %.0, %square36
-  br label %29
+18:                                               ; preds = %14
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %20 = load float, ptr %19, align 8
+  %21 = fcmp ogt float %.sroa.09.4.vec.extract, %20
+  br i1 %21, label %.sink.split43, label %25
 
-22:                                               ; preds = %15
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %24 = load float, ptr %23, align 8
-  %25 = fcmp ogt float %.sroa.09.4.vec.extract, %24
-  br i1 %25, label %26, label %29
+.sink.split43:                                    ; preds = %18, %14
+  %.sink46 = phi float [ %16, %14 ], [ %20, %18 ]
+  %22 = fsub float %.sroa.09.4.vec.extract, %.sink46
+  %23 = tail call float @powf(float noundef %22, float noundef 2.000000e+00) #63
+  %24 = fadd float %.0, %23
+  br label %25
 
-26:                                               ; preds = %22
-  %27 = fsub float %.sroa.09.4.vec.extract, %24
-  %square35 = fmul float %27, %27
-  %28 = fadd float %.0, %square35
-  br label %29
+25:                                               ; preds = %.sink.split43, %18
+  %.1 = phi float [ %.0, %18 ], [ %24, %.sink.split43 ]
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = load float, ptr %26, align 8
+  %28 = fcmp olt float %2, %27
+  br i1 %28, label %.sink.split47, label %29
 
-29:                                               ; preds = %22, %26, %19
-  %.1 = phi float [ %21, %19 ], [ %28, %26 ], [ %.0, %22 ]
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load float, ptr %30, align 8
-  %32 = fcmp olt float %2, %31
-  br i1 %32, label %33, label %36
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %31 = load float, ptr %30, align 4
+  %32 = fcmp ogt float %2, %31
+  br i1 %32, label %.sink.split47, label %36
 
-33:                                               ; preds = %29
-  %34 = fsub float %2, %31
-  %square38 = fmul float %34, %34
-  %35 = fadd float %.1, %square38
-  br label %43
+.sink.split47:                                    ; preds = %29, %25
+  %.sink50 = phi float [ %27, %25 ], [ %31, %29 ]
+  %33 = fsub float %2, %.sink50
+  %34 = tail call float @powf(float noundef %33, float noundef 2.000000e+00) #63
+  %35 = fadd float %.1, %34
+  br label %36
 
-36:                                               ; preds = %29
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %38 = load float, ptr %37, align 4
-  %39 = fcmp ogt float %2, %38
-  br i1 %39, label %40, label %43
-
-40:                                               ; preds = %36
-  %41 = fsub float %2, %38
-  %square37 = fmul float %41, %41
-  %42 = fadd float %.1, %square37
-  br label %43
-
-43:                                               ; preds = %36, %40, %33
-  %.2 = phi float [ %35, %33 ], [ %42, %40 ], [ %.1, %36 ]
-  %44 = fmul float %3, %3
-  %45 = fcmp ole float %.2, %44
-  ret i1 %45
+36:                                               ; preds = %.sink.split47, %29
+  %.2 = phi float [ %.1, %29 ], [ %35, %.sink.split47 ]
+  %37 = fmul float %3, %3
+  %38 = fcmp ole float %.2, %37
+  ret i1 %38
 }
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare float @powf(float noundef, float noundef) local_unnamed_addr #31
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define void @GetRayCollisionSphere(ptr dead_on_unwind noalias writable writeonly sret(%struct.RayCollision) align 4 captures(none) initializes((0, 32)) %0, ptr noundef readonly byval(%struct.Ray) align 8 captures(none) %1, <2 x float> %2, float %3, float noundef %4) local_unnamed_addr #43 {
@@ -70797,7 +70787,7 @@ attributes #38 = { nofree norecurse nosync nounwind memory(read, argmem: readwri
 attributes #39 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #40 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #41 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #42 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #42 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #43 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #44 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #45 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

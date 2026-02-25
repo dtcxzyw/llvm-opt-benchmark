@@ -7627,6 +7627,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit273: ; preds = %_Z
   resume { ptr, i32 } %.pn49.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 }
 
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #7
+
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5Ipopt25IpoptCalculatedQuantities10InitializeERKNS_10JournalistERKNS_11OptionsListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2185) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(112) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
@@ -13514,7 +13517,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit60:       ; preds = %_ZN5Ipopt8SmartPtrI
 declare void @_ZN5Ipopt6Vector4ScalEd(ptr noundef nonnull align 8 dereferenceable(205), double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN5Ipopt25IpoptCalculatedQuantities19AdjustedTrialSlacksEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2185) %0) local_unnamed_addr #7 align 2 {
+define noundef i32 @_ZN5Ipopt25IpoptCalculatedQuantities19AdjustedTrialSlacksEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2185) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load i32, ptr %2, align 8, !tbaa !165
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 276
@@ -13530,7 +13533,7 @@ define noundef i32 @_ZN5Ipopt25IpoptCalculatedQuantities19AdjustedTrialSlacksEv(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities24ResetAdjustedTrialSlacksEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(2185) initializes((272, 288)) %0) local_unnamed_addr #8 align 2 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities24ResetAdjustedTrialSlacksEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(2185) initializes((272, 288)) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
@@ -18211,7 +18214,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit4:       ; preds = %44, %47, %52
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #9
+declare double @llvm.fmuladd.f64(double, double, double) #10
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(205) ptr @_ZN5Ipopt25IpoptCalculatedQuantities7Tmp_x_UEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2185) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
@@ -32721,7 +32724,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit71:      ; preds = %_ZN5Ipopt6Vector3Se
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #10
+declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5Ipopt25IpoptCalculatedQuantities27unscaled_orig_x_U_violationERKNS_6VectorE(ptr dead_on_unwind noalias writable writeonly sret(%"class.Ipopt::SmartPtr.18") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
@@ -33596,7 +33599,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit49:      ; preds = %195, %190, %188
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZNSt4pairIN5Ipopt8SmartPtrINS0_6VectorEEES3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr void @_ZNSt4pairIN5Ipopt8SmartPtrINS0_6VectorEEES3_ED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #12 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !81
   %.not.i.i = icmp eq ptr %3, null
@@ -34129,10 +34132,10 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit27:      ; preds = %137, %132, %_ZNSt6v
 
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZN5Ipopt25IpoptCalculatedQuantities14CalcNormOfTypeENS_9ENormTypeERKNS_6VectorES4_(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(205) %2, ptr noundef nonnull align 8 dereferenceable(205) %3) local_unnamed_addr #6 align 2 {
-  switch i32 %1, label %83 [
+  switch i32 %1, label %86 [
     i32 0, label %5
     i32 1, label %31
-    i32 2, label %57
+    i32 2, label %60
   ]
 
 5:                                                ; preds = %4
@@ -34187,7 +34190,7 @@ _ZNK5Ipopt6Vector4AsumEv.exit:                    ; preds = %._crit_edge.i, %10
 _ZNK5Ipopt6Vector4AsumEv.exit11:                  ; preds = %._crit_edge.i8, %22
   %29 = phi double [ %.pre.i10, %._crit_edge.i8 ], [ %26, %22 ]
   %30 = fadd double %17, %29
-  br label %83
+  br label %86
 
 31:                                               ; preds = %4
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -34215,94 +34218,94 @@ _ZNK5Ipopt6Vector4AsumEv.exit11:                  ; preds = %._crit_edge.i8, %22
 
 _ZNK5Ipopt6Vector4Nrm2Ev.exit:                    ; preds = %._crit_edge.i13, %36
   %43 = phi double [ %.pre.i15, %._crit_edge.i13 ], [ %40, %36 ]
-  %square = fmul double %43, %43
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %45 = load i32, ptr %44, align 8, !tbaa !117
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %47 = load i32, ptr %46, align 8, !tbaa !108
-  %.not.i16 = icmp eq i32 %45, %47
-  br i1 %.not.i16, label %._crit_edge.i17, label %48
+  %44 = tail call noundef double @pow(double noundef %43, double noundef 2.000000e+00) #26, !tbaa !95
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %46 = load i32, ptr %45, align 8, !tbaa !117
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %48 = load i32, ptr %47, align 8, !tbaa !108
+  %.not.i16 = icmp eq i32 %46, %48
+  br i1 %.not.i16, label %._crit_edge.i17, label %49
 
 ._crit_edge.i17:                                  ; preds = %_ZNK5Ipopt6Vector4Nrm2Ev.exit
   %.phi.trans.insert.i18 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %.pre.i19 = load double, ptr %.phi.trans.insert.i18, align 8, !tbaa !119
   br label %_ZNK5Ipopt6Vector4Nrm2Ev.exit20
 
-48:                                               ; preds = %_ZNK5Ipopt6Vector4Nrm2Ev.exit
-  %49 = load ptr, ptr %3, align 8, !tbaa !16
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
-  %51 = load ptr, ptr %50, align 8
-  %52 = tail call noundef double %51(ptr noundef nonnull align 8 dereferenceable(205) %3)
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store double %52, ptr %53, align 8, !tbaa !119
-  %54 = load i32, ptr %46, align 8, !tbaa !108
-  store i32 %54, ptr %44, align 8, !tbaa !117
+49:                                               ; preds = %_ZNK5Ipopt6Vector4Nrm2Ev.exit
+  %50 = load ptr, ptr %3, align 8, !tbaa !16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
+  %52 = load ptr, ptr %51, align 8
+  %53 = tail call noundef double %52(ptr noundef nonnull align 8 dereferenceable(205) %3)
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  store double %53, ptr %54, align 8, !tbaa !119
+  %55 = load i32, ptr %47, align 8, !tbaa !108
+  store i32 %55, ptr %45, align 8, !tbaa !117
   br label %_ZNK5Ipopt6Vector4Nrm2Ev.exit20
 
-_ZNK5Ipopt6Vector4Nrm2Ev.exit20:                  ; preds = %._crit_edge.i17, %48
-  %55 = phi double [ %.pre.i19, %._crit_edge.i17 ], [ %52, %48 ]
-  %square30 = fmul double %55, %55
-  %56 = fadd double %square, %square30
-  %sqrt = tail call double @llvm.sqrt.f64(double %56)
-  br label %83
+_ZNK5Ipopt6Vector4Nrm2Ev.exit20:                  ; preds = %._crit_edge.i17, %49
+  %56 = phi double [ %.pre.i19, %._crit_edge.i17 ], [ %53, %49 ]
+  %57 = tail call noundef double @pow(double noundef %56, double noundef 2.000000e+00) #26, !tbaa !95
+  %58 = fadd double %44, %57
+  %59 = tail call double @sqrt(double noundef %58) #26, !tbaa !95
+  br label %86
 
-57:                                               ; preds = %4
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  %59 = load i32, ptr %58, align 8, !tbaa !122
-  %60 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %61 = load i32, ptr %60, align 8, !tbaa !108
-  %.not.i21 = icmp eq i32 %59, %61
-  br i1 %.not.i21, label %._crit_edge.i22, label %62
+60:                                               ; preds = %4
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %62 = load i32, ptr %61, align 8, !tbaa !122
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %64 = load i32, ptr %63, align 8, !tbaa !108
+  %.not.i21 = icmp eq i32 %62, %64
+  br i1 %.not.i21, label %._crit_edge.i22, label %65
 
-._crit_edge.i22:                                  ; preds = %57
+._crit_edge.i22:                                  ; preds = %60
   %.phi.trans.insert.i23 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %.pre.i24 = load double, ptr %.phi.trans.insert.i23, align 8, !tbaa !123
   br label %_ZNK5Ipopt6Vector4AmaxEv.exit
 
-62:                                               ; preds = %57
-  %63 = load ptr, ptr %2, align 8, !tbaa !16
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 64
-  %65 = load ptr, ptr %64, align 8
-  %66 = tail call noundef double %65(ptr noundef nonnull align 8 dereferenceable(205) %2)
-  %67 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  store double %66, ptr %67, align 8, !tbaa !123
-  %68 = load i32, ptr %60, align 8, !tbaa !108
-  store i32 %68, ptr %58, align 8, !tbaa !122
+65:                                               ; preds = %60
+  %66 = load ptr, ptr %2, align 8, !tbaa !16
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 64
+  %68 = load ptr, ptr %67, align 8
+  %69 = tail call noundef double %68(ptr noundef nonnull align 8 dereferenceable(205) %2)
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  store double %69, ptr %70, align 8, !tbaa !123
+  %71 = load i32, ptr %63, align 8, !tbaa !108
+  store i32 %71, ptr %61, align 8, !tbaa !122
   br label %_ZNK5Ipopt6Vector4AmaxEv.exit
 
-_ZNK5Ipopt6Vector4AmaxEv.exit:                    ; preds = %._crit_edge.i22, %62
-  %69 = phi double [ %.pre.i24, %._crit_edge.i22 ], [ %66, %62 ]
-  %70 = getelementptr inbounds nuw i8, ptr %3, i64 120
-  %71 = load i32, ptr %70, align 8, !tbaa !122
-  %72 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %73 = load i32, ptr %72, align 8, !tbaa !108
-  %.not.i25 = icmp eq i32 %71, %73
-  br i1 %.not.i25, label %._crit_edge.i26, label %74
+_ZNK5Ipopt6Vector4AmaxEv.exit:                    ; preds = %._crit_edge.i22, %65
+  %72 = phi double [ %.pre.i24, %._crit_edge.i22 ], [ %69, %65 ]
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 120
+  %74 = load i32, ptr %73, align 8, !tbaa !122
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %76 = load i32, ptr %75, align 8, !tbaa !108
+  %.not.i25 = icmp eq i32 %74, %76
+  br i1 %.not.i25, label %._crit_edge.i26, label %77
 
 ._crit_edge.i26:                                  ; preds = %_ZNK5Ipopt6Vector4AmaxEv.exit
   %.phi.trans.insert.i27 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %.pre.i28 = load double, ptr %.phi.trans.insert.i27, align 8, !tbaa !123
   br label %_ZNK5Ipopt6Vector4AmaxEv.exit29
 
-74:                                               ; preds = %_ZNK5Ipopt6Vector4AmaxEv.exit
-  %75 = load ptr, ptr %3, align 8, !tbaa !16
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 64
-  %77 = load ptr, ptr %76, align 8
-  %78 = tail call noundef double %77(ptr noundef nonnull align 8 dereferenceable(205) %3)
-  %79 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  store double %78, ptr %79, align 8, !tbaa !123
-  %80 = load i32, ptr %72, align 8, !tbaa !108
-  store i32 %80, ptr %70, align 8, !tbaa !122
+77:                                               ; preds = %_ZNK5Ipopt6Vector4AmaxEv.exit
+  %78 = load ptr, ptr %3, align 8, !tbaa !16
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 64
+  %80 = load ptr, ptr %79, align 8
+  %81 = tail call noundef double %80(ptr noundef nonnull align 8 dereferenceable(205) %3)
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  store double %81, ptr %82, align 8, !tbaa !123
+  %83 = load i32, ptr %75, align 8, !tbaa !108
+  store i32 %83, ptr %73, align 8, !tbaa !122
   br label %_ZNK5Ipopt6Vector4AmaxEv.exit29
 
-_ZNK5Ipopt6Vector4AmaxEv.exit29:                  ; preds = %._crit_edge.i26, %74
-  %81 = phi double [ %.pre.i28, %._crit_edge.i26 ], [ %78, %74 ]
-  %82 = fcmp olt double %69, %81
-  %.sroa.speculated.i = select i1 %82, double %81, double %69
-  br label %83
+_ZNK5Ipopt6Vector4AmaxEv.exit29:                  ; preds = %._crit_edge.i26, %77
+  %84 = phi double [ %.pre.i28, %._crit_edge.i26 ], [ %81, %77 ]
+  %85 = fcmp olt double %72, %84
+  %.sroa.speculated.i = select i1 %85, double %84, double %72
+  br label %86
 
-83:                                               ; preds = %4, %_ZNK5Ipopt6Vector4AmaxEv.exit29, %_ZNK5Ipopt6Vector4Nrm2Ev.exit20, %_ZNK5Ipopt6Vector4AsumEv.exit11
-  %.0 = phi double [ %.sroa.speculated.i, %_ZNK5Ipopt6Vector4AmaxEv.exit29 ], [ %30, %_ZNK5Ipopt6Vector4AsumEv.exit11 ], [ %sqrt, %_ZNK5Ipopt6Vector4Nrm2Ev.exit20 ], [ 0.000000e+00, %4 ]
+86:                                               ; preds = %4, %_ZNK5Ipopt6Vector4AmaxEv.exit29, %_ZNK5Ipopt6Vector4Nrm2Ev.exit20, %_ZNK5Ipopt6Vector4AsumEv.exit11
+  %.0 = phi double [ %.sroa.speculated.i, %_ZNK5Ipopt6Vector4AmaxEv.exit29 ], [ %30, %_ZNK5Ipopt6Vector4AsumEv.exit11 ], [ %59, %_ZNK5Ipopt6Vector4Nrm2Ev.exit20 ], [ 0.000000e+00, %4 ]
   ret double %.0
 }
 
@@ -50606,7 +50609,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit62:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #12
+declare double @sqrt(double noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZN5Ipopt25IpoptCalculatedQuantities25curr_primal_infeasibilityENS_9ENormTypeE(ptr noundef nonnull align 8 dereferenceable(2185) %0, i32 noundef %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
@@ -74492,7 +74495,7 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD0Ev(ptr noundef nonnull al
 declare void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #9
+declare double @llvm.fabs.f64(double) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN5Ipopt13CachedResultsIdE19GetCachedResult2DepERdPKNS_12TaggedObjectES5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -76144,7 +76147,7 @@ define linkonce_odr void @_ZN5Ipopt15DependentResultINS_8SmartPtrINS_6VectorEEEE
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5Ipopt8ObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZN5Ipopt8ObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Ipopt8ObserverE, i64 16), ptr %0, align 8, !tbaa !16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -76195,7 +76198,7 @@ _ZNSt6vectorIPKN5Ipopt7SubjectESaIS3_EED2Ev.exit: ; preds = %11, %13
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5Ipopt8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #11 comdat align 2 {
+define linkonce_odr void @_ZN5Ipopt8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 {
   tail call void @llvm.trap() #29
   unreachable
 }
@@ -80033,9 +80036,6 @@ declare i64 @llvm.umax.i64(i64, i64) #25
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #25
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #25
-
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
@@ -80043,12 +80043,12 @@ attributes #3 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no
 attributes #4 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(read) }
-attributes #11 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(read) }
+attributes #12 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { cold nofree noreturn }
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -139,64 +139,64 @@ declare double @llvm.fabs.f64(double) #1
 define dso_local noundef double @_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd(double noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #3 {
   %4 = tail call noundef double @llvm.fabs.f64(double %0)
   %5 = fcmp ogt double %4, 1.000000e-10
-  br i1 %5, label %6, label %32
+  br i1 %5, label %6, label %33
 
 6:                                                ; preds = %3
-  %square = fmul double %1, %1
-  %7 = fmul nnan double %0, -4.000000e+00
-  %8 = tail call double @llvm.fmuladd.f64(double %7, double %2, double %square)
-  %9 = fcmp ugt double %8, 0.000000e+00
-  br i1 %9, label %10, label %39
+  %7 = tail call noundef double @pow(double noundef %1, double noundef 2.000000e+00) #19, !tbaa !4
+  %8 = fmul nnan double %0, -4.000000e+00
+  %9 = tail call double @llvm.fmuladd.f64(double %8, double %2, double %7)
+  %10 = fcmp ugt double %9, 0.000000e+00
+  br i1 %10, label %11, label %40
 
-10:                                               ; preds = %6
-  %11 = tail call double @sqrt(double noundef %8) #19, !tbaa !4
-  %12 = fcmp ult double %1, 0.000000e+00
-  br i1 %12, label %20, label %13
+11:                                               ; preds = %6
+  %12 = tail call double @sqrt(double noundef %9) #19, !tbaa !4
+  %13 = fcmp ult double %1, 0.000000e+00
+  br i1 %13, label %21, label %14
 
-13:                                               ; preds = %10
-  %14 = fneg double %1
-  %15 = fsub double %14, %11
-  %16 = fmul double %2, 2.000000e+00
-  %17 = fdiv double %16, %15
-  %18 = fmul nnan double %0, 2.000000e+00
-  %19 = fdiv double %15, %18
-  br label %26
+14:                                               ; preds = %11
+  %15 = fneg double %1
+  %16 = fsub double %15, %12
+  %17 = fmul double %2, 2.000000e+00
+  %18 = fdiv double %17, %16
+  %19 = fmul nnan double %0, 2.000000e+00
+  %20 = fdiv double %16, %19
+  br label %27
 
-20:                                               ; preds = %10
-  %21 = fsub double %11, %1
-  %22 = fmul nnan double %0, 2.000000e+00
-  %23 = fdiv double %21, %22
-  %24 = fmul double %2, 2.000000e+00
-  %25 = fdiv double %24, %21
-  br label %26
+21:                                               ; preds = %11
+  %22 = fsub double %12, %1
+  %23 = fmul nnan double %0, 2.000000e+00
+  %24 = fdiv double %22, %23
+  %25 = fmul double %2, 2.000000e+00
+  %26 = fdiv double %25, %22
+  br label %27
 
-26:                                               ; preds = %20, %13
-  %.032 = phi double [ %23, %20 ], [ %17, %13 ]
-  %storemerge = phi double [ %25, %20 ], [ %19, %13 ]
-  %27 = fcmp olt double %0, 0.000000e+00
-  %.1 = select i1 %27, double %storemerge, double %.032
-  %28 = fcmp ogt double %.1, 0.000000e+00
-  br i1 %28, label %29, label %39
+27:                                               ; preds = %21, %14
+  %.032 = phi double [ %24, %21 ], [ %18, %14 ]
+  %storemerge = phi double [ %26, %21 ], [ %20, %14 ]
+  %28 = fcmp olt double %0, 0.000000e+00
+  %.1 = select i1 %28, double %storemerge, double %.032
+  %29 = fcmp ogt double %.1, 0.000000e+00
+  br i1 %29, label %30, label %40
 
-29:                                               ; preds = %26
-  %.0 = select i1 %27, double %.032, double %storemerge
-  %30 = fcmp ogt double %.0, 0.000000e+00
-  %31 = select i1 %30, double %.0, double %.1
-  br label %39
+30:                                               ; preds = %27
+  %.0 = select i1 %28, double %.032, double %storemerge
+  %31 = fcmp ogt double %.0, 0.000000e+00
+  %32 = select i1 %31, double %.0, double %.1
+  br label %40
 
-32:                                               ; preds = %3
-  %33 = fcmp oeq double %1, 0.000000e+00
-  br i1 %33, label %39, label %34
+33:                                               ; preds = %3
+  %34 = fcmp oeq double %1, 0.000000e+00
+  br i1 %34, label %40, label %35
 
-34:                                               ; preds = %32
-  %35 = fneg double %2
-  %36 = fdiv double %35, %1
-  %37 = fcmp ogt double %36, 0.000000e+00
-  %38 = select i1 %37, double %36, double 0x7FF0000000000000
-  br label %39
+35:                                               ; preds = %33
+  %36 = fneg double %2
+  %37 = fdiv double %36, %1
+  %38 = fcmp ogt double %37, 0.000000e+00
+  %39 = select i1 %38, double %37, double 0x7FF0000000000000
+  br label %40
 
-39:                                               ; preds = %32, %6, %26, %29, %34
-  %.2 = phi double [ %38, %34 ], [ 0x7FF0000000000000, %26 ], [ 0x7FF0000000000000, %6 ], [ %31, %29 ], [ 0x7FF0000000000000, %32 ]
+40:                                               ; preds = %33, %6, %27, %30, %35
+  %.2 = phi double [ %39, %35 ], [ 0x7FF0000000000000, %27 ], [ 0x7FF0000000000000, %6 ], [ %32, %30 ], [ 0x7FF0000000000000, %33 ]
   ret double %.2
 }
 
@@ -280,64 +280,64 @@ define dso_local noundef double @_ZN3igl13flip_avoiding19get_min_pos_root_2DERKN
   %79 = tail call double @llvm.fmuladd.f64(double %69, double %63, double %78)
   %80 = tail call noundef double @llvm.fabs.f64(double %50)
   %81 = fcmp ogt double %80, 1.000000e-10
-  br i1 %81, label %82, label %108
+  br i1 %81, label %82, label %109
 
 82:                                               ; preds = %4
-  %square.i = fmul double %73, %73
-  %83 = fmul nnan double %50, -4.000000e+00
-  %84 = tail call double @llvm.fmuladd.f64(double %83, double %79, double %square.i)
-  %85 = fcmp ugt double %84, 0.000000e+00
-  br i1 %85, label %86, label %_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit
+  %83 = tail call noundef double @pow(double noundef %73, double noundef 2.000000e+00) #19, !tbaa !4
+  %84 = fmul nnan double %50, -4.000000e+00
+  %85 = tail call double @llvm.fmuladd.f64(double %84, double %79, double %83)
+  %86 = fcmp ugt double %85, 0.000000e+00
+  br i1 %86, label %87, label %_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit
 
-86:                                               ; preds = %82
-  %87 = tail call double @sqrt(double noundef %84) #19, !tbaa !4
-  %88 = fcmp ult double %73, 0.000000e+00
-  br i1 %88, label %96, label %89
+87:                                               ; preds = %82
+  %88 = tail call double @sqrt(double noundef %85) #19, !tbaa !4
+  %89 = fcmp ult double %73, 0.000000e+00
+  br i1 %89, label %97, label %90
 
-89:                                               ; preds = %86
-  %90 = fneg double %73
-  %91 = fsub double %90, %87
-  %92 = fmul double %79, 2.000000e+00
-  %93 = fdiv double %92, %91
-  %94 = fmul nnan double %50, 2.000000e+00
-  %95 = fdiv double %91, %94
-  br label %102
+90:                                               ; preds = %87
+  %91 = fneg double %73
+  %92 = fsub double %91, %88
+  %93 = fmul double %79, 2.000000e+00
+  %94 = fdiv double %93, %92
+  %95 = fmul nnan double %50, 2.000000e+00
+  %96 = fdiv double %92, %95
+  br label %103
 
-96:                                               ; preds = %86
-  %97 = fsub double %87, %73
-  %98 = fmul nnan double %50, 2.000000e+00
-  %99 = fdiv double %97, %98
-  %100 = fmul double %79, 2.000000e+00
-  %101 = fdiv double %100, %97
-  br label %102
+97:                                               ; preds = %87
+  %98 = fsub double %88, %73
+  %99 = fmul nnan double %50, 2.000000e+00
+  %100 = fdiv double %98, %99
+  %101 = fmul double %79, 2.000000e+00
+  %102 = fdiv double %101, %98
+  br label %103
 
-102:                                              ; preds = %96, %89
-  %.032.i = phi double [ %99, %96 ], [ %93, %89 ]
-  %storemerge.i = phi double [ %101, %96 ], [ %95, %89 ]
-  %103 = fcmp olt double %50, 0.000000e+00
-  %.1.i = select i1 %103, double %storemerge.i, double %.032.i
-  %104 = fcmp ogt double %.1.i, 0.000000e+00
-  br i1 %104, label %105, label %_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit
+103:                                              ; preds = %97, %90
+  %.032.i = phi double [ %100, %97 ], [ %94, %90 ]
+  %storemerge.i = phi double [ %102, %97 ], [ %96, %90 ]
+  %104 = fcmp olt double %50, 0.000000e+00
+  %.1.i = select i1 %104, double %storemerge.i, double %.032.i
+  %105 = fcmp ogt double %.1.i, 0.000000e+00
+  br i1 %105, label %106, label %_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit
 
-105:                                              ; preds = %102
-  %.0.i = select i1 %103, double %.032.i, double %storemerge.i
-  %106 = fcmp ogt double %.0.i, 0.000000e+00
-  %107 = select i1 %106, double %.0.i, double %.1.i
+106:                                              ; preds = %103
+  %.0.i = select i1 %104, double %.032.i, double %storemerge.i
+  %107 = fcmp ogt double %.0.i, 0.000000e+00
+  %108 = select i1 %107, double %.0.i, double %.1.i
   br label %_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit
 
-108:                                              ; preds = %4
-  %109 = fcmp oeq double %73, 0.000000e+00
-  br i1 %109, label %_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit, label %110
+109:                                              ; preds = %4
+  %110 = fcmp oeq double %73, 0.000000e+00
+  br i1 %110, label %_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit, label %111
 
-110:                                              ; preds = %108
-  %111 = fneg double %79
-  %112 = fdiv double %111, %73
-  %113 = fcmp ogt double %112, 0.000000e+00
-  %114 = select i1 %113, double %112, double 0x7FF0000000000000
+111:                                              ; preds = %109
+  %112 = fneg double %79
+  %113 = fdiv double %112, %73
+  %114 = fcmp ogt double %113, 0.000000e+00
+  %115 = select i1 %114, double %113, double 0x7FF0000000000000
   br label %_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit
 
-_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit: ; preds = %82, %102, %105, %108, %110
-  %.2.i = phi double [ %114, %110 ], [ 0x7FF0000000000000, %102 ], [ 0x7FF0000000000000, %82 ], [ %107, %105 ], [ 0x7FF0000000000000, %108 ]
+_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit: ; preds = %82, %103, %106, %109, %111
+  %.2.i = phi double [ %115, %111 ], [ 0x7FF0000000000000, %103 ], [ 0x7FF0000000000000, %82 ], [ %108, %106 ], [ 0x7FF0000000000000, %109 ]
   ret double %.2.i
 }
 
@@ -714,150 +714,150 @@ define dso_local noundef double @_ZN3igl13flip_avoiding19get_min_pos_root_3DERKN
   %371 = tail call double @llvm.fmuladd.f64(double %346, double %161, double %370)
   %372 = tail call noundef double @llvm.fabs.f64(double %115)
   %373 = fcmp ugt double %372, 1.000000e-10
-  br i1 %373, label %410, label %374
+  br i1 %373, label %411, label %374
 
 374:                                              ; preds = %4
   %375 = tail call noundef double @llvm.fabs.f64(double %250)
   %376 = fcmp ogt double %375, 1.000000e-10
-  br i1 %376, label %377, label %403
+  br i1 %376, label %377, label %404
 
 377:                                              ; preds = %374
-  %square.i = fmul double %347, %347
-  %378 = fmul nnan double %250, -4.000000e+00
-  %379 = tail call double @llvm.fmuladd.f64(double %378, double %371, double %square.i)
-  %380 = fcmp ugt double %379, 0.000000e+00
-  br i1 %380, label %381, label %_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit
+  %378 = tail call noundef double @pow(double noundef %347, double noundef 2.000000e+00) #19, !tbaa !4
+  %379 = fmul nnan double %250, -4.000000e+00
+  %380 = tail call double @llvm.fmuladd.f64(double %379, double %371, double %378)
+  %381 = fcmp ugt double %380, 0.000000e+00
+  br i1 %381, label %382, label %_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit
 
-381:                                              ; preds = %377
-  %382 = tail call double @sqrt(double noundef %379) #19, !tbaa !4
-  %383 = fcmp ult double %347, 0.000000e+00
-  br i1 %383, label %391, label %384
+382:                                              ; preds = %377
+  %383 = tail call double @sqrt(double noundef %380) #19, !tbaa !4
+  %384 = fcmp ult double %347, 0.000000e+00
+  br i1 %384, label %392, label %385
 
-384:                                              ; preds = %381
-  %385 = fneg double %347
-  %386 = fsub double %385, %382
-  %387 = fmul double %371, 2.000000e+00
-  %388 = fdiv double %387, %386
-  %389 = fmul nnan double %250, 2.000000e+00
-  %390 = fdiv double %386, %389
-  br label %397
+385:                                              ; preds = %382
+  %386 = fneg double %347
+  %387 = fsub double %386, %383
+  %388 = fmul double %371, 2.000000e+00
+  %389 = fdiv double %388, %387
+  %390 = fmul nnan double %250, 2.000000e+00
+  %391 = fdiv double %387, %390
+  br label %398
 
-391:                                              ; preds = %381
-  %392 = fsub double %382, %347
-  %393 = fmul nnan double %250, 2.000000e+00
-  %394 = fdiv double %392, %393
-  %395 = fmul double %371, 2.000000e+00
-  %396 = fdiv double %395, %392
-  br label %397
+392:                                              ; preds = %382
+  %393 = fsub double %383, %347
+  %394 = fmul nnan double %250, 2.000000e+00
+  %395 = fdiv double %393, %394
+  %396 = fmul double %371, 2.000000e+00
+  %397 = fdiv double %396, %393
+  br label %398
 
-397:                                              ; preds = %391, %384
-  %.032.i = phi double [ %394, %391 ], [ %388, %384 ]
-  %storemerge.i = phi double [ %396, %391 ], [ %390, %384 ]
-  %398 = fcmp olt double %250, 0.000000e+00
-  %.1.i = select i1 %398, double %storemerge.i, double %.032.i
-  %399 = fcmp ogt double %.1.i, 0.000000e+00
-  br i1 %399, label %400, label %_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit
+398:                                              ; preds = %392, %385
+  %.032.i = phi double [ %395, %392 ], [ %389, %385 ]
+  %storemerge.i = phi double [ %397, %392 ], [ %391, %385 ]
+  %399 = fcmp olt double %250, 0.000000e+00
+  %.1.i = select i1 %399, double %storemerge.i, double %.032.i
+  %400 = fcmp ogt double %.1.i, 0.000000e+00
+  br i1 %400, label %401, label %_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit
 
-400:                                              ; preds = %397
-  %.0.i = select i1 %398, double %.032.i, double %storemerge.i
-  %401 = fcmp ogt double %.0.i, 0.000000e+00
-  %402 = select i1 %401, double %.0.i, double %.1.i
+401:                                              ; preds = %398
+  %.0.i = select i1 %399, double %.032.i, double %storemerge.i
+  %402 = fcmp ogt double %.0.i, 0.000000e+00
+  %403 = select i1 %402, double %.0.i, double %.1.i
   br label %_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit
 
-403:                                              ; preds = %374
-  %404 = fcmp oeq double %347, 0.000000e+00
-  br i1 %404, label %_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit, label %405
+404:                                              ; preds = %374
+  %405 = fcmp oeq double %347, 0.000000e+00
+  br i1 %405, label %_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit, label %406
 
-405:                                              ; preds = %403
-  %406 = fneg double %371
-  %407 = fdiv double %406, %347
-  %408 = fcmp ogt double %407, 0.000000e+00
-  %409 = select i1 %408, double %407, double 0x7FF0000000000000
+406:                                              ; preds = %404
+  %407 = fneg double %371
+  %408 = fdiv double %407, %347
+  %409 = fcmp ogt double %408, 0.000000e+00
+  %410 = select i1 %409, double %408, double 0x7FF0000000000000
   br label %_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit
 
-410:                                              ; preds = %4
+411:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %411 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
-  store ptr %411, ptr %5, align 8, !tbaa !8
-  %412 = getelementptr inbounds nuw i8, ptr %411, i64 24
-  %413 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %412, ptr %413, align 8, !tbaa !22
-  %414 = getelementptr inbounds nuw i8, ptr %411, i64 8
-  %415 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %411, i8 0, i64 24, i1 false)
-  store ptr %412, ptr %415, align 8, !tbaa !23
-  %416 = fdiv double %371, %115
-  %417 = fdiv double %347, %115
-  %418 = fdiv double %250, %115
-  %419 = call noundef i32 @_ZN3igl13flip_avoiding7SolveP3ERSt6vectorIdSaIdEEddd(ptr noundef nonnull align 8 dereferenceable(24) %5, double noundef %418, double noundef %417, double noundef %416)
-  switch i32 %419, label %433 [
-    i32 1, label %420
-    i32 2, label %424
+  %412 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #20
+  store ptr %412, ptr %5, align 8, !tbaa !8
+  %413 = getelementptr inbounds nuw i8, ptr %412, i64 24
+  %414 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %413, ptr %414, align 8, !tbaa !22
+  %415 = getelementptr inbounds nuw i8, ptr %412, i64 8
+  %416 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %412, i8 0, i64 24, i1 false)
+  store ptr %413, ptr %416, align 8, !tbaa !23
+  %417 = fdiv double %371, %115
+  %418 = fdiv double %347, %115
+  %419 = fdiv double %250, %115
+  %420 = call noundef i32 @_ZN3igl13flip_avoiding7SolveP3ERSt6vectorIdSaIdEEddd(ptr noundef nonnull align 8 dereferenceable(24) %5, double noundef %419, double noundef %418, double noundef %417)
+  switch i32 %420, label %434 [
+    i32 1, label %421
+    i32 2, label %425
   ]
 
-420:                                              ; preds = %410
-  %421 = load double, ptr %411, align 8, !tbaa !12
-  %422 = fcmp ult double %421, 0.000000e+00
-  br i1 %422, label %_ZNSt6vectorIdSaIdEED2Ev.exit661, label %423
+421:                                              ; preds = %411
+  %422 = load double, ptr %412, align 8, !tbaa !12
+  %423 = fcmp ult double %422, 0.000000e+00
+  br i1 %423, label %_ZNSt6vectorIdSaIdEED2Ev.exit661, label %424
 
-423:                                              ; preds = %420
+424:                                              ; preds = %421
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit661
 
-424:                                              ; preds = %410
-  %425 = load double, ptr %411, align 8, !tbaa !12
-  %426 = load double, ptr %414, align 8, !tbaa !12
-  %427 = fcmp olt double %425, %426
-  %428 = select i1 %427, double %426, double %425
-  %429 = fcmp olt double %426, %425
-  %430 = select i1 %429, double %426, double %425
-  %431 = fcmp ogt double %430, 0.000000e+00
-  %432 = fcmp ogt double %428, 0.000000e+00
-  %. = select i1 %432, double %428, double 0x7FF0000000000000
-  %.2 = select i1 %431, double %430, double %.
+425:                                              ; preds = %411
+  %426 = load double, ptr %412, align 8, !tbaa !12
+  %427 = load double, ptr %415, align 8, !tbaa !12
+  %428 = fcmp olt double %426, %427
+  %429 = select i1 %428, double %427, double %426
+  %430 = fcmp olt double %427, %426
+  %431 = select i1 %430, double %427, double %426
+  %432 = fcmp ogt double %431, 0.000000e+00
+  %433 = fcmp ogt double %429, 0.000000e+00
+  %. = select i1 %433, double %429, double 0x7FF0000000000000
+  %.2 = select i1 %432, double %431, double %.
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit661
 
-433:                                              ; preds = %410
-  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElNS0_5__ops15_Iter_less_iterEEvT_S9_T0_T1_(ptr nonnull %411, ptr nonnull %412, i64 noundef 2)
+434:                                              ; preds = %411
+  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElNS0_5__ops15_Iter_less_iterEEvT_S9_T0_T1_(ptr nonnull %412, ptr nonnull %413, i64 noundef 2)
           to label %.noexc unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
-.noexc:                                           ; preds = %433
-  invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_(ptr nonnull %411, ptr nonnull %412)
+.noexc:                                           ; preds = %434
+  invoke void @_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_(ptr nonnull %412, ptr nonnull %413)
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_.exit unwind label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_.exit: ; preds = %.noexc
-  %434 = load double, ptr %411, align 8, !tbaa !12
-  %435 = fcmp ogt double %434, 0.000000e+00
-  br i1 %435, label %_ZNSt6vectorIdSaIdEED2Ev.exit661, label %437
+  %435 = load double, ptr %412, align 8, !tbaa !12
+  %436 = fcmp ogt double %435, 0.000000e+00
+  br i1 %436, label %_ZNSt6vectorIdSaIdEED2Ev.exit661, label %438
 
-_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.noexc, %433
-  %436 = landingpad { ptr, i32 }
+_ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.noexc, %434
+  %437 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %411, i64 noundef 24) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %412, i64 noundef 24) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  resume { ptr, i32 } %436
+  resume { ptr, i32 } %437
 
-437:                                              ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_.exit
-  %438 = load double, ptr %414, align 8, !tbaa !12
-  %439 = fcmp ogt double %438, 0.000000e+00
-  br i1 %439, label %_ZNSt6vectorIdSaIdEED2Ev.exit661, label %440
+438:                                              ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_.exit
+  %439 = load double, ptr %415, align 8, !tbaa !12
+  %440 = fcmp ogt double %439, 0.000000e+00
+  br i1 %440, label %_ZNSt6vectorIdSaIdEED2Ev.exit661, label %441
 
-440:                                              ; preds = %437
-  %441 = getelementptr inbounds nuw i8, ptr %411, i64 16
-  %442 = load double, ptr %441, align 8, !tbaa !12
-  %443 = fcmp ogt double %442, 0.000000e+00
-  br i1 %443, label %444, label %_ZNSt6vectorIdSaIdEED2Ev.exit661
+441:                                              ; preds = %438
+  %442 = getelementptr inbounds nuw i8, ptr %412, i64 16
+  %443 = load double, ptr %442, align 8, !tbaa !12
+  %444 = fcmp ogt double %443, 0.000000e+00
+  br i1 %444, label %445, label %_ZNSt6vectorIdSaIdEED2Ev.exit661
 
-444:                                              ; preds = %440
+445:                                              ; preds = %441
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit661
 
-_ZNSt6vectorIdSaIdEED2Ev.exit661:                 ; preds = %437, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_.exit, %440, %423, %420, %444, %424
-  %.1 = phi double [ 0x7FF0000000000000, %440 ], [ %434, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_.exit ], [ %442, %444 ], [ 0x7FF0000000000000, %420 ], [ %.2, %424 ], [ %421, %423 ], [ %438, %437 ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %411, i64 noundef 24) #21
+_ZNSt6vectorIdSaIdEED2Ev.exit661:                 ; preds = %438, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_.exit, %441, %424, %421, %445, %425
+  %.1 = phi double [ 0x7FF0000000000000, %441 ], [ %435, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_.exit ], [ %443, %445 ], [ 0x7FF0000000000000, %421 ], [ %.2, %425 ], [ %422, %424 ], [ %439, %438 ]
+  tail call void @_ZdlPvm(ptr noundef nonnull %412, i64 noundef 24) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit
 
-_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit: ; preds = %405, %403, %400, %397, %377, %_ZNSt6vectorIdSaIdEED2Ev.exit661
-  %.0 = phi double [ %.1, %_ZNSt6vectorIdSaIdEED2Ev.exit661 ], [ %409, %405 ], [ 0x7FF0000000000000, %397 ], [ 0x7FF0000000000000, %377 ], [ %402, %400 ], [ 0x7FF0000000000000, %403 ]
+_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit: ; preds = %406, %404, %401, %398, %377, %_ZNSt6vectorIdSaIdEED2Ev.exit661
+  %.0 = phi double [ %.1, %_ZNSt6vectorIdSaIdEED2Ev.exit661 ], [ %410, %406 ], [ 0x7FF0000000000000, %398 ], [ 0x7FF0000000000000, %377 ], [ %403, %401 ], [ 0x7FF0000000000000, %404 ]
   ret double %.0
 }
 

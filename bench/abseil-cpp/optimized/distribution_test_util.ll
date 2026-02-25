@@ -41,7 +41,7 @@ define dso_local void @_ZN4absl15random_internal26ComputeDistributionMomentsENS_
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = fdiv double %14, %9
   store double %11, ptr %10, align 8, !tbaa !4
-  br label %30
+  br label %31
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %12 = phi double [ %14, %.lr.ph ], [ 0.000000e+00, %3 ]
@@ -52,15 +52,15 @@ define dso_local void @_ZN4absl15random_internal26ComputeDistributionMomentsENS_
   %.not = icmp eq ptr %15, %4
   br i1 %.not, label %.lr.ph36, label %.lr.ph
 
-._crit_edge37.loopexit:                           ; preds = %30
+._crit_edge37.loopexit:                           ; preds = %31
   %16 = uitofp nneg i64 %7 to double
-  %17 = fdiv double %36, %16
+  %17 = fdiv double %37, %16
   br label %._crit_edge37
 
 ._crit_edge37:                                    ; preds = %._crit_edge37.loopexit, %.thread
   %18 = phi double [ 0.000000e+00, %.thread ], [ %9, %._crit_edge37.loopexit ]
-  %19 = phi double [ 0.000000e+00, %.thread ], [ %40, %._crit_edge37.loopexit ]
-  %20 = phi double [ 0.000000e+00, %.thread ], [ %38, %._crit_edge37.loopexit ]
+  %19 = phi double [ 0.000000e+00, %.thread ], [ %41, %._crit_edge37.loopexit ]
+  %20 = phi double [ 0.000000e+00, %.thread ], [ %39, %._crit_edge37.loopexit ]
   %21 = phi double [ 0.000000e+00, %.thread ], [ %17, %._crit_edge37.loopexit ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %21, ptr %22, align 8, !tbaa !11
@@ -71,26 +71,26 @@ define dso_local void @_ZN4absl15random_internal26ComputeDistributionMomentsENS_
   store double %26, ptr %23, align 8, !tbaa !14
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = fdiv double %19, %18
-  %square = fmul double %21, %21
-  %29 = fdiv double %28, %square
-  store double %29, ptr %27, align 8, !tbaa !15
+  %29 = tail call double @pow(double noundef %21, double noundef 2.000000e+00) #14, !tbaa !12
+  %30 = fdiv double %28, %29
+  store double %30, ptr %27, align 8, !tbaa !15
   ret void
 
-30:                                               ; preds = %.lr.ph36, %30
-  %31 = phi double [ 0.000000e+00, %.lr.ph36 ], [ %40, %30 ]
-  %32 = phi double [ 0.000000e+00, %.lr.ph36 ], [ %38, %30 ]
-  %33 = phi double [ 0.000000e+00, %.lr.ph36 ], [ %36, %30 ]
-  %.02334 = phi ptr [ %1, %.lr.ph36 ], [ %41, %30 ]
-  %34 = load double, ptr %.02334, align 8, !tbaa !10
-  %35 = fsub double %34, %11
-  %36 = tail call double @llvm.fmuladd.f64(double %35, double %35, double %33)
-  %37 = fmul double %35, %35
-  %38 = tail call double @llvm.fmuladd.f64(double %37, double %35, double %32)
-  %39 = fmul double %35, %37
-  %40 = tail call double @llvm.fmuladd.f64(double %39, double %35, double %31)
-  %41 = getelementptr inbounds nuw i8, ptr %.02334, i64 8
-  %.not24 = icmp eq ptr %41, %4
-  br i1 %.not24, label %._crit_edge37.loopexit, label %30
+31:                                               ; preds = %.lr.ph36, %31
+  %32 = phi double [ 0.000000e+00, %.lr.ph36 ], [ %41, %31 ]
+  %33 = phi double [ 0.000000e+00, %.lr.ph36 ], [ %39, %31 ]
+  %34 = phi double [ 0.000000e+00, %.lr.ph36 ], [ %37, %31 ]
+  %.02334 = phi ptr [ %1, %.lr.ph36 ], [ %42, %31 ]
+  %35 = load double, ptr %.02334, align 8, !tbaa !10
+  %36 = fsub double %35, %11
+  %37 = tail call double @llvm.fmuladd.f64(double %36, double %36, double %34)
+  %38 = fmul double %36, %36
+  %39 = tail call double @llvm.fmuladd.f64(double %38, double %36, double %33)
+  %40 = fmul double %36, %38
+  %41 = tail call double @llvm.fmuladd.f64(double %40, double %36, double %32)
+  %42 = getelementptr inbounds nuw i8, ptr %.02334, i64 8
+  %.not24 = icmp eq ptr %42, %4
+  br i1 %.not24, label %._crit_edge37.loopexit, label %31
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
