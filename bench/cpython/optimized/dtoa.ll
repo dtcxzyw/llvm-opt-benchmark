@@ -4457,9 +4457,9 @@ lo0bits.exit60.i:                                 ; preds = %192, %179, %177, %1
   %232 = uitofp i32 %231 to double
   %233 = bitcast double %232 to i64
   %234 = and i64 %233, 9223372032559808512
-  %.sroa.086.4.insert.ext100 = add nsw i64 %234, -139611588448485376
+  %.sroa.086.4.insert.shift101 = add nsw i64 %234, -139611588448485376
   %.sroa.086.4.insert.mask102 = and i64 %233, 4294967295
-  %.sroa.086.4.insert.insert103 = or disjoint i64 %.sroa.086.4.insert.ext100, %.sroa.086.4.insert.mask102
+  %.sroa.086.4.insert.insert103 = or disjoint i64 %.sroa.086.4.insert.shift101, %.sroa.086.4.insert.mask102
   %235 = add nsw i32 %219, -1
   br label %236
 
@@ -4796,9 +4796,9 @@ rv_alloc.exit:                                    ; preds = %284, %316
   %374 = tail call double @llvm.fmuladd.f64(double %373, double %.sroa.0.6, double 7.000000e+00)
   %375 = bitcast double %374 to i64
   %376 = and i64 %375, -4294967296
-  %.sroa.0.4.insert.ext = add i64 %376, -234187180623265792
+  %.sroa.0.4.insert.shift = add i64 %376, -234187180623265792
   %.sroa.0.4.insert.mask = and i64 %375, 4294967295
-  %.sroa.0.4.insert.insert = or disjoint i64 %.sroa.0.4.insert.ext, %.sroa.0.4.insert.mask
+  %.sroa.0.4.insert.insert = or disjoint i64 %.sroa.0.4.insert.shift, %.sroa.0.4.insert.mask
   %377 = bitcast i64 %.sroa.0.4.insert.insert to double
   %378 = icmp eq i32 %.2492, 0
   br i1 %378, label %379, label %385

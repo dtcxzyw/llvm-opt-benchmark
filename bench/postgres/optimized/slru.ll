@@ -68,12 +68,12 @@ define dso_local i64 @SimpleLruShmemSize(i32 noundef %0, i32 noundef %1) local_u
   %19 = sext i32 %18 to i64
   %20 = shl nsw i64 %19, 3
   %21 = select i1 %17, i64 %20, i64 0
-  %reass.add = add nsw i64 %8, %5
+  %reass.mul = add nsw i64 %8, %5
   %22 = add nsw i64 %10, 135
   %23 = add nsw i64 %22, %13
   %24 = add nsw i64 %23, %16
   %.0 = add nsw i64 %24, %21
-  %25 = add i64 %.0, %reass.add
+  %25 = add i64 %.0, %reass.mul
   %26 = and i64 %25, -32
   %27 = shl i32 %0, 13
   %28 = sext i32 %27 to i64
@@ -121,8 +121,8 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
   %31 = add nsw i64 %30, %18
   %32 = add nsw i64 %31, %16
   %.0.i = add nsw i64 %32, %21
-  %reass.add.i = add nsw i64 %.0.i, %24
-  %33 = add i64 %reass.add.i, %29
+  %reass.mul.i = add nsw i64 %.0.i, %24
+  %33 = add i64 %reass.mul.i, %29
   %34 = and i64 %33, -32
   %35 = shl i32 %2, 13
   %36 = sext i32 %35 to i64

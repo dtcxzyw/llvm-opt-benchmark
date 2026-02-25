@@ -503,94 +503,94 @@ define dso_local void @sema_analyze_stage(ptr noundef %0, i32 noundef %1) local_
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %4
 
-4:                                                ; preds = %29, %2
+4:                                                ; preds = %30, %2
   %5 = load i16, ptr %3, align 8
   %6 = lshr i16 %5, 5
   %7 = and i16 %6, 63
   %8 = zext nneg i16 %7 to i32
   %9 = icmp ugt i32 %1, %8
-  br i1 %9, label %10, label %31
+  br i1 %9, label %10, label %32
 
 10:                                               ; preds = %4
   store ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 400), ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 524696), align 8
   store ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 400), ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 524688), align 8
   %11 = load i16, ptr %3, align 8
-  %narrow = add i16 %11, 32
-  %12 = and i16 %narrow, 2016
-  %13 = and i16 %11, -2017
-  %14 = or disjoint i16 %12, %13
-  store i16 %14, ptr %3, align 8
-  %15 = lshr i16 %narrow, 5
-  %16 = and i16 %15, 63
-  switch i16 %16, label %29 [
-    i16 0, label %17
-    i16 1, label %18
-    i16 2, label %19
-    i16 3, label %20
-    i16 4, label %21
-    i16 5, label %22
-    i16 6, label %23
-    i16 7, label %24
-    i16 8, label %25
-    i16 9, label %26
-    i16 10, label %27
-    i16 11, label %28
+  %12 = add i16 %11, 32
+  %13 = and i16 %12, 2016
+  %14 = and i16 %11, -2017
+  %15 = or disjoint i16 %13, %14
+  store i16 %15, ptr %3, align 8
+  %16 = lshr i16 %12, 5
+  %17 = and i16 %16, 63
+  switch i16 %17, label %29 [
+    i16 0, label %18
+    i16 1, label %19
+    i16 2, label %20
+    i16 3, label %21
+    i16 4, label %22
+    i16 5, label %23
+    i16 6, label %24
+    i16 7, label %25
+    i16 8, label %26
+    i16 9, label %27
+    i16 10, label %28
+    i16 11, label %29
   ]
 
-17:                                               ; preds = %10
+18:                                               ; preds = %10
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.sema_analyze_stage, ptr noundef nonnull @.str.2, i32 noundef 144) #9
   unreachable
 
-18:                                               ; preds = %10
-  tail call void @sema_analyse_pass_module_hierarchy(ptr noundef nonnull %0) #10
-  br label %29
-
 19:                                               ; preds = %10
-  tail call void @sema_analyse_pass_top(ptr noundef nonnull %0) #10
-  br label %29
+  tail call void @sema_analyse_pass_module_hierarchy(ptr noundef nonnull %0) #10
+  br label %30
 
 20:                                               ; preds = %10
-  tail call void @sema_analysis_pass_process_imports(ptr noundef nonnull %0) #10
-  br label %29
+  tail call void @sema_analyse_pass_top(ptr noundef nonnull %0) #10
+  br label %30
 
 21:                                               ; preds = %10
-  tail call void @sema_analysis_pass_register_global_declarations(ptr noundef nonnull %0) #10
-  br label %29
+  tail call void @sema_analysis_pass_process_imports(ptr noundef nonnull %0) #10
+  br label %30
 
 22:                                               ; preds = %10
-  tail call void @sema_analysis_pass_register_conditional_units(ptr noundef nonnull %0) #10
-  br label %29
+  tail call void @sema_analysis_pass_register_global_declarations(ptr noundef nonnull %0) #10
+  br label %30
 
 23:                                               ; preds = %10
-  tail call void @sema_analysis_pass_register_conditional_declarations(ptr noundef nonnull %0) #10
-  br label %29
+  tail call void @sema_analysis_pass_register_conditional_units(ptr noundef nonnull %0) #10
+  br label %30
 
 24:                                               ; preds = %10
-  tail call void @sema_analysis_pass_decls(ptr noundef nonnull %0) #10
-  br label %29
+  tail call void @sema_analysis_pass_register_conditional_declarations(ptr noundef nonnull %0) #10
+  br label %30
 
 25:                                               ; preds = %10
-  tail call void @sema_analysis_pass_ct_echo(ptr noundef nonnull %0) #10
-  br label %29
+  tail call void @sema_analysis_pass_decls(ptr noundef nonnull %0) #10
+  br label %30
 
 26:                                               ; preds = %10
-  tail call void @sema_analysis_pass_ct_assert(ptr noundef nonnull %0) #10
-  br label %29
+  tail call void @sema_analysis_pass_ct_echo(ptr noundef nonnull %0) #10
+  br label %30
 
 27:                                               ; preds = %10
-  tail call void @sema_analysis_pass_functions(ptr noundef nonnull %0) #10
-  br label %29
+  tail call void @sema_analysis_pass_ct_assert(ptr noundef nonnull %0) #10
+  br label %30
 
 28:                                               ; preds = %10
+  tail call void @sema_analysis_pass_functions(ptr noundef nonnull %0) #10
+  br label %30
+
+29:                                               ; preds = %10
   tail call void @sema_analysis_pass_interface(ptr noundef nonnull %0) #10
-  br label %29
+  br label %30
 
-29:                                               ; preds = %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %10
-  %30 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 84), align 4
-  %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %4, label %31, !llvm.loop !10
+30:                                               ; preds = %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %10
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 84), align 4
+  %.not = icmp eq i32 %31, 0
+  br i1 %.not, label %4, label %32, !llvm.loop !10
 
-31:                                               ; preds = %29, %4
+32:                                               ; preds = %30, %4
   ret void
 }
 

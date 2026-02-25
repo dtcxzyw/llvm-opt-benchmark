@@ -56,7 +56,7 @@ define void @_ZN6LibRaw11fuji_rotateEv(ptr noundef nonnull align 8 dereferenceab
   tail call void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #5
   unreachable
 
-35:                                               ; preds = %4
+36:                                               ; preds = %4
   %36 = shl nuw nsw i64 %25, 3
   %37 = tail call noundef ptr @_ZN6LibRaw6callocEmm(ptr noundef nonnull align 8 dereferenceable(767680) %0, i64 noundef %26, i64 noundef %36)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 767448
@@ -64,7 +64,7 @@ define void @_ZN6LibRaw11fuji_rotateEv(ptr noundef nonnull align 8 dereferenceab
   %.not60 = icmp eq ptr %39, null
   br i1 %.not60, label %46, label %40
 
-40:                                               ; preds = %35
+40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 767456
   %42 = load ptr, ptr %41, align 8, !tbaa !77
   %43 = tail call noundef i32 %39(ptr noundef %42, i32 noundef 32768, i32 noundef 0, i32 noundef 2)
@@ -77,7 +77,7 @@ define void @_ZN6LibRaw11fuji_rotateEv(ptr noundef nonnull align 8 dereferenceab
   tail call void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #5
   unreachable
 
-46:                                               ; preds = %40, %35
+46:                                               ; preds = %40, %36
   %.not73 = icmp eq i16 %24, 0
   br i1 %.not73, label %._crit_edge69, label %.preheader.lr.ph
 

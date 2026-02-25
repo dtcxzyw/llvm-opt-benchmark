@@ -1622,7 +1622,7 @@ _ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequen
 
 _ZN8rawspeed8OptionalINS_14BitStreamerMSBEEaSIS1_Qsr3stdE7same_asITL0__T_EEERS2_OS5_.exit.i.i: ; preds = %239, %_ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequentialReplenisherIS0_EEEEENS_10Array1DRefIKSt4byteEE.exit.i.i
   %240 = getelementptr inbounds nuw i8, ptr %208, i64 64
-  %241 = load i16, ptr %240, align 8, !tbaa !166
+  %.val.val100.i.i.i = load i16, ptr %240, align 8, !tbaa !166
   %242 = zext i16 %241 to i64
   %243 = shl nuw nsw i64 %242, 2
   %244 = add nuw nsw i64 %243, 8

@@ -4297,8 +4297,8 @@ define internal void @inv_predict_10(ptr noundef writeonly captures(none) initia
   %37 = trunc nuw i16 %36 to i8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %37, ptr %38, align 1, !tbaa !59
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %40 = load i8, ptr %39, align 1, !tbaa !59
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %40 = load i8, ptr %40, align 1, !tbaa !59
   %41 = zext i8 %40 to i16
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %43 = load i8, ptr %42, align 1, !tbaa !59

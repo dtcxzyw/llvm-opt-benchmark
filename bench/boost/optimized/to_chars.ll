@@ -4017,8 +4017,8 @@ _ZN5boost8charconv6detail10num_digitsIjEEiT_.exit: ; preds = %40, %42, %44, %46,
   %56 = udiv i32 %.sroa.023.0.extract.trunc27, 10
   %.sroa.023.0.insert.ext = zext nneg i32 %56 to i64
   %57 = and i64 %.sroa.023.1178, -4294967296
-  %.sroa.023.4.insert.ext = add i64 %57, 4294967296
-  %.sroa.023.4.insert.insert = or disjoint i64 %.sroa.023.4.insert.ext, %.sroa.023.0.insert.ext
+  %.sroa.023.4.insert.shift = add i64 %57, 4294967296
+  %.sroa.023.4.insert.insert = or disjoint i64 %.sroa.023.4.insert.shift, %.sroa.023.0.insert.ext
   %58 = add nsw i32 %.1147177, -1
   %59 = icmp sgt i32 %58, %54
   br i1 %59, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !35
@@ -4033,13 +4033,13 @@ _ZN5boost8charconv6detail10num_digitsIjEEiT_.exit: ; preds = %40, %42, %44, %46,
   %61 = urem i32 %.sroa.023.0.extract.trunc29, 10
   %62 = udiv i32 %.sroa.023.0.extract.trunc29, 10
   %63 = and i64 %.sroa.023.1.lcssa202, -4294967296
-  %.sroa.023.4.insert.ext56 = add i64 %63, 4294967296
+  %.sroa.023.4.insert.shift57 = add i64 %63, 4294967296
   %64 = add nsw i32 %4, 1
   %65 = icmp samesign ugt i32 %61, 4
   %66 = zext i1 %65 to i32
   %spec.select = add nuw nsw i32 %62, %66
   %.sroa.023.0.insert.ext39.pn = zext nneg i32 %spec.select to i64
-  %.sroa.023.3 = or disjoint i64 %.sroa.023.4.insert.ext56, %.sroa.023.0.insert.ext39.pn
+  %.sroa.023.3 = or disjoint i64 %.sroa.023.4.insert.shift57, %.sroa.023.0.insert.ext39.pn
   br label %67
 
 67:                                               ; preds = %._crit_edge.thread, %._crit_edge
@@ -4059,8 +4059,8 @@ _ZN5boost8charconv6detail10num_digitsIjEEiT_.exit: ; preds = %40, %42, %44, %46,
   %71 = udiv i32 %.sroa.023.0.extract.trunc43184, 10
   %.sroa.023.0.insert.ext47 = zext nneg i32 %71 to i64
   %72 = and i64 %.sroa.023.4183, -4294967296
-  %.sroa.023.4.insert.ext64 = add i64 %72, 4294967296
-  %.sroa.023.4.insert.insert67 = or disjoint i64 %.sroa.023.4.insert.ext64, %.sroa.023.0.insert.ext47
+  %.sroa.023.4.insert.shift65 = add i64 %72, 4294967296
+  %.sroa.023.4.insert.insert67 = or disjoint i64 %.sroa.023.4.insert.shift65, %.sroa.023.0.insert.ext47
   %73 = add nsw i32 %.3182, -1
   %74 = urem i32 %71, 10
   %75 = icmp eq i32 %74, 0

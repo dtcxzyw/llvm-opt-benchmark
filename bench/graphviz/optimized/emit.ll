@@ -2838,7 +2838,7 @@ firstlayer.exit:                                  ; preds = %178, %181, %183
 
 .lr.ph196:                                        ; preds = %235, %nextpage.exit
   %.pre.i.i271.in.in = phi i64 [ %.pre.i.i272.in.in, %nextpage.exit ], [ %236, %235 ]
-  %239 = phi i32 [ %954, %nextpage.exit ], [ %237, %235 ]
+  %239 = phi i32 [ %952, %nextpage.exit ], [ %237, %235 ]
   %.pre.i.i271.in = lshr i64 %.pre.i.i271.in.in, 32
   %.pre.i.i271 = trunc nuw i64 %.pre.i.i271.in to i32
   %240 = load i32, ptr %190, align 4, !tbaa !217
@@ -4519,96 +4519,96 @@ emit_page.exit:                                   ; preds = %926, %928
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %930 = load i64, ptr %188, align 4
   %931 = load i64, ptr %225, align 4
-  %.sroa.2.0.extract.shift.i.i = and i64 %931, -4294967296
+  %.sroa.22.0.extract.shift.i.i = and i64 %931, -4294967296
   %932 = add i64 %931, %930
-  %933 = add i64 %.sroa.2.0.extract.shift.i.i, %930
-  %.sroa.24.0.insert.ext.i.i = and i64 %933, -4294967296
+  %.sroa.2.0.extract.shift5.i.i = add i64 %.sroa.22.0.extract.shift.i.i, %930
+  %.sroa.24.0.insert.ext.i.i = and i64 %.sroa.2.0.extract.shift5.i.i, -4294967296
   %.sroa.03.0.insert.ext.i.i = and i64 %932, 4294967295
   %.sroa.03.0.insert.insert.i.i = or disjoint i64 %.sroa.24.0.insert.ext.i.i, %.sroa.03.0.insert.ext.i.i
   store i64 %.sroa.03.0.insert.insert.i.i, ptr %188, align 4
-  %934 = trunc i64 %932 to i32
-  %935 = icmp sgt i32 %934, -1
-  %936 = lshr i64 %933, 32
-  %937 = trunc nuw i64 %936 to i32
-  br i1 %935, label %938, label %validpage.exit.thread.i
+  %933 = trunc i64 %932 to i32
+  %934 = icmp sgt i32 %933, -1
+  %935 = lshr i64 %.sroa.2.0.extract.shift5.i.i, 32
+  %936 = trunc nuw i64 %935 to i32
+  br i1 %934, label %937, label %validpage.exit.thread.i
 
-938:                                              ; preds = %emit_page.exit
-  %939 = load i32, ptr %190, align 4, !tbaa !217
-  %940 = icmp sgt i32 %939, %934
-  %941 = icmp sgt i64 %933, -1
-  %or.cond.i = and i1 %941, %940
+937:                                              ; preds = %emit_page.exit
+  %938 = load i32, ptr %190, align 4, !tbaa !217
+  %939 = icmp sgt i32 %938, %933
+  %940 = icmp sgt i64 %.sroa.2.0.extract.shift5.i.i, -1
+  %or.cond.i = and i1 %940, %939
   br i1 %or.cond.i, label %validpage.exit.i, label %validpage.exit.thread.i
 
-validpage.exit.i:                                 ; preds = %938
-  %942 = load i32, ptr %192, align 4, !tbaa !218
-  %943 = icmp sgt i32 %942, %937
-  br i1 %943, label %nextpage.exit, label %validpage.exit.thread.i
+validpage.exit.i:                                 ; preds = %937
+  %941 = load i32, ptr %192, align 4, !tbaa !218
+  %942 = icmp sgt i32 %941, %936
+  br i1 %942, label %nextpage.exit, label %validpage.exit.thread.i
 
-validpage.exit.thread.i:                          ; preds = %validpage.exit.i, %938, %emit_page.exit
-  %944 = load i32, ptr %227, align 4, !tbaa !290
-  %.not.i76 = icmp eq i32 %944, 0
-  br i1 %.not.i76, label %947, label %945
+validpage.exit.thread.i:                          ; preds = %validpage.exit.i, %937, %emit_page.exit
+  %943 = load i32, ptr %227, align 4, !tbaa !290
+  %.not.i76 = icmp eq i32 %943, 0
+  br i1 %.not.i76, label %946, label %944
 
-945:                                              ; preds = %validpage.exit.thread.i
-  %946 = load i32, ptr %189, align 4, !tbaa !291
-  store i32 %946, ptr %188, align 4, !tbaa !98
-  br label %949
+944:                                              ; preds = %validpage.exit.thread.i
+  %945 = load i32, ptr %189, align 4, !tbaa !291
+  store i32 %945, ptr %188, align 4, !tbaa !98
+  br label %948
 
-947:                                              ; preds = %validpage.exit.thread.i
-  %948 = load i32, ptr %228, align 4, !tbaa !292
-  store i32 %948, ptr %191, align 4, !tbaa !99
-  br label %949
+946:                                              ; preds = %validpage.exit.thread.i
+  %947 = load i32, ptr %228, align 4, !tbaa !292
+  store i32 %947, ptr %191, align 4, !tbaa !99
+  br label %948
 
-949:                                              ; preds = %947, %945
-  %950 = load i64, ptr %188, align 4
-  %951 = load i64, ptr %226, align 4
-  %.sroa.2.0.extract.shift.i13.i = and i64 %951, -4294967296
-  %952 = add i64 %951, %950
-  %953 = add i64 %.sroa.2.0.extract.shift.i13.i, %950
-  %.sroa.24.0.insert.ext.i14.i = and i64 %953, -4294967296
-  %.sroa.03.0.insert.ext.i15.i = and i64 %952, 4294967295
-  %.sroa.03.0.insert.insert.i16.i = or disjoint i64 %.sroa.24.0.insert.ext.i14.i, %.sroa.03.0.insert.ext.i15.i
-  store i64 %.sroa.03.0.insert.insert.i16.i, ptr %188, align 4
+948:                                              ; preds = %946, %944
+  %949 = load i64, ptr %188, align 4
+  %950 = load i64, ptr %226, align 4
+  %.sroa.22.0.extract.shift.i13.i = and i64 %951, -4294967296
+  %951 = add i64 %950, %949
+  %.sroa.2.0.extract.shift5.i14.i = add i64 %.sroa.22.0.extract.shift.i13.i, %950
+  %.sroa.24.0.insert.ext.i15.i = and i64 %.sroa.2.0.extract.shift5.i14.i, -4294967296
+  %.sroa.03.0.insert.ext.i16.i = and i64 %951, 4294967295
+  %.sroa.03.0.insert.insert.i17.i = or disjoint i64 %.sroa.24.0.insert.ext.i15.i, %.sroa.03.0.insert.ext.i16.i
+  store i64 %.sroa.03.0.insert.insert.i17.i, ptr %188, align 4
   br label %nextpage.exit
 
-nextpage.exit:                                    ; preds = %validpage.exit.i, %949
-  %.in = phi i64 [ %932, %validpage.exit.i ], [ %952, %949 ]
-  %.pre.i.i272.in.in = phi i64 [ %933, %validpage.exit.i ], [ %953, %949 ]
-  %954 = trunc i64 %.in to i32
-  %955 = icmp sgt i32 %954, -1
-  br i1 %955, label %.lr.ph196, label %validpage.exit.thread, !llvm.loop !293
+nextpage.exit:                                    ; preds = %validpage.exit.i, %948
+  %.in = phi i64 [ %932, %validpage.exit.i ], [ %951, %949 ]
+  %.pre.i.i272.in.in = phi i64 [ %.sroa.2.0.extract.shift5.i.i, %validpage.exit.i ], [ %.sroa.2.0.extract.shift5.i14.i, %949 ]
+  %952 = trunc i64 %.in to i32
+  %953 = icmp sgt i32 %952, -1
+  br i1 %953, label %.lr.ph196, label %validpage.exit.thread, !llvm.loop !293
 
 validpage.exit.thread:                            ; preds = %validpage.exit, %.lr.ph196, %nextpage.exit, %235
-  %956 = load ptr, ptr %0, align 8, !tbaa !62
-  %957 = getelementptr inbounds nuw i8, ptr %956, i64 504
-  %958 = load ptr, ptr %957, align 8, !tbaa !215
-  %.not.i77 = icmp eq ptr %958, null
-  %.0.in.i78 = select i1 %.not.i77, ptr %162, ptr %958
+  %954 = load ptr, ptr %0, align 8, !tbaa !62
+  %955 = getelementptr inbounds nuw i8, ptr %954, i64 504
+  %956 = load ptr, ptr %955, align 8, !tbaa !215
+  %.not.i77 = icmp eq ptr %956, null
+  %.0.in.i78 = select i1 %.not.i77, ptr %162, ptr %956
   %.0.i79 = load i32, ptr %.0.in.i78, align 4, !tbaa !39
-  %959 = icmp sgt i32 %.0.i79, 1
-  br i1 %959, label %960, label %961
+  %957 = icmp sgt i32 %.0.i79, 1
+  br i1 %957, label %958, label %959
 
-960:                                              ; preds = %validpage.exit.thread
+958:                                              ; preds = %validpage.exit.thread
   call void @gvrender_end_layer(ptr noundef nonnull %0) #28
-  br label %961
+  br label %959
 
-961:                                              ; preds = %validpage.exit.thread, %960
+959:                                              ; preds = %validpage.exit.thread, %958
   %.not.i80 = icmp eq ptr %.0122202, null
-  br i1 %.not.i80, label %965, label %962
+  br i1 %.not.i80, label %963, label %960
 
-962:                                              ; preds = %961
-  %963 = getelementptr inbounds nuw i8, ptr %.0122202, i64 4
-  %964 = load i32, ptr %.0122202, align 4, !tbaa !39
+960:                                              ; preds = %959
+  %961 = getelementptr inbounds nuw i8, ptr %.0122202, i64 4
+  %962 = load i32, ptr %.0122202, align 4, !tbaa !39
   br label %nextlayer.exit
 
-965:                                              ; preds = %961
-  %966 = load i32, ptr %41, align 8, !tbaa !95
-  %967 = add nsw i32 %966, 1
+963:                                              ; preds = %959
+  %964 = load i32, ptr %41, align 8, !tbaa !95
+  %965 = add nsw i32 %964, 1
   br label %nextlayer.exit
 
-nextlayer.exit:                                   ; preds = %962, %965
-  %storemerge = phi i32 [ %964, %962 ], [ %967, %965 ]
-  %.1 = phi ptr [ %963, %962 ], [ null, %965 ]
+nextlayer.exit:                                   ; preds = %960, %963
+  %storemerge = phi i32 [ %962, %962 ], [ %965, %965 ]
+  %.1 = phi ptr [ %961, %962 ], [ null, %965 ]
   store i32 %storemerge, ptr %41, align 8, !tbaa !95
   %.val = load i32, ptr %162, align 4, !tbaa !214
   %.not125 = icmp sgt i32 %storemerge, %.val

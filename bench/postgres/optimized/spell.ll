@@ -2736,7 +2736,7 @@ define dso_local void @NISortAffixes(ptr noundef %0) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %112, label %7
+  br i1 %6, label %111, label %7
 
 7:                                                ; preds = %1
   %8 = icmp sgt i32 %5, 1
@@ -2944,9 +2944,9 @@ isAffixInUse.exit.thread:                         ; preds = %49, %.critedge.i, %
   store ptr %110, ptr %111, align 8
   call fastcc void @mkVoidAffix(ptr noundef nonnull %0, i1 noundef zeroext true, i32 noundef %.051.lcssa)
   call fastcc void @mkVoidAffix(ptr noundef nonnull %0, i1 noundef zeroext false, i32 noundef %.051.lcssa)
-  br label %112
+  br label %111
 
-112:                                              ; preds = %1, %._crit_edge
+111:                                              ; preds = %1, %._crit_edge
   ret void
 }
 
