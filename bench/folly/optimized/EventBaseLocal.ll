@@ -900,9 +900,9 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPoli
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !16
   %8 = and i64 %7, -256
-  %9 = and i64 %7, 255
-  %10 = add i64 %8, -256
-  %11 = or disjoint i64 %10, %9
+  %9 = add i64 %8, -256
+  %10 = and i64 %7, 255
+  %11 = or disjoint i64 %9, %10
   store i64 %11, ptr %6, align 8, !tbaa !16
   %12 = and i64 %2, 255
   %13 = icmp samesign ult i64 %12, 16
@@ -916,7 +916,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPoli
   br i1 %19, label %20, label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE29adjustSizeAndBeginBeforeEraseENS1_11F14ItemIterIPNS1_8F14ChunkIS5_EEEE.exit
 
 20:                                               ; preds = %5
-  %21 = icmp eq i64 %10, 0
+  %21 = icmp eq i64 %9, 0
   br i1 %21, label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkIPNS_9EventBaseEEEE17precheckedAdvanceEv.exit.i, label %22
 
 22:                                               ; preds = %20
@@ -1745,9 +1745,9 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i64, ptr %27, align 8, !tbaa !16
   %29 = and i64 %28, -256
-  %30 = and i64 %28, 255
-  %31 = add i64 %29, -256
-  %32 = or disjoint i64 %31, %30
+  %30 = add i64 %29, -256
+  %31 = and i64 %28, 255
+  %32 = or disjoint i64 %30, %31
   store i64 %32, ptr %27, align 8, !tbaa !16
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 %2
   %34 = load i8, ptr %33, align 1, !tbaa !36
@@ -1816,9 +1816,9 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPoli
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !16
   %8 = and i64 %7, -256
-  %9 = and i64 %7, 255
-  %10 = add i64 %8, -256
-  %11 = or disjoint i64 %10, %9
+  %9 = add i64 %8, -256
+  %10 = and i64 %7, 255
+  %11 = or disjoint i64 %9, %10
   store i64 %11, ptr %6, align 8, !tbaa !16
   %12 = and i64 %2, 255
   %13 = icmp samesign ult i64 %12, 16
@@ -1832,7 +1832,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPoli
   br i1 %19, label %20, label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE29adjustSizeAndBeginBeforeEraseENS1_11F14ItemIterIPNS1_8F14ChunkIS6_EEEE.exit
 
 20:                                               ; preds = %5
-  %21 = icmp eq i64 %10, 0
+  %21 = icmp eq i64 %9, 0
   br i1 %21, label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkIPNS_6detail18EventBaseLocalBaseEEEE17precheckedAdvanceEv.exit.i, label %22
 
 22:                                               ; preds = %20
@@ -2902,9 +2902,9 @@ _ZN5folly3f146detail8F14ChunkIjE6setTagEmm.exit:  ; preds = %92
   store i64 %118, ptr %116, align 8, !tbaa !69
   store ptr null, ptr %117, align 8, !tbaa !69
   %119 = and i64 %103, -256
-  %120 = and i64 %103, 255
-  %121 = add i64 %119, 256
-  %122 = or disjoint i64 %121, %120
+  %120 = add i64 %119, 256
+  %121 = and i64 %103, 255
+  %122 = or disjoint i64 %120, %121
   store i64 %122, ptr %9, align 8, !tbaa !16
   br label %123
 
@@ -3790,9 +3790,9 @@ _ZN5folly3f146detail8F14ChunkIPNS_9EventBaseEE6setTagEmm.exit: ; preds = %83
 _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_9EventBaseEvvvvEEE13insertAtBlankIJS5_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS5_EEEESt4pairImmEDpOT_.exit: ; preds = %_ZN5folly3f146detail8F14ChunkIPNS_9EventBaseEE6setTagEmm.exit, %101
   %102 = load i64, ptr %7, align 8, !tbaa !16
   %103 = and i64 %102, -256
-  %104 = and i64 %102, 255
-  %105 = add i64 %103, 256
-  %106 = or disjoint i64 %105, %104
+  %104 = add i64 %103, 256
+  %105 = and i64 %102, 255
+  %106 = or disjoint i64 %104, %105
   store i64 %106, ptr %7, align 8, !tbaa !16
   br label %107
 
@@ -4532,9 +4532,9 @@ _ZN5folly3f146detail8F14ChunkIPNS_6detail18EventBaseLocalBaseEE6setTagEmm.exit: 
 _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE13insertAtBlankIJS6_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS6_EEEESt4pairImmEDpOT_.exit: ; preds = %_ZN5folly3f146detail8F14ChunkIPNS_6detail18EventBaseLocalBaseEE6setTagEmm.exit, %101
   %102 = load i64, ptr %7, align 8, !tbaa !16
   %103 = and i64 %102, -256
-  %104 = and i64 %102, 255
-  %105 = add i64 %103, 256
-  %106 = or disjoint i64 %105, %104
+  %104 = add i64 %103, 256
+  %105 = and i64 %102, 255
+  %106 = or disjoint i64 %104, %105
   store i64 %106, ptr %7, align 8, !tbaa !16
   br label %107
 

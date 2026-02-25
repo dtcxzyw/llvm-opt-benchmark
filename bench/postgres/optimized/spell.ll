@@ -2736,7 +2736,7 @@ define dso_local void @NISortAffixes(ptr noundef %0) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %111, label %7
+  br i1 %6, label %112, label %7
 
 7:                                                ; preds = %1
   %8 = icmp sgt i32 %5, 1
@@ -2930,22 +2930,23 @@ isAffixInUse.exit.thread:                         ; preds = %49, %.critedge.i, %
   %100 = load ptr, ptr %18, align 8
   %101 = ptrtoint ptr %.052.lcssa to i64
   %102 = ptrtoint ptr %100 to i64
-  %103 = add i64 %101, 16
-  %104 = sub i64 %103, %102
-  %105 = call ptr @repalloc(ptr noundef %100, i64 noundef %104) #13
-  store ptr %105, ptr %18, align 8
-  %106 = call fastcc ptr @mkANode(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.051.lcssa, i32 noundef 0, i32 noundef 0)
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %106, ptr %107, align 8
-  %108 = load i32, ptr %4, align 4
-  %109 = call fastcc ptr @mkANode(ptr noundef nonnull %0, i32 noundef %.051.lcssa, i32 noundef %108, i32 noundef 0, i32 noundef 1)
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %109, ptr %110, align 8
+  %103 = sub i64 %101, %102
+  %104 = and i64 %103, -16
+  %105 = add i64 %104, 16
+  %106 = call ptr @repalloc(ptr noundef %100, i64 noundef %105) #13
+  store ptr %106, ptr %18, align 8
+  %107 = call fastcc ptr @mkANode(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %.051.lcssa, i32 noundef 0, i32 noundef 0)
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %107, ptr %108, align 8
+  %109 = load i32, ptr %4, align 4
+  %110 = call fastcc ptr @mkANode(ptr noundef nonnull %0, i32 noundef %.051.lcssa, i32 noundef %109, i32 noundef 0, i32 noundef 1)
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %110, ptr %111, align 8
   call fastcc void @mkVoidAffix(ptr noundef nonnull %0, i1 noundef zeroext true, i32 noundef %.051.lcssa)
   call fastcc void @mkVoidAffix(ptr noundef nonnull %0, i1 noundef zeroext false, i32 noundef %.051.lcssa)
-  br label %111
+  br label %112
 
-111:                                              ; preds = %1, %._crit_edge
+112:                                              ; preds = %1, %._crit_edge
   ret void
 }
 

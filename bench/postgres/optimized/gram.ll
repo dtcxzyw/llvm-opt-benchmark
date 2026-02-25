@@ -29844,8 +29844,7 @@ define internal fastcc noundef ptr @check_indirection(ptr noundef readonly retur
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64
-  %.idx14 = shl nsw i64 %5, 3
-  %invariant.op = add nsw i64 %.idx14, -8
+  %invariant.op = add nsw i64 %5, -1
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph19, label %.critedge
 
@@ -29862,7 +29861,7 @@ define internal fastcc noundef ptr @check_indirection(ptr noundef readonly retur
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 77
-  %.not15 = icmp slt i64 %.idx, %invariant.op
+  %.not15 = icmp sgt i64 %invariant.op, %indvars.iv
   %or.cond = select i1 %13, i1 %.not15, i1 false
   br i1 %or.cond, label %.split, label %14
 
@@ -30235,17 +30234,17 @@ define internal fastcc noundef ptr @makeColumnRef(ptr noundef %0, ptr noundef %1
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr i8, ptr %1, i64 16
   %10 = icmp sgt i32 %8, 0
-  br i1 %10, label %.lr.ph79, label %._crit_edge
+  br i1 %10, label %.lr.ph78, label %._crit_edge
 
-.lr.ph79:                                         ; preds = %.lr.ph
+.lr.ph78:                                         ; preds = %.lr.ph
   %11 = load ptr, ptr %9, align 8
   %wide.trip.count = zext nneg i32 %8 to i64
   %12 = zext nneg i32 %8 to i64
-  %.idx89 = shl nuw nsw i64 %12, 3
+  %.idx88 = shl nuw nsw i64 %12, 3
   br label %13
 
-13:                                               ; preds = %.lr.ph79, %54
-  %indvars.iv = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next, %54 ]
+13:                                               ; preds = %.lr.ph78, %54
+  %indvars.iv = phi i64 [ 0, %.lr.ph78 ], [ %indvars.iv.next, %54 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 3
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
   %15 = load ptr, ptr %14, align 8
@@ -30256,10 +30255,10 @@ define internal fastcc noundef ptr @makeColumnRef(ptr noundef %0, ptr noundef %1
   ]
 
 .split:                                           ; preds = %13
-  %indvars84.le = trunc i64 %indvars.iv to i32
+  %indvars83.le = trunc i64 %indvars.iv to i32
   %17 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 79, ptr %17, align 4
-  %18 = icmp eq i32 %indvars84.le, 0
+  %18 = icmp eq i32 %indvars83.le, 0
   br i1 %18, label %.lr.ph.i, label %33
 
 .lr.ph.i:                                         ; preds = %.split
@@ -30269,8 +30268,7 @@ define internal fastcc noundef ptr @makeColumnRef(ptr noundef %0, ptr noundef %1
   store ptr %20, ptr %21, align 8
   %22 = load i32, ptr %7, align 4
   %23 = sext i32 %22 to i64
-  %.idx14.i = shl nsw i64 %23, 3
-  %invariant.op.i = add nsw i64 %.idx14.i, -8
+  %invariant.op.i = add nsw i64 %23, -1
   %24 = icmp sgt i32 %22, 0
   br i1 %24, label %.lr.ph19.i, label %check_indirection.exit
 
@@ -30286,7 +30284,7 @@ define internal fastcc noundef ptr @makeColumnRef(ptr noundef %0, ptr noundef %1
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 77
-  %.not15.i = icmp slt i64 %.idx.i, %invariant.op.i
+  %.not15.i = icmp sgt i64 %invariant.op.i, %indvars.iv.i
   %or.cond.i = select i1 %30, i1 %.not15.i, i1 false
   br i1 %or.cond.i, label %.split.i, label %31
 
@@ -30305,49 +30303,48 @@ check_indirection.exit:                           ; preds = %31, %.lr.ph.i
   br label %57
 
 33:                                               ; preds = %.split
-  %34 = tail call ptr @list_copy_tail(ptr noundef nonnull %1, i32 noundef %indvars84.le) #10
+  %34 = tail call ptr @list_copy_tail(ptr noundef nonnull %1, i32 noundef %indvars83.le) #10
   %.not.i47 = icmp eq ptr %34, null
-  br i1 %.not.i47, label %check_indirection.exit60, label %.lr.ph.i48
+  br i1 %.not.i47, label %check_indirection.exit59, label %.lr.ph.i48
 
 .lr.ph.i48:                                       ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4
   %37 = sext i32 %36 to i64
-  %.idx14.i49 = shl nsw i64 %37, 3
-  %invariant.op.i50 = add nsw i64 %.idx14.i49, -8
+  %invariant.op.i49 = add nsw i64 %37, -1
   %38 = icmp sgt i32 %36, 0
-  br i1 %38, label %.lr.ph19.i51, label %check_indirection.exit60
+  br i1 %38, label %.lr.ph19.i50, label %check_indirection.exit59
 
-.lr.ph19.i51:                                     ; preds = %.lr.ph.i48
+.lr.ph19.i50:                                     ; preds = %.lr.ph.i48
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %40 = load ptr, ptr %39, align 8
-  %wide.trip.count.i52 = zext nneg i32 %36 to i64
+  %wide.trip.count.i51 = zext nneg i32 %36 to i64
   br label %41
 
-41:                                               ; preds = %46, %.lr.ph19.i51
-  %indvars.iv.i53 = phi i64 [ 0, %.lr.ph19.i51 ], [ %indvars.iv.next.i57, %46 ]
-  %.idx.i54 = shl nuw nsw i64 %indvars.iv.i53, 3
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx.i54
+41:                                               ; preds = %46, %.lr.ph19.i50
+  %indvars.iv.i52 = phi i64 [ 0, %.lr.ph19.i50 ], [ %indvars.iv.next.i56, %46 ]
+  %.idx.i53 = shl nuw nsw i64 %indvars.iv.i52, 3
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx.i53
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, 77
-  %.not15.i55 = icmp slt i64 %.idx.i54, %invariant.op.i50
-  %or.cond.i56 = select i1 %45, i1 %.not15.i55, i1 false
-  br i1 %or.cond.i56, label %.split.i59, label %46
+  %.not15.i54 = icmp sgt i64 %invariant.op.i49, %indvars.iv.i52
+  %or.cond.i55 = select i1 %45, i1 %.not15.i54, i1 false
+  br i1 %or.cond.i55, label %.split.i58, label %46
 
-.split.i59:                                       ; preds = %41
+.split.i58:                                       ; preds = %41
   tail call void @scanner_yyerror(ptr noundef nonnull @.str.270, ptr noundef %3) #13
   unreachable
 
 46:                                               ; preds = %41
-  %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i53, 1
-  %exitcond.not.i58 = icmp eq i64 %indvars.iv.next.i57, %wide.trip.count.i52
-  br i1 %exitcond.not.i58, label %check_indirection.exit60, label %41
+  %indvars.iv.next.i56 = add nuw nsw i64 %indvars.iv.i52, 1
+  %exitcond.not.i57 = icmp eq i64 %indvars.iv.next.i56, %wide.trip.count.i51
+  br i1 %exitcond.not.i57, label %check_indirection.exit59, label %41
 
-check_indirection.exit60:                         ; preds = %46, %33, %.lr.ph.i48
+check_indirection.exit59:                         ; preds = %46, %33, %.lr.ph.i48
   %47 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %34, ptr %47, align 8
-  %48 = tail call ptr @list_truncate(ptr noundef nonnull %1, i32 noundef %indvars84.le) #10
+  %48 = tail call ptr @list_truncate(ptr noundef nonnull %1, i32 noundef %indvars83.le) #10
   %49 = tail call ptr @makeString(ptr noundef %0) #10
   %50 = tail call ptr @lcons(ptr noundef %49, ptr noundef %48) #10
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -30356,10 +30353,10 @@ check_indirection.exit60:                         ; preds = %46, %33, %.lr.ph.i4
 
 52:                                               ; preds = %13
   %53 = add nuw nsw i64 %.idx, 8
-  %.not69 = icmp samesign ult i64 %53, %.idx89
-  br i1 %.not69, label %.split76, label %54
+  %.not68 = icmp samesign ult i64 %53, %.idx88
+  br i1 %.not68, label %.split75, label %54
 
-.split76:                                         ; preds = %52
+.split75:                                         ; preds = %52
   tail call void @scanner_yyerror(ptr noundef nonnull @.str.270, ptr noundef %3) #13
   unreachable
 
@@ -30373,12 +30370,12 @@ check_indirection.exit60:                         ; preds = %46, %33, %.lr.ph.i4
   %56 = tail call ptr @lcons(ptr noundef %55, ptr noundef %1) #10
   br label %57
 
-57:                                               ; preds = %check_indirection.exit60, %check_indirection.exit, %._crit_edge
-  %.sink93 = phi ptr [ %5, %._crit_edge ], [ %17, %check_indirection.exit ], [ %17, %check_indirection.exit60 ]
-  %.sink = phi ptr [ %56, %._crit_edge ], [ %5, %check_indirection.exit ], [ %5, %check_indirection.exit60 ]
-  %58 = getelementptr inbounds nuw i8, ptr %.sink93, i64 8
+57:                                               ; preds = %check_indirection.exit59, %check_indirection.exit, %._crit_edge
+  %.sink92 = phi ptr [ %5, %._crit_edge ], [ %17, %check_indirection.exit ], [ %17, %check_indirection.exit59 ]
+  %.sink = phi ptr [ %56, %._crit_edge ], [ %5, %check_indirection.exit ], [ %5, %check_indirection.exit59 ]
+  %58 = getelementptr inbounds nuw i8, ptr %.sink92, i64 8
   store ptr %.sink, ptr %58, align 8
-  ret ptr %.sink93
+  ret ptr %.sink92
 }
 
 declare ptr @makeJsonBehavior(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2

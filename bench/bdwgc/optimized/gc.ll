@@ -35481,12 +35481,12 @@ GC_wait_marker.exit:                              ; preds = %GC_wait_marker.exit
   br label %71
 
 71:                                               ; preds = %66, %70
-  br i1 %.not33, label %72, label %151
+  br i1 %.not33, label %72, label %152
 
 72:                                               ; preds = %71
   %73 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @mark_cv) #47
   %.not.i36 = icmp eq i32 %73, 0
-  br i1 %.not.i36, label %151, label %74
+  br i1 %.not.i36, label %152, label %74
 
 74:                                               ; preds = %72
   %75 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
@@ -35599,7 +35599,7 @@ GC_steal_mark_stack.exit:                         ; preds = %103, %GC_release_ma
   br i1 %117, label %118, label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %114, %139
-  %.1.i43.ph.be = phi ptr [ %150, %139 ], [ %112, %114 ]
+  %.1.i43.ph.be = phi ptr [ %151, %139 ], [ %112, %114 ]
   %.ph.be = xor i1 %110, true
   br label %.outer, !llvm.loop !454
 
@@ -35676,14 +35676,15 @@ has_inactive_helpers.exit.i:                      ; preds = %GC_acquire_mark_loc
   %145 = getelementptr inbounds i8, ptr %144, i64 -16
   tail call fastcc void @GC_return_mark_stack(ptr noundef %0, ptr noundef nonnull %145)
   %146 = ptrtoint ptr %144 to i64
-  %147 = add i64 %140, 16
-  %148 = sub i64 %147, %146
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %0, ptr align 8 %144, i64 %148, i1 false)
-  %149 = sub nsw i64 0, %143
-  %150 = getelementptr inbounds %struct.GC_ms_entry, ptr %.1.i43.ph, i64 %149
+  %147 = sub i64 %140, %146
+  %148 = and i64 %147, -16
+  %149 = add i64 %148, 16
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %0, ptr align 8 %144, i64 %149, i1 false)
+  %150 = sub nsw i64 0, %143
+  %151 = getelementptr inbounds %struct.GC_ms_entry, ptr %.1.i43.ph, i64 %150
   br label %.outer.backedge
 
-151:                                              ; preds = %72, %71
+152:                                              ; preds = %72, %71
   ret void
 }
 

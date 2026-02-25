@@ -543,12 +543,12 @@ define range(i32 0, 65536) i32 @Amap_LibCreateNode(ptr noundef captures(none) %0
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds %struct.Amap_Nod_t_, ptr %11, i64 %13
   %15 = load i32, ptr %14, align 8
-  %16 = and i32 %15, 16711680
-  %17 = ashr i32 %spec.select, 1
-  %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %struct.Amap_Nod_t_, ptr %11, i64 %18
-  %20 = load i32, ptr %19, align 8
-  %21 = add i32 %20, %16
+  %16 = ashr i32 %spec.select, 1
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr inbounds %struct.Amap_Nod_t_, ptr %11, i64 %17
+  %19 = load i32, ptr %18, align 8
+  %20 = and i32 %19, 16711680
+  %21 = add i32 %20, %15
   %22 = and i32 %21, 16711680
   %23 = and i32 %9, 83951615
   %24 = or disjoint i32 %22, %23
@@ -573,7 +573,7 @@ define range(i32 0, 65536) i32 @Amap_LibCreateNode(ptr noundef captures(none) %0
   %36 = and i32 %spec.select, 1
   %.not59 = icmp eq i32 %36, 0
   %37 = select i1 %.not59, i32 43, i32 45
-  %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %32, i32 noundef %33, i32 noundef %12, i32 noundef %35, i32 noundef %17, i32 noundef %37)
+  %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %32, i32 noundef %33, i32 noundef %12, i32 noundef %35, i32 noundef %16, i32 noundef %37)
   br label %39
 
 39:                                               ; preds = %31, %4
@@ -1062,18 +1062,18 @@ define range(i32 0, 65536) i32 @Amap_LibCreateMux(ptr noundef captures(none) %0,
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds %struct.Amap_Nod_t_, ptr %10, i64 %12
   %14 = load i32, ptr %13, align 8
-  %15 = and i32 %14, 16711680
-  %16 = ashr i32 %2, 1
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %struct.Amap_Nod_t_, ptr %10, i64 %17
-  %19 = load i32, ptr %18, align 8
-  %20 = ashr i32 %3, 1
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds %struct.Amap_Nod_t_, ptr %10, i64 %21
-  %23 = load i32, ptr %22, align 8
-  %24 = add i32 %19, %15
+  %15 = ashr i32 %2, 1
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds %struct.Amap_Nod_t_, ptr %10, i64 %16
+  %18 = load i32, ptr %17, align 8
+  %19 = and i32 %18, 16711680
+  %20 = add i32 %19, %14
+  %21 = ashr i32 %3, 1
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds %struct.Amap_Nod_t_, ptr %10, i64 %22
+  %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 16711680
-  %26 = add i32 %25, %23
+  %26 = add i32 %20, %25
   %27 = and i32 %26, 16711680
   %28 = and i32 %8, 100728831
   %29 = or disjoint i32 %27, %28
@@ -1103,7 +1103,7 @@ define range(i32 0, 65536) i32 @Amap_LibCreateMux(ptr noundef captures(none) %0,
   %44 = and i32 %3, 1
   %.not33 = icmp eq i32 %44, 0
   %45 = select i1 %.not33, i32 43, i32 45
-  %46 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %39, i32 noundef 109, i32 noundef %11, i32 noundef %41, i32 noundef %16, i32 noundef %43, i32 noundef %20, i32 noundef %45)
+  %46 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %39, i32 noundef 109, i32 noundef %11, i32 noundef %41, i32 noundef %15, i32 noundef %43, i32 noundef %21, i32 noundef %45)
   br label %47
 
 47:                                               ; preds = %38, %4

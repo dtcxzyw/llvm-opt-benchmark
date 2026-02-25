@@ -131,7 +131,7 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
 49:                                               ; preds = %46, %44
   %50 = phi ptr [ %48, %46 ], [ null, %44 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %50, i32 noundef 2, ptr noundef nonnull @.str) #8
-  br label %347
+  br label %344
 
 51:                                               ; preds = %33, %25, %1
   %52 = icmp ne i32 %20, 1
@@ -192,7 +192,7 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   tail call void @drm_dsc_set_rc_buf_thresh(ptr noundef nonnull %4) #8
   %85 = load i16, ptr %57, align 8
   %86 = icmp ugt i16 %85, 12
-  br i1 %86, label %87, label %322
+  br i1 %86, label %87, label %319
 
 87:                                               ; preds = %77
   %88 = load i16, ptr %79, align 2
@@ -264,7 +264,7 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
 
 138:                                              ; preds = %123, %107
   %139 = icmp ugt i16 %.fr10, 191
-  br i1 %139, label %156, label %140
+  br i1 %139, label %153, label %140
 
 140:                                              ; preds = %138
   %141 = icmp samesign ugt i16 %.fr10, 159
@@ -276,297 +276,294 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   %145 = lshr exact i32 %144, 1
   %146 = trunc i32 %145 to i16
   %147 = sub i16 5632, %146
-  br label %156
+  br label %153
 
 148:                                              ; preds = %140
   %149 = icmp samesign ugt i16 %.fr10, 127
-  br i1 %149, label %150, label %156
+  br i1 %149, label %150, label %153
 
 150:                                              ; preds = %148
-  %151 = shl nuw nsw i32 %90, 9
-  %152 = add nuw nsw i32 %151, 126976
-  %153 = lshr exact i32 %152, 1
-  %154 = trunc i32 %153 to i16
-  %155 = sub i16 6144, %154
-  br label %156
+  %151 = shl nuw nsw i16 %89, 8
+  %152 = sub nuw nsw i16 8192, %151
+  br label %153
 
-156:                                              ; preds = %150, %148, %142, %138
-  %157 = phi i16 [ %155, %150 ], [ %147, %142 ], [ 2048, %138 ], [ 6144, %148 ]
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 4790
-  store i16 %157, ptr %158, align 2
-  %159 = shl nuw nsw i16 %89, 1
-  %160 = add nuw nsw i16 %159, 8191
-  %161 = udiv i16 %160, %159
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 4784
-  store i16 %161, ptr %162, align 2
-  %163 = add i8 %93, -13
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 4868
-  store i8 %163, ptr %164, align 2
-  %165 = add i8 %93, -4
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 4869
-  store i8 %165, ptr %166, align 1
-  %167 = add i8 %93, -5
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 4782
-  store i8 %167, ptr %168, align 2
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 4781
-  store i8 %167, ptr %169, align 1
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 4820
-  %171 = icmp ult i16 %.fr10, 208
-  %172 = add nsw i32 %90, -12
-  br i1 %122, label %262, label %173
+153:                                              ; preds = %150, %148, %142, %138
+  %154 = phi i16 [ %152, %150 ], [ %147, %142 ], [ 2048, %138 ], [ 6144, %148 ]
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 4790
+  store i16 %154, ptr %155, align 2
+  %156 = shl nuw nsw i16 %89, 1
+  %157 = add nuw nsw i16 %156, 8191
+  %158 = udiv i16 %157, %156
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 4784
+  store i16 %158, ptr %159, align 2
+  %160 = add i8 %93, -13
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 4868
+  store i8 %160, ptr %161, align 2
+  %162 = add i8 %93, -4
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 4869
+  store i8 %162, ptr %163, align 1
+  %164 = add i8 %93, -5
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 4782
+  store i8 %164, ptr %165, align 2
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 4781
+  store i8 %164, ptr %166, align 1
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 4820
+  %168 = icmp ult i16 %.fr10, 208
+  %169 = add nsw i32 %90, -12
+  br i1 %122, label %259, label %170
 
-173:                                              ; preds = %156
-  %174 = add nsw i32 %90, -8
-  %175 = icmp ult i16 %.fr10, 144
-  %176 = icmp ult i16 %.fr10, 272
-  br i1 %175, label %.split.us, label %.split
+170:                                              ; preds = %153
+  %171 = add nsw i32 %90, -8
+  %172 = icmp ult i16 %.fr10, 144
+  %173 = icmp ult i16 %.fr10, 272
+  br i1 %172, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %173, %.split.us
-  %177 = phi i64 [ %194, %.split.us ], [ 0, %173 ]
-  %178 = load i8, ptr %84, align 1
-  %179 = zext i8 %178 to i32
-  %180 = load i8, ptr %78, align 1, !range !5, !noundef !6
-  %181 = icmp ne i8 %180, 0
-  %182 = trunc i64 %177 to i32
-  %183 = tail call zeroext i8 @intel_lookup_range_min_qp(i32 noundef %179, i32 noundef %182, i32 noundef %174, i1 noundef zeroext %181) #8
-  %184 = getelementptr %struct.drm_dsc_rc_range_parameters, ptr %170, i64 %177
-  store i8 %183, ptr %184, align 1
-  %185 = load i8, ptr %78, align 1, !range !5, !noundef !6
-  %186 = icmp ne i8 %185, 0
-  %187 = tail call zeroext i8 @intel_lookup_range_max_qp(i32 noundef %179, i32 noundef %182, i32 noundef %174, i1 noundef zeroext %186) #8
-  %188 = getelementptr inbounds nuw i8, ptr %184, i64 1
-  store i8 %187, ptr %188, align 1
-  %189 = getelementptr i8, ptr @calculate_rc_params.ofs_und4, i64 %177
-  %190 = load i8, ptr %189, align 1
-  %191 = and i8 %190, 63
-  %.idx.us = mul nuw nsw i64 %177, 3
-  %192 = getelementptr i8, ptr %170, i64 %.idx.us
-  %193 = getelementptr i8, ptr %192, i64 2
-  store i8 %191, ptr %193, align 1
-  %194 = add nuw nsw i64 %177, 1
-  %195 = icmp eq i64 %194, 15
-  br i1 %195, label %.loopexit, label %.split.us, !llvm.loop !7
+.split.us:                                        ; preds = %170, %.split.us
+  %174 = phi i64 [ %191, %.split.us ], [ 0, %170 ]
+  %175 = load i8, ptr %84, align 1
+  %176 = zext i8 %175 to i32
+  %177 = load i8, ptr %78, align 1, !range !5, !noundef !6
+  %178 = icmp ne i8 %177, 0
+  %179 = trunc i64 %174 to i32
+  %180 = tail call zeroext i8 @intel_lookup_range_min_qp(i32 noundef %176, i32 noundef %179, i32 noundef %171, i1 noundef zeroext %178) #8
+  %181 = getelementptr %struct.drm_dsc_rc_range_parameters, ptr %167, i64 %174
+  store i8 %180, ptr %181, align 1
+  %182 = load i8, ptr %78, align 1, !range !5, !noundef !6
+  %183 = icmp ne i8 %182, 0
+  %184 = tail call zeroext i8 @intel_lookup_range_max_qp(i32 noundef %176, i32 noundef %179, i32 noundef %171, i1 noundef zeroext %183) #8
+  %185 = getelementptr inbounds nuw i8, ptr %181, i64 1
+  store i8 %184, ptr %185, align 1
+  %186 = getelementptr i8, ptr @calculate_rc_params.ofs_und4, i64 %174
+  %187 = load i8, ptr %186, align 1
+  %188 = and i8 %187, 63
+  %.idx.us = mul nuw nsw i64 %174, 3
+  %189 = getelementptr i8, ptr %167, i64 %.idx.us
+  %190 = getelementptr i8, ptr %189, i64 2
+  store i8 %188, ptr %190, align 1
+  %191 = add nuw nsw i64 %174, 1
+  %192 = icmp eq i64 %191, 15
+  br i1 %192, label %.loopexit, label %.split.us, !llvm.loop !7
 
-.split:                                           ; preds = %173
-  %196 = icmp ult i16 %.fr10, 176
-  br i1 %196, label %.split.split.us, label %.split.split
+.split:                                           ; preds = %170
+  %193 = icmp ult i16 %.fr10, 176
+  br i1 %193, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %.split.split.us
-  %197 = phi i64 [ %224, %.split.split.us ], [ 0, %.split ]
-  %198 = load i8, ptr %84, align 1
-  %199 = zext i8 %198 to i32
-  %200 = load i8, ptr %78, align 1, !range !5, !noundef !6
-  %201 = icmp ne i8 %200, 0
-  %202 = trunc i64 %197 to i32
-  %203 = tail call zeroext i8 @intel_lookup_range_min_qp(i32 noundef %199, i32 noundef %202, i32 noundef %174, i1 noundef zeroext %201) #8
-  %204 = getelementptr %struct.drm_dsc_rc_range_parameters, ptr %170, i64 %197
-  store i8 %203, ptr %204, align 1
-  %205 = load i8, ptr %78, align 1, !range !5, !noundef !6
-  %206 = icmp ne i8 %205, 0
-  %207 = tail call zeroext i8 @intel_lookup_range_max_qp(i32 noundef %199, i32 noundef %202, i32 noundef %174, i1 noundef zeroext %206) #8
-  %208 = getelementptr inbounds nuw i8, ptr %204, i64 1
-  store i8 %207, ptr %208, align 1
-  %209 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %197
+  %194 = phi i64 [ %221, %.split.split.us ], [ 0, %.split ]
+  %195 = load i8, ptr %84, align 1
+  %196 = zext i8 %195 to i32
+  %197 = load i8, ptr %78, align 1, !range !5, !noundef !6
+  %198 = icmp ne i8 %197, 0
+  %199 = trunc i64 %194 to i32
+  %200 = tail call zeroext i8 @intel_lookup_range_min_qp(i32 noundef %196, i32 noundef %199, i32 noundef %171, i1 noundef zeroext %198) #8
+  %201 = getelementptr %struct.drm_dsc_rc_range_parameters, ptr %167, i64 %194
+  store i8 %200, ptr %201, align 1
+  %202 = load i8, ptr %78, align 1, !range !5, !noundef !6
+  %203 = icmp ne i8 %202, 0
+  %204 = tail call zeroext i8 @intel_lookup_range_max_qp(i32 noundef %196, i32 noundef %199, i32 noundef %171, i1 noundef zeroext %203) #8
+  %205 = getelementptr inbounds nuw i8, ptr %201, i64 1
+  store i8 %204, ptr %205, align 1
+  %206 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %194
+  %207 = load i8, ptr %206, align 1
+  %208 = sext i8 %207 to i32
+  %209 = getelementptr i8, ptr @calculate_rc_params.ofs_und4, i64 %194
   %210 = load i8, ptr %209, align 1
   %211 = sext i8 %210 to i32
-  %212 = getelementptr i8, ptr @calculate_rc_params.ofs_und4, i64 %197
-  %213 = load i8, ptr %212, align 1
-  %214 = sext i8 %213 to i32
-  %215 = sub nsw i32 %211, %214
-  %216 = mul nsw i32 %215, %174
-  %217 = add nsw i32 %216, 1
-  %218 = sdiv i32 %217, 2
-  %219 = trunc i32 %218 to i8
-  %220 = add i8 %213, %219
-  %221 = and i8 %220, 63
-  %.idx.us8 = mul nuw nsw i64 %197, 3
-  %222 = getelementptr i8, ptr %170, i64 %.idx.us8
-  %223 = getelementptr i8, ptr %222, i64 2
-  store i8 %221, ptr %223, align 1
-  %224 = add nuw nsw i64 %197, 1
-  %225 = icmp eq i64 %224, 15
-  br i1 %225, label %.loopexit, label %.split.split.us, !llvm.loop !7
+  %212 = sub nsw i32 %208, %211
+  %213 = mul nsw i32 %212, %171
+  %214 = add nsw i32 %213, 1
+  %215 = sdiv i32 %214, 2
+  %216 = trunc i32 %215 to i8
+  %217 = add i8 %210, %216
+  %218 = and i8 %217, 63
+  %.idx.us8 = mul nuw nsw i64 %194, 3
+  %219 = getelementptr i8, ptr %167, i64 %.idx.us8
+  %220 = getelementptr i8, ptr %219, i64 2
+  store i8 %218, ptr %220, align 1
+  %221 = add nuw nsw i64 %194, 1
+  %222 = icmp eq i64 %221, 15
+  br i1 %222, label %.loopexit, label %.split.split.us, !llvm.loop !7
 
-.split.split:                                     ; preds = %.split, %255
-  %226 = phi i64 [ %260, %255 ], [ 0, %.split ]
-  %227 = load i8, ptr %84, align 1
-  %228 = zext i8 %227 to i32
-  %229 = load i8, ptr %78, align 1, !range !5, !noundef !6
-  %230 = icmp ne i8 %229, 0
-  %231 = trunc i64 %226 to i32
-  %232 = tail call zeroext i8 @intel_lookup_range_min_qp(i32 noundef %228, i32 noundef %231, i32 noundef %174, i1 noundef zeroext %230) #8
-  %233 = getelementptr %struct.drm_dsc_rc_range_parameters, ptr %170, i64 %226
-  store i8 %232, ptr %233, align 1
-  %234 = load i8, ptr %78, align 1, !range !5, !noundef !6
-  %235 = icmp ne i8 %234, 0
-  %236 = tail call zeroext i8 @intel_lookup_range_max_qp(i32 noundef %228, i32 noundef %231, i32 noundef %174, i1 noundef zeroext %235) #8
-  %237 = getelementptr inbounds nuw i8, ptr %233, i64 1
-  store i8 %236, ptr %237, align 1
-  br i1 %171, label %238, label %241
+.split.split:                                     ; preds = %.split, %252
+  %223 = phi i64 [ %257, %252 ], [ 0, %.split ]
+  %224 = load i8, ptr %84, align 1
+  %225 = zext i8 %224 to i32
+  %226 = load i8, ptr %78, align 1, !range !5, !noundef !6
+  %227 = icmp ne i8 %226, 0
+  %228 = trunc i64 %223 to i32
+  %229 = tail call zeroext i8 @intel_lookup_range_min_qp(i32 noundef %225, i32 noundef %228, i32 noundef %171, i1 noundef zeroext %227) #8
+  %230 = getelementptr %struct.drm_dsc_rc_range_parameters, ptr %167, i64 %223
+  store i8 %229, ptr %230, align 1
+  %231 = load i8, ptr %78, align 1, !range !5, !noundef !6
+  %232 = icmp ne i8 %231, 0
+  %233 = tail call zeroext i8 @intel_lookup_range_max_qp(i32 noundef %225, i32 noundef %228, i32 noundef %171, i1 noundef zeroext %232) #8
+  %234 = getelementptr inbounds nuw i8, ptr %230, i64 1
+  store i8 %233, ptr %234, align 1
+  br i1 %168, label %235, label %238
+
+235:                                              ; preds = %.split.split
+  %236 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %223
+  %237 = load i8, ptr %236, align 1
+  br label %252
 
 238:                                              ; preds = %.split.split
-  %239 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %226
+  %239 = getelementptr i8, ptr @calculate_rc_params.ofs_und15, i64 %223
   %240 = load i8, ptr %239, align 1
-  br label %255
+  br i1 %173, label %241, label %252
 
-241:                                              ; preds = %.split.split
-  %242 = getelementptr i8, ptr @calculate_rc_params.ofs_und15, i64 %226
-  %243 = load i8, ptr %242, align 1
-  br i1 %176, label %244, label %255
+241:                                              ; preds = %238
+  %242 = sext i8 %240 to i32
+  %243 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %223
+  %244 = load i8, ptr %243, align 1
+  %245 = sext i8 %244 to i32
+  %246 = sub nsw i32 %242, %245
+  %247 = mul nsw i32 %246, %169
+  %248 = add nsw i32 %247, 3
+  %249 = sdiv i32 %248, 4
+  %250 = trunc i32 %249 to i8
+  %251 = add i8 %244, %250
+  br label %252
 
-244:                                              ; preds = %241
-  %245 = sext i8 %243 to i32
-  %246 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %226
-  %247 = load i8, ptr %246, align 1
-  %248 = sext i8 %247 to i32
-  %249 = sub nsw i32 %245, %248
-  %250 = mul nsw i32 %249, %172
-  %251 = add nsw i32 %250, 3
-  %252 = sdiv i32 %251, 4
-  %253 = trunc i32 %252 to i8
-  %254 = add i8 %247, %253
-  br label %255
+252:                                              ; preds = %241, %238, %235
+  %253 = phi i8 [ %240, %238 ], [ %251, %241 ], [ %237, %235 ]
+  %254 = and i8 %253, 63
+  %.idx = mul nuw nsw i64 %223, 3
+  %255 = getelementptr i8, ptr %167, i64 %.idx
+  %256 = getelementptr i8, ptr %255, i64 2
+  store i8 %254, ptr %256, align 1
+  %257 = add nuw nsw i64 %223, 1
+  %258 = icmp eq i64 %257, 15
+  br i1 %258, label %.loopexit, label %.split.split, !llvm.loop !7
 
-255:                                              ; preds = %244, %241, %238
-  %256 = phi i8 [ %243, %241 ], [ %254, %244 ], [ %240, %238 ]
-  %257 = and i8 %256, 63
-  %.idx = mul nuw nsw i64 %226, 3
-  %258 = getelementptr i8, ptr %170, i64 %.idx
-  %259 = getelementptr i8, ptr %258, i64 2
-  store i8 %257, ptr %259, align 1
-  %260 = add nuw nsw i64 %226, 1
-  %261 = icmp eq i64 %260, 15
-  br i1 %261, label %.loopexit, label %.split.split, !llvm.loop !7
+259:                                              ; preds = %153
+  %260 = add nsw i32 %90, -6
+  %261 = icmp ult i16 %.fr10, 112
+  %262 = icmp ult i16 %.fr10, 144
+  %263 = icmp ult i16 %.fr10, 256
+  br label %264
 
-262:                                              ; preds = %156
-  %263 = add nsw i32 %90, -6
-  %264 = icmp ult i16 %.fr10, 112
-  %265 = icmp ult i16 %.fr10, 144
-  %266 = icmp ult i16 %.fr10, 256
-  br label %267
+264:                                              ; preds = %312, %259
+  %265 = phi i64 [ 0, %259 ], [ %317, %312 ]
+  %266 = load i8, ptr %84, align 1
+  %267 = zext i8 %266 to i32
+  %268 = load i8, ptr %78, align 1, !range !5, !noundef !6
+  %269 = icmp ne i8 %268, 0
+  %270 = trunc i64 %265 to i32
+  %271 = tail call zeroext i8 @intel_lookup_range_min_qp(i32 noundef %267, i32 noundef %270, i32 noundef %260, i1 noundef zeroext %269) #8
+  %272 = getelementptr %struct.drm_dsc_rc_range_parameters, ptr %167, i64 %265
+  store i8 %271, ptr %272, align 1
+  %273 = load i8, ptr %78, align 1, !range !5, !noundef !6
+  %274 = icmp ne i8 %273, 0
+  %275 = tail call zeroext i8 @intel_lookup_range_max_qp(i32 noundef %267, i32 noundef %270, i32 noundef %260, i1 noundef zeroext %274) #8
+  %276 = getelementptr inbounds nuw i8, ptr %272, i64 1
+  store i8 %275, ptr %276, align 1
+  br i1 %261, label %277, label %280
 
-267:                                              ; preds = %315, %262
-  %268 = phi i64 [ 0, %262 ], [ %320, %315 ]
-  %269 = load i8, ptr %84, align 1
-  %270 = zext i8 %269 to i32
-  %271 = load i8, ptr %78, align 1, !range !5, !noundef !6
-  %272 = icmp ne i8 %271, 0
-  %273 = trunc i64 %268 to i32
-  %274 = tail call zeroext i8 @intel_lookup_range_min_qp(i32 noundef %270, i32 noundef %273, i32 noundef %263, i1 noundef zeroext %272) #8
-  %275 = getelementptr %struct.drm_dsc_rc_range_parameters, ptr %170, i64 %268
-  store i8 %274, ptr %275, align 1
-  %276 = load i8, ptr %78, align 1, !range !5, !noundef !6
-  %277 = icmp ne i8 %276, 0
-  %278 = tail call zeroext i8 @intel_lookup_range_max_qp(i32 noundef %270, i32 noundef %273, i32 noundef %263, i1 noundef zeroext %277) #8
-  %279 = getelementptr inbounds nuw i8, ptr %275, i64 1
-  store i8 %278, ptr %279, align 1
-  br i1 %264, label %280, label %283
+277:                                              ; preds = %264
+  %278 = getelementptr i8, ptr @calculate_rc_params.ofs_und6.1, i64 %265
+  %279 = load i8, ptr %278, align 1
+  br label %312
 
-280:                                              ; preds = %267
-  %281 = getelementptr i8, ptr @calculate_rc_params.ofs_und6.1, i64 %268
-  %282 = load i8, ptr %281, align 1
-  br label %315
+280:                                              ; preds = %264
+  br i1 %262, label %281, label %294
 
-283:                                              ; preds = %267
-  br i1 %265, label %284, label %297
-
-284:                                              ; preds = %283
-  %285 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %268
+281:                                              ; preds = %280
+  %282 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %265
+  %283 = load i8, ptr %282, align 1
+  %284 = sext i8 %283 to i32
+  %285 = getelementptr i8, ptr @calculate_rc_params.ofs_und6.1, i64 %265
   %286 = load i8, ptr %285, align 1
   %287 = sext i8 %286 to i32
-  %288 = getelementptr i8, ptr @calculate_rc_params.ofs_und6.1, i64 %268
-  %289 = load i8, ptr %288, align 1
-  %290 = sext i8 %289 to i32
-  %291 = sub nsw i32 %287, %290
-  %292 = mul nsw i32 %291, %263
-  %293 = add nsw i32 %292, 1
-  %294 = sdiv i32 %293, 2
-  %295 = trunc i32 %294 to i8
-  %296 = add i8 %289, %295
-  br label %315
+  %288 = sub nsw i32 %284, %287
+  %289 = mul nsw i32 %288, %260
+  %290 = add nsw i32 %289, 1
+  %291 = sdiv i32 %290, 2
+  %292 = trunc i32 %291 to i8
+  %293 = add i8 %286, %292
+  br label %312
 
-297:                                              ; preds = %283
-  br i1 %171, label %298, label %301
+294:                                              ; preds = %280
+  br i1 %168, label %295, label %298
 
-298:                                              ; preds = %297
-  %299 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %268
+295:                                              ; preds = %294
+  %296 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %265
+  %297 = load i8, ptr %296, align 1
+  br label %312
+
+298:                                              ; preds = %294
+  %299 = getelementptr i8, ptr @calculate_rc_params.ofs_und15, i64 %265
   %300 = load i8, ptr %299, align 1
-  br label %315
+  br i1 %263, label %301, label %312
 
-301:                                              ; preds = %297
-  %302 = getelementptr i8, ptr @calculate_rc_params.ofs_und15, i64 %268
-  %303 = load i8, ptr %302, align 1
-  br i1 %266, label %304, label %315
+301:                                              ; preds = %298
+  %302 = sext i8 %300 to i32
+  %303 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %265
+  %304 = load i8, ptr %303, align 1
+  %305 = sext i8 %304 to i32
+  %306 = sub nsw i32 %302, %305
+  %307 = mul nsw i32 %306, %169
+  %308 = add nsw i32 %307, 2
+  %309 = sdiv i32 %308, 3
+  %310 = trunc i32 %309 to i8
+  %311 = add i8 %304, %310
+  br label %312
 
-304:                                              ; preds = %301
-  %305 = sext i8 %303 to i32
-  %306 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %268
-  %307 = load i8, ptr %306, align 1
-  %308 = sext i8 %307 to i32
-  %309 = sub nsw i32 %305, %308
-  %310 = mul nsw i32 %309, %172
-  %311 = add nsw i32 %310, 2
-  %312 = sdiv i32 %311, 3
-  %313 = trunc i32 %312 to i8
-  %314 = add i8 %307, %313
-  br label %315
+312:                                              ; preds = %301, %298, %295, %281, %277
+  %313 = phi i8 [ %279, %277 ], [ %293, %281 ], [ %297, %295 ], [ %311, %301 ], [ %300, %298 ]
+  %314 = and i8 %313, 63
+  %.idx6 = mul nuw nsw i64 %265, 3
+  %315 = getelementptr i8, ptr %167, i64 %.idx6
+  %316 = getelementptr i8, ptr %315, i64 2
+  store i8 %314, ptr %316, align 1
+  %317 = add nuw nsw i64 %265, 1
+  %318 = icmp eq i64 %317, 15
+  br i1 %318, label %.loopexit, label %264, !llvm.loop !10
 
-315:                                              ; preds = %304, %301, %298, %284, %280
-  %316 = phi i8 [ %282, %280 ], [ %296, %284 ], [ %300, %298 ], [ %314, %304 ], [ %303, %301 ]
-  %317 = and i8 %316, 63
-  %.idx6 = mul nuw nsw i64 %268, 3
-  %318 = getelementptr i8, ptr %170, i64 %.idx6
-  %319 = getelementptr i8, ptr %318, i64 2
-  store i8 %317, ptr %319, align 1
-  %320 = add nuw nsw i64 %268, 1
-  %321 = icmp eq i64 %320, 15
-  br i1 %321, label %.loopexit, label %267, !llvm.loop !10
+319:                                              ; preds = %77
+  %320 = and i16 %6, -80
+  %321 = icmp eq i16 %320, 128
+  br i1 %321, label %322, label %324
 
-322:                                              ; preds = %77
-  %323 = and i16 %6, -80
-  %324 = icmp eq i16 %323, 128
-  br i1 %324, label %325, label %327
-
-325:                                              ; preds = %322
-  %326 = load i8, ptr %84, align 1
-  switch i8 %326, label %327 [
-    i8 8, label %328
-    i8 10, label %328
-    i8 12, label %328
+322:                                              ; preds = %319
+  %323 = load i8, ptr %84, align 1
+  switch i8 %323, label %324 [
+    i8 8, label %325
+    i8 10, label %325
+    i8 12, label %325
   ]
 
-327:                                              ; preds = %325, %322
-  br label %328
+324:                                              ; preds = %322, %319
+  br label %325
 
-328:                                              ; preds = %327, %325, %325, %325
-  %329 = phi i32 [ 0, %327 ], [ 1, %325 ], [ 1, %325 ], [ 1, %325 ]
-  %330 = tail call i32 @drm_dsc_setup_rc_params(ptr noundef nonnull %4, i32 noundef %329) #8
-  %331 = icmp eq i32 %330, 0
-  br i1 %331, label %.loopexit, label %347
+325:                                              ; preds = %324, %322, %322, %322
+  %326 = phi i32 [ 0, %324 ], [ 1, %322 ], [ 1, %322 ], [ 1, %322 ]
+  %327 = tail call i32 @drm_dsc_setup_rc_params(ptr noundef nonnull %4, i32 noundef %326) #8
+  %328 = icmp eq i32 %327, 0
+  br i1 %328, label %.loopexit, label %344
 
-.loopexit:                                        ; preds = %255, %.split.split.us, %.split.us, %315, %328
-  %332 = load i8, ptr %84, align 1
-  %333 = icmp ult i8 %332, 11
-  %334 = getelementptr inbounds nuw i8, ptr %0, i64 4883
-  %335 = select i1 %333, i8 48, i8 64
-  store i8 %335, ptr %334, align 1
-  %336 = getelementptr inbounds nuw i8, ptr %0, i64 4866
-  %337 = load i16, ptr %336, align 2
-  %338 = zext i16 %337 to i32
-  %339 = shl nuw nsw i32 %338, 3
-  %340 = getelementptr inbounds nuw i8, ptr %0, i64 4790
-  %341 = load i16, ptr %340, align 2
-  %342 = zext i16 %341 to i32
-  %343 = sub nsw i32 %338, %342
-  %344 = sdiv i32 %339, %343
-  %345 = trunc i32 %344 to i8
-  %346 = getelementptr inbounds nuw i8, ptr %0, i64 4870
-  store i8 %345, ptr %346, align 2
-  br label %347
+.loopexit:                                        ; preds = %252, %.split.split.us, %.split.us, %312, %325
+  %329 = load i8, ptr %84, align 1
+  %330 = icmp ult i8 %329, 11
+  %331 = getelementptr inbounds nuw i8, ptr %0, i64 4883
+  %332 = select i1 %330, i8 48, i8 64
+  store i8 %332, ptr %331, align 1
+  %333 = getelementptr inbounds nuw i8, ptr %0, i64 4866
+  %334 = load i16, ptr %333, align 2
+  %335 = zext i16 %334 to i32
+  %336 = shl nuw nsw i32 %335, 3
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 4790
+  %338 = load i16, ptr %337, align 2
+  %339 = zext i16 %338 to i32
+  %340 = sub nsw i32 %335, %339
+  %341 = sdiv i32 %336, %340
+  %342 = trunc i32 %341 to i8
+  %343 = getelementptr inbounds nuw i8, ptr %0, i64 4870
+  store i8 %342, ptr %343, align 2
+  br label %344
 
-347:                                              ; preds = %.loopexit, %328, %49
-  %348 = phi i32 [ -22, %49 ], [ 0, %.loopexit ], [ %330, %328 ]
-  ret i32 %348
+344:                                              ; preds = %.loopexit, %325, %49
+  %345 = phi i32 [ -22, %49 ], [ 0, %.loopexit ], [ %327, %325 ]
+  ret i32 %345
 }
 
 ; Function Attrs: null_pointer_is_valid

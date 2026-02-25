@@ -243,22 +243,22 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nound
   %90 = load ptr, ptr %5, align 8, !tbaa !8
   %91 = ptrtoint ptr %89 to i64
   %92 = ptrtoint ptr %90 to i64
-  %93 = add i64 %91, 8
-  %94 = sub i64 %93, %92
-  %95 = call noalias ptr @malloc(i64 noundef %94) #7
-  %.not68.i = icmp eq ptr %95, null
-  br i1 %.not68.i, label %.preheader.i, label %97
+  %93 = sub i64 %91, %92
+  %94 = and i64 %93, -8
+  %95 = add i64 %94, 8
+  %96 = call noalias ptr @malloc(i64 noundef %95) #7
+  %.not68.i = icmp eq ptr %96, null
+  br i1 %.not68.i, label %.preheader.i, label %98
 
 .preheader.i:                                     ; preds = %.thread103.i, %.thread.i, %.thread.thread.i
-  %96 = load ptr, ptr %5, align 8, !tbaa !8
+  %97 = load ptr, ptr %5, align 8, !tbaa !8
   %.promoted.i = load ptr, ptr %6, align 8, !tbaa !8
-  %.not69118.i = icmp eq ptr %.promoted.i, %96
+  %.not69118.i = icmp eq ptr %.promoted.i, %97
   br i1 %.not69118.i, label %.loopexit.i, label %.lr.ph119.i
 
-97:                                               ; preds = %.thread103.i
-  %98 = sub i64 %91, %92
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %95, ptr align 8 %90, i64 %98, i1 false)
-  %99 = getelementptr inbounds i8, ptr %95, i64 %98
+98:                                               ; preds = %.thread103.i
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %96, ptr align 8 %90, i64 %93, i1 false)
+  %99 = getelementptr inbounds i8, ptr %96, i64 %93
   store ptr null, ptr %99, align 8, !tbaa !11
   br label %.loopexit.i
 
@@ -267,12 +267,12 @@ define dso_local noalias noundef ptr @cmsysSystem_Parse_CommandForUnix(ptr nound
   %101 = getelementptr inbounds i8, ptr %100, i64 -8
   %102 = load ptr, ptr %101, align 8, !tbaa !11
   call void @free(ptr noundef %102) #8
-  %.not69.i = icmp eq ptr %101, %96
+  %.not69.i = icmp eq ptr %101, %97
   br i1 %.not69.i, label %.loopexit.i, label %.lr.ph119.i, !llvm.loop !20
 
-.loopexit.i:                                      ; preds = %.lr.ph119.i, %97, %.preheader.i
-  %.0144.i = phi ptr [ %95, %97 ], [ null, %.preheader.i ], [ null, %.lr.ph119.i ]
-  %103 = phi ptr [ %90, %97 ], [ %96, %.preheader.i ], [ %96, %.lr.ph119.i ]
+.loopexit.i:                                      ; preds = %.lr.ph119.i, %98, %.preheader.i
+  %.0144.i = phi ptr [ %96, %98 ], [ null, %.preheader.i ], [ null, %.lr.ph119.i ]
+  %103 = phi ptr [ %90, %98 ], [ %97, %.preheader.i ], [ %97, %.lr.ph119.i ]
   %.not70.i = icmp eq ptr %103, %3
   br i1 %.not70.i, label %105, label %104
 

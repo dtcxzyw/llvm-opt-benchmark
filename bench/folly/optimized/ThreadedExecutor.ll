@@ -2682,9 +2682,9 @@ _ZN5folly3f146detail8F14ChunkIPKvE6setTagEmm.exit.i: ; preds = %100
 _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKvvvvvEEE13insertAtBlankIJS5_EEEvNS1_11F14ItemIterIPNS1_8F14ChunkIS5_EEEESt4pairImmEDpOT_.exit.i: ; preds = %116, %_ZN5folly3f146detail8F14ChunkIPKvE6setTagEmm.exit.i
   %117 = load i64, ptr %7, align 8, !tbaa !140, !noalias !141
   %118 = and i64 %117, -256
-  %119 = and i64 %117, 255
-  %120 = add i64 %118, 256
-  %121 = or disjoint i64 %120, %119
+  %119 = add i64 %118, 256
+  %120 = and i64 %117, 255
+  %121 = or disjoint i64 %119, %120
   store i64 %121, ptr %7, align 8, !tbaa !140, !noalias !141
   br label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKvvvvvEEE19tryEmplaceValueImplIS5_JS5_EEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIS5_EEEEbES9_ImmERKT_DpOT0_.exit
 
@@ -12460,9 +12460,9 @@ _ZN5folly3f146detail8F14ChunkISt4pairIKNSt6thread2idES4_EE6setTagEmm.exit: ; pre
 _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyINSt6thread2idES4_vvvEEE13insertAtBlankIJRKSt21piecewise_construct_tSt5tupleIJRKS5_EESC_IJEEEEEvNS1_11F14ItemIterIPNS1_8F14ChunkISt4pairISD_S4_EEEEESJ_ImmEDpOT_.exit: ; preds = %_ZN5folly3f146detail8F14ChunkISt4pairIKNSt6thread2idES4_EE6setTagEmm.exit, %101
   %102 = load i64, ptr %9, align 8, !tbaa !140
   %103 = and i64 %102, -256
-  %104 = and i64 %102, 255
-  %105 = add i64 %103, 256
-  %106 = or disjoint i64 %105, %104
+  %104 = add i64 %103, 256
+  %105 = and i64 %102, 255
+  %106 = or disjoint i64 %104, %105
   store i64 %106, ptr %9, align 8, !tbaa !140
   br label %.loopexit
 
@@ -13065,9 +13065,9 @@ _ZN5folly3f146detail20ValueContainerPolicyINSt6thread2idES3_vvvE11destroyItemERS
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !140
   %10 = and i64 %9, -256
-  %11 = and i64 %9, 255
-  %12 = add i64 %10, -256
-  %13 = or disjoint i64 %12, %11
+  %11 = add i64 %10, -256
+  %12 = and i64 %9, 255
+  %13 = or disjoint i64 %11, %12
   store i64 %13, ptr %8, align 8, !tbaa !140
   %14 = and i64 %2, 255
   %15 = icmp samesign ult i64 %14, 16
@@ -13080,7 +13080,7 @@ _ZN5folly3f146detail20ValueContainerPolicyINSt6thread2idES3_vvvE11destroyItemERS
   br i1 %20, label %21, label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyINSt6thread2idES4_vvvEEE29adjustSizeAndBeginBeforeEraseENS1_11F14ItemIterIPNS1_8F14ChunkISt4pairIKS5_S4_EEEEE.exit
 
 21:                                               ; preds = %_ZN5folly3f146detail20ValueContainerPolicyINSt6thread2idES3_vvvE11destroyItemERSt4pairIKS4_S3_E.exit
-  %22 = icmp eq i64 %12, 0
+  %22 = icmp eq i64 %11, 0
   br i1 %22, label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkISt4pairIKNSt6thread2idES5_EEEE17precheckedAdvanceEv.exit.i, label %23
 
 23:                                               ; preds = %21

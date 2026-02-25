@@ -6147,7 +6147,7 @@ define internal fastcc void @rcu_init_one() unnamed_addr #9 section ".init.text"
   br label %123
 
 123:                                              ; preds = %117, %139
-  %124 = phi i64 [ 0, %117 ], [ %147, %139 ]
+  %124 = phi i64 [ 0, %117 ], [ %146, %139 ]
   %125 = phi ptr [ %122, %117 ], [ %134, %139 ]
   %126 = load i64, ptr @__cpu_possible_mask, align 8
   %127 = shl nsw i64 -1, %124
@@ -6178,10 +6178,9 @@ define internal fastcc void @rcu_init_one() unnamed_addr #9 section ".init.text"
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 24
   store ptr %134, ptr %145, align 8
   tail call fastcc void @rcu_boot_init_percpu_data(i32 noundef %132) #32
-  %146 = add nuw nsw i64 %131, 1
-  %147 = and i64 %146, 127
-  %148 = icmp samesign ugt i64 %147, 63
-  br i1 %148, label %.thread, label %123, !prof !129, !llvm.loop !261
+  %146 = add nuw nsw i64 %140, 1
+  %147 = icmp eq i64 %140, 63
+  br i1 %147, label %.thread, label %123, !prof !129, !llvm.loop !261
 
 .thread:                                          ; preds = %123, %139, %130
   call void @llvm.lifetime.end.p0(ptr nonnull %1)

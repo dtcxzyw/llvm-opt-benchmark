@@ -2055,7 +2055,7 @@ _ZN6duckdb21DictionaryCompression14HasEnoughSpaceEmmmhm.exit: ; preds = %4, %26
   %35 = add i64 %34, %18
   %36 = add i64 %35, %32
   %37 = icmp ule i64 %36, %22
-  br label %84
+  br label %85
 
 38:                                               ; preds = %3
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -2090,38 +2090,39 @@ _ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit: ; preds = %38
   %59 = load ptr, ptr %39, align 8, !tbaa !168
   %60 = ptrtoint ptr %58 to i64
   %61 = ptrtoint ptr %59 to i64
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %63 = load i32, ptr %62, align 8, !tbaa !183
-  %64 = zext i32 %63 to i64
-  %65 = load i8, ptr %52, align 1, !tbaa !176
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %67 = load i64, ptr %66, align 8, !tbaa !84
-  %68 = trunc i64 %57 to i32
-  %69 = and i32 %68, 31
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %_ZN6duckdb21DictionaryCompression14HasEnoughSpaceEmmmhm.exit6, label %71
+  %62 = sub i64 %60, %61
+  %63 = and i64 %62, -4
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %65 = load i32, ptr %64, align 8, !tbaa !183
+  %66 = zext i32 %65 to i64
+  %67 = load i8, ptr %52, align 1, !tbaa !176
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %69 = load i64, ptr %68, align 8, !tbaa !84
+  %70 = trunc i64 %57 to i32
+  %71 = and i32 %70, 31
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %_ZN6duckdb21DictionaryCompression14HasEnoughSpaceEmmmhm.exit6, label %73
 
-71:                                               ; preds = %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit
-  %72 = add i64 %56, 33
-  %73 = tail call noundef i64 @_ZN6duckdb15NumericCastImplImiLb0EE7ConvertEi(i32 noundef %69)
-  %74 = sub i64 %72, %73
+73:                                               ; preds = %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit
+  %74 = add i64 %56, 33
+  %75 = tail call noundef i64 @_ZN6duckdb15NumericCastImplImiLb0EE7ConvertEi(i32 noundef %71)
+  %76 = sub i64 %74, %75
   br label %_ZN6duckdb21DictionaryCompression14HasEnoughSpaceEmmmhm.exit6
 
-_ZN6duckdb21DictionaryCompression14HasEnoughSpaceEmmmhm.exit6: ; preds = %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit, %71
-  %.0.i.i.i.i5 = phi i64 [ %74, %71 ], [ %57, %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit ]
-  %75 = zext i8 %65 to i64
-  %76 = mul i64 %.0.i.i.i.i5, %75
-  %77 = lshr i64 %76, 3
-  %78 = add i64 %2, 24
-  %79 = add i64 %78, %60
-  %80 = sub i64 %79, %61
-  %81 = add i64 %80, %64
-  %82 = add i64 %81, %77
-  %83 = icmp ule i64 %82, %67
-  br label %84
+_ZN6duckdb21DictionaryCompression14HasEnoughSpaceEmmmhm.exit6: ; preds = %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit, %73
+  %.0.i.i.i.i5 = phi i64 [ %76, %73 ], [ %57, %_ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit ]
+  %77 = zext i8 %67 to i64
+  %78 = mul i64 %.0.i.i.i.i5, %77
+  %79 = lshr i64 %78, 3
+  %80 = add i64 %2, 24
+  %81 = add i64 %80, %66
+  %82 = add i64 %81, %63
+  %83 = add i64 %82, %79
+  %84 = icmp ule i64 %83, %69
+  br label %85
 
-84:                                               ; preds = %_ZN6duckdb21DictionaryCompression14HasEnoughSpaceEmmmhm.exit6, %_ZN6duckdb21DictionaryCompression14HasEnoughSpaceEmmmhm.exit
-  %.0 = phi i1 [ %83, %_ZN6duckdb21DictionaryCompression14HasEnoughSpaceEmmmhm.exit6 ], [ %37, %_ZN6duckdb21DictionaryCompression14HasEnoughSpaceEmmmhm.exit ]
+85:                                               ; preds = %_ZN6duckdb21DictionaryCompression14HasEnoughSpaceEmmmhm.exit6, %_ZN6duckdb21DictionaryCompression14HasEnoughSpaceEmmmhm.exit
+  %.0 = phi i1 [ %84, %_ZN6duckdb21DictionaryCompression14HasEnoughSpaceEmmmhm.exit6 ], [ %37, %_ZN6duckdb21DictionaryCompression14HasEnoughSpaceEmmmhm.exit ]
   ret i1 %.0
 }
 

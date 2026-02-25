@@ -51,29 +51,29 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local i64 @SimpleLruShmemSize(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sdiv i32 %0, 16
   %4 = sext i32 %0 to i64
-  %5 = shl nsw i64 %4, 3
-  %6 = add nsw i64 %4, 7
-  %7 = and i64 %6, -8
-  %8 = sext i32 %3 to i64
-  %9 = add nsw i64 %8, %4
-  %10 = shl nsw i64 %9, 7
-  %11 = shl nsw i64 %8, 2
-  %12 = add nsw i64 %11, 4
-  %13 = and i64 %12, -8
-  %14 = icmp sgt i32 %1, 0
-  %15 = mul i32 %1, %0
-  %16 = sext i32 %15 to i64
-  %17 = shl nsw i64 %16, 3
-  %18 = select i1 %14, i64 %17, i64 0
-  %19 = shl nsw i64 %4, 4
-  %20 = add nsw i64 %5, 8
-  %21 = and i64 %20, -16
-  %reass.mul = add nsw i64 %19, %21
-  %22 = add nsw i64 %7, 135
-  %23 = add nsw i64 %22, %10
-  %24 = add nsw i64 %23, %13
-  %.0 = add nsw i64 %24, %18
-  %25 = add i64 %.0, %reass.mul
+  %5 = shl nsw i64 %4, 4
+  %6 = shl nsw i64 %4, 3
+  %7 = add nsw i64 %6, 8
+  %8 = and i64 %7, -16
+  %9 = add nsw i64 %4, 7
+  %10 = and i64 %9, -8
+  %11 = sext i32 %3 to i64
+  %12 = add nsw i64 %11, %4
+  %13 = shl nsw i64 %12, 7
+  %14 = shl nsw i64 %11, 2
+  %15 = add nsw i64 %14, 4
+  %16 = and i64 %15, -8
+  %17 = icmp sgt i32 %1, 0
+  %18 = mul i32 %1, %0
+  %19 = sext i32 %18 to i64
+  %20 = shl nsw i64 %19, 3
+  %21 = select i1 %17, i64 %20, i64 0
+  %reass.add = add nsw i64 %8, %5
+  %22 = add nsw i64 %10, 135
+  %23 = add nsw i64 %22, %13
+  %24 = add nsw i64 %23, %16
+  %.0 = add nsw i64 %24, %21
+  %25 = add i64 %.0, %reass.add
   %26 = and i64 %25, -32
   %27 = shl i32 %0, 13
   %28 = sext i32 %27 to i64
@@ -100,29 +100,29 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = sdiv i32 %2, 16
   %12 = sext i32 %2 to i64
-  %13 = shl nsw i64 %12, 3
-  %14 = add nsw i64 %12, 7
-  %15 = and i64 %14, -8
-  %16 = sext i32 %11 to i64
-  %17 = add nsw i64 %16, %12
-  %18 = shl nsw i64 %17, 7
-  %19 = shl nsw i64 %16, 2
-  %20 = add nsw i64 %19, 4
-  %21 = and i64 %20, -8
-  %22 = icmp sgt i32 %3, 0
-  %23 = mul i32 %3, %2
-  %24 = sext i32 %23 to i64
-  %25 = shl nsw i64 %24, 3
-  %26 = select i1 %22, i64 %25, i64 0
-  %27 = shl nsw i64 %12, 4
-  %28 = add nsw i64 %13, 8
-  %29 = and i64 %28, -16
-  %30 = add nsw i64 %27, 135
-  %31 = add nsw i64 %30, %15
-  %32 = add nsw i64 %31, %29
-  %.0.i = add nsw i64 %32, %18
-  %reass.mul.i = add nsw i64 %.0.i, %21
-  %33 = add i64 %reass.mul.i, %26
+  %13 = shl nsw i64 %12, 4
+  %14 = shl nsw i64 %12, 3
+  %15 = add nsw i64 %14, 8
+  %16 = and i64 %15, -16
+  %17 = add nsw i64 %12, 7
+  %18 = and i64 %17, -8
+  %19 = sext i32 %11 to i64
+  %20 = add nsw i64 %19, %12
+  %21 = shl nsw i64 %20, 7
+  %22 = shl nsw i64 %19, 2
+  %23 = add nsw i64 %22, 4
+  %24 = and i64 %23, -8
+  %25 = icmp sgt i32 %3, 0
+  %26 = mul i32 %3, %2
+  %27 = sext i32 %26 to i64
+  %28 = shl nsw i64 %27, 3
+  %29 = select i1 %25, i64 %28, i64 0
+  %30 = add nsw i64 %13, 135
+  %31 = add nsw i64 %30, %18
+  %32 = add nsw i64 %31, %16
+  %.0.i = add nsw i64 %32, %21
+  %reass.add.i = add nsw i64 %.0.i, %24
+  %33 = add i64 %reass.add.i, %29
   %34 = and i64 %33, -32
   %35 = shl i32 %2, 13
   %36 = sext i32 %35 to i64
@@ -145,7 +145,7 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 104
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %46, ptr %47, align 8
-  %48 = add nsw i64 %13, 104
+  %48 = add nsw i64 %14, 104
   %49 = getelementptr inbounds nuw i8, ptr %38, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %49, ptr %50, align 8
@@ -156,11 +156,11 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
   %55 = getelementptr inbounds nuw i8, ptr %38, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store ptr %55, ptr %56, align 8
-  %57 = add nsw i64 %54, %15
+  %57 = add nsw i64 %54, %18
   %58 = getelementptr inbounds nuw i8, ptr %38, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store ptr %58, ptr %59, align 8
-  %60 = add nsw i64 %57, %13
+  %60 = add nsw i64 %57, %14
   %61 = getelementptr inbounds nuw i8, ptr %38, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %38, i64 40
   store ptr %61, ptr %62, align 8
@@ -172,18 +172,18 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
   %67 = getelementptr i8, ptr %64, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %38, i64 56
   store ptr %67, ptr %68, align 8
-  %69 = add i64 %63, %18
+  %69 = add i64 %63, %21
   %70 = getelementptr inbounds nuw i8, ptr %38, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %38, i64 64
   store ptr %70, ptr %71, align 8
-  %72 = add i64 %69, %21
-  br i1 %22, label %73, label %77
+  %72 = add i64 %69, %24
+  br i1 %25, label %73, label %77
 
 73:                                               ; preds = %41
   %74 = getelementptr inbounds nuw i8, ptr %38, i64 %72
   %75 = getelementptr inbounds nuw i8, ptr %38, i64 72
   store ptr %74, ptr %75, align 8
-  %76 = add i64 %72, %25
+  %76 = add i64 %72, %28
   br label %77
 
 77:                                               ; preds = %73, %41

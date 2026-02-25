@@ -219,80 +219,79 @@ define hidden i64 @sk_insert(ptr noundef captures(address_is_null) %0, ptr nound
   %8 = load i64, ptr %0, align 8, !tbaa !14
   %9 = add i64 %8, 1
   %.not = icmp ugt i64 %7, %9
-  br i1 %.not, label %28, label %10
+  br i1 %.not, label %27, label %10
 
 10:                                               ; preds = %5
   %11 = icmp slt i64 %7, 0
-  br i1 %11, label %16, label %12
+  br i1 %11, label %15, label %12
 
 12:                                               ; preds = %10
-  %13 = shl nuw i64 %7, 1
-  %14 = shl i64 %7, 4
-  %15 = lshr exact i64 %14, 3
-  %.not49 = icmp eq i64 %15, %13
-  br i1 %.not49, label %20, label %16
+  %13 = shl nuw nsw i64 %7, 1
+  %14 = shl nuw i64 %7, 4
+  %.not49 = icmp samesign ult i64 %7, 1152921504606846976
+  br i1 %.not49, label %18, label %15
 
-16:                                               ; preds = %12, %10
-  %17 = add i64 %7, 1
-  %18 = shl i64 %17, 3
-  %19 = icmp ult i64 %17, 2305843009213693952
-  br label %20
+15:                                               ; preds = %12, %10
+  %16 = add i64 %7, 1
+  %17 = shl i64 %16, 3
+  br label %18
 
-20:                                               ; preds = %16, %12
-  %.pre-phi = phi i1 [ %19, %16 ], [ true, %12 ]
-  %.042 = phi i64 [ %17, %16 ], [ %13, %12 ]
-  %.041 = phi i64 [ %18, %16 ], [ %14, %12 ]
-  %21 = icmp uge i64 %.042, %7
-  %or.cond = and i1 %21, %.pre-phi
-  br i1 %or.cond, label %22, label %.thread
+18:                                               ; preds = %15, %12
+  %.042 = phi i64 [ %16, %15 ], [ %13, %12 ]
+  %.041 = phi i64 [ %17, %15 ], [ %14, %12 ]
+  %19 = icmp uge i64 %.042, %7
+  %20 = lshr exact i64 %.041, 3
+  %.not50 = icmp eq i64 %20, %.042
+  %or.cond = select i1 %19, i1 %.not50, i1 false
+  br i1 %or.cond, label %21, label %.thread
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !6
-  %25 = tail call ptr @realloc(ptr noundef %24, i64 noundef %.041) #18
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %.thread, label %27
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !6
+  %24 = tail call ptr @realloc(ptr noundef %23, i64 noundef %.041) #18
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %.thread, label %26
 
-27:                                               ; preds = %22
-  store ptr %25, ptr %23, align 8, !tbaa !6
+26:                                               ; preds = %21
+  store ptr %24, ptr %22, align 8, !tbaa !6
   store i64 %.042, ptr %6, align 8, !tbaa !13
   %.pre = load i64, ptr %0, align 8, !tbaa !14
-  br label %28
+  br label %27
 
-28:                                               ; preds = %27, %5
-  %29 = phi i64 [ %.pre, %27 ], [ %8, %5 ]
-  %.not51 = icmp ult i64 %2, %29
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !6
-  br i1 %.not51, label %34, label %32
+27:                                               ; preds = %26, %5
+  %28 = phi i64 [ %.pre, %26 ], [ %8, %5 ]
+  %.not51 = icmp ult i64 %2, %28
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !6
+  br i1 %.not51, label %33, label %31
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %29
-  store ptr %1, ptr %33, align 8, !tbaa !16
-  br label %41
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  store ptr %1, ptr %32, align 8, !tbaa !16
+  br label %40
 
-34:                                               ; preds = %28
-  %35 = getelementptr ptr, ptr %31, i64 %2
-  %36 = getelementptr i8, ptr %35, i64 8
-  %37 = sub nuw i64 %29, %2
-  %38 = shl i64 %37, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %36, ptr align 8 %35, i64 %38, i1 false)
-  %39 = load ptr, ptr %30, align 8, !tbaa !6
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %2
-  store ptr %1, ptr %40, align 8, !tbaa !16
+33:                                               ; preds = %27
+  %34 = getelementptr ptr, ptr %30, i64 %2
+  %35 = getelementptr i8, ptr %34, i64 8
+  %36 = sub nuw i64 %28, %2
+  %37 = shl i64 %36, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %35, ptr align 8 %34, i64 %37, i1 false)
+  %38 = load ptr, ptr %29, align 8, !tbaa !6
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %2
+  store ptr %1, ptr %39, align 8, !tbaa !16
   %.pre53 = load i64, ptr %0, align 8, !tbaa !14
-  br label %41
+  br label %40
 
-41:                                               ; preds = %34, %32
-  %42 = phi i64 [ %.pre53, %34 ], [ %29, %32 ]
-  %43 = add i64 %42, 1
-  store i64 %43, ptr %0, align 8, !tbaa !14
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %44, align 8, !tbaa !15
+40:                                               ; preds = %33, %31
+  %41 = phi i64 [ %.pre53, %33 ], [ %28, %31 ]
+  %42 = add i64 %41, 1
+  store i64 %42, ptr %0, align 8, !tbaa !14
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %43, align 8, !tbaa !15
   br label %.thread
 
-.thread:                                          ; preds = %22, %20, %3, %41
-  %.040 = phi i64 [ 0, %3 ], [ %43, %41 ], [ 0, %20 ], [ 0, %22 ]
+.thread:                                          ; preds = %21, %18, %3, %40
+  %.040 = phi i64 [ 0, %3 ], [ %42, %40 ], [ 0, %18 ], [ 0, %21 ]
   ret i64 %.040
 }
 
@@ -604,73 +603,72 @@ define hidden i64 @sk_push(ptr noundef captures(none) %0, ptr noundef %1) local_
 .thread:                                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !6
-  br label %27
+  br label %26
 
 9:                                                ; preds = %2
   %10 = icmp slt i64 %5, 0
-  br i1 %10, label %15, label %11
+  br i1 %10, label %14, label %11
 
 11:                                               ; preds = %9
-  %12 = shl nuw i64 %5, 1
-  %13 = shl i64 %5, 4
-  %14 = lshr exact i64 %13, 3
-  %.not49.i = icmp eq i64 %14, %12
-  br i1 %.not49.i, label %19, label %15
+  %12 = shl nuw nsw i64 %5, 1
+  %13 = shl nuw i64 %5, 4
+  %.not49.i = icmp samesign ult i64 %5, 1152921504606846976
+  br i1 %.not49.i, label %17, label %14
 
-15:                                               ; preds = %11, %9
-  %16 = add i64 %5, 1
-  %17 = shl i64 %16, 3
-  %18 = icmp ult i64 %16, 2305843009213693952
-  br label %19
+14:                                               ; preds = %11, %9
+  %15 = add i64 %5, 1
+  %16 = shl i64 %15, 3
+  br label %17
 
-19:                                               ; preds = %15, %11
-  %.pre-phi.i = phi i1 [ %18, %15 ], [ true, %11 ]
-  %.042.i = phi i64 [ %16, %15 ], [ %12, %11 ]
-  %.041.i = phi i64 [ %17, %15 ], [ %13, %11 ]
-  %20 = icmp uge i64 %.042.i, %5
-  %or.cond.i = and i1 %.pre-phi.i, %20
-  br i1 %or.cond.i, label %21, label %sk_insert.exit
+17:                                               ; preds = %14, %11
+  %.042.i = phi i64 [ %15, %14 ], [ %12, %11 ]
+  %.041.i = phi i64 [ %16, %14 ], [ %13, %11 ]
+  %18 = icmp uge i64 %.042.i, %5
+  %19 = lshr exact i64 %.041.i, 3
+  %.not50.i = icmp eq i64 %19, %.042.i
+  %or.cond.i = select i1 %18, i1 %.not50.i, i1 false
+  br i1 %or.cond.i, label %20, label %sk_insert.exit
 
-21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !6
-  %24 = tail call ptr @realloc(ptr noundef %23, i64 noundef %.041.i) #18
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %sk_insert.exit, label %26
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !6
+  %23 = tail call ptr @realloc(ptr noundef %22, i64 noundef %.041.i) #18
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %sk_insert.exit, label %25
 
-26:                                               ; preds = %21
-  store ptr %24, ptr %22, align 8, !tbaa !6
+25:                                               ; preds = %20
+  store ptr %23, ptr %21, align 8, !tbaa !6
   store i64 %.042.i, ptr %4, align 8, !tbaa !13
   %.pre.i = load i64, ptr %0, align 8, !tbaa !14
   %.not51.i = icmp ult i64 %3, %.pre.i
-  br i1 %.not51.i, label %31, label %27
+  br i1 %.not51.i, label %30, label %26
 
-27:                                               ; preds = %.thread, %26
-  %28 = phi ptr [ %8, %.thread ], [ %24, %26 ]
-  %29 = phi i64 [ %3, %.thread ], [ %.pre.i, %26 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
-  store ptr %1, ptr %30, align 8, !tbaa !16
-  br label %36
+26:                                               ; preds = %.thread, %25
+  %27 = phi ptr [ %8, %.thread ], [ %23, %25 ]
+  %28 = phi i64 [ %3, %.thread ], [ %.pre.i, %25 ]
+  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  store ptr %1, ptr %29, align 8, !tbaa !16
+  br label %35
 
-31:                                               ; preds = %26
-  %32 = getelementptr ptr, ptr %24, i64 %3
-  %33 = getelementptr i8, ptr %32, i64 8
-  %34 = sub nuw i64 %.pre.i, %3
-  %35 = shl i64 %34, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %33, ptr align 8 %32, i64 %35, i1 false)
-  store ptr %1, ptr %32, align 8, !tbaa !16
-  br label %36
+30:                                               ; preds = %25
+  %31 = getelementptr ptr, ptr %23, i64 %3
+  %32 = getelementptr i8, ptr %31, i64 8
+  %33 = sub nuw i64 %.pre.i, %3
+  %34 = shl i64 %33, 3
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %32, ptr align 8 %31, i64 %34, i1 false)
+  store ptr %1, ptr %31, align 8, !tbaa !16
+  br label %35
 
-36:                                               ; preds = %31, %27
-  %37 = phi i64 [ %.pre.i, %31 ], [ %29, %27 ]
-  %38 = add i64 %37, 1
-  store i64 %38, ptr %0, align 8, !tbaa !14
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %39, align 8, !tbaa !15
+35:                                               ; preds = %30, %26
+  %36 = phi i64 [ %.pre.i, %30 ], [ %28, %26 ]
+  %37 = add i64 %36, 1
+  store i64 %37, ptr %0, align 8, !tbaa !14
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %38, align 8, !tbaa !15
   br label %sk_insert.exit
 
-sk_insert.exit:                                   ; preds = %19, %21, %36
-  %.040.i = phi i64 [ 0, %21 ], [ %38, %36 ], [ 0, %19 ]
+sk_insert.exit:                                   ; preds = %17, %20, %35
+  %.040.i = phi i64 [ 0, %20 ], [ %37, %35 ], [ 0, %17 ]
   ret i64 %.040.i
 }
 

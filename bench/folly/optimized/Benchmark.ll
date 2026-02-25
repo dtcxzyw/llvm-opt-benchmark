@@ -8176,9 +8176,9 @@ _ZN5folly3f146detail8F14TableINS1_19NodeContainerPolicyINS_7dynamicES4_NS_6detai
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !346
   %27 = and i64 %26, -256
-  %28 = and i64 %26, 255
-  %29 = add i64 %27, 256
-  %30 = or disjoint i64 %29, %28
+  %28 = add i64 %27, 256
+  %29 = and i64 %26, 255
+  %30 = or disjoint i64 %28, %29
   store i64 %30, ptr %25, align 8, !tbaa !346
   ret void
 

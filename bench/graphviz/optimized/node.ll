@@ -1348,11 +1348,11 @@ agprvnode.exit51:                                 ; preds = %35, %37, %41
 
 58:                                               ; preds = %56
   %59 = load i32, ptr %0, align 8
-  %60 = load i32, ptr %1, align 8
-  %61 = and i32 %59, -16
-  %62 = add i32 %61, -16
-  %63 = and i32 %60, 15
-  %64 = or disjoint i32 %63, %62
+  %60 = and i32 %59, -16
+  %61 = add i32 %60, -16
+  %62 = load i32, ptr %1, align 8
+  %63 = and i32 %62, 15
+  %64 = or disjoint i32 %63, %61
   store i32 %64, ptr %1, align 8
   %65 = tail call i32 @agapply(ptr noundef nonnull %3, ptr noundef nonnull %1, ptr noundef nonnull @agnoderenew, ptr noundef nonnull %1, i32 noundef 0) #19
   %.not47 = icmp ne i32 %65, 0

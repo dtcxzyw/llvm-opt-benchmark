@@ -31369,20 +31369,20 @@ default.unreachable1321:                          ; preds = %282, %"_ZN5alloc3ve
   %352 = getelementptr inbounds i32, ptr %349, i64 %.sroa.01.08.i
   %353 = add nuw i64 %.sroa.01.08.i, 1
   %354 = load i32, ptr %352, align 4, !alias.scope !3889, !noalias !3787, !noundef !14
-  %355 = and i32 %354, -16777216
-  %356 = and i32 %354, 16711680
-  %357 = and i32 %354, 65280
-  %358 = add i32 %store_forwarded, %354
-  %359 = and i32 %358, 255
-  %360 = add i32 %store_forwarded, %355
-  %361 = and i32 %360, -16777216
-  %362 = add i32 %store_forwarded, %356
-  %363 = and i32 %362, 16711680
-  %364 = or disjoint i32 %361, %363
-  %365 = add i32 %store_forwarded, %357
-  %366 = and i32 %365, 65280
-  %367 = or disjoint i32 %364, %366
-  %368 = or disjoint i32 %367, %359
+  %355 = and i32 %store_forwarded, -16777216
+  %356 = add i32 %355, %354
+  %357 = and i32 %356, -16777216
+  %358 = and i32 %store_forwarded, 16711680
+  %359 = add i32 %358, %354
+  %360 = and i32 %359, 16711680
+  %361 = and i32 %store_forwarded, 65280
+  %362 = add i32 %361, %354
+  %363 = and i32 %362, 65280
+  %364 = add i32 %store_forwarded, %354
+  %365 = and i32 %364, 255
+  %366 = or disjoint i32 %360, %365
+  %367 = or disjoint i32 %366, %357
+  %368 = or disjoint i32 %367, %363
   store i32 %368, ptr %352, align 4, !alias.scope !3889, !noalias !3787
   %exitcond.not.i101 = icmp eq i64 %353, %350
   br i1 %exitcond.not.i101, label %"_ZN5image6codecs4webp8lossless24LosslessDecoder$LT$R$GT$16adjust_color_map17h9faf26f2fd7cd77cE.exit", label %.lr.ph.preheader.i
@@ -34958,20 +34958,20 @@ default.unreachable1250:                          ; preds = %4
   %86 = add nuw nsw i64 %.sroa.03.0766, 1
   %87 = getelementptr inbounds nuw i32, ptr %.val276, i64 %.sroa.03.0766
   %88 = load i32, ptr %87, align 4, !noundef !14
-  %89 = and i32 %88, -16777216
-  %90 = and i32 %88, 16711680
-  %91 = and i32 %88, 65280
-  %92 = add i32 %83, %88
-  %93 = and i32 %92, 255
-  %94 = add i32 %83, %89
-  %95 = and i32 %94, -16777216
-  %96 = add i32 %83, %90
-  %97 = and i32 %96, 16711680
-  %98 = or disjoint i32 %95, %97
-  %99 = add i32 %83, %91
-  %100 = and i32 %99, 65280
-  %101 = or disjoint i32 %98, %100
-  %102 = or disjoint i32 %101, %93
+  %89 = and i32 %83, -16777216
+  %90 = add i32 %89, %88
+  %91 = and i32 %90, -16777216
+  %92 = and i32 %83, 16711680
+  %93 = add i32 %92, %88
+  %94 = and i32 %93, 16711680
+  %95 = and i32 %83, 65280
+  %96 = add i32 %95, %88
+  %97 = and i32 %96, 65280
+  %98 = add i32 %83, %88
+  %99 = and i32 %98, 255
+  %100 = or disjoint i32 %94, %99
+  %101 = or disjoint i32 %100, %91
+  %102 = or disjoint i32 %101, %97
   store i32 %102, ptr %87, align 4
   %exitcond1170.not = icmp eq i64 %86, %67
   br i1 %exitcond1170.not, label %.preheader483, label %.lr.ph
@@ -35111,20 +35111,20 @@ _ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit
   br i1 %exitcond.not.i415.us, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit416.us", label %.split11.i.us
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit416.us": ; preds = %.split11.i.us
-  %160 = and i32 %133, -16777216
-  %161 = and i32 %133, 16711680
-  %162 = and i32 %133, 65280
-  %163 = add i32 %159, %133
-  %164 = and i32 %163, 255
-  %165 = add i32 %159, %160
-  %166 = and i32 %165, -16777216
-  %167 = add i32 %159, %161
-  %168 = and i32 %167, 16711680
-  %169 = or disjoint i32 %166, %168
-  %170 = add i32 %159, %162
-  %171 = and i32 %170, 65280
-  %172 = or disjoint i32 %169, %171
-  %173 = or disjoint i32 %172, %164
+  %160 = and i32 %159, -16777216
+  %161 = add i32 %160, %133
+  %162 = and i32 %161, -16777216
+  %163 = and i32 %159, 16711680
+  %164 = add i32 %163, %133
+  %165 = and i32 %164, 16711680
+  %166 = and i32 %159, 65280
+  %167 = add i32 %166, %133
+  %168 = and i32 %167, 65280
+  %169 = add i32 %159, %133
+  %170 = and i32 %169, 255
+  %171 = or disjoint i32 %165, %170
+  %172 = or disjoint i32 %171, %162
+  %173 = or disjoint i32 %172, %168
   store i32 %173, ptr %132, align 4
   br label %595
 
@@ -35166,20 +35166,20 @@ _ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit
   br i1 %exitcond.not.i402.us, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit403.us", label %.split13.i.us
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit403.us": ; preds = %.split13.i.us
-  %194 = and i32 %177, -16777216
-  %195 = and i32 %177, 16711680
-  %196 = and i32 %177, 65280
-  %197 = add i32 %193, %177
-  %198 = and i32 %197, 255
-  %199 = add i32 %193, %194
-  %200 = and i32 %199, -16777216
-  %201 = add i32 %193, %195
-  %202 = and i32 %201, 16711680
-  %203 = or disjoint i32 %200, %202
-  %204 = add i32 %193, %196
-  %205 = and i32 %204, 65280
-  %206 = or disjoint i32 %203, %205
-  %207 = or disjoint i32 %206, %198
+  %194 = and i32 %193, -16777216
+  %195 = add i32 %194, %177
+  %196 = and i32 %195, -16777216
+  %197 = and i32 %193, 16711680
+  %198 = add i32 %197, %177
+  %199 = and i32 %198, 16711680
+  %200 = and i32 %193, 65280
+  %201 = add i32 %200, %177
+  %202 = and i32 %201, 65280
+  %203 = add i32 %193, %177
+  %204 = and i32 %203, 255
+  %205 = or disjoint i32 %199, %204
+  %206 = or disjoint i32 %205, %196
+  %207 = or disjoint i32 %206, %202
   store i32 %207, ptr %176, align 4
   br label %595
 
@@ -35248,20 +35248,20 @@ _ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit
   %255 = add nuw nsw i32 %254, %.015.i.us
   %256 = icmp samesign ult i32 %248, %255
   %.0.i.us = select i1 %256, i32 %213, i32 %214
-  %257 = and i32 %211, -16777216
-  %258 = and i32 %211, 16711680
-  %259 = and i32 %211, 65280
-  %260 = add i32 %.0.i.us, %211
-  %261 = and i32 %260, 255
-  %262 = add i32 %.0.i.us, %257
-  %263 = and i32 %262, -16777216
-  %264 = add i32 %.0.i.us, %258
-  %265 = and i32 %264, 16711680
-  %266 = or disjoint i32 %263, %265
-  %267 = add i32 %.0.i.us, %259
-  %268 = and i32 %267, 65280
-  %269 = or disjoint i32 %266, %268
-  %270 = or disjoint i32 %269, %261
+  %257 = and i32 %.0.i.us, -16777216
+  %258 = add i32 %257, %211
+  %259 = and i32 %258, -16777216
+  %260 = and i32 %.0.i.us, 16711680
+  %261 = add i32 %260, %211
+  %262 = and i32 %261, 16711680
+  %263 = and i32 %.0.i.us, 65280
+  %264 = add i32 %263, %211
+  %265 = and i32 %264, 65280
+  %266 = add i32 %.0.i.us, %211
+  %267 = and i32 %266, 255
+  %268 = or disjoint i32 %262, %267
+  %269 = or disjoint i32 %268, %259
+  %270 = or disjoint i32 %269, %265
   store i32 %270, ptr %210, align 4
   br label %595
 
@@ -35342,20 +35342,20 @@ _ZN5image6codecs4webp18lossless_transform8average217h83003dfaae9fc723E.exit386.u
   br i1 %exitcond.not.i389.us, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit391.us", label %_ZN5image6codecs4webp18lossless_transform8average217h83003dfaae9fc723E.exit386.us
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit391.us": ; preds = %_ZN5image6codecs4webp18lossless_transform8average217h83003dfaae9fc723E.exit386.us
-  %315 = and i32 %274, -16777216
-  %316 = and i32 %274, 16711680
-  %317 = and i32 %274, 65280
-  %318 = add i32 %314, %274
-  %319 = and i32 %318, 255
-  %320 = add i32 %314, %315
-  %321 = and i32 %320, -16777216
-  %322 = add i32 %314, %316
-  %323 = and i32 %322, 16711680
-  %324 = or disjoint i32 %321, %323
-  %325 = add i32 %314, %317
-  %326 = and i32 %325, 65280
-  %327 = or disjoint i32 %324, %326
-  %328 = or disjoint i32 %327, %319
+  %315 = and i32 %314, -16777216
+  %316 = add i32 %315, %274
+  %317 = and i32 %316, -16777216
+  %318 = and i32 %314, 16711680
+  %319 = add i32 %318, %274
+  %320 = and i32 %319, 16711680
+  %321 = and i32 %314, 65280
+  %322 = add i32 %321, %274
+  %323 = and i32 %322, 65280
+  %324 = add i32 %314, %274
+  %325 = and i32 %324, 255
+  %326 = or disjoint i32 %320, %325
+  %327 = or disjoint i32 %326, %317
+  %328 = or disjoint i32 %327, %323
   store i32 %328, ptr %273, align 4
   br label %595
 
@@ -35396,20 +35396,20 @@ _ZN5image6codecs4webp18lossless_transform13get_top_right17h5e5dd340f1d5b451E.exi
   br i1 %exitcond.not.i371.us, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit373.us", label %338
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit373.us": ; preds = %338
-  %349 = and i32 %332, -16777216
-  %350 = and i32 %332, 16711680
-  %351 = and i32 %332, 65280
-  %352 = add i32 %348, %332
-  %353 = and i32 %352, 255
-  %354 = add i32 %348, %349
-  %355 = and i32 %354, -16777216
-  %356 = add i32 %348, %350
-  %357 = and i32 %356, 16711680
-  %358 = or disjoint i32 %355, %357
-  %359 = add i32 %348, %351
-  %360 = and i32 %359, 65280
-  %361 = or disjoint i32 %358, %360
-  %362 = or disjoint i32 %361, %353
+  %349 = and i32 %348, -16777216
+  %350 = add i32 %349, %332
+  %351 = and i32 %350, -16777216
+  %352 = and i32 %348, 16711680
+  %353 = add i32 %352, %332
+  %354 = and i32 %353, 16711680
+  %355 = and i32 %348, 65280
+  %356 = add i32 %355, %332
+  %357 = and i32 %356, 65280
+  %358 = add i32 %348, %332
+  %359 = and i32 %358, 255
+  %360 = or disjoint i32 %354, %359
+  %361 = or disjoint i32 %360, %351
+  %362 = or disjoint i32 %361, %357
   store i32 %362, ptr %331, align 4
   br label %595
 
@@ -35444,20 +35444,20 @@ _ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit360.us
   br i1 %exitcond.not.i363.us, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit365.us", label %370
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit365.us": ; preds = %370
-  %381 = and i32 %366, -16777216
-  %382 = and i32 %366, 16711680
-  %383 = and i32 %366, 65280
-  %384 = add i32 %380, %366
-  %385 = and i32 %384, 255
-  %386 = add i32 %380, %381
-  %387 = and i32 %386, -16777216
-  %388 = add i32 %380, %382
-  %389 = and i32 %388, 16711680
-  %390 = or disjoint i32 %387, %389
-  %391 = add i32 %380, %383
-  %392 = and i32 %391, 65280
-  %393 = or disjoint i32 %390, %392
-  %394 = or disjoint i32 %393, %385
+  %381 = and i32 %380, -16777216
+  %382 = add i32 %381, %366
+  %383 = and i32 %382, -16777216
+  %384 = and i32 %380, 16711680
+  %385 = add i32 %384, %366
+  %386 = and i32 %385, 16711680
+  %387 = and i32 %380, 65280
+  %388 = add i32 %387, %366
+  %389 = and i32 %388, 65280
+  %390 = add i32 %380, %366
+  %391 = and i32 %390, 255
+  %392 = or disjoint i32 %386, %391
+  %393 = or disjoint i32 %392, %383
+  %394 = or disjoint i32 %393, %389
   store i32 %394, ptr %365, align 4
   br label %595
 
@@ -35492,20 +35492,20 @@ _ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit352.us
   br i1 %exitcond.not.i355.us, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit357.us", label %402
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit357.us": ; preds = %402
-  %413 = and i32 %398, -16777216
-  %414 = and i32 %398, 16711680
-  %415 = and i32 %398, 65280
-  %416 = add i32 %412, %398
-  %417 = and i32 %416, 255
-  %418 = add i32 %412, %413
-  %419 = and i32 %418, -16777216
-  %420 = add i32 %412, %414
-  %421 = and i32 %420, 16711680
-  %422 = or disjoint i32 %419, %421
-  %423 = add i32 %412, %415
-  %424 = and i32 %423, 65280
-  %425 = or disjoint i32 %422, %424
-  %426 = or disjoint i32 %425, %417
+  %413 = and i32 %412, -16777216
+  %414 = add i32 %413, %398
+  %415 = and i32 %414, -16777216
+  %416 = and i32 %412, 16711680
+  %417 = add i32 %416, %398
+  %418 = and i32 %417, 16711680
+  %419 = and i32 %412, 65280
+  %420 = add i32 %419, %398
+  %421 = and i32 %420, 65280
+  %422 = add i32 %412, %398
+  %423 = and i32 %422, 255
+  %424 = or disjoint i32 %418, %423
+  %425 = or disjoint i32 %424, %415
+  %426 = or disjoint i32 %425, %421
   store i32 %426, ptr %397, align 4
   br label %595
 
@@ -35541,20 +35541,20 @@ _ZN5image6codecs4webp18lossless_transform12get_top_left17h2dacab8ed20d1582E.exit
   br i1 %exitcond.not.i347.us, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit349.us", label %434
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit349.us": ; preds = %434
-  %445 = and i32 %430, -16777216
-  %446 = and i32 %430, 16711680
-  %447 = and i32 %430, 65280
-  %448 = add i32 %444, %430
-  %449 = and i32 %448, 255
-  %450 = add i32 %444, %445
-  %451 = and i32 %450, -16777216
-  %452 = add i32 %444, %446
-  %453 = and i32 %452, 16711680
-  %454 = or disjoint i32 %451, %453
-  %455 = add i32 %444, %447
-  %456 = and i32 %455, 65280
-  %457 = or disjoint i32 %454, %456
-  %458 = or disjoint i32 %457, %449
+  %445 = and i32 %444, -16777216
+  %446 = add i32 %445, %430
+  %447 = and i32 %446, -16777216
+  %448 = and i32 %444, 16711680
+  %449 = add i32 %448, %430
+  %450 = and i32 %449, 16711680
+  %451 = and i32 %444, 65280
+  %452 = add i32 %451, %430
+  %453 = and i32 %452, 65280
+  %454 = add i32 %444, %430
+  %455 = and i32 %454, 255
+  %456 = or disjoint i32 %450, %455
+  %457 = or disjoint i32 %456, %447
+  %458 = or disjoint i32 %457, %453
   store i32 %458, ptr %429, align 4
   br label %595
 
@@ -35616,20 +35616,20 @@ _ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit336.us
   br i1 %exitcond.not.i339.us, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit341.us", label %481
 
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit341.us": ; preds = %481
-  %492 = and i32 %462, -16777216
-  %493 = and i32 %462, 16711680
-  %494 = and i32 %462, 65280
-  %495 = add i32 %491, %462
-  %496 = and i32 %495, 255
-  %497 = add i32 %491, %492
-  %498 = and i32 %497, -16777216
-  %499 = add i32 %491, %493
-  %500 = and i32 %499, 16711680
-  %501 = or disjoint i32 %498, %500
-  %502 = add i32 %491, %494
-  %503 = and i32 %502, 65280
-  %504 = or disjoint i32 %501, %503
-  %505 = or disjoint i32 %504, %496
+  %492 = and i32 %491, -16777216
+  %493 = add i32 %492, %462
+  %494 = and i32 %493, -16777216
+  %495 = and i32 %491, 16711680
+  %496 = add i32 %495, %462
+  %497 = and i32 %496, 16711680
+  %498 = and i32 %491, 65280
+  %499 = add i32 %498, %462
+  %500 = and i32 %499, 65280
+  %501 = add i32 %491, %462
+  %502 = and i32 %501, 255
+  %503 = or disjoint i32 %497, %502
+  %504 = or disjoint i32 %503, %494
+  %505 = or disjoint i32 %504, %500
   store i32 %505, ptr %461, align 4
   br label %595
 
@@ -35643,20 +35643,20 @@ _ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit336.us
   %509 = load i32, ptr %508, align 4, !noundef !14
   %510 = getelementptr i32, ptr %119, i64 %.sroa.023.0769.us
   %511 = load i32, ptr %510, align 4, !alias.scope !4414, !noundef !14
-  %512 = and i32 %509, -16777216
-  %513 = and i32 %509, 16711680
-  %514 = and i32 %509, 65280
-  %515 = add i32 %511, %509
-  %516 = and i32 %515, 255
-  %517 = add i32 %511, %512
-  %518 = and i32 %517, -16777216
-  %519 = add i32 %511, %513
-  %520 = and i32 %519, 16711680
-  %521 = or disjoint i32 %518, %520
-  %522 = add i32 %511, %514
-  %523 = and i32 %522, 65280
-  %524 = or disjoint i32 %521, %523
-  %525 = or disjoint i32 %524, %516
+  %512 = and i32 %511, -16777216
+  %513 = add i32 %512, %509
+  %514 = and i32 %513, -16777216
+  %515 = and i32 %511, 16711680
+  %516 = add i32 %515, %509
+  %517 = and i32 %516, 16711680
+  %518 = and i32 %511, 65280
+  %519 = add i32 %518, %509
+  %520 = and i32 %519, 65280
+  %521 = add i32 %511, %509
+  %522 = and i32 %521, 255
+  %523 = or disjoint i32 %517, %522
+  %524 = or disjoint i32 %523, %514
+  %525 = or disjoint i32 %524, %520
   store i32 %525, ptr %508, align 4
   br label %595
 
@@ -35676,20 +35676,20 @@ _ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit336.us
 "_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h9708542ffb53431dE.exit330.us": ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h7e4a9f246ea21130E.exit329.us"
   %532 = getelementptr inbounds i32, ptr %.val276, i64 %530
   %533 = load i32, ptr %532, align 4, !alias.scope !4417, !noundef !14
-  %534 = and i32 %529, -16777216
-  %535 = and i32 %529, 16711680
-  %536 = and i32 %529, 65280
-  %537 = add i32 %533, %529
-  %538 = and i32 %537, 255
-  %539 = add i32 %533, %534
-  %540 = and i32 %539, -16777216
-  %541 = add i32 %533, %535
-  %542 = and i32 %541, 16711680
-  %543 = or disjoint i32 %540, %542
-  %544 = add i32 %533, %536
-  %545 = and i32 %544, 65280
-  %546 = or disjoint i32 %543, %545
-  %547 = or disjoint i32 %546, %538
+  %534 = and i32 %533, -16777216
+  %535 = add i32 %534, %529
+  %536 = and i32 %535, -16777216
+  %537 = and i32 %533, 16711680
+  %538 = add i32 %537, %529
+  %539 = and i32 %538, 16711680
+  %540 = and i32 %533, 65280
+  %541 = add i32 %540, %529
+  %542 = and i32 %541, 65280
+  %543 = add i32 %533, %529
+  %544 = and i32 %543, 255
+  %545 = or disjoint i32 %539, %544
+  %546 = or disjoint i32 %545, %536
+  %547 = or disjoint i32 %546, %542
   store i32 %547, ptr %528, align 4
   br label %595
 
@@ -35703,20 +35703,20 @@ _ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit336.us
   %551 = load i32, ptr %550, align 4, !noundef !14
   %gep1369 = getelementptr i32, ptr %invariant.gep1368, i64 %.sroa.023.0769.us
   %552 = load i32, ptr %gep1369, align 4, !alias.scope !4420, !noundef !14
-  %553 = and i32 %551, -16777216
-  %554 = and i32 %551, 16711680
-  %555 = and i32 %551, 65280
-  %556 = add i32 %552, %551
-  %557 = and i32 %556, 255
-  %558 = add i32 %552, %553
-  %559 = and i32 %558, -16777216
-  %560 = add i32 %552, %554
-  %561 = and i32 %560, 16711680
-  %562 = or disjoint i32 %559, %561
-  %563 = add i32 %552, %555
-  %564 = and i32 %563, 65280
-  %565 = or disjoint i32 %562, %564
-  %566 = or disjoint i32 %565, %557
+  %553 = and i32 %552, -16777216
+  %554 = add i32 %553, %551
+  %555 = and i32 %554, -16777216
+  %556 = and i32 %552, 16711680
+  %557 = add i32 %556, %551
+  %558 = and i32 %557, 16711680
+  %559 = and i32 %552, 65280
+  %560 = add i32 %559, %551
+  %561 = and i32 %560, 65280
+  %562 = add i32 %552, %551
+  %563 = and i32 %562, 255
+  %564 = or disjoint i32 %558, %563
+  %565 = or disjoint i32 %564, %555
+  %566 = or disjoint i32 %565, %561
   store i32 %566, ptr %550, align 4
   br label %595
 
@@ -35730,20 +35730,20 @@ _ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit336.us
   %570 = load i32, ptr %569, align 4, !noundef !14
   %571 = getelementptr i32, ptr %120, i64 %.sroa.023.0769.us
   %572 = load i32, ptr %571, align 4, !alias.scope !4423, !noundef !14
-  %573 = and i32 %570, -16777216
-  %574 = and i32 %570, 16711680
-  %575 = and i32 %570, 65280
-  %576 = add i32 %572, %570
-  %577 = and i32 %576, 255
-  %578 = add i32 %572, %573
-  %579 = and i32 %578, -16777216
-  %580 = add i32 %572, %574
-  %581 = and i32 %580, 16711680
-  %582 = or disjoint i32 %579, %581
-  %583 = add i32 %572, %575
-  %584 = and i32 %583, 65280
-  %585 = or disjoint i32 %582, %584
-  %586 = or disjoint i32 %585, %577
+  %573 = and i32 %572, -16777216
+  %574 = add i32 %573, %570
+  %575 = and i32 %574, -16777216
+  %576 = and i32 %572, 16711680
+  %577 = add i32 %576, %570
+  %578 = and i32 %577, 16711680
+  %579 = and i32 %572, 65280
+  %580 = add i32 %579, %570
+  %581 = and i32 %580, 65280
+  %582 = add i32 %572, %570
+  %583 = and i32 %582, 255
+  %584 = or disjoint i32 %578, %583
+  %585 = or disjoint i32 %584, %575
+  %586 = or disjoint i32 %585, %581
   store i32 %586, ptr %569, align 4
   br label %595
 
@@ -35788,20 +35788,20 @@ _ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit336.us
   %603 = load i32, ptr %602, align 4, !noundef !14
   %604 = getelementptr inbounds i32, ptr %.val276, i64 %601
   %605 = load i32, ptr %604, align 4, !alias.scope !4429, !noundef !14
-  %606 = and i32 %603, -16777216
-  %607 = and i32 %603, 16711680
-  %608 = and i32 %603, 65280
-  %609 = add i32 %605, %603
-  %610 = and i32 %609, 255
-  %611 = add i32 %605, %606
-  %612 = and i32 %611, -16777216
-  %613 = add i32 %605, %607
-  %614 = and i32 %613, 16711680
-  %615 = or disjoint i32 %612, %614
-  %616 = add i32 %605, %608
-  %617 = and i32 %616, 65280
-  %618 = or disjoint i32 %615, %617
-  %619 = or disjoint i32 %618, %610
+  %606 = and i32 %605, -16777216
+  %607 = add i32 %606, %603
+  %608 = and i32 %607, -16777216
+  %609 = and i32 %605, 16711680
+  %610 = add i32 %609, %603
+  %611 = and i32 %610, 16711680
+  %612 = and i32 %605, 65280
+  %613 = add i32 %612, %603
+  %614 = and i32 %613, 65280
+  %615 = add i32 %605, %603
+  %616 = and i32 %615, 255
+  %617 = or disjoint i32 %611, %616
+  %618 = or disjoint i32 %617, %608
+  %619 = or disjoint i32 %618, %614
   store i32 %619, ptr %602, align 4
   %exitcond1171.not = icmp eq i64 %599, %68
   br i1 %exitcond1171.not, label %.lr.ph773, label %.lr.ph768
@@ -36169,20 +36169,20 @@ _ZN5image6codecs4webp18lossless_transform7get_top17hbbd69131cbda32f8E.exit336.us
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef i32 @_ZN5image6codecs4webp18lossless_transform10add_pixels17h969e22cff7669428E(i32 noundef %0, i32 noundef %1) unnamed_addr #5 {
-  %3 = and i32 %0, -16777216
-  %4 = and i32 %0, 16711680
-  %5 = and i32 %0, 65280
-  %6 = add i32 %1, %0
-  %7 = and i32 %6, 255
-  %8 = add i32 %1, %3
-  %9 = and i32 %8, -16777216
-  %10 = add i32 %1, %4
-  %11 = and i32 %10, 16711680
-  %12 = or disjoint i32 %9, %11
-  %13 = add i32 %1, %5
-  %14 = and i32 %13, 65280
-  %15 = or disjoint i32 %12, %14
-  %16 = or disjoint i32 %15, %7
+  %3 = and i32 %1, -16777216
+  %4 = add i32 %3, %0
+  %5 = and i32 %4, -16777216
+  %6 = and i32 %1, 16711680
+  %7 = add i32 %6, %0
+  %8 = and i32 %7, 16711680
+  %9 = and i32 %1, 65280
+  %10 = add i32 %9, %0
+  %11 = and i32 %10, 65280
+  %12 = add i32 %1, %0
+  %13 = and i32 %12, 255
+  %14 = or disjoint i32 %8, %13
+  %15 = or disjoint i32 %14, %5
+  %16 = or disjoint i32 %15, %11
   ret i32 %16
 }
 
