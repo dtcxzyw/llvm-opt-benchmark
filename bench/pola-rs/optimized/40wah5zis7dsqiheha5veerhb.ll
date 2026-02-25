@@ -18570,12 +18570,12 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17ha
   store i64 %102, ptr %65, align 8, !alias.scope !3070
   %103 = icmp ult i64 %52, %62
   %104 = select i1 %103, ptr %44, ptr %54, !unpredictable !3
-  %105 = select i1 %103, ptr %54, ptr %44, !unpredictable !3
-  %106 = load i64, ptr %105, align 8, !alias.scope !3070, !noundef !3
-  %107 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  %105 = select i1 %103, i64 %60, i64 %50
+  %106 = select i1 %103, ptr %54, ptr %44, !unpredictable !3
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load i64, ptr %107, align 8, !alias.scope !3070, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %104, i64 16, i1 false), !alias.scope !3070
-  store i64 %106, ptr %44, align 8, !alias.scope !3070
+  store i64 %105, ptr %44, align 8, !alias.scope !3070
   store i64 %108, ptr %45, align 8, !alias.scope !3070
   %109 = icmp ult i64 %42, %82
   %110 = select i1 %109, ptr %34, ptr %74, !unpredictable !3
@@ -18610,12 +18610,12 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17ha
   store i64 %126, ptr %46, align 8, !alias.scope !3070
   %127 = icmp ult i64 %88, %94
   %128 = select i1 %127, ptr %73, ptr %53, !unpredictable !3
-  %129 = select i1 %127, ptr %53, ptr %73, !unpredictable !3
-  %130 = load i64, ptr %129, align 8, !alias.scope !3070, !noundef !3
-  %131 = getelementptr inbounds nuw i8, ptr %129, i64 8
+  %129 = select i1 %127, i64 %92, i64 %86
+  %130 = select i1 %127, ptr %53, ptr %73, !unpredictable !3
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load i64, ptr %131, align 8, !alias.scope !3070, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %128, i64 16, i1 false), !alias.scope !3070
-  store i64 %130, ptr %73, align 8, !alias.scope !3070
+  store i64 %129, ptr %73, align 8, !alias.scope !3070
   store i64 %132, ptr %76, align 8, !alias.scope !3070
   %.val.i27.i = load i64, ptr %75, align 8, !alias.scope !3070, !noundef !3
   %.val1.i28.i = load i64, ptr %55, align 8, !alias.scope !3070, !noundef !3
@@ -18630,12 +18630,12 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17ha
   store i64 %138, ptr %75, align 8, !alias.scope !3070
   %139 = icmp ult i64 %114, %108
   %140 = select i1 %139, ptr %34, ptr %44, !unpredictable !3
-  %141 = select i1 %139, ptr %44, ptr %34, !unpredictable !3
-  %142 = load i64, ptr %141, align 8, !alias.scope !3070, !noundef !3
-  %143 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  %141 = select i1 %139, i64 %105, i64 %112
+  %142 = select i1 %139, ptr %44, ptr %34, !unpredictable !3
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load i64, ptr %143, align 8, !alias.scope !3070, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %140, i64 16, i1 false), !alias.scope !3070
-  store i64 %142, ptr %34, align 8, !alias.scope !3070
+  store i64 %141, ptr %34, align 8, !alias.scope !3070
   store i64 %144, ptr %35, align 8, !alias.scope !3070
   %145 = icmp ult i64 %32, %102
   %146 = select i1 %145, ptr %24, ptr %64, !unpredictable !3
@@ -18648,12 +18648,12 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17ha
   store i64 %150, ptr %25, align 8, !alias.scope !3070
   %151 = icmp ult i64 %132, %120
   %152 = select i1 %151, ptr %73, ptr %95, !unpredictable !3
-  %153 = select i1 %151, ptr %95, ptr %73, !unpredictable !3
-  %154 = load i64, ptr %153, align 8, !alias.scope !3070, !noundef !3
-  %155 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  %153 = select i1 %151, i64 %118, i64 %129
+  %154 = select i1 %151, ptr %95, ptr %73, !unpredictable !3
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = load i64, ptr %155, align 8, !alias.scope !3070, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 8 dereferenceable(16) %152, i64 16, i1 false), !alias.scope !3070
-  store i64 %154, ptr %73, align 8, !alias.scope !3070
+  store i64 %153, ptr %73, align 8, !alias.scope !3070
   store i64 %156, ptr %76, align 8, !alias.scope !3070
   %.val.i35.i = load i64, ptr %45, align 8, !alias.scope !3070, !noundef !3
   %.val1.i36.i = load i64, ptr %66, align 8, !alias.scope !3070, !noundef !3
@@ -18678,12 +18678,12 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17ha
   store i64 %168, ptr %65, align 8, !alias.scope !3070
   %169 = icmp ult i64 %150, %144
   %170 = select i1 %169, ptr %24, ptr %34, !unpredictable !3
-  %171 = select i1 %169, ptr %34, ptr %24, !unpredictable !3
-  %172 = load i64, ptr %171, align 8, !alias.scope !3070, !noundef !3
-  %173 = getelementptr inbounds nuw i8, ptr %171, i64 8
+  %171 = select i1 %169, i64 %141, i64 %148
+  %172 = select i1 %169, ptr %34, ptr %24, !unpredictable !3
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %174 = load i64, ptr %173, align 8, !alias.scope !3070, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %170, i64 16, i1 false), !alias.scope !3070
-  store i64 %172, ptr %24, align 8, !alias.scope !3070
+  store i64 %171, ptr %24, align 8, !alias.scope !3070
   store i64 %174, ptr %25, align 8, !alias.scope !3070
   %.val.i41.i = load i64, ptr %66, align 8, !alias.scope !3070, !noundef !3
   %.val1.i42.i = load i64, ptr %26, align 8, !alias.scope !3070, !noundef !3
@@ -18720,12 +18720,12 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17ha
   store i64 %192, ptr %55, align 8, !alias.scope !3070
   %193 = icmp ult i64 %168, %156
   %194 = select i1 %193, ptr %64, ptr %73, !unpredictable !3
-  %195 = select i1 %193, ptr %73, ptr %64, !unpredictable !3
-  %196 = load i64, ptr %195, align 8, !alias.scope !3070, !noundef !3
-  %197 = getelementptr inbounds nuw i8, ptr %195, i64 8
+  %195 = select i1 %193, i64 %153, i64 %166
+  %196 = select i1 %193, ptr %73, ptr %64, !unpredictable !3
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %198 = load i64, ptr %197, align 8, !alias.scope !3070, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %194, i64 16, i1 false), !alias.scope !3070
-  store i64 %196, ptr %64, align 8, !alias.scope !3070
+  store i64 %195, ptr %64, align 8, !alias.scope !3070
   store i64 %198, ptr %65, align 8, !alias.scope !3070
   %.val.i49.i = load i64, ptr %35, align 8, !alias.scope !3070, !noundef !3
   %199 = icmp ult i64 %.val.i49.i, %162
@@ -18770,21 +18770,21 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17ha
   store i64 %222, ptr %45, align 8, !alias.scope !3070
   %223 = icmp ult i64 %186, %192
   %224 = select i1 %223, ptr %74, ptr %54, !unpredictable !3
-  %225 = select i1 %223, ptr %54, ptr %74, !unpredictable !3
-  %226 = load i64, ptr %225, align 8, !alias.scope !3070, !noundef !3
-  %227 = getelementptr inbounds nuw i8, ptr %225, i64 8
+  %225 = select i1 %223, i64 %190, i64 %184
+  %226 = select i1 %223, ptr %54, ptr %74, !unpredictable !3
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
   %228 = load i64, ptr %227, align 8, !alias.scope !3070, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %224, i64 16, i1 false), !alias.scope !3070
-  store i64 %226, ptr %74, align 8, !alias.scope !3070
+  store i64 %225, ptr %74, align 8, !alias.scope !3070
   store i64 %228, ptr %75, align 8, !alias.scope !3070
   %229 = icmp ult i64 %198, %204
   %230 = select i1 %229, ptr %64, ptr %34, !unpredictable !3
-  %231 = select i1 %229, ptr %34, ptr %64, !unpredictable !3
-  %232 = load i64, ptr %231, align 8, !alias.scope !3070, !noundef !3
-  %233 = getelementptr inbounds nuw i8, ptr %231, i64 8
+  %231 = select i1 %229, i64 %202, i64 %195
+  %232 = select i1 %229, ptr %34, ptr %64, !unpredictable !3
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %234 = load i64, ptr %233, align 8, !alias.scope !3070, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %230, i64 16, i1 false), !alias.scope !3070
-  store i64 %232, ptr %64, align 8, !alias.scope !3070
+  store i64 %231, ptr %64, align 8, !alias.scope !3070
   store i64 %234, ptr %65, align 8, !alias.scope !3070
   %.val.i61.i = load i64, ptr %56, align 8, !alias.scope !3070, !noundef !3
   %235 = icmp ult i64 %.val.i61.i, %210
@@ -18840,12 +18840,12 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17ha
   store i64 %264, ptr %46, align 8, !alias.scope !3070
   %265 = icmp ult i64 %246, %240
   %266 = select i1 %265, ptr %95, ptr %53, !unpredictable !3
-  %267 = select i1 %265, ptr %53, ptr %95, !unpredictable !3
-  %268 = load i64, ptr %267, align 8, !alias.scope !3070, !noundef !3
-  %269 = getelementptr inbounds nuw i8, ptr %267, i64 8
+  %267 = select i1 %265, i64 %238, i64 %244
+  %268 = select i1 %265, ptr %53, ptr %95, !unpredictable !3
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
   %270 = load i64, ptr %269, align 8, !alias.scope !3070, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %266, i64 16, i1 false), !alias.scope !3070
-  store i64 %268, ptr %95, align 8, !alias.scope !3070
+  store i64 %267, ptr %95, align 8, !alias.scope !3070
   store i64 %270, ptr %96, align 8, !alias.scope !3070
   %.val.i73.i = load i64, ptr %55, align 8, !alias.scope !3070, !noundef !3
   %.val1.i74.i = load i64, ptr %66, align 8, !alias.scope !3070, !noundef !3
@@ -18860,12 +18860,12 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17ha
   store i64 %276, ptr %55, align 8, !alias.scope !3070
   %277 = icmp ult i64 %228, %252
   %278 = select i1 %277, ptr %74, ptr %73, !unpredictable !3
-  %279 = select i1 %277, ptr %73, ptr %74, !unpredictable !3
-  %280 = load i64, ptr %279, align 8, !alias.scope !3070, !noundef !3
-  %281 = getelementptr inbounds nuw i8, ptr %279, i64 8
+  %279 = select i1 %277, i64 %250, i64 %225
+  %280 = select i1 %277, ptr %73, ptr %74, !unpredictable !3
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
   %282 = load i64, ptr %281, align 8, !alias.scope !3070, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %278, i64 16, i1 false), !alias.scope !3070
-  store i64 %280, ptr %74, align 8, !alias.scope !3070
+  store i64 %279, ptr %74, align 8, !alias.scope !3070
   store i64 %282, ptr %75, align 8, !alias.scope !3070
   %.val.i77.i = load i64, ptr %56, align 8, !alias.scope !3070, !noundef !3
   %283 = icmp ult i64 %.val.i77.i, %264
@@ -19012,12 +19012,12 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17ha
   store i64 %370, ptr %352, align 8, !alias.scope !3073
   %371 = icmp ult i64 %358, %328
   %372 = select i1 %371, ptr %350, ptr %320, !unpredictable !3
-  %373 = select i1 %371, ptr %320, ptr %350, !unpredictable !3
-  %374 = load i64, ptr %373, align 8, !alias.scope !3073, !noundef !3
-  %375 = getelementptr inbounds nuw i8, ptr %373, i64 8
+  %373 = select i1 %371, i64 %326, i64 %356
+  %374 = select i1 %371, ptr %320, ptr %350, !unpredictable !3
+  %375 = getelementptr inbounds nuw i8, ptr %374, i64 8
   %376 = load i64, ptr %375, align 8, !alias.scope !3073, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %320, ptr noundef nonnull align 8 dereferenceable(16) %372, i64 16, i1 false), !alias.scope !3073
-  store i64 %374, ptr %350, align 8, !alias.scope !3073
+  store i64 %373, ptr %350, align 8, !alias.scope !3073
   store i64 %376, ptr %351, align 8, !alias.scope !3073
   %377 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 96
   %378 = getelementptr i8, ptr %.sroa.01.0, i64 104
@@ -19065,12 +19065,12 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17ha
   store i64 %402, ptr %341, align 8, !alias.scope !3073
   %403 = icmp ult i64 %376, %364
   %404 = select i1 %403, ptr %350, ptr %330, !unpredictable !3
-  %405 = select i1 %403, ptr %330, ptr %350, !unpredictable !3
-  %406 = load i64, ptr %405, align 8, !alias.scope !3073, !noundef !3
-  %407 = getelementptr inbounds nuw i8, ptr %405, i64 8
+  %405 = select i1 %403, i64 %362, i64 %373
+  %406 = select i1 %403, ptr %330, ptr %350, !unpredictable !3
+  %407 = getelementptr inbounds nuw i8, ptr %406, i64 8
   %408 = load i64, ptr %407, align 8, !alias.scope !3073, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %330, ptr noundef nonnull align 8 dereferenceable(16) %404, i64 16, i1 false), !alias.scope !3073
-  store i64 %406, ptr %350, align 8, !alias.scope !3073
+  store i64 %405, ptr %350, align 8, !alias.scope !3073
   store i64 %408, ptr %351, align 8, !alias.scope !3073
   %.val.i23.i24 = load i64, ptr %352, align 8, !alias.scope !3073, !noundef !3
   %.val1.i24.i25 = load i64, ptr %332, align 8, !alias.scope !3073, !noundef !3
@@ -19085,12 +19085,12 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17ha
   store i64 %414, ptr %352, align 8, !alias.scope !3073
   %415 = icmp ult i64 %384, %396
   %416 = select i1 %415, ptr %377, ptr %320, !unpredictable !3
-  %417 = select i1 %415, ptr %320, ptr %377, !unpredictable !3
-  %418 = load i64, ptr %417, align 8, !alias.scope !3073, !noundef !3
-  %419 = getelementptr inbounds nuw i8, ptr %417, i64 8
+  %417 = select i1 %415, i64 %394, i64 %382
+  %418 = select i1 %415, ptr %320, ptr %377, !unpredictable !3
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 8
   %420 = load i64, ptr %419, align 8, !alias.scope !3073, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %320, ptr noundef nonnull align 8 dereferenceable(16) %416, i64 16, i1 false), !alias.scope !3073
-  store i64 %418, ptr %377, align 8, !alias.scope !3073
+  store i64 %417, ptr %377, align 8, !alias.scope !3073
   store i64 %420, ptr %378, align 8, !alias.scope !3073
   %.val.i27.i26 = load i64, ptr %331, align 8, !alias.scope !3073, !noundef !3
   %421 = icmp ult i64 %.val.i27.i26, %402
@@ -19115,12 +19115,12 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17ha
   store i64 %432, ptr %332, align 8, !alias.scope !3073
   %433 = icmp ult i64 %414, %390
   %434 = select i1 %433, ptr %349, ptr %339, !unpredictable !3
-  %435 = select i1 %433, ptr %339, ptr %349, !unpredictable !3
-  %436 = load i64, ptr %435, align 8, !alias.scope !3073, !noundef !3
-  %437 = getelementptr inbounds nuw i8, ptr %435, i64 8
+  %435 = select i1 %433, i64 %388, i64 %412
+  %436 = select i1 %433, ptr %339, ptr %349, !unpredictable !3
+  %437 = getelementptr inbounds nuw i8, ptr %436, i64 8
   %438 = load i64, ptr %437, align 8, !alias.scope !3073, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %339, ptr noundef nonnull align 8 dereferenceable(16) %434, i64 16, i1 false), !alias.scope !3073
-  store i64 %436, ptr %349, align 8, !alias.scope !3073
+  store i64 %435, ptr %349, align 8, !alias.scope !3073
   store i64 %438, ptr %352, align 8, !alias.scope !3073
   %.val.i33.i = load i64, ptr %341, align 8, !alias.scope !3073, !noundef !3
   %.val1.i34.i = load i64, ptr %321, align 8, !alias.scope !3073, !noundef !3
@@ -19135,12 +19135,12 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17ha
   store i64 %444, ptr %341, align 8, !alias.scope !3073
   %445 = icmp ult i64 %408, %420
   %446 = select i1 %445, ptr %350, ptr %377, !unpredictable !3
-  %447 = select i1 %445, ptr %377, ptr %350, !unpredictable !3
-  %448 = load i64, ptr %447, align 8, !alias.scope !3073, !noundef !3
-  %449 = getelementptr inbounds nuw i8, ptr %447, i64 8
+  %447 = select i1 %445, i64 %417, i64 %405
+  %448 = select i1 %445, ptr %377, ptr %350, !unpredictable !3
+  %449 = getelementptr inbounds nuw i8, ptr %448, i64 8
   %450 = load i64, ptr %449, align 8, !alias.scope !3073, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %377, ptr noundef nonnull align 8 dereferenceable(16) %446, i64 16, i1 false), !alias.scope !3073
-  store i64 %448, ptr %350, align 8, !alias.scope !3073
+  store i64 %447, ptr %350, align 8, !alias.scope !3073
   store i64 %450, ptr %351, align 8, !alias.scope !3073
   %.val.i37.i27 = load i64, ptr %321, align 8, !alias.scope !3073, !noundef !3
   %.val1.i38.i = load i64, ptr %342, align 8, !alias.scope !3073, !noundef !3
@@ -19155,12 +19155,12 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_network17ha
   store i64 %456, ptr %321, align 8, !alias.scope !3073
   %457 = icmp ult i64 %444, %438
   %458 = select i1 %457, ptr %340, ptr %349, !unpredictable !3
-  %459 = select i1 %457, ptr %349, ptr %340, !unpredictable !3
-  %460 = load i64, ptr %459, align 8, !alias.scope !3073, !noundef !3
-  %461 = getelementptr inbounds nuw i8, ptr %459, i64 8
+  %459 = select i1 %457, i64 %435, i64 %442
+  %460 = select i1 %457, ptr %349, ptr %340, !unpredictable !3
+  %461 = getelementptr inbounds nuw i8, ptr %460, i64 8
   %462 = load i64, ptr %461, align 8, !alias.scope !3073, !noundef !3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %349, ptr noundef nonnull align 8 dereferenceable(16) %458, i64 16, i1 false), !alias.scope !3073
-  store i64 %460, ptr %340, align 8, !alias.scope !3073
+  store i64 %459, ptr %340, align 8, !alias.scope !3073
   store i64 %462, ptr %341, align 8, !alias.scope !3073
   %.val1.i42.i28 = load i64, ptr %378, align 8, !alias.scope !3073, !noundef !3
   %463 = icmp ult i64 %426, %.val1.i42.i28

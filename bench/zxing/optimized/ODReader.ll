@@ -2656,11 +2656,11 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5ZXing6ResultESt6vectorIS3_SaIS3_EEEE
   br i1 %661, label %662, label %667
 
 662:                                              ; preds = %654
-  %663 = load i32, ptr %spec.select.i.i.i, align 4, !tbaa !51, !noalias !152
-  %664 = icmp slt i32 %659, %663
-  %spec.select49.i.i.i = select i1 %664, ptr %.sroa.1261.i, ptr %spec.select.i.i.i
-  %665 = load i32, ptr %spec.select47.i.i.i, align 4, !tbaa !51, !noalias !152
-  %666 = icmp slt i32 %658, %665
+  %663 = call i32 @llvm.smax.i32(i32 %657, i32 %656)
+  %664 = call i32 @llvm.smin.i32(i32 %657, i32 %656)
+  %665 = icmp slt i32 %659, %664
+  %spec.select49.i.i.i = select i1 %665, ptr %.sroa.1261.i, ptr %spec.select.i.i.i
+  %666 = icmp slt i32 %658, %663
   %spec.select51.i.i.i = select i1 %666, ptr %spec.select47.i.i.i, ptr %.sroa.860.i
   br label %_ZSt6minmaxIiESt4pairIT_S1_ESt16initializer_listIS1_E.exit.i
 
@@ -2701,11 +2701,11 @@ _ZSt6minmaxIiESt4pairIT_S1_ESt16initializer_listIS1_E.exit.i: ; preds = %667, %6
   br i1 %679, label %680, label %685
 
 680:                                              ; preds = %_ZSt6minmaxIiESt4pairIT_S1_ESt16initializer_listIS1_E.exit.i
-  %681 = load i32, ptr %spec.select.i.i18.i, align 4, !tbaa !51, !noalias !152
-  %682 = icmp slt i32 %677, %681
-  %spec.select49.i.i38.i = select i1 %682, ptr %.sroa.12.i, ptr %spec.select.i.i18.i
-  %683 = load i32, ptr %spec.select47.i.i19.i, align 4, !tbaa !51, !noalias !152
-  %684 = icmp slt i32 %676, %683
+  %681 = call i32 @llvm.smax.i32(i32 %675, i32 %674)
+  %682 = call i32 @llvm.smin.i32(i32 %675, i32 %674)
+  %683 = icmp slt i32 %677, %682
+  %spec.select49.i.i38.i = select i1 %683, ptr %.sroa.12.i, ptr %spec.select.i.i18.i
+  %684 = icmp slt i32 %676, %681
   %spec.select51.i.i39.i = select i1 %684, ptr %spec.select47.i.i19.i, ptr %.sroa.8.i
   br label %.noexc258
 
@@ -4599,11 +4599,11 @@ define linkonce_odr void @_ZN5ZXing11BoundingBoxINS_6PointTIiEEEENS_13Quadrilate
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %.lr.ph.i.i
-  %12 = load i32, ptr %spec.select.i.i, align 4, !tbaa !51
-  %13 = icmp slt i32 %8, %12
-  %spec.select49.i.i = select i1 %13, ptr %.sroa.1261, ptr %spec.select.i.i
-  %14 = load i32, ptr %spec.select47.i.i, align 4, !tbaa !51
-  %15 = icmp slt i32 %6, %14
+  %12 = tail call i32 @llvm.smax.i32(i32 %4, i32 %2)
+  %13 = tail call i32 @llvm.smin.i32(i32 %4, i32 %2)
+  %14 = icmp slt i32 %8, %13
+  %spec.select49.i.i = select i1 %14, ptr %.sroa.1261, ptr %spec.select.i.i
+  %15 = icmp slt i32 %6, %12
   %spec.select51.i.i = select i1 %15, ptr %spec.select47.i.i, ptr %.sroa.860
   br label %_ZSt6minmaxIiESt4pairIT_S1_ESt16initializer_listIS1_E.exit
 
@@ -4648,11 +4648,11 @@ _ZSt6minmaxIiESt4pairIT_S1_ESt16initializer_listIS1_E.exit: ; preds = %16, %11
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %_ZSt6minmaxIiESt4pairIT_S1_ESt16initializer_listIS1_E.exit
-  %34 = load i32, ptr %spec.select.i.i18, align 4, !tbaa !51
-  %35 = icmp slt i32 %30, %34
-  %spec.select49.i.i38 = select i1 %35, ptr %.sroa.12, ptr %spec.select.i.i18
-  %36 = load i32, ptr %spec.select47.i.i19, align 4, !tbaa !51
-  %37 = icmp slt i32 %28, %36
+  %34 = tail call i32 @llvm.smax.i32(i32 %26, i32 %24)
+  %35 = tail call i32 @llvm.smin.i32(i32 %26, i32 %24)
+  %36 = icmp slt i32 %30, %35
+  %spec.select49.i.i38 = select i1 %36, ptr %.sroa.12, ptr %spec.select.i.i18
+  %37 = icmp slt i32 %28, %34
   %spec.select51.i.i39 = select i1 %37, ptr %spec.select47.i.i19, ptr %.sroa.8
   br label %_ZSt6minmaxIiESt4pairIT_S1_ESt16initializer_listIS1_E.exit41
 

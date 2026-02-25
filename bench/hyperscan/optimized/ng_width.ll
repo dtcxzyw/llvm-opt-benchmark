@@ -251,22 +251,16 @@ $_ZTVN5boost9exceptionE = comdat any
 
 ; Function Attrs: mustprogress uwtable
 define hidden i32 @_ZN3ue212findMinWidthERKNS_8NGHolderE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %0) local_unnamed_addr #0 {
-  %.sroa.015.i = alloca i32, align 4
-  %.sroa.0.i = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.015.i)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.01.0.copyload.i = load ptr, ptr %2, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8
   %3 = tail call fastcc i32 @_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr nonnull %0, i64 0, ptr %.sroa.01.0.copyload.i, i64 %.sroa.22.0.copyload.i)
-  store i32 %3, ptr %.sroa.015.i, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.sroa.0.0.copyload.i = load ptr, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %5 = tail call fastcc i32 @_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr nonnull %0, i64 0, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
-  store i32 %5, ptr %.sroa.0.i, align 4
   %6 = icmp eq i32 %3, -2147483648
   br i1 %6, label %_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit, label %7
 
@@ -275,39 +269,29 @@ define hidden i32 @_ZN3ue212findMinWidthERKNS_8NGHolderE(ptr noundef nonnull rea
   br i1 %8, label %_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit, label %9
 
 9:                                                ; preds = %7
-  %10 = icmp ult i32 %5, %3
-  %..i.i = select i1 %10, ptr %.sroa.0.i, ptr %.sroa.015.i
+  %10 = tail call i32 @llvm.umin.i32(i32 %5, i32 %3)
   br label %_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit
 
 _ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit: ; preds = %1, %7, %9
-  %.sroa.08.0.in.i = phi ptr [ %..i.i, %9 ], [ %.sroa.0.i, %1 ], [ %.sroa.015.i, %7 ]
-  %.sroa.08.0.i = load i32, ptr %.sroa.08.0.in.i, align 4
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.015.i)
+  %.sroa.08.0.i = phi i32 [ %10, %9 ], [ %5, %1 ], [ %3, %7 ]
   ret i32 %.sroa.08.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden i32 @_ZN3ue212findMinWidthERKNS_8NGHolderEj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %.sroa.015.i = alloca i32, align 4
-  %.sroa.0.i = alloca i32, align 4
   %.sroa.5.12.insert.ext = zext i32 %1 to i64
   %.sroa.5.12.insert.shift = shl nuw i64 %.sroa.5.12.insert.ext, 32
   %.sroa.5.12.insert.insert = or disjoint i64 %.sroa.5.12.insert.shift, 1
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.015.i)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.01.0.copyload.i = load ptr, ptr %3, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8
   %4 = tail call fastcc i32 @_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr nonnull %0, i64 %.sroa.5.12.insert.insert, ptr %.sroa.01.0.copyload.i, i64 %.sroa.22.0.copyload.i)
-  store i32 %4, ptr %.sroa.015.i, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.sroa.0.0.copyload.i = load ptr, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %6 = tail call fastcc i32 @_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr nonnull %0, i64 %.sroa.5.12.insert.insert, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
-  store i32 %6, ptr %.sroa.0.i, align 4
   %7 = icmp eq i32 %4, -2147483648
   br i1 %7, label %_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit, label %8
 
@@ -316,22 +300,16 @@ define hidden i32 @_ZN3ue212findMinWidthERKNS_8NGHolderEj(ptr noundef nonnull re
   br i1 %9, label %_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit, label %10
 
 10:                                               ; preds = %8
-  %11 = icmp ult i32 %6, %4
-  %..i.i = select i1 %11, ptr %.sroa.0.i, ptr %.sroa.015.i
+  %11 = tail call i32 @llvm.umin.i32(i32 %6, i32 %4)
   br label %_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit
 
 _ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit: ; preds = %2, %8, %10
-  %.sroa.08.0.in.i = phi ptr [ %..i.i, %10 ], [ %.sroa.0.i, %2 ], [ %.sroa.015.i, %8 ]
-  %.sroa.08.0.i = load i32, ptr %.sroa.08.0.in.i, align 4
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.015.i)
+  %.sroa.08.0.i = phi i32 [ %11, %10 ], [ %6, %2 ], [ %4, %8 ]
   ret i32 %.sroa.08.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden i32 @_ZN3ue212findMaxWidthERKNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #0 {
-  %.sroa.012.i = alloca i32, align 4
-  %.sroa.0.i = alloca i32, align 4
   %2 = alloca %"struct.ue2::(anonymous namespace)::SpecialEdgeFilter", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8
@@ -339,20 +317,16 @@ define hidden i32 @_ZN3ue212findMaxWidthERKNS_8NGHolderE(ptr noundef nonnull ali
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.012.i)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.01.0.copyload.i = load ptr, ptr %5, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8
   %6 = call fastcc i32 @_ZN3ue2L12findMaxWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, ptr %.sroa.01.0.copyload.i, i64 %.sroa.22.0.copyload.i)
-  store i32 %6, ptr %.sroa.012.i, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.sroa.0.0.copyload.i = load ptr, ptr %7, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %8 = call fastcc i32 @_ZN3ue2L12findMaxWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
-  store i32 %8, ptr %.sroa.0.i, align 4
   %9 = icmp eq i32 %6, -2147483648
   br i1 %9, label %_ZN3ue2L12findMaxWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit, label %10
 
@@ -361,23 +335,17 @@ define hidden i32 @_ZN3ue212findMaxWidthERKNS_8NGHolderE(ptr noundef nonnull ali
   br i1 %11, label %_ZN3ue2L12findMaxWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit, label %12
 
 12:                                               ; preds = %10
-  %13 = icmp ult i32 %6, %8
-  %..i.i = select i1 %13, ptr %.sroa.0.i, ptr %.sroa.012.i
+  %13 = tail call i32 @llvm.umax.i32(i32 %6, i32 %8)
   br label %_ZN3ue2L12findMaxWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit
 
 _ZN3ue2L12findMaxWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit: ; preds = %1, %10, %12
-  %.sroa.08.0.in.i = phi ptr [ %..i.i, %12 ], [ %.sroa.0.i, %1 ], [ %.sroa.012.i, %10 ]
-  %.sroa.08.0.i = load i32, ptr %.sroa.08.0.in.i, align 4
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.012.i)
+  %.sroa.08.0.i = phi i32 [ %13, %12 ], [ %8, %1 ], [ %6, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.sroa.08.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden i32 @_ZN3ue212findMaxWidthERKNS_8NGHolderEj(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %.sroa.012.i = alloca i32, align 4
-  %.sroa.0.i = alloca i32, align 4
   %3 = alloca %"struct.ue2::(anonymous namespace)::SpecialEdgeFilter", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8
@@ -385,20 +353,16 @@ define hidden i32 @_ZN3ue212findMaxWidthERKNS_8NGHolderEj(ptr noundef nonnull al
   store i8 1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %1, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.012.i)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.01.0.copyload.i = load ptr, ptr %6, align 8
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8
   %7 = call fastcc i32 @_ZN3ue2L12findMaxWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, ptr %.sroa.01.0.copyload.i, i64 %.sroa.22.0.copyload.i)
-  store i32 %7, ptr %.sroa.012.i, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.sroa.0.0.copyload.i = load ptr, ptr %8, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %9 = call fastcc i32 @_ZN3ue2L12findMaxWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %3, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
-  store i32 %9, ptr %.sroa.0.i, align 4
   %10 = icmp eq i32 %7, -2147483648
   br i1 %10, label %_ZN3ue2L12findMaxWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit, label %11
 
@@ -407,15 +371,11 @@ define hidden i32 @_ZN3ue212findMaxWidthERKNS_8NGHolderEj(ptr noundef nonnull al
   br i1 %12, label %_ZN3ue2L12findMaxWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp ult i32 %7, %9
-  %..i.i = select i1 %14, ptr %.sroa.0.i, ptr %.sroa.012.i
+  %14 = tail call i32 @llvm.umax.i32(i32 %7, i32 %9)
   br label %_ZN3ue2L12findMaxWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit
 
 _ZN3ue2L12findMaxWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.exit: ; preds = %2, %11, %13
-  %.sroa.08.0.in.i = phi ptr [ %..i.i, %13 ], [ %.sroa.0.i, %2 ], [ %.sroa.012.i, %11 ]
-  %.sroa.08.0.i = load i32, ptr %.sroa.08.0.in.i, align 4
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.012.i)
+  %.sroa.08.0.i = phi i32 [ %14, %13 ], [ %9, %2 ], [ %7, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.sroa.08.0.i
 }

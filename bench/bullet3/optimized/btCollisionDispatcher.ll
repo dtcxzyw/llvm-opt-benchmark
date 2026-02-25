@@ -403,192 +403,187 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN21btCollisionDispatcher14getNewManifoldEPK17btCollisionObjectS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(20816) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = alloca float, align 4
-  %5 = alloca float, align 4
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !7
-  %8 = and i32 %7, 2
-  %.not = icmp eq i32 %8, 0
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br i1 %.not, label %26, label %9
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = load i32, ptr %4, align 8, !tbaa !7
+  %6 = and i32 %5, 2
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %._crit_edge, label %7
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  %11 = load ptr, ptr %10, align 8, !tbaa !40
-  %12 = load float, ptr @gContactBreakingThreshold, align 4, !tbaa !66
-  %13 = load ptr, ptr %11, align 8, !tbaa !4
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef float %15(ptr noundef nonnull align 8 dereferenceable(32) %11, float noundef %12)
-  store float %16, ptr %4, align 4, !tbaa !66
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 200
-  %18 = load ptr, ptr %17, align 8, !tbaa !40
-  %19 = load float, ptr @gContactBreakingThreshold, align 4, !tbaa !66
-  %20 = load ptr, ptr %18, align 8, !tbaa !4
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef float %22(ptr noundef nonnull align 8 dereferenceable(32) %18, float noundef %19)
-  store float %23, ptr %5, align 4, !tbaa !66
-  %24 = fcmp olt float %16, %23
-  %25 = select i1 %24, ptr %4, ptr %5
-  br label %26
+._crit_edge:                                      ; preds = %3
+  %.pre = load float, ptr @gContactBreakingThreshold, align 4, !tbaa !66
+  br label %24
 
-26:                                               ; preds = %3, %9
-  %.in = phi ptr [ %25, %9 ], [ @gContactBreakingThreshold, %3 ]
-  %27 = load float, ptr %.in, align 4, !tbaa !66
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 188
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %9 = load ptr, ptr %8, align 8, !tbaa !40
+  %10 = load float, ptr @gContactBreakingThreshold, align 4, !tbaa !66
+  %11 = load ptr, ptr %9, align 8, !tbaa !4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call noundef float %13(ptr noundef nonnull align 8 dereferenceable(32) %9, float noundef %10)
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 200
+  %16 = load ptr, ptr %15, align 8, !tbaa !40
+  %17 = load float, ptr @gContactBreakingThreshold, align 4, !tbaa !66
+  %18 = load ptr, ptr %16, align 8, !tbaa !4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call noundef float %20(ptr noundef nonnull align 8 dereferenceable(32) %16, float noundef %17)
+  %22 = fcmp olt float %14, %21
+  %23 = select i1 %22, float %14, float %21
+  br label %24
+
+24:                                               ; preds = %._crit_edge, %7
+  %25 = phi float [ %23, %7 ], [ %.pre, %._crit_edge ]
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 188
+  %27 = load float, ptr %26, align 4, !tbaa !67
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 188
   %29 = load float, ptr %28, align 4, !tbaa !67
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 188
-  %31 = load float, ptr %30, align 4, !tbaa !67
-  %32 = fcmp olt float %29, %31
-  %.sroa.speculated = select i1 %32, float %29, float %31
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %34 = load ptr, ptr %33, align 8, !tbaa !26
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !68
-  %.not.i = icmp eq ptr %36, null
-  br i1 %.not.i, label %41, label %_ZN15btPoolAllocator8allocateEi.exit
+  %30 = fcmp olt float %27, %29
+  %.sroa.speculated = select i1 %30, float %27, float %29
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %32 = load ptr, ptr %31, align 8, !tbaa !26
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8, !tbaa !68
+  %.not.i = icmp eq ptr %34, null
+  br i1 %.not.i, label %39, label %_ZN15btPoolAllocator8allocateEi.exit
 
-_ZN15btPoolAllocator8allocateEi.exit:             ; preds = %26
-  %37 = load ptr, ptr %36, align 8, !tbaa !72
-  store ptr %37, ptr %35, align 8, !tbaa !68
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %39 = load i32, ptr %38, align 8, !tbaa !73
-  %40 = add nsw i32 %39, -1
-  store i32 %40, ptr %38, align 8, !tbaa !73
-  br label %47
+_ZN15btPoolAllocator8allocateEi.exit:             ; preds = %24
+  %35 = load ptr, ptr %34, align 8, !tbaa !72
+  store ptr %35, ptr %33, align 8, !tbaa !68
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %37 = load i32, ptr %36, align 8, !tbaa !73
+  %38 = add nsw i32 %37, -1
+  store i32 %38, ptr %36, align 8, !tbaa !73
+  br label %45
 
-41:                                               ; preds = %26
-  %42 = load i32, ptr %6, align 8, !tbaa !7
-  %43 = and i32 %42, 4
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %93
+39:                                               ; preds = %24
+  %40 = load i32, ptr %4, align 8, !tbaa !7
+  %41 = and i32 %40, 4
+  %42 = icmp eq i32 %41, 0
+  br i1 %42, label %43, label %91
 
-45:                                               ; preds = %41
-  %46 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 880, i32 noundef 16)
-  br label %47
+43:                                               ; preds = %39
+  %44 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 880, i32 noundef 16)
+  br label %45
 
-47:                                               ; preds = %_ZN15btPoolAllocator8allocateEi.exit, %45
-  %.013 = phi ptr [ %46, %45 ], [ %36, %_ZN15btPoolAllocator8allocateEi.exit ]
+45:                                               ; preds = %_ZN15btPoolAllocator8allocateEi.exit, %43
+  %.013 = phi ptr [ %44, %43 ], [ %34, %_ZN15btPoolAllocator8allocateEi.exit ]
   store i32 1025, ptr %.013, align 4, !tbaa !74
-  br label %48
+  br label %46
 
-48:                                               ; preds = %48, %47
-  %.idx.i = phi i64 [ 8, %47 ], [ %.add.i, %48 ]
+46:                                               ; preds = %46, %45
+  %.idx.i = phi i64 [ 8, %45 ], [ %.add.i, %46 ]
   %.ptr.i = getelementptr inbounds nuw i8, ptr %.013, i64 %.idx.i
-  %49 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %49, i8 0, i64 52, i1 false)
+  %47 = getelementptr inbounds nuw i8, ptr %.ptr.i, i64 120
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %47, i8 0, i64 52, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 208
-  %50 = icmp eq i64 %.add.i, 840
-  br i1 %50, label %51, label %48
+  %48 = icmp eq i64 %.add.i, 840
+  br i1 %48, label %49, label %46
 
-51:                                               ; preds = %48
-  %52 = getelementptr inbounds nuw i8, ptr %.013, i64 840
-  store ptr %1, ptr %52, align 8, !tbaa !76
-  %53 = getelementptr inbounds nuw i8, ptr %.013, i64 848
-  store ptr %2, ptr %53, align 8, !tbaa !78
-  %54 = getelementptr inbounds nuw i8, ptr %.013, i64 856
-  store i32 0, ptr %54, align 8, !tbaa !79
-  %55 = getelementptr inbounds nuw i8, ptr %.013, i64 860
-  store float %27, ptr %55, align 4, !tbaa !80
-  %56 = getelementptr inbounds nuw i8, ptr %.013, i64 864
-  store float %.sroa.speculated, ptr %56, align 8, !tbaa !81
-  %57 = getelementptr inbounds nuw i8, ptr %.013, i64 868
-  store i32 0, ptr %57, align 4, !tbaa !82
-  %58 = getelementptr inbounds nuw i8, ptr %.013, i64 872
-  store i32 0, ptr %58, align 8, !tbaa !83
-  %59 = getelementptr inbounds nuw i8, ptr %.013, i64 876
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %61 = load i32, ptr %60, align 4, !tbaa !21
-  store i32 %61, ptr %59, align 4, !tbaa !84
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %63 = load i32, ptr %62, align 8, !tbaa !22
-  %64 = icmp eq i32 %61, %63
-  br i1 %64, label %65, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds nuw i8, ptr %.013, i64 840
+  store ptr %1, ptr %50, align 8, !tbaa !76
+  %51 = getelementptr inbounds nuw i8, ptr %.013, i64 848
+  store ptr %2, ptr %51, align 8, !tbaa !78
+  %52 = getelementptr inbounds nuw i8, ptr %.013, i64 856
+  store i32 0, ptr %52, align 8, !tbaa !79
+  %53 = getelementptr inbounds nuw i8, ptr %.013, i64 860
+  store float %25, ptr %53, align 4, !tbaa !80
+  %54 = getelementptr inbounds nuw i8, ptr %.013, i64 864
+  store float %.sroa.speculated, ptr %54, align 8, !tbaa !81
+  %55 = getelementptr inbounds nuw i8, ptr %.013, i64 868
+  store i32 0, ptr %55, align 4, !tbaa !82
+  %56 = getelementptr inbounds nuw i8, ptr %.013, i64 872
+  store i32 0, ptr %56, align 8, !tbaa !83
+  %57 = getelementptr inbounds nuw i8, ptr %.013, i64 876
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %59 = load i32, ptr %58, align 4, !tbaa !21
+  store i32 %59, ptr %57, align 4, !tbaa !84
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %61 = load i32, ptr %60, align 8, !tbaa !22
+  %62 = icmp eq i32 %59, %61
+  br i1 %62, label %63, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
 
-65:                                               ; preds = %51
-  %.not.i.i = icmp eq i32 %61, 0
-  %66 = shl nsw i32 %61, 1
-  %67 = select i1 %.not.i.i, i32 1, i32 %66
-  %68 = icmp slt i32 %61, %67
-  br i1 %68, label %69, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
+63:                                               ; preds = %49
+  %.not.i.i = icmp eq i32 %59, 0
+  %64 = shl nsw i32 %59, 1
+  %65 = select i1 %.not.i.i, i32 1, i32 %64
+  %66 = icmp slt i32 %59, %65
+  br i1 %66, label %67, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
 
-69:                                               ; preds = %65
-  %.not.i.i.i = icmp eq i32 %67, 0
-  br i1 %.not.i.i.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i, label %70
+67:                                               ; preds = %63
+  %.not.i.i.i = icmp eq i32 %65, 0
+  br i1 %.not.i.i.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i, label %68
 
-70:                                               ; preds = %69
-  %71 = sext i32 %67 to i64
-  %72 = shl nsw i64 %71, 3
-  %73 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %72, i32 noundef 16)
-  %.pre.i = load i32, ptr %60, align 4, !tbaa !21
+68:                                               ; preds = %67
+  %69 = sext i32 %65 to i64
+  %70 = shl nsw i64 %69, 3
+  %71 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %70, i32 noundef 16)
+  %.pre.i = load i32, ptr %58, align 4, !tbaa !21
   br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
 
-_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i: ; preds = %70, %69
-  %74 = phi i32 [ %.pre.i, %70 ], [ %61, %69 ]
-  %.0.i.i.i = phi ptr [ %73, %70 ], [ null, %69 ]
-  %75 = icmp sgt i32 %74, 0
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %77 = load ptr, ptr %76, align 8, !tbaa !20
-  br i1 %75, label %.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
+_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i: ; preds = %68, %67
+  %72 = phi i32 [ %.pre.i, %68 ], [ %59, %67 ]
+  %.0.i.i.i = phi ptr [ %71, %68 ], [ null, %67 ]
+  %73 = icmp sgt i32 %72, 0
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %75 = load ptr, ptr %74, align 8, !tbaa !20
+  br i1 %73, label %.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
-  %wide.trip.count.i.i.i = zext nneg i32 %74 to i64
-  br label %78
+  %wide.trip.count.i.i.i = zext nneg i32 %72 to i64
+  br label %76
 
-78:                                               ; preds = %78, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %78 ]
-  %79 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %80 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv.i.i.i
-  %81 = load ptr, ptr %80, align 8, !tbaa !85
-  store ptr %81, ptr %79, align 8, !tbaa !85
+76:                                               ; preds = %76, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %76 ]
+  %77 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %78 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv.i.i.i
+  %79 = load ptr, ptr %78, align 8, !tbaa !85
+  store ptr %79, ptr %77, align 8, !tbaa !85
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, label %78, !llvm.loop !87
+  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, label %76, !llvm.loop !87
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE8allocateEi.exit.i.i
-  %.not.i5.i.i = icmp ne ptr %77, null
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %83 = load i8, ptr %82, align 8, !range !65
-  %84 = trunc nuw i8 %83 to i1
-  %or.cond.i = select i1 %.not.i5.i.i, i1 %84, i1 false
-  br i1 %or.cond.i, label %85, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
+  %.not.i5.i.i = icmp ne ptr %75, null
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %81 = load i8, ptr %80, align 8, !range !65
+  %82 = trunc nuw i8 %81 to i1
+  %or.cond.i = select i1 %.not.i5.i.i, i1 %82, i1 false
+  br i1 %or.cond.i, label %83, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
-_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i: ; preds = %78
+_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i: ; preds = %76
   %.old.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.old8.i = load i8, ptr %.old.i, align 8, !tbaa !19, !range !65, !noundef !88
   %.old9.i = trunc nuw i8 %.old8.i to i1
-  br i1 %.old9.i, label %85, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
+  br i1 %.old9.i, label %83, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
-85:                                               ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
-  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %77)
-  %.pre2.pre.pre.i = load i32, ptr %60, align 4, !tbaa !21
+83:                                               ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
+  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %75)
+  %.pre2.pre.pre.i = load i32, ptr %58, align 4, !tbaa !21
   br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; preds = %85, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
-  %.pre2.i = phi i32 [ %74, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i ], [ %.pre2.pre.pre.i, %85 ], [ %74, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i ]
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 1, ptr %86, align 8, !tbaa !19
-  store ptr %.0.i.i.i, ptr %76, align 8, !tbaa !20
-  store i32 %67, ptr %62, align 8, !tbaa !22
+_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; preds = %83, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
+  %.pre2.i = phi i32 [ %72, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i ], [ %.pre2.pre.pre.i, %83 ], [ %72, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i ]
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i8 1, ptr %84, align 8, !tbaa !19
+  store ptr %.0.i.i.i, ptr %74, align 8, !tbaa !20
+  store i32 %65, ptr %60, align 8, !tbaa !22
   br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
 
-_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds = %51, %65, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
-  %87 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %61, %65 ], [ %61, %51 ]
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %89 = load ptr, ptr %88, align 8, !tbaa !20
-  %90 = sext i32 %87 to i64
-  %91 = getelementptr inbounds ptr, ptr %89, i64 %90
-  store ptr %.013, ptr %91, align 8, !tbaa !85
-  %92 = add nsw i32 %87, 1
-  store i32 %92, ptr %60, align 4, !tbaa !21
-  br label %93
+_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds = %49, %63, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
+  %85 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %59, %63 ], [ %59, %49 ]
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %87 = load ptr, ptr %86, align 8, !tbaa !20
+  %88 = sext i32 %85 to i64
+  %89 = getelementptr inbounds ptr, ptr %87, i64 %88
+  store ptr %.013, ptr %89, align 8, !tbaa !85
+  %90 = add nsw i32 %85, 1
+  store i32 %90, ptr %58, align 4, !tbaa !21
+  br label %91
 
-93:                                               ; preds = %41, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
-  %.0 = phi ptr [ %.013, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit ], [ null, %41 ]
+91:                                               ; preds = %39, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit
+  %.0 = phi ptr [ %.013, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit ], [ null, %39 ]
   ret ptr %.0
 }
 

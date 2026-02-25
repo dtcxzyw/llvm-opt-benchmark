@@ -1237,7 +1237,7 @@ define internal fastcc range(i32 0, 2) i32 @IncreasePreviousDuration(ptr noundef
   %14 = load i32, ptr %13, align 8, !tbaa !91
   %15 = add nsw i32 %14, %1
   %16 = icmp sgt i32 %15, 16777215
-  br i1 %16, label %17, label %56
+  br i1 %16, label %17, label %54
 
 17:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1285,65 +1285,60 @@ define internal fastcc range(i32 0, 2) i32 @IncreasePreviousDuration(ptr noundef
 
 35:                                               ; preds = %26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  %36 = load ptr, ptr %., align 8, !tbaa !55
-  %.not.i = icmp eq ptr %36, null
-  br i1 %.not.i, label %47, label %37
+  %36 = getelementptr inbounds nuw i8, ptr %., i64 8
+  %37 = load i64, ptr %36, align 8, !tbaa !92
+  %.not18.i = icmp eq i64 %37, 0
+  br i1 %.not18.i, label %45, label %38
 
-37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw i8, ptr %., i64 8
-  %39 = load i64, ptr %38, align 8, !tbaa !92
-  %.not18.i = icmp eq i64 %39, 0
-  br i1 %.not18.i, label %47, label %40
+38:                                               ; preds = %35
+  %39 = call ptr @WebPMalloc(i64 noundef %37) #15
+  store ptr %39, ptr %12, align 8, !tbaa !55
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %.critedge, label %41
 
-40:                                               ; preds = %37
-  %41 = call ptr @WebPMalloc(i64 noundef %39) #15
-  store ptr %41, ptr %12, align 8, !tbaa !55
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %.critedge, label %43
+41:                                               ; preds = %38
+  %42 = load ptr, ptr %., align 8, !tbaa !55
+  %43 = load i64, ptr %36, align 8, !tbaa !92
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %42, i64 %43, i1 false)
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 %43, ptr %44, align 8, !tbaa !92
+  br label %45
 
-43:                                               ; preds = %40
-  %44 = load ptr, ptr %., align 8, !tbaa !55
-  %45 = load i64, ptr %38, align 8, !tbaa !92
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr align 1 %44, i64 %45, i1 false)
-  %46 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %45, ptr %46, align 8, !tbaa !92
-  br label %47
-
-47:                                               ; preds = %43, %37, %35
-  %48 = load i64, ptr %7, align 8, !tbaa !67
-  %49 = add i64 %48, 1
-  store i64 %49, ptr %7, align 8, !tbaa !67
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 1140
-  %51 = load i32, ptr %50, align 4, !tbaa !85
-  %52 = add nsw i32 %51, 1
-  store i32 %52, ptr %50, align 4, !tbaa !85
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  store i64 %48, ptr %53, align 8, !tbaa !84
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1152
-  store i32 0, ptr %54, align 8, !tbaa !86
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %55, ptr noundef nonnull align 4 dereferenceable(16) @__const.IncreasePreviousDuration.rect, i64 16, i1 false), !tbaa.struct !87
+45:                                               ; preds = %41, %35
+  %46 = load i64, ptr %7, align 8, !tbaa !67
+  %47 = add i64 %46, 1
+  store i64 %47, ptr %7, align 8, !tbaa !67
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1140
+  %49 = load i32, ptr %48, align 4, !tbaa !85
+  %50 = add nsw i32 %49, 1
+  store i32 %50, ptr %48, align 4, !tbaa !85
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 1120
+  store i64 %46, ptr %51, align 8, !tbaa !84
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 1152
+  store i32 0, ptr %52, align 8, !tbaa !86
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %53, ptr noundef nonnull align 4 dereferenceable(16) @__const.IncreasePreviousDuration.rect, i64 16, i1 false), !tbaa.struct !87
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %58
+  br label %56
 
-56:                                               ; preds = %2
+54:                                               ; preds = %2
   store i32 %15, ptr %13, align 8, !tbaa !91
-  %57 = getelementptr i8, ptr %12, i64 -32
-  store i32 %15, ptr %57, align 8, !tbaa !100
-  br label %58
+  %55 = getelementptr i8, ptr %12, i64 -32
+  store i32 %15, ptr %55, align 8, !tbaa !100
+  br label %56
 
-.critedge:                                        ; preds = %40, %26
+.critedge:                                        ; preds = %38, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %58
+  br label %56
 
-58:                                               ; preds = %56, %47, %.critedge
-  %.1 = phi i32 [ 0, %.critedge ], [ 1, %47 ], [ 1, %56 ]
+56:                                               ; preds = %54, %45, %.critedge
+  %.1 = phi i32 [ 0, %.critedge ], [ 1, %45 ], [ 1, %54 ]
   ret i32 %.1
 }
 

@@ -1967,10 +1967,6 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZNK8QuantLib6detail23HullWhiteCapFloorPricerclERKNS_4PathE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(392) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %path) unnamed_addr #2 align 2 {
 entry:
-  %ref.tmp = alloca double, align 8
-  %ref.tmp41 = alloca double, align 8
-  %ref.tmp44 = alloca double, align 8
-  %ref.tmp46 = alloca double, align 8
   %type = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %type, align 8, !tbaa !66
   %cmp = icmp eq i32 %0, 0
@@ -2004,8 +2000,8 @@ for.cond.cleanup:                                 ; preds = %if.end57, %entry
   ret double %mul59
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end57
-  %5 = phi ptr [ %3, %for.body.lr.ph ], [ %42, %if.end57 ]
-  %6 = phi ptr [ %2, %for.body.lr.ph ], [ %43, %if.end57 ]
+  %5 = phi ptr [ %3, %for.body.lr.ph ], [ %43, %if.end57 ]
+  %6 = phi ptr [ %2, %for.body.lr.ph ], [ %44, %if.end57 ]
   %npv.084 = phi double [ 0.000000e+00, %for.body.lr.ph ], [ %npv.1, %if.end57 ]
   %pastFixings.083 = phi i64 [ 0, %for.body.lr.ph ], [ %pastFixings.1, %if.end57 ]
   %i.082 = phi i64 [ 0, %for.body.lr.ph ], [ %inc58, %if.end57 ]
@@ -2136,61 +2132,42 @@ cond.true39:                                      ; preds = %_ZNK5boost10shared_
   %35 = load ptr, ptr %capRates, align 8, !tbaa !45
   %add.ptr.i68 = getelementptr inbounds nuw double, ptr %35, i64 %i.082
   %cond75 = load double, ptr %add.ptr.i68, align 8, !tbaa !46
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp41)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp44)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp46)
   %sub40 = fsub double %currentLibor.0, %cond75
-  store double %sub40, ptr %ref.tmp, align 8, !tbaa !46
-  store double 0.000000e+00, ptr %ref.tmp41, align 8, !tbaa !46
-  %cmp.i = fcmp olt double %sub40, 0.000000e+00
-  %__b.__a.i = select i1 %cmp.i, ptr %ref.tmp41, ptr %ref.tmp
   br label %cond.end48
 
 cond.false43:                                     ; preds = %_ZNK5boost10shared_ptrIN8QuantLib9HullWhiteEEptEv.exit57
   %36 = load ptr, ptr %floorRates, align 8, !tbaa !45
   %add.ptr.i69 = getelementptr inbounds nuw double, ptr %36, i64 %i.082
   %cond = load double, ptr %add.ptr.i69, align 8, !tbaa !46
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp41)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp44)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp46)
   %sub45 = fsub double %cond, %currentLibor.0
-  store double %sub45, ptr %ref.tmp44, align 8, !tbaa !46
-  store double 0.000000e+00, ptr %ref.tmp46, align 8, !tbaa !46
-  %cmp.i70 = fcmp olt double %sub45, 0.000000e+00
-  %__b.__a.i71 = select i1 %cmp.i70, ptr %ref.tmp46, ptr %ref.tmp44
   br label %cond.end48
 
 cond.end48:                                       ; preds = %cond.false43, %cond.true39
-  %cond49.in = phi ptr [ %__b.__a.i, %cond.true39 ], [ %__b.__a.i71, %cond.false43 ]
-  %cond49 = load double, ptr %cond49.in, align 8, !tbaa !46
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp46)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp44)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp41)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
-  %mul = fmul double %8, %cond49
-  %37 = load ptr, ptr %gearings, align 8, !tbaa !45
-  %add.ptr.i72 = getelementptr inbounds nuw double, ptr %37, i64 %i.082
-  %38 = load double, ptr %add.ptr.i72, align 8, !tbaa !46
-  %mul52 = fmul double %mul, %38
-  %39 = load ptr, ptr %nominals, align 8, !tbaa !45
-  %add.ptr.i73 = getelementptr inbounds nuw double, ptr %39, i64 %i.082
-  %40 = load double, ptr %add.ptr.i73, align 8, !tbaa !46
-  %mul55 = fmul double %mul52, %40
-  %41 = tail call double @llvm.fmuladd.f64(double %mul55, double %div33, double %npv.084)
+  %sub45.sink93 = phi double [ %sub45, %cond.false43 ], [ %sub40, %cond.true39 ]
+  %cmp.i70 = fcmp olt double %sub45.sink93, 0.000000e+00
+  %37 = select i1 %cmp.i70, double 0.000000e+00, double %sub45.sink93
+  %mul = fmul double %8, %37
+  %38 = load ptr, ptr %gearings, align 8, !tbaa !45
+  %add.ptr.i72 = getelementptr inbounds nuw double, ptr %38, i64 %i.082
+  %39 = load double, ptr %add.ptr.i72, align 8, !tbaa !46
+  %mul52 = fmul double %mul, %39
+  %40 = load ptr, ptr %nominals, align 8, !tbaa !45
+  %add.ptr.i73 = getelementptr inbounds nuw double, ptr %40, i64 %i.082
+  %41 = load double, ptr %add.ptr.i73, align 8, !tbaa !46
+  %mul55 = fmul double %mul52, %41
+  %42 = tail call double @llvm.fmuladd.f64(double %mul55, double %div33, double %npv.084)
   %.pre = load ptr, ptr %_M_finish.i, align 8, !tbaa !44
-  %.pre85 = load ptr, ptr %fixingTimes_, align 8, !tbaa !45
+  %.pre86 = load ptr, ptr %fixingTimes_, align 8, !tbaa !45
   br label %if.end57
 
 if.end57:                                         ; preds = %cond.end48, %if.then
-  %42 = phi ptr [ %5, %if.then ], [ %.pre85, %cond.end48 ]
-  %43 = phi ptr [ %6, %if.then ], [ %.pre, %cond.end48 ]
+  %43 = phi ptr [ %5, %if.then ], [ %.pre86, %cond.end48 ]
+  %44 = phi ptr [ %6, %if.then ], [ %.pre, %cond.end48 ]
   %pastFixings.1 = phi i64 [ %inc, %if.then ], [ %pastFixings.2, %cond.end48 ]
-  %npv.1 = phi double [ %npv.084, %if.then ], [ %41, %cond.end48 ]
+  %npv.1 = phi double [ %npv.084, %if.then ], [ %42, %cond.end48 ]
   %inc58 = add nuw i64 %i.082, 1
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %43 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %42 to i64
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %44 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %43 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp2 = icmp ult i64 %inc58, %sub.ptr.div.i
