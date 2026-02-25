@@ -665,11 +665,9 @@ if.then30:                                        ; preds = %invoke.cont28
   br i1 %cmp.i49, label %if.then.i81.invoke, label %invoke.cont33
 
 invoke.cont33:                                    ; preds = %if.then30
-  %sub = sub nuw i64 %.sroa.speculated92, %retval.0.i.i
   %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %retval.0.i.i
-  %sub.i = sub nuw i64 %sub.ptr.sub.i.i48, %retval.0.i.i
-  %.sroa.speculated.i50 = call i64 @llvm.umin.i64(i64 %sub.i, i64 %sub)
-  %add.ptr.i.i51 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %.sroa.speculated.i50
+  %9 = call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i48, i64 %.sroa.speculated92)
+  %add.ptr.i.i51 = getelementptr inbounds i8, ptr %8, i64 %9
   br label %if.end38
 
 if.end38:                                         ; preds = %invoke.cont28, %invoke.cont33
@@ -683,19 +681,19 @@ if.end38:                                         ; preds = %invoke.cont28, %inv
   br i1 %cmp39, label %if.then40, label %if.else47
 
 if.then40:                                        ; preds = %if.end38
-  %9 = load ptr, ptr %e_.i, align 8
-  %10 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i57 = ptrtoint ptr %9 to i64
-  %sub.ptr.rhs.cast.i.i58 = ptrtoint ptr %10 to i64
+  %10 = load ptr, ptr %e_.i, align 8
+  %11 = load ptr, ptr %this, align 8
+  %sub.ptr.lhs.cast.i.i57 = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i.i58 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i.i59 = sub i64 %sub.ptr.lhs.cast.i.i57, %sub.ptr.rhs.cast.i.i58
   %cmp.i60.not = icmp ult i64 %retval.0.i.i20, %sub.ptr.sub.i.i59
   br i1 %cmp.i60.not, label %invoke.cont45, label %if.then.i81.invoke
 
 invoke.cont45:                                    ; preds = %if.then40
   %add = add nuw i64 %retval.0.i.i20, 1
-  %11 = xor i64 %retval.0.i.i20, -1
-  %sub44 = add i64 %retval.0.i.i35, %11
-  %add.ptr.i61 = getelementptr inbounds i8, ptr %10, i64 %add
+  %12 = xor i64 %retval.0.i.i20, -1
+  %sub44 = add i64 %retval.0.i.i35, %12
+  %add.ptr.i61 = getelementptr inbounds i8, ptr %11, i64 %add
   %sub.i62 = sub nuw i64 %sub.ptr.sub.i.i59, %add
   %.sroa.speculated.i63 = call i64 @llvm.umin.i64(i64 %sub.i62, i64 %sub44)
   %add.ptr.i.i64 = getelementptr inbounds i8, ptr %add.ptr.i61, i64 %.sroa.speculated.i63
@@ -720,10 +718,10 @@ if.end53:                                         ; preds = %if.else47, %invoke.
   br i1 %cmp54.not, label %if.end61, label %if.then55
 
 if.then55:                                        ; preds = %if.end53
-  %12 = load ptr, ptr %e_.i, align 8
-  %13 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i.i71 = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast.i.i72 = ptrtoint ptr %13 to i64
+  %13 = load ptr, ptr %e_.i, align 8
+  %14 = load ptr, ptr %this, align 8
+  %sub.ptr.lhs.cast.i.i71 = ptrtoint ptr %13 to i64
+  %sub.ptr.rhs.cast.i.i72 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i73 = sub i64 %sub.ptr.lhs.cast.i.i71, %sub.ptr.rhs.cast.i.i72
   %cmp.i74.not = icmp ult i64 %retval.0.i.i35, %sub.ptr.sub.i.i73
   br i1 %cmp.i74.not, label %invoke.cont59, label %if.then.i81.invoke
@@ -736,9 +734,9 @@ if.then.i81.cont:                                 ; preds = %if.then.i81.invoke
   unreachable
 
 invoke.cont59:                                    ; preds = %if.then55
-  %14 = getelementptr i8, ptr %13, i64 %retval.0.i.i35
-  %add.ptr.i75 = getelementptr i8, ptr %14, i64 1
-  %add.ptr.i.i78 = getelementptr inbounds i8, ptr %13, i64 %sub.ptr.sub.i.i73
+  %15 = getelementptr i8, ptr %14, i64 %retval.0.i.i35
+  %add.ptr.i75 = getelementptr i8, ptr %15, i64 1
+  %add.ptr.i.i78 = getelementptr inbounds i8, ptr %14, i64 %sub.ptr.sub.i.i73
   %fragment_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   store ptr %add.ptr.i75, ptr %fragment_, align 8
   %ref.tmp56.sroa.2.0.fragment_.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -762,14 +760,14 @@ return:                                           ; preds = %if.end65, %if.then6
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i81.invoke
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
   br label %terminate.lpad.body
 
 terminate.lpad.body:                              ; preds = %lpad.i.i, %terminate.lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %15, %terminate.lpad ], [ %6, %lpad.i.i ]
-  %16 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %16) #21
+  %eh.lpad-body = phi { ptr, i32 } [ %16, %terminate.lpad ], [ %6, %lpad.i.i ]
+  %17 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  call void @__clang_call_terminate(ptr %17) #21
   unreachable
 }
 

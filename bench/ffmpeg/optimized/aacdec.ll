@@ -6190,19 +6190,14 @@ define internal fastcc range(i32 -2147483648, 1) i32 @aac_decode_er_frame(ptr no
   store i32 %127, ptr %125, align 4, !tbaa !189
   store i32 1, ptr %2, align 4, !tbaa !17
   %128 = getelementptr i8, ptr %3, i64 16
-  %.val = load i32, ptr %128, align 8, !tbaa !105
   %129 = getelementptr i8, ptr %3, i64 20
   %.val82 = load i32, ptr %129, align 4, !tbaa !102
-  %130 = sub nsw i32 %.val82, %.val
-  %131 = sub nsw i32 0, %.val
-  %132 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %133 = load i32, ptr %132, align 8, !tbaa !103
-  %134 = sub nsw i32 %133, %.val
-  %135 = icmp slt i32 %.val82, 0
-  %..i.i = tail call i32 @llvm.smin.i32(i32 %130, i32 %134)
-  %.0.i.i = select i1 %135, i32 %131, i32 %..i.i
-  %136 = add nsw i32 %.0.i.i, %.val
-  store i32 %136, ptr %128, align 8, !tbaa !105
+  %130 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %131 = load i32, ptr %130, align 8, !tbaa !103
+  %132 = icmp slt i32 %.val82, 0
+  %133 = tail call i32 @llvm.smin.i32(i32 %.val82, i32 %131)
+  %.0.i.i.v = select i1 %132, i32 0, i32 %133
+  store i32 %.0.i.i.v, ptr %128, align 8, !tbaa !105
   br label %frame_configure_elements.exit
 
 frame_configure_elements.exit:                    ; preds = %114, %90, %.thread, %34, %120, %119, %92

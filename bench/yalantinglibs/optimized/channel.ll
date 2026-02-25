@@ -69540,17 +69540,16 @@ if.then:                                          ; preds = %invoke.cont2
   br i1 %or.cond, label %_ZN4asio6detail25base_from_completion_condINS0_18transfer_exactly_tEE20check_for_completionERKSt10error_codem.exit17.i.i.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i.i.i
 
 _ZN4asio6detail25base_from_completion_condINS0_18transfer_exactly_tEE20check_for_completionERKSt10error_codem.exit17.i.i.i.i.i.i.i.i: ; preds = %if.then
-  %sub.i.i15.i.i.i.i.i.i.i.i = sub nuw i64 %0, %add.i.i.i.i.i.i.i.i.i
   %12 = load ptr, ptr %buffers_.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 %add.i.i.i.i.i.i.i.i.i
-  %sub.i.i5.i.i.i.i.i.i.i.i = sub nuw i64 %11, %add.i.i.i.i.i.i.i.i.i
-  %spec.select.i.i16.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i15.i.i.i.i.i.i.i.i, i64 %sub.i.i5.i.i.i.i.i.i.i.i)
+  %13 = call i64 @llvm.umin.i64(i64 %0, i64 %11)
+  %spec.select.i.i16.i.i.i.i.i.i.i.i = sub nuw i64 %13, %add.i.i.i.i.i.i.i.i.i
   %spec.select.i2.i.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %spec.select.i.i16.i.i.i.i.i.i.i.i, i64 65536)
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 8
-  store i64 %spec.select.i2.i.i.i.i.i.i.i.i.i, ptr %13, align 8
-  %14 = load ptr, ptr %1, align 8
-  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 8
+  store i64 %spec.select.i2.i.i.i.i.i.i.i.i.i, ptr %14, align 8
+  %15 = load ptr, ptr %1, align 8
+  %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 40
   %implementation_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %executor_.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   invoke void @_ZN4asio6detail28reactive_socket_service_base13async_receiveINS_17mutable_buffers_1ENS0_7read_opINS_19basic_stream_socketINS_2ip3tcpENS_15any_io_executorEEES3_PKNS_14mutable_bufferENS0_18transfer_exactly_tEZZN7coro_io10async_readIS9_S3_EEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_RT0_mENKUlSN_E_clINSE_21callback_awaitor_baseISL_NSE_16callback_awaitorISL_EEE15awaitor_handlerEEEDaSN_EUlRKSN_SP_E_EES8_EEvRNS1_24base_implementation_typeESZ_iSQ_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %implementation_.i.i.i.i.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i.i.i.i.i.i.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(80) %function, ptr noundef nonnull align 8 dereferenceable(56) %executor_.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -69563,9 +69562,9 @@ for.end.i.i.i.i.i.i.i.i:                          ; preds = %if.then
   store ptr %agg.tmp.sroa.21.0.copyload.i.i.i.i.i.i.i, ptr %ec.sroa.621.0.arg_.i.i.i.sroa_idx.i.i.i.i.i.i.i.i, align 8
   %second3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %add.i.i.i.i.i.i.i.i.i, ptr %second3.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %15 = load ptr, ptr %6, align 8
-  %16 = load ptr, ptr %15, align 8
-  invoke fastcc void %16(ptr nonnull %15)
+  %16 = load ptr, ptr %6, align 8
+  %17 = load ptr, ptr %16, align 8
+  invoke fastcc void %17(ptr nonnull %16)
           to label %_ZN27asio_handler_invoke_helpers6invokeIN4asio6detail7binder2INS2_7read_opINS1_19basic_stream_socketINS1_2ip3tcpENS1_15any_io_executorEEENS1_17mutable_buffers_1EPKNS1_14mutable_bufferENS2_18transfer_exactly_tEZZN7coro_io10async_readIS9_SA_EEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_RT0_mENKUlSO_E_clINSF_21callback_awaitor_baseISM_NSF_16callback_awaitorISM_EEE15awaitor_handlerEEEDaSO_EUlRKSO_SQ_E_EESL_mEES13_EEvSP_SR_.exit unwind label %lpad
 
 _ZN27asio_handler_invoke_helpers6invokeIN4asio6detail7binder2INS2_7read_opINS1_19basic_stream_socketINS1_2ip3tcpENS1_15any_io_executorEEENS1_17mutable_buffers_1EPKNS1_14mutable_bufferENS2_18transfer_exactly_tEZZN7coro_io10async_readIS9_SA_EEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_RT0_mENKUlSO_E_clINSF_21callback_awaitor_baseISM_NSF_16callback_awaitorISM_EEE15awaitor_handlerEEEDaSO_EUlRKSO_SQ_E_EESL_mEES13_EEvSP_SR_.exit: ; preds = %for.end.i.i.i.i.i.i.i.i, %_ZN4asio6detail25base_from_completion_condINS0_18transfer_exactly_tEE20check_for_completionERKSt10error_codem.exit17.i.i.i.i.i.i.i.i
@@ -69573,10 +69572,10 @@ _ZN27asio_handler_invoke_helpers6invokeIN4asio6detail7binder2INS2_7read_opINS1_1
   br label %_ZN4asio6detail17executor_function4implINS0_7binder2INS0_7read_opINS_19basic_stream_socketINS_2ip3tcpENS_15any_io_executorEEENS_17mutable_buffers_1EPKNS_14mutable_bufferENS0_18transfer_exactly_tEZZN7coro_io10async_readIS9_SA_EEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_RT0_mENKUlSO_E_clINSF_21callback_awaitor_baseISM_NSF_16callback_awaitorISM_EEE15awaitor_handlerEEEDaSO_EUlRKSO_SQ_E_EESL_mEESaIvEE3ptrD2Ev.exit
 
 lpad:                                             ; preds = %for.end.i.i.i.i.i.i.i.i, %_ZN4asio6detail25base_from_completion_condINS0_18transfer_exactly_tEE20check_for_completionERKSt10error_codem.exit17.i.i.i.i.i.i.i.i
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4asio6detail17executor_function4implINS0_7binder2INS0_7read_opINS_19basic_stream_socketINS_2ip3tcpENS_15any_io_executorEEENS_17mutable_buffers_1EPKNS_14mutable_bufferENS0_18transfer_exactly_tEZZN7coro_io10async_readIS9_SA_EEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_RT0_mENKUlSO_E_clINSF_21callback_awaitor_baseISM_NSF_16callback_awaitorISM_EEE15awaitor_handlerEEEDaSO_EUlRKSO_SQ_E_EESL_mEESaIvEE3ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %p) #35
-  resume { ptr, i32 } %17
+  resume { ptr, i32 } %18
 
 _ZN4asio6detail17executor_function4implINS0_7binder2INS0_7read_opINS_19basic_stream_socketINS_2ip3tcpENS_15any_io_executorEEENS_17mutable_buffers_1EPKNS_14mutable_bufferENS0_18transfer_exactly_tEZZN7coro_io10async_readIS9_SA_EEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_RT0_mENKUlSO_E_clINSF_21callback_awaitor_baseISM_NSF_16callback_awaitorISM_EEE15awaitor_handlerEEEDaSO_EUlRKSO_SQ_E_EESL_mEESaIvEE3ptrD2Ev.exit: ; preds = %_ZN27asio_handler_invoke_helpers6invokeIN4asio6detail7binder2INS2_7read_opINS1_19basic_stream_socketINS1_2ip3tcpENS1_15any_io_executorEEENS1_17mutable_buffers_1EPKNS1_14mutable_bufferENS2_18transfer_exactly_tEZZN7coro_io10async_readIS9_SA_EEN12async_simple4coro4LazyISt4pairISt10error_codemEEERT_RT0_mENKUlSO_E_clINSF_21callback_awaitor_baseISM_NSF_16callback_awaitorISM_EEE15awaitor_handlerEEEDaSO_EUlRKSO_SQ_E_EESL_mEES13_EEvSP_SR_.exit, %invoke.cont2
   ret void
