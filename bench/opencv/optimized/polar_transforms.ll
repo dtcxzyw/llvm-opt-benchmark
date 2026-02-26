@@ -818,7 +818,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit256: ; preds = %28
   %.sroa.0328.4.vec.insert = insertelement <2 x float> %.sroa.0328.0.vec.insert, float %300, i64 1
   %301 = fcmp olt float %297, %300
   %302 = select i1 %301, float %297, float %300
-  %303 = fpext nnan float %302 to double
+  %303 = fpext nnan ninf float %302 to double
   %304 = fmul nnan double %303, 0x3FE6666666666666
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 0, ptr %188, align 8, !tbaa !31

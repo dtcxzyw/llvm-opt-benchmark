@@ -8064,9 +8064,9 @@ define internal fastcc void @_paint_hue(ptr readonly captures(none) %.704.val) u
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %43 = fmul reassoc nnan nsz arcp contract afn float %41, 0x3FD52A1720000000
   %44 = tail call reassoc nsz arcp contract afn float @llvm.cos.f32(float %43)
-  %45 = fmul reassoc nsz arcp contract afn float %44, 9.600000e+01
+  %45 = fmul reassoc nnan nsz arcp contract afn float %44, 9.600000e+01
   %46 = tail call reassoc nsz arcp contract afn float @llvm.sin.f32(float %43)
-  %47 = fmul reassoc nsz arcp contract afn float %46, 9.600000e+01
+  %47 = fmul reassoc nnan nsz arcp contract afn float %46, 9.600000e+01
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float %45, ptr %7, align 16, !tbaa !12
   store float 6.700000e+01, ptr %15, align 4, !tbaa !12

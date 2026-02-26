@@ -4887,7 +4887,7 @@ for.body.lr.ph.i.i:                               ; preds = %entry
   %cmp2.i.i.i.i.i = fcmp oeq double %__pred.coerce0, 0.000000e+00
   %0 = tail call double @llvm.fabs.f64(double %__pred.coerce0)
   %mul9.i.i.i.i.i = fmul double %0, %mul.i.i.i.i.i
-  %mul4.i.i.i.i.i = fmul double %mul.i.i.i.i.i, %mul.i.i.i.i.i
+  %mul4.i.i.i.i.i = fmul nnan double %mul.i.i.i.i.i, %mul.i.i.i.i.i
   %1 = and i64 %sub.ptr.sub.i.i.i, -32
   %scevgep.i.i = getelementptr i8, ptr %__first.coerce, i64 %1
   br label %for.body.i.i
@@ -5040,7 +5040,7 @@ if.end6.i.i.i91.i.i:                              ; preds = %if.end.i.i.i84.i.i
   br i1 %22, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit, label %if.end28.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit100.i.i: ; preds = %if.end.i.i.i84.i.i
-  %mul4.i.i.i98.i.i = fmul double %mul.i.i.i87.i.i, %mul.i.i.i87.i.i
+  %mul4.i.i.i98.i.i = fmul nnan double %mul.i.i.i87.i.i, %mul.i.i.i87.i.i
   %cmp5.i.i.i99.i.i = fcmp olt double %19, %mul4.i.i.i98.i.i
   br i1 %cmp5.i.i.i99.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit, label %if.end28.i.i
 
@@ -5075,7 +5075,7 @@ if.end6.i.i.i110.i.i:                             ; preds = %if.end.i.i.i103.i.i
   br i1 %27, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit, label %if.end35.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit119.i.i: ; preds = %if.end.i.i.i103.i.i
-  %mul4.i.i.i117.i.i = fmul double %mul.i.i.i106.i.i, %mul.i.i.i106.i.i
+  %mul4.i.i.i117.i.i = fmul nnan double %mul.i.i.i106.i.i, %mul.i.i.i106.i.i
   %cmp5.i.i.i118.i.i = fcmp olt double %24, %mul4.i.i.i117.i.i
   br i1 %cmp5.i.i.i118.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit, label %if.end35.i.i
 
@@ -5110,7 +5110,7 @@ if.end6.i.i.i129.i.i:                             ; preds = %if.end.i.i.i122.i.i
   br i1 %32, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit, label %if.end42.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEclINS_17__normal_iteratorIPdSt6vectorIdSaIdEEEEEEbT_.exit138.i.i: ; preds = %if.end.i.i.i122.i.i
-  %mul4.i.i.i136.i.i = fmul double %mul.i.i.i125.i.i, %mul.i.i.i125.i.i
+  %mul4.i.i.i136.i.i = fmul nnan double %mul.i.i.i125.i.i, %mul.i.i.i125.i.i
   %cmp5.i.i.i137.i.i = fcmp olt double %29, %mul4.i.i.i136.i.i
   br i1 %cmp5.i.i.i137.i.i, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops10_Iter_predIN8QuantLib12_GLOBAL__N_115close_enough_toEEEET_SD_SD_T0_.exit, label %if.end42.i.i
 

@@ -1745,7 +1745,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   br label %.sink.split
 
 609:                                              ; preds = %598
-  %610 = fmul reassoc nsz arcp contract afn float %593, %590
+  %610 = fmul reassoc nnan nsz arcp contract afn float %593, %590
   %611 = fptosi float %610 to i32
   %612 = sub nsw i32 %564, %611
   %613 = sdiv i32 %612, 2
@@ -2534,7 +2534,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %982 = trunc nuw nsw i64 %indvars.iv924 to i32
   %983 = uitofp nneg i32 %982 to double
   %984 = fmul reassoc nnan nsz arcp contract afn double %983, 0x3F35555555555555
-  %985 = fmul reassoc nsz arcp contract afn double %984, %984
+  %985 = fmul reassoc nnan nsz arcp contract afn double %984, %984
   %.neg762 = fmul reassoc nnan nsz arcp contract afn double %983, 0xBE975608FECE194D
   %.neg763 = fmul reassoc nnan nsz arcp contract afn double %985, 0x3F667BCEF737735E
   %986 = fmul reassoc nnan nsz arcp contract afn double %983, 0xBEB267E8FF27CE95

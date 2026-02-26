@@ -3125,7 +3125,7 @@ _ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheTileEEC2ERKS3_.exit.i: ; 
   %743 = load i16, ptr %742, align 2, !tbaa !239
   %744 = uitofp i16 %743 to float
   %745 = fmul nnan float %744, 0x3EF0001000000000
-  %746 = fsub float %741, %745
+  %746 = fsub nnan float %741, %745
   %747 = getelementptr inbounds nuw i16, ptr %724, i64 %indvars.iv148.i
   %748 = load i16, ptr %747, align 2, !tbaa !239
   %749 = uitofp i16 %748 to float
@@ -3134,7 +3134,7 @@ _ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheTileEEC2ERKS3_.exit.i: ; 
   %752 = load i16, ptr %751, align 2, !tbaa !239
   %753 = uitofp i16 %752 to float
   %754 = fmul nnan float %753, 0x3EF0001000000000
-  %755 = fsub float %750, %754
+  %755 = fsub nnan float %750, %754
   %756 = getelementptr inbounds nuw i16, ptr %726, i64 %indvars.iv148.i
   %757 = load i16, ptr %756, align 2, !tbaa !239
   %758 = uitofp i16 %757 to float
@@ -3143,7 +3143,7 @@ _ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheTileEEC2ERKS3_.exit.i: ; 
   %761 = load i16, ptr %760, align 2, !tbaa !239
   %762 = uitofp i16 %761 to float
   %763 = fmul nnan float %762, 0x3EF0001000000000
-  %764 = fsub float %759, %763
+  %764 = fsub nnan float %759, %763
   %765 = fmul float %75, %746
   %766 = call float @llvm.fmuladd.f32(float %737, float %717, float %765)
   %767 = fmul float %75, %764
@@ -3155,9 +3155,9 @@ _ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheTileEEC2ERKS3_.exit.i: ; 
   %773 = call float @llvm.fmuladd.f32(float %703, float %770, float %772)
   store float %773, ptr %771, align 4, !tbaa !124
   %774 = fsub float %745, %736
-  %775 = fsub float %741, %732
-  %776 = fsub float %763, %754
-  %777 = fsub float %759, %750
+  %775 = fsub nnan float %741, %732
+  %776 = fsub nnan float %763, %754
+  %777 = fsub nnan float %759, %750
   %778 = fmul float %72, %775
   %779 = call float @llvm.fmuladd.f32(float %774, float %719, float %778)
   %780 = fmul float %72, %777
@@ -3169,8 +3169,8 @@ _ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheTileEEC2ERKS3_.exit.i: ; 
   %786 = call float @llvm.fmuladd.f32(float %706, float %783, float %785)
   store float %786, ptr %784, align 4, !tbaa !124
   %787 = fsub float %745, %763
-  %788 = fsub float %741, %759
-  %789 = fsub float %732, %754
+  %788 = fsub nnan float %741, %759
+  %789 = fsub nnan float %732, %754
   %790 = fmul float %72, %788
   %791 = call float @llvm.fmuladd.f32(float %787, float %719, float %790)
   %792 = call float @llvm.fmuladd.f32(float %789, float %719, float %790)

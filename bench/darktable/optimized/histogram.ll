@@ -3828,7 +3828,7 @@ dt_get_perf_times.exit:                           ; preds = %3, %16
   %.032.i = phi i32 [ 1, %101 ], [ %110, %106 ]
   %107 = uitofp nneg i32 %.032.i to float
   %.reass31.i = fmul reassoc nnan nsz arcp contract afn float %factor.op.fmul.i, %107
-  %.reass.i = fmul reassoc nsz arcp contract afn float %invariant.op.i, %107
+  %.reass.i = fmul reassoc nnan nsz arcp contract afn float %invariant.op.i, %107
   %108 = fpext reassoc nsz arcp contract afn float %.reass.i to double
   call void @cairo_move_to(ptr noundef %53, double noundef %108, double noundef 0.000000e+00) #17
   call void @cairo_line_to(ptr noundef %53, double noundef %108, double noundef %104) #17

@@ -4754,7 +4754,7 @@ define internal range(i32 0, 2) i32 @area_draw(ptr noundef %0, ptr noundef %1, p
   %.032.i = phi i32 [ 1, %7 ], [ %52, %48 ]
   %49 = uitofp nneg i32 %.032.i to float
   %.reass31.i = fmul reassoc nnan nsz arcp contract afn float %factor.op.fmul.i, %49
-  %.reass.i = fmul reassoc nsz arcp contract afn float %invariant.op.i, %49
+  %.reass.i = fmul reassoc nnan nsz arcp contract afn float %invariant.op.i, %49
   %50 = fpext reassoc nsz arcp contract afn float %.reass.i to double
   tail call void @cairo_move_to(ptr noundef %39, double noundef %50, double noundef 0.000000e+00) #28
   tail call void @cairo_line_to(ptr noundef %39, double noundef %50, double noundef %46) #28

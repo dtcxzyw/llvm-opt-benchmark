@@ -4870,7 +4870,7 @@ define void @_ZN6LibRaw10ljpeg_idctEP5jhead(ptr noundef nonnull align 8 derefere
   %8 = uitofp nneg i32 %7 to double
   %9 = fmul reassoc nnan nsz arcp contract afn double %8, 0x3FC921FB54442D18
   %10 = tail call reassoc nsz arcp contract afn double @llvm.cos.f64(double %9)
-  %11 = fmul reassoc nsz arcp contract afn double %10, 5.000000e-01
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 5.000000e-01
   %12 = fptrunc reassoc nsz arcp contract afn double %11 to float
   %13 = getelementptr inbounds nuw float, ptr @_ZZN6LibRaw10ljpeg_idctEP5jheadE2cs, i64 %indvars.iv
   store float %12, ptr %13, align 4, !tbaa !166

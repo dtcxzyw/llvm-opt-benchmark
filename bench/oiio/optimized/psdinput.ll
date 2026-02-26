@@ -6860,81 +6860,117 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_08PSDInput11cmyk_to_rgbIt
   %9 = icmp eq i64 %3, 5
   %10 = icmp eq i64 %6, 4
   %or.cond = and i1 %9, %10
-  %wide.trip.count = zext nneg i32 %0 to i64
-  br label %11
+  %wide.trip.count55 = zext nneg i32 %0 to i64
+  br i1 %or.cond, label %.lr.ph.split.us, label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %57, %7
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
+  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %.idx = mul i64 %indvars.iv52, 10
+  %11 = getelementptr i8, ptr %1, i64 %.idx
+  %12 = load i16, ptr %11, align 2, !tbaa !24
+  %13 = uitofp i16 %12 to float
+  %14 = fmul nnan float %13, 0x3EF0001000000000
+  %15 = getelementptr i8, ptr %11, i64 2
+  %16 = load i16, ptr %15, align 2, !tbaa !24
+  %17 = uitofp i16 %16 to float
+  %18 = fmul nnan float %17, 0x3EF0001000000000
+  %19 = getelementptr i8, ptr %11, i64 4
+  %20 = load i16, ptr %19, align 2, !tbaa !24
+  %21 = uitofp i16 %20 to float
+  %22 = fmul nnan float %21, 0x3EF0001000000000
+  %23 = getelementptr i8, ptr %11, i64 6
+  %24 = load i16, ptr %23, align 2, !tbaa !24
+  %25 = uitofp i16 %24 to float
+  %26 = fmul nnan float %25, 0x3EF0001000000000
+  %27 = fmul float %14, %26
+  %28 = fmul float %18, %26
+  %29 = fmul float %22, %26
+  %30 = fmul float %27, 6.553500e+04
+  %31 = fadd float %30, 5.000000e-01
+  %32 = fcmp ogt float %31, 6.553500e+04
+  %.1.i.i.i.us = select i1 %32, float 6.553500e+04, float %31
+  %33 = fptoui float %.1.i.i.i.us to i16
+  %.idx57 = shl i64 %indvars.iv52, 3
+  %34 = getelementptr i8, ptr %4, i64 %.idx57
+  store i16 %33, ptr %34, align 2, !tbaa !24
+  %35 = fmul float %28, 6.553500e+04
+  %36 = fadd float %35, 5.000000e-01
+  %37 = fcmp ogt float %36, 6.553500e+04
+  %.1.i.i.i31.us = select i1 %37, float 6.553500e+04, float %36
+  %38 = fptoui float %.1.i.i.i31.us to i16
+  %39 = getelementptr i8, ptr %34, i64 2
+  store i16 %38, ptr %39, align 2, !tbaa !24
+  %40 = fmul float %29, 6.553500e+04
+  %41 = fadd float %40, 5.000000e-01
+  %42 = fcmp ogt float %41, 6.553500e+04
+  %.1.i.i.i34.us = select i1 %42, float 6.553500e+04, float %41
+  %43 = fptoui float %.1.i.i.i34.us to i16
+  %44 = getelementptr i8, ptr %34, i64 4
+  store i16 %43, ptr %44, align 2, !tbaa !24
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %46 = load i16, ptr %45, align 2, !tbaa !24
+  %47 = uitofp i16 %46 to float
+  %48 = fmul nnan float %47, 6.553500e+04
+  %49 = fadd float %48, 5.000000e-01
+  %50 = fcmp ogt float %49, 6.553500e+04
+  %.1.i.i.i37.us = select i1 %50, float 6.553500e+04, float %49
+  %51 = fptoui float %.1.i.i.i37.us to i16
+  %52 = getelementptr inbounds nuw i8, ptr %34, i64 6
+  store i16 %51, ptr %52, align 2, !tbaa !24
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
+  br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !332
+
+._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %7
   ret void
 
-11:                                               ; preds = %.lr.ph, %57
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
-  %12 = mul i64 %3, %indvars.iv
-  %13 = getelementptr i16, ptr %1, i64 %12
-  %14 = load i16, ptr %13, align 2, !tbaa !24
-  %15 = uitofp i16 %14 to float
-  %16 = fmul nnan float %15, 0x3EF0001000000000
-  %17 = getelementptr i8, ptr %13, i64 2
-  %18 = load i16, ptr %17, align 2, !tbaa !24
-  %19 = uitofp i16 %18 to float
-  %20 = fmul nnan float %19, 0x3EF0001000000000
-  %21 = getelementptr i8, ptr %13, i64 4
-  %22 = load i16, ptr %21, align 2, !tbaa !24
-  %23 = uitofp i16 %22 to float
-  %24 = fmul nnan float %23, 0x3EF0001000000000
-  %25 = getelementptr i8, ptr %13, i64 6
-  %26 = load i16, ptr %25, align 2, !tbaa !24
-  %27 = uitofp i16 %26 to float
-  %28 = fmul nnan float %27, 0x3EF0001000000000
-  %29 = fmul float %16, %28
-  %30 = fmul float %20, %28
-  %31 = fmul float %24, %28
-  %32 = fmul float %29, 6.553500e+04
-  %33 = fadd float %32, 5.000000e-01
-  %.inv.i.i = fcmp oge float %33, 0.000000e+00
-  %.0.i.i.i = select i1 %.inv.i.i, float %33, float 0.000000e+00
-  %34 = fcmp ogt float %.0.i.i.i, 6.553500e+04
-  %.1.i.i.i = select i1 %34, float 6.553500e+04, float %.0.i.i.i
-  %35 = fptoui float %.1.i.i.i to i16
-  %36 = mul i64 %6, %indvars.iv
-  %37 = getelementptr i16, ptr %4, i64 %36
-  store i16 %35, ptr %37, align 2, !tbaa !24
-  %38 = fmul float %30, 6.553500e+04
-  %39 = fadd float %38, 5.000000e-01
-  %.inv.i.i29 = fcmp oge float %39, 0.000000e+00
-  %.0.i.i.i30 = select i1 %.inv.i.i29, float %39, float 0.000000e+00
-  %40 = fcmp ogt float %.0.i.i.i30, 6.553500e+04
-  %.1.i.i.i31 = select i1 %40, float 6.553500e+04, float %.0.i.i.i30
-  %41 = fptoui float %.1.i.i.i31 to i16
-  %42 = getelementptr i8, ptr %37, i64 2
-  store i16 %41, ptr %42, align 2, !tbaa !24
-  %43 = fmul float %31, 6.553500e+04
-  %44 = fadd float %43, 5.000000e-01
-  %.inv.i.i32 = fcmp oge float %44, 0.000000e+00
-  %.0.i.i.i33 = select i1 %.inv.i.i32, float %44, float 0.000000e+00
-  %45 = fcmp ogt float %.0.i.i.i33, 6.553500e+04
-  %.1.i.i.i34 = select i1 %45, float 6.553500e+04, float %.0.i.i.i33
-  %46 = fptoui float %.1.i.i.i34 to i16
-  %47 = getelementptr i8, ptr %37, i64 4
-  store i16 %46, ptr %47, align 2, !tbaa !24
-  br i1 %or.cond, label %48, label %57
-
-48:                                               ; preds = %11
-  %49 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %50 = load i16, ptr %49, align 2, !tbaa !24
-  %51 = uitofp i16 %50 to float
-  %52 = fmul nnan float %51, 6.553500e+04
-  %53 = fadd float %52, 5.000000e-01
-  %54 = fcmp ogt float %53, 6.553500e+04
-  %.1.i.i.i37 = select i1 %54, float 6.553500e+04, float %53
-  %55 = fptoui float %.1.i.i.i37 to i16
-  %56 = getelementptr inbounds nuw i8, ptr %37, i64 6
-  store i16 %55, ptr %56, align 2, !tbaa !24
-  br label %57
-
-57:                                               ; preds = %48, %11
+.lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %53 = mul i64 %3, %indvars.iv
+  %54 = getelementptr i16, ptr %1, i64 %53
+  %55 = load i16, ptr %54, align 2, !tbaa !24
+  %56 = uitofp i16 %55 to float
+  %57 = fmul nnan float %56, 0x3EF0001000000000
+  %58 = getelementptr i8, ptr %54, i64 2
+  %59 = load i16, ptr %58, align 2, !tbaa !24
+  %60 = uitofp i16 %59 to float
+  %61 = fmul nnan float %60, 0x3EF0001000000000
+  %62 = getelementptr i8, ptr %54, i64 4
+  %63 = load i16, ptr %62, align 2, !tbaa !24
+  %64 = uitofp i16 %63 to float
+  %65 = fmul nnan float %64, 0x3EF0001000000000
+  %66 = getelementptr i8, ptr %54, i64 6
+  %67 = load i16, ptr %66, align 2, !tbaa !24
+  %68 = uitofp i16 %67 to float
+  %69 = fmul nnan float %68, 0x3EF0001000000000
+  %70 = fmul float %57, %69
+  %71 = fmul float %61, %69
+  %72 = fmul float %65, %69
+  %73 = fmul float %70, 6.553500e+04
+  %74 = fadd float %73, 5.000000e-01
+  %75 = fcmp ogt float %74, 6.553500e+04
+  %.1.i.i.i = select i1 %75, float 6.553500e+04, float %74
+  %76 = fptoui float %.1.i.i.i to i16
+  %77 = mul i64 %6, %indvars.iv
+  %78 = getelementptr i16, ptr %4, i64 %77
+  store i16 %76, ptr %78, align 2, !tbaa !24
+  %79 = fmul float %71, 6.553500e+04
+  %80 = fadd float %79, 5.000000e-01
+  %81 = fcmp ogt float %80, 6.553500e+04
+  %.1.i.i.i31 = select i1 %81, float 6.553500e+04, float %80
+  %82 = fptoui float %.1.i.i.i31 to i16
+  %83 = getelementptr i8, ptr %78, i64 2
+  store i16 %82, ptr %83, align 2, !tbaa !24
+  %84 = fmul float %72, 6.553500e+04
+  %85 = fadd float %84, 5.000000e-01
+  %86 = fcmp ogt float %85, 6.553500e+04
+  %.1.i.i.i34 = select i1 %86, float 6.553500e+04, float %85
+  %87 = fptoui float %.1.i.i.i34 to i16
+  %88 = getelementptr i8, ptr %78, i64 4
+  store i16 %87, ptr %88, align 2, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !332
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count55
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !332
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6946,81 +6982,117 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_08PSDInput11cmyk_to_rgbIh
   %9 = icmp eq i64 %3, 5
   %10 = icmp eq i64 %6, 4
   %or.cond = and i1 %9, %10
-  %wide.trip.count = zext nneg i32 %0 to i64
-  br label %11
+  %wide.trip.count55 = zext nneg i32 %0 to i64
+  br i1 %or.cond, label %.lr.ph.split.us, label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %57, %7
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
+  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %11 = mul nuw nsw i64 %indvars.iv52, 5
+  %12 = getelementptr i8, ptr %1, i64 %11
+  %13 = load i8, ptr %12, align 1, !tbaa !12
+  %14 = uitofp i8 %13 to float
+  %15 = fmul nnan float %14, 0x3F70101020000000
+  %16 = getelementptr i8, ptr %12, i64 1
+  %17 = load i8, ptr %16, align 1, !tbaa !12
+  %18 = uitofp i8 %17 to float
+  %19 = fmul nnan float %18, 0x3F70101020000000
+  %20 = getelementptr i8, ptr %12, i64 2
+  %21 = load i8, ptr %20, align 1, !tbaa !12
+  %22 = uitofp i8 %21 to float
+  %23 = fmul nnan float %22, 0x3F70101020000000
+  %24 = getelementptr i8, ptr %12, i64 3
+  %25 = load i8, ptr %24, align 1, !tbaa !12
+  %26 = uitofp i8 %25 to float
+  %27 = fmul nnan float %26, 0x3F70101020000000
+  %28 = fmul float %15, %27
+  %29 = fmul float %19, %27
+  %30 = fmul float %23, %27
+  %31 = fmul float %28, 2.550000e+02
+  %32 = fadd float %31, 5.000000e-01
+  %33 = fcmp ogt float %32, 2.550000e+02
+  %.1.i.i.i.us = select i1 %33, float 2.550000e+02, float %32
+  %34 = fptoui float %.1.i.i.i.us to i8
+  %35 = shl nuw nsw i64 %indvars.iv52, 2
+  %36 = getelementptr i8, ptr %4, i64 %35
+  store i8 %34, ptr %36, align 1, !tbaa !12
+  %37 = fmul float %29, 2.550000e+02
+  %38 = fadd float %37, 5.000000e-01
+  %39 = fcmp ogt float %38, 2.550000e+02
+  %.1.i.i.i31.us = select i1 %39, float 2.550000e+02, float %38
+  %40 = fptoui float %.1.i.i.i31.us to i8
+  %41 = getelementptr i8, ptr %36, i64 1
+  store i8 %40, ptr %41, align 1, !tbaa !12
+  %42 = fmul float %30, 2.550000e+02
+  %43 = fadd float %42, 5.000000e-01
+  %44 = fcmp ogt float %43, 2.550000e+02
+  %.1.i.i.i34.us = select i1 %44, float 2.550000e+02, float %43
+  %45 = fptoui float %.1.i.i.i34.us to i8
+  %46 = getelementptr i8, ptr %36, i64 2
+  store i8 %45, ptr %46, align 1, !tbaa !12
+  %47 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %48 = load i8, ptr %47, align 1, !tbaa !12
+  %49 = uitofp i8 %48 to float
+  %50 = fmul nnan float %49, 2.550000e+02
+  %51 = fadd float %50, 5.000000e-01
+  %52 = fcmp ogt float %51, 2.550000e+02
+  %.1.i.i.i37.us = select i1 %52, float 2.550000e+02, float %51
+  %53 = fptoui float %.1.i.i.i37.us to i8
+  %54 = getelementptr inbounds nuw i8, ptr %36, i64 3
+  store i8 %53, ptr %54, align 1, !tbaa !12
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %exitcond56.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count55
+  br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !333
+
+._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %7
   ret void
 
-11:                                               ; preds = %.lr.ph, %57
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
-  %12 = mul i64 %3, %indvars.iv
-  %13 = getelementptr i8, ptr %1, i64 %12
-  %14 = load i8, ptr %13, align 1, !tbaa !12
-  %15 = uitofp i8 %14 to float
-  %16 = fmul nnan float %15, 0x3F70101020000000
-  %17 = getelementptr i8, ptr %13, i64 1
-  %18 = load i8, ptr %17, align 1, !tbaa !12
-  %19 = uitofp i8 %18 to float
-  %20 = fmul nnan float %19, 0x3F70101020000000
-  %21 = getelementptr i8, ptr %13, i64 2
-  %22 = load i8, ptr %21, align 1, !tbaa !12
-  %23 = uitofp i8 %22 to float
-  %24 = fmul nnan float %23, 0x3F70101020000000
-  %25 = getelementptr i8, ptr %13, i64 3
-  %26 = load i8, ptr %25, align 1, !tbaa !12
-  %27 = uitofp i8 %26 to float
-  %28 = fmul nnan float %27, 0x3F70101020000000
-  %29 = fmul float %16, %28
-  %30 = fmul float %20, %28
-  %31 = fmul float %24, %28
-  %32 = fmul float %29, 2.550000e+02
-  %33 = fadd float %32, 5.000000e-01
-  %.inv.i.i = fcmp oge float %33, 0.000000e+00
-  %.0.i.i.i = select i1 %.inv.i.i, float %33, float 0.000000e+00
-  %34 = fcmp ogt float %.0.i.i.i, 2.550000e+02
-  %.1.i.i.i = select i1 %34, float 2.550000e+02, float %.0.i.i.i
-  %35 = fptoui float %.1.i.i.i to i8
-  %36 = mul i64 %6, %indvars.iv
-  %37 = getelementptr i8, ptr %4, i64 %36
-  store i8 %35, ptr %37, align 1, !tbaa !12
-  %38 = fmul float %30, 2.550000e+02
-  %39 = fadd float %38, 5.000000e-01
-  %.inv.i.i29 = fcmp oge float %39, 0.000000e+00
-  %.0.i.i.i30 = select i1 %.inv.i.i29, float %39, float 0.000000e+00
-  %40 = fcmp ogt float %.0.i.i.i30, 2.550000e+02
-  %.1.i.i.i31 = select i1 %40, float 2.550000e+02, float %.0.i.i.i30
-  %41 = fptoui float %.1.i.i.i31 to i8
-  %42 = getelementptr i8, ptr %37, i64 1
-  store i8 %41, ptr %42, align 1, !tbaa !12
-  %43 = fmul float %31, 2.550000e+02
-  %44 = fadd float %43, 5.000000e-01
-  %.inv.i.i32 = fcmp oge float %44, 0.000000e+00
-  %.0.i.i.i33 = select i1 %.inv.i.i32, float %44, float 0.000000e+00
-  %45 = fcmp ogt float %.0.i.i.i33, 2.550000e+02
-  %.1.i.i.i34 = select i1 %45, float 2.550000e+02, float %.0.i.i.i33
-  %46 = fptoui float %.1.i.i.i34 to i8
-  %47 = getelementptr i8, ptr %37, i64 2
-  store i8 %46, ptr %47, align 1, !tbaa !12
-  br i1 %or.cond, label %48, label %57
-
-48:                                               ; preds = %11
-  %49 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %50 = load i8, ptr %49, align 1, !tbaa !12
-  %51 = uitofp i8 %50 to float
-  %52 = fmul nnan float %51, 2.550000e+02
-  %53 = fadd float %52, 5.000000e-01
-  %54 = fcmp ogt float %53, 2.550000e+02
-  %.1.i.i.i37 = select i1 %54, float 2.550000e+02, float %53
-  %55 = fptoui float %.1.i.i.i37 to i8
-  %56 = getelementptr inbounds nuw i8, ptr %37, i64 3
-  store i8 %55, ptr %56, align 1, !tbaa !12
-  br label %57
-
-57:                                               ; preds = %48, %11
+.lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %55 = mul i64 %3, %indvars.iv
+  %56 = getelementptr i8, ptr %1, i64 %55
+  %57 = load i8, ptr %56, align 1, !tbaa !12
+  %58 = uitofp i8 %57 to float
+  %59 = fmul nnan float %58, 0x3F70101020000000
+  %60 = getelementptr i8, ptr %56, i64 1
+  %61 = load i8, ptr %60, align 1, !tbaa !12
+  %62 = uitofp i8 %61 to float
+  %63 = fmul nnan float %62, 0x3F70101020000000
+  %64 = getelementptr i8, ptr %56, i64 2
+  %65 = load i8, ptr %64, align 1, !tbaa !12
+  %66 = uitofp i8 %65 to float
+  %67 = fmul nnan float %66, 0x3F70101020000000
+  %68 = getelementptr i8, ptr %56, i64 3
+  %69 = load i8, ptr %68, align 1, !tbaa !12
+  %70 = uitofp i8 %69 to float
+  %71 = fmul nnan float %70, 0x3F70101020000000
+  %72 = fmul float %59, %71
+  %73 = fmul float %63, %71
+  %74 = fmul float %67, %71
+  %75 = fmul float %72, 2.550000e+02
+  %76 = fadd float %75, 5.000000e-01
+  %77 = fcmp ogt float %76, 2.550000e+02
+  %.1.i.i.i = select i1 %77, float 2.550000e+02, float %76
+  %78 = fptoui float %.1.i.i.i to i8
+  %79 = mul i64 %6, %indvars.iv
+  %80 = getelementptr i8, ptr %4, i64 %79
+  store i8 %78, ptr %80, align 1, !tbaa !12
+  %81 = fmul float %73, 2.550000e+02
+  %82 = fadd float %81, 5.000000e-01
+  %83 = fcmp ogt float %82, 2.550000e+02
+  %.1.i.i.i31 = select i1 %83, float 2.550000e+02, float %82
+  %84 = fptoui float %.1.i.i.i31 to i8
+  %85 = getelementptr i8, ptr %80, i64 1
+  store i8 %84, ptr %85, align 1, !tbaa !12
+  %86 = fmul float %74, 2.550000e+02
+  %87 = fadd float %86, 5.000000e-01
+  %88 = fcmp ogt float %87, 2.550000e+02
+  %.1.i.i.i34 = select i1 %88, float 2.550000e+02, float %87
+  %89 = fptoui float %.1.i.i.i34 to i8
+  %90 = getelementptr i8, ptr %80, i64 2
+  store i8 %89, ptr %90, align 1, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !333
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count55
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !333
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable

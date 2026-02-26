@@ -2821,9 +2821,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr noundef readonly ca
   %451 = getelementptr inbounds i16, ptr %.019812474.us, i64 %439
   %452 = load i16, ptr %451, align 2
   %453 = sitofp i16 %452 to double
-  %454 = fmul double %414, %447
+  %454 = fmul nnan double %414, %447
   %455 = tail call double @llvm.fmuladd.f64(double %444, double %440, double %454)
-  %456 = fmul double %414, %453
+  %456 = fmul nnan double %414, %453
   %457 = tail call double @llvm.fmuladd.f64(double %450, double %440, double %456)
   %458 = fmul double %417, %457
   %459 = tail call double @llvm.fmuladd.f64(double %455, double %441, double %458)
@@ -2955,9 +2955,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr noundef readonly ca
   %535 = getelementptr inbounds i16, ptr %.119822492, i64 %523
   %536 = load i16, ptr %535, align 2
   %537 = sitofp i16 %536 to double
-  %538 = fmul double %496, %531
+  %538 = fmul nnan double %496, %531
   %539 = tail call double @llvm.fmuladd.f64(double %528, double %524, double %538)
-  %540 = fmul double %496, %537
+  %540 = fmul nnan double %496, %537
   %541 = tail call double @llvm.fmuladd.f64(double %534, double %524, double %540)
   %542 = fmul double %499, %541
   %543 = tail call double @llvm.fmuladd.f64(double %539, double %525, double %542)
@@ -3061,9 +3061,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr noundef readonly ca
   %606 = getelementptr inbounds i16, ptr %.219832503, i64 %594
   %607 = load i16, ptr %606, align 2
   %608 = sitofp i16 %607 to double
-  %609 = fmul double %567, %602
+  %609 = fmul nnan double %567, %602
   %610 = tail call double @llvm.fmuladd.f64(double %599, double %595, double %609)
-  %611 = fmul double %567, %608
+  %611 = fmul nnan double %567, %608
   %612 = tail call double @llvm.fmuladd.f64(double %605, double %595, double %611)
   %613 = fmul double %570, %612
   %614 = tail call double @llvm.fmuladd.f64(double %610, double %596, double %613)
@@ -3169,9 +3169,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr noundef readonly ca
   %679 = getelementptr inbounds i16, ptr %.319842521.us, i64 %667
   %680 = load i16, ptr %679, align 2
   %681 = sitofp i16 %680 to double
-  %682 = fmul double %642, %675
+  %682 = fmul nnan double %642, %675
   %683 = tail call double @llvm.fmuladd.f64(double %672, double %668, double %682)
-  %684 = fmul double %642, %681
+  %684 = fmul nnan double %642, %681
   %685 = tail call double @llvm.fmuladd.f64(double %678, double %668, double %684)
   %686 = fmul double %645, %685
   %687 = tail call double @llvm.fmuladd.f64(double %683, double %669, double %686)
@@ -3307,9 +3307,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr noundef readonly ca
   %764 = getelementptr inbounds i16, ptr %.019692411.us, i64 %752
   %765 = load i16, ptr %764, align 2
   %766 = uitofp i16 %765 to double
-  %767 = fmul double %727, %760
+  %767 = fmul nnan double %727, %760
   %768 = tail call double @llvm.fmuladd.f64(double %757, double %753, double %767)
-  %769 = fmul double %727, %766
+  %769 = fmul nnan double %727, %766
   %770 = tail call double @llvm.fmuladd.f64(double %763, double %753, double %769)
   %771 = fmul double %730, %770
   %772 = tail call double @llvm.fmuladd.f64(double %768, double %754, double %771)
@@ -3441,9 +3441,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr noundef readonly ca
   %848 = getelementptr inbounds i16, ptr %.119702429, i64 %836
   %849 = load i16, ptr %848, align 2
   %850 = uitofp i16 %849 to double
-  %851 = fmul double %809, %844
+  %851 = fmul nnan double %809, %844
   %852 = tail call double @llvm.fmuladd.f64(double %841, double %837, double %851)
-  %853 = fmul double %809, %850
+  %853 = fmul nnan double %809, %850
   %854 = tail call double @llvm.fmuladd.f64(double %847, double %837, double %853)
   %855 = fmul double %812, %854
   %856 = tail call double @llvm.fmuladd.f64(double %852, double %838, double %855)
@@ -3547,9 +3547,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr noundef readonly ca
   %919 = getelementptr inbounds i16, ptr %.219712440, i64 %907
   %920 = load i16, ptr %919, align 2
   %921 = uitofp i16 %920 to double
-  %922 = fmul double %880, %915
+  %922 = fmul nnan double %880, %915
   %923 = tail call double @llvm.fmuladd.f64(double %912, double %908, double %922)
-  %924 = fmul double %880, %921
+  %924 = fmul nnan double %880, %921
   %925 = tail call double @llvm.fmuladd.f64(double %918, double %908, double %924)
   %926 = fmul double %883, %925
   %927 = tail call double @llvm.fmuladd.f64(double %923, double %909, double %926)
@@ -3655,9 +3655,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr noundef readonly ca
   %992 = getelementptr inbounds i16, ptr %.319722458.us, i64 %980
   %993 = load i16, ptr %992, align 2
   %994 = uitofp i16 %993 to double
-  %995 = fmul double %955, %988
+  %995 = fmul nnan double %955, %988
   %996 = tail call double @llvm.fmuladd.f64(double %985, double %981, double %995)
-  %997 = fmul double %955, %994
+  %997 = fmul nnan double %955, %994
   %998 = tail call double @llvm.fmuladd.f64(double %991, double %981, double %997)
   %999 = fmul double %958, %998
   %1000 = tail call double @llvm.fmuladd.f64(double %996, double %982, double %999)
@@ -3793,9 +3793,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr noundef readonly ca
   %1077 = getelementptr inbounds i32, ptr %.019572348.us, i64 %1065
   %1078 = load i32, ptr %1077, align 4
   %1079 = sitofp i32 %1078 to double
-  %1080 = fmul double %1040, %1073
+  %1080 = fmul nnan double %1040, %1073
   %1081 = tail call double @llvm.fmuladd.f64(double %1070, double %1066, double %1080)
-  %1082 = fmul double %1040, %1079
+  %1082 = fmul nnan double %1040, %1079
   %1083 = tail call double @llvm.fmuladd.f64(double %1076, double %1066, double %1082)
   %1084 = fmul double %1043, %1083
   %1085 = tail call double @llvm.fmuladd.f64(double %1081, double %1067, double %1084)
@@ -3927,9 +3927,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr noundef readonly ca
   %1161 = getelementptr inbounds i32, ptr %.119582366, i64 %1149
   %1162 = load i32, ptr %1161, align 4
   %1163 = sitofp i32 %1162 to double
-  %1164 = fmul double %1122, %1157
+  %1164 = fmul nnan double %1122, %1157
   %1165 = tail call double @llvm.fmuladd.f64(double %1154, double %1150, double %1164)
-  %1166 = fmul double %1122, %1163
+  %1166 = fmul nnan double %1122, %1163
   %1167 = tail call double @llvm.fmuladd.f64(double %1160, double %1150, double %1166)
   %1168 = fmul double %1125, %1167
   %1169 = tail call double @llvm.fmuladd.f64(double %1165, double %1151, double %1168)
@@ -4033,9 +4033,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr noundef readonly ca
   %1232 = getelementptr inbounds i32, ptr %.219592377, i64 %1220
   %1233 = load i32, ptr %1232, align 4
   %1234 = sitofp i32 %1233 to double
-  %1235 = fmul double %1193, %1228
+  %1235 = fmul nnan double %1193, %1228
   %1236 = tail call double @llvm.fmuladd.f64(double %1225, double %1221, double %1235)
-  %1237 = fmul double %1193, %1234
+  %1237 = fmul nnan double %1193, %1234
   %1238 = tail call double @llvm.fmuladd.f64(double %1231, double %1221, double %1237)
   %1239 = fmul double %1196, %1238
   %1240 = tail call double @llvm.fmuladd.f64(double %1236, double %1222, double %1239)
@@ -4141,9 +4141,9 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BL(ptr noundef readonly ca
   %1305 = getelementptr inbounds i32, ptr %.319602395.us, i64 %1293
   %1306 = load i32, ptr %1305, align 4
   %1307 = sitofp i32 %1306 to double
-  %1308 = fmul double %1268, %1301
+  %1308 = fmul nnan double %1268, %1301
   %1309 = tail call double @llvm.fmuladd.f64(double %1298, double %1294, double %1308)
-  %1310 = fmul double %1268, %1307
+  %1310 = fmul nnan double %1268, %1307
   %1311 = tail call double @llvm.fmuladd.f64(double %1304, double %1294, double %1310)
   %1312 = fmul double %1271, %1311
   %1313 = tail call double @llvm.fmuladd.f64(double %1309, double %1295, double %1312)
@@ -8224,7 +8224,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %2432 = uitofp nneg i32 %2431 to double
   %2433 = fmul nnan double %2432, 0x3EF0000000000000
   %2434 = fmul nnan double %2433, 5.000000e-01
-  %2435 = fmul double %2433, %2433
+  %2435 = fmul nnan double %2433, %2433
   %2436 = fmul double %2434, %2435
   %2437 = fmul double %2436, 3.000000e+00
   %2438 = fsub double %2435, %2436
@@ -8240,7 +8240,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %2448 = uitofp nneg i32 %2447 to double
   %2449 = fmul nnan double %2448, 0x3EF0000000000000
   %2450 = fmul nnan double %2449, 5.000000e-01
-  %2451 = fmul double %2449, %2449
+  %2451 = fmul nnan double %2449, %2449
   %2452 = fmul double %2450, %2451
   %2453 = fmul double %2452, 3.000000e+00
   %2454 = fsub double %2451, %2452
@@ -8468,7 +8468,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %2620 = uitofp nneg i32 %2619 to double
   %2621 = fmul nnan double %2620, 0x3EF0000000000000
   %2622 = fmul nnan double %2621, 5.000000e-01
-  %2623 = fmul double %2621, %2621
+  %2623 = fmul nnan double %2621, %2621
   %2624 = fmul double %2622, %2623
   %2625 = fmul double %2624, 3.000000e+00
   %2626 = fsub double %2623, %2624
@@ -8484,7 +8484,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %2636 = uitofp nneg i32 %2635 to double
   %2637 = fmul nnan double %2636, 0x3EF0000000000000
   %2638 = fmul nnan double %2637, 5.000000e-01
-  %2639 = fmul double %2637, %2637
+  %2639 = fmul nnan double %2637, %2637
   %2640 = fmul double %2638, %2639
   %2641 = fmul double %2640, 3.000000e+00
   %2642 = fsub double %2639, %2640
@@ -8682,7 +8682,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %2793 = uitofp nneg i32 %2792 to double
   %2794 = fmul nnan double %2793, 0x3EF0000000000000
   %2795 = fmul nnan double %2794, 5.000000e-01
-  %2796 = fmul double %2794, %2794
+  %2796 = fmul nnan double %2794, %2794
   %2797 = fmul double %2795, %2796
   %2798 = fmul double %2797, 3.000000e+00
   %2799 = fsub double %2796, %2797
@@ -8698,7 +8698,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %2809 = uitofp nneg i32 %2808 to double
   %2810 = fmul nnan double %2809, 0x3EF0000000000000
   %2811 = fmul nnan double %2810, 5.000000e-01
-  %2812 = fmul double %2810, %2810
+  %2812 = fmul nnan double %2810, %2810
   %2813 = fmul double %2811, %2812
   %2814 = fmul double %2813, 3.000000e+00
   %2815 = fsub double %2812, %2813
@@ -8900,7 +8900,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %2968 = uitofp nneg i32 %2967 to double
   %2969 = fmul nnan double %2968, 0x3EF0000000000000
   %2970 = fmul nnan double %2969, 5.000000e-01
-  %2971 = fmul double %2969, %2969
+  %2971 = fmul nnan double %2969, %2969
   %2972 = fmul double %2970, %2971
   %2973 = fmul double %2972, 3.000000e+00
   %2974 = fsub double %2971, %2972
@@ -8916,7 +8916,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %2984 = uitofp nneg i32 %2983 to double
   %2985 = fmul nnan double %2984, 0x3EF0000000000000
   %2986 = fmul nnan double %2985, 5.000000e-01
-  %2987 = fmul double %2985, %2985
+  %2987 = fmul nnan double %2985, %2985
   %2988 = fmul double %2986, %2987
   %2989 = fmul double %2988, 3.000000e+00
   %2990 = fsub double %2987, %2988
@@ -9135,7 +9135,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %3149 = and i32 %3148, 65535
   %3150 = uitofp nneg i32 %3149 to double
   %3151 = fmul nnan double %3150, 0x3EF0000000000000
-  %3152 = fmul double %3151, %3151
+  %3152 = fmul nnan double %3151, %3151
   %3153 = fmul double %3151, %3152
   %3154 = fmul nnan double %3152, 2.000000e+00
   %3155 = fsub double %3154, %3153
@@ -9149,7 +9149,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %3163 = and i32 %3162, 65535
   %3164 = uitofp nneg i32 %3163 to double
   %3165 = fmul nnan double %3164, 0x3EF0000000000000
-  %3166 = fmul double %3165, %3165
+  %3166 = fmul nnan double %3165, %3165
   %3167 = fmul double %3165, %3166
   %3168 = fmul nnan double %3166, 2.000000e+00
   %3169 = fsub double %3168, %3167
@@ -9375,7 +9375,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %3333 = and i32 %3332, 65535
   %3334 = uitofp nneg i32 %3333 to double
   %3335 = fmul nnan double %3334, 0x3EF0000000000000
-  %3336 = fmul double %3335, %3335
+  %3336 = fmul nnan double %3335, %3335
   %3337 = fmul double %3335, %3336
   %3338 = fmul nnan double %3336, 2.000000e+00
   %3339 = fsub double %3338, %3337
@@ -9389,7 +9389,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %3347 = and i32 %3346, 65535
   %3348 = uitofp nneg i32 %3347 to double
   %3349 = fmul nnan double %3348, 0x3EF0000000000000
-  %3350 = fmul double %3349, %3349
+  %3350 = fmul nnan double %3349, %3349
   %3351 = fmul double %3349, %3350
   %3352 = fmul nnan double %3350, 2.000000e+00
   %3353 = fsub double %3352, %3351
@@ -9585,7 +9585,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %3502 = and i32 %3501, 65535
   %3503 = uitofp nneg i32 %3502 to double
   %3504 = fmul nnan double %3503, 0x3EF0000000000000
-  %3505 = fmul double %3504, %3504
+  %3505 = fmul nnan double %3504, %3504
   %3506 = fmul double %3504, %3505
   %3507 = fmul nnan double %3505, 2.000000e+00
   %3508 = fsub double %3507, %3506
@@ -9599,7 +9599,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %3516 = and i32 %3515, 65535
   %3517 = uitofp nneg i32 %3516 to double
   %3518 = fmul nnan double %3517, 0x3EF0000000000000
-  %3519 = fmul double %3518, %3518
+  %3519 = fmul nnan double %3518, %3518
   %3520 = fmul double %3518, %3519
   %3521 = fmul nnan double %3519, 2.000000e+00
   %3522 = fsub double %3521, %3520
@@ -9799,7 +9799,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %3673 = and i32 %3672, 65535
   %3674 = uitofp nneg i32 %3673 to double
   %3675 = fmul nnan double %3674, 0x3EF0000000000000
-  %3676 = fmul double %3675, %3675
+  %3676 = fmul nnan double %3675, %3675
   %3677 = fmul double %3675, %3676
   %3678 = fmul nnan double %3676, 2.000000e+00
   %3679 = fsub double %3678, %3677
@@ -9813,7 +9813,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %3687 = and i32 %3686, 65535
   %3688 = uitofp nneg i32 %3687 to double
   %3689 = fmul nnan double %3688, 0x3EF0000000000000
-  %3690 = fmul double %3689, %3689
+  %3690 = fmul nnan double %3689, %3689
   %3691 = fmul double %3689, %3690
   %3692 = fmul nnan double %3690, 2.000000e+00
   %3693 = fsub double %3692, %3691
@@ -10066,7 +10066,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %3868 = uitofp nneg i32 %3867 to double
   %3869 = fmul nnan double %3868, 0x3EF0000000000000
   %3870 = fmul nnan double %3869, 5.000000e-01
-  %3871 = fmul double %3869, %3869
+  %3871 = fmul nnan double %3869, %3869
   %3872 = fmul double %3870, %3871
   %3873 = fmul double %3872, 3.000000e+00
   %3874 = fsub double %3871, %3872
@@ -10082,7 +10082,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %3884 = uitofp nneg i32 %3883 to double
   %3885 = fmul nnan double %3884, 0x3EF0000000000000
   %3886 = fmul nnan double %3885, 5.000000e-01
-  %3887 = fmul double %3885, %3885
+  %3887 = fmul nnan double %3885, %3885
   %3888 = fmul double %3886, %3887
   %3889 = fmul double %3888, 3.000000e+00
   %3890 = fsub double %3887, %3888
@@ -10306,7 +10306,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %4056 = uitofp nneg i32 %4055 to double
   %4057 = fmul nnan double %4056, 0x3EF0000000000000
   %4058 = fmul nnan double %4057, 5.000000e-01
-  %4059 = fmul double %4057, %4057
+  %4059 = fmul nnan double %4057, %4057
   %4060 = fmul double %4058, %4059
   %4061 = fmul double %4060, 3.000000e+00
   %4062 = fsub double %4059, %4060
@@ -10322,7 +10322,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %4072 = uitofp nneg i32 %4071 to double
   %4073 = fmul nnan double %4072, 0x3EF0000000000000
   %4074 = fmul nnan double %4073, 5.000000e-01
-  %4075 = fmul double %4073, %4073
+  %4075 = fmul nnan double %4073, %4073
   %4076 = fmul double %4074, %4075
   %4077 = fmul double %4076, 3.000000e+00
   %4078 = fsub double %4075, %4076
@@ -10516,7 +10516,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %4229 = uitofp nneg i32 %4228 to double
   %4230 = fmul nnan double %4229, 0x3EF0000000000000
   %4231 = fmul nnan double %4230, 5.000000e-01
-  %4232 = fmul double %4230, %4230
+  %4232 = fmul nnan double %4230, %4230
   %4233 = fmul double %4231, %4232
   %4234 = fmul double %4233, 3.000000e+00
   %4235 = fsub double %4232, %4233
@@ -10532,7 +10532,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %4245 = uitofp nneg i32 %4244 to double
   %4246 = fmul nnan double %4245, 0x3EF0000000000000
   %4247 = fmul nnan double %4246, 5.000000e-01
-  %4248 = fmul double %4246, %4246
+  %4248 = fmul nnan double %4246, %4246
   %4249 = fmul double %4247, %4248
   %4250 = fmul double %4249, 3.000000e+00
   %4251 = fsub double %4248, %4249
@@ -10730,7 +10730,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %4404 = uitofp nneg i32 %4403 to double
   %4405 = fmul nnan double %4404, 0x3EF0000000000000
   %4406 = fmul nnan double %4405, 5.000000e-01
-  %4407 = fmul double %4405, %4405
+  %4407 = fmul nnan double %4405, %4405
   %4408 = fmul double %4406, %4407
   %4409 = fmul double %4408, 3.000000e+00
   %4410 = fsub double %4407, %4408
@@ -10746,7 +10746,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %4420 = uitofp nneg i32 %4419 to double
   %4421 = fmul nnan double %4420, 0x3EF0000000000000
   %4422 = fmul nnan double %4421, 5.000000e-01
-  %4423 = fmul double %4421, %4421
+  %4423 = fmul nnan double %4421, %4421
   %4424 = fmul double %4422, %4423
   %4425 = fmul double %4424, 3.000000e+00
   %4426 = fsub double %4423, %4424
@@ -10961,7 +10961,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %4585 = and i32 %4584, 65535
   %4586 = uitofp nneg i32 %4585 to double
   %4587 = fmul nnan double %4586, 0x3EF0000000000000
-  %4588 = fmul double %4587, %4587
+  %4588 = fmul nnan double %4587, %4587
   %4589 = fmul double %4587, %4588
   %4590 = fmul nnan double %4588, 2.000000e+00
   %4591 = fsub double %4590, %4589
@@ -10975,7 +10975,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %4599 = and i32 %4598, 65535
   %4600 = uitofp nneg i32 %4599 to double
   %4601 = fmul nnan double %4600, 0x3EF0000000000000
-  %4602 = fmul double %4601, %4601
+  %4602 = fmul nnan double %4601, %4601
   %4603 = fmul double %4601, %4602
   %4604 = fmul nnan double %4602, 2.000000e+00
   %4605 = fsub double %4604, %4603
@@ -11197,7 +11197,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %4769 = and i32 %4768, 65535
   %4770 = uitofp nneg i32 %4769 to double
   %4771 = fmul nnan double %4770, 0x3EF0000000000000
-  %4772 = fmul double %4771, %4771
+  %4772 = fmul nnan double %4771, %4771
   %4773 = fmul double %4771, %4772
   %4774 = fmul nnan double %4772, 2.000000e+00
   %4775 = fsub double %4774, %4773
@@ -11211,7 +11211,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %4783 = and i32 %4782, 65535
   %4784 = uitofp nneg i32 %4783 to double
   %4785 = fmul nnan double %4784, 0x3EF0000000000000
-  %4786 = fmul double %4785, %4785
+  %4786 = fmul nnan double %4785, %4785
   %4787 = fmul double %4785, %4786
   %4788 = fmul nnan double %4786, 2.000000e+00
   %4789 = fsub double %4788, %4787
@@ -11403,7 +11403,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %4938 = and i32 %4937, 65535
   %4939 = uitofp nneg i32 %4938 to double
   %4940 = fmul nnan double %4939, 0x3EF0000000000000
-  %4941 = fmul double %4940, %4940
+  %4941 = fmul nnan double %4940, %4940
   %4942 = fmul double %4940, %4941
   %4943 = fmul nnan double %4941, 2.000000e+00
   %4944 = fsub double %4943, %4942
@@ -11417,7 +11417,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %4952 = and i32 %4951, 65535
   %4953 = uitofp nneg i32 %4952 to double
   %4954 = fmul nnan double %4953, 0x3EF0000000000000
-  %4955 = fmul double %4954, %4954
+  %4955 = fmul nnan double %4954, %4954
   %4956 = fmul double %4954, %4955
   %4957 = fmul nnan double %4955, 2.000000e+00
   %4958 = fsub double %4957, %4956
@@ -11613,7 +11613,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %5109 = and i32 %5108, 65535
   %5110 = uitofp nneg i32 %5109 to double
   %5111 = fmul nnan double %5110, 0x3EF0000000000000
-  %5112 = fmul double %5111, %5111
+  %5112 = fmul nnan double %5111, %5111
   %5113 = fmul double %5111, %5112
   %5114 = fmul nnan double %5112, 2.000000e+00
   %5115 = fsub double %5114, %5113
@@ -11627,7 +11627,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %5123 = and i32 %5122, 65535
   %5124 = uitofp nneg i32 %5123 to double
   %5125 = fmul nnan double %5124, 0x3EF0000000000000
-  %5126 = fmul double %5125, %5125
+  %5126 = fmul nnan double %5125, %5125
   %5127 = fmul double %5125, %5126
   %5128 = fmul nnan double %5126, 2.000000e+00
   %5129 = fsub double %5128, %5127
@@ -11876,7 +11876,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %5304 = uitofp nneg i32 %5303 to double
   %5305 = fmul nnan double %5304, 0x3EF0000000000000
   %5306 = fmul nnan double %5305, 5.000000e-01
-  %5307 = fmul double %5305, %5305
+  %5307 = fmul nnan double %5305, %5305
   %5308 = fmul double %5306, %5307
   %5309 = fmul double %5308, 3.000000e+00
   %5310 = fsub double %5307, %5308
@@ -11892,7 +11892,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %5320 = uitofp nneg i32 %5319 to double
   %5321 = fmul nnan double %5320, 0x3EF0000000000000
   %5322 = fmul nnan double %5321, 5.000000e-01
-  %5323 = fmul double %5321, %5321
+  %5323 = fmul nnan double %5321, %5321
   %5324 = fmul double %5322, %5323
   %5325 = fmul double %5324, 3.000000e+00
   %5326 = fsub double %5323, %5324
@@ -12099,7 +12099,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %5475 = uitofp nneg i32 %5474 to double
   %5476 = fmul nnan double %5475, 0x3EF0000000000000
   %5477 = fmul nnan double %5476, 5.000000e-01
-  %5478 = fmul double %5476, %5476
+  %5478 = fmul nnan double %5476, %5476
   %5479 = fmul double %5477, %5478
   %5480 = fmul double %5479, 3.000000e+00
   %5481 = fsub double %5478, %5479
@@ -12115,7 +12115,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %5491 = uitofp nneg i32 %5490 to double
   %5492 = fmul nnan double %5491, 0x3EF0000000000000
   %5493 = fmul nnan double %5492, 5.000000e-01
-  %5494 = fmul double %5492, %5492
+  %5494 = fmul nnan double %5492, %5492
   %5495 = fmul double %5493, %5494
   %5496 = fmul double %5495, 3.000000e+00
   %5497 = fsub double %5494, %5495
@@ -12292,7 +12292,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %5631 = uitofp nneg i32 %5630 to double
   %5632 = fmul nnan double %5631, 0x3EF0000000000000
   %5633 = fmul nnan double %5632, 5.000000e-01
-  %5634 = fmul double %5632, %5632
+  %5634 = fmul nnan double %5632, %5632
   %5635 = fmul double %5633, %5634
   %5636 = fmul double %5635, 3.000000e+00
   %5637 = fsub double %5634, %5635
@@ -12308,7 +12308,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %5647 = uitofp nneg i32 %5646 to double
   %5648 = fmul nnan double %5647, 0x3EF0000000000000
   %5649 = fmul nnan double %5648, 5.000000e-01
-  %5650 = fmul double %5648, %5648
+  %5650 = fmul nnan double %5648, %5648
   %5651 = fmul double %5649, %5650
   %5652 = fmul double %5651, 3.000000e+00
   %5653 = fsub double %5650, %5651
@@ -12489,7 +12489,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %5789 = uitofp nneg i32 %5788 to double
   %5790 = fmul nnan double %5789, 0x3EF0000000000000
   %5791 = fmul nnan double %5790, 5.000000e-01
-  %5792 = fmul double %5790, %5790
+  %5792 = fmul nnan double %5790, %5790
   %5793 = fmul double %5791, %5792
   %5794 = fmul double %5793, 3.000000e+00
   %5795 = fsub double %5792, %5793
@@ -12505,7 +12505,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %5805 = uitofp nneg i32 %5804 to double
   %5806 = fmul nnan double %5805, 0x3EF0000000000000
   %5807 = fmul nnan double %5806, 5.000000e-01
-  %5808 = fmul double %5806, %5806
+  %5808 = fmul nnan double %5806, %5806
   %5809 = fmul double %5807, %5808
   %5810 = fmul double %5809, 3.000000e+00
   %5811 = fsub double %5808, %5809
@@ -12703,7 +12703,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %5953 = and i32 %5952, 65535
   %5954 = uitofp nneg i32 %5953 to double
   %5955 = fmul nnan double %5954, 0x3EF0000000000000
-  %5956 = fmul double %5955, %5955
+  %5956 = fmul nnan double %5955, %5955
   %5957 = fmul double %5955, %5956
   %5958 = fmul nnan double %5956, 2.000000e+00
   %5959 = fsub double %5958, %5957
@@ -12717,7 +12717,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %5967 = and i32 %5966, 65535
   %5968 = uitofp nneg i32 %5967 to double
   %5969 = fmul nnan double %5968, 0x3EF0000000000000
-  %5970 = fmul double %5969, %5969
+  %5970 = fmul nnan double %5969, %5969
   %5971 = fmul double %5969, %5970
   %5972 = fmul nnan double %5970, 2.000000e+00
   %5973 = fsub double %5972, %5971
@@ -12922,7 +12922,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %6120 = and i32 %6119, 65535
   %6121 = uitofp nneg i32 %6120 to double
   %6122 = fmul nnan double %6121, 0x3EF0000000000000
-  %6123 = fmul double %6122, %6122
+  %6123 = fmul nnan double %6122, %6122
   %6124 = fmul double %6122, %6123
   %6125 = fmul nnan double %6123, 2.000000e+00
   %6126 = fsub double %6125, %6124
@@ -12936,7 +12936,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %6134 = and i32 %6133, 65535
   %6135 = uitofp nneg i32 %6134 to double
   %6136 = fmul nnan double %6135, 0x3EF0000000000000
-  %6137 = fmul double %6136, %6136
+  %6137 = fmul nnan double %6136, %6136
   %6138 = fmul double %6136, %6137
   %6139 = fmul nnan double %6137, 2.000000e+00
   %6140 = fsub double %6139, %6138
@@ -13111,7 +13111,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %6272 = and i32 %6271, 65535
   %6273 = uitofp nneg i32 %6272 to double
   %6274 = fmul nnan double %6273, 0x3EF0000000000000
-  %6275 = fmul double %6274, %6274
+  %6275 = fmul nnan double %6274, %6274
   %6276 = fmul double %6274, %6275
   %6277 = fmul nnan double %6275, 2.000000e+00
   %6278 = fsub double %6277, %6276
@@ -13125,7 +13125,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %6286 = and i32 %6285, 65535
   %6287 = uitofp nneg i32 %6286 to double
   %6288 = fmul nnan double %6287, 0x3EF0000000000000
-  %6289 = fmul double %6288, %6288
+  %6289 = fmul nnan double %6288, %6288
   %6290 = fmul double %6288, %6289
   %6291 = fmul nnan double %6289, 2.000000e+00
   %6292 = fsub double %6291, %6290
@@ -13304,7 +13304,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %6426 = and i32 %6425, 65535
   %6427 = uitofp nneg i32 %6426 to double
   %6428 = fmul nnan double %6427, 0x3EF0000000000000
-  %6429 = fmul double %6428, %6428
+  %6429 = fmul nnan double %6428, %6428
   %6430 = fmul double %6428, %6429
   %6431 = fmul nnan double %6429, 2.000000e+00
   %6432 = fsub double %6431, %6430
@@ -13318,7 +13318,7 @@ define hidden noundef i32 @mlib_ImageAffineEdgeExtend_BC(ptr noundef readonly ca
   %6440 = and i32 %6439, 65535
   %6441 = uitofp nneg i32 %6440 to double
   %6442 = fmul nnan double %6441, 0x3EF0000000000000
-  %6443 = fmul double %6442, %6442
+  %6443 = fmul nnan double %6442, %6442
   %6444 = fmul double %6442, %6443
   %6445 = fmul nnan double %6443, 2.000000e+00
   %6446 = fsub double %6445, %6444

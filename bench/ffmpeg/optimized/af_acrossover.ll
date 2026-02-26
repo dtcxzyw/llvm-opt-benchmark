@@ -635,9 +635,9 @@ define internal range(i32 -558323010, 1) i32 @config_input(ptr noundef %0) #1 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %26 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %27 = uitofp nneg i32 %26 to double
-  %28 = tail call nsz double @llvm.fmuladd.f64(double %27, double 2.000000e+00, double %21)
-  %29 = fadd nsz double %28, -1.000000e+00
-  %30 = fmul nsz double %29, 0x400921FB54442D18
+  %28 = tail call nnan nsz double @llvm.fmuladd.f64(double %27, double 2.000000e+00, double %21)
+  %29 = fadd nnan nsz double %28, -1.000000e+00
+  %30 = fmul nnan nsz double %29, 0x400921FB54442D18
   %31 = fdiv nsz double %30, %24
   %32 = tail call nsz double @llvm.cos.f64(double %31)
   %33 = fmul nsz double %32, -2.000000e+00

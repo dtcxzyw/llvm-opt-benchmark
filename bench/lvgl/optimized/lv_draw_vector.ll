@@ -709,7 +709,7 @@ define void @lv_vector_path_append_arc(ptr noundef %0, ptr noundef readonly capt
   %22 = tail call float @llvm.ceil.f32(float %21)
   %23 = fptosi float %22 to i32
   %24 = fcmp olt float %19, 0.000000e+00
-  %25 = tail call float @fmodf(float noundef %19, float noundef 0x3FF921FB60000000) #10, !tbaa !21
+  %25 = frem nnan float %19, 0x3FF921FB60000000
   %26 = tail call float @llvm.fabs.f32(float %25)
   %27 = fcmp uge float %26, 0x3E80000000000000
   %28 = select i1 %24, float 0xBFF921FB60000000, float 0x3FF921FB60000000
@@ -811,9 +811,6 @@ define void @lv_vector_path_append_arc(ptr noundef %0, ptr noundef readonly capt
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #1
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare float @fmodf(float noundef, float noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @cosf(float noundef) local_unnamed_addr #5

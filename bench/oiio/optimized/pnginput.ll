@@ -3926,10 +3926,8 @@ _ZN11OpenImageIO6v3_1_014linear_to_sRGBEf.exit.us: ; preds = %40, %38
   %70 = fmul float %61, %69
   %71 = fmul float %70, 6.553500e+04
   %72 = fadd float %71, 5.000000e-01
-  %.inv.i.i.i74.us = fcmp oge float %72, 0.000000e+00
-  %.0.i.i.i.i75.us = select i1 %.inv.i.i.i74.us, float %72, float 0.000000e+00
-  %73 = fcmp ogt float %.0.i.i.i.i75.us, 6.553500e+04
-  %.1.i.i.i.i76.us = select i1 %73, float 6.553500e+04, float %.0.i.i.i.i75.us
+  %73 = fcmp ogt float %72, 6.553500e+04
+  %.1.i.i.i.i76.us = select i1 %73, float 6.553500e+04, float %72
   %74 = fptoui float %.1.i.i.i.i76.us to i16
   store i16 %74, ptr %66, align 2, !tbaa !130
   br label %75
@@ -4150,10 +4148,8 @@ _ZN11OpenImageIO6v3_1_014linear_to_sRGBEf.exit.us: ; preds = %40, %38
   %70 = fmul float %61, %69
   %71 = fmul float %70, 2.550000e+02
   %72 = fadd float %71, 5.000000e-01
-  %.inv.i.i.i74.us = fcmp oge float %72, 0.000000e+00
-  %.0.i.i.i.i75.us = select i1 %.inv.i.i.i74.us, float %72, float 0.000000e+00
-  %73 = fcmp ogt float %.0.i.i.i.i75.us, 2.550000e+02
-  %.1.i.i.i.i76.us = select i1 %73, float 2.550000e+02, float %.0.i.i.i.i75.us
+  %73 = fcmp ogt float %72, 2.550000e+02
+  %.1.i.i.i.i76.us = select i1 %73, float 2.550000e+02, float %72
   %74 = fptoui float %.1.i.i.i.i76.us to i8
   store i8 %74, ptr %66, align 1, !tbaa !14
   br label %75

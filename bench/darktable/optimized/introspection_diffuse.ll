@@ -1281,8 +1281,8 @@ build_mask.exit:                                  ; preds = %137
   %220 = call noundef i32 @llvm.fshl.i32(i32 %216, i32 %216, i32 11)
   %221 = lshr i32 %213, 8
   %222 = uitofp nneg i32 %221 to float
-  %223 = fmul reassoc nnan nsz arcp contract afn float %222, 0x3E70000000000000
-  %224 = fpext reassoc nnan nsz arcp contract afn float %223 to double
+  %223 = fmul fast float %222, 0x3E70000000000000
+  %224 = fpext fast float %223 to double
   %225 = fmul reassoc nnan nsz arcp contract afn double %224, 0x401921FB54442D18
   %226 = fptrunc reassoc nsz arcp contract afn double %225 to float
   br i1 %.not.i.i, label %229, label %227

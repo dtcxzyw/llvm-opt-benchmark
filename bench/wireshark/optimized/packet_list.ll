@@ -12941,7 +12941,7 @@ define void @_ZN10PacketList15drawNearOverlayEv(ptr noundef align 8 dereferencea
   %49 = add i32 %46, 1
   %50 = sub i32 %49, %48
   %51 = sitofp i32 %50 to double
-  %52 = fmul double %41, %51
+  %52 = fmul nnan double %41, %51
   %53 = fptosi double %52 to i32
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %55 = load ptr, ptr %54, align 8
@@ -13716,12 +13716,12 @@ define void @_ZN10PacketList14drawFarOverlayEv(ptr noundef align 8 dereferenceab
   %37 = sitofp i32 %36 to double
   %38 = fmul nnan double %37, 0x3EF0000000000000
   %39 = sitofp i32 %.sroa.059.0.extract.trunc to double
-  %40 = fmul double %38, %39
+  %40 = fmul nnan double %38, %39
   %41 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %40)
   %42 = fadd double %40, %41
   %43 = fptosi double %42 to i32
   %44 = sitofp i32 %30 to double
-  %45 = fmul double %38, %44
+  %45 = fmul nnan double %38, %44
   %46 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %45)
   %47 = fadd double %45, %46
   %48 = fptosi double %47 to i32

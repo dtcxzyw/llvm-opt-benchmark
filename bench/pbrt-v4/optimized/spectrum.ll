@@ -4763,7 +4763,7 @@ _ZN4pbrt22DenselySampledSpectrumC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE
   %59 = trunc nuw nsw i64 %indvars.iv18.i to i32
   %60 = uitofp nneg i32 %59 to float
   %61 = fmul nnan float %60, 0x3E112E0BE0000000
-  %62 = fmul float %61, %61
+  %62 = fmul nnan float %61, %61
   %63 = fmul float %62, %62
   %64 = fmul float %61, %63
   %65 = fmul nnan float %61, 0x3B30B0E6A0000000

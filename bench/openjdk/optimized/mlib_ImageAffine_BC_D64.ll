@@ -93,8 +93,8 @@ define hidden noundef i32 @mlib_ImageAffine_d64_1ch_bc(ptr noundef readonly capt
 63:                                               ; preds = %52
   %64 = fmul nnan double %59, 5.000000e-01
   %65 = fmul nnan double %62, 5.000000e-01
-  %66 = fmul double %59, %59
-  %67 = fmul double %62, %62
+  %66 = fmul nnan double %59, %59
+  %67 = fmul nnan double %62, %62
   %68 = fmul double %64, %66
   %69 = fmul double %65, %67
   %70 = fmul double %68, 3.000000e+00
@@ -116,8 +116,8 @@ define hidden noundef i32 @mlib_ImageAffine_d64_1ch_bc(ptr noundef readonly capt
   br label %105
 
 86:                                               ; preds = %52
-  %87 = fmul double %59, %59
-  %88 = fmul double %62, %62
+  %87 = fmul nnan double %59, %59
+  %88 = fmul nnan double %62, %62
   %89 = fmul double %59, %87
   %90 = fmul double %62, %88
   %91 = fmul nnan double %87, 2.000000e+00
@@ -245,8 +245,8 @@ define hidden noundef i32 @mlib_ImageAffine_d64_1ch_bc(ptr noundef readonly capt
   %172 = fmul nnan double %171, 0x3EF0000000000000
   %173 = fmul nnan double %169, 5.000000e-01
   %174 = fmul nnan double %172, 5.000000e-01
-  %175 = fmul double %169, %169
-  %176 = fmul double %172, %172
+  %175 = fmul nnan double %169, %169
+  %176 = fmul nnan double %172, %172
   %177 = fmul double %173, %175
   %178 = fmul double %174, %176
   %179 = fmul double %177, 3.000000e+00
@@ -362,8 +362,8 @@ define hidden noundef i32 @mlib_ImageAffine_d64_1ch_bc(ptr noundef readonly capt
   %265 = and i32 %229, 65535
   %266 = uitofp nneg i32 %265 to double
   %267 = fmul nnan double %266, 0x3EF0000000000000
-  %268 = fmul double %264, %264
-  %269 = fmul double %267, %267
+  %268 = fmul nnan double %264, %264
+  %269 = fmul nnan double %267, %267
   %270 = fmul double %264, %268
   %271 = fmul double %267, %269
   %272 = fmul nnan double %268, 2.000000e+00
@@ -577,8 +577,8 @@ define hidden noundef i32 @mlib_ImageAffine_d64_2ch_bc(ptr noundef readonly capt
   %68 = and i32 %44, 65535
   %69 = uitofp nneg i32 %68 to double
   %70 = fmul nnan double %69, 0x3EF0000000000000
-  %71 = fmul double %67, %67
-  %72 = fmul double %70, %70
+  %71 = fmul nnan double %67, %67
+  %72 = fmul nnan double %70, %70
   %73 = fmul double %67, %71
   %74 = fmul double %70, %72
   %75 = fmul nnan double %71, 2.000000e+00
@@ -722,8 +722,8 @@ define hidden noundef i32 @mlib_ImageAffine_d64_2ch_bc(ptr noundef readonly capt
   %176 = fmul nnan double %175, 0x3EF0000000000000
   %177 = fmul nnan double %173, 5.000000e-01
   %178 = fmul nnan double %176, 5.000000e-01
-  %179 = fmul double %173, %173
-  %180 = fmul double %176, %176
+  %179 = fmul nnan double %173, %173
+  %180 = fmul nnan double %176, %176
   %181 = fmul double %177, %179
   %182 = fmul double %178, %180
   %183 = fmul double %181, 3.000000e+00
@@ -843,8 +843,8 @@ define hidden noundef i32 @mlib_ImageAffine_d64_2ch_bc(ptr noundef readonly capt
   %273 = and i32 %237, 65535
   %274 = uitofp nneg i32 %273 to double
   %275 = fmul nnan double %274, 0x3EF0000000000000
-  %276 = fmul double %272, %272
-  %277 = fmul double %275, %275
+  %276 = fmul nnan double %272, %272
+  %277 = fmul nnan double %275, %275
   %278 = fmul double %272, %276
   %279 = fmul double %275, %277
   %280 = fmul nnan double %276, 2.000000e+00
@@ -1058,8 +1058,8 @@ define hidden noundef i32 @mlib_ImageAffine_d64_3ch_bc(ptr noundef readonly capt
   %68 = and i32 %44, 65535
   %69 = uitofp nneg i32 %68 to double
   %70 = fmul nnan double %69, 0x3EF0000000000000
-  %71 = fmul double %67, %67
-  %72 = fmul double %70, %70
+  %71 = fmul nnan double %67, %67
+  %72 = fmul nnan double %70, %70
   %73 = fmul double %67, %71
   %74 = fmul double %70, %72
   %75 = fmul nnan double %71, 2.000000e+00
@@ -1202,8 +1202,8 @@ define hidden noundef i32 @mlib_ImageAffine_d64_3ch_bc(ptr noundef readonly capt
   %175 = fmul nnan double %174, 0x3EF0000000000000
   %176 = fmul nnan double %172, 5.000000e-01
   %177 = fmul nnan double %175, 5.000000e-01
-  %178 = fmul double %172, %172
-  %179 = fmul double %175, %175
+  %178 = fmul nnan double %172, %172
+  %179 = fmul nnan double %175, %175
   %180 = fmul double %176, %178
   %181 = fmul double %177, %179
   %182 = fmul double %180, 3.000000e+00
@@ -1323,8 +1323,8 @@ define hidden noundef i32 @mlib_ImageAffine_d64_3ch_bc(ptr noundef readonly capt
   %272 = and i32 %236, 65535
   %273 = uitofp nneg i32 %272 to double
   %274 = fmul nnan double %273, 0x3EF0000000000000
-  %275 = fmul double %271, %271
-  %276 = fmul double %274, %274
+  %275 = fmul nnan double %271, %271
+  %276 = fmul nnan double %274, %274
   %277 = fmul double %271, %275
   %278 = fmul double %274, %276
   %279 = fmul nnan double %275, 2.000000e+00
@@ -1540,8 +1540,8 @@ define hidden noundef i32 @mlib_ImageAffine_d64_4ch_bc(ptr noundef readonly capt
   %68 = and i32 %44, 65535
   %69 = uitofp nneg i32 %68 to double
   %70 = fmul nnan double %69, 0x3EF0000000000000
-  %71 = fmul double %67, %67
-  %72 = fmul double %70, %70
+  %71 = fmul nnan double %67, %67
+  %72 = fmul nnan double %70, %70
   %73 = fmul double %67, %71
   %74 = fmul double %70, %72
   %75 = fmul nnan double %71, 2.000000e+00
@@ -1684,8 +1684,8 @@ define hidden noundef i32 @mlib_ImageAffine_d64_4ch_bc(ptr noundef readonly capt
   %175 = fmul nnan double %174, 0x3EF0000000000000
   %176 = fmul nnan double %172, 5.000000e-01
   %177 = fmul nnan double %175, 5.000000e-01
-  %178 = fmul double %172, %172
-  %179 = fmul double %175, %175
+  %178 = fmul nnan double %172, %172
+  %179 = fmul nnan double %175, %175
   %180 = fmul double %176, %178
   %181 = fmul double %177, %179
   %182 = fmul double %180, 3.000000e+00
@@ -1805,8 +1805,8 @@ define hidden noundef i32 @mlib_ImageAffine_d64_4ch_bc(ptr noundef readonly capt
   %272 = and i32 %236, 65535
   %273 = uitofp nneg i32 %272 to double
   %274 = fmul nnan double %273, 0x3EF0000000000000
-  %275 = fmul double %271, %271
-  %276 = fmul double %274, %274
+  %275 = fmul nnan double %271, %271
+  %276 = fmul nnan double %274, %274
   %277 = fmul double %271, %275
   %278 = fmul double %274, %276
   %279 = fmul nnan double %275, 2.000000e+00

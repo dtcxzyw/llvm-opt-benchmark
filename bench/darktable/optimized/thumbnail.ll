@@ -5670,7 +5670,7 @@ define internal fastcc void @_thumb_resize_overlays(ptr noundef readonly %0) unn
   %483 = trunc i64 %indvars.iv.next336 to i32
   %484 = mul i32 %483, 3
   %485 = uitofp nneg i32 %484 to double
-  %486 = fmul reassoc nsz arcp contract afn double %485, %291
+  %486 = fmul reassoc nnan nsz arcp contract afn double %485, %291
   %487 = fadd reassoc nsz arcp contract afn double %416, %486
   %488 = fptosi double %487 to i32
   call void @gtk_widget_set_margin_start(ptr noundef %482, i32 noundef %488) #21

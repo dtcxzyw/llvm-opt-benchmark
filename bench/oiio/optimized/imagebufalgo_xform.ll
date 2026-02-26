@@ -8297,7 +8297,7 @@ define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012ImageBufAlgo6rotateERNS0_8Im
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %31 = fneg float %15
   %32 = fneg float %22
-  %33 = fmul float %22, -0.000000e+00
+  %33 = call float @llvm.copysign.f32(float 0.000000e+00, float %32)
   %34 = fsub float %33, %15
   %35 = fadd float %34, 0.000000e+00
   %36 = call float @llvm.fmuladd.f32(float %31, float 0.000000e+00, float %32)
@@ -8326,7 +8326,7 @@ define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012ImageBufAlgo6rotateERNS0_8Im
   %59 = fmul float %37, 0.000000e+00
   %60 = call float @llvm.fmuladd.f32(float %35, float 0.000000e+00, float %59)
   %61 = fadd float %39, %60
-  %62 = fmul float %22, 0.000000e+00
+  %62 = call float @llvm.copysign.f32(float 0.000000e+00, float %22)
   %63 = fadd float %15, %62
   %64 = fadd float %63, 0.000000e+00
   %65 = call float @llvm.fmuladd.f32(float %15, float 0.000000e+00, float %22)
@@ -62473,6 +62473,9 @@ declare i32 @llvm.umax.i32(i32, i32) #25
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #25
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.copysign.f32(float, float) #25
 
 attributes #0 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

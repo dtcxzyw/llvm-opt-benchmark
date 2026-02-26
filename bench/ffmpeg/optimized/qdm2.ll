@@ -3772,7 +3772,7 @@ define internal void @qdm2_init_static_data() #0 {
   %4 = fmul nnan nsz float %3, 0x3F295DFCC0000000
   %5 = fpext nsz float %4 to double
   %6 = tail call nsz double @llvm.sin.f64(double %5)
-  %7 = fmul nsz double %6, -5.167000e+03
+  %7 = fmul nnan nsz double %6, -5.167000e+03
   %8 = fptosi double %7 to i32
   %9 = trunc i32 %8 to i16
   %10 = sub i16 27600, %9

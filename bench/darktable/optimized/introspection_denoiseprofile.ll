@@ -5462,7 +5462,7 @@ define internal noundef i32 @denoiseprofile_draw(ptr noundef %0, ptr noundef %1,
   %.032.i = phi i32 [ 1, %26 ], [ %78, %74 ]
   %75 = uitofp nneg i32 %.032.i to float
   %.reass31.i = fmul reassoc nnan nsz arcp contract afn float %factor.op.fmul.i, %75
-  %.reass.i = fmul reassoc nsz arcp contract afn float %invariant.op.i, %75
+  %.reass.i = fmul reassoc nnan nsz arcp contract afn float %invariant.op.i, %75
   %76 = fpext reassoc nsz arcp contract afn float %.reass.i to double
   call void @cairo_move_to(ptr noundef %56, double noundef %76, double noundef 0.000000e+00) #21
   call void @cairo_line_to(ptr noundef %56, double noundef %76, double noundef %72) #21

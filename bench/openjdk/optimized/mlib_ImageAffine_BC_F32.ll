@@ -93,8 +93,8 @@ define hidden noundef i32 @mlib_ImageAffine_f32_1ch_bc(ptr noundef readonly capt
 63:                                               ; preds = %52
   %64 = fmul nnan float %59, 5.000000e-01
   %65 = fmul nnan float %62, 5.000000e-01
-  %66 = fmul float %59, %59
-  %67 = fmul float %62, %62
+  %66 = fmul nnan float %59, %59
+  %67 = fmul nnan float %62, %62
   %68 = fmul float %64, %66
   %69 = fmul float %65, %67
   %70 = fmul float %68, 3.000000e+00
@@ -116,8 +116,8 @@ define hidden noundef i32 @mlib_ImageAffine_f32_1ch_bc(ptr noundef readonly capt
   br label %105
 
 86:                                               ; preds = %52
-  %87 = fmul float %59, %59
-  %88 = fmul float %62, %62
+  %87 = fmul nnan float %59, %59
+  %88 = fmul nnan float %62, %62
   %89 = fmul float %59, %87
   %90 = fmul float %62, %88
   %91 = fmul nnan float %87, 2.000000e+00
@@ -245,8 +245,8 @@ define hidden noundef i32 @mlib_ImageAffine_f32_1ch_bc(ptr noundef readonly capt
   %172 = fmul nnan float %171, 0x3EF0000000000000
   %173 = fmul nnan float %169, 5.000000e-01
   %174 = fmul nnan float %172, 5.000000e-01
-  %175 = fmul float %169, %169
-  %176 = fmul float %172, %172
+  %175 = fmul nnan float %169, %169
+  %176 = fmul nnan float %172, %172
   %177 = fmul float %173, %175
   %178 = fmul float %174, %176
   %179 = fmul float %177, 3.000000e+00
@@ -362,8 +362,8 @@ define hidden noundef i32 @mlib_ImageAffine_f32_1ch_bc(ptr noundef readonly capt
   %265 = and i32 %229, 65535
   %266 = uitofp nneg i32 %265 to float
   %267 = fmul nnan float %266, 0x3EF0000000000000
-  %268 = fmul float %264, %264
-  %269 = fmul float %267, %267
+  %268 = fmul nnan float %264, %264
+  %269 = fmul nnan float %267, %267
   %270 = fmul float %264, %268
   %271 = fmul float %267, %269
   %272 = fmul nnan float %268, 2.000000e+00
@@ -577,8 +577,8 @@ define hidden noundef i32 @mlib_ImageAffine_f32_2ch_bc(ptr noundef readonly capt
   %68 = and i32 %44, 65535
   %69 = uitofp nneg i32 %68 to float
   %70 = fmul nnan float %69, 0x3EF0000000000000
-  %71 = fmul float %67, %67
-  %72 = fmul float %70, %70
+  %71 = fmul nnan float %67, %67
+  %72 = fmul nnan float %70, %70
   %73 = fmul float %67, %71
   %74 = fmul float %70, %72
   %75 = fmul nnan float %71, 2.000000e+00
@@ -722,8 +722,8 @@ define hidden noundef i32 @mlib_ImageAffine_f32_2ch_bc(ptr noundef readonly capt
   %176 = fmul nnan float %175, 0x3EF0000000000000
   %177 = fmul nnan float %173, 5.000000e-01
   %178 = fmul nnan float %176, 5.000000e-01
-  %179 = fmul float %173, %173
-  %180 = fmul float %176, %176
+  %179 = fmul nnan float %173, %173
+  %180 = fmul nnan float %176, %176
   %181 = fmul float %177, %179
   %182 = fmul float %178, %180
   %183 = fmul float %181, 3.000000e+00
@@ -843,8 +843,8 @@ define hidden noundef i32 @mlib_ImageAffine_f32_2ch_bc(ptr noundef readonly capt
   %273 = and i32 %237, 65535
   %274 = uitofp nneg i32 %273 to float
   %275 = fmul nnan float %274, 0x3EF0000000000000
-  %276 = fmul float %272, %272
-  %277 = fmul float %275, %275
+  %276 = fmul nnan float %272, %272
+  %277 = fmul nnan float %275, %275
   %278 = fmul float %272, %276
   %279 = fmul float %275, %277
   %280 = fmul nnan float %276, 2.000000e+00
@@ -1058,8 +1058,8 @@ define hidden noundef i32 @mlib_ImageAffine_f32_3ch_bc(ptr noundef readonly capt
   %68 = and i32 %44, 65535
   %69 = uitofp nneg i32 %68 to float
   %70 = fmul nnan float %69, 0x3EF0000000000000
-  %71 = fmul float %67, %67
-  %72 = fmul float %70, %70
+  %71 = fmul nnan float %67, %67
+  %72 = fmul nnan float %70, %70
   %73 = fmul float %67, %71
   %74 = fmul float %70, %72
   %75 = fmul nnan float %71, 2.000000e+00
@@ -1202,8 +1202,8 @@ define hidden noundef i32 @mlib_ImageAffine_f32_3ch_bc(ptr noundef readonly capt
   %175 = fmul nnan float %174, 0x3EF0000000000000
   %176 = fmul nnan float %172, 5.000000e-01
   %177 = fmul nnan float %175, 5.000000e-01
-  %178 = fmul float %172, %172
-  %179 = fmul float %175, %175
+  %178 = fmul nnan float %172, %172
+  %179 = fmul nnan float %175, %175
   %180 = fmul float %176, %178
   %181 = fmul float %177, %179
   %182 = fmul float %180, 3.000000e+00
@@ -1323,8 +1323,8 @@ define hidden noundef i32 @mlib_ImageAffine_f32_3ch_bc(ptr noundef readonly capt
   %272 = and i32 %236, 65535
   %273 = uitofp nneg i32 %272 to float
   %274 = fmul nnan float %273, 0x3EF0000000000000
-  %275 = fmul float %271, %271
-  %276 = fmul float %274, %274
+  %275 = fmul nnan float %271, %271
+  %276 = fmul nnan float %274, %274
   %277 = fmul float %271, %275
   %278 = fmul float %274, %276
   %279 = fmul nnan float %275, 2.000000e+00
@@ -1540,8 +1540,8 @@ define hidden noundef i32 @mlib_ImageAffine_f32_4ch_bc(ptr noundef readonly capt
   %68 = and i32 %44, 65535
   %69 = uitofp nneg i32 %68 to float
   %70 = fmul nnan float %69, 0x3EF0000000000000
-  %71 = fmul float %67, %67
-  %72 = fmul float %70, %70
+  %71 = fmul nnan float %67, %67
+  %72 = fmul nnan float %70, %70
   %73 = fmul float %67, %71
   %74 = fmul float %70, %72
   %75 = fmul nnan float %71, 2.000000e+00
@@ -1684,8 +1684,8 @@ define hidden noundef i32 @mlib_ImageAffine_f32_4ch_bc(ptr noundef readonly capt
   %175 = fmul nnan float %174, 0x3EF0000000000000
   %176 = fmul nnan float %172, 5.000000e-01
   %177 = fmul nnan float %175, 5.000000e-01
-  %178 = fmul float %172, %172
-  %179 = fmul float %175, %175
+  %178 = fmul nnan float %172, %172
+  %179 = fmul nnan float %175, %175
   %180 = fmul float %176, %178
   %181 = fmul float %177, %179
   %182 = fmul float %180, 3.000000e+00
@@ -1805,8 +1805,8 @@ define hidden noundef i32 @mlib_ImageAffine_f32_4ch_bc(ptr noundef readonly capt
   %272 = and i32 %236, 65535
   %273 = uitofp nneg i32 %272 to float
   %274 = fmul nnan float %273, 0x3EF0000000000000
-  %275 = fmul float %271, %271
-  %276 = fmul float %274, %274
+  %275 = fmul nnan float %271, %271
+  %276 = fmul nnan float %274, %274
   %277 = fmul float %271, %275
   %278 = fmul float %274, %276
   %279 = fmul nnan float %275, 2.000000e+00

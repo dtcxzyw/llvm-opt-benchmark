@@ -527,10 +527,10 @@ define internal fastcc void @make_noise(ptr noundef captures(none) %0, float nou
   %60 = add i32 %59, %58
   %61 = lshr i32 %60, 8
   %62 = uitofp nneg i32 %61 to float
-  %63 = fmul reassoc nnan nsz arcp contract afn float %62, 0x3E70000000000000
+  %63 = fmul fast float %62, 0x3E70000000000000
   %64 = and i64 %56, 1
   %.not.i.us = icmp eq i64 %64, 0
-  %65 = fpext reassoc nnan nsz arcp contract afn float %63 to double
+  %65 = fpext fast float %63 to double
   %66 = fmul reassoc nnan nsz arcp contract afn double %65, 0x401921FB54442D18
   %67 = fptrunc reassoc nsz arcp contract afn double %66 to float
   br i1 %.not.i.us, label %70, label %68

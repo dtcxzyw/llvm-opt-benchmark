@@ -1654,7 +1654,7 @@ define internal fastcc i64 @_etoa(ptr noundef readonly captures(none) %0, ptr no
   %39 = add nsw i32 %34, 1023
   %40 = zext i32 %39 to i64
   %41 = shl i64 %40, 52
-  %42 = fmul double %37, 2.000000e+00
+  %42 = fmul nnan double %37, 2.000000e+00
   %43 = fsub double 2.000000e+00, %37
   %44 = fdiv double %38, 1.400000e+01
   %45 = fadd double %44, 1.000000e+01

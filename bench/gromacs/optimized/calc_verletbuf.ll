@@ -5301,7 +5301,7 @@ _ZL24chanceOfAtomCrossingCellN3gmx8ArrayRefIK17VerletbufAtomtypeEEff.exit.us.us:
   store float %128, ptr %112, align 4, !tbaa !194
   store float 0.000000e+00, ptr %113, align 4, !tbaa !196
   store float 0.000000e+00, ptr %114, align 4, !tbaa !197
-  %129 = fmul float %127, %127
+  %129 = fmul nnan float %127, %127
   br label %.lr.ph.i63.us
 
 .lr.ph.i63.us:                                    ; preds = %.lr.ph.i63.preheader.us, %_ZNK33AtomNonbondedAndKineticProperties13hasConstraintEv.exit23.thread.i.us

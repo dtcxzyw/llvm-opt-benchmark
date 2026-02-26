@@ -2030,7 +2030,7 @@ define internal void @filter_scharr(ptr noundef writeonly captures(none) %0, i32
   %60 = sitofp i32 %59 to float
   %61 = fmul nnan nsz float %51, 3.906250e-03
   %62 = fmul nnan nsz float %60, 3.906250e-03
-  %63 = fmul nsz float %62, %62
+  %63 = fmul nnan nsz float %62, %62
   %64 = tail call nsz float @llvm.fmuladd.f32(float %61, float %61, float %63)
   %65 = tail call nsz float @llvm.sqrt.f32(float %64)
   %66 = tail call nsz float @llvm.fmuladd.f32(float %65, float %2, float %3)
@@ -2798,7 +2798,7 @@ define internal void @filter16_scharr(ptr noundef writeonly captures(none) %0, i
   %62 = sitofp i32 %61 to float
   %63 = fmul nnan nsz float %53, 3.906250e-03
   %64 = fmul nnan nsz float %62, 3.906250e-03
-  %65 = fmul nsz float %64, %64
+  %65 = fmul nnan nsz float %64, %64
   %66 = tail call nsz float @llvm.fmuladd.f32(float %63, float %63, float %65)
   %67 = tail call nsz float @llvm.sqrt.f32(float %66)
   %68 = tail call nsz float @llvm.fmuladd.f32(float %67, float %2, float %3)

@@ -8813,7 +8813,7 @@ g_list_next_bounded.exit38:
   %34 = fmul reassoc nsz arcp contract afn float %33, %32
   %35 = fmul reassoc nnan nsz arcp contract afn float %30, 0x3F9EB851E0000000
   %36 = fmul reassoc nsz arcp contract afn float %35, %33
-  %37 = fmul reassoc nsz arcp contract afn float %31, %31
+  %37 = fmul reassoc nnan nsz arcp contract afn float %31, %31
   %38 = fmul reassoc nnan nsz arcp contract afn float %37, 3.000000e+00
   %39 = fmul reassoc nsz arcp contract afn float %38, %32
   %40 = fmul reassoc nsz arcp contract afn float %37, %31

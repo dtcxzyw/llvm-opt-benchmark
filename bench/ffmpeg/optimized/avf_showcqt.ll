@@ -2850,7 +2850,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   %252 = getelementptr inbounds nuw i8, ptr %.1570652, i64 1
   %253 = load i8, ptr %252, align 1, !tbaa !148
   %254 = uitofp i8 %253 to float
-  %255 = fmul nsz float %247, %254
+  %255 = fmul nnan nsz float %247, %254
   %256 = tail call nsz float @llvm.fmuladd.f32(float %245, float %251, float %255)
   %257 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv698
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 4
@@ -2865,7 +2865,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   %266 = getelementptr inbounds nuw i8, ptr %.1575651, i64 1
   %267 = load i8, ptr %266, align 1, !tbaa !148
   %268 = uitofp i8 %267 to float
-  %269 = fmul nsz float %247, %268
+  %269 = fmul nnan nsz float %247, %268
   %270 = tail call nsz float @llvm.fmuladd.f32(float %245, float %265, float %269)
   %271 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %272 = load float, ptr %271, align 4, !tbaa !148
@@ -3059,7 +3059,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   %389 = getelementptr inbounds nuw i8, ptr %.2571644, i64 1
   %390 = load i8, ptr %389, align 1, !tbaa !148
   %391 = uitofp i8 %390 to float
-  %392 = fmul nsz float %374, %391
+  %392 = fmul nnan nsz float %374, %391
   %393 = tail call nsz float @llvm.fmuladd.f32(float %372, float %388, float %392)
   %394 = getelementptr inbounds i8, ptr %.2571644, i64 %46
   %395 = load i8, ptr %394, align 1, !tbaa !148
@@ -3082,7 +3082,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   %411 = getelementptr inbounds nuw i8, ptr %.2576643, i64 1
   %412 = load i8, ptr %411, align 1, !tbaa !148
   %413 = uitofp i8 %412 to float
-  %414 = fmul nsz float %374, %413
+  %414 = fmul nnan nsz float %374, %413
   %415 = tail call nsz float @llvm.fmuladd.f32(float %372, float %410, float %414)
   %416 = getelementptr inbounds i8, ptr %.2576643, i64 %47
   %417 = load i8, ptr %416, align 1, !tbaa !148
@@ -3453,7 +3453,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   %657 = getelementptr inbounds nuw i8, ptr %.4573675, i64 1
   %658 = load i8, ptr %657, align 1, !tbaa !148
   %659 = uitofp i8 %658 to float
-  %660 = fmul nsz float %652, %659
+  %660 = fmul nnan nsz float %652, %659
   %661 = tail call nsz float @llvm.fmuladd.f32(float %650, float %656, float %660)
   %662 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv707
   %663 = getelementptr inbounds nuw i8, ptr %662, i64 4
@@ -3468,7 +3468,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
   %671 = getelementptr inbounds nuw i8, ptr %.4578674, i64 1
   %672 = load i8, ptr %671, align 1, !tbaa !148
   %673 = uitofp i8 %672 to float
-  %674 = fmul nsz float %652, %673
+  %674 = fmul nnan nsz float %652, %673
   %675 = tail call nsz float @llvm.fmuladd.f32(float %650, float %670, float %674)
   %676 = getelementptr inbounds nuw i8, ptr %662, i64 8
   %677 = load float, ptr %676, align 4, !tbaa !148

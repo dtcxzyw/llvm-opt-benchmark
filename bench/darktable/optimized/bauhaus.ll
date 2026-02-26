@@ -11449,11 +11449,11 @@ _slider_right_pos.exit:                           ; preds = %7, %9
   %.03 = phi i32 [ 1, %_slider_right_pos.exit ], [ %42, %32 ]
   %33 = uitofp nneg i32 %.03 to float
   %34 = fmul reassoc nnan nsz arcp contract afn float %33, 0x3F90410420000000
-  %35 = fmul reassoc nsz arcp contract afn float %34, %34
+  %35 = fmul reassoc nnan nsz arcp contract afn float %34, %34
   %36 = fmul reassoc nsz arcp contract afn float %35, %30
   %37 = fadd reassoc nsz arcp contract afn float %factor.op.fmul1, %36
   %38 = fpext reassoc nsz arcp contract afn float %37 to double
-  %39 = fmul reassoc nsz arcp contract afn float %34, %29
+  %39 = fmul reassoc nnan nsz arcp contract afn float %34, %29
   %40 = fadd reassoc nsz arcp contract afn float %39, %20
   %41 = fpext reassoc nsz arcp contract afn float %40 to double
   tail call void @cairo_line_to(ptr noundef %0, double noundef %38, double noundef %41) #20

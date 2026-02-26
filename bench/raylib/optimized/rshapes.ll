@@ -3921,7 +3921,7 @@ define void @DrawSplineSegmentCatmullRom(<2 x float> %0, <2 x float> %1, <2 x fl
   %15 = uitofp nneg i32 %14 to float
   %16 = fmul nnan float %15, 0x3FA5555560000000
   %17 = fneg float %16
-  %18 = fmul float %16, %17
+  %18 = fmul nnan float %16, %17
   %19 = fmul nnan float %16, 2.000000e+00
   %20 = fmul float %16, %19
   %21 = tail call float @llvm.fmuladd.f32(float %18, float %16, float %20)
@@ -3938,7 +3938,7 @@ define void @DrawSplineSegmentCatmullRom(<2 x float> %0, <2 x float> %1, <2 x fl
   %32 = fmul float %16, %31
   %33 = tail call float @llvm.fmuladd.f32(float %30, float %16, float %32)
   %34 = fadd float %16, %33
-  %35 = fmul float %16, %16
+  %35 = fmul nnan float %16, %16
   %36 = fneg float %35
   %37 = tail call float @llvm.fmuladd.f32(float %35, float %16, float %36)
   %38 = fmul float %.sroa.070.0.vec.extract, %28

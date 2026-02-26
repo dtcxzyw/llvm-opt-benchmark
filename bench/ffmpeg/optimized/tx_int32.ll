@@ -385,7 +385,7 @@ define internal void @ff_tx_init_tab_16_int32() #5 {
   %3 = uitofp nneg i32 %.07 to double
   %4 = fmul nnan nsz double %3, 0x3FD921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
-  %6 = fmul nsz double %5, 0x41E0000000000000
+  %6 = fmul nnan nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
   %8 = tail call i64 @llvm.llrint.i64.f32(float %7)
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 -2147483648)
@@ -412,7 +412,7 @@ define internal void @ff_tx_init_tab_32_int32() #5 {
   %3 = uitofp nneg i32 %.07 to double
   %4 = fmul nnan nsz double %3, 0x3FC921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
-  %6 = fmul nsz double %5, 0x41E0000000000000
+  %6 = fmul nnan nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
   %8 = tail call i64 @llvm.llrint.i64.f32(float %7)
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 -2147483648)
@@ -439,7 +439,7 @@ define internal void @ff_tx_init_tab_64_int32() #5 {
   %3 = uitofp nneg i32 %.07 to double
   %4 = fmul nnan nsz double %3, 0x3FB921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
-  %6 = fmul nsz double %5, 0x41E0000000000000
+  %6 = fmul nnan nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
   %8 = tail call i64 @llvm.llrint.i64.f32(float %7)
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 -2147483648)
@@ -466,7 +466,7 @@ define internal void @ff_tx_init_tab_128_int32() #5 {
   %3 = uitofp nneg i32 %.07 to double
   %4 = fmul nnan nsz double %3, 0x3FA921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
-  %6 = fmul nsz double %5, 0x41E0000000000000
+  %6 = fmul nnan nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
   %8 = tail call i64 @llvm.llrint.i64.f32(float %7)
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 -2147483648)
@@ -493,7 +493,7 @@ define internal void @ff_tx_init_tab_256_int32() #5 {
   %3 = uitofp nneg i32 %.07 to double
   %4 = fmul nnan nsz double %3, 0x3F9921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
-  %6 = fmul nsz double %5, 0x41E0000000000000
+  %6 = fmul nnan nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
   %8 = tail call i64 @llvm.llrint.i64.f32(float %7)
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 -2147483648)
@@ -520,7 +520,7 @@ define internal void @ff_tx_init_tab_512_int32() #5 {
   %3 = uitofp nneg i32 %.07 to double
   %4 = fmul nnan nsz double %3, 0x3F8921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
-  %6 = fmul nsz double %5, 0x41E0000000000000
+  %6 = fmul nnan nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
   %8 = tail call i64 @llvm.llrint.i64.f32(float %7)
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 -2147483648)
@@ -547,7 +547,7 @@ define internal void @ff_tx_init_tab_1024_int32() #5 {
   %3 = uitofp nneg i32 %.07 to double
   %4 = fmul nnan nsz double %3, 0x3F7921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
-  %6 = fmul nsz double %5, 0x41E0000000000000
+  %6 = fmul nnan nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
   %8 = tail call i64 @llvm.llrint.i64.f32(float %7)
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 -2147483648)
@@ -574,7 +574,7 @@ define internal void @ff_tx_init_tab_2048_int32() #5 {
   %3 = uitofp nneg i32 %.07 to double
   %4 = fmul nnan nsz double %3, 0x3F6921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
-  %6 = fmul nsz double %5, 0x41E0000000000000
+  %6 = fmul nnan nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
   %8 = tail call i64 @llvm.llrint.i64.f32(float %7)
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 -2147483648)
@@ -601,7 +601,7 @@ define internal void @ff_tx_init_tab_4096_int32() #5 {
   %3 = uitofp nneg i32 %.07 to double
   %4 = fmul nnan nsz double %3, 0x3F5921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
-  %6 = fmul nsz double %5, 0x41E0000000000000
+  %6 = fmul nnan nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
   %8 = tail call i64 @llvm.llrint.i64.f32(float %7)
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 -2147483648)
@@ -628,7 +628,7 @@ define internal void @ff_tx_init_tab_8192_int32() #5 {
   %3 = uitofp nneg i32 %.07 to double
   %4 = fmul nnan nsz double %3, 0x3F4921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
-  %6 = fmul nsz double %5, 0x41E0000000000000
+  %6 = fmul nnan nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
   %8 = tail call i64 @llvm.llrint.i64.f32(float %7)
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 -2147483648)
@@ -655,7 +655,7 @@ define internal void @ff_tx_init_tab_16384_int32() #5 {
   %3 = uitofp nneg i32 %.07 to double
   %4 = fmul nnan nsz double %3, 0x3F3921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
-  %6 = fmul nsz double %5, 0x41E0000000000000
+  %6 = fmul nnan nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
   %8 = tail call i64 @llvm.llrint.i64.f32(float %7)
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 -2147483648)
@@ -682,7 +682,7 @@ define internal void @ff_tx_init_tab_32768_int32() #5 {
   %3 = uitofp nneg i32 %.07 to double
   %4 = fmul nnan nsz double %3, 0x3F2921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
-  %6 = fmul nsz double %5, 0x41E0000000000000
+  %6 = fmul nnan nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
   %8 = tail call i64 @llvm.llrint.i64.f32(float %7)
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 -2147483648)
@@ -709,7 +709,7 @@ define internal void @ff_tx_init_tab_65536_int32() #5 {
   %3 = uitofp nneg i32 %.07 to double
   %4 = fmul nnan nsz double %3, 0x3F1921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
-  %6 = fmul nsz double %5, 0x41E0000000000000
+  %6 = fmul nnan nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
   %8 = tail call i64 @llvm.llrint.i64.f32(float %7)
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 -2147483648)
@@ -736,7 +736,7 @@ define internal void @ff_tx_init_tab_131072_int32() #5 {
   %3 = uitofp nneg i32 %.07 to double
   %4 = fmul nnan nsz double %3, 0x3F0921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
-  %6 = fmul nsz double %5, 0x41E0000000000000
+  %6 = fmul nnan nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
   %8 = tail call i64 @llvm.llrint.i64.f32(float %7)
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 -2147483648)
@@ -763,7 +763,7 @@ define internal void @ff_tx_init_tab_262144_int32() #5 {
   %3 = uitofp nneg i32 %.07 to double
   %4 = fmul nnan nsz double %3, 0x3EF921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
-  %6 = fmul nsz double %5, 0x41E0000000000000
+  %6 = fmul nnan nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
   %8 = tail call i64 @llvm.llrint.i64.f32(float %7)
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 -2147483648)
@@ -790,7 +790,7 @@ define internal void @ff_tx_init_tab_524288_int32() #5 {
   %3 = uitofp nneg i32 %.07 to double
   %4 = fmul nnan nsz double %3, 0x3EE921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
-  %6 = fmul nsz double %5, 0x41E0000000000000
+  %6 = fmul nnan nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
   %8 = tail call i64 @llvm.llrint.i64.f32(float %7)
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 -2147483648)
@@ -817,7 +817,7 @@ define internal void @ff_tx_init_tab_1048576_int32() #5 {
   %3 = uitofp nneg i32 %.07 to double
   %4 = fmul nnan nsz double %3, 0x3ED921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
-  %6 = fmul nsz double %5, 0x41E0000000000000
+  %6 = fmul nnan nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
   %8 = tail call i64 @llvm.llrint.i64.f32(float %7)
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 -2147483648)
@@ -844,7 +844,7 @@ define internal void @ff_tx_init_tab_2097152_int32() #5 {
   %3 = uitofp nneg i32 %.07 to double
   %4 = fmul nnan nsz double %3, 0x3EC921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
-  %6 = fmul nsz double %5, 0x41E0000000000000
+  %6 = fmul nnan nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
   %8 = tail call i64 @llvm.llrint.i64.f32(float %7)
   %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 -2147483648)

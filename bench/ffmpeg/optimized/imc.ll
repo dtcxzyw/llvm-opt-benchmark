@@ -2402,7 +2402,7 @@ define internal fastcc void @iac_generate_tabs(ptr noundef writeonly captures(no
   %23 = fdiv nsz double %22, 7.500000e+03
   %24 = fmul nsz double %23, %23
   %25 = tail call nsz double @llvm.atan.f64(double %24)
-  %26 = fmul nsz double %22, 7.600000e-04
+  %26 = fmul nnan nsz double %22, 7.600000e-04
   %27 = tail call nsz double @llvm.atan.f64(double %26)
   %28 = fmul nsz double %27, 1.300000e+01
   %29 = tail call nsz double @llvm.fmuladd.f64(double %25, double 3.500000e+00, double %28)

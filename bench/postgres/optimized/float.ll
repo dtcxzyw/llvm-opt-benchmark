@@ -6516,9 +6516,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @width_bucket_float8(ptr
 55:                                               ; preds = %47
   %56 = fmul nnan double %3, 5.000000e-01
   %57 = fmul nnan double %5, 5.000000e-01
-  %58 = fsub double %56, %57
+  %58 = fsub nnan double %56, %57
   %59 = fmul nnan double %7, 5.000000e-01
-  %60 = fsub double %59, %57
+  %60 = fsub nnan double %59, %57
   %61 = fdiv double %58, %60
   br label %62
 
@@ -6571,9 +6571,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @width_bucket_float8(ptr
 88:                                               ; preds = %80
   %89 = fmul nnan double %5, 5.000000e-01
   %90 = fmul nnan double %3, 5.000000e-01
-  %91 = fsub double %89, %90
+  %91 = fsub nnan double %89, %90
   %92 = fmul nnan double %7, 5.000000e-01
-  %93 = fsub double %89, %92
+  %93 = fsub nnan double %89, %92
   %94 = fdiv double %91, %93
   br label %95
 

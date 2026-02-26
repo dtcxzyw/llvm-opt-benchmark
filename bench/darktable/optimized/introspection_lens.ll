@@ -2500,8 +2500,8 @@ _ZL13_get_modifierPiiiPK18dt_iop_lens_data_tii.exit.i: ; preds = %18
   br i1 %.not21.i, label %_ZL21_distort_transform_lfP15dt_iop_module_tP22dt_dev_pixelpipe_iop_tPfm.exit, label %.lr.ph.i13
 
 .lr.ph.i13:                                       ; preds = %79
-  %92 = fmul reassoc nsz arcp contract afn float %90, %90
-  %93 = fmul reassoc nsz arcp contract afn float %86, %86
+  %92 = fmul reassoc nnan nsz arcp contract afn float %90, %90
+  %93 = fmul reassoc nnan nsz arcp contract afn float %86, %86
   %94 = fadd reassoc nsz arcp contract afn float %92, %93
   %95 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %94)
   %96 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %95
@@ -2773,8 +2773,8 @@ define range(i32 0, 2) i32 @distort_backtransform(ptr noundef readonly captures(
   %64 = load i32, ptr %63, align 4, !tbaa !235
   %65 = sitofp i32 %64 to float
   %66 = fmul reassoc nnan nsz arcp contract afn float %65, 5.000000e-01
-  %67 = fmul reassoc nsz arcp contract afn float %62, %62
-  %68 = fmul reassoc nsz arcp contract afn float %66, %66
+  %67 = fmul reassoc nnan nsz arcp contract afn float %62, %62
+  %68 = fmul reassoc nnan nsz arcp contract afn float %66, %66
   %69 = fadd reassoc nsz arcp contract afn float %68, %67
   %70 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %69)
   %71 = shl i64 %3, 1
@@ -5195,7 +5195,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit422.i.i: ; preds = %._crit_edge.i414
   store float 1.000000e+00, ptr %512, align 4, !tbaa !52
   %513 = getelementptr inbounds nuw float, ptr %273, i64 %indvars.iv549.i.i
   store float 1.000000e+00, ptr %513, align 4, !tbaa !52
-  %square376.i.i = fmul reassoc nsz arcp contract afn float %507, %507
+  %square376.i.i = fmul reassoc nnan nsz arcp contract afn float %507, %507
   %514 = tail call reassoc nsz arcp contract afn float @llvm.powi.f32.i32(float %507, i32 4)
   %515 = tail call reassoc nsz arcp contract afn float @llvm.powi.f32.i32(float %507, i32 6)
   %516 = load i32, ptr %277, align 4, !tbaa !226
@@ -5430,8 +5430,8 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit422.i.i: ; preds = %._crit_edge.i414
   %655 = load i32, ptr %654, align 16, !tbaa !397
   %656 = sitofp i32 %655 to float
   %657 = fmul reassoc nnan nsz arcp contract afn float %656, 5.000000e-01
-  %658 = fmul reassoc nsz arcp contract afn float %653, %653
-  %659 = fmul reassoc nsz arcp contract afn float %657, %657
+  %658 = fmul reassoc nnan nsz arcp contract afn float %653, %653
+  %659 = fmul reassoc nnan nsz arcp contract afn float %657, %657
   %660 = fadd reassoc nsz arcp contract afn float %659, %658
   %661 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %660)
   %662 = fcmp reassoc nsz arcp contract afn olt float %653, %657
@@ -9099,7 +9099,7 @@ define internal fastcc noundef i32 @_ZL18_init_coeffs_md_v1PK10dt_image_tPK20dt_
   br label %195
 
 195:                                              ; preds = %193, %192
-  %square = fmul reassoc nsz arcp contract afn float %185, %185
+  %square = fmul reassoc nnan nsz arcp contract afn float %185, %185
   %196 = tail call reassoc nsz arcp contract afn float @llvm.powi.f32.i32(float %185, i32 4)
   %197 = tail call reassoc nsz arcp contract afn float @llvm.powi.f32.i32(float %185, i32 6)
   br i1 %.not, label %._crit_edge.thread, label %198

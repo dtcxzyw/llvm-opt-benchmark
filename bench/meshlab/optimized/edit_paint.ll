@@ -10672,8 +10672,8 @@ _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit97: ; preds = %358
   br i1 %or.cond, label %373, label %395
 
 373:                                              ; preds = %372
-  %374 = fmul double %145, %295
-  %375 = fmul double %374, 1.000000e+02
+  %374 = fmul nnan double %145, %295
+  %375 = fmul nnan double %374, 1.000000e+02
   %376 = fptosi double %375 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %377 = load i32, ptr %283, align 1

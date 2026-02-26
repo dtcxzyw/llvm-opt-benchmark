@@ -172,7 +172,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef %0) #1 {
   %18 = icmp eq i32 %14, 7
   %19 = select i1 %18, double 0x40A8DE329E04D144, double 0x40A09421BEADE0D8
   %20 = fmul nnan nsz double %4, 5.000000e-01
-  %21 = fmul nsz double %20, %20
+  %21 = fmul nnan nsz double %20, %20
   %22 = select nsz i1 %18, double 0x41635352CBA7CD99, double 0x41512D9EEDEA7DDD
   %23 = fdiv nsz double %21, %22
   %24 = fadd nsz double %23, 1.000000e+00

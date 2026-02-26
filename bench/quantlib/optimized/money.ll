@@ -3085,7 +3085,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i
   br i1 %or.cond.i.i.i, label %if.then3.i.i.i, label %if.end6.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
-  %mul4.i.i.i = fmul double %mul.i.i.i, %mul.i.i.i
+  %mul4.i.i.i = fmul nnan double %mul.i.i.i, %mul.i.i.i
   %cmp5.i.i.i = fcmp olt double %16, %mul4.i.i.i
   br label %"_ZN8QuantLib12_GLOBAL__N_15applyIbZNS_5closeERKNS_5MoneyES4_mE3$_0EET_S4_S4_T0_.exit"
 
@@ -3170,7 +3170,7 @@ if.end.i.i30.i:                                   ; preds = %invoke.cont10.i
   br i1 %or.cond.i.i36.i, label %if.then3.i.i43.i, label %if.end6.i.i37.i
 
 if.then3.i.i43.i:                                 ; preds = %if.end.i.i30.i
-  %mul4.i.i44.i = fmul double %mul.i.i33.i, %mul.i.i33.i
+  %mul4.i.i44.i = fmul nnan double %mul.i.i33.i, %mul.i.i33.i
   %cmp5.i.i45.i = fcmp olt double %32, %mul4.i.i44.i
   br label %invoke.cont13.i
 
@@ -3323,7 +3323,7 @@ if.end.i.i77.i:                                   ; preds = %invoke.cont21.i
   br i1 %or.cond.i.i83.i, label %if.then3.i.i90.i, label %if.end6.i.i84.i
 
 if.then3.i.i90.i:                                 ; preds = %if.end.i.i77.i
-  %mul4.i.i91.i = fmul double %mul.i.i80.i, %mul.i.i80.i
+  %mul4.i.i91.i = fmul nnan double %mul.i.i80.i, %mul.i.i80.i
   %cmp5.i.i92.i = fcmp olt double %57, %mul4.i.i91.i
   br label %invoke.cont24.i
 
@@ -3630,7 +3630,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i
   br i1 %or.cond.i.i.i, label %if.then3.i.i.i, label %if.end6.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.end.i.i.i
-  %mul4.i.i.i = fmul double %mul.i.i.i, %mul.i.i.i
+  %mul4.i.i.i = fmul nnan double %mul.i.i.i, %mul.i.i.i
   %cmp5.i.i.i = fcmp olt double %16, %mul4.i.i.i
   br label %"_ZN8QuantLib12_GLOBAL__N_15applyIbZNS_12close_enoughERKNS_5MoneyES4_mE3$_0EET_S4_S4_T0_.exit"
 
@@ -3715,7 +3715,7 @@ if.end.i.i30.i:                                   ; preds = %invoke.cont10.i
   br i1 %or.cond.i.i36.i, label %if.then3.i.i43.i, label %if.end6.i.i37.i
 
 if.then3.i.i43.i:                                 ; preds = %if.end.i.i30.i
-  %mul4.i.i44.i = fmul double %mul.i.i33.i, %mul.i.i33.i
+  %mul4.i.i44.i = fmul nnan double %mul.i.i33.i, %mul.i.i33.i
   %cmp5.i.i45.i = fcmp olt double %32, %mul4.i.i44.i
   br label %invoke.cont13.i
 
@@ -3868,7 +3868,7 @@ if.end.i.i77.i:                                   ; preds = %invoke.cont21.i
   br i1 %or.cond.i.i83.i, label %if.then3.i.i90.i, label %if.end6.i.i84.i
 
 if.then3.i.i90.i:                                 ; preds = %if.end.i.i77.i
-  %mul4.i.i91.i = fmul double %mul.i.i80.i, %mul.i.i80.i
+  %mul4.i.i91.i = fmul nnan double %mul.i.i80.i, %mul.i.i80.i
   %cmp5.i.i92.i = fcmp olt double %57, %mul4.i.i91.i
   br label %invoke.cont24.i
 

@@ -2043,7 +2043,7 @@ dt_prophotorgb_to_Lab.exit:                       ; preds = %376
   %410 = trunc nuw nsw i64 %indvars.iv.i to i32
   %411 = uitofp nneg i32 %410 to double
   %412 = fmul reassoc nnan nsz arcp contract afn double %411, 0x3FAAF286BCA1AF28
-  %413 = fmul reassoc nsz arcp contract afn double %412, %412
+  %413 = fmul reassoc nnan nsz arcp contract afn double %412, %412
   %414 = fptrunc reassoc nsz arcp contract afn double %413 to float
   %415 = getelementptr inbounds nuw %struct.dt_iop_tonecurve_node_t, ptr %9, i64 %indvars.iv.i
   store float %414, ptr %415, align 4, !tbaa !70

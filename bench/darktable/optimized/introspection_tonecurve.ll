@@ -4177,7 +4177,7 @@ to_log.exit:                                      ; preds = %dt_iop_estimate_exp
   %.032.i = phi i32 [ 1, %310 ], [ %319, %315 ]
   %316 = uitofp nneg i32 %.032.i to float
   %.reass31.i = fmul reassoc nnan nsz arcp contract afn float %factor.op.fmul.i439, %316
-  %.reass.i440 = fmul reassoc nsz arcp contract afn float %invariant.op.i438, %316
+  %.reass.i440 = fmul reassoc nnan nsz arcp contract afn float %invariant.op.i438, %316
   %317 = fpext reassoc nsz arcp contract afn float %.reass.i440 to double
   call void @cairo_move_to(ptr noundef %183, double noundef %317, double noundef 0.000000e+00) #22
   call void @cairo_line_to(ptr noundef %183, double noundef %317, double noundef %313) #22

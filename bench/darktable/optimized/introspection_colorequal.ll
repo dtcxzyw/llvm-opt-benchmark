@@ -6822,7 +6822,7 @@ _init_graph_backgrounds.exit:                     ; preds = %._crit_edge.us.i, %
   %.032.i = phi i32 [ 1, %188 ], [ %210, %206 ]
   %207 = uitofp nneg i32 %.032.i to float
   %.reass31.i = fmul reassoc nnan nsz arcp contract afn float %factor.op.fmul.i185, %207
-  %.reass.i186 = fmul reassoc nsz arcp contract afn float %invariant.op.i, %207
+  %.reass.i186 = fmul reassoc nnan nsz arcp contract afn float %invariant.op.i, %207
   %208 = fpext reassoc nsz arcp contract afn float %.reass.i186 to double
   call void @cairo_move_to(ptr noundef %38, double noundef %208, double noundef 0.000000e+00) #31
   call void @cairo_line_to(ptr noundef %38, double noundef %208, double noundef %204) #31

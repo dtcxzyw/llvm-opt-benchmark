@@ -5027,27 +5027,21 @@ define internal fastcc void @_ZN11OpenImageIO6v3_1_0L11cmyk_to_rgbEiPKhmPhm(i32 
   %21 = fmul float %14, %18
   %22 = fmul float %19, 2.550000e+02
   %23 = fadd float %22, 5.000000e-01
-  %.inv.i.i = fcmp oge float %23, 0.000000e+00
-  %.0.i.i.i = select i1 %.inv.i.i, float %23, float 0.000000e+00
-  %24 = fcmp ogt float %.0.i.i.i, 2.550000e+02
-  %.1.i.i.i = select i1 %24, float 2.550000e+02, float %.0.i.i.i
+  %24 = fcmp ogt float %23, 2.550000e+02
+  %.1.i.i.i = select i1 %24, float 2.550000e+02, float %23
   %25 = fptoui float %.1.i.i.i to i8
   store i8 %25, ptr %.01929, align 1, !tbaa !14
   %26 = fmul float %20, 2.550000e+02
   %27 = fadd float %26, 5.000000e-01
-  %.inv.i.i20 = fcmp oge float %27, 0.000000e+00
-  %.0.i.i.i21 = select i1 %.inv.i.i20, float %27, float 0.000000e+00
-  %28 = fcmp ogt float %.0.i.i.i21, 2.550000e+02
-  %.1.i.i.i22 = select i1 %28, float 2.550000e+02, float %.0.i.i.i21
+  %28 = fcmp ogt float %27, 2.550000e+02
+  %.1.i.i.i22 = select i1 %28, float 2.550000e+02, float %27
   %29 = fptoui float %.1.i.i.i22 to i8
   %30 = getelementptr inbounds nuw i8, ptr %.01929, i64 1
   store i8 %29, ptr %30, align 1, !tbaa !14
   %31 = fmul float %21, 2.550000e+02
   %32 = fadd float %31, 5.000000e-01
-  %.inv.i.i23 = fcmp oge float %32, 0.000000e+00
-  %.0.i.i.i24 = select i1 %.inv.i.i23, float %32, float 0.000000e+00
-  %33 = fcmp ogt float %.0.i.i.i24, 2.550000e+02
-  %.1.i.i.i25 = select i1 %33, float 2.550000e+02, float %.0.i.i.i24
+  %33 = fcmp ogt float %32, 2.550000e+02
+  %.1.i.i.i25 = select i1 %33, float 2.550000e+02, float %32
   %34 = fptoui float %.1.i.i.i25 to i8
   %35 = getelementptr inbounds nuw i8, ptr %.01929, i64 2
   store i8 %34, ptr %35, align 1, !tbaa !14

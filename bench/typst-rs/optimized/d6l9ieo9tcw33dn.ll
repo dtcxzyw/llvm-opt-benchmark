@@ -60564,12 +60564,10 @@ _ZN5typst6layout5frame5Frame10push_frame17ha7067a63bf81698cE.exit206.i: ; preds 
 1188:                                             ; preds = %1160
   %1189 = fmul nnan double %.1272.i, 5.000000e-01
   %1190 = fsub double %1189, %.0.i.i.i169.i
-  %.0.i.inv.i.i.i1.i217.i = fcmp ord double %1190, 0.000000e+00
-  %.0.i.i.i2.i218.i = select i1 %.0.i.inv.i.i.i1.i217.i, double %1190, double 0.000000e+00
   br label %1191
 
 1191:                                             ; preds = %1188, %.thread400.i, %.thread430.i, %.thread420.i, %.thread410.i
-  %.0.i.i.i2.i218409.i = phi double [ %.0.i.i.i2.i218438.i, %.thread430.i ], [ %.0.i.i.i2.i218418.i, %.thread410.i ], [ %.0.i.i.i2.i218408.i, %.thread400.i ], [ %.0.i.i.i2.i218.i, %1188 ], [ %.0.i.i.i2.i218428.i, %.thread420.i ]
+  %.0.i.i.i2.i218409.i = phi double [ %.0.i.i.i2.i218438.i, %.thread430.i ], [ %.0.i.i.i2.i218418.i, %.thread410.i ], [ %.0.i.i.i2.i218408.i, %.thread400.i ], [ %1190, %1188 ], [ %.0.i.i.i2.i218428.i, %.thread420.i ]
   %.0.i219.i = phi double [ %.sroa.8372.0.copyload.i, %.thread430.i ], [ %.0.i.i.i.i.i221.i, %.thread410.i ], [ 0.000000e+00, %.thread400.i ], [ 0.000000e+00, %1188 ], [ %.sroa.8372.0.copyload.i, %.thread420.i ]
   %1192 = fneg double %.0.i219.i
   %.0.i.inv.i.i.i.i223.i = fcmp ord double %.0.i219.i, 0.000000e+00

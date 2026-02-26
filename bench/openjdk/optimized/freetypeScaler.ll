@@ -683,7 +683,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getFontMetricsNative(ptr noundef %0
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 192), align 8
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 200), align 8
   %17 = tail call ptr (ptr, ptr, ptr, ...) %14(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %16, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00) #19
-  br label %134
+  br label %135
 
 18:                                               ; preds = %5
   %19 = tail call fastcc i32 @setupFTContext(ptr noundef %0, ptr noundef %2, ptr noundef %7, ptr noundef %6)
@@ -698,7 +698,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getFontMetricsNative(ptr noundef %0
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 200), align 8
   %26 = tail call ptr (ptr, ptr, ptr, ...) %23(ptr noundef nonnull %0, ptr noundef %24, ptr noundef %25, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00) #19
   tail call fastcc void @invalidateJavaScaler(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7)
-  br label %134
+  br label %135
 
 27:                                               ; preds = %18
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -810,17 +810,18 @@ define ptr @Java_sun_font_FreetypeFontScaler_getFontMetricsNative(ptr noundef %0
   %124 = fmul float %62, %110
   %125 = tail call float @llvm.fmuladd.f32(float %106, float 0.000000e+00, float %124)
   %126 = fpext float %125 to double
-  %127 = fmul float %99, -0.000000e+00
-  %128 = tail call float @llvm.fmuladd.f32(float %95, float %87, float %127)
-  %129 = fpext float %128 to double
-  %130 = fmul float %110, 0.000000e+00
-  %131 = tail call float @llvm.fmuladd.f32(float %106, float %87, float %130)
-  %132 = fpext float %131 to double
-  %133 = tail call ptr (ptr, ptr, ptr, ...) %90(ptr noundef nonnull %0, ptr noundef %91, ptr noundef %92, double noundef %102, double noundef %113, double noundef %116, double noundef %119, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %123, double noundef %126, double noundef %129, double noundef %132) #19
-  br label %134
+  %127 = fneg float %99
+  %128 = tail call float @llvm.copysign.f32(float 0.000000e+00, float %127)
+  %129 = tail call float @llvm.fmuladd.f32(float %95, float %87, float %128)
+  %130 = fpext float %129 to double
+  %131 = tail call float @llvm.copysign.f32(float 0.000000e+00, float %110)
+  %132 = tail call float @llvm.fmuladd.f32(float %106, float %87, float %131)
+  %133 = fpext float %132 to double
+  %134 = tail call ptr (ptr, ptr, ptr, ...) %90(ptr noundef nonnull %0, ptr noundef %91, ptr noundef %92, double noundef %102, double noundef %113, double noundef %116, double noundef %119, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %123, double noundef %126, double noundef %130, double noundef %133) #19
+  br label %135
 
-134:                                              ; preds = %83, %20, %11
-  %.0 = phi ptr [ %17, %11 ], [ %26, %20 ], [ %133, %83 ]
+135:                                              ; preds = %83, %20, %11
+  %.0 = phi ptr [ %17, %11 ], [ %26, %20 ], [ %134, %83 ]
   ret ptr %.0
 }
 
@@ -2827,6 +2828,9 @@ define internal noundef i32 @cubicTo(ptr noundef readonly captures(none) %0, ptr
 }
 
 declare i32 @FT_Outline_Decompose(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.copysign.f32(float, float) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17

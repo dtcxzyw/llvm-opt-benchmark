@@ -9144,7 +9144,7 @@ define internal fastcc void @lmmse_demosaic(ptr noundef readonly captures(none) 
   br label %30
 
 24:                                               ; preds = %.preheader.i
-  %25 = tail call reassoc nnan nsz arcp contract afn double @llvm.log.f64(double %20)
+  %25 = tail call fast double @llvm.log.f64(double %20)
   %26 = fmul reassoc nnan nsz arcp contract afn double %25, 0x3FDAAAAAAAAAAAAB
   %27 = tail call reassoc nnan nsz arcp contract afn double @llvm.exp.f64(double %26)
   %28 = fmul reassoc nnan nsz arcp contract afn double %27, 0x3FF0B60BF5D78812

@@ -5299,10 +5299,10 @@ define internal noundef i32 @xyz_to_cube3x2(ptr noundef readonly captures(none) 
   %49 = fptosi float %48 to i32
   %50 = add nsw i32 %40, 1
   %51 = sitofp i32 %50 to float
-  %52 = fmul nsz float %17, %51
+  %52 = fmul nnan nsz float %17, %51
   %53 = tail call nsz float @llvm.ceil.f32(float %52)
   %54 = sitofp i32 %40 to float
-  %55 = fmul nsz float %17, %54
+  %55 = fmul nnan nsz float %17, %54
   %56 = tail call nsz float @llvm.ceil.f32(float %55)
   %57 = fsub nsz float %53, %56
   %58 = fptosi float %57 to i32
@@ -5381,7 +5381,7 @@ define internal noundef i32 @xyz_to_cube3x2(ptr noundef readonly captures(none) 
   %104 = tail call nsz float @llvm.ceil.f32(float %103)
   %105 = fptosi float %104 to i32
   %106 = sitofp i32 %101 to float
-  %107 = fmul nsz float %17, %106
+  %107 = fmul nnan nsz float %17, %106
   %108 = tail call nsz float @llvm.ceil.f32(float %107)
   %109 = fptosi float %108 to i32
   %110 = trunc nsw i64 %94 to i32
@@ -5411,7 +5411,7 @@ define internal noundef i32 @xyz_to_cube3x2(ptr noundef readonly captures(none) 
   %127 = tail call nsz float @llvm.ceil.f32(float %126)
   %128 = fptosi float %127 to i32
   %129 = sitofp i32 %124 to float
-  %130 = fmul nsz float %17, %129
+  %130 = fmul nnan nsz float %17, %129
   %131 = tail call nsz float @llvm.ceil.f32(float %130)
   %132 = fptosi float %131 to i32
   %133 = add nsw i32 %123, 1
@@ -5423,7 +5423,7 @@ define internal noundef i32 @xyz_to_cube3x2(ptr noundef readonly captures(none) 
   %139 = fptosi float %138 to i32
   %140 = add nsw i32 %124, 1
   %141 = sitofp i32 %140 to float
-  %142 = fmul nsz float %17, %141
+  %142 = fmul nnan nsz float %17, %141
   %143 = tail call nsz float @llvm.ceil.f32(float %142)
   %144 = sitofp i32 %132 to float
   %145 = fsub nsz float %143, %144
@@ -8574,7 +8574,7 @@ define internal noundef i32 @cube3x2_to_xyz(ptr noundef readonly captures(none) 
   %36 = tail call nsz float @llvm.ceil.f32(float %35)
   %37 = fptosi float %36 to i32
   %38 = sitofp i32 %31 to float
-  %39 = fmul nsz float %11, %38
+  %39 = fmul nnan nsz float %11, %38
   %40 = tail call nsz float @llvm.ceil.f32(float %39)
   %41 = fptosi float %40 to i32
   %42 = add nsw i32 %27, 1
@@ -8586,7 +8586,7 @@ define internal noundef i32 @cube3x2_to_xyz(ptr noundef readonly captures(none) 
   %48 = fptosi float %47 to i32
   %49 = add nsw i32 %31, 1
   %50 = sitofp i32 %49 to float
-  %51 = fmul nsz float %11, %50
+  %51 = fmul nnan nsz float %11, %50
   %52 = tail call nsz float @llvm.ceil.f32(float %51)
   %53 = sitofp i32 %41 to float
   %54 = fsub nsz float %52, %53

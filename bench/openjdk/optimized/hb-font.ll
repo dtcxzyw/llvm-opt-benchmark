@@ -7956,7 +7956,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT4fvar22unnormalize_axis_valueEj
 
 89:                                               ; preds = %87
   %90 = sitofp i32 %2 to float
-  %91 = fsub float %43, %.sroa.speculated7.i.i
+  %91 = fsub nnan float %43, %.sroa.speculated7.i.i
   %92 = fmul float %91, %90
   %93 = fmul float %92, 0x3F10000000000000
   %94 = fadd float %43, %93
@@ -7964,7 +7964,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT4fvar22unnormalize_axis_valueEj
 
 95:                                               ; preds = %87
   %96 = uitofp nneg i32 %2 to float
-  %97 = fsub float %.sroa.speculated.i.i, %43
+  %97 = fsub nnan float %.sroa.speculated.i.i, %43
   %98 = fmul float %97, %96
   %99 = fmul float %98, 0x3F10000000000000
   %100 = fadd float %43, %99

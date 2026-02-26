@@ -7103,10 +7103,10 @@ _segment_gradients.exit.i:                        ; preds = %._crit_edge165.us.i
   %2337 = tail call noundef i32 @llvm.fshl.i32(i32 %2333, i32 %2333, i32 11)
   %2338 = lshr i32 %2330, 8
   %2339 = uitofp nneg i32 %2338 to float
-  %2340 = fmul reassoc nnan nsz arcp contract afn float %2339, 0x3E70000000000000
+  %2340 = fmul fast float %2339, 0x3E70000000000000
   %2341 = and i64 %indvars.iv.i557.i, 1
   %.not.i.us.i562.i = icmp eq i64 %2341, 0
-  %2342 = fpext reassoc nnan nsz arcp contract afn float %2340 to double
+  %2342 = fpext fast float %2340 to double
   %2343 = fmul reassoc nnan nsz arcp contract afn double %2342, 0x401921FB54442D18
   %2344 = fptrunc reassoc nsz arcp contract afn double %2343 to float
   br i1 %.not.i.us.i562.i, label %2347, label %2345
