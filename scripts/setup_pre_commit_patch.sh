@@ -2,8 +2,8 @@
 set -euo pipefail
 shopt -s inherit_errexit
 
-export GITHUB_PATCH_ID="<user_name>/llvm-project/commit/<commit_hash>"
-export COMPTIME_MODE=0
+export GITHUB_PATCH_ID=llvm/llvm-project/compare/main...Adar-Dagan:llvm-project:210546d6fc4cad7a1ad2afc1eaf692197c8d73c1
+export COMPTIME_MODE=1
 export STAT_MODE=0
 export STAT_NAME=""
 
