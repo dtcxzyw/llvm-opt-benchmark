@@ -71274,7 +71274,7 @@ define hidden noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u2
 
 23:                                               ; preds = %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcaec8e2baa29f68dE.exit", %10
   %.sroa.07.0 = phi i1 [ %2, %10 ], [ %.sroa.0.0.in.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcaec8e2baa29f68dE.exit" ]
-  %.sroa.09.0 = phi i64 [ 0, %10 ], [ %101, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcaec8e2baa29f68dE.exit" ]
+  %.sroa.09.0 = phi i64 [ 0, %10 ], [ %100, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcaec8e2baa29f68dE.exit" ]
   %24 = getelementptr inbounds { i64, [4 x i64] }, ptr %0, i64 %.sroa.09.0
   call void @llvm.experimental.noalias.scope.decl(metadata !20139)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -71497,15 +71497,15 @@ common.resume.i.i.i:                              ; preds = %82, %78, %common.re
 
 98:                                               ; preds = %"_ZN7project7Project19visibility_for_path28_$u7b$$u7b$closure$u7d$$u7d$17h30351407b43ae7cfE.exit.i.i"
   %99 = trunc nuw i8 %.sroa.0.0.i.i.i to i1
-  %100 = or i1 %.sroa.07.0, %99
+  %.sroa.0.0.sroa.speculated.v.i.i.i.i = or i1 %.sroa.07.0, %99
   br label %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcaec8e2baa29f68dE.exit"
 
 "_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcaec8e2baa29f68dE.exit": ; preds = %"_ZN7project7Project19visibility_for_path28_$u7b$$u7b$closure$u7d$$u7d$17h30351407b43ae7cfE.exit.thread.i.i", %"_ZN7project7Project19visibility_for_path28_$u7b$$u7b$closure$u7d$$u7d$17h30351407b43ae7cfE.exit.i.i", %98, %"_ZN7project14worktree_store13WorktreeStore9worktrees28_$u7b$$u7b$closure$u7d$$u7d$17ha65296a8ace9f641E.llvm.10723454985916948783.exit.thread.i", %"_ZN7project14worktree_store13WorktreeStore9worktrees28_$u7b$$u7b$closure$u7d$$u7d$17ha65296a8ace9f641E.llvm.10723454985916948783.exit.i"
-  %.sroa.0.0.in.i = phi i1 [ %.sroa.07.0, %"_ZN7project14worktree_store13WorktreeStore9worktrees28_$u7b$$u7b$closure$u7d$$u7d$17ha65296a8ace9f641E.llvm.10723454985916948783.exit.thread.i" ], [ %.sroa.07.0, %"_ZN7project14worktree_store13WorktreeStore9worktrees28_$u7b$$u7b$closure$u7d$$u7d$17ha65296a8ace9f641E.llvm.10723454985916948783.exit.i" ], [ %100, %98 ], [ %.sroa.07.0, %"_ZN7project7Project19visibility_for_path28_$u7b$$u7b$closure$u7d$$u7d$17h30351407b43ae7cfE.exit.i.i" ], [ %.sroa.07.0, %"_ZN7project7Project19visibility_for_path28_$u7b$$u7b$closure$u7d$$u7d$17h30351407b43ae7cfE.exit.thread.i.i" ]
+  %.sroa.0.0.in.i = phi i1 [ %.sroa.07.0, %"_ZN7project14worktree_store13WorktreeStore9worktrees28_$u7b$$u7b$closure$u7d$$u7d$17ha65296a8ace9f641E.llvm.10723454985916948783.exit.thread.i" ], [ %.sroa.07.0, %"_ZN7project14worktree_store13WorktreeStore9worktrees28_$u7b$$u7b$closure$u7d$$u7d$17ha65296a8ace9f641E.llvm.10723454985916948783.exit.i" ], [ %.sroa.0.0.sroa.speculated.v.i.i.i.i, %98 ], [ %.sroa.07.0, %"_ZN7project7Project19visibility_for_path28_$u7b$$u7b$closure$u7d$$u7d$17h30351407b43ae7cfE.exit.i.i" ], [ %.sroa.07.0, %"_ZN7project7Project19visibility_for_path28_$u7b$$u7b$closure$u7d$$u7d$17h30351407b43ae7cfE.exit.thread.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %101 = add nuw i64 %.sroa.09.0, 1
-  %102 = icmp eq i64 %101, %14
-  br i1 %102, label %.loopexit19, label %23
+  %100 = add nuw i64 %.sroa.09.0, 1
+  %101 = icmp eq i64 %100, %14
+  br i1 %101, label %.loopexit19, label %23
 
 .loopexit19:                                      ; preds = %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcaec8e2baa29f68dE.exit", %4
   %.sroa.04.0.in = phi i1 [ %2, %4 ], [ %.sroa.0.0.in.i, %"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hcaec8e2baa29f68dE.exit" ]

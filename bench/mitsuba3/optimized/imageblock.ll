@@ -380,10 +380,7 @@ define weak_odr void @_ZN7mitsuba10ImageBlockIfN5drjit6MatrixINS_8SpectrumIfLm4E
   %13 = load i32, ptr %11, align 4
   %14 = load i32, ptr %12, align 8
   %15 = icmp eq i32 %13, %14
-  %.sroa.2110.0.insert.shift = select i1 %15, i16 256, i16 0
-  %.sroa.0.0.insert.ext = zext i1 %10 to i16
-  %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.2110.0.insert.shift, %.sroa.0.0.insert.ext
-  %.016.lcssa.i.i = icmp eq i16 %.sroa.0.0.insert.insert, 257
+  %.016.lcssa.i.i = and i1 %15, %10
   br i1 %.016.lcssa.i.i, label %130, label %_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIjTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.critedge
 
 _ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIjTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.critedge: ; preds = %.critedge
@@ -1984,10 +1981,7 @@ _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE6floor_Ev.exit.i.critedge: ; p
   %115 = load i32, ptr %114, align 8
   %116 = icmp ult i32 %108, %111
   %117 = icmp ult i32 %109, %115
-  %.sroa.21142.0.insert.shift = select i1 %117, i16 256, i16 0
-  %.sroa.01141.0.insert.ext = zext i1 %116 to i16
-  %.sroa.01141.0.insert.insert = or disjoint i16 %.sroa.21142.0.insert.shift, %.sroa.01141.0.insert.ext
-  %118 = icmp eq i16 %.sroa.01141.0.insert.insert, 257
+  %118 = and i1 %117, %116
   %or.cond906 = and i1 %3, %118
   %.not969 = icmp ne i32 %113, 0
   %or.cond1042.not = select i1 %or.cond906, i1 %.not969, i1 false
@@ -2368,10 +2362,7 @@ _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE6floor_Ev.exit.i.critedge: ; p
   %30 = load i32, ptr %29, align 8
   %31 = icmp ugt i32 %28, %19
   %32 = icmp ugt i32 %30, %20
-  %.sroa.21038.0.insert.shift = select i1 %32, i16 256, i16 0
-  %.sroa.01037.0.insert.ext = zext i1 %31 to i16
-  %.sroa.01037.0.insert.insert = or disjoint i16 %.sroa.21038.0.insert.shift, %.sroa.01037.0.insert.ext
-  %.016.lcssa.i = icmp eq i16 %.sroa.01037.0.insert.insert, 257
+  %.016.lcssa.i = and i1 %32, %31
   br label %33
 
 33:                                               ; preds = %.preheader, %_ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE6floor_Ev.exit.i.critedge
@@ -2423,10 +2414,7 @@ _ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIjTnNSt3__19
   %60 = add i32 %54, %59
   %61 = fcmp contract oge float %13, 0.000000e+00
   %62 = fcmp contract oge float %14, 0.000000e+00
-  %.sroa.21042.0.insert.shift = select i1 %62, i16 256, i16 0
-  %.sroa.01041.0.insert.ext = zext i1 %61 to i16
-  %.sroa.01041.0.insert.insert = or disjoint i16 %.sroa.21042.0.insert.shift, %.sroa.01041.0.insert.ext
-  %or.cond = icmp eq i16 %.sroa.01041.0.insert.insert, 257
+  %or.cond = and i1 %62, %61
   br i1 %or.cond, label %.preheader845, label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIfLm2EEEE4all_Ev.exit.thread
 
 .preheader845:                                    ; preds = %_ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIjTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit.critedge
@@ -2437,10 +2425,7 @@ _ZN7mitsuba6VectorIjLm2EECI2N5drjit15StaticArrayImplIjLm2ELb0ES1_iEEIjTnNSt3__19
   %67 = uitofp i32 %66 to float
   %68 = fcmp contract olt float %13, %64
   %69 = fcmp contract olt float %14, %67
-  %.sroa.21044.0.insert.shift = select i1 %69, i16 256, i16 0
-  %.sroa.01043.0.insert.ext = zext i1 %68 to i16
-  %.sroa.01043.0.insert.insert = or disjoint i16 %.sroa.21044.0.insert.shift, %.sroa.01043.0.insert.ext
-  %.016.lcssa.i528 = icmp eq i16 %.sroa.01043.0.insert.insert, 257
+  %.016.lcssa.i528 = and i1 %69, %68
   %70 = and i1 %3, %.016.lcssa.i528
   br label %_ZNK5drjit9ArrayBaseIbLb1ENS_4MaskIfLm2EEEE4all_Ev.exit.thread
 

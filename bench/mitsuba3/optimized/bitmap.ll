@@ -12874,10 +12874,7 @@ _ZNSt3__110unique_ptrIA_hNS_14default_deleteIS1_EEED2B8ne190000Ev.exit: ; preds 
 .preheader583:                                    ; preds = %657
   %662 = icmp eq i32 %660, 1
   %663 = icmp eq i32 %661, 1
-  %.sroa.2.0.insert.shift = select i1 %663, i16 256, i16 0
-  %.sroa.0815.0.insert.ext = zext i1 %662 to i16
-  %.sroa.0815.0.insert.insert = or disjoint i16 %.sroa.2.0.insert.shift, %.sroa.0815.0.insert.ext
-  %.016.lcssa.i.i = icmp eq i16 %.sroa.0815.0.insert.insert, 257
+  %.016.lcssa.i.i = and i1 %663, %662
   br i1 %.016.lcssa.i.i, label %664, label %.preheader
 
 664:                                              ; preds = %.preheader583

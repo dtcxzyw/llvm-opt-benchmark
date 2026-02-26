@@ -15901,7 +15901,7 @@ define hidden { i1, ptr } @_ZN4core4iter6traits8iterator8Iterator4fold17he4a6507
 
 11:                                               ; preds = %.lr.ph, %75
   %12 = phi i64 [ %6, %.lr.ph ], [ %76, %75 ]
-  %.sroa.0.0.in51 = phi i1 [ %1, %.lr.ph ], [ %.sroa.0.0.in.sroa.speculated1420.i.i.i, %75 ]
+  %.sroa.0.0.in51 = phi i1 [ %1, %.lr.ph ], [ %.sroa.0.0.in.sroa.speculated1420.in.i.i.i, %75 ]
   %.sroa.68.049 = phi ptr [ %2, %.lr.ph ], [ %.sroa.3.01222.i.i.i, %75 ]
   %13 = add i64 %12, 1
   store i64 %13, ptr %4, align 8, !alias.scope !5924
@@ -16023,7 +16023,7 @@ define hidden { i1, ptr } @_ZN4core4iter6traits8iterator8Iterator4fold17he4a6507
 .noexc11.sink.split.i.i.i:                        ; preds = %62, %57
   %.sink.i.i.i = phi ptr [ %.sroa.68.049, %62 ], [ %18, %57 ]
   %.sroa.3.01222.ph.i.i.i = phi ptr [ %18, %62 ], [ %.sroa.68.049, %57 ]
-  %.sroa.0.0.in.sroa.speculated1420.ph.i.i.i = phi i1 [ %.0.i.i.i.i, %62 ], [ true, %57 ]
+  %.sroa.0.0.in.sroa.speculated1420.in.ph.i.i.i = phi i1 [ %.0.i.i.i.i, %62 ], [ true, %57 ]
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sink.i.i.i)
           to label %75 unwind label %.body
 
@@ -16055,7 +16055,7 @@ define hidden { i1, ptr } @_ZN4core4iter6traits8iterator8Iterator4fold17he4a6507
 
 75:                                               ; preds = %62, %57, %.noexc11.sink.split.i.i.i
   %.sroa.3.01222.i.i.i = phi ptr [ %18, %62 ], [ %.sroa.68.049, %57 ], [ %.sroa.3.01222.ph.i.i.i, %.noexc11.sink.split.i.i.i ]
-  %.sroa.0.0.in.sroa.speculated1420.i.i.i = phi i1 [ %.0.i.i.i.i, %62 ], [ true, %57 ], [ %.sroa.0.0.in.sroa.speculated1420.ph.i.i.i, %.noexc11.sink.split.i.i.i ]
+  %.sroa.0.0.in.sroa.speculated1420.in.i.i.i = phi i1 [ %.0.i.i.i.i, %62 ], [ true, %57 ], [ %.sroa.0.0.in.sroa.speculated1420.in.ph.i.i.i, %.noexc11.sink.split.i.i.i ]
   %76 = load i64, ptr %4, align 8, !alias.scope !5924, !noundef !4
   %77 = load i64, ptr %5, align 8, !alias.scope !5924, !noundef !4
   %78 = icmp eq i64 %76, %77
@@ -16066,7 +16066,7 @@ common.resume:                                    ; preds = %.body.thread
 
 "_ZN4core3ptr132drop_in_place$LT$smallvec..IntoIter$LT$$u5b$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$u3b$$u20$1$u5d$$GT$$GT$17h9c4e3ee92a21afa0E.exit": ; preds = %75, %3
   %.sroa.68.0.lcssa = phi ptr [ %2, %3 ], [ %.sroa.3.01222.i.i.i, %75 ]
-  %.sroa.0.0.in.lcssa = phi i1 [ %1, %3 ], [ %.sroa.0.0.in.sroa.speculated1420.i.i.i, %75 ]
+  %.sroa.0.0.in.lcssa = phi i1 [ %1, %3 ], [ %.sroa.0.0.in.sroa.speculated1420.in.i.i.i, %75 ]
   tail call void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf500c9ae49406e9fE.llvm.273501356006530532"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
   %79 = insertvalue { i1, ptr } poison, i1 %.sroa.0.0.in.lcssa, 0
   %80 = insertvalue { i1, ptr } %79, ptr %.sroa.68.0.lcssa, 1
