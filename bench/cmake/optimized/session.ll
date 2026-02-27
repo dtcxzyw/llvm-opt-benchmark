@@ -6678,7 +6678,6 @@ _ZNSt6thread8_InvokerISt5tupleIJZN12_GLOBAL__N_14Impl23startProcessingMessagesER
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3dap4ChanISt8functionIFvvEEE4takeEv(ptr dead_on_unwind noalias writable sret(%"class.dap::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_lock", align 8
-  %.sroa.0 = alloca { i64, i64 }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store ptr %4, ptr %3, align 8, !tbaa !248
@@ -6766,9 +6765,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %43, %47, %49
   resume { ptr, i32 } %44
 
 51:                                               ; preds = %_ZNSt18condition_variable4waitIZN3dap4ChanISt8functionIFvvEEE4takeEvEUlvE_EEvRSt11unique_lockISt5mutexET_.exit
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %52 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, i8 0, i64 16, i1 false)
   %53 = load ptr, ptr %52, align 8, !tbaa !115
   %54 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !46
@@ -6776,7 +6773,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %43, %47, %49
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFvvEEC2EOS1_.exit, label %56
 
 56:                                               ; preds = %51
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !109
+  %.sroa.0.sroa.0.0.copyload = load <2 x i64>, ptr %32, align 8, !tbaa !15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
   %.pre = load ptr, ptr %10, align 8, !tbaa !225
   %.pre8 = load ptr, ptr %14, align 8, !tbaa !253
@@ -6785,6 +6782,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %43, %47, %49
   br label %_ZNSt8functionIFvvEEC2EOS1_.exit
 
 _ZNSt8functionIFvvEEC2EOS1_.exit:                 ; preds = %51, %56
+  %.sroa.0.sroa.0.0 = phi <2 x i64> [ zeroinitializer, %51 ], [ %.sroa.0.sroa.0.0.copyload, %56 ]
   %57 = phi ptr [ null, %51 ], [ %.pre9, %56 ]
   %58 = phi ptr [ %31, %51 ], [ %.pre8, %56 ]
   %59 = phi ptr [ %32, %51 ], [ %.pre, %56 ]
@@ -6854,14 +6852,13 @@ _ZNSt5queueISt8functionIFvvEESt5dequeIS2_SaIS2_EEE3popEv.exit: ; preds = %_ZNSt1
 
 _ZN3dap8optionalISt8functionIFvvEEEC2IS3_vEEOT_.exit: ; preds = %_ZNSt5queueISt8functionIFvvEESt5dequeIS2_SaIS2_EEE3popEv.exit
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, i64 16, i1 false), !tbaa.struct !109
+  store <2 x i64> %.sroa.0.sroa.0.0, ptr %0, align 8, !tbaa !15
   store ptr %55, ptr %82, align 8, !tbaa !46
   br label %_ZNSt14_Function_baseD2Ev.exit
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNSt5queueISt8functionIFvvEESt5dequeIS2_SaIS2_EEE3popEv.exit, %_ZN3dap8optionalISt8functionIFvvEEEC2IS3_vEEOT_.exit
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %83, align 8, !tbaa !246
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   br label %84
 
 84:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit, %42

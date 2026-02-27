@@ -2640,7 +2640,7 @@ _ZNSirsERj.exit35:                                ; preds = %_ZNSirsERj.exit
 
 .lr.ph53:                                         ; preds = %.lr.ph53.preheader, %.lr.ph53
   %.sroa.039.051 = phi ptr [ %166, %.lr.ph53 ], [ %165, %.lr.ph53.preheader ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.039.051, i8 0, i64 32, i1 false)
+  store <4 x double> zeroinitializer, ptr %.sroa.039.051, align 8
   %166 = getelementptr inbounds nuw i8, ptr %.sroa.039.051, i64 32
   %.not = icmp eq ptr %166, %162
   br i1 %.not, label %.loopexit, label %.lr.ph53, !llvm.loop !99

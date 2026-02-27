@@ -7757,8 +7757,8 @@ define noundef zeroext i1 @_ZN2cv6detail12DpSeamFinder11getSeamTipsEiiRNS_6Point
   %8 = alloca %"class.std::vector.20", align 8
   %9 = alloca %"class.std::vector.60", align 8
   %10 = alloca %"class.std::vector.32", align 8
-  %.sroa.0 = alloca %"class.cv::Point_", align 16
-  %.sroa.5 = alloca %"class.cv::Point_", align 8
+  %.sroa.0.sroa.0 = alloca <2 x i32>, align 16
+  %.sroa.5.sroa.0 = alloca <2 x i32>, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %12 = sext i32 %1 to i64
   %13 = load ptr, ptr %11, align 8, !tbaa !151
@@ -8343,10 +8343,10 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
   br i1 %exitcond273.not, label %.preheader, label %292, !llvm.loop !279
 
 .preheader:                                       ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
-  store i64 0, ptr %.sroa.0, align 16
-  store i64 0, ptr %.sroa.5, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.sroa.0)
+  store <2 x i32> zeroinitializer, ptr %.sroa.0.sroa.0, align 16, !tbaa !55
+  store <2 x i32> zeroinitializer, ptr %.sroa.5.sroa.0, align 8, !tbaa !55
   br label %350
 
 292:                                              ; preds = %.lr.ph248, %.loopexit
@@ -8428,12 +8428,12 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
   br i1 %exitcond.not, label %.loopexit, label %317, !llvm.loop !280
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %._crit_edge258
-  %.sroa.0.0..sroa.0.0. = load i64, ptr %.sroa.0, align 16
-  store i64 %.sroa.0.0..sroa.0.0., ptr %3, align 4
-  %.sroa.5.0..sroa.5.8. = load i64, ptr %.sroa.5, align 8
-  store i64 %.sroa.5.0..sroa.5.8., ptr %4, align 4
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
+  %.sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.0.335 = load i64, ptr %.sroa.0.sroa.0, align 16
+  store i64 %.sroa.0.sroa.0.0..sroa.0.sroa.0.0..sroa.0.0.335, ptr %3, align 4
+  %.sroa.5.sroa.0.0..sroa.5.sroa.0.0..sroa.5.8.336 = load i64, ptr %.sroa.5.sroa.0, align 8
+  store i64 %.sroa.5.sroa.0.0..sroa.5.sroa.0.0..sroa.5.8.336, ptr %4, align 4
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.sroa.0)
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %_ZSt8_DestroyISt6vectorIN2cv6Point_IiEESaIS3_EEEvPT_.exit.i.i.i.i
@@ -8460,7 +8460,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %_ZSt8_DestroyISt6ve
 
 350:                                              ; preds = %.preheader, %._crit_edge258
   %351 = phi i1 [ true, %.preheader ], [ false, %._crit_edge258 ]
-  %indvars.iv275.sroa.phi = phi ptr [ %.sroa.0, %.preheader ], [ %.sroa.5, %._crit_edge258 ]
+  %indvars.iv275.sroa.phi = phi ptr [ %.sroa.0.sroa.0, %.preheader ], [ %.sroa.5.sroa.0, %._crit_edge258 ]
   %indvars.iv275.sroa.phi333.sroa.speculated = phi i32 [ %.0133231.lcssa, %.preheader ], [ %.0134234241.lcssa251, %._crit_edge258 ]
   %352 = sext i32 %indvars.iv275.sroa.phi333.sroa.speculated to i64
   %353 = getelementptr inbounds nuw %"class.std::vector.20", ptr %225, i64 %352
