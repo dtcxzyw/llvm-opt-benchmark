@@ -4321,25 +4321,25 @@ define hidden noalias noundef nonnull ptr @"_ZN68_$LT$alloc..sync..Arc$LT$T$GT$$
 
 8:                                                ; preds = %0
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h6d7f2bdbc63ffea9E(i64 noundef 8, i64 noundef 72) #37
-          to label %.noexc unwind label %9
+          to label %.noexc unwind label %8
 
 .noexc:                                           ; preds = %8
   unreachable
 
-9:                                                ; preds = %8
-  %10 = landingpad { ptr, i32 }
+8:                                                ; preds = %8
+  %9 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr51drop_in_place$LT$theme..registry..ThemeRegistry$GT$17h5293601305babb47E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
-          to label %"_ZN4core3ptr80drop_in_place$LT$alloc..sync..ArcInner$LT$theme..registry..ThemeRegistry$GT$$GT$17h9e582ed681307d42E.exit" unwind label %11
+          to label %"_ZN4core3ptr80drop_in_place$LT$alloc..sync..ArcInner$LT$theme..registry..ThemeRegistry$GT$$GT$17h9e582ed681307d42E.exit" unwind label %10
 
-11:                                               ; preds = %9
-  %12 = landingpad { ptr, i32 }
+10:                                               ; preds = %8
+  %11 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #40
   unreachable
 
-"_ZN4core3ptr80drop_in_place$LT$alloc..sync..ArcInner$LT$theme..registry..ThemeRegistry$GT$$GT$17h9e582ed681307d42E.exit": ; preds = %9
-  resume { ptr, i32 } %10
+"_ZN4core3ptr80drop_in_place$LT$alloc..sync..ArcInner$LT$theme..registry..ThemeRegistry$GT$$GT$17h9e582ed681307d42E.exit": ; preds = %8
+  resume { ptr, i32 } %9
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h95c5f5ca5cd0dec9E.llvm.3256121122046604821.exit": ; preds = %0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)

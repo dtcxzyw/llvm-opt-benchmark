@@ -455,14 +455,14 @@ define i32 @ossl_prov_set_macctx(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %46, label %16
 
-16:                                               ; preds = %8
+46:                                               ; preds = %8
   %17 = icmp eq ptr %3, null
-  br i1 %17, label %18, label %26
+  br i1 %17, label %48, label %26
 
-18:                                               ; preds = %16
+48:                                               ; preds = %46
   %19 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %1, ptr noundef nonnull @.str.1) #6
-  %.not49 = icmp eq ptr %19, null
-  br i1 %.not49, label %26, label %20
+  %.not56 = icmp eq ptr %19, null
+  br i1 %.not56, label %26, label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -496,7 +496,7 @@ define i32 @ossl_prov_set_macctx(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %35 = load ptr, ptr %34, align 8, !tbaa !18
   br label %36
 
-36:                                               ; preds = %28, %33, %26
+49:                                               ; preds = %28, %33, %26
   %.133 = phi ptr [ %35, %33 ], [ null, %28 ], [ %2, %26 ]
   %37 = icmp eq ptr %4, null
   br i1 %37, label %38, label %46
@@ -530,49 +530,49 @@ define i32 @ossl_prov_set_macctx(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10, ptr noundef nonnull @.str.1, ptr noundef nonnull %.034, i64 noundef 0) #6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !32
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %49
+  br label %51
 
-49:                                               ; preds = %47, %46
-  %.0 = phi ptr [ %48, %47 ], [ %9, %46 ]
-  %.not56 = icmp eq ptr %.032, null
-  br i1 %.not56, label %52, label %50
+51:                                               ; preds = %47, %46
+  %.1 = phi ptr [ %48, %47 ], [ %9, %46 ]
+  %.not57 = icmp eq ptr %.032, null
+  br i1 %.not57, label %54, label %52
 
-50:                                               ; preds = %49
-  %51 = getelementptr inbounds nuw i8, ptr %.0, i64 40
+52:                                               ; preds = %51
+  %53 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %11, ptr noundef nonnull @.str, ptr noundef nonnull %.032, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.1, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !32
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %52
+  br label %54
 
-52:                                               ; preds = %50, %49
-  %.1 = phi ptr [ %51, %50 ], [ %.0, %49 ]
-  %.not57 = icmp eq ptr %5, null
-  br i1 %.not57, label %55, label %53
+54:                                               ; preds = %52, %51
+  %.2 = phi ptr [ %53, %50 ], [ %.1, %49 ]
+  %.not58 = icmp eq ptr %5, null
+  br i1 %.not58, label %57, label %55
 
-53:                                               ; preds = %52
-  %54 = getelementptr inbounds nuw i8, ptr %.1, i64 40
+55:                                               ; preds = %54
+  %56 = getelementptr inbounds nuw i8, ptr %.2, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %12, ptr noundef nonnull @.str.3, ptr noundef nonnull %5, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.1, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.2, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !32
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %55
+  br label %57
 
-55:                                               ; preds = %53, %52
-  %.2 = phi ptr [ %54, %53 ], [ %.1, %52 ]
-  %.not58 = icmp eq ptr %.036, null
-  br i1 %.not58, label %58, label %56
+57:                                               ; preds = %55, %54
+  %.3 = phi ptr [ %56, %53 ], [ %.2, %52 ]
+  %.not59 = icmp eq ptr %.036, null
+  br i1 %.not59, label %60, label %58
 
-56:                                               ; preds = %55
-  %57 = getelementptr inbounds nuw i8, ptr %.2, i64 40
+58:                                               ; preds = %57
+  %59 = getelementptr inbounds nuw i8, ptr %.3, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %13, ptr noundef nonnull @.str.2, ptr noundef nonnull %.036, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.2, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false), !tbaa.struct !32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.3, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false), !tbaa.struct !32
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %58
+  br label %60
 
-58:                                               ; preds = %56, %55
-  %.3 = phi ptr [ %57, %56 ], [ %.2, %55 ]
+60:                                               ; preds = %58, %57
+  %.4 = phi ptr [ %59, %56 ], [ %.3, %55 ]
   %.not59 = icmp eq ptr %6, null
   br i1 %.not59, label %61, label %59
 
@@ -580,7 +580,7 @@ define i32 @ossl_prov_set_macctx(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %60 = getelementptr inbounds nuw i8, ptr %.3, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %14, ptr noundef nonnull @.str.4, ptr noundef nonnull %6, i64 noundef %7) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.3, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !tbaa.struct !32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.4, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !tbaa.struct !32
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %61
 

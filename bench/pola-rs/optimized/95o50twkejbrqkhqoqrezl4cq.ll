@@ -19100,23 +19100,23 @@ define void @_ZN9polars_io5cloud7options12CloudOptions11build_azure17hbb71df0d32
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1451
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1451
   invoke void @_ZN12object_store6client13ClientOptions3new17hc77ccaef49b6d7b0E(ptr noalias noundef nonnull sret([616 x i8]) align 8 captures(none) dereferenceable(616) %6)
-          to label %.noexc unwind label %107
+          to label %.noexc unwind label %106
 
 .noexc:                                           ; preds = %4
   invoke void @_ZN12object_store6client13ClientOptions21with_timeout_disabled17ha83f9f734462549aE(ptr noalias noundef nonnull sret([616 x i8]) align 8 captures(none) dereferenceable(616) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(616) %6)
-          to label %.noexc49 unwind label %107
+          to label %.noexc49 unwind label %106
 
 .noexc49:                                         ; preds = %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1451
   invoke void @_ZN12object_store6client13ClientOptions29with_connect_timeout_disabled17h070a221e7618d46cE(ptr noalias noundef nonnull sret([616 x i8]) align 8 captures(none) dereferenceable(616) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(616) %7)
-          to label %.noexc50 unwind label %107
+          to label %.noexc50 unwind label %106
 
 .noexc50:                                         ; preds = %.noexc49
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1451
   invoke void @_ZN12object_store6client13ClientOptions15with_allow_http17h6838bfcd96e9b7e8E(ptr noalias noundef nonnull sret([616 x i8]) align 8 captures(none) dereferenceable(616) %25, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(616) %8, i1 noundef zeroext true)
-          to label %29 unwind label %107
+          to label %29 unwind label %106
 
-29:                                               ; preds = %.noexc50
+28:                                               ; preds = %.noexc50
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1451
   call void @_ZN12object_store5azure7builder21MicrosoftAzureBuilder19with_client_options17hca443da29985e49aE(ptr noalias noundef nonnull sret([1312 x i8]) align 8 captures(none) dereferenceable(1312) %27, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(1312) %26, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(616) %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
@@ -19125,20 +19125,20 @@ define void @_ZN9polars_io5cloud7options12CloudOptions11build_azure17hbb71df0d32
   %31 = load i64, ptr %30, align 8, !range !6, !noundef !4
   switch i64 %31, label %43 [
     i64 4, label %.loopexit
-    i64 1, label %36
+    i64 1, label %35
   ], !prof !1454
 
-.loopexit:                                        ; preds = %.lr.ph, %36, %29
+.loopexit:                                        ; preds = %.lr.ph, %35, %28
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1312) %19, ptr noundef nonnull align 8 dereferenceable(1312) %27, i64 1312, i1 false)
   call void @_ZN12object_store5azure7builder21MicrosoftAzureBuilder8with_url17h1186582876df5207E(ptr noalias noundef nonnull sret([1312 x i8]) align 8 captures(none) dereferenceable(1312) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(1312) %19, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %33 = load i64, ptr %32, align 8, !noundef !4
-  %34 = getelementptr inbounds nuw i8, ptr %20, i64 1216
-  store i64 %33, ptr %34, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %32 = load i64, ptr %31, align 8, !noundef !4
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 1216
+  store i64 %32, ptr %33, align 8
   %.sroa.456.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 1224
   store double 2.000000e+00, ptr %.sroa.456.0..sroa_idx, align 8
   %.sroa.557.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 1232
@@ -19158,21 +19158,21 @@ define void @_ZN9polars_io5cloud7options12CloudOptions11build_azure17hbb71df0d32
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1455)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %35 = load i64, ptr %1, align 8, !range !209, !alias.scope !1455, !noalias !1458, !noundef !4
-  %.not.i = icmp eq i64 %35, 2
-  br i1 %.not.i, label %.thread91, label %53
+  %34 = load i64, ptr %1, align 8, !range !209, !alias.scope !1455, !noalias !1458, !noundef !4
+  %.not.i = icmp eq i64 %34, 2
+  br i1 %.not.i, label %.thread91, label %52
 
-36:                                               ; preds = %29
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %38 = load ptr, ptr %37, align 8, !nonnull !4, !noundef !4
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %40 = load i64, ptr %39, align 8, !noundef !4
-  %.idx = shl nuw nsw i64 %40, 5
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx
-  %42 = icmp eq i64 %40, 0
-  br i1 %42, label %.loopexit, label %.lr.ph
+35:                                               ; preds = %28
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %37 = load ptr, ptr %36, align 8, !nonnull !4, !noundef !4
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %39 = load i64, ptr %38, align 8, !noundef !4
+  %.idx = shl nuw nsw i64 %39, 5
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx
+  %41 = icmp eq i64 %39, 0
+  br i1 %41, label %.loopexit, label %.lr.ph
 
-43:                                               ; preds = %29
+42:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store ptr @anon.6b9a4c27caf38bfc13e44256c35787bf.316, ptr %24, align 8
   %44 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -19192,67 +19192,67 @@ define void @_ZN9polars_io5cloud7options12CloudOptions11build_azure17hbb71df0d32
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1312) %22, ptr noundef nonnull align 8 dereferenceable(1312) %27, i64 1312, i1 false)
-  %49 = load i8, ptr %.sroa.038.0100, align 8, !range !1460, !noundef !4
+  %48 = load i8, ptr %.sroa.038.0100, align 8, !range !1460, !noundef !4
   call void @_ZN12object_store5azure7builder21MicrosoftAzureBuilder11with_config17h3a7ec0449d15598fE(ptr noalias noundef nonnull sret([1312 x i8]) align 8 captures(none) dereferenceable(1312) %23, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(1312) %22, i8 noundef %49, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %48)
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.038.0100, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.038.0100, i64 32
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1312) %27, ptr noundef nonnull align 8 dereferenceable(1312) %23, i64 1312, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %51 = icmp eq ptr %50, %41
   br i1 %51, label %.loopexit, label %.lr.ph
 
-52:                                               ; preds = %43
+51:                                               ; preds = %42
   unreachable
 
-53:                                               ; preds = %.loopexit
+52:                                               ; preds = %.loopexit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1461)
-  %54 = trunc nuw i64 %35 to i1
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %54, label %56, label %67
+  %53 = trunc nuw i64 %34 to i1
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br i1 %53, label %55, label %66
 
-56:                                               ; preds = %53
+55:                                               ; preds = %52
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1464)
-  %57 = load i64, ptr %55, align 8, !range !113, !alias.scope !1467, !noalias !1468, !noundef !4
-  %58 = trunc nuw i64 %57 to i1
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %60 = load ptr, ptr %59, align 8, !alias.scope !1467, !noalias !1468, !nonnull !4, !noundef !4
-  %61 = atomicrmw add ptr %60, i64 1 monotonic, align 8, !noalias !1470
-  %62 = icmp slt i64 %61, 0
-  br i1 %58, label %63, label %64
+  %56 = load i64, ptr %54, align 8, !range !113, !alias.scope !1467, !noalias !1468, !noundef !4
+  %57 = trunc nuw i64 %56 to i1
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %59 = load ptr, ptr %58, align 8, !alias.scope !1467, !noalias !1468, !nonnull !4, !noundef !4
+  %60 = atomicrmw add ptr %59, i64 1 monotonic, align 8, !noalias !1470
+  %61 = icmp slt i64 %60, 0
+  br i1 %57, label %62, label %63
 
-63:                                               ; preds = %56
-  br i1 %62, label %66, label %76
+62:                                               ; preds = %55
+  br i1 %61, label %65, label %75
 
-64:                                               ; preds = %56
-  br i1 %62, label %65, label %76
+63:                                               ; preds = %55
+  br i1 %61, label %64, label %75
 
-65:                                               ; preds = %64
+64:                                               ; preds = %63
   tail call void @llvm.trap()
   unreachable
 
-66:                                               ; preds = %63
+65:                                               ; preds = %62
   tail call void @llvm.trap()
   unreachable
 
-67:                                               ; preds = %53
-  %68 = load ptr, ptr %55, align 8, !alias.scope !1471, !noalias !1468, !nonnull !4, !noundef !4
-  %69 = atomicrmw add ptr %68, i64 1 monotonic, align 8, !noalias !1472
-  %70 = icmp slt i64 %69, 0
-  br i1 %70, label %75, label %71
+66:                                               ; preds = %52
+  %67 = load ptr, ptr %54, align 8, !alias.scope !1471, !noalias !1468, !nonnull !4, !noundef !4
+  %68 = atomicrmw add ptr %67, i64 1 monotonic, align 8, !noalias !1472
+  %69 = icmp slt i64 %68, 0
+  br i1 %69, label %74, label %70
 
-71:                                               ; preds = %67
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %73 = load ptr, ptr %72, align 8, !alias.scope !1471, !noalias !1468, !nonnull !4, !align !226, !noundef !4
-  %74 = ptrtoint ptr %68 to i64
-  br label %76
+70:                                               ; preds = %66
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %72 = load ptr, ptr %71, align 8, !alias.scope !1471, !noalias !1468, !nonnull !4, !align !226, !noundef !4
+  %73 = ptrtoint ptr %67 to i64
+  br label %75
 
-75:                                               ; preds = %67
+74:                                               ; preds = %66
   tail call void @llvm.trap()
   unreachable
 
-76:                                               ; preds = %71, %64, %63
-  %.sroa.4.0.i = phi i64 [ %74, %71 ], [ 0, %64 ], [ 1, %63 ]
-  %.sink.i.i = phi ptr [ %73, %71 ], [ %60, %64 ], [ %60, %63 ]
+75:                                               ; preds = %70, %63, %62
+  %.sroa.4.0.i = phi i64 [ %73, %71 ], [ 0, %64 ], [ 1, %63 ]
+  %.sink.i.i = phi ptr [ %72, %71 ], [ %59, %64 ], [ %60, %63 ]
   %storemerge.i.i = phi i64 [ 0, %71 ], [ 1, %64 ], [ 1, %63 ]
   store i64 %storemerge.i.i, ptr %5, align 8, !noalias !1473
   %.sroa.6.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -19266,20 +19266,20 @@ define void @_ZN9polars_io5cloud7options12CloudOptions11build_azure17hbb71df0d32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %._crit_edge
 
-.thread88:                                        ; preds = %76
+.thread88:                                        ; preds = %75
   %lpad.thr_comm86 = landingpad { ptr, i32 }
           cleanup
   br label %.thread77
 
-77:                                               ; preds = %76
+76:                                               ; preds = %75
   %.pr = load i64, ptr %18, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not40 = icmp eq i64 %.pr, 17
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.0108.0.copyload.pre = load i64, ptr %.phi.trans.insert, align 8
-  br i1 %.not40, label %._crit_edge, label %78
+  br i1 %.not40, label %._crit_edge, label %77
 
-78:                                               ; preds = %77
+77:                                               ; preds = %76
   %.sroa.523.sroa.6.0..sroa.523.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.sroa.8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.523.sroa.6.0..sroa.523.0..sroa_idx.sroa_idx, i64 16, i1 false)
   %.sroa.624.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -19292,32 +19292,32 @@ define void @_ZN9polars_io5cloud7options12CloudOptions11build_azure17hbb71df0d32
   %.sroa.226.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0108.0.copyload.pre, ptr %.sroa.226.0..sroa_idx, align 8
   call void @"_ZN4core3ptr72drop_in_place$LT$object_store..azure..builder..MicrosoftAzureBuilder$GT$17hec766f3c9978eb93E"(ptr noalias noundef nonnull align 8 dereferenceable(1312) %21)
-  br label %105
+  br label %104
 
-._crit_edge:                                      ; preds = %77, %.thread91
+._crit_edge:                                      ; preds = %76, %.thread91
   %.sroa.0108.0.copyload = phi i64 [ 2, %.thread91 ], [ %.sroa.0108.0.copyload.pre, %77 ]
   %.sroa.6.0..sroa_idx109 = getelementptr inbounds nuw i8, ptr %18, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.sroa.8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx109, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %.not41 = icmp eq i64 %.sroa.0108.0.copyload, 2
-  br i1 %.not41, label %101, label %79
+  br i1 %.not41, label %100, label %78
 
-79:                                               ; preds = %._crit_edge
+78:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 %.sroa.0108.0.copyload, ptr %17, align 8
   %.sroa.7102.0..sroa_idx103 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7102.0..sroa_idx103, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.sroa.8, i64 16, i1 false)
-  br i1 %28, label %82, label %80
+  br i1 %28, label %81, label %79
 
-80:                                               ; preds = %87, %79
+79:                                               ; preds = %86, %78
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1312) %13, ptr noundef nonnull align 8 dereferenceable(1312) %21, i64 1312, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
-  %81 = invoke { ptr, ptr } @"_ZN141_$LT$polars_io..cloud..credential_provider..PlCredentialProvider$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$19into_azure_provider17he37346839167a43eE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
-          to label %88 unwind label %95
+  %80 = invoke { ptr, ptr } @"_ZN141_$LT$polars_io..cloud..credential_provider..PlCredentialProvider$u20$as$u20$polars_io..cloud..credential_provider..IntoCredentialProvider$GT$19into_azure_provider17he37346839167a43eE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
+          to label %88 unwind label %94
 
-82:                                               ; preds = %79
+81:                                               ; preds = %78
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -19326,108 +19326,108 @@ define void @_ZN9polars_io5cloud7options12CloudOptions11build_azure17hbb71df0d32
   %.sroa.431.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1fbdc7a7037c9293E", ptr %.sroa.431.0..sroa_idx, align 8
   store ptr @anon.6b9a4c27caf38bfc13e44256c35787bf.320, ptr %16, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 2, ptr %83, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store ptr null, ptr %84, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store ptr %15, ptr %85, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store i64 1, ptr %86, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i64 2, ptr %82, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  store ptr null, ptr %83, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store ptr %15, ptr %84, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  store i64 1, ptr %85, align 8
   invoke void @_ZN3std2io5stdio7_eprint17hc22e92ae9ec2858dE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %16)
-          to label %87 unwind label %99
+          to label %87 unwind label %98
 
-87:                                               ; preds = %82
+86:                                               ; preds = %81
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %80
+  br label %79
 
-88:                                               ; preds = %80
-  %89 = extractvalue { ptr, ptr } %81, 0
-  %90 = extractvalue { ptr, ptr } %81, 1
+87:                                               ; preds = %79
+  %88 = extractvalue { ptr, ptr } %80, 0
+  %89 = extractvalue { ptr, ptr } %80, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @_ZN12object_store5azure7builder21MicrosoftAzureBuilder16with_credentials17h568f3f4826719547E(ptr noalias noundef nonnull sret([1312 x i8]) align 8 captures(none) dereferenceable(1312) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(1312) %13, ptr noundef nonnull %89, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %90)
+  call void @_ZN12object_store5azure7builder21MicrosoftAzureBuilder16with_credentials17h568f3f4826719547E(ptr noalias noundef nonnull sret([1312 x i8]) align 8 captures(none) dereferenceable(1312) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(1312) %13, ptr noundef nonnull %88, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %89)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %91
+  br label %90
 
-91:                                               ; preds = %101, %88
+90:                                               ; preds = %100, %87
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN12object_store5azure7builder21MicrosoftAzureBuilder5build17h9c90e777171031e4E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(1312) %10)
-  %92 = load i64, ptr %11, align 8, !range !1474, !noundef !4
-  %.not43 = icmp eq i64 %92, -9223372036854775790
-  %93 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %94 = load ptr, ptr %93, align 8
-  br i1 %.not43, label %103, label %102
+  %91 = load i64, ptr %11, align 8, !range !1474, !noundef !4
+  %.not43 = icmp eq i64 %91, -9223372036854775790
+  %92 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %93 = load ptr, ptr %92, align 8
+  br i1 %.not43, label %102, label %101
 
-95:                                               ; preds = %80
-  %96 = landingpad { ptr, i32 }
+94:                                               ; preds = %79
+  %95 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$object_store..azure..builder..MicrosoftAzureBuilder$GT$17hec766f3c9978eb93E"(ptr noalias noundef nonnull align 8 dereferenceable(1312) %13) #32
-          to label %.thread67 unwind label %97
+          to label %.thread67 unwind label %96
 
-97:                                               ; preds = %107, %106, %.thread77, %99, %95
-  %98 = landingpad { ptr, i32 }
+96:                                               ; preds = %106, %105, %.thread77, %98, %94
+  %97 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #33
   unreachable
 
-99:                                               ; preds = %82
-  %100 = landingpad { ptr, i32 }
+98:                                               ; preds = %81
+  %99 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$polars_io..cloud..credential_provider..PlCredentialProvider$GT$17he363bce473924238E"(ptr noalias noundef align 8 dereferenceable(24) %17) #32
-          to label %.thread77 unwind label %97
+          to label %.thread77 unwind label %96
 
-101:                                              ; preds = %._crit_edge
+100:                                              ; preds = %._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1312) %10, ptr noundef nonnull align 8 dereferenceable(1312) %21, i64 1312, i1 false)
-  br label %91
+  br label %90
 
-102:                                              ; preds = %91
+101:                                              ; preds = %90
   %.sroa.637.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.314.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.637.0..sroa_idx, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  store i64 %92, ptr %9, align 8
+  store i64 %91, ptr %9, align 8
   %.sroa.213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %94, ptr %.sroa.213.0..sroa_idx, align 8
+  store ptr %93, ptr %.sroa.213.0..sroa_idx, align 8
   call void @"_ZN92_$LT$polars_error..PolarsError$u20$as$u20$core..convert..From$LT$object_store..Error$GT$$GT$4from17he8d0c0de7344fa6eE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(72) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %105
+  br label %104
 
-103:                                              ; preds = %91
+102:                                              ; preds = %90
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %94, ptr %104, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %93, ptr %103, align 8
   store i64 17, ptr %0, align 8
-  br label %105
+  br label %104
 
-105:                                              ; preds = %102, %78, %103
+104:                                              ; preds = %101, %77, %102
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   ret void
 
-.thread77:                                        ; preds = %99, %.thread88
-  %.pn4480 = phi { ptr, i32 } [ %lpad.thr_comm86, %.thread88 ], [ %100, %99 ]
+.thread77:                                        ; preds = %98, %.thread88
+  %.pn4480 = phi { ptr, i32 } [ %lpad.thr_comm86, %.thread88 ], [ %99, %99 ]
   invoke void @"_ZN4core3ptr72drop_in_place$LT$object_store..azure..builder..MicrosoftAzureBuilder$GT$17hec766f3c9978eb93E"(ptr noalias noundef nonnull align 8 dereferenceable(1312) %21) #32
-          to label %.thread67 unwind label %97
+          to label %.thread67 unwind label %96
 
-.thread67:                                        ; preds = %95, %.thread77, %107, %106
-  %.pn46.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp73, %106 ], [ %96, %95 ], [ %lpad.thr_comm, %107 ], [ %.pn4480, %.thread77 ]
+.thread67:                                        ; preds = %94, %.thread77, %106, %105
+  %.pn46.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp73, %106 ], [ %95, %95 ], [ %lpad.thr_comm, %107 ], [ %.pn4480, %.thread77 ]
   resume { ptr, i32 } %.pn46.pn
 
-106:                                              ; preds = %43
+105:                                              ; preds = %42
   %lpad.thr_comm.split-lp73 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$object_store..azure..builder..MicrosoftAzureBuilder$GT$17hec766f3c9978eb93E"(ptr noalias noundef nonnull align 8 dereferenceable(1312) %27) #32
-          to label %.thread67 unwind label %97
+          to label %.thread67 unwind label %96
 
-107:                                              ; preds = %.noexc50, %4, %.noexc, %.noexc49
+106:                                              ; preds = %.noexc50, %4, %.noexc, %.noexc49
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr72drop_in_place$LT$object_store..azure..builder..MicrosoftAzureBuilder$GT$17hec766f3c9978eb93E"(ptr noalias noundef nonnull align 8 dereferenceable(1312) %26) #32
-          to label %.thread67 unwind label %97
+          to label %.thread67 unwind label %96
 }
 
 ; Function Attrs: nonlazybind uwtable
