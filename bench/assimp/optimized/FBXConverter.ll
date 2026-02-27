@@ -11729,7 +11729,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %19, 
 define linkonce_odr hidden { <2 x float>, float } @_ZNK6Assimp3FBX5Light5ColorEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
-  %.sroa.0.sroa.0 = alloca <2 x float>, align 8
+  %.sroa.0 = alloca <2 x float>, align 8
   %.sroa.7 = alloca float, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -11741,11 +11741,11 @@ define linkonce_odr hidden { <2 x float>, float } @_ZNK6Assimp3FBX5Light5ColorEv
   store i64 5, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 21
   store i8 0, ptr %6, align 1
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  store float 1.000000e+00, ptr %.sroa.0.sroa.0, align 8
-  %.sroa.0.sroa.0.4..sroa_idx17 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.0, i64 4
-  store float 1.000000e+00, ptr %.sroa.0.sroa.0.4..sroa_idx17, align 4
+  store float 1.000000e+00, ptr %.sroa.0, align 8
+  %.sroa.0.4..sroa_idx17 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
+  store float 1.000000e+00, ptr %.sroa.0.4..sroa_idx17, align 4
   store float 1.000000e+00, ptr %.sroa.7, align 4
   %7 = invoke noundef ptr @_ZNK6Assimp3FBX13PropertyTable3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc8 unwind label %18
@@ -11758,7 +11758,7 @@ define linkonce_odr hidden { <2 x float>, float } @_ZNK6Assimp3FBX5Light5ColorEv
   %10 = call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %7, ptr nonnull @_ZTIN6Assimp3FBX8PropertyE, ptr nonnull @_ZTIN6Assimp3FBX13TypedPropertyI10aiVector3tIfEEE, i64 0) #29
   %11 = icmp eq ptr %10, null
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %spec.select.i = select i1 %11, ptr %.sroa.0.sroa.0, ptr %12
+  %spec.select.i = select i1 %11, ptr %.sroa.0, ptr %12
   %.sroa.gep16 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %spec.select.i.sroa.sel = select i1 %11, ptr %.sroa.7, ptr %.sroa.gep16
   %.sroa.4.0.i.pre = load float, ptr %spec.select.i.sroa.sel, align 4
@@ -11766,9 +11766,9 @@ define linkonce_odr hidden { <2 x float>, float } @_ZNK6Assimp3FBX5Light5ColorEv
 
 13:                                               ; preds = %9, %.noexc8
   %.sroa.4.0.i = phi float [ 1.000000e+00, %.noexc8 ], [ %.sroa.4.0.i.pre, %9 ]
-  %.sroa.08.0.in.i = phi ptr [ %.sroa.0.sroa.0, %.noexc8 ], [ %spec.select.i, %9 ]
+  %.sroa.08.0.in.i = phi ptr [ %.sroa.0, %.noexc8 ], [ %spec.select.i, %9 ]
   %.sroa.08.0.i = load <2 x float>, ptr %.sroa.08.0.in.i, align 4
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %14 = load ptr, ptr %1, align 8
   %15 = icmp eq ptr %14, %4
@@ -11789,7 +11789,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %13, %
 18:                                               ; preds = %._crit_edge.i.i
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %20 = load ptr, ptr %1, align 8
   %21 = icmp eq ptr %20, %4
@@ -37853,15 +37853,15 @@ define hidden noundef ptr @_ZN6Assimp3FBX12FBXConverter22GenerateSimpleNodeAnimE
   %17 = alloca %"class.std::vector.442", align 8
   %18 = alloca %class.aiVector3t, align 8
   %19 = alloca %"class.std::__cxx11::basic_string", align 8
-  %.sroa.0.sroa.0620 = alloca <2 x float>, align 8
-  %.sroa.7619 = alloca float, align 4
+  %.sroa.0619 = alloca <2 x float>, align 8
+  %.sroa.7620 = alloca float, align 4
   %20 = alloca %class.aiVector3t, align 8
   %21 = alloca %"class.std::__cxx11::basic_string", align 8
-  %.sroa.0.sroa.0616 = alloca <2 x float>, align 8
-  %.sroa.7615 = alloca float, align 4
+  %.sroa.0615 = alloca <2 x float>, align 8
+  %.sroa.7616 = alloca float, align 4
   %22 = alloca %class.aiVector3t, align 8
   %23 = alloca %"class.std::__cxx11::basic_string", align 8
-  %.sroa.0.sroa.0 = alloca <2 x float>, align 8
+  %.sroa.0 = alloca <2 x float>, align 8
   %.sroa.7 = alloca float, align 4
   %24 = alloca %class.aiVector3t, align 8
   %25 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -38422,12 +38422,12 @@ _ZNSt6vectorIlSaIlEE5eraseEN9__gnu_cxx17__normal_iteratorIPKlS1_EES6_.exit: ; pr
   store i64 15, ptr %245, align 8
   %246 = getelementptr inbounds nuw i8, ptr %19, i64 31
   store i8 0, ptr %246, align 1
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.sroa.0620)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7619)
-  store float 0.000000e+00, ptr %.sroa.0.sroa.0620, align 8
-  %.sroa.0.sroa.0620.4..sroa_idx621 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.0620, i64 4
-  store float 0.000000e+00, ptr %.sroa.0.sroa.0620.4..sroa_idx621, align 4
-  store float 0.000000e+00, ptr %.sroa.7619, align 4
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0619)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7620)
+  store float 0.000000e+00, ptr %.sroa.0619, align 8
+  %.sroa.0619.4..sroa_idx621 = getelementptr inbounds nuw i8, ptr %.sroa.0619, i64 4
+  store float 0.000000e+00, ptr %.sroa.0619.4..sroa_idx621, align 4
+  store float 0.000000e+00, ptr %.sroa.7620, align 4
   %247 = invoke noundef ptr @_ZNK6Assimp3FBX13PropertyTable3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %42, ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %.noexc224 unwind label %339
 
@@ -38439,21 +38439,21 @@ _ZNSt6vectorIlSaIlEE5eraseEN9__gnu_cxx17__normal_iteratorIPKlS1_EES6_.exit: ; pr
   %250 = call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %247, ptr nonnull @_ZTIN6Assimp3FBX8PropertyE, ptr nonnull @_ZTIN6Assimp3FBX13TypedPropertyI10aiVector3tIfEEE, i64 0) #29
   %251 = icmp eq ptr %250, null
   %252 = getelementptr inbounds nuw i8, ptr %250, i64 8
-  %spec.select.i = select i1 %251, ptr %.sroa.0.sroa.0620, ptr %252
+  %spec.select.i = select i1 %251, ptr %.sroa.0619, ptr %252
   %.sroa.gep618 = getelementptr inbounds nuw i8, ptr %250, i64 16
-  %spec.select.i.sroa.sel = select i1 %251, ptr %.sroa.7619, ptr %.sroa.gep618
+  %spec.select.i.sroa.sel = select i1 %251, ptr %.sroa.7620, ptr %.sroa.gep618
   %.sroa.4.0.i.pre = load float, ptr %spec.select.i.sroa.sel, align 4
   br label %253
 
 253:                                              ; preds = %249, %.noexc224
   %.sroa.4.0.i = phi float [ 0.000000e+00, %.noexc224 ], [ %.sroa.4.0.i.pre, %249 ]
-  %.sroa.08.0.in.i = phi ptr [ %.sroa.0.sroa.0620, %.noexc224 ], [ %spec.select.i, %249 ]
+  %.sroa.08.0.in.i = phi ptr [ %.sroa.0619, %.noexc224 ], [ %spec.select.i, %249 ]
   %.sroa.08.0.i = load <2 x float>, ptr %.sroa.08.0.in.i, align 4
   store <2 x float> %.sroa.08.0.i, ptr %18, align 8
   %.sroa.281.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   store float %.sroa.4.0.i, ptr %.sroa.281.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.sroa.0620)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7619)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0619)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7620)
   %254 = load ptr, ptr %19, align 8
   %255 = icmp eq ptr %254, %244
   br i1 %255, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -38475,12 +38475,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %253, 
   store i64 12, ptr %259, align 8
   %260 = getelementptr inbounds nuw i8, ptr %21, i64 28
   store i8 0, ptr %260, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.sroa.0616)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7615)
-  store float 0.000000e+00, ptr %.sroa.0.sroa.0616, align 8
-  %.sroa.0.sroa.0616.4..sroa_idx617 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.0616, i64 4
-  store float 0.000000e+00, ptr %.sroa.0.sroa.0616.4..sroa_idx617, align 4
-  store float 0.000000e+00, ptr %.sroa.7615, align 4
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0615)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7616)
+  store float 0.000000e+00, ptr %.sroa.0615, align 8
+  %.sroa.0615.4..sroa_idx617 = getelementptr inbounds nuw i8, ptr %.sroa.0615, i64 4
+  store float 0.000000e+00, ptr %.sroa.0615.4..sroa_idx617, align 4
+  store float 0.000000e+00, ptr %.sroa.7616, align 4
   %261 = invoke noundef ptr @_ZNK6Assimp3FBX13PropertyTable3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %42, ptr noundef nonnull align 8 dereferenceable(32) %21)
           to label %.noexc236 unwind label %345
 
@@ -38492,21 +38492,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %253, 
   %264 = call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %261, ptr nonnull @_ZTIN6Assimp3FBX8PropertyE, ptr nonnull @_ZTIN6Assimp3FBX13TypedPropertyI10aiVector3tIfEEE, i64 0) #29
   %265 = icmp eq ptr %264, null
   %266 = getelementptr inbounds nuw i8, ptr %264, i64 8
-  %spec.select.i229 = select i1 %265, ptr %.sroa.0.sroa.0616, ptr %266
+  %spec.select.i229 = select i1 %265, ptr %.sroa.0615, ptr %266
   %.sroa.gep614 = getelementptr inbounds nuw i8, ptr %264, i64 16
-  %spec.select.i229.sroa.sel = select i1 %265, ptr %.sroa.7615, ptr %.sroa.gep614
+  %spec.select.i229.sroa.sel = select i1 %265, ptr %.sroa.7616, ptr %.sroa.gep614
   %.sroa.4.0.i232.pre = load float, ptr %spec.select.i229.sroa.sel, align 4
   br label %267
 
 267:                                              ; preds = %263, %.noexc236
   %.sroa.4.0.i232 = phi float [ 0.000000e+00, %.noexc236 ], [ %.sroa.4.0.i232.pre, %263 ]
-  %.sroa.08.0.in.i230 = phi ptr [ %.sroa.0.sroa.0616, %.noexc236 ], [ %spec.select.i229, %263 ]
+  %.sroa.08.0.in.i230 = phi ptr [ %.sroa.0615, %.noexc236 ], [ %spec.select.i229, %263 ]
   %.sroa.08.0.i233 = load <2 x float>, ptr %.sroa.08.0.in.i230, align 4
   store <2 x float> %.sroa.08.0.i233, ptr %20, align 8
   %.sroa.277.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   store float %.sroa.4.0.i232, ptr %.sroa.277.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.sroa.0616)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7615)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0615)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7616)
   %268 = load ptr, ptr %21, align 8
   %269 = icmp eq ptr %268, %258
   br i1 %269, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit240, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i238
@@ -38528,11 +38528,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit240: ; preds = %26
   store i64 11, ptr %273, align 8
   %274 = getelementptr inbounds nuw i8, ptr %23, i64 27
   store i8 0, ptr %274, align 1
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  store float 1.000000e+00, ptr %.sroa.0.sroa.0, align 8
-  %.sroa.0.sroa.0.4..sroa_idx613 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.0, i64 4
-  store float 1.000000e+00, ptr %.sroa.0.sroa.0.4..sroa_idx613, align 4
+  store float 1.000000e+00, ptr %.sroa.0, align 8
+  %.sroa.0.4..sroa_idx613 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
+  store float 1.000000e+00, ptr %.sroa.0.4..sroa_idx613, align 4
   store float 1.000000e+00, ptr %.sroa.7, align 4
   %275 = invoke noundef ptr @_ZNK6Assimp3FBX13PropertyTable3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %42, ptr noundef nonnull align 8 dereferenceable(32) %23)
           to label %.noexc252 unwind label %351
@@ -38545,7 +38545,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit240: ; preds = %26
   %278 = call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %275, ptr nonnull @_ZTIN6Assimp3FBX8PropertyE, ptr nonnull @_ZTIN6Assimp3FBX13TypedPropertyI10aiVector3tIfEEE, i64 0) #29
   %279 = icmp eq ptr %278, null
   %280 = getelementptr inbounds nuw i8, ptr %278, i64 8
-  %spec.select.i245 = select i1 %279, ptr %.sroa.0.sroa.0, ptr %280
+  %spec.select.i245 = select i1 %279, ptr %.sroa.0, ptr %280
   %.sroa.gep612 = getelementptr inbounds nuw i8, ptr %278, i64 16
   %spec.select.i245.sroa.sel = select i1 %279, ptr %.sroa.7, ptr %.sroa.gep612
   %.sroa.4.0.i248.pre = load float, ptr %spec.select.i245.sroa.sel, align 4
@@ -38553,12 +38553,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit240: ; preds = %26
 
 281:                                              ; preds = %277, %.noexc252
   %.sroa.4.0.i248 = phi float [ 1.000000e+00, %.noexc252 ], [ %.sroa.4.0.i248.pre, %277 ]
-  %.sroa.08.0.in.i246 = phi ptr [ %.sroa.0.sroa.0, %.noexc252 ], [ %spec.select.i245, %277 ]
+  %.sroa.08.0.in.i246 = phi ptr [ %.sroa.0, %.noexc252 ], [ %spec.select.i245, %277 ]
   %.sroa.08.0.i249 = load <2 x float>, ptr %.sroa.08.0.in.i246, align 4
   store <2 x float> %.sroa.08.0.i249, ptr %22, align 8
   %.sroa.273.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   store float %.sroa.4.0.i248, ptr %.sroa.273.0..sroa_idx, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %282 = load ptr, ptr %23, align 8
   %283 = icmp eq ptr %282, %272
@@ -38681,8 +38681,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit256: ; preds = %28
 339:                                              ; preds = %._crit_edge.i.i222
   %340 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.sroa.0620)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7619)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0619)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7620)
   %341 = load ptr, ptr %19, align 8
   %342 = icmp eq ptr %341, %244
   br i1 %342, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit259, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i257
@@ -38700,8 +38700,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit259: ; preds = %33
 345:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %346 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.sroa.0616)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7615)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0615)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7616)
   %347 = load ptr, ptr %21, align 8
   %348 = icmp eq ptr %347, %258
   br i1 %348, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit262, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i260
@@ -38719,7 +38719,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit262: ; preds = %34
 351:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit240
   %352 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %353 = load ptr, ptr %23, align 8
   %354 = icmp eq ptr %353, %272
@@ -44793,7 +44793,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %22, 
 define linkonce_odr hidden { <2 x float>, float } @_ZNK6Assimp3FBX18FileGlobalSettings12AmbientColorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
-  %.sroa.0.sroa.0 = alloca <2 x float>, align 8
+  %.sroa.0 = alloca <2 x float>, align 8
   %.sroa.7 = alloca float, align 4
   %2 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
@@ -44804,11 +44804,11 @@ define linkonce_odr hidden { <2 x float>, float } @_ZNK6Assimp3FBX18FileGlobalSe
   store i64 12, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i8 0, ptr %5, align 4
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.sroa.0)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7)
-  store float 0.000000e+00, ptr %.sroa.0.sroa.0, align 8
-  %.sroa.0.sroa.0.4..sroa_idx17 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.0, i64 4
-  store float 0.000000e+00, ptr %.sroa.0.sroa.0.4..sroa_idx17, align 4
+  store float 0.000000e+00, ptr %.sroa.0, align 8
+  %.sroa.0.4..sroa_idx17 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
+  store float 0.000000e+00, ptr %.sroa.0.4..sroa_idx17, align 4
   store float 0.000000e+00, ptr %.sroa.7, align 4
   %6 = invoke noundef ptr @_ZNK6Assimp3FBX13PropertyTable3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc8 unwind label %17
@@ -44821,7 +44821,7 @@ define linkonce_odr hidden { <2 x float>, float } @_ZNK6Assimp3FBX18FileGlobalSe
   %9 = call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(8) %6, ptr nonnull @_ZTIN6Assimp3FBX8PropertyE, ptr nonnull @_ZTIN6Assimp3FBX13TypedPropertyI10aiVector3tIfEEE, i64 0) #29
   %10 = icmp eq ptr %9, null
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %spec.select.i = select i1 %10, ptr %.sroa.0.sroa.0, ptr %11
+  %spec.select.i = select i1 %10, ptr %.sroa.0, ptr %11
   %.sroa.gep16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %spec.select.i.sroa.sel = select i1 %10, ptr %.sroa.7, ptr %.sroa.gep16
   %.sroa.4.0.i.pre = load float, ptr %spec.select.i.sroa.sel, align 4
@@ -44829,9 +44829,9 @@ define linkonce_odr hidden { <2 x float>, float } @_ZNK6Assimp3FBX18FileGlobalSe
 
 12:                                               ; preds = %8, %.noexc8
   %.sroa.4.0.i = phi float [ 0.000000e+00, %.noexc8 ], [ %.sroa.4.0.i.pre, %8 ]
-  %.sroa.08.0.in.i = phi ptr [ %.sroa.0.sroa.0, %.noexc8 ], [ %spec.select.i, %8 ]
+  %.sroa.08.0.in.i = phi ptr [ %.sroa.0, %.noexc8 ], [ %spec.select.i, %8 ]
   %.sroa.08.0.i = load <2 x float>, ptr %.sroa.08.0.in.i, align 4
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %13 = load ptr, ptr %1, align 8
   %14 = icmp eq ptr %13, %3
@@ -44852,7 +44852,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %12, %
 17:                                               ; preds = %._crit_edge.i.i
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.sroa.0)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %19 = load ptr, ptr %1, align 8
   %20 = icmp eq ptr %19, %3
