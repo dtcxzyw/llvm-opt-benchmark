@@ -19284,18 +19284,16 @@ define internal fastcc void @php_array_intersect(ptr noundef readonly captures(n
 
 23:                                               ; preds = %21
   %24 = icmp eq i32 %4, 0
-  %25 = icmp ne i32 %3, 0
-  %or.cond3 = and i1 %25, %24
+  %25 = trunc nuw i32 %3 to i1
+  %or.cond3 = and i1 %24, %25
   br i1 %or.cond3, label %29, label %26
 
 26:                                               ; preds = %23
-  %27 = icmp ne i32 %4, 0
-  %or.cond5 = and i1 %15, %27
+  %27 = trunc nuw i32 %4 to i1
+  %or.cond5 = select i1 %15, i1 %27, i1 false
   br i1 %or.cond5, label %29, label %28
 
 28:                                               ; preds = %26
-  tail call void @llvm.assume(i1 %25)
-  tail call void @llvm.assume(i1 %27)
   br label %29
 
 29:                                               ; preds = %26, %23, %21, %28
@@ -19326,14 +19324,14 @@ define internal fastcc void @php_array_intersect(ptr noundef readonly captures(n
   %38 = load i32, ptr %7, align 4, !tbaa !43
   %39 = zext i32 %38 to i64
   %40 = call noalias ptr @_safe_emalloc(i64 noundef %39, i64 noundef 8, i64 noundef 0) #21
-  %41 = icmp ne i32 %3, 0
-  %or.cond9 = and i1 %14, %41
+  %41 = trunc nuw i32 %3 to i1
+  %or.cond9 = select i1 %14, i1 %41, i1 false
   br i1 %or.cond9, label %.sink.split, label %42
 
 42:                                               ; preds = %34
   %43 = icmp samesign ugt i32 %2, 1
-  %44 = icmp ne i32 %4, 0
-  %or.cond11 = and i1 %43, %44
+  %44 = trunc nuw i32 %4 to i1
+  %or.cond11 = select i1 %43, i1 %44, i1 false
   br i1 %or.cond11, label %.sink.split, label %45
 
 .sink.split:                                      ; preds = %42, %34
@@ -19534,8 +19532,8 @@ zend_may_modify_arg_in_place.exit.thread:         ; preds = %._crit_edge, %124, 
 
 .lr.ph333:                                        ; preds = %131
   %137 = icmp samesign ugt i32 %2, 1
-  %138 = icmp ne i32 %4, 0
-  %or.cond13 = and i1 %137, %138
+  %138 = trunc nuw i32 %4 to i1
+  %or.cond13 = select i1 %137, i1 %138, i1 false
   %139 = and i32 %2, 1
   %.not260 = icmp eq i32 %139, 0
   %140 = icmp eq i32 %2, 6
@@ -19603,7 +19601,7 @@ zend_may_modify_arg_in_place.exit.thread:         ; preds = %._crit_edge, %124, 
 162:                                              ; preds = %161, %160
   %163 = call i32 %.1238(ptr noundef %142, ptr noundef nonnull %156) #21, !callees !149
   %.not263.us = icmp ne i32 %163, 0
-  %brmerge.not.us = and i1 %138, %.not263.us
+  %brmerge.not.us = select i1 %.not263.us, i1 %138, i1 false
   %.mux.us = zext i1 %.not263.us to i32
   br i1 %brmerge.not.us, label %.critedge.thread.split.us, label %.critedge.us
 
@@ -20254,18 +20252,16 @@ define internal fastcc void @php_array_diff(ptr noundef readonly captures(none) 
 
 23:                                               ; preds = %21
   %24 = icmp eq i32 %4, 0
-  %25 = icmp ne i32 %3, 0
-  %or.cond3 = and i1 %25, %24
+  %25 = trunc nuw i32 %3 to i1
+  %or.cond3 = and i1 %24, %25
   br i1 %or.cond3, label %29, label %26
 
 26:                                               ; preds = %23
-  %27 = icmp ne i32 %4, 0
-  %or.cond5 = and i1 %15, %27
+  %27 = trunc nuw i32 %4 to i1
+  %or.cond5 = select i1 %15, i1 %27, i1 false
   br i1 %or.cond5, label %29, label %28
 
 28:                                               ; preds = %26
-  tail call void @llvm.assume(i1 %25)
-  tail call void @llvm.assume(i1 %27)
   br label %29
 
 29:                                               ; preds = %26, %23, %21, %28
@@ -20296,14 +20292,14 @@ define internal fastcc void @php_array_diff(ptr noundef readonly captures(none) 
   %38 = load i32, ptr %7, align 4, !tbaa !43
   %39 = zext i32 %38 to i64
   %40 = call noalias ptr @_safe_emalloc(i64 noundef %39, i64 noundef 8, i64 noundef 0) #21
-  %41 = icmp ne i32 %3, 0
-  %or.cond9 = and i1 %14, %41
+  %41 = trunc nuw i32 %3 to i1
+  %or.cond9 = select i1 %14, i1 %41, i1 false
   br i1 %or.cond9, label %.sink.split, label %42
 
 42:                                               ; preds = %34
   %43 = icmp samesign ugt i32 %2, 1
-  %44 = icmp ne i32 %4, 0
-  %or.cond11 = and i1 %43, %44
+  %44 = trunc nuw i32 %4 to i1
+  %or.cond11 = select i1 %43, i1 %44, i1 false
   br i1 %or.cond11, label %.sink.split, label %45
 
 .sink.split:                                      ; preds = %42, %34
@@ -20481,8 +20477,8 @@ define internal fastcc void @php_array_diff(ptr noundef readonly captures(none) 
 
 .lr.ph317:                                        ; preds = %._crit_edge
   %128 = icmp samesign ugt i32 %2, 1
-  %129 = icmp ne i32 %4, 0
-  %or.cond13 = and i1 %128, %129
+  %129 = trunc nuw i32 %4 to i1
+  %or.cond13 = select i1 %128, i1 %129, i1 false
   br label %130
 
 130:                                              ; preds = %.lr.ph317, %.loopexit274
@@ -20601,7 +20597,7 @@ define internal fastcc void @php_array_diff(ptr noundef readonly captures(none) 
   %168 = load ptr, ptr %40, align 8, !tbaa !146
   %169 = call i32 %.1219(ptr noundef %168, ptr noundef nonnull %.0263) #21, !callees !149
   %.not249 = icmp ne i32 %169, 0
-  %brmerge.not = and i1 %129, %.not249
+  %brmerge.not = select i1 %.not249, i1 %129, i1 false
   br i1 %brmerge.not, label %170, label %171
 
 170:                                              ; preds = %167
@@ -27108,7 +27104,7 @@ zend_print_long_to_buf.exit:                      ; preds = %58, %zend_print_ulo
 67:                                               ; preds = %zend_print_long_to_buf.exit, %39
   %.015 = phi ptr [ %40, %39 ], [ %.0.i, %zend_print_long_to_buf.exit ]
   %.0 = phi i64 [ %42, %39 ], [ %66, %zend_print_long_to_buf.exit ]
-  %68 = icmp ne i32 %2, 0
+  %68 = trunc nuw i32 %2 to i1
   %69 = call i32 @strnatcmp_ex(ptr noundef nonnull %.016, i64 noundef %.014, ptr noundef nonnull %.015, i64 noundef %.0, i1 noundef zeroext %68) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -27421,7 +27417,7 @@ zval_get_tmp_string.exit:                         ; preds = %14, %16
   %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %23 = load i64, ptr %22, align 8, !tbaa !119
-  %24 = icmp ne i32 %2, 0
+  %24 = trunc nuw i32 %2 to i1
   %25 = tail call i32 @strnatcmp_ex(ptr noundef nonnull %18, i64 noundef %20, ptr noundef nonnull %21, i64 noundef %23, i1 noundef zeroext %24) #21
   %.not.i9 = icmp eq ptr %.015, null
   br i1 %.not.i9, label %zend_tmp_string_release.exit10, label %26, !prof !10

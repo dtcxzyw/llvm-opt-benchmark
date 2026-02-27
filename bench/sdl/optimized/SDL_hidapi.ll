@@ -3272,7 +3272,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_uevent_info(ptr noundef readon
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %39, label %9
+  br i1 %.not, label %37, label %9
 
 9:                                                ; preds = %6
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
@@ -3338,19 +3338,17 @@ define internal fastcc range(i32 0, 2) i32 @parse_uevent_info(ptr noundef readon
 
 ._crit_edge.loopexit:                             ; preds = %31
   %33 = icmp ne i32 %.132, 0
-  %34 = icmp ne i32 %.1, 0
+  %34 = trunc nuw i32 %.1 to i1
   %35 = select i1 %33, i1 %34, i1 false
-  %36 = icmp ne i32 %.130, 0
-  %37 = select i1 %35, i1 %36, i1 false
-  %38 = zext i1 %37 to i32
+  %36 = select i1 %35, i32 %.130, i32 0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %9
-  %.031.lcssa = phi i32 [ 0, %9 ], [ %38, %._crit_edge.loopexit ]
+  %.031.lcssa = phi i32 [ 0, %9 ], [ %36, %._crit_edge.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %39
+  br label %37
 
-39:                                               ; preds = %6, %._crit_edge
+37:                                               ; preds = %6, %._crit_edge
   %.0 = phi i32 [ %.031.lcssa, %._crit_edge ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
@@ -3640,7 +3638,7 @@ hid_iterate_over_collection.exit:                 ; preds = %.thread36.i
   br i1 %112, label %12, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %108
-  %113 = icmp ne i32 %.246, 0
+  %113 = trunc nuw i32 %.246 to i1
   %or.cond = select i1 %7, i1 %113, i1 false
   br i1 %or.cond, label %114, label %.thread
 

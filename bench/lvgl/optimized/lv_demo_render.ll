@@ -593,48 +593,49 @@ define internal void @image_recolored_2_cb(ptr noundef %0) #0 {
 define internal void @line_cb(ptr noundef %0) #0 {
   br label %.preheader16
 
-.preheader16:                                     ; preds = %1, %15
-  %2 = phi i1 [ false, %1 ], [ true, %15 ]
-  %3 = phi i1 [ true, %1 ], [ false, %15 ]
-  %indvars.iv25 = phi i64 [ 0, %1 ], [ 4, %15 ]
+.preheader16:                                     ; preds = %1, %16
+  %2 = phi i1 [ true, %1 ], [ false, %16 ]
+  %indvars.iv25 = phi i64 [ 0, %1 ], [ 1, %16 ]
+  %3 = shl nuw nsw i64 %indvars.iv25, 2
+  %4 = trunc nuw i64 %indvars.iv25 to i1
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader16, %14
-  %indvars.iv21 = phi i64 [ 0, %.preheader16 ], [ %indvars.iv.next22, %14 ]
-  %4 = add nuw nsw i64 %indvars.iv21, %indvars.iv25
-  %5 = getelementptr inbounds nuw i32, ptr @__const.line_cb.widths, i64 %indvars.iv21
-  %6 = trunc nuw nsw i64 %4 to i32
-  br label %7
+.preheader:                                       ; preds = %.preheader16, %15
+  %indvars.iv21 = phi i64 [ 0, %.preheader16 ], [ %indvars.iv.next22, %15 ]
+  %5 = add nuw nsw i64 %indvars.iv21, %3
+  %6 = getelementptr inbounds nuw i32, ptr @__const.line_cb.widths, i64 %indvars.iv21
+  %7 = trunc nuw nsw i64 %5 to i32
+  br label %8
 
-7:                                                ; preds = %.preheader, %7
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw [2 x %struct.lv_point_precise_t], ptr @line_cb.points, i64 %indvars.iv
-  %9 = tail call ptr @lv_line_create(ptr noundef %0) #6
-  tail call void @lv_obj_remove_style_all(ptr noundef %9) #6
-  tail call void @lv_line_set_points(ptr noundef %9, ptr noundef nonnull %8, i32 noundef 2) #6
-  tail call void @lv_obj_set_size(ptr noundef %9, i32 noundef 55, i32 noundef 30) #6
-  %10 = tail call i24 @lv_color_hex3(i32 noundef 4080) #6
-  tail call void @lv_obj_set_style_line_color(ptr noundef %9, i24 %10, i32 noundef 0) #6
-  %11 = load i8, ptr @opa_saved, align 1, !tbaa !3
-  tail call void @lv_obj_set_style_opa(ptr noundef %9, i8 noundef zeroext %11, i32 noundef 0) #6
-  %12 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @lv_obj_set_grid_cell(ptr noundef %9, i32 noundef 1, i32 noundef range(i32 0, 8) %12, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 8) %6, i32 noundef 1) #6
-  %13 = load i32, ptr %5, align 4, !tbaa !19
-  tail call void @lv_obj_set_style_line_width(ptr noundef %9, i32 noundef %13, i32 noundef 0) #6
-  tail call void @lv_obj_set_style_line_rounded(ptr noundef %9, i1 noundef zeroext %2, i32 noundef 0) #6
+8:                                                ; preds = %.preheader, %8
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %8 ]
+  %9 = getelementptr inbounds nuw [2 x %struct.lv_point_precise_t], ptr @line_cb.points, i64 %indvars.iv
+  %10 = tail call ptr @lv_line_create(ptr noundef %0) #6
+  tail call void @lv_obj_remove_style_all(ptr noundef %10) #6
+  tail call void @lv_line_set_points(ptr noundef %10, ptr noundef nonnull %9, i32 noundef 2) #6
+  tail call void @lv_obj_set_size(ptr noundef %10, i32 noundef 55, i32 noundef 30) #6
+  %11 = tail call i24 @lv_color_hex3(i32 noundef 4080) #6
+  tail call void @lv_obj_set_style_line_color(ptr noundef %10, i24 %11, i32 noundef 0) #6
+  %12 = load i8, ptr @opa_saved, align 1, !tbaa !3
+  tail call void @lv_obj_set_style_opa(ptr noundef %10, i8 noundef zeroext %12, i32 noundef 0) #6
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void @lv_obj_set_grid_cell(ptr noundef %10, i32 noundef 1, i32 noundef range(i32 0, 8) %13, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 8) %7, i32 noundef 1) #6
+  %14 = load i32, ptr %6, align 4, !tbaa !19
+  tail call void @lv_obj_set_style_line_width(ptr noundef %10, i32 noundef %14, i32 noundef 0) #6
+  tail call void @lv_obj_set_style_line_rounded(ptr noundef %10, i1 noundef zeroext %4, i32 noundef 0) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %14, label %7, !llvm.loop !36
+  br i1 %exitcond.not, label %15, label %8, !llvm.loop !36
 
-14:                                               ; preds = %7
+15:                                               ; preds = %8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 4
-  br i1 %exitcond24.not, label %15, label %.preheader, !llvm.loop !37
-
-15:                                               ; preds = %14
-  br i1 %3, label %.preheader16, label %16, !llvm.loop !38
+  br i1 %exitcond24.not, label %16, label %.preheader, !llvm.loop !37
 
 16:                                               ; preds = %15
+  br i1 %2, label %.preheader16, label %17, !llvm.loop !38
+
+17:                                               ; preds = %16
   ret void
 }
 
@@ -1182,54 +1183,55 @@ declare void @lv_obj_set_style_line_color(ptr noundef, i24, i32 noundef) local_u
 define internal fastcc void @arc_core_cb(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   br label %.preheader18
 
-.preheader18:                                     ; preds = %2, %20
-  %3 = phi i1 [ false, %2 ], [ true, %20 ]
-  %4 = phi i1 [ true, %2 ], [ false, %20 ]
-  %indvars.iv27 = phi i64 [ 0, %2 ], [ 4, %20 ]
+.preheader18:                                     ; preds = %2, %21
+  %3 = phi i1 [ true, %2 ], [ false, %21 ]
+  %indvars.iv27 = phi i64 [ 0, %2 ], [ 1, %21 ]
+  %4 = shl nuw nsw i64 %indvars.iv27, 2
+  %5 = trunc nuw i64 %indvars.iv27 to i1
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader18, %19
-  %indvars.iv23 = phi i64 [ 0, %.preheader18 ], [ %indvars.iv.next24, %19 ]
-  %5 = add nuw nsw i64 %indvars.iv23, %indvars.iv27
-  %6 = getelementptr inbounds nuw i32, ptr @__const.arc_core_cb.widths, i64 %indvars.iv23
-  %7 = load i32, ptr %6, align 4, !tbaa !19
-  %8 = trunc nuw nsw i64 %5 to i32
-  br label %9
+.preheader:                                       ; preds = %.preheader18, %20
+  %indvars.iv23 = phi i64 [ 0, %.preheader18 ], [ %indvars.iv.next24, %20 ]
+  %6 = add nuw nsw i64 %indvars.iv23, %4
+  %7 = getelementptr inbounds nuw i32, ptr @__const.arc_core_cb.widths, i64 %indvars.iv23
+  %8 = load i32, ptr %7, align 4, !tbaa !19
+  %9 = trunc nuw nsw i64 %6 to i32
+  br label %10
 
-9:                                                ; preds = %.preheader, %9
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw [2 x float], ptr @arc_core_cb.angles, i64 %indvars.iv
-  %11 = load float, ptr %10, align 8, !tbaa !68
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %13 = load float, ptr %12, align 4, !tbaa !68
-  %14 = tail call ptr @lv_arc_create(ptr noundef %0) #6
-  tail call void @lv_obj_remove_style_all(ptr noundef %14) #6
-  tail call void @lv_obj_set_style_arc_width(ptr noundef %14, i32 noundef %7, i32 noundef 0) #6
-  %15 = tail call i24 @lv_color_white() #6
-  tail call void @lv_obj_set_style_arc_color(ptr noundef %14, i24 %15, i32 noundef 0) #6
-  %16 = load i8, ptr @opa_saved, align 1, !tbaa !3
-  tail call void @lv_obj_set_style_opa(ptr noundef %14, i8 noundef zeroext %16, i32 noundef 0) #6
-  tail call void @lv_arc_set_bg_angles(ptr noundef %14, float noundef %11, float noundef %13) #6
-  tail call void @lv_obj_set_size(ptr noundef %14, i32 noundef 30, i32 noundef 30) #6
-  %17 = tail call i24 @lv_color_hex3(i32 noundef 4080) #6
-  tail call void @lv_obj_set_style_line_color(ptr noundef %14, i24 %17, i32 noundef 0) #6
-  %18 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @lv_obj_set_grid_cell(ptr noundef %14, i32 noundef 1, i32 noundef range(i32 0, 8) %18, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 8) %8, i32 noundef 1) #6
-  tail call void @lv_obj_set_style_arc_rounded(ptr noundef %14, i1 noundef zeroext %3, i32 noundef 0) #6
-  tail call void @lv_obj_set_style_arc_image_src(ptr noundef %14, ptr noundef %1, i32 noundef 0) #6
+10:                                               ; preds = %.preheader, %10
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %10 ]
+  %11 = getelementptr inbounds nuw [2 x float], ptr @arc_core_cb.angles, i64 %indvars.iv
+  %12 = load float, ptr %11, align 8, !tbaa !68
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %14 = load float, ptr %13, align 4, !tbaa !68
+  %15 = tail call ptr @lv_arc_create(ptr noundef %0) #6
+  tail call void @lv_obj_remove_style_all(ptr noundef %15) #6
+  tail call void @lv_obj_set_style_arc_width(ptr noundef %15, i32 noundef %8, i32 noundef 0) #6
+  %16 = tail call i24 @lv_color_white() #6
+  tail call void @lv_obj_set_style_arc_color(ptr noundef %15, i24 %16, i32 noundef 0) #6
+  %17 = load i8, ptr @opa_saved, align 1, !tbaa !3
+  tail call void @lv_obj_set_style_opa(ptr noundef %15, i8 noundef zeroext %17, i32 noundef 0) #6
+  tail call void @lv_arc_set_bg_angles(ptr noundef %15, float noundef %12, float noundef %14) #6
+  tail call void @lv_obj_set_size(ptr noundef %15, i32 noundef 30, i32 noundef 30) #6
+  %18 = tail call i24 @lv_color_hex3(i32 noundef 4080) #6
+  tail call void @lv_obj_set_style_line_color(ptr noundef %15, i24 %18, i32 noundef 0) #6
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void @lv_obj_set_grid_cell(ptr noundef %15, i32 noundef 1, i32 noundef range(i32 0, 8) %19, i32 noundef 1, i32 noundef 1, i32 noundef range(i32 0, 8) %9, i32 noundef 1) #6
+  tail call void @lv_obj_set_style_arc_rounded(ptr noundef %15, i1 noundef zeroext %5, i32 noundef 0) #6
+  tail call void @lv_obj_set_style_arc_image_src(ptr noundef %15, ptr noundef %1, i32 noundef 0) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %19, label %9, !llvm.loop !70
+  br i1 %exitcond.not, label %20, label %10, !llvm.loop !70
 
-19:                                               ; preds = %9
+20:                                               ; preds = %10
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 4
-  br i1 %exitcond26.not, label %20, label %.preheader, !llvm.loop !71
-
-20:                                               ; preds = %19
-  br i1 %4, label %.preheader18, label %21, !llvm.loop !72
+  br i1 %exitcond26.not, label %21, label %.preheader, !llvm.loop !71
 
 21:                                               ; preds = %20
+  br i1 %3, label %.preheader18, label %22, !llvm.loop !72
+
+22:                                               ; preds = %21
   ret void
 }
 

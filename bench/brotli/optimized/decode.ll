@@ -2022,8 +2022,8 @@ define internal fastcc range(i32 -9, 4) i32 @WriteRingBuffer(ptr noundef capture
   br i1 %39, label %47, label %49
 
 47:                                               ; preds = %38
-  %48 = icmp ne i32 %4, 0
-  %or.cond = or i1 %48, %46
+  %48 = trunc nuw i32 %4 to i1
+  %or.cond = select i1 %46, i1 true, i1 %48
   %. = select i1 %or.cond, i32 3, i32 1
   br label %59
 

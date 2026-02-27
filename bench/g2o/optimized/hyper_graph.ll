@@ -1160,105 +1160,99 @@ _ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit: ; preds = %
   %.not61 = icmp eq ptr %.0.i.i.i.i.i.i, %72
   br i1 %.not61, label %._crit_edge65, label %.lr.ph64
 
-._crit_edge65.loopexit:                           ; preds = %._crit_edge
-  %88 = trunc nuw i8 %.1.lcssa to i1
-  br label %._crit_edge65
-
-._crit_edge65:                                    ; preds = %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit36, %._crit_edge65.loopexit, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit
-  %.023.lcssa = phi i1 [ true, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit ], [ %88, %._crit_edge65.loopexit ], [ true, %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit36 ]
-  br i1 %3, label %122, label %129
+._crit_edge65:                                    ; preds = %._crit_edge, %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit36, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit
+  %.023.lcssa = phi i1 [ true, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit ], [ true, %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit36 ], [ %.1.lcssa, %._crit_edge ]
+  br i1 %3, label %119, label %126
 
 .lr.ph64:                                         ; preds = %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit, %._crit_edge
-  %.02363 = phi i8 [ %.1.lcssa, %._crit_edge ], [ 1, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit ]
-  %.sroa.038.062 = phi ptr [ %95, %._crit_edge ], [ %.0.i.i.i.i.i.i, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit ]
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.038.062, i64 32
-  %90 = load ptr, ptr %89, align 8, !tbaa !74
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %93 = load ptr, ptr %92, align 8, !tbaa !45
-  %94 = load ptr, ptr %91, align 8, !tbaa !38
-  %.not67 = icmp eq ptr %93, %94
+  %.02363 = phi i1 [ %.1.lcssa, %._crit_edge ], [ true, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit ]
+  %.sroa.038.062 = phi ptr [ %94, %._crit_edge ], [ %.0.i.i.i.i.i.i, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EEC2ERKS7_.exit ]
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.038.062, i64 32
+  %89 = load ptr, ptr %88, align 8, !tbaa !74
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  %92 = load ptr, ptr %91, align 8, !tbaa !45
+  %93 = load ptr, ptr %90, align 8, !tbaa !38
+  %.not67 = icmp eq ptr %92, %93
   br i1 %.not67, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %113, %.lr.ph64
-  %.1.lcssa = phi i8 [ %.02363, %.lr.ph64 ], [ %.2, %113 ]
-  %95 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.038.062) #22
-  %.not = icmp eq ptr %95, %72
-  br i1 %.not, label %._crit_edge65.loopexit, label %.lr.ph64, !llvm.loop !83
+._crit_edge:                                      ; preds = %110, %.lr.ph64
+  %.1.lcssa = phi i1 [ %.02363, %.lr.ph64 ], [ %.2, %110 ]
+  %94 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.038.062) #22
+  %.not = icmp eq ptr %94, %72
+  br i1 %.not, label %._crit_edge65, label %.lr.ph64, !llvm.loop !83
 
-.lr.ph:                                           ; preds = %.lr.ph64, %113
-  %96 = phi ptr [ %114, %113 ], [ %94, %.lr.ph64 ]
-  %97 = phi ptr [ %115, %113 ], [ %93, %.lr.ph64 ]
-  %.02260 = phi i64 [ %116, %113 ], [ 0, %.lr.ph64 ]
-  %.159 = phi i8 [ %.2, %113 ], [ %.02363, %.lr.ph64 ]
-  %98 = getelementptr inbounds nuw ptr, ptr %96, i64 %.02260
-  %99 = load ptr, ptr %98, align 8, !tbaa !41
-  %100 = icmp eq ptr %99, %2
-  br i1 %100, label %101, label %113
+.lr.ph:                                           ; preds = %.lr.ph64, %110
+  %95 = phi ptr [ %111, %110 ], [ %93, %.lr.ph64 ]
+  %96 = phi ptr [ %112, %110 ], [ %92, %.lr.ph64 ]
+  %.02260 = phi i64 [ %113, %110 ], [ 0, %.lr.ph64 ]
+  %.159 = phi i1 [ %.2, %110 ], [ %.02363, %.lr.ph64 ]
+  %97 = getelementptr inbounds nuw ptr, ptr %95, i64 %.02260
+  %98 = load ptr, ptr %97, align 8, !tbaa !41
+  %99 = icmp eq ptr %98, %2
+  br i1 %99, label %100, label %110
 
-101:                                              ; preds = %.lr.ph
-  %102 = trunc i64 %.02260 to i32
-  %103 = load ptr, ptr %0, align 8, !tbaa !3
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 56
-  %105 = load ptr, ptr %104, align 8
-  %106 = invoke noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %90, i32 noundef %102, ptr noundef nonnull %1)
-          to label %107 unwind label %111
+100:                                              ; preds = %.lr.ph
+  %101 = trunc i64 %.02260 to i32
+  %102 = load ptr, ptr %0, align 8, !tbaa !3
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 56
+  %104 = load ptr, ptr %103, align 8
+  %105 = invoke noundef zeroext i1 %104(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %89, i32 noundef %101, ptr noundef nonnull %1)
+          to label %106 unwind label %108
 
-107:                                              ; preds = %101
-  %108 = icmp ne i8 %.159, 0
-  %109 = select i1 %106, i1 %108, i1 false
-  %110 = zext i1 %109 to i8
-  %.pre74 = load ptr, ptr %92, align 8, !tbaa !45
-  %.pre75 = load ptr, ptr %91, align 8, !tbaa !38
-  br label %113
+106:                                              ; preds = %100
+  %107 = select i1 %105, i1 %.159, i1 false
+  %.pre74 = load ptr, ptr %91, align 8, !tbaa !45
+  %.pre75 = load ptr, ptr %90, align 8, !tbaa !38
+  br label %110
 
-111:                                              ; preds = %101
-  %112 = landingpad { ptr, i32 }
+108:                                              ; preds = %100
+  %109 = landingpad { ptr, i32 }
           cleanup
-  br label %134
+  br label %131
 
-113:                                              ; preds = %107, %.lr.ph
-  %114 = phi ptr [ %.pre75, %107 ], [ %96, %.lr.ph ]
-  %115 = phi ptr [ %.pre74, %107 ], [ %97, %.lr.ph ]
-  %.2 = phi i8 [ %110, %107 ], [ %.159, %.lr.ph ]
-  %116 = add nuw i64 %.02260, 1
-  %117 = ptrtoint ptr %115 to i64
-  %118 = ptrtoint ptr %114 to i64
-  %119 = sub i64 %117, %118
-  %120 = ashr exact i64 %119, 3
-  %121 = icmp ult i64 %116, %120
-  br i1 %121, label %.lr.ph, label %._crit_edge, !llvm.loop !84
+110:                                              ; preds = %106, %.lr.ph
+  %111 = phi ptr [ %.pre75, %106 ], [ %95, %.lr.ph ]
+  %112 = phi ptr [ %.pre74, %106 ], [ %96, %.lr.ph ]
+  %.2 = phi i1 [ %107, %106 ], [ %.159, %.lr.ph ]
+  %113 = add nuw i64 %.02260, 1
+  %114 = ptrtoint ptr %112 to i64
+  %115 = ptrtoint ptr %111 to i64
+  %116 = sub i64 %114, %115
+  %117 = ashr exact i64 %116, 3
+  %118 = icmp ult i64 %113, %117
+  br i1 %118, label %.lr.ph, label %._crit_edge, !llvm.loop !84
 
-122:                                              ; preds = %._crit_edge65
-  %123 = load ptr, ptr %0, align 8, !tbaa !3
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  %125 = load ptr, ptr %124, align 8
-  %126 = invoke noundef zeroext i1 %125(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %2, i1 noundef zeroext false)
-          to label %129 unwind label %127
+119:                                              ; preds = %._crit_edge65
+  %120 = load ptr, ptr %0, align 8, !tbaa !3
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
+  %122 = load ptr, ptr %121, align 8
+  %123 = invoke noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %2, i1 noundef zeroext false)
+          to label %126 unwind label %124
 
-127:                                              ; preds = %122
-  %128 = landingpad { ptr, i32 }
+124:                                              ; preds = %119
+  %125 = landingpad { ptr, i32 }
           cleanup
-  br label %134
+  br label %131
 
-129:                                              ; preds = %122, %._crit_edge65
-  %130 = load ptr, ptr %73, align 8, !tbaa !27
-  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %130)
-          to label %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev.exit unwind label %131
+126:                                              ; preds = %119, %._crit_edge65
+  %127 = load ptr, ptr %73, align 8, !tbaa !27
+  invoke void @_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %127)
+          to label %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev.exit unwind label %128
 
-131:                                              ; preds = %129
-  %132 = landingpad { ptr, i32 }
+128:                                              ; preds = %126
+  %129 = landingpad { ptr, i32 }
           catch ptr null
-  %133 = extractvalue { ptr, i32 } %132, 0
-  call void @__clang_call_terminate(ptr %133) #20
+  %130 = extractvalue { ptr, i32 } %129, 0
+  call void @__clang_call_terminate(ptr %130) #20
   unreachable
 
-_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %129
+_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %126
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNSt13unordered_mapIiPN3g2o10HyperGraph6VertexESt4hashIiESt8equal_toIiESaISt4pairIKiS3_EEE4findERS9_.exit.thread
 
-134:                                              ; preds = %127, %111
-  %.pn = phi { ptr, i32 } [ %112, %111 ], [ %128, %127 ]
+131:                                              ; preds = %124, %108
+  %.pn = phi { ptr, i32 } [ %109, %108 ], [ %125, %124 ]
   call void @_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn

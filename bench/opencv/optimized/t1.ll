@@ -30404,13 +30404,13 @@ define internal fastcc void @opj_t1_dec_sigpass_step_mqc(ptr noundef nonnull %0,
   %10 = shl i32 2097168, %9
   %11 = and i32 %8, %10
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %295
+  br i1 %12, label %13, label %284
 
 13:                                               ; preds = %7
   %14 = shl i32 495, %9
   %15 = and i32 %8, %14
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %295, label %16
+  br i1 %.not, label %284, label %16
 
 16:                                               ; preds = %13
   %17 = lshr i32 %8, %9
@@ -30591,7 +30591,7 @@ define internal fastcc void @opj_t1_dec_sigpass_step_mqc(ptr noundef nonnull %0,
   %123 = phi i32 [ %31, %120 ], [ %71, %68 ], [ %116, %113 ]
   %.1 = phi i32 [ %122, %120 ], [ %.0, %68 ], [ %.2, %113 ]
   %.not194 = icmp eq i32 %.1, 0
-  br i1 %.not194, label %291, label %124
+  br i1 %.not194, label %280, label %124
 
 124:                                              ; preds = %.loopexit202
   %125 = load i32, ptr %1, align 4, !tbaa !59
@@ -30807,59 +30807,54 @@ define internal fastcc void @opj_t1_dec_sigpass_step_mqc(ptr noundef nonnull %0,
   %259 = load i32, ptr %128, align 4, !tbaa !59
   %260 = or i32 %259, %258
   store i32 %260, ptr %128, align 4, !tbaa !59
-  %261 = or i32 %6, %4
-  %or.cond.not = icmp eq i32 %261, 0
-  br i1 %or.cond.not, label %262, label %276
+  %261 = icmp ne i32 %4, 0
+  %262 = trunc nuw i32 %6 to i1
+  %or.cond = select i1 %261, i1 true, i1 %262
+  br i1 %or.cond, label %265, label %.thread
 
-262:                                              ; preds = %.loopexit
+.thread:                                          ; preds = %.loopexit
   %263 = zext i32 %5 to i64
   %264 = sub nsw i64 0, %263
-  %265 = getelementptr inbounds i32, ptr %1, i64 %264
-  %266 = shl i32 %247, 31
-  %267 = or disjoint i32 %266, 65536
-  %268 = load i32, ptr %265, align 4, !tbaa !59
-  %269 = or i32 %268, %267
-  store i32 %269, ptr %265, align 4, !tbaa !59
-  %270 = getelementptr inbounds i8, ptr %265, i64 -4
-  %271 = load i32, ptr %270, align 4, !tbaa !59
-  %272 = or i32 %271, 131072
-  store i32 %272, ptr %270, align 4, !tbaa !59
-  %273 = getelementptr inbounds nuw i8, ptr %265, i64 4
-  %274 = load i32, ptr %273, align 4, !tbaa !59
-  %275 = or i32 %274, 32768
-  store i32 %275, ptr %273, align 4, !tbaa !59
-  br label %276
+  br label %.sink.split
 
-276:                                              ; preds = %262, %.loopexit
-  %277 = icmp eq i32 %4, 3
-  br i1 %277, label %278, label %291
+265:                                              ; preds = %.loopexit
+  %266 = icmp eq i32 %4, 3
+  br i1 %266, label %267, label %280
 
-278:                                              ; preds = %276
-  %279 = zext i32 %5 to i64
-  %280 = getelementptr inbounds nuw i32, ptr %1, i64 %279
-  %281 = shl i32 %247, 18
-  %282 = or disjoint i32 %281, 2
-  %283 = load i32, ptr %280, align 4, !tbaa !59
-  %284 = or i32 %283, %282
-  store i32 %284, ptr %280, align 4, !tbaa !59
-  %285 = getelementptr inbounds i8, ptr %280, i64 -4
-  %286 = load i32, ptr %285, align 4, !tbaa !59
-  %287 = or i32 %286, 4
-  store i32 %287, ptr %285, align 4, !tbaa !59
-  %288 = getelementptr inbounds nuw i8, ptr %280, i64 4
-  %289 = load i32, ptr %288, align 4, !tbaa !59
-  %290 = or i32 %289, 1
-  store i32 %290, ptr %288, align 4, !tbaa !59
-  br label %291
+267:                                              ; preds = %265
+  %268 = zext i32 %5 to i64
+  br label %.sink.split
 
-291:                                              ; preds = %276, %278, %.loopexit202
-  %292 = shl i32 2097152, %9
-  %293 = load i32, ptr %1, align 4, !tbaa !59
-  %294 = or i32 %293, %292
-  store i32 %294, ptr %1, align 4, !tbaa !59
-  br label %295
+.sink.split:                                      ; preds = %267, %.thread
+  %.sink259 = phi i64 [ %264, %.thread ], [ %268, %267 ]
+  %.sink258 = phi i32 [ 31, %.thread ], [ 18, %267 ]
+  %.sink257 = phi i32 [ 65536, %.thread ], [ 2, %267 ]
+  %.sink248 = phi i32 [ 131072, %.thread ], [ 4, %267 ]
+  %.sink242 = phi i32 [ 32768, %.thread ], [ 1, %267 ]
+  %269 = getelementptr inbounds i32, ptr %1, i64 %.sink259
+  %270 = shl i32 %247, %.sink258
+  %271 = or disjoint i32 %270, %.sink257
+  %272 = load i32, ptr %269, align 4, !tbaa !59
+  %273 = or i32 %272, %271
+  store i32 %273, ptr %269, align 4, !tbaa !59
+  %274 = getelementptr inbounds i8, ptr %269, i64 -4
+  %275 = load i32, ptr %274, align 4, !tbaa !59
+  %276 = or i32 %275, %.sink248
+  store i32 %276, ptr %274, align 4, !tbaa !59
+  %277 = getelementptr inbounds nuw i8, ptr %269, i64 4
+  %278 = load i32, ptr %277, align 4, !tbaa !59
+  %279 = or i32 %278, %.sink242
+  store i32 %279, ptr %277, align 4, !tbaa !59
+  br label %280
 
-295:                                              ; preds = %291, %13, %7
+280:                                              ; preds = %.sink.split, %265, %.loopexit202
+  %281 = shl i32 2097152, %9
+  %282 = load i32, ptr %1, align 4, !tbaa !59
+  %283 = or i32 %282, %281
+  store i32 %283, ptr %1, align 4, !tbaa !59
+  br label %284
+
+284:                                              ; preds = %280, %13, %7
   ret void
 }
 
@@ -30870,7 +30865,7 @@ define internal fastcc void @opj_t1_dec_clnpass_step(ptr noundef nonnull %0, ptr
   %9 = shl i32 2097168, %8
   %10 = and i32 %7, %9
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %292
+  br i1 %.not, label %11, label %281
 
 11:                                               ; preds = %6
   %12 = lshr i32 %7, %8
@@ -31051,7 +31046,7 @@ define internal fastcc void @opj_t1_dec_clnpass_step(ptr noundef nonnull %0, ptr
   %118 = phi i32 [ %26, %115 ], [ %66, %63 ], [ %111, %108 ]
   %.1 = phi i32 [ %117, %115 ], [ %.0, %63 ], [ %.2, %108 ]
   %.not190 = icmp eq i32 %.1, 0
-  br i1 %.not190, label %292, label %119
+  br i1 %.not190, label %281, label %119
 
 119:                                              ; preds = %.loopexit198
   %120 = load i32, ptr %1, align 4, !tbaa !59
@@ -31267,58 +31262,53 @@ define internal fastcc void @opj_t1_dec_clnpass_step(ptr noundef nonnull %0, ptr
   %254 = load i32, ptr %123, align 4, !tbaa !59
   %255 = or i32 %254, %253
   store i32 %255, ptr %123, align 4, !tbaa !59
-  %256 = or i32 %5, %4
-  %or.cond.not = icmp eq i32 %256, 0
-  br i1 %or.cond.not, label %257, label %274
+  %256 = icmp ne i32 %4, 0
+  %257 = trunc nuw i32 %5 to i1
+  %or.cond = select i1 %256, i1 true, i1 %257
+  br i1 %or.cond, label %263, label %.thread
 
-257:                                              ; preds = %.loopexit
+.thread:                                          ; preds = %.loopexit
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %259 = load i32, ptr %258, align 8, !tbaa !104
   %260 = add i32 %259, 2
   %261 = zext i32 %260 to i64
   %262 = sub nsw i64 0, %261
-  %263 = getelementptr inbounds i32, ptr %1, i64 %262
-  %264 = shl i32 %242, 31
-  %265 = or disjoint i32 %264, 65536
-  %266 = load i32, ptr %263, align 4, !tbaa !59
-  %267 = or i32 %266, %265
-  store i32 %267, ptr %263, align 4, !tbaa !59
-  %268 = getelementptr inbounds i8, ptr %263, i64 -4
-  %269 = load i32, ptr %268, align 4, !tbaa !59
-  %270 = or i32 %269, 131072
-  store i32 %270, ptr %268, align 4, !tbaa !59
-  %271 = getelementptr inbounds nuw i8, ptr %263, i64 4
-  %272 = load i32, ptr %271, align 4, !tbaa !59
-  %273 = or i32 %272, 32768
-  store i32 %273, ptr %271, align 4, !tbaa !59
-  br label %274
+  br label %.sink.split
 
-274:                                              ; preds = %257, %.loopexit
-  %275 = icmp eq i32 %4, 3
-  br i1 %275, label %276, label %292
+263:                                              ; preds = %.loopexit
+  %264 = icmp eq i32 %4, 3
+  br i1 %264, label %265, label %281
 
-276:                                              ; preds = %274
-  %277 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %278 = load i32, ptr %277, align 8, !tbaa !104
-  %279 = add i32 %278, 2
-  %280 = zext i32 %279 to i64
-  %281 = getelementptr inbounds nuw i32, ptr %1, i64 %280
-  %282 = shl i32 %242, 18
-  %283 = or disjoint i32 %282, 2
-  %284 = load i32, ptr %281, align 4, !tbaa !59
-  %285 = or i32 %284, %283
-  store i32 %285, ptr %281, align 4, !tbaa !59
-  %286 = getelementptr inbounds i8, ptr %281, i64 -4
-  %287 = load i32, ptr %286, align 4, !tbaa !59
-  %288 = or i32 %287, 4
-  store i32 %288, ptr %286, align 4, !tbaa !59
-  %289 = getelementptr inbounds nuw i8, ptr %281, i64 4
-  %290 = load i32, ptr %289, align 4, !tbaa !59
-  %291 = or i32 %290, 1
-  store i32 %291, ptr %289, align 4, !tbaa !59
-  br label %292
+265:                                              ; preds = %263
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %267 = load i32, ptr %266, align 8, !tbaa !104
+  %268 = add i32 %267, 2
+  %269 = zext i32 %268 to i64
+  br label %.sink.split
 
-292:                                              ; preds = %.loopexit198, %274, %276, %6
+.sink.split:                                      ; preds = %265, %.thread
+  %.sink255 = phi i64 [ %262, %.thread ], [ %269, %265 ]
+  %.sink254 = phi i32 [ 31, %.thread ], [ 18, %265 ]
+  %.sink253 = phi i32 [ 65536, %.thread ], [ 2, %265 ]
+  %.sink244 = phi i32 [ 131072, %.thread ], [ 4, %265 ]
+  %.sink238 = phi i32 [ 32768, %.thread ], [ 1, %265 ]
+  %270 = getelementptr inbounds i32, ptr %1, i64 %.sink255
+  %271 = shl i32 %242, %.sink254
+  %272 = or disjoint i32 %271, %.sink253
+  %273 = load i32, ptr %270, align 4, !tbaa !59
+  %274 = or i32 %273, %272
+  store i32 %274, ptr %270, align 4, !tbaa !59
+  %275 = getelementptr inbounds i8, ptr %270, i64 -4
+  %276 = load i32, ptr %275, align 4, !tbaa !59
+  %277 = or i32 %276, %.sink244
+  store i32 %277, ptr %275, align 4, !tbaa !59
+  %278 = getelementptr inbounds nuw i8, ptr %270, i64 4
+  %279 = load i32, ptr %278, align 4, !tbaa !59
+  %280 = or i32 %279, %.sink238
+  store i32 %280, ptr %278, align 4, !tbaa !59
+  br label %281
+
+281:                                              ; preds = %.sink.split, %.loopexit198, %263, %6
   ret void
 }
 

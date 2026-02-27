@@ -1064,7 +1064,7 @@ for.body21:                                       ; preds = %for.body21.lr.ph, %
   br i1 %cmp.not19.i, label %for.inc58, label %for.body.i
 
 for.body.i:                                       ; preds = %for.body21, %land.end.i
-  %localPhiUse.023.i = phi i1 [ %tobool15.i, %land.end.i ], [ false, %for.body21 ]
+  %localPhiUse.023.i = phi i1 [ %conv11.i, %land.end.i ], [ false, %for.body21 ]
   %__begin1.022.i = phi ptr [ %incdec.ptr.i, %land.end.i ], [ %15, %for.body21 ]
   %externalUse.021.i = phi i1 [ %or2211.i, %land.end.i ], [ false, %for.body21 ]
   %terminatorUse.020.i = phi i1 [ %or10.i, %land.end.i ], [ false, %for.body21 ]
@@ -1089,22 +1089,19 @@ land.lhs.true.i:                                  ; preds = %for.body.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true.i
   %cmp10.i = icmp ne ptr %13, %17
-  %23 = zext i1 %cmp10.i to i32
+  %23 = or i1 %localPhiUse.023.i, %cmp10.i
   br label %land.end.i
 
 land.end.i:                                       ; preds = %land.rhs.i, %land.lhs.true.i, %for.body.land.end_crit_edge.i
   %cmp18.i = phi i1 [ true, %land.lhs.true.i ], [ %22, %for.body.land.end_crit_edge.i ], [ false, %land.rhs.i ]
-  %conv11.i = phi i32 [ 0, %land.lhs.true.i ], [ 0, %for.body.land.end_crit_edge.i ], [ %23, %land.rhs.i ]
-  %conv13.i = zext i1 %localPhiUse.023.i to i32
-  %or14.i = or i32 %conv11.i, %conv13.i
-  %tobool15.i = icmp ne i32 %or14.i, 0
+  %conv11.i = phi i1 [ %localPhiUse.023.i, %land.lhs.true.i ], [ %localPhiUse.023.i, %for.body.land.end_crit_edge.i ], [ %23, %land.rhs.i ]
   %or2211.i = or i1 %externalUse.021.i, %cmp18.i
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.022.i, i64 8
   %cmp.not.i44 = icmp eq ptr %incdec.ptr.i, %add.ptr.i.i41
   br i1 %cmp.not.i44, label %_ZL12phiReadWritePN6hermes7PhiInstE.exit, label %for.body.i
 
 _ZL12phiReadWritePN6hermes7PhiInstE.exit:         ; preds = %land.end.i
-  %24 = select i1 %or10.i, i1 true, i1 %tobool15.i
+  %24 = select i1 %or10.i, i1 true, i1 %conv11.i
   %25 = select i1 %24, i1 true, i1 %or2211.i
   br i1 %25, label %if.end25, label %for.inc58
 

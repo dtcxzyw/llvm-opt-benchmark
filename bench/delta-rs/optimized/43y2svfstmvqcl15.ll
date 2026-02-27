@@ -3163,6 +3163,7 @@ define internal void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT
   %.val.i.i.i.i = load ptr, ptr %12, align 8, !alias.scope !468, !noalias !473
   %.not.i.i.i.i.i.i = icmp ne ptr %.val.i.i.i.i, null
   %narrow.i.i.i = select i1 %trunc.i.i.i, i1 %.not.i.i.i.i.i.i, i1 false
+  %.sroa.7.0.i.i.i = zext i1 %narrow.i.i.i to i64
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %14 = load i64, ptr %13, align 8, !range !53, !alias.scope !468, !noalias !473, !noundef !5
   %trunc45.i.i.i = trunc nuw i64 %14 to i1
@@ -3170,37 +3171,37 @@ define internal void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT
   %.val.i47.i.i.i = load ptr, ptr %15, align 8, !alias.scope !468, !noalias !473
   %.not.i.i.i48.i.i.i = icmp ne ptr %.val.i47.i.i.i, null
   %narrow64.i.i.i = select i1 %trunc45.i.i.i, i1 %.not.i.i.i48.i.i.i, i1 false
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %17 = load ptr, ptr %16, align 8, !alias.scope !468, !noalias !473, !noundef !5
-  %18 = icmp eq ptr %17, null
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %.val46.i.i.i = load ptr, ptr %19, align 8, !alias.scope !468, !noalias !473, !nonnull !5
-  %20 = icmp eq ptr %.val46.i.i.i, %17
-  %.sroa.059.0.i.i.i = select i1 %18, i1 true, i1 %20
-  %21 = or i1 %narrow.i.i.i, %narrow64.i.i.i
-  %22 = xor i1 %21, true
-  %23 = and i1 %.sroa.059.0.i.i.i, %22
-  %24 = and i1 %5, %23
-  %25 = select i1 %.sroa.059.0.i.i.i, i1 %22, i1 undef
-  br label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha3931247e32ab6c0E.exit.i"
+  %.sroa.8.0.i.i.i = zext i1 %narrow64.i.i.i to i64
+  %16 = add nuw nsw i64 %.sroa.8.0.i.i.i, %.sroa.7.0.i.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  %18 = load ptr, ptr %17, align 8, !alias.scope !468, !noalias !473, !noundef !5
+  %19 = icmp eq ptr %18, null
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %.val46.i.i.i = load ptr, ptr %20, align 8, !alias.scope !468, !noalias !473, !nonnull !5
+  %21 = icmp eq ptr %.val46.i.i.i, %18
+  %.sroa.059.0.i.i.i = select i1 %19, i1 true, i1 %21
+  br i1 %.sroa.059.0.i.i.i, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha3931247e32ab6c0E.exit.i", label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha3931247e32ab6c0E.exit.thread.i"
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha3931247e32ab6c0E.exit.i": ; preds = %11, %2
-  %.sroa.8.0.i = phi i1 [ true, %2 ], [ %25, %11 ]
-  %or.cond.i = phi i1 [ %5, %2 ], [ %24, %11 ]
-  %or.cond5.i = and i1 %8, %or.cond.i
-  %or.cond8.i = select i1 %or.cond5.i, i1 %.sroa.8.0.i, i1 false
-  br i1 %or.cond8.i, label %26, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7f5b5260d04a8430E.exit"
+  %.sroa.054.0.i = phi i64 [ 0, %2 ], [ %16, %11 ]
+  %22 = icmp eq i64 %.sroa.054.0.i, 0
+  %or.cond3.i = and i1 %5, %22
+  %or.cond5.i = and i1 %8, %or.cond3.i
+  br i1 %or.cond5.i, label %23, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha3931247e32ab6c0E.exit.thread.i"
 
-26:                                               ; preds = %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha3931247e32ab6c0E.exit.i"
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %27, align 8, !alias.scope !463, !noalias !466
+"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha3931247e32ab6c0E.exit.thread.i": ; preds = %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha3931247e32ab6c0E.exit.i", %11
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 16, i1 false), !alias.scope !463, !noalias !466
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7f5b5260d04a8430E.exit"
 
-"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7f5b5260d04a8430E.exit": ; preds = %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha3931247e32ab6c0E.exit.i", %26
-  %.sink.i = phi i64 [ 1, %26 ], [ 0, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha3931247e32ab6c0E.exit.i" ]
+23:                                               ; preds = %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha3931247e32ab6c0E.exit.i"
   store i64 0, ptr %0, align 8, !alias.scope !463, !noalias !466
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink.i, ptr %28, align 8, !alias.scope !463, !noalias !466
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 1, ptr %24, align 8, !alias.scope !463, !noalias !466
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %25, align 8, !alias.scope !463, !noalias !466
+  br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7f5b5260d04a8430E.exit"
+
+"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7f5b5260d04a8430E.exit": ; preds = %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha3931247e32ab6c0E.exit.thread.i", %23
   ret void
 }
 

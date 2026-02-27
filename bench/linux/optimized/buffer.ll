@@ -3526,7 +3526,7 @@ define internal fastcc void @submit_bh_wbc(i32 noundef %0, ptr noundef %1) unnam
   %29 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 3, ptr elementtype(i64) %1) #13, !srcloc !15
   %30 = icmp ult i8 %29, 2
   tail call void @llvm.assume(i1 %30)
-  %31 = icmp ne i8 %29, 0
+  %31 = trunc nuw i8 %29 to i1
   %32 = icmp eq i32 %3, 1
   %33 = and i1 %32, %31
   br i1 %33, label %34, label %36
@@ -5247,7 +5247,7 @@ define internal fastcc void @end_buffer_async_read(ptr noundef %0, i32 noundef %
 
 36:                                               ; preds = %49, %31
   %37 = phi ptr [ %0, %31 ], [ %53, %49 ]
-  %38 = phi i32 [ 1, %31 ], [ %51, %49 ]
+  %38 = phi i1 [ true, %31 ], [ %51, %49 ]
   %39 = tail call i8 asm sideeffect "testb $2,$1\0A\09/* output condition code nz*/\0A", "={@ccnz},*m,i,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %37, i32 1) #13, !srcloc !24
   %40 = icmp ult i8 %39, 2
   tail call void @llvm.assume(i1 %40)
@@ -5260,7 +5260,7 @@ define internal fastcc void @end_buffer_async_read(ptr noundef %0, i32 noundef %
   %45 = load volatile i64, ptr %37, align 8
   %46 = and i64 %45, 4
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %48, label %57, !prof !18
+  br i1 %47, label %48, label %56, !prof !18
 
 48:                                               ; preds = %44
   tail call void asm sideeffect "839: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 839b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 839) #13, !srcloc !177
@@ -5268,8 +5268,8 @@ define internal fastcc void @end_buffer_async_read(ptr noundef %0, i32 noundef %
   unreachable
 
 49:                                               ; preds = %36
-  %50 = icmp eq i8 %39, 0
-  %51 = select i1 %50, i32 0, i32 %38
+  %50 = trunc nuw i8 %39 to i1
+  %51 = select i1 %50, i1 %38, i1 false
   %52 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, %0
@@ -5277,15 +5277,14 @@ define internal fastcc void @end_buffer_async_read(ptr noundef %0, i32 noundef %
 
 55:                                               ; preds = %49
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %34, i64 noundef %35) #13
-  %56 = icmp ne i32 %51, 0
-  tail call void @folio_end_read(ptr noundef %9, i1 noundef zeroext %56) #13
-  br label %58
+  tail call void @folio_end_read(ptr noundef %9, i1 noundef zeroext %51) #13
+  br label %57
 
-57:                                               ; preds = %44
+56:                                               ; preds = %44
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %34, i64 noundef %35) #13
-  br label %58
+  br label %57
 
-58:                                               ; preds = %57, %55
+57:                                               ; preds = %56, %55
   ret void
 }
 

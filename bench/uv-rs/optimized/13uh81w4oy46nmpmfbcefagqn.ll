@@ -1633,10 +1633,11 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h6e7720e8443cf309E.
 195:                                              ; preds = %189, %194
   %196 = landingpad { ptr, i32 }
           cleanup
+  %.sroa.0.0 = xor i1 %trunc, true
   %197 = load i64, ptr %25, align 8, !range !215, !noundef !4
-  %198 = icmp eq i64 %197, 0
-  %or.cond.not = or i1 %198, %trunc
-  br i1 %or.cond.not, label %.thread, label %203
+  %198 = trunc nuw i64 %197 to i1
+  %or.cond = and i1 %.sroa.0.0, %198
+  br i1 %or.cond, label %203, label %.thread
 
 199:                                              ; preds = %194
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
@@ -2350,10 +2351,11 @@ _ZN5tokio7runtime9scheduler14current_thread9CoreGuard5enter17h4ec8b9013108acdcE.
 196:                                              ; preds = %190, %195
   %197 = landingpad { ptr, i32 }
           cleanup
+  %.sroa.0.0 = xor i1 %trunc, true
   %198 = load i64, ptr %25, align 8, !range !215, !noundef !4
-  %199 = icmp eq i64 %198, 0
-  %or.cond.not = or i1 %199, %trunc
-  br i1 %or.cond.not, label %.thread, label %204
+  %199 = trunc nuw i64 %198 to i1
+  %or.cond = and i1 %.sroa.0.0, %199
+  br i1 %or.cond, label %204, label %.thread
 
 200:                                              ; preds = %195
   call void @llvm.lifetime.end.p0(ptr nonnull %24)

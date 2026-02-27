@@ -1897,8 +1897,7 @@ define internal fastcc void @slicecontext_init(ptr noundef writeonly captures(no
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 6508
   tail call fastcc void @pixctx_init(ptr noundef nonnull %19, i32 noundef 8, i32 noundef %2, i32 noundef 0) #10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 87132
-  %.not.not = icmp eq i32 %1, 0
-  %21 = select i1 %.not.not, i32 2, i32 3
+  %21 = or disjoint i32 %1, 2
   tail call fastcc void @pixctx_init(ptr noundef nonnull %20, i32 noundef %21, i32 noundef %2, i32 noundef %1) #10
   ret void
 }

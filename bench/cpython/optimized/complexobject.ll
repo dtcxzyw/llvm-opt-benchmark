@@ -4235,7 +4235,7 @@ Py_DECREF.exit79.i:                               ; preds = %82, %79, %77, %PyOb
   br label %Py_DECREF.exit77.i
 
 Py_DECREF.exit77.i:                               ; preds = %107, %104, %101, %95, %91, %87
-  %.not68102.i = phi i1 [ %51, %95 ], [ %51, %91 ], [ %51, %87 ], [ false, %101 ], [ false, %104 ], [ false, %107 ]
+  %.not68102.i = phi i1 [ true, %95 ], [ true, %91 ], [ true, %87 ], [ false, %101 ], [ false, %104 ], [ false, %107 ]
   %.sroa.7.0.i = phi double [ %.sroa.7.0.copyload.i, %95 ], [ %.sroa.7.0.copyload.i, %91 ], [ %.sroa.7.0.copyload.i, %87 ], [ 0.000000e+00, %101 ], [ 0.000000e+00, %104 ], [ 0.000000e+00, %107 ]
   %.sroa.08.0.i = phi double [ %.sroa.08.0.copyload.i, %95 ], [ %.sroa.08.0.copyload.i, %91 ], [ %.sroa.08.0.copyload.i, %87 ], [ %102, %101 ], [ %102, %104 ], [ %102, %107 ]
   %108 = icmp eq ptr %.0, null
@@ -4297,8 +4297,9 @@ Py_DECREF.exit.i:                                 ; preds = %PyObject_TypeCheck.
   br i1 %.not.i.i.i, label %complex_new_impl.exit, label %131
 
 131:                                              ; preds = %126
+  %or.cond.i = and i1 %51, %.not68102.i
   %132 = fadd double %.sroa.7.0.i, %.sroa.0.0108.i
-  %.sroa.0.1.i = select i1 %.not68102.i, double %132, double %.sroa.0.0108.i
+  %.sroa.0.1.i = select i1 %or.cond.i, double %132, double %.sroa.0.0108.i
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 16
   store double %127, ptr %133, align 8, !tbaa !13
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %130, i64 24

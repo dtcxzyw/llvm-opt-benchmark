@@ -39,15 +39,13 @@ entry:
   %or.cond20 = or i1 %cmp, %tobool.not
   %cmp3 = icmp eq i64 %namelen, 0
   %or.cond21 = or i1 %cmp3, %or.cond20
-  br i1 %or.cond21, label %return, label %if.end5
-
-if.end5:                                          ; preds = %entry
-  %tobool7 = icmp ne i32 %flags, 0
+  %tobool7 = trunc nuw i32 %flags to i1
   %cmp9 = icmp ugt i64 %namelen, 108
   %or.cond = and i1 %cmp9, %tobool7
-  br i1 %or.cond, label %return, label %if.end12
+  %or.cond22 = select i1 %or.cond21, i1 true, i1 %or.cond
+  br i1 %or.cond22, label %return, label %if.end12
 
-if.end12:                                         ; preds = %if.end5
+if.end12:                                         ; preds = %entry
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %namelen, i64 108)
   %fd = getelementptr inbounds nuw i8, ptr %handle, i64 184
   %0 = load i32, ptr %fd, align 8
@@ -110,8 +108,8 @@ err_socket:                                       ; preds = %if.end31, %if.then3
   call void @uv__free(ptr noundef %pipe_fname.0) #12
   br label %return
 
-return:                                           ; preds = %if.then26, %if.end18, %if.end12, %if.end5, %entry, %err_socket, %if.end46
-  %retval.0 = phi i32 [ 0, %if.end46 ], [ -22, %entry ], [ -12, %if.then26 ], [ %err.0, %err_socket ], [ -22, %if.end5 ], [ -22, %if.end12 ], [ -22, %if.end18 ]
+return:                                           ; preds = %if.then26, %if.end18, %if.end12, %entry, %err_socket, %if.end46
+  %retval.0 = phi i32 [ 0, %if.end46 ], [ -22, %entry ], [ -12, %if.then26 ], [ %err.0, %err_socket ], [ -22, %if.end18 ], [ -22, %if.end12 ]
   ret i32 %retval.0
 }
 
@@ -278,15 +276,13 @@ entry:
   %or.cond28 = or i1 %cmp, %tobool.not
   %cmp3 = icmp eq i64 %namelen, 0
   %or.cond29 = or i1 %cmp3, %or.cond28
-  br i1 %or.cond29, label %return, label %if.end5
-
-if.end5:                                          ; preds = %entry
-  %tobool7 = icmp ne i32 %flags, 0
+  %tobool7 = trunc nuw i32 %flags to i1
   %cmp9 = icmp ugt i64 %namelen, 108
   %or.cond = and i1 %cmp9, %tobool7
-  br i1 %or.cond, label %return, label %if.end12
+  %or.cond30 = select i1 %or.cond29, i1 true, i1 %or.cond
+  br i1 %or.cond30, label %return, label %if.end12
 
-if.end12:                                         ; preds = %if.end5
+if.end12:                                         ; preds = %entry
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %namelen, i64 108)
   %io_watcher = getelementptr inbounds nuw i8, ptr %handle, i64 136
   %fd = getelementptr inbounds nuw i8, ptr %handle, i64 184
@@ -374,8 +370,8 @@ if.then66:                                        ; preds = %out
   call void @uv__io_feed(ptr noundef %8, ptr noundef nonnull %io_watcher) #12
   br label %return
 
-return:                                           ; preds = %out, %if.then66, %if.end5, %entry
-  %retval.0 = phi i32 [ -22, %if.end5 ], [ -22, %entry ], [ 0, %out ], [ 0, %if.then66 ]
+return:                                           ; preds = %out, %if.then66, %entry
+  %retval.0 = phi i32 [ 0, %if.then66 ], [ -22, %entry ], [ 0, %out ]
   ret i32 %retval.0
 }
 

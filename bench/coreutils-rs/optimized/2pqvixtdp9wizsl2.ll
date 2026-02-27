@@ -728,7 +728,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.12123109310310187846.exit
 "_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17hc44202f16b667d1cE.exit.i": ; preds = %.noexc5.i, %.noexc3.i, %150, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i.i.i, %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17ha7e34addecafb921E.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !76
   %.pre17 = load i64, ptr %15, align 8, !range !70
-  %171 = icmp ne i64 %.pre17, 0
+  %171 = trunc nuw i64 %.pre17 to i1
   br label %_ZN14regex_automata4meta5regex5Regex11search_half17h60ca0226af647e85E.exit
 
 .body.thread.sink.split.i:                        ; preds = %167, %108
@@ -961,9 +961,8 @@ define hidden void @_ZN5uu_pr13write_columns17h36a1407f3aa14445E(ptr noalias nou
   store ptr inttoptr (i64 8 to ptr), ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i64 0, ptr %58, align 8
-  %.not116 = icmp ne i64 %36, 0
   %59 = icmp ne i64 %.0103, 0
-  %or.cond = select i1 %.not116, i1 %59, i1 false
+  %or.cond = select i1 %trunc, i1 %59, i1 false
   br i1 %or.cond, label %.lr.ph248, label %.thread
 
 .lr.ph248:                                        ; preds = %45
@@ -1045,7 +1044,7 @@ define hidden void @_ZN5uu_pr13write_columns17h36a1407f3aa14445E(ptr noalias nou
   %80 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  br i1 %.not116, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3a22700791806d55E.exit", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3a22700791806d55E.exit.us"
+  br i1 %trunc, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3a22700791806d55E.exit", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3a22700791806d55E.exit.us"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3a22700791806d55E.exit.us": ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3a22700791806d55E.exit.lr.ph", %107
   %83 = phi ptr [ %109, %107 ], [ %.sroa.4.0.copyload, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3a22700791806d55E.exit.lr.ph" ]

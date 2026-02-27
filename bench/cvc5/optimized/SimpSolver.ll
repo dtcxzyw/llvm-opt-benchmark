@@ -829,12 +829,11 @@ declare noundef nonnull align 8 dereferenceable(408) ptr @_ZNK4cvc58internal6Env
 define linkonce_odr hidden noundef i32 @_ZN4cvc58internal7Minisat15ClauseAllocator5allocINS1_3vecINS1_3LitEEEEEjiRKT_b(ptr noundef nonnull align 8 dereferenceable(21) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext %3) local_unnamed_addr #5 comdat align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i8, ptr %5, align 4, !tbaa !299, !range !67, !noundef !68
-  %7 = zext i1 %3 to i8
-  %8 = or i8 %6, %7
-  %.not = icmp eq i8 %8, 0
+  %7 = trunc nuw i8 %6 to i1
+  %8 = or i1 %3, %7
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !282
-  %11 = zext nneg i8 %8 to i32
+  %11 = zext i1 %8 to i32
   %12 = add i32 %10, 2
   %13 = add i32 %12, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -859,7 +858,7 @@ _ZN4cvc58internal7Minisat15RegionAllocatorIjE5allocEi.exit: ; preds = %4
   %25 = load i64, ptr %24, align 4
   %26 = select i1 %3, i64 4, i64 0
   %27 = and i64 %25, -32
-  %28 = select i1 %.not, i64 0, i64 8
+  %28 = select i1 %8, i64 8, i64 0
   %29 = or disjoint i64 %26, %27
   %30 = or disjoint i64 %29, %28
   store i64 %30, ptr %24, align 4
@@ -882,7 +881,7 @@ _ZN4cvc58internal7Minisat15RegionAllocatorIjE5allocEi.exit: ; preds = %4
   br label %43
 
 ._crit_edge.i:                                    ; preds = %43, %_ZN4cvc58internal7Minisat15RegionAllocatorIjE5allocEi.exit
-  br i1 %.not, label %_ZN4cvc58internal7Minisat6ClauseC2INS1_3vecINS1_3LitEEEEERKT_bbi.exit, label %50
+  br i1 %8, label %50, label %_ZN4cvc58internal7Minisat6ClauseC2INS1_3vecINS1_3LitEEEEERKT_bbi.exit
 
 43:                                               ; preds = %43, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %43 ]
@@ -1735,7 +1734,7 @@ _ZN4cvc58internal7Minisat6Solver8toDimacsEv.exit: ; preds = %12, %.preheader.i.i
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 892
   %21 = load i8, ptr %20, align 4, !tbaa !277, !range !67, !noundef !68
-  %.not16 = icmp ne i8 %21, 0
+  %.not16 = trunc nuw i8 %21 to i1
   %.not.not = and i1 %1, %.not16
   br i1 %.not.not, label %.preheader57, label %.thread
 

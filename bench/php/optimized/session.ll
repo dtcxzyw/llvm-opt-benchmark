@@ -12484,7 +12484,7 @@ define internal fastcc void @php_session_rfc1867_update(ptr noundef %0, i32 noun
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i64, ptr %9, align 8, !tbaa !265
   %11 = icmp slt i64 %8, %10
-  br i1 %11, label %107, label %12
+  br i1 %11, label %108, label %12
 
 12:                                               ; preds = %5
   %13 = load double, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 424), align 8, !tbaa !266
@@ -12518,7 +12518,7 @@ define internal fastcc void @php_session_rfc1867_update(ptr noundef %0, i32 noun
 
 29:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %107
+  br label %108
 
 30:                                               ; preds = %.thread, %12
   %31 = phi i64 [ %.pre30, %.thread ], [ %8, %12 ]
@@ -12533,7 +12533,7 @@ define internal fastcc void @php_session_rfc1867_update(ptr noundef %0, i32 noun
   store i32 2, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 104), align 8, !tbaa !4
   %37 = load i8, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 368), align 16, !tbaa !65
   %38 = icmp eq i8 %37, 10
-  br i1 %38, label %39, label %105
+  br i1 %38, label %39, label %106
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ps_globals, i64 360), align 8, !tbaa !65
@@ -12541,7 +12541,7 @@ define internal fastcc void @php_session_rfc1867_update(ptr noundef %0, i32 noun
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %43 = load i8, ptr %42, align 8, !tbaa !65
   %44 = icmp eq i8 %43, 7
-  br i1 %44, label %45, label %105
+  br i1 %44, label %45, label %106
 
 45:                                               ; preds = %39
   %46 = load ptr, ptr %41, align 8, !tbaa !65
@@ -12629,39 +12629,40 @@ zend_symtable_find.exit.i:                        ; preds = %_zend_handle_numeri
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %88 = load i8, ptr %87, align 8, !tbaa !65
   %89 = icmp eq i8 %88, 3
-  %90 = zext i1 %89 to i8
   br label %php_check_cancel_upload.exit
 
 php_check_cancel_upload.exit:                     ; preds = %zend_symtable_find.exit.i, %79, %82, %86
-  %.0.i = phi i8 [ %90, %86 ], [ 0, %zend_symtable_find.exit.i ], [ 0, %79 ], [ 0, %82 ]
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %92 = load i8, ptr %91, align 8, !tbaa !253, !range !66, !noundef !99
-  %93 = or i8 %92, %.0.i
-  store i8 %93, ptr %91, align 8, !tbaa !253
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 89
-  %96 = load i8, ptr %95, align 1, !tbaa !65
-  %.not28 = icmp eq i8 %96, 0
-  br i1 %.not28, label %101, label %97
+  %.0.i = phi i1 [ %89, %86 ], [ false, %zend_symtable_find.exit.i ], [ false, %79 ], [ false, %82 ]
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %91 = load i8, ptr %90, align 8, !tbaa !253, !range !66, !noundef !99
+  %92 = trunc nuw i8 %91 to i1
+  %93 = or i1 %.0.i, %92
+  %94 = zext i1 %93 to i8
+  store i8 %94, ptr %90, align 8, !tbaa !253
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 89
+  %97 = load i8, ptr %96, align 1, !tbaa !65
+  %.not28 = icmp eq i8 %97, 0
+  br i1 %.not28, label %102, label %98
 
-97:                                               ; preds = %php_check_cancel_upload.exit
-  %98 = load ptr, ptr %94, align 8, !tbaa !65
-  %99 = load i32, ptr %98, align 4, !tbaa !69
-  %100 = add i32 %99, 1
-  store i32 %100, ptr %98, align 4, !tbaa !69
-  br label %101
+98:                                               ; preds = %php_check_cancel_upload.exit
+  %99 = load ptr, ptr %95, align 8, !tbaa !65
+  %100 = load i32, ptr %99, align 4, !tbaa !69
+  %101 = add i32 %100, 1
+  store i32 %101, ptr %99, align 4, !tbaa !69
+  br label %102
 
-101:                                              ; preds = %97, %php_check_cancel_upload.exit
-  %102 = load ptr, ptr %41, align 8, !tbaa !65
-  %103 = load ptr, ptr %57, align 8, !tbaa !225
-  %104 = call ptr @zend_hash_update(ptr noundef %102, ptr noundef %103, ptr noundef nonnull %94) #25
-  br label %105
+102:                                              ; preds = %98, %php_check_cancel_upload.exit
+  %103 = load ptr, ptr %41, align 8, !tbaa !65
+  %104 = load ptr, ptr %57, align 8, !tbaa !225
+  %105 = call ptr @zend_hash_update(ptr noundef %103, ptr noundef %104, ptr noundef nonnull %95) #25
+  br label %106
 
-105:                                              ; preds = %101, %39, %35
-  %106 = call i32 @php_session_flush(i32 noundef 1)
-  br label %107
+106:                                              ; preds = %102, %39, %35
+  %107 = call i32 @php_session_flush(i32 noundef 1)
+  br label %108
 
-107:                                              ; preds = %29, %5, %105
+108:                                              ; preds = %29, %5, %106
   ret void
 }
 

@@ -400,9 +400,9 @@ define internal fastcc noundef i32 @_ZL14peer_from_x509P7x509_stiP8tsi_peer(ptr 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 35:                                               ; preds = %._crit_edge
-  %.not62.not103 = icmp eq i32 %1, 0
+  %.not62103 = trunc nuw i32 %1 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  br i1 %.not62.not103, label %39, label %36
+  br i1 %.not62103, label %36, label %39
 
 36:                                               ; preds = %35
   %37 = load ptr, ptr %2, align 8, !tbaa !18
@@ -5101,7 +5101,9 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us: ; pr
   br i1 %.not30.not.i, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72
-  %.03865.us68 = phi i64 [ %63, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72 ], [ 0, %.lr.ph.split ]
+  %.03865.us68 = phi i64 [ %67, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72 ], [ 0, %.lr.ph.split ]
+  %.03964.us69 = phi i64 [ %.140.ph.us74, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72 ], [ 0, %.lr.ph.split ]
+  %.04263.us70 = phi ptr [ %.143.ph.us73, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72 ], [ null, %.lr.ph.split ]
   %54 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %53, i64 %.03865.us68
   %55 = load ptr, ptr %54, align 8, !tbaa !187
   %56 = icmp eq ptr %55, null
@@ -5110,69 +5112,93 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us: ; pr
 57:                                               ; preds = %.lr.ph.split.split.us
   %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(30) @.str.17) #30
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %.critedge.us, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72
+  br i1 %59, label %.critedge.us, label %60
+
+60:                                               ; preds = %57
+  %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(25) @.str.18) #30
+  %62 = icmp eq i32 %61, 0
+  %spec.select.us71 = select i1 %62, ptr %54, ptr %.04263.us70
+  br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72
 
 .critedge.us:                                     ; preds = %57
-  %60 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %61 = load i64, ptr %60, align 8, !tbaa !191
-  %62 = icmp eq i64 %61, 0
-  br i1 %62, label %.loopexit, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72
+  %63 = add i64 %.03964.us69, 1
+  %64 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %65 = load i64, ptr %64, align 8, !tbaa !191
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %.loopexit, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72
 
-_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72: ; preds = %57, %.critedge.us, %.lr.ph.split.split.us
-  %63 = add nuw i64 %.03865.us68, 1
-  %64 = icmp ult i64 %63, %52
-  br i1 %64, label %.lr.ph.split.split.us, label %._crit_edge.thread, !llvm.loop !192
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72: ; preds = %.critedge.us, %60, %.lr.ph.split.split.us
+  %.143.ph.us73 = phi ptr [ %.04263.us70, %.critedge.us ], [ %.04263.us70, %.lr.ph.split.split.us ], [ %spec.select.us71, %60 ]
+  %.140.ph.us74 = phi i64 [ %63, %.critedge.us ], [ %.03964.us69, %.lr.ph.split.split.us ], [ %.03964.us69, %60 ]
+  %67 = add nuw i64 %.03865.us68, 1
+  %68 = icmp ult i64 %67, %52
+  br i1 %68, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !192
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread
-  %.03865 = phi i64 [ %77, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread ], [ 0, %.lr.ph.split ]
-  %65 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %53, i64 %.03865
-  %66 = load ptr, ptr %65, align 8, !tbaa !187
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread, label %68
+  %.03865 = phi i64 [ %85, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread ], [ 0, %.lr.ph.split ]
+  %.03964 = phi i64 [ %.140.ph, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread ], [ 0, %.lr.ph.split ]
+  %.04263 = phi ptr [ %.143.ph, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread ], [ null, %.lr.ph.split ]
+  %69 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %53, i64 %.03865
+  %70 = load ptr, ptr %69, align 8, !tbaa !187
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread, label %72
 
-68:                                               ; preds = %.lr.ph.split.split
-  %69 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull dereferenceable(30) @.str.17) #30
-  %70 = icmp eq i32 %69, 0
-  br i1 %70, label %.critedge, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread
+72:                                               ; preds = %.lr.ph.split.split
+  %73 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(30) @.str.17) #30
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %.critedge, label %82
 
-.critedge:                                        ; preds = %68
-  %71 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %72 = load i64, ptr %71, align 8, !tbaa !191
-  %73 = icmp eq i64 %1, %72
-  br i1 %73, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread
+.critedge:                                        ; preds = %72
+  %75 = add i64 %.03964, 1
+  %76 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %77 = load i64, ptr %76, align 8, !tbaa !191
+  %78 = icmp eq i64 %1, %77
+  br i1 %78, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %.critedge
-  %74 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %75 = load ptr, ptr %74, align 8, !tbaa !190
-  %bcmp.i = tail call i32 @bcmp(ptr %2, ptr %75, i64 %1)
-  %76 = icmp eq i32 %bcmp.i, 0
-  br i1 %76, label %.loopexit, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread
+  %79 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %80 = load ptr, ptr %79, align 8, !tbaa !190
+  %bcmp.i = tail call i32 @bcmp(ptr %2, ptr %80, i64 %1)
+  %81 = icmp eq i32 %bcmp.i, 0
+  br i1 %81, label %.loopexit, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread
 
-_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread: ; preds = %68, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %.critedge, %.lr.ph.split.split
-  %77 = add nuw i64 %.03865, 1
-  %78 = icmp ult i64 %77, %52
-  br i1 %78, label %.lr.ph.split.split, label %._crit_edge.thread, !llvm.loop !192
+82:                                               ; preds = %72
+  %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(25) @.str.18) #30
+  %84 = icmp eq i32 %83, 0
+  %spec.select = select i1 %84, ptr %69, ptr %.04263
+  br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread
 
-._crit_edge:                                      ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us
-  %79 = icmp ne i64 %.140.ph.us, 0
-  %80 = icmp eq ptr %.143.ph.us, null
-  %or.cond.not49 = select i1 %79, i1 true, i1 %80
-  br i1 %or.cond.not49, label %._crit_edge.thread, label %81
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %.critedge, %.lr.ph.split.split, %82
+  %.143.ph = phi ptr [ %.04263, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %.04263, %.lr.ph.split.split ], [ %spec.select, %82 ], [ %.04263, %.critedge ]
+  %.140.ph = phi i64 [ %75, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %.03964, %.lr.ph.split.split ], [ %.03964, %82 ], [ %75, %.critedge ]
+  %85 = add nuw i64 %.03865, 1
+  %86 = icmp ult i64 %85, %52
+  br i1 %86, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !192
 
-81:                                               ; preds = %._crit_edge
-  %82 = getelementptr inbounds nuw i8, ptr %.143.ph.us, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !190
-  %84 = getelementptr inbounds nuw i8, ptr %.143.ph.us, i64 16
-  %85 = load i64, ptr %84, align 8, !tbaa !191
-  %86 = tail call fastcc noundef i32 @_ZL21does_entry_match_nameSt17basic_string_viewIcSt11char_traitsIcEES2_(i64 %85, ptr %83, i64 %1, ptr %2)
-  %.not = icmp eq i32 %86, 0
+._crit_edge:                                      ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us
+  %.not.lcssa.i97 = phi i1 [ true, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72 ], [ false, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us ], [ true, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread ]
+  %.042.lcssa = phi ptr [ %.143.ph.us73, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72 ], [ %.143.ph.us, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us ], [ %.143.ph, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread ]
+  %.039.lcssa = phi i64 [ %.140.ph.us74, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72 ], [ %.140.ph.us, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us ], [ %.140.ph, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread ]
+  %87 = icmp ne i64 %.039.lcssa, 0
+  %88 = icmp eq ptr %.042.lcssa, null
+  %or.cond.not49 = select i1 %87, i1 true, i1 %88
+  %or.cond3 = or i1 %or.cond.not49, %.not.lcssa.i97
+  br i1 %or.cond3, label %._crit_edge.thread, label %89
+
+89:                                               ; preds = %._crit_edge
+  %90 = getelementptr inbounds nuw i8, ptr %.042.lcssa, i64 8
+  %91 = load ptr, ptr %90, align 8, !tbaa !190
+  %92 = getelementptr inbounds nuw i8, ptr %.042.lcssa, i64 16
+  %93 = load i64, ptr %92, align 8, !tbaa !191
+  %94 = tail call fastcc noundef i32 @_ZL21does_entry_match_nameSt17basic_string_viewIcSt11char_traitsIcEES2_(i64 %93, ptr %91, i64 %1, ptr %2)
+  %.not = icmp eq i32 %94, 0
   br i1 %.not, label %._crit_edge.thread, label %.loopexit
 
-._crit_edge.thread:                               ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72, %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, %81, %._crit_edge
+._crit_edge.thread:                               ; preds = %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit, %89, %._crit_edge
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %.critedge.us, %42, %81, %._crit_edge.thread
-  %.4 = phi i32 [ 1, %81 ], [ 0, %._crit_edge.thread ], [ 1, %.critedge.us ], [ 1, %42 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
+.loopexit:                                        ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %.critedge.us, %42, %89, %._crit_edge.thread
+  %.4 = phi i32 [ 1, %89 ], [ 0, %._crit_edge.thread ], [ 1, %.critedge.us ], [ 1, %42 ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
   ret i32 %.4
 }
 

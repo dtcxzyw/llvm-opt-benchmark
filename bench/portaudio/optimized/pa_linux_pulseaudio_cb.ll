@@ -1368,45 +1368,46 @@ PaPulseAudio_Lock.exit:                           ; preds = %2, %9
 20:                                               ; preds = %17
   %21 = load ptr, ptr %15, align 8, !tbaa !49
   %22 = tail call i32 @pa_stream_is_corked(ptr noundef %21) #5
-  %23 = or i32 %22, %1
-  %or.cond.not = icmp eq i32 %23, 0
-  br i1 %or.cond.not, label %24, label %PaPulseAudio_Lock.exit24
+  %23 = icmp ne i32 %22, 0
+  %24 = trunc nuw i32 %1 to i1
+  %or.cond = select i1 %23, i1 true, i1 %24
+  br i1 %or.cond, label %PaPulseAudio_Lock.exit24, label %25
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %15, align 8, !tbaa !49
-  %26 = tail call ptr @pa_stream_cork(ptr noundef %25, i32 noundef 1, ptr noundef nonnull @PaPulseAudio_CorkSuccessCb, ptr noundef nonnull %0) #5
-  store ptr %26, ptr %3, align 8, !tbaa !14
-  %27 = load ptr, ptr %6, align 8, !tbaa !17
-  %28 = tail call i32 @pa_threaded_mainloop_in_thread(ptr noundef %27) #5
-  %.not.i22 = icmp eq i32 %28, 0
-  br i1 %.not.i22, label %29, label %PaPulseAudio_UnLock.exit
+25:                                               ; preds = %20
+  %26 = load ptr, ptr %15, align 8, !tbaa !49
+  %27 = tail call ptr @pa_stream_cork(ptr noundef %26, i32 noundef 1, ptr noundef nonnull @PaPulseAudio_CorkSuccessCb, ptr noundef nonnull %0) #5
+  store ptr %27, ptr %3, align 8, !tbaa !14
+  %28 = load ptr, ptr %6, align 8, !tbaa !17
+  %29 = tail call i32 @pa_threaded_mainloop_in_thread(ptr noundef %28) #5
+  %.not.i22 = icmp eq i32 %29, 0
+  br i1 %.not.i22, label %30, label %PaPulseAudio_UnLock.exit
 
-29:                                               ; preds = %24
-  tail call void @pa_threaded_mainloop_unlock(ptr noundef %27) #5
+30:                                               ; preds = %25
+  tail call void @pa_threaded_mainloop_unlock(ptr noundef %28) #5
   br label %PaPulseAudio_UnLock.exit
 
-PaPulseAudio_UnLock.exit:                         ; preds = %24, %29
+PaPulseAudio_UnLock.exit:                         ; preds = %25, %30
   call void @PaPulseAudio_ReleaseOperation(ptr noundef nonnull %5, ptr noundef nonnull %3)
-  %30 = load ptr, ptr %6, align 8, !tbaa !17
-  %31 = tail call i32 @pa_threaded_mainloop_in_thread(ptr noundef %30) #5
-  %.not.i23 = icmp eq i32 %31, 0
-  br i1 %.not.i23, label %32, label %PaPulseAudio_Lock.exit24
+  %31 = load ptr, ptr %6, align 8, !tbaa !17
+  %32 = tail call i32 @pa_threaded_mainloop_in_thread(ptr noundef %31) #5
+  %.not.i23 = icmp eq i32 %32, 0
+  br i1 %.not.i23, label %33, label %PaPulseAudio_Lock.exit24
 
-32:                                               ; preds = %PaPulseAudio_UnLock.exit
-  tail call void @pa_threaded_mainloop_lock(ptr noundef %30) #5
+33:                                               ; preds = %PaPulseAudio_UnLock.exit
+  tail call void @pa_threaded_mainloop_lock(ptr noundef %31) #5
   br label %PaPulseAudio_Lock.exit24
 
-PaPulseAudio_Lock.exit24:                         ; preds = %32, %PaPulseAudio_UnLock.exit, %PaPulseAudio_Lock.exit, %17, %20
-  %33 = load ptr, ptr %6, align 8, !tbaa !17
-  %34 = tail call i32 @pa_threaded_mainloop_in_thread(ptr noundef %33) #5
-  %.not.i25 = icmp eq i32 %34, 0
-  br i1 %.not.i25, label %35, label %PaPulseAudio_UnLock.exit26
+PaPulseAudio_Lock.exit24:                         ; preds = %33, %PaPulseAudio_UnLock.exit, %PaPulseAudio_Lock.exit, %17, %20
+  %34 = load ptr, ptr %6, align 8, !tbaa !17
+  %35 = tail call i32 @pa_threaded_mainloop_in_thread(ptr noundef %34) #5
+  %.not.i25 = icmp eq i32 %35, 0
+  br i1 %.not.i25, label %36, label %PaPulseAudio_UnLock.exit26
 
-35:                                               ; preds = %PaPulseAudio_Lock.exit24
-  tail call void @pa_threaded_mainloop_unlock(ptr noundef %33) #5
+36:                                               ; preds = %PaPulseAudio_Lock.exit24
+  tail call void @pa_threaded_mainloop_unlock(ptr noundef %34) #5
   br label %PaPulseAudio_UnLock.exit26
 
-PaPulseAudio_UnLock.exit26:                       ; preds = %PaPulseAudio_Lock.exit24, %35
+PaPulseAudio_UnLock.exit26:                       ; preds = %PaPulseAudio_Lock.exit24, %36
   store volatile i32 0, ptr %10, align 8, !tbaa !54
   store volatile i32 1, ptr %11, align 4, !tbaa !57
   store volatile i32 0, ptr %12, align 8, !tbaa !55

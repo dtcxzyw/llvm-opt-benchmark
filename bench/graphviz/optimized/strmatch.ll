@@ -34,18 +34,18 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly ca
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %14 = and i32 %4, 2
   %.not44 = icmp eq i32 %14, 0
-  br i1 %.not44, label %.split, label %.split.us
-
-.split.us:                                        ; preds = %5
   store ptr null, ptr %10, align 8, !tbaa !11
   store i32 0, ptr %11, align 8, !tbaa !12
   store ptr null, ptr %6, align 8, !tbaa !13
   %15 = call fastcc i32 @grpmatch(ptr noundef %6, i32 noundef 0, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %8)
-  %16 = icmp ne i32 %15, 0
+  %16 = trunc nuw i32 %15 to i1
   %17 = load ptr, ptr %10, align 8
   %18 = icmp ne ptr %17, null
-  %or.cond.us = select i1 %16, i1 true, i1 %18
-  br i1 %or.cond.us, label %19, label %.loopexit
+  %or.cond.us6878 = select i1 %16, i1 true, i1 %18
+  br i1 %.not44, label %.split, label %.split.us
+
+.split.us:                                        ; preds = %5
+  br i1 %or.cond.us6878, label %19, label %.loopexit
 
 19:                                               ; preds = %.split.us
   %20 = load ptr, ptr %13, align 8
@@ -54,125 +54,120 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly ca
   br i1 %or.cond52.us, label %.split64.us, label %.loopexit
 
 .split:                                           ; preds = %5
-  br i1 %.not, label %.split.split.us, label %.split.split
+  br i1 %.not, label %.split.split.us, label %.split.split.preheader
+
+.split.split.preheader:                           ; preds = %.split
+  %22 = load ptr, ptr %13, align 8
+  %23 = icmp eq ptr %22, %8
+  %or.cond85111 = select i1 %or.cond.us6878, i1 %23, i1 false
+  br i1 %or.cond85111, label %.split64.us, label %.lr.ph113
 
 .split.split.us:                                  ; preds = %.split
-  store ptr null, ptr %10, align 8, !tbaa !11
-  store i32 0, ptr %11, align 8, !tbaa !12
-  store ptr null, ptr %6, align 8, !tbaa !13
-  %22 = call fastcc i32 @grpmatch(ptr noundef %6, i32 noundef 0, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %8)
-  %23 = icmp ne i32 %22, 0
-  %24 = load ptr, ptr %10, align 8
-  %25 = icmp ne ptr %24, null
-  %or.cond.us6878 = select i1 %23, i1 true, i1 %25
   br i1 %or.cond.us6878, label %.split64.us, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.split.split.us, %26
-  %.037.us6779 = phi ptr [ %27, %26 ], [ %0, %.split.split.us ]
+.lr.ph:                                           ; preds = %.split.split.us, %24
+  %.037.us6779 = phi ptr [ %25, %24 ], [ %0, %.split.split.us ]
   %.not45.us = icmp ult ptr %.037.us6779, %8
-  br i1 %.not45.us, label %26, label %.loopexit
+  br i1 %.not45.us, label %24, label %.loopexit
 
-26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds nuw i8, ptr %.037.us6779, i64 1
+24:                                               ; preds = %.lr.ph
+  %25 = getelementptr inbounds nuw i8, ptr %.037.us6779, i64 1
   store ptr null, ptr %10, align 8, !tbaa !11
   store i32 0, ptr %11, align 8, !tbaa !12
   store ptr null, ptr %6, align 8, !tbaa !13
-  %28 = call fastcc i32 @grpmatch(ptr noundef %6, i32 noundef 0, ptr noundef nonnull %27, ptr noundef %1, ptr noundef nonnull %8)
-  %29 = icmp ne i32 %28, 0
-  %30 = load ptr, ptr %10, align 8
-  %31 = icmp ne ptr %30, null
-  %or.cond.us68 = select i1 %29, i1 true, i1 %31
+  %26 = call fastcc i32 @grpmatch(ptr noundef %6, i32 noundef 0, ptr noundef nonnull %25, ptr noundef %1, ptr noundef nonnull %8)
+  %27 = trunc nuw i32 %26 to i1
+  %28 = load ptr, ptr %10, align 8
+  %29 = icmp ne ptr %28, null
+  %or.cond.us68 = select i1 %27, i1 true, i1 %29
   br i1 %or.cond.us68, label %.split64.us, label %.lr.ph
 
-.split.split:                                     ; preds = %.split, %46
-  %.037 = phi ptr [ %47, %46 ], [ %0, %.split ]
+.split64.us:                                      ; preds = %.split.split, %24, %.split.split.preheader, %.split.split.us, %19
+  %.us-phi = phi ptr [ %0, %19 ], [ %25, %24 ], [ %0, %.split.split.us ], [ %0, %.split.split.preheader ], [ %37, %.split.split ]
+  %.us-phi65 = phi i1 [ %16, %19 ], [ %27, %24 ], [ %16, %.split.split.us ], [ %16, %.split.split.preheader ], [ %39, %.split.split ]
+  %.us-phi66 = phi i1 [ %.not, %19 ], [ true, %24 ], [ true, %.split.split.us ], [ false, %.split.split.preheader ], [ false, %.split.split ]
+  br i1 %.us-phi65, label %32, label %30
+
+30:                                               ; preds = %.split64.us
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %6, ptr noundef nonnull align 8 dereferenceable(176) %31, i64 176, i1 false), !tbaa.struct !14
+  br label %32
+
+32:                                               ; preds = %30, %.split64.us
+  %33 = load i32, ptr %11, align 8, !tbaa !12
+  %34 = add nsw i32 %33, 1
+  %35 = load ptr, ptr %13, align 8, !tbaa !17
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store ptr %35, ptr %36, align 8, !tbaa !13
+  %.not46 = icmp eq ptr %35, %8
+  %or.cond54 = select i1 %.us-phi66, i1 true, i1 %.not46
+  br i1 %or.cond54, label %44, label %.loopexit
+
+.lr.ph113:                                        ; preds = %.split.split.preheader, %.split.split
+  %.037112 = phi ptr [ %37, %.split.split ], [ %0, %.split.split.preheader ]
+  %.not45 = icmp ult ptr %.037112, %8
+  br i1 %.not45, label %.split.split, label %.loopexit
+
+.split.split:                                     ; preds = %.lr.ph113
+  %37 = getelementptr inbounds nuw i8, ptr %.037112, i64 1
   store ptr null, ptr %10, align 8, !tbaa !11
   store i32 0, ptr %11, align 8, !tbaa !12
   store ptr null, ptr %6, align 8, !tbaa !13
-  %32 = call fastcc i32 @grpmatch(ptr noundef %6, i32 noundef 0, ptr noundef nonnull %.037, ptr noundef %1, ptr noundef nonnull %8)
-  %33 = icmp ne i32 %32, 0
-  %34 = load ptr, ptr %10, align 8
-  %35 = icmp ne ptr %34, null
-  %or.cond = select i1 %33, i1 true, i1 %35
-  %36 = load ptr, ptr %13, align 8
-  %37 = icmp eq ptr %36, %8
-  %or.cond85 = select i1 %or.cond, i1 %37, i1 false
-  br i1 %or.cond85, label %.split64.us, label %45
+  %38 = call fastcc i32 @grpmatch(ptr noundef %6, i32 noundef 0, ptr noundef nonnull %37, ptr noundef %1, ptr noundef nonnull %8)
+  %39 = trunc nuw i32 %38 to i1
+  %40 = load ptr, ptr %10, align 8
+  %41 = icmp ne ptr %40, null
+  %or.cond = select i1 %39, i1 true, i1 %41
+  %42 = load ptr, ptr %13, align 8
+  %43 = icmp eq ptr %42, %8
+  %or.cond85 = select i1 %or.cond, i1 %43, i1 false
+  br i1 %or.cond85, label %.split64.us, label %.lr.ph113
 
-.split64.us:                                      ; preds = %.split.split, %26, %.split.split.us, %19
-  %.us-phi = phi ptr [ %0, %19 ], [ %27, %26 ], [ %0, %.split.split.us ], [ %.037, %.split.split ]
-  %.us-phi65 = phi i1 [ %16, %19 ], [ %29, %26 ], [ %23, %.split.split.us ], [ %33, %.split.split ]
-  %.us-phi66 = phi i1 [ %.not, %19 ], [ true, %26 ], [ true, %.split.split.us ], [ false, %.split.split ]
-  br i1 %.us-phi65, label %40, label %38
-
-38:                                               ; preds = %.split64.us
-  %39 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %6, ptr noundef nonnull align 8 dereferenceable(176) %39, i64 176, i1 false), !tbaa.struct !14
-  br label %40
-
-40:                                               ; preds = %38, %.split64.us
-  %41 = load i32, ptr %11, align 8, !tbaa !12
-  %42 = add nsw i32 %41, 1
-  %43 = load ptr, ptr %13, align 8, !tbaa !17
-  %44 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store ptr %43, ptr %44, align 8, !tbaa !13
-  %.not46 = icmp eq ptr %43, %8
-  %or.cond54 = select i1 %.us-phi66, i1 true, i1 %.not46
-  br i1 %or.cond54, label %48, label %.loopexit
-
-45:                                               ; preds = %.split.split
-  %.not45 = icmp ult ptr %.037, %8
-  br i1 %.not45, label %46, label %.loopexit
-
-46:                                               ; preds = %45
-  %47 = getelementptr inbounds nuw i8, ptr %.037, i64 1
-  br label %.split.split
-
-48:                                               ; preds = %40
+44:                                               ; preds = %32
   %.not47 = icmp eq ptr %2, null
-  br i1 %.not47, label %.loopexit, label %49
+  br i1 %.not47, label %.loopexit, label %45
 
-49:                                               ; preds = %48
+45:                                               ; preds = %44
   store ptr %.us-phi, ptr %6, align 8, !tbaa !13
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %3, i32 %42)
-  %50 = icmp sgt i32 %spec.select, 0
-  br i1 %50, label %.lr.ph83, label %.loopexit
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %3, i32 %34)
+  %46 = icmp sgt i32 %spec.select, 0
+  br i1 %46, label %.lr.ph83, label %.loopexit
 
-.lr.ph83:                                         ; preds = %49
-  %51 = ptrtoint ptr %0 to i64
+.lr.ph83:                                         ; preds = %45
+  %47 = ptrtoint ptr %0 to i64
   %wide.trip.count = zext nneg i32 %spec.select to i64
-  br label %52
+  br label %48
 
-52:                                               ; preds = %.lr.ph83, %60
-  %indvars.iv = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next, %60 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
-  %54 = load ptr, ptr %53, align 8, !tbaa !13
-  %.not48 = icmp eq ptr %54, null
-  br i1 %.not48, label %60, label %55
+48:                                               ; preds = %.lr.ph83, %56
+  %indvars.iv = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next, %56 ]
+  %49 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %50 = load ptr, ptr %49, align 8, !tbaa !13
+  %.not48 = icmp eq ptr %50, null
+  br i1 %.not48, label %56, label %51
 
-55:                                               ; preds = %52
-  %56 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
-  %57 = load ptr, ptr %56, align 8, !tbaa !13
-  %58 = ptrtoint ptr %57 to i64
-  %59 = sub i64 %58, %51
-  br label %60
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %53 = load ptr, ptr %52, align 8, !tbaa !13
+  %54 = ptrtoint ptr %53 to i64
+  %55 = sub i64 %54, %47
+  br label %56
 
-60:                                               ; preds = %52, %55
-  %61 = phi i64 [ %59, %55 ], [ 0, %52 ]
+56:                                               ; preds = %48, %51
+  %57 = phi i64 [ %55, %51 ], [ 0, %48 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
+  store i64 %57, ptr %58, align 8, !tbaa !18
+  %59 = ptrtoint ptr %50 to i64
+  %60 = sub i64 %59, %47
+  %61 = select i1 %.not48, i64 0, i64 %60
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i64 %61, ptr %62, align 8, !tbaa !18
-  %63 = ptrtoint ptr %54 to i64
-  %64 = sub i64 %63, %51
-  %65 = select i1 %.not48, i64 0, i64 %64
-  %66 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store i64 %65, ptr %66, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %52, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %48, !llvm.loop !20
 
-.loopexit:                                        ; preds = %45, %.lr.ph, %60, %.split.us, %19, %49, %48, %40
-  %.0 = phi i32 [ %spec.select, %49 ], [ 1, %48 ], [ 0, %40 ], [ 0, %.split.us ], [ 0, %.lr.ph ], [ %spec.select, %60 ], [ 0, %19 ], [ 0, %45 ]
+.loopexit:                                        ; preds = %.lr.ph113, %.lr.ph, %56, %.split.us, %19, %45, %44, %32
+  %.0 = phi i32 [ %spec.select, %45 ], [ 1, %44 ], [ 0, %32 ], [ 0, %.split.us ], [ 0, %.lr.ph ], [ %spec.select, %56 ], [ 0, %19 ], [ 0, %.lr.ph113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -334,7 +329,7 @@ define range(i32 0, 2) i32 @strmatch(ptr noundef %0, ptr noundef %1) local_unnam
   store i32 0, ptr %8, align 8, !tbaa !12
   store ptr null, ptr %3, align 8, !tbaa !13
   %10 = call fastcc i32 @grpmatch(ptr noundef %3, i32 noundef 0, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5)
-  %11 = icmp ne i32 %10, 0
+  %11 = trunc nuw i32 %10 to i1
   %12 = load ptr, ptr %7, align 8
   %13 = icmp eq ptr %12, null
   %not. = xor i1 %11, true

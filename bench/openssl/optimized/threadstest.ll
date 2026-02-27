@@ -876,27 +876,25 @@ define internal range(i32 0, 2) i32 @test_multi_load() #1 {
 4:                                                ; preds = %1
   store i1 true, ptr @multidefault_run, align 4
   %5 = tail call fastcc i32 @thread_run_test(ptr noundef nonnull @thread_multi_simple_fetch, i64 noundef 2, ptr noundef nonnull @thread_multi_simple_fetch, i32 noundef 0, ptr noundef nonnull @default_provider)
-  %6 = icmp ne i32 %5, 0
   br label %test_multi_default.exit
 
 test_multi_default.exit:                          ; preds = %4, %2, %0
-  %.0 = phi i1 [ true, %0 ], [ true, %2 ], [ %6, %4 ]
-  %7 = tail call ptr @OSSL_PROVIDER_load(ptr noundef null, ptr noundef nonnull @.str.119) #11
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %9, label %10
+  %.0 = phi i32 [ 1, %0 ], [ 1, %2 ], [ %5, %4 ]
+  %6 = tail call ptr @OSSL_PROVIDER_load(ptr noundef null, ptr noundef nonnull @.str.119) #11
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %9
 
-9:                                                ; preds = %test_multi_default.exit
+8:                                                ; preds = %test_multi_default.exit
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.18, i32 noundef 1133, ptr noundef nonnull @.str.120) #11
   store ptr @.str.54, ptr @multi_load_provider, align 8, !tbaa !6
-  br label %10
+  br label %9
 
-10:                                               ; preds = %9, %test_multi_default.exit
-  %11 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %7) #11
-  %12 = tail call fastcc i32 @thread_run_test(ptr noundef null, i64 noundef 10, ptr noundef nonnull @test_multi_load_worker, i32 noundef 0, ptr noundef null)
-  %13 = icmp ne i32 %12, 0
-  %14 = select i1 %13, i1 %.0, i1 false
-  %15 = zext i1 %14 to i32
-  ret i32 %15
+9:                                                ; preds = %8, %test_multi_default.exit
+  %10 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %6) #11
+  %11 = tail call fastcc i32 @thread_run_test(ptr noundef null, i64 noundef 10, ptr noundef nonnull @test_multi_load_worker, i32 noundef 0, ptr noundef null)
+  %12 = trunc nuw i32 %11 to i1
+  %13 = select i1 %12, i32 %.0, i32 0
+  ret i32 %13
 }
 
 ; Function Attrs: nounwind uwtable

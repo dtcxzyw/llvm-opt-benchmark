@@ -154,10 +154,12 @@ define noundef zeroext i1 @proto_enable_heuristic_by_name(ptr noundef %0) local_
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load i8, ptr %4, align 8, !range !6, !noundef !7
-  %6 = load i8, ptr @unsaved_changes, align 1, !range !6, !noundef !7
-  %7 = xor i8 %5, 1
-  %8 = or i8 %6, %7
-  store i8 %8, ptr @unsaved_changes, align 1
+  %6 = icmp eq i8 %5, 0
+  %7 = load i8, ptr @unsaved_changes, align 1, !range !6, !noundef !7
+  %8 = trunc nuw i8 %7 to i1
+  %9 = or i1 %6, %8
+  %10 = zext i1 %9 to i8
+  store i8 %10, ptr @unsaved_changes, align 1
   store i8 1, ptr %4, align 8
   br label %proto_set_heuristic_by_name.exit
 

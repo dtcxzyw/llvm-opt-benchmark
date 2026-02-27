@@ -1146,15 +1146,14 @@ _ZN6uu_fmt9linebreak13write_newline17h20c93d642033101cE.exit.i.i: ; preds = %412
 432:                                              ; preds = %424
   %433 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 56
   %434 = load i8, ptr %433, align 8, !range !61, !noalias !202, !noundef !7
-  %435 = trunc nuw i8 %434 to i1
-  %436 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 58
-  %437 = load i8, ptr %436, align 2, !range !61, !noalias !202, !noundef !7
-  %438 = or i8 %59, %437
-  %brmerge.i.i.not.i.i = icmp eq i8 %438, 0
-  %439 = and i8 %437, %.041.i.i
-  %brmerge2.demorgan.i.i.i.i = icmp ne i8 %439, 0
-  %or.cond.i.i.i.i = or i1 %brmerge2.demorgan.i.i.i.i, %435
-  %spec.select.i.i.i.i = select i1 %or.cond.i.i.i.i, i64 2, i64 1
+  %435 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 58
+  %436 = load i8, ptr %435, align 2, !range !61, !noalias !202, !noundef !7
+  %437 = or i8 %59, %436
+  %brmerge.i.i.not.i.i = icmp eq i8 %437, 0
+  %438 = and i8 %436, %.041.i.i
+  %439 = or i8 %438, %434
+  %or.cond.i.i.not.i.i = icmp eq i8 %439, 0
+  %spec.select.i.i.i.i = select i1 %or.cond.i.i.not.i.i, i64 1, i64 2
   %.0.i.i.i.i = select i1 %brmerge.i.i.not.i.i, i64 0, i64 %spec.select.i.i.i.i
   br label %_ZN6uu_fmt9linebreak14slice_if_fresh17he2750172105604aaE.exit.i.i
 
@@ -1507,13 +1506,12 @@ _ZN6uu_fmt9linebreak17write_with_spaces17h0d1c56e388841e4eE.exit.i.i: ; preds = 
   %567 = load i8, ptr %566, align 2, !range !61, !noundef !7
   %568 = getelementptr inbounds nuw i8, ptr %.sroa.071.0, i64 56
   %569 = load i8, ptr %568, align 8, !range !61, !noundef !7
-  %570 = trunc nuw i8 %569 to i1
-  %571 = or i8 %567, %59
-  %brmerge.i.i.not = icmp eq i8 %571, 0
-  %572 = and i8 %567, %.029.in
-  %brmerge2.demorgan.i.i = icmp ne i8 %572, 0
-  %or.cond.i.i = or i1 %brmerge2.demorgan.i.i, %570
-  %spec.select.i.i56 = select i1 %or.cond.i.i, i64 2, i64 1
+  %570 = or i8 %567, %59
+  %brmerge.i.i.not = icmp eq i8 %570, 0
+  %571 = and i8 %567, %.029.in
+  %572 = or i8 %569, %571
+  %or.cond.i.i.not = icmp eq i8 %572, 0
+  %spec.select.i.i56 = select i1 %or.cond.i.i.not, i64 1, i64 2
   %.0.i.i = select i1 %brmerge.i.i.not, i64 0, i64 %spec.select.i.i56
   br label %_ZN6uu_fmt9linebreak14slice_if_fresh17he2750172105604aaE.exit
 

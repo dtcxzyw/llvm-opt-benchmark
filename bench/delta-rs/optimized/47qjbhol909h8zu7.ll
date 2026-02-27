@@ -1699,7 +1699,7 @@ define hidden void @"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !alias.scope !377, !noalias !374, !noundef !12
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %30, label %7
+  br i1 %.not.i, label %29, label %7
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !379
@@ -1730,40 +1730,39 @@ define hidden void @"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F
   %26 = load i64, ptr %25, align 8, !noalias !379
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !379
   %27 = tail call i64 @llvm.uadd.sat.i64(i64 %12, i64 %22)
-  %28 = icmp ne i64 %14, 0
-  %29 = icmp ne i64 %24, 0
-  %or.cond.i = and i1 %28, %29
-  br i1 %or.cond.i, label %36, label %40
+  %28 = and i64 %24, %14
+  %or.cond.not.i = icmp eq i64 %28, 0
+  br i1 %or.cond.not.i, label %39, label %35
 
-30:                                               ; preds = %2
+29:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !401)
-  %31 = load ptr, ptr %1, align 8, !alias.scope !404, !noalias !407, !nonnull !12, !align !52, !noundef !12
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %33 = load ptr, ptr %32, align 8, !alias.scope !404, !noalias !407, !nonnull !12, !align !53, !noundef !12
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %35 = load ptr, ptr %34, align 8, !invariant.load !12, !noalias !409, !nonnull !12
-  tail call void %35(ptr noalias noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %31), !noalias !410
+  %30 = load ptr, ptr %1, align 8, !alias.scope !404, !noalias !407, !nonnull !12, !align !52, !noundef !12
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %32 = load ptr, ptr %31, align 8, !alias.scope !404, !noalias !407, !nonnull !12, !align !53, !noundef !12
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %34 = load ptr, ptr %33, align 8, !invariant.load !12, !noalias !409, !nonnull !12
+  tail call void %34(ptr noalias noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 1 %30), !noalias !410
   br label %"_ZN108_$LT$futures_util..stream..stream..chain..Chain$LT$St1$C$St2$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hec73a472024ab318E.exit"
 
-36:                                               ; preds = %7
-  %37 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %26)
-  %38 = extractvalue { i64, i1 } %37, 1
-  %39 = extractvalue { i64, i1 } %37, 0
-  %not..i = xor i1 %38, true
+35:                                               ; preds = %7
+  %36 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %26)
+  %37 = extractvalue { i64, i1 } %36, 1
+  %38 = extractvalue { i64, i1 } %36, 0
+  %not..i = xor i1 %37, true
   %spec.select.i = zext i1 %not..i to i64
-  br label %40
+  br label %39
 
-40:                                               ; preds = %36, %7
-  %.sroa.04.0.i = phi i64 [ 0, %7 ], [ %spec.select.i, %36 ]
-  %.sroa.4.0.i = phi i64 [ undef, %7 ], [ %39, %36 ]
+39:                                               ; preds = %35, %7
+  %.sroa.04.0.i = phi i64 [ 0, %7 ], [ %spec.select.i, %35 ]
+  %.sroa.4.0.i = phi i64 [ undef, %7 ], [ %38, %35 ]
   store i64 %27, ptr %0, align 8, !alias.scope !374, !noalias !377
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.04.0.i, ptr %41, align 8, !alias.scope !374, !noalias !377
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.4.0.i, ptr %42, align 8, !alias.scope !374, !noalias !377
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.04.0.i, ptr %40, align 8, !alias.scope !374, !noalias !377
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.4.0.i, ptr %41, align 8, !alias.scope !374, !noalias !377
   br label %"_ZN108_$LT$futures_util..stream..stream..chain..Chain$LT$St1$C$St2$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hec73a472024ab318E.exit"
 
-"_ZN108_$LT$futures_util..stream..stream..chain..Chain$LT$St1$C$St2$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hec73a472024ab318E.exit": ; preds = %30, %40
+"_ZN108_$LT$futures_util..stream..stream..chain..Chain$LT$St1$C$St2$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hec73a472024ab318E.exit": ; preds = %29, %39
   ret void
 }
 
@@ -116759,7 +116758,7 @@ split:                                            ; preds = %60, %"_ZN71_$LT$htt
   store i64 %162, ptr %90, align 8, !alias.scope !20073, !noalias !20074
   %.val.i.i.i = load i64, ptr %5, align 8, !range !390, !noalias !20052, !noundef !12
   %.val130.i.i.i = load i64, ptr %92, align 8, !noalias !20052
-  %164 = icmp ne i64 %.val.i.i.i, 0
+  %164 = trunc nuw i64 %.val.i.i.i to i1
   %165 = icmp eq i64 %.val130.i.i.i, %162
   %spec.select.i.i.i.i = select i1 %164, i1 %165, i1 false
   br i1 %spec.select.i.i.i.i, label %166, label %167
@@ -116772,7 +116771,7 @@ split:                                            ; preds = %60, %"_ZN71_$LT$htt
 167:                                              ; preds = %166, %161
   %.val133.i.i.i = load i64, ptr %93, align 8, !range !390, !noalias !20052, !noundef !12
   %.val134.i.i.i = load i64, ptr %94, align 8, !noalias !20052
-  %168 = icmp ne i64 %.val133.i.i.i, 0
+  %168 = trunc nuw i64 %.val133.i.i.i to i1
   %169 = icmp eq i64 %.val134.i.i.i, %162
   %spec.select.i137.i.i.i = select i1 %168, i1 %169, i1 false
   br i1 %spec.select.i137.i.i.i, label %170, label %171
@@ -117316,36 +117315,36 @@ define hidden noundef zeroext i1 @"_ZN4http6header3map18HeaderMap$LT$T$GT$12cont
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %65 = load i64, ptr %64, align 8, !alias.scope !20225, !noundef !12
   invoke void %61(ptr noalias noundef nonnull align 8 dereferenceable(8) %62, ptr noundef %63, i64 noundef %65)
-          to label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hb3a76cdbb94023edE.exit" unwind label %77
+          to label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hb3a76cdbb94023edE.exit" unwind label %76
 
 "_ZN92_$LT$http..header..name..HeaderName$u20$as$u20$http..header..map..as_header_name..Sealed$GT$4find17h4aacca33794b57c0E.llvm.18016462908235130027.exit": ; preds = %25, %22, %.noexc, %49, %2
-  %66 = phi i1 [ false, %2 ], [ true, %49 ], [ true, %.noexc ], [ false, %25 ], [ false, %22 ]
+  %storemerge26.i.i = phi i1 [ false, %2 ], [ true, %49 ], [ true, %.noexc ], [ false, %25 ], [ false, %22 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20226)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20229)
-  %67 = load ptr, ptr %1, align 8, !alias.scope !20232, !noundef !12
-  %68 = icmp eq ptr %67, null
-  br i1 %68, label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hb3a76cdbb94023edE.exit3", label %69
+  %66 = load ptr, ptr %1, align 8, !alias.scope !20232, !noundef !12
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hb3a76cdbb94023edE.exit3", label %68
 
-69:                                               ; preds = %"_ZN92_$LT$http..header..name..HeaderName$u20$as$u20$http..header..map..as_header_name..Sealed$GT$4find17h4aacca33794b57c0E.llvm.18016462908235130027.exit"
+68:                                               ; preds = %"_ZN92_$LT$http..header..name..HeaderName$u20$as$u20$http..header..map..as_header_name..Sealed$GT$4find17h4aacca33794b57c0E.llvm.18016462908235130027.exit"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20233)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20236)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20239)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20242)
-  %70 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  %71 = load ptr, ptr %70, align 8, !noalias !20245, !nonnull !12, !noundef !12
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %74 = load ptr, ptr %73, align 8, !alias.scope !20245, !noundef !12
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %76 = load i64, ptr %75, align 8, !alias.scope !20245, !noundef !12
-  tail call void %71(ptr noalias noundef nonnull align 8 dereferenceable(8) %72, ptr noundef %74, i64 noundef %76)
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  %70 = load ptr, ptr %69, align 8, !noalias !20245, !nonnull !12, !noundef !12
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %73 = load ptr, ptr %72, align 8, !alias.scope !20245, !noundef !12
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %75 = load i64, ptr %74, align 8, !alias.scope !20245, !noundef !12
+  tail call void %70(ptr noalias noundef nonnull align 8 dereferenceable(8) %71, ptr noundef %73, i64 noundef %75)
   br label %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hb3a76cdbb94023edE.exit3"
 
-"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hb3a76cdbb94023edE.exit3": ; preds = %"_ZN92_$LT$http..header..name..HeaderName$u20$as$u20$http..header..map..as_header_name..Sealed$GT$4find17h4aacca33794b57c0E.llvm.18016462908235130027.exit", %69
-  ret i1 %66
+"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hb3a76cdbb94023edE.exit3": ; preds = %"_ZN92_$LT$http..header..name..HeaderName$u20$as$u20$http..header..map..as_header_name..Sealed$GT$4find17h4aacca33794b57c0E.llvm.18016462908235130027.exit", %68
+  ret i1 %storemerge26.i.i
 
-77:                                               ; preds = %59
-  %78 = landingpad { ptr, i32 }
+76:                                               ; preds = %59
+  %77 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #53
   unreachable

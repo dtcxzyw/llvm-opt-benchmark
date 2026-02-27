@@ -3114,24 +3114,23 @@ define internal fastcc range(i32 -1, 1) i32 @post_rpc(ptr noundef nonnull %0, i3
   br i1 %.not, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %3, %.preheader
-  %.1104 = phi i32 [ %.2105, %.preheader ], [ %13, %3 ]
-  %.195 = phi i32 [ %.296, %.preheader ], [ 0, %3 ]
+  %.195 = phi i1 [ %.296, %.preheader ], [ false, %3 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %14 = call fastcc i32 @rpc_read_from_out(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %6, ptr noundef %7)
-  %.not116 = icmp ne i32 %14, 0
+  %.not116 = trunc nuw i32 %14 to i1
   %15 = load i32, ptr %7, align 4
   %16 = icmp ne i32 %15, 2
-  %.2105 = select i1 %.not116, i32 %.1104, i32 0
-  %.296 = select i1 %.not116, i32 %.195, i32 1
+  %not..not116 = xor i1 %.not116, true
+  %.296 = select i1 %not..not116, i1 true, i1 %.195
   %.not141 = select i1 %.not116, i1 %16, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not141, label %.preheader, label %17
 
 17:                                               ; preds = %.preheader
-  %.not142 = icmp eq i32 %.296, 0
-  br i1 %.not142, label %.thread, label %18
+  %.2105.le = select i1 %.not116, i32 %13, i32 0
+  br i1 %.296, label %18, label %.thread
 
 18:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -3196,7 +3195,7 @@ define internal fastcc range(i32 -1, 1) i32 @post_rpc(ptr noundef nonnull %0, i3
 
 .thread:                                          ; preds = %3, %51, %17
   %59 = phi i1 [ true, %51 ], [ false, %17 ], [ false, %3 ]
-  %.0103139 = phi i32 [ %.2105, %51 ], [ %.2105, %17 ], [ %13, %3 ]
+  %.0103139 = phi i32 [ %.2105.le, %51 ], [ %13, %17 ], [ %13, %3 ]
   %.092 = phi ptr [ %58, %51 ], [ @.str.79, %17 ], [ @.str.79, %3 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3464,11 +3463,11 @@ _.exit:                                           ; preds = %199, %201
 
 210:                                              ; preds = %208
   %211 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.87, i32 noundef 5) #17
-  %.pre156 = load i32, ptr %206, align 4, !tbaa !141
+  %.pre155 = load i32, ptr %206, align 4, !tbaa !141
   br label %_.exit136
 
 _.exit136:                                        ; preds = %208, %210
-  %212 = phi i32 [ %.pre156, %210 ], [ %207, %208 ]
+  %212 = phi i32 [ %.pre155, %210 ], [ %207, %208 ]
   %.0.i135 = phi ptr [ %211, %210 ], [ @.str.87, %208 ]
   %213 = call i32 (ptr, ...) @error(ptr noundef %.0.i135, i32 noundef %212) #17
   br label %214

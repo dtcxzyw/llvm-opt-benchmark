@@ -3032,124 +3032,126 @@ define internal fastcc void @_ZN4pbrtL19updateMaterialNeedsENS_8MaterialEPN4pstd
   %12 = load i64, ptr %0, align 8, !tbaa !107
   %13 = icmp eq i64 %12, 0
   %14 = load i8, ptr %4, align 1, !tbaa !263, !range !132, !noundef !133
-  %15 = zext i1 %13 to i8
-  %16 = or i8 %14, %15
-  store i8 %16, ptr %4, align 1, !tbaa !263
-  %17 = and i64 %12, 144115188075855871
-  %.not = icmp eq i64 %17, 0
-  br i1 %.not, label %64, label %18
+  %15 = trunc nuw i8 %14 to i1
+  %16 = or i1 %13, %15
+  %17 = zext i1 %16 to i8
+  store i8 %17, ptr %4, align 1, !tbaa !263
+  %18 = and i64 %12, 144115188075855871
+  %.not = icmp eq i64 %18, 0
+  br i1 %.not, label %66, label %19
 
-18:                                               ; preds = %5
+19:                                               ; preds = %5
   %.mask.i.i = and i64 %12, -144115188075855872
-  %19 = icmp eq i64 %.mask.i.i, 1585267068834414592
-  %20 = inttoptr i64 %17 to ptr
-  br i1 %19, label %21, label %29
+  %20 = icmp eq i64 %.mask.i.i, 1585267068834414592
+  %21 = inttoptr i64 %18 to ptr
+  br i1 %20, label %22, label %30
 
-21:                                               ; preds = %18
+22:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %8, ptr %9, align 8, !tbaa !264
-  %22 = call noundef zeroext i1 @_ZN4pbrt6detail8DispatchIRZNKS_8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_EUlS5_E_bNS_21CoatedDiffuseMaterialENS_23CoatedConductorMaterialENS_17ConductorMaterialENS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialEJNS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEvEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %20, i32 noundef 10)
+  %23 = call noundef zeroext i1 @_ZN4pbrt6detail8DispatchIRZNKS_8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_EUlS5_E_bNS_21CoatedDiffuseMaterialENS_23CoatedConductorMaterialENS_17ConductorMaterialENS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialEJNS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEvEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %21, i32 noundef 10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %22, label %24, label %23
+  br i1 %23, label %25, label %24
 
-23:                                               ; preds = %21
-  call void @_ZN4pbrt9ErrorExitIJRNS_11MixMaterialEEEEvPKcDpOT_(ptr noundef nonnull @.str.58, ptr noundef nonnull align 8 dereferenceable(24) %20) #35
+24:                                               ; preds = %22
+  call void @_ZN4pbrt9ErrorExitIJRNS_11MixMaterialEEEEvPKcDpOT_(ptr noundef nonnull @.str.58, ptr noundef nonnull align 8 dereferenceable(24) %21) #35
   unreachable
 
-24:                                               ; preds = %21
+25:                                               ; preds = %22
   call void @llvm.experimental.noalias.scope.decl(metadata !266)
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !107, !noalias !266
-  store i64 %26, ptr %10, align 8, !tbaa !107, !alias.scope !266
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %27 = load i64, ptr %26, align 8, !tbaa !107, !noalias !266
+  store i64 %27, ptr %10, align 8, !tbaa !107, !alias.scope !266
   call fastcc void @_ZN4pbrtL19updateMaterialNeedsENS_8MaterialEPN4pstd5arrayIbLi12EEES4_PbS5_(ptr noundef %10, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !269)
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %28 = load i64, ptr %27, align 8, !tbaa !107, !noalias !269
-  store i64 %28, ptr %11, align 8, !tbaa !107, !alias.scope !269
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %29 = load i64, ptr %28, align 8, !tbaa !107, !noalias !269
+  store i64 %29, ptr %11, align 8, !tbaa !107, !alias.scope !269
   call fastcc void @_ZN4pbrtL19updateMaterialNeedsENS_8MaterialEPN4pstd5arrayIbLi12EEES4_PbS5_(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  br label %64
+  br label %66
 
-29:                                               ; preds = %18
+30:                                               ; preds = %19
   %switch.selectcmp7.i.i.i.i = icmp eq i64 %.mask.i.i, 1297036692682702848
-  %30 = load i8, ptr %3, align 1, !tbaa !263, !range !132, !noundef !133
-  %31 = zext i1 %switch.selectcmp7.i.i.i.i to i8
-  %32 = or i8 %30, %31
-  store i8 %32, ptr %3, align 1, !tbaa !263
-  %33 = lshr i64 %12, 57
-  %34 = trunc nuw nsw i64 %33 to i32
-  %35 = add nsw i32 %34, -1
-  switch i32 %35, label %52 [
-    i32 0, label %36
-    i32 1, label %38
-    i32 2, label %40
-    i32 3, label %42
-    i32 4, label %45
-    i32 5, label %48
+  %31 = load i8, ptr %3, align 1, !tbaa !263, !range !132, !noundef !133
+  %32 = trunc nuw i8 %31 to i1
+  %33 = or i1 %switch.selectcmp7.i.i.i.i, %32
+  %34 = zext i1 %33 to i8
+  store i8 %34, ptr %3, align 1, !tbaa !263
+  %35 = lshr i64 %12, 57
+  %36 = trunc nuw nsw i64 %35 to i32
+  %37 = add nsw i32 %36, -1
+  switch i32 %37, label %54 [
+    i32 0, label %38
+    i32 1, label %40
+    i32 2, label %42
+    i32 3, label %44
+    i32 4, label %47
+    i32 5, label %50
     i32 6, label %_ZNK4pbrt8Material15GetDisplacementEv.exit
-    i32 7, label %50
+    i32 7, label %52
   ]
 
-36:                                               ; preds = %29
-  %37 = load i64, ptr %20, align 8, !tbaa !272, !noalias !274
+38:                                               ; preds = %30
+  %39 = load i64, ptr %21, align 8, !tbaa !272, !noalias !274
   br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
 
-38:                                               ; preds = %29
-  %39 = load i64, ptr %20, align 8, !tbaa !272, !noalias !285
+40:                                               ; preds = %30
+  %41 = load i64, ptr %21, align 8, !tbaa !272, !noalias !285
   br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
 
-40:                                               ; preds = %29
-  %41 = load i64, ptr %20, align 8, !tbaa !272, !noalias !290
+42:                                               ; preds = %30
+  %43 = load i64, ptr %21, align 8, !tbaa !272, !noalias !290
   br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
 
-42:                                               ; preds = %29
-  %43 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %44 = load i64, ptr %43, align 8, !tbaa !272, !noalias !295
+44:                                               ; preds = %30
+  %45 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %46 = load i64, ptr %45, align 8, !tbaa !272, !noalias !295
   br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
 
-45:                                               ; preds = %29
-  %46 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %47 = load i64, ptr %46, align 8, !tbaa !272, !noalias !300
+47:                                               ; preds = %30
+  %48 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %49 = load i64, ptr %48, align 8, !tbaa !272, !noalias !300
   br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
 
-48:                                               ; preds = %29
-  %49 = load i64, ptr %20, align 8, !tbaa !272, !noalias !305
+50:                                               ; preds = %30
+  %51 = load i64, ptr %21, align 8, !tbaa !272, !noalias !305
   br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
 
-50:                                               ; preds = %29
-  %51 = load i64, ptr %20, align 8, !tbaa !272, !noalias !310
+52:                                               ; preds = %30
+  %53 = load i64, ptr %21, align 8, !tbaa !272, !noalias !310
   br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
 
-52:                                               ; preds = %29
-  %53 = and i32 %35, -2
-  %switch.i.i.i.i = icmp eq i32 %53, 8
-  br i1 %switch.i.i.i.i, label %_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i, label %54
+54:                                               ; preds = %30
+  %55 = and i32 %37, -2
+  %switch.i.i.i.i = icmp eq i32 %55, 8
+  br i1 %switch.i.i.i.i, label %_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i, label %56
 
-54:                                               ; preds = %52
+56:                                               ; preds = %54
   tail call void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef 2, ptr noundef nonnull @.str.66, i32 noundef 304, ptr noundef nonnull @.str.67) #35, !noalias !315
   unreachable
 
-_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i: ; preds = %52
-  %storemerge.i.i.i.i = load i64, ptr %20, align 8, !tbaa !272, !noalias !315
+_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i: ; preds = %54
+  %storemerge.i.i.i.i = load i64, ptr %21, align 8, !tbaa !272, !noalias !315
   br label %_ZNK4pbrt8Material15GetDisplacementEv.exit
 
-_ZNK4pbrt8Material15GetDisplacementEv.exit:       ; preds = %29, %36, %38, %40, %42, %45, %48, %50, %_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i
-  %storemerge.i.sink.i.i.i = phi i64 [ %storemerge.i.i.i.i, %_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i ], [ %51, %50 ], [ %37, %36 ], [ %49, %48 ], [ %47, %45 ], [ %44, %42 ], [ %41, %40 ], [ %39, %38 ], [ 0, %29 ]
+_ZNK4pbrt8Material15GetDisplacementEv.exit:       ; preds = %30, %38, %40, %42, %44, %47, %50, %52, %_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i
+  %storemerge.i.sink.i.i.i = phi i64 [ %storemerge.i.i.i.i, %_ZN4pbrt6detail8DispatchIRZNKS_8Material15GetDisplacementEvEUlT_E_NS_12FloatTextureENS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEET0_OS3_PKvi.exit.i.i.i ], [ %53, %52 ], [ %39, %38 ], [ %51, %50 ], [ %49, %47 ], [ %46, %44 ], [ %43, %42 ], [ %41, %40 ], [ 0, %30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %6, ptr %7, align 8, !tbaa !264
-  %55 = call noundef zeroext i1 @_ZN4pbrt6detail8DispatchIRZNKS_8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_EUlS5_E_bNS_21CoatedDiffuseMaterialENS_23CoatedConductorMaterialENS_17ConductorMaterialENS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialEJNS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEvEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %20, i32 noundef %35)
+  %57 = call noundef zeroext i1 @_ZN4pbrt6detail8DispatchIRZNKS_8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_EUlS5_E_bNS_21CoatedDiffuseMaterialENS_23CoatedConductorMaterialENS_17ConductorMaterialENS_18DielectricMaterialENS_15DiffuseMaterialENS_27DiffuseTransmissionMaterialENS_12HairMaterialENS_16MeasuredMaterialEJNS_18SubsurfaceMaterialENS_22ThinDielectricMaterialENS_11MixMaterialEEvEET0_OS5_PKvi(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %21, i32 noundef %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %55, label %56, label %_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit.thread
+  br i1 %57, label %58, label %_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit.thread
 
-56:                                               ; preds = %_ZNK4pbrt8Material15GetDisplacementEv.exit
-  %57 = and i64 %storemerge.i.sink.i.i.i, 144115188075855871
-  %.not26 = icmp eq i64 %57, 0
+58:                                               ; preds = %_ZNK4pbrt8Material15GetDisplacementEv.exit
+  %59 = and i64 %storemerge.i.sink.i.i.i, 144115188075855871
+  %.not26 = icmp eq i64 %59, 0
   br i1 %.not26, label %.critedge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %56
+.lr.ph.i:                                         ; preds = %58
   %.mask.i.i20 = and i64 %storemerge.i.sink.i.i.i, -144115188075855872
   switch i64 %.mask.i.i20, label %_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit.thread [
     i64 864691128455135232, label %.critedge.i
@@ -3158,21 +3160,21 @@ _ZNK4pbrt8Material15GetDisplacementEv.exit:       ; preds = %29, %36, %38, %40, 
     i64 288230376151711744, label %.critedge.i
   ]
 
-.critedge.i:                                      ; preds = %56, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %58 = load i64, ptr %0, align 8, !tbaa !107
-  %59 = lshr i64 %58, 57
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 %59
-  store i8 1, ptr %60, align 1, !tbaa !263
-  br label %64
+.critedge.i:                                      ; preds = %58, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
+  %60 = load i64, ptr %0, align 8, !tbaa !107
+  %61 = lshr i64 %60, 57
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 %61
+  store i8 1, ptr %62, align 1, !tbaa !263
+  br label %66
 
 _ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit.thread: ; preds = %_ZNK4pbrt8Material15GetDisplacementEv.exit, %.lr.ph.i
-  %61 = load i64, ptr %0, align 8, !tbaa !107
-  %62 = lshr i64 %61, 57
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 %62
-  store i8 1, ptr %63, align 1, !tbaa !263
-  br label %64
+  %63 = load i64, ptr %0, align 8, !tbaa !107
+  %64 = lshr i64 %63, 57
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 %64
+  store i8 1, ptr %65, align 1, !tbaa !263
+  br label %66
 
-64:                                               ; preds = %.critedge.i, %_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit.thread, %24, %5
+66:                                               ; preds = %.critedge.i, %_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit.thread, %25, %5
   ret void
 }
 

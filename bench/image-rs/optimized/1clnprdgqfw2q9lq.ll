@@ -3854,15 +3854,14 @@ define internal fastcc void @_ZN3exr2io4Data8read_vec17h19e3e6d15ff5f7a0E(ptr no
   tail call void @llvm.experimental.noalias.scope.decl(metadata !798)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %18 = icmp ne i64 %4, 0
+  %18 = trunc nuw i64 %4 to i1
   %19 = icmp ugt i64 %2, %5
   %or.cond.i = select i1 %18, i1 %19, i1 false
   br i1 %or.cond.i, label %42, label %20
 
 20:                                               ; preds = %8
-  %trunc.i = trunc nuw i64 %4 to i1
   %21 = tail call i64 @llvm.umin.i64(i64 %5, i64 %3)
-  %.0.sroa.speculated.i.i = select i1 %trunc.i, i64 %21, i64 %3
+  %.0.sroa.speculated.i.i = select i1 %18, i64 %21, i64 %3
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %.loopexit28, label %.lr.ph.i
 
@@ -4353,15 +4352,14 @@ define internal fastcc void @_ZN3exr2io4Data8read_vec17hedeceae0006abddeE(ptr no
   tail call void @llvm.experimental.noalias.scope.decl(metadata !862)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %18 = icmp ne i64 %4, 0
+  %18 = trunc nuw i64 %4 to i1
   %19 = icmp ugt i64 %2, %5
   %or.cond.i = select i1 %18, i1 %19, i1 false
   br i1 %or.cond.i, label %42, label %20
 
 20:                                               ; preds = %8
-  %trunc.i = trunc nuw i64 %4 to i1
   %21 = tail call i64 @llvm.umin.i64(i64 %5, i64 %3)
-  %.0.sroa.speculated.i.i = select i1 %trunc.i, i64 %21, i64 %3
+  %.0.sroa.speculated.i.i = select i1 %18, i64 %21, i64 %3
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %.loopexit28, label %.lr.ph.i
 
@@ -14166,7 +14164,7 @@ default.unreachable:                              ; preds = %"_ZN37_$LT$i32$u20$
   unreachable
 
 194:                                              ; preds = %183
-  %195 = icmp ne i64 %181, 0
+  %195 = trunc nuw i64 %181 to i1
   call void @llvm.assume(i1 %195)
   %196 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %197 = load ptr, ptr %196, align 8, !alias.scope !2699, !noalias !2704, !nonnull !4, !noundef !4
@@ -21638,8 +21636,8 @@ define hidden void @"_ZN3exr5block6reader15Reader$LT$R$GT$18read_from_buffered17
   %41 = lshr i32 %.sroa.5.032.ph.i.i.i, 2
   %.sroa.667.sroa.0.sroa.7.0.insert.shift76.i.i = and i32 %41, 256
   %42 = or disjoint i32 %.sroa.667.sroa.0.sroa.7.0.insert.shift76.i.i, %.sroa.667.sroa.0.sroa.9.0.insert.shift84.i.i
-  %43 = or disjoint i32 %42, %.sroa.667.sroa.0.sroa.0.0.insert.ext72.i.i
-  %.sroa.667.sroa.0.sroa.0.0.insert.insert74.i.i = or disjoint i32 %43, %.sroa.667.sroa.0.sroa.8.0.insert.shift80.i.i
+  %43 = or disjoint i32 %42, %.sroa.667.sroa.0.sroa.8.0.insert.shift80.i.i
+  %.sroa.667.sroa.0.sroa.0.0.insert.insert74.i.i = or disjoint i32 %43, %.sroa.667.sroa.0.sroa.0.0.insert.ext72.i.i
   store i32 %.sroa.667.sroa.0.sroa.0.0.insert.insert74.i.i, ptr %11, align 4, !noalias !4393
   %.sroa.497.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i8 %37, ptr %.sroa.497.0..sroa_idx.i.i, align 4, !noalias !4393
@@ -21647,13 +21645,12 @@ define hidden void @"_ZN3exr5block6reader15Reader$LT$R$GT$18read_from_buffered17
   br i1 %44, label %45, label %55
 
 45:                                               ; preds = %35
-  %46 = lshr exact i32 %.sroa.667.sroa.0.sroa.8.0.insert.shift80.i.i, 16
+  %46 = lshr i32 %.sroa.5.032.ph.i.i.i, 11
   %47 = lshr i32 %.sroa.5.032.ph.i.i.i, 12
-  %48 = trunc i32 %38 to i1
-  %49 = or i32 %46, %47
-  %brmerge.not9.i.i.i = icmp ne i32 %49, 0
-  %or.cond.not.i.i = select i1 %48, i1 %brmerge.not9.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %55, label %_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i
+  %48 = or i32 %46, %47
+  %49 = and i32 %.sroa.667.sroa.0.sroa.0.0.insert.ext72.i.i, %48
+  %or.cond.not.not.i.i = icmp eq i32 %49, 0
+  br i1 %or.cond.not.not.i.i, label %_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i, label %55
 
 50:                                               ; preds = %33, %31
   %.sroa.667.sroa.12.sroa.0.0.ph.i.i = phi i24 [ -8388608, %31 ], [ %.sroa.667.sroa.12.sroa.0.0.copyload.i.i, %33 ]
@@ -21693,12 +21690,12 @@ _ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %45
   br label %55
 
 55:                                               ; preds = %54, %50, %45, %35
-  %.sroa.15.sroa.10.0.i = phi i24 [ %.sroa.667.sroa.12.sroa.0.0.ph.i.i, %50 ], [ %.sroa.15.sroa.10.0.extract.trunc63.i, %54 ], [ -8388608, %45 ], [ -8388608, %35 ]
-  %.sroa.15.sroa.9.0.i = phi i8 [ %.sroa.667.sroa.10.0.ph.i.i, %50 ], [ %.sroa.15.sroa.9.0.extract.trunc55.i, %54 ], [ 0, %45 ], [ 0, %35 ]
-  %.sroa.15.sroa.0.0.i = phi i32 [ %.sroa.667.sroa.0.sroa.0.0.insert.insert.i.i, %50 ], [ %.sroa.15.sroa.0.0.extract.trunc48.i, %54 ], [ 0, %45 ], [ 0, %35 ]
-  %.sroa.23.0.i = phi i64 [ %.sroa.18.0.ph.i.i, %50 ], [ %.sroa.719.i.sroa.10.0.copyload86.i, %54 ], [ 18, %45 ], [ 46, %35 ]
-  %.sroa.20.0.i = phi ptr [ %.sroa.17.0.ph.i.i, %50 ], [ %.sroa.719.i.sroa.8.0.copyload84.i, %54 ], [ @anon.485243c0b6e0c52e847d698bbee735f0.16, %45 ], [ @anon.485243c0b6e0c52e847d698bbee735f0.17, %35 ]
-  %.sroa.829.0.i = phi i64 [ %.sroa.066.0.ph.i.i, %50 ], [ %.sroa.719.i.sroa.0.0.copyload80.i, %54 ], [ 2, %45 ], [ 1, %35 ]
+  %.sroa.15.sroa.10.0.i = phi i24 [ %.sroa.15.sroa.10.0.extract.trunc63.i, %54 ], [ %.sroa.667.sroa.12.sroa.0.0.ph.i.i, %50 ], [ -8388608, %45 ], [ -8388608, %35 ]
+  %.sroa.15.sroa.9.0.i = phi i8 [ %.sroa.15.sroa.9.0.extract.trunc55.i, %54 ], [ %.sroa.667.sroa.10.0.ph.i.i, %50 ], [ 0, %45 ], [ 0, %35 ]
+  %.sroa.15.sroa.0.0.i = phi i32 [ %.sroa.15.sroa.0.0.extract.trunc48.i, %54 ], [ %.sroa.667.sroa.0.sroa.0.0.insert.insert.i.i, %50 ], [ 0, %45 ], [ 0, %35 ]
+  %.sroa.23.0.i = phi i64 [ %.sroa.719.i.sroa.10.0.copyload86.i, %54 ], [ %.sroa.18.0.ph.i.i, %50 ], [ 18, %45 ], [ 46, %35 ]
+  %.sroa.20.0.i = phi ptr [ %.sroa.719.i.sroa.8.0.copyload84.i, %54 ], [ %.sroa.17.0.ph.i.i, %50 ], [ @anon.485243c0b6e0c52e847d698bbee735f0.16, %45 ], [ @anon.485243c0b6e0c52e847d698bbee735f0.17, %35 ]
+  %.sroa.829.0.i = phi i64 [ %.sroa.719.i.sroa.0.0.copyload80.i, %54 ], [ %.sroa.066.0.ph.i.i, %50 ], [ 2, %45 ], [ 1, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !4393
   br label %68
 
@@ -21745,7 +21742,7 @@ _ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %45
 
 65:                                               ; preds = %56
   %66 = inttoptr i64 %.sroa.719.i.sroa.6.0.copyload82.i to ptr
-  %67 = icmp ne i64 %51, 0
+  %67 = trunc nuw i64 %51 to i1
   call void @llvm.assume(i1 %67)
   br label %71
 
@@ -22106,8 +22103,8 @@ define hidden void @"_ZN3exr5block6reader15Reader$LT$R$GT$18read_from_buffered17
   %40 = lshr i32 %.sroa.5.032.ph.i.i.i, 2
   %.sroa.667.sroa.0.sroa.7.0.insert.shift76.i.i = and i32 %40, 256
   %41 = or disjoint i32 %.sroa.667.sroa.0.sroa.7.0.insert.shift76.i.i, %.sroa.667.sroa.0.sroa.9.0.insert.shift84.i.i
-  %42 = or disjoint i32 %41, %.sroa.667.sroa.0.sroa.0.0.insert.ext72.i.i
-  %.sroa.667.sroa.0.sroa.0.0.insert.insert74.i.i = or disjoint i32 %42, %.sroa.667.sroa.0.sroa.8.0.insert.shift80.i.i
+  %42 = or disjoint i32 %41, %.sroa.667.sroa.0.sroa.8.0.insert.shift80.i.i
+  %.sroa.667.sroa.0.sroa.0.0.insert.insert74.i.i = or disjoint i32 %42, %.sroa.667.sroa.0.sroa.0.0.insert.ext72.i.i
   store i32 %.sroa.667.sroa.0.sroa.0.0.insert.insert74.i.i, ptr %10, align 4, !noalias !4464
   %.sroa.497.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i8 %36, ptr %.sroa.497.0..sroa_idx.i.i, align 4, !noalias !4464
@@ -22115,13 +22112,12 @@ define hidden void @"_ZN3exr5block6reader15Reader$LT$R$GT$18read_from_buffered17
   br i1 %43, label %44, label %54
 
 44:                                               ; preds = %34
-  %45 = lshr exact i32 %.sroa.667.sroa.0.sroa.8.0.insert.shift80.i.i, 16
+  %45 = lshr i32 %.sroa.5.032.ph.i.i.i, 11
   %46 = lshr i32 %.sroa.5.032.ph.i.i.i, 12
-  %47 = trunc i32 %37 to i1
-  %48 = or i32 %45, %46
-  %brmerge.not9.i.i.i = icmp ne i32 %48, 0
-  %or.cond.not.i.i = select i1 %47, i1 %brmerge.not9.i.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %54, label %_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i
+  %47 = or i32 %45, %46
+  %48 = and i32 %.sroa.667.sroa.0.sroa.0.0.insert.ext72.i.i, %47
+  %or.cond.not.not.i.i = icmp eq i32 %48, 0
+  br i1 %or.cond.not.not.i.i, label %_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i, label %54
 
 49:                                               ; preds = %32, %30
   %.sroa.667.sroa.12.sroa.0.0.ph.i.i = phi i24 [ -8388608, %30 ], [ %.sroa.667.sroa.12.sroa.0.0.copyload.i.i, %32 ]
@@ -22161,12 +22157,12 @@ _ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %44
   br label %54
 
 54:                                               ; preds = %53, %49, %44, %34
-  %.sroa.15.sroa.10.0.i = phi i24 [ %.sroa.667.sroa.12.sroa.0.0.ph.i.i, %49 ], [ %.sroa.15.sroa.10.0.extract.trunc63.i, %53 ], [ -8388608, %44 ], [ -8388608, %34 ]
-  %.sroa.15.sroa.9.0.i = phi i8 [ %.sroa.667.sroa.10.0.ph.i.i, %49 ], [ %.sroa.15.sroa.9.0.extract.trunc55.i, %53 ], [ 0, %44 ], [ 0, %34 ]
-  %.sroa.15.sroa.0.0.i = phi i32 [ %.sroa.667.sroa.0.sroa.0.0.insert.insert.i.i, %49 ], [ %.sroa.15.sroa.0.0.extract.trunc48.i, %53 ], [ 0, %44 ], [ 0, %34 ]
-  %.sroa.23.0.i = phi i64 [ %.sroa.18.0.ph.i.i, %49 ], [ %.sroa.719.i.sroa.10.0.copyload86.i, %53 ], [ 18, %44 ], [ 46, %34 ]
-  %.sroa.20.0.i = phi ptr [ %.sroa.17.0.ph.i.i, %49 ], [ %.sroa.719.i.sroa.8.0.copyload84.i, %53 ], [ @anon.485243c0b6e0c52e847d698bbee735f0.16, %44 ], [ @anon.485243c0b6e0c52e847d698bbee735f0.17, %34 ]
-  %.sroa.829.0.i = phi i64 [ %.sroa.066.0.ph.i.i, %49 ], [ %.sroa.719.i.sroa.0.0.copyload80.i, %53 ], [ 2, %44 ], [ 1, %34 ]
+  %.sroa.15.sroa.10.0.i = phi i24 [ %.sroa.15.sroa.10.0.extract.trunc63.i, %53 ], [ %.sroa.667.sroa.12.sroa.0.0.ph.i.i, %49 ], [ -8388608, %44 ], [ -8388608, %34 ]
+  %.sroa.15.sroa.9.0.i = phi i8 [ %.sroa.15.sroa.9.0.extract.trunc55.i, %53 ], [ %.sroa.667.sroa.10.0.ph.i.i, %49 ], [ 0, %44 ], [ 0, %34 ]
+  %.sroa.15.sroa.0.0.i = phi i32 [ %.sroa.15.sroa.0.0.extract.trunc48.i, %53 ], [ %.sroa.667.sroa.0.sroa.0.0.insert.insert.i.i, %49 ], [ 0, %44 ], [ 0, %34 ]
+  %.sroa.23.0.i = phi i64 [ %.sroa.719.i.sroa.10.0.copyload86.i, %53 ], [ %.sroa.18.0.ph.i.i, %49 ], [ 18, %44 ], [ 46, %34 ]
+  %.sroa.20.0.i = phi ptr [ %.sroa.719.i.sroa.8.0.copyload84.i, %53 ], [ %.sroa.17.0.ph.i.i, %49 ], [ @anon.485243c0b6e0c52e847d698bbee735f0.16, %44 ], [ @anon.485243c0b6e0c52e847d698bbee735f0.17, %34 ]
+  %.sroa.829.0.i = phi i64 [ %.sroa.719.i.sroa.0.0.copyload80.i, %53 ], [ %.sroa.066.0.ph.i.i, %49 ], [ 2, %44 ], [ 1, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !4464
   br label %67
 
@@ -22213,7 +22209,7 @@ _ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %44
 
 64:                                               ; preds = %55
   %65 = inttoptr i64 %.sroa.719.i.sroa.6.0.copyload82.i to ptr
-  %66 = icmp ne i64 %50, 0
+  %66 = trunc nuw i64 %50 to i1
   call void @llvm.assume(i1 %66)
   br label %70
 

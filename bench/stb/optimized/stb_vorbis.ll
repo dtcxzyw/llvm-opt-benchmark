@@ -8667,7 +8667,7 @@ ilog.exit:                                        ; preds = %get_bits.exit.threa
   %166 = load i32, ptr %165, align 4, !tbaa !142
   %167 = load i32, ptr %11, align 8, !tbaa !80
   %168 = icmp slt i32 %167, 0
-  br i1 %168, label %203, label %169
+  br i1 %168, label %202, label %169
 
 169:                                              ; preds = %164
   %170 = icmp eq i32 %167, 0
@@ -8699,120 +8699,119 @@ ilog.exit:                                        ; preds = %get_bits.exit.threa
 
 .critedge.i65:                                    ; preds = %171
   store i32 -1, ptr %11, align 8, !tbaa !80
-  br label %203
+  br label %202
 
 get_bits.exit66:                                  ; preds = %173, %.get_bits.exit66_crit_edge
   %180 = phi i32 [ %.pre93, %.get_bits.exit66_crit_edge ], [ %177, %173 ]
   %181 = phi i32 [ %167, %.get_bits.exit66_crit_edge ], [ %178, %173 ]
-  %182 = and i32 %180, 1
-  %183 = lshr i32 %180, 1
-  store i32 %183, ptr %12, align 4, !tbaa !85
-  %184 = add nsw i32 %181, -1
-  store i32 %184, ptr %11, align 8, !tbaa !80
-  %185 = icmp eq i32 %184, 0
-  br i1 %185, label %.lr.ph.i69, label %.loopexit32.i67
+  %182 = lshr i32 %180, 1
+  store i32 %182, ptr %12, align 4, !tbaa !85
+  %183 = add nsw i32 %181, -1
+  store i32 %183, ptr %11, align 8, !tbaa !80
+  %184 = icmp eq i32 %183, 0
+  br i1 %184, label %.lr.ph.i69, label %.loopexit32.i67
 
 .lr.ph.i69:                                       ; preds = %get_bits.exit66
   store i32 0, ptr %12, align 4, !tbaa !85
-  br label %186
+  br label %185
 
-186:                                              ; preds = %188, %.lr.ph.i69
-  %187 = tail call i32 @get8_packet_raw(ptr noundef nonnull %0)
-  %.not.i70 = icmp eq i32 %187, -1
-  br i1 %.not.i70, label %.critedge.i71, label %188
+185:                                              ; preds = %187, %.lr.ph.i69
+  %186 = tail call i32 @get8_packet_raw(ptr noundef nonnull %0)
+  %.not.i70 = icmp eq i32 %186, -1
+  br i1 %.not.i70, label %.critedge.i71, label %187
 
-188:                                              ; preds = %186
-  %189 = load i32, ptr %11, align 8, !tbaa !80
-  %190 = shl i32 %187, %189
-  %191 = load i32, ptr %12, align 4, !tbaa !85
-  %192 = add i32 %191, %190
-  store i32 %192, ptr %12, align 4, !tbaa !85
-  %193 = add nsw i32 %189, 8
-  store i32 %193, ptr %11, align 8, !tbaa !80
-  %194 = icmp slt i32 %189, -7
-  br i1 %194, label %186, label %.loopexit32.i67, !llvm.loop !86
+187:                                              ; preds = %185
+  %188 = load i32, ptr %11, align 8, !tbaa !80
+  %189 = shl i32 %186, %188
+  %190 = load i32, ptr %12, align 4, !tbaa !85
+  %191 = add i32 %190, %189
+  store i32 %191, ptr %12, align 4, !tbaa !85
+  %192 = add nsw i32 %188, 8
+  store i32 %192, ptr %11, align 8, !tbaa !80
+  %193 = icmp slt i32 %188, -7
+  br i1 %193, label %185, label %.loopexit32.i67, !llvm.loop !86
 
-.loopexit32.i67:                                  ; preds = %188, %get_bits.exit66
-  %195 = phi i32 [ %183, %get_bits.exit66 ], [ %192, %188 ]
-  %196 = phi i32 [ %184, %get_bits.exit66 ], [ %193, %188 ]
-  %197 = lshr i32 %195, 1
-  store i32 %197, ptr %12, align 4, !tbaa !85
-  %198 = add nsw i32 %196, -1
-  store i32 %198, ptr %11, align 8, !tbaa !80
-  %199 = trunc i32 %195 to i1
-  br label %203
+.loopexit32.i67:                                  ; preds = %187, %get_bits.exit66
+  %194 = phi i32 [ %182, %get_bits.exit66 ], [ %191, %187 ]
+  %195 = phi i32 [ %183, %get_bits.exit66 ], [ %192, %187 ]
+  %196 = lshr i32 %194, 1
+  store i32 %196, ptr %12, align 4, !tbaa !85
+  %197 = add nsw i32 %195, -1
+  store i32 %197, ptr %11, align 8, !tbaa !80
+  %198 = trunc i32 %194 to i1
+  br label %202
 
-.critedge.i71:                                    ; preds = %186
+.critedge.i71:                                    ; preds = %185
   store i32 -1, ptr %11, align 8, !tbaa !80
-  br label %203
+  br label %202
 
 .thread:                                          ; preds = %159
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %201 = load i32, ptr %200, align 8, !tbaa !141
-  %202 = ashr i32 %201, 1
-  br label %215
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %200 = load i32, ptr %199, align 8, !tbaa !141
+  %201 = ashr i32 %200, 1
+  br label %214
 
-203:                                              ; preds = %.critedge.i71, %.loopexit32.i67, %164, %.critedge.i65
-  %common.ret.op.i6278 = phi i32 [ %182, %.critedge.i71 ], [ %182, %.loopexit32.i67 ], [ 0, %.critedge.i65 ], [ 0, %164 ]
-  %common.ret.op.i68 = phi i1 [ false, %.critedge.i71 ], [ %199, %.loopexit32.i67 ], [ false, %.critedge.i65 ], [ false, %164 ]
-  %204 = icmp ne i32 %common.ret.op.i6278, 0
+202:                                              ; preds = %.critedge.i71, %.loopexit32.i67, %164, %.critedge.i65
+  %common.ret.op.i6278 = phi i32 [ %180, %.critedge.i71 ], [ %180, %.loopexit32.i67 ], [ 0, %.critedge.i65 ], [ 0, %164 ]
+  %common.ret.op.i68 = phi i1 [ false, %.critedge.i71 ], [ %198, %.loopexit32.i67 ], [ false, %.critedge.i65 ], [ false, %164 ]
+  %203 = trunc i32 %common.ret.op.i6278 to i1
   %.pre94 = load i8, ptr %162, align 2, !tbaa !158
-  %205 = icmp eq i8 %.pre94, 0
-  %206 = ashr i32 %166, 1
-  %or.cond = select i1 %205, i1 true, i1 %204
-  br i1 %or.cond, label %215, label %207
+  %204 = icmp eq i8 %.pre94, 0
+  %205 = ashr i32 %166, 1
+  %or.cond = select i1 %204, i1 true, i1 %203
+  br i1 %or.cond, label %214, label %206
 
-207:                                              ; preds = %203
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %209 = load i32, ptr %208, align 8, !tbaa !141
-  %210 = sub nsw i32 %166, %209
-  %211 = ashr i32 %210, 2
-  store i32 %211, ptr %1, align 4, !tbaa !21
-  %212 = load i32, ptr %208, align 8, !tbaa !141
-  %213 = add nsw i32 %212, %166
-  %214 = ashr i32 %213, 2
-  br label %219
+206:                                              ; preds = %202
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %208 = load i32, ptr %207, align 8, !tbaa !141
+  %209 = sub nsw i32 %166, %208
+  %210 = ashr i32 %209, 2
+  store i32 %210, ptr %1, align 4, !tbaa !21
+  %211 = load i32, ptr %207, align 8, !tbaa !141
+  %212 = add nsw i32 %211, %166
+  %213 = ashr i32 %212, 2
+  br label %218
 
-215:                                              ; preds = %.thread, %203
-  %216 = phi i32 [ %202, %.thread ], [ %206, %203 ]
-  %.050114 = phi i1 [ false, %.thread ], [ %common.ret.op.i68, %203 ]
-  %.052112 = phi i32 [ %201, %.thread ], [ %166, %203 ]
-  %217 = phi i1 [ true, %.thread ], [ %205, %203 ]
+214:                                              ; preds = %.thread, %202
+  %215 = phi i32 [ %201, %.thread ], [ %205, %202 ]
+  %.050114 = phi i1 [ false, %.thread ], [ %common.ret.op.i68, %202 ]
+  %.052112 = phi i32 [ %200, %.thread ], [ %166, %202 ]
+  %216 = phi i1 [ true, %.thread ], [ %204, %202 ]
   store i32 0, ptr %1, align 4, !tbaa !21
-  %218 = select i1 %217, i1 true, i1 %.050114
-  br label %219
+  %217 = select i1 %216, i1 true, i1 %.050114
+  br label %218
 
-219:                                              ; preds = %215, %207
-  %220 = phi i32 [ %206, %207 ], [ %216, %215 ]
-  %.052111 = phi i32 [ %166, %207 ], [ %.052112, %215 ]
-  %or.cond3 = phi i1 [ %common.ret.op.i68, %207 ], [ %218, %215 ]
-  %storemerge = phi i32 [ %214, %207 ], [ %216, %215 ]
+218:                                              ; preds = %214, %206
+  %219 = phi i32 [ %205, %206 ], [ %215, %214 ]
+  %.052111 = phi i32 [ %166, %206 ], [ %.052112, %214 ]
+  %or.cond3 = phi i1 [ %common.ret.op.i68, %206 ], [ %217, %214 ]
+  %storemerge = phi i32 [ %213, %206 ], [ %215, %214 ]
   store i32 %storemerge, ptr %2, align 4, !tbaa !21
-  br i1 %or.cond3, label %230, label %221
+  br i1 %or.cond3, label %229, label %220
 
-221:                                              ; preds = %219
-  %222 = mul nsw i32 %.052111, 3
-  %223 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %224 = load i32, ptr %223, align 8, !tbaa !141
-  %225 = sub nsw i32 %222, %224
-  %226 = ashr i32 %225, 2
-  store i32 %226, ptr %3, align 4, !tbaa !21
-  %227 = load i32, ptr %223, align 8, !tbaa !141
-  %228 = add nsw i32 %227, %222
-  %229 = ashr i32 %228, 2
-  br label %231
+220:                                              ; preds = %218
+  %221 = mul nsw i32 %.052111, 3
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %223 = load i32, ptr %222, align 8, !tbaa !141
+  %224 = sub nsw i32 %221, %223
+  %225 = ashr i32 %224, 2
+  store i32 %225, ptr %3, align 4, !tbaa !21
+  %226 = load i32, ptr %222, align 8, !tbaa !141
+  %227 = add nsw i32 %226, %221
+  %228 = ashr i32 %227, 2
+  br label %230
 
-230:                                              ; preds = %219
-  store i32 %220, ptr %3, align 4, !tbaa !21
-  br label %231
+229:                                              ; preds = %218
+  store i32 %219, ptr %3, align 4, !tbaa !21
+  br label %230
 
-231:                                              ; preds = %230, %221
-  %storemerge58 = phi i32 [ %229, %221 ], [ %.052111, %230 ]
+230:                                              ; preds = %229, %220
+  %storemerge58 = phi i32 [ %228, %220 ], [ %.052111, %229 ]
   store i32 %storemerge58, ptr %4, align 4, !tbaa !21
   br label %.loopexit79
 
-.loopexit79:                                      ; preds = %.critedge, %27, %6, %157, %ilog.exit, %231, %50
-  %.0 = phi i32 [ 1, %231 ], [ 0, %50 ], [ 0, %157 ], [ 0, %ilog.exit ], [ 0, %6 ], [ 0, %27 ], [ 0, %.critedge ]
+.loopexit79:                                      ; preds = %.critedge, %27, %6, %157, %ilog.exit, %230, %50
+  %.0 = phi i32 [ 1, %230 ], [ 0, %50 ], [ 0, %157 ], [ 0, %ilog.exit ], [ 0, %6 ], [ 0, %27 ], [ 0, %.critedge ]
   ret i32 %.0
 }
 
@@ -11156,7 +11155,7 @@ start_page.exit:                                  ; preds = %1
 
 32:                                               ; preds = %29
   %33 = call i32 @getn(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 6)
-  %34 = icmp ne i32 %33, 0
+  %34 = trunc nuw i32 %33 to i1
   %35 = load i8, ptr %2, align 1
   %36 = icmp eq i8 %35, 102
   %or.cond = select i1 %34, i1 %36, i1 false

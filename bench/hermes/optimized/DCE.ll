@@ -55,8 +55,12 @@ for.body.lr.ph:                                   ; preds = %entry
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %PO.i, i64 16
   br label %for.body
 
-do.body10.preheader:                              ; preds = %_ZL18performFunctionDCEPN6hermes8FunctionE.exit, %entry
-  %changed.0.lcssa = phi i1 [ false, %entry ], [ %or19, %_ZL18performFunctionDCEPN6hermes8FunctionE.exit ]
+do.body10.preheader.loopexit:                     ; preds = %_ZL18performFunctionDCEPN6hermes8FunctionE.exit
+  %frombool = zext i1 %tobool8 to i8
+  br label %do.body10.preheader
+
+do.body10.preheader:                              ; preds = %do.body10.preheader.loopexit, %entry
+  %changed.0.lcssa = phi i8 [ 0, %entry ], [ %frombool, %do.body10.preheader.loopexit ]
   %add.ptr.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %toRemove, i64 16
   %Size.i.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %toRemove, i64 8
   %Capacity2.i.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %toRemove, i64 12
@@ -72,7 +76,7 @@ do.body10.preheader:                              ; preds = %_ZL18performFunctio
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZL18performFunctionDCEPN6hermes8FunctionE.exit
   %__begin1.sroa.0.065 = phi ptr [ %__begin1.sroa.0.062, %for.body.lr.ph ], [ %__begin1.sroa.0.0, %_ZL18performFunctionDCEPN6hermes8FunctionE.exit ]
-  %changed.064 = phi i1 [ false, %for.body.lr.ph ], [ %or19, %_ZL18performFunctionDCEPN6hermes8FunctionE.exit ]
+  %changed.064 = phi i1 [ false, %for.body.lr.ph ], [ %tobool8, %_ZL18performFunctionDCEPN6hermes8FunctionE.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %PO.i)
   call void @_ZN6hermes17PostOrderAnalysisC1EPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(32) %PO.i, ptr noundef nonnull %__begin1.sroa.0.065) #6
   %0 = load ptr, ptr %Order.i.i, align 8
@@ -151,15 +155,15 @@ if.then.i.i.i.i.i:                                ; preds = %for.end25.i
 
 _ZL18performFunctionDCEPN6hermes8FunctionE.exit:  ; preds = %for.end25.i, %if.then.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %PO.i)
-  %or19 = or i1 %changed.064, %changed.0.lcssa.i
+  %tobool8 = or i1 %changed.064, %changed.0.lcssa.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.065, i64 8
   %__begin1.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %FunctionList.i
-  br i1 %cmp.i.not, label %do.body10.preheader, label %for.body
+  br i1 %cmp.i.not, label %do.body10.preheader.loopexit, label %for.body
 
 for.body17:                                       ; preds = %do.body10.preheader, %for.body17.backedge
   %__begin2.sroa.0.070 = phi ptr [ %__begin2.sroa.0.070.be, %for.body17.backedge ], [ %__begin2.sroa.0.066120, %do.body10.preheader ]
-  %changed.269 = phi i1 [ %changed.3, %for.body17.backedge ], [ %changed.0.lcssa, %do.body10.preheader ]
+  %changed.269 = phi i8 [ %changed.3, %for.body17.backedge ], [ %changed.0.lcssa, %do.body10.preheader ]
   %localChanged.068 = phi i1 [ %localChanged.068.be, %for.body17.backedge ], [ false, %do.body10.preheader ]
   %9 = load ptr, ptr %cjsModuleFunctionMap_.i, align 8
   %10 = load i32, ptr %NumBuckets.i.i.i.i.i, align 8
@@ -278,7 +282,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes8FunctionELb1EE9push_backERKS3_.exit4
 
 for.inc30:                                        ; preds = %if.end, %land.lhs.true, %land.lhs.true24, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes8FunctionELb1EE9push_backERKS3_.exit42, %_ZNK6hermes6Module13findCJSModuleEPNS_8FunctionE.exit
   %localChanged.1 = phi i1 [ %localChanged.068, %_ZNK6hermes6Module13findCJSModuleEPNS_8FunctionE.exit ], [ %localChanged.068, %if.end ], [ %localChanged.068, %land.lhs.true24 ], [ true, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes8FunctionELb1EE9push_backERKS3_.exit42 ], [ %localChanged.068, %land.lhs.true ]
-  %changed.3 = phi i1 [ %changed.269, %_ZNK6hermes6Module13findCJSModuleEPNS_8FunctionE.exit ], [ %changed.269, %if.end ], [ %changed.269, %land.lhs.true24 ], [ true, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes8FunctionELb1EE9push_backERKS3_.exit42 ], [ %changed.269, %land.lhs.true ]
+  %changed.3 = phi i8 [ %changed.269, %_ZNK6hermes6Module13findCJSModuleEPNS_8FunctionE.exit ], [ %changed.269, %if.end ], [ %changed.269, %land.lhs.true24 ], [ 1, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes8FunctionELb1EE9push_backERKS3_.exit42 ], [ %changed.269, %land.lhs.true ]
   %Next.i.i.i43 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.070, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i43, align 8
   %cmp.i25.not = icmp eq ptr %__begin2.sroa.0.0, %FunctionList.i
@@ -331,7 +335,7 @@ do.body10.backedge:                               ; preds = %_ZN4llvh11SmallVect
   br i1 %cmp.i25.not67, label %do.end49, label %for.body17.backedge
 
 do.end49:                                         ; preds = %_ZN4llvh11SmallVectorIPN6hermes8FunctionELj16EED2Ev.exit, %if.then.i.i, %do.body10.backedge, %do.body10.preheader
-  %changed.2.lcssa103107111 = phi i1 [ %changed.0.lcssa, %do.body10.preheader ], [ %changed.3, %do.body10.backedge ], [ %changed.3, %if.then.i.i ], [ %changed.3, %_ZN4llvh11SmallVectorIPN6hermes8FunctionELj16EED2Ev.exit ]
+  %changed.2.lcssa103107111 = phi i8 [ %changed.0.lcssa, %do.body10.preheader ], [ %changed.3, %do.body10.backedge ], [ %changed.3, %if.then.i.i ], [ %changed.3, %_ZN4llvh11SmallVectorIPN6hermes8FunctionELj16EED2Ev.exit ]
   %32 = load ptr, ptr %toDestroy, align 8
   %33 = load i32, ptr %Size.i.i.i.i.i, align 8
   %conv.i47 = zext i32 %33 to i64
@@ -365,7 +369,8 @@ if.then.i.i50:                                    ; preds = %for.end62
   br label %_ZN4llvh11SmallVectorIPN6hermes8FunctionELj16EED2Ev.exit51
 
 _ZN4llvh11SmallVectorIPN6hermes8FunctionELj16EED2Ev.exit51: ; preds = %for.end62, %if.then.i.i50
-  ret i1 %changed.2.lcssa103107111
+  %tobool63 = trunc nuw i8 %changed.2.lcssa103107111 to i1
+  ret i1 %tobool63
 }
 
 declare noundef zeroext i1 @_ZNK6hermes5Value8hasUsersEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1

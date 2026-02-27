@@ -4643,75 +4643,81 @@ _ZNK7datalog8rule_set3endEv.exit:                 ; preds = %3
 
 .lr.ph:                                           ; preds = %_ZNK7datalog8rule_set3endEv.exit
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %17
+  br label %18
 
-._crit_edge:                                      ; preds = %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit, %3, %_ZNK7datalog8rule_set3endEv.exit
-  %.0.lcssa = phi i1 [ false, %_ZNK7datalog8rule_set3endEv.exit ], [ false, %3 ], [ %.135, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit ]
+._crit_edge.loopexit:                             ; preds = %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit
+  %17 = trunc nuw i8 %.135 to i1
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %3, %._crit_edge.loopexit, %_ZNK7datalog8rule_set3endEv.exit
+  %.0.lcssa = phi i1 [ false, %_ZNK7datalog8rule_set3endEv.exit ], [ %17, %._crit_edge.loopexit ], [ false, %3 ]
   ret i1 %.0.lcssa
 
-17:                                               ; preds = %.lr.ph, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit
-  %.027 = phi i1 [ false, %.lr.ph ], [ %.135, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit ]
-  %.02026 = phi ptr [ %9, %.lr.ph ], [ %35, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit ]
-  %18 = load ptr, ptr %.02026, align 8, !tbaa !402
+18:                                               ; preds = %.lr.ph, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit
+  %.027 = phi i8 [ 0, %.lr.ph ], [ %.135, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit ]
+  %.02026 = phi ptr [ %9, %.lr.ph ], [ %38, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit ]
+  %19 = load ptr, ptr %.02026, align 8, !tbaa !402
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !103
   store ptr %7, ptr %16, align 8, !tbaa !391
-  %19 = invoke noundef zeroext i1 @_ZN7datalog25mk_interp_tail_simplifier14transform_ruleEPNS_4ruleER7obj_refIS1_NS_12rule_managerEE(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %20 unwind label %25
+  %20 = invoke noundef zeroext i1 @_ZN7datalog25mk_interp_tail_simplifier14transform_ruleEPNS_4ruleER7obj_refIS1_NS_12rule_managerEE(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef %19, ptr noundef nonnull align 8 dereferenceable(16) %4)
+          to label %21 unwind label %28
 
-20:                                               ; preds = %17
+21:                                               ; preds = %18
   %.pre = load ptr, ptr %4, align 8, !tbaa !103
-  br i1 %19, label %21, label %29
-
-21:                                               ; preds = %20
-  invoke void @_ZN7datalog12rule_manager21mk_rule_rewrite_proofERNS_4ruleES2_(ptr noundef nonnull align 8 dereferenceable(1104) %7, ptr noundef nonnull align 8 dereferenceable(80) %18, ptr noundef nonnull align 8 dereferenceable(80) %.pre)
-          to label %22 unwind label %25
+  br i1 %20, label %22, label %32
 
 22:                                               ; preds = %21
+  invoke void @_ZN7datalog12rule_manager21mk_rule_rewrite_proofERNS_4ruleES2_(ptr noundef nonnull align 8 dereferenceable(1104) %7, ptr noundef nonnull align 8 dereferenceable(80) %19, ptr noundef nonnull align 8 dereferenceable(80) %.pre)
+          to label %23 unwind label %28
+
+23:                                               ; preds = %22
   invoke void @_ZN7datalog8rule_set8add_ruleEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(248) %2, ptr noundef nonnull %.pre)
-          to label %.thread unwind label %27
+          to label %.thread unwind label %30
 
-.thread:                                          ; preds = %22
-  %23 = icmp ne ptr %18, %.pre
-  %24 = or i1 %.027, %23
-  br label %30
+.thread:                                          ; preds = %23
+  %24 = icmp ne ptr %19, %.pre
+  %25 = trunc nuw i8 %.027 to i1
+  %26 = or i1 %24, %25
+  %27 = zext i1 %26 to i8
+  br label %33
 
-25:                                               ; preds = %21, %17
-  %26 = landingpad { ptr, i32 }
+28:                                               ; preds = %22, %18
+  %29 = landingpad { ptr, i32 }
           cleanup
-  br label %36
+  br label %39
 
-27:                                               ; preds = %22
-  %28 = landingpad { ptr, i32 }
+30:                                               ; preds = %23
+  %31 = landingpad { ptr, i32 }
           cleanup
-  br label %36
+  br label %39
 
-29:                                               ; preds = %20
+32:                                               ; preds = %21
   %.not.i.i = icmp eq ptr %.pre, null
-  br i1 %.not.i.i, label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit, label %30
+  br i1 %.not.i.i, label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit, label %33
 
-30:                                               ; preds = %.thread, %29
-  %.134 = phi i1 [ %24, %.thread ], [ true, %29 ]
-  %31 = load ptr, ptr %16, align 8, !tbaa !100
-  invoke void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1104) %31, ptr noundef nonnull %.pre)
-          to label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit unwind label %32
+33:                                               ; preds = %.thread, %32
+  %.134 = phi i8 [ %27, %.thread ], [ 1, %32 ]
+  %34 = load ptr, ptr %16, align 8, !tbaa !100
+  invoke void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1104) %34, ptr noundef nonnull %.pre)
+          to label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit unwind label %35
 
-32:                                               ; preds = %30
-  %33 = landingpad { ptr, i32 }
+35:                                               ; preds = %33
+  %36 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #20
+  %37 = extractvalue { ptr, i32 } %36, 0
+  tail call void @__clang_call_terminate(ptr %37) #20
   unreachable
 
-_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit: ; preds = %29, %30
-  %.135 = phi i1 [ true, %29 ], [ %.134, %30 ]
+_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit: ; preds = %32, %33
+  %.135 = phi i8 [ 1, %32 ], [ %.134, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %35 = getelementptr inbounds nuw i8, ptr %.02026, i64 8
-  %.not = icmp eq ptr %35, %15
-  br i1 %.not, label %._crit_edge, label %17
+  %38 = getelementptr inbounds nuw i8, ptr %.02026, i64 8
+  %.not = icmp eq ptr %38, %15
+  br i1 %.not, label %._crit_edge.loopexit, label %18
 
-36:                                               ; preds = %27, %25
-  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %26, %25 ]
+39:                                               ; preds = %30, %28
+  %.pn = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ]
   call void @_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn

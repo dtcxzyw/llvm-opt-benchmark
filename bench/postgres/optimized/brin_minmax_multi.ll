@@ -1146,41 +1146,40 @@ ensure_free_space_in_buffer.exit.i:               ; preds = %store_expanded_rang
 
 range_contains_value.exit.thread.i:               ; preds = %245, %283, %256
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %287 = zext i1 %117 to i8
+  %287 = or i1 %117, %30
+  %288 = zext i1 %287 to i64
   br label %range_add_value.exit
 
 .loopexit.i:                                      ; preds = %276, %269, %256
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %288 = getelementptr inbounds nuw i8, ptr %26, i64 82
-  %289 = load i8, ptr %288, align 2, !range !8, !noundef !9
-  %290 = trunc nuw i8 %289 to i1
-  %291 = getelementptr inbounds nuw i8, ptr %26, i64 72
-  %292 = load i16, ptr %291, align 4
-  %293 = sext i16 %292 to i32
-  %294 = call i64 @datumCopy(i64 noundef %12, i1 noundef zeroext %290, i32 noundef %293) #12
-  %295 = getelementptr inbounds nuw i8, ptr %.086, i64 48
-  %296 = load i32, ptr %109, align 8
-  %297 = shl i32 %296, 1
-  %298 = load i32, ptr %112, align 8
-  %299 = add i32 %297, %298
-  %300 = sext i32 %299 to i64
-  %301 = getelementptr inbounds i64, ptr %295, i64 %300
-  store i64 %294, ptr %301, align 8
-  %302 = load i32, ptr %112, align 8
-  %303 = add i32 %302, 1
-  store i32 %303, ptr %112, align 8
-  %304 = icmp eq i32 %302, 0
-  br i1 %304, label %305, label %range_add_value.exit
+  %289 = getelementptr inbounds nuw i8, ptr %26, i64 82
+  %290 = load i8, ptr %289, align 2, !range !8, !noundef !9
+  %291 = trunc nuw i8 %290 to i1
+  %292 = getelementptr inbounds nuw i8, ptr %26, i64 72
+  %293 = load i16, ptr %292, align 4
+  %294 = sext i16 %293 to i32
+  %295 = call i64 @datumCopy(i64 noundef %12, i1 noundef zeroext %291, i32 noundef %294) #12
+  %296 = getelementptr inbounds nuw i8, ptr %.086, i64 48
+  %297 = load i32, ptr %109, align 8
+  %298 = shl i32 %297, 1
+  %299 = load i32, ptr %112, align 8
+  %300 = add i32 %298, %299
+  %301 = sext i32 %300 to i64
+  %302 = getelementptr inbounds i64, ptr %296, i64 %301
+  store i64 %295, ptr %302, align 8
+  %303 = load i32, ptr %112, align 8
+  %304 = add i32 %303, 1
+  store i32 %304, ptr %112, align 8
+  %305 = icmp eq i32 %303, 0
+  br i1 %305, label %306, label %range_add_value.exit
 
-305:                                              ; preds = %.loopexit.i
+306:                                              ; preds = %.loopexit.i
   store i32 1, ptr %253, align 4
   br label %range_add_value.exit
 
-range_add_value.exit:                             ; preds = %range_contains_value.exit.thread.i, %.loopexit.i, %305
-  %.0.i = phi i8 [ %287, %range_contains_value.exit.thread.i ], [ 1, %305 ], [ 1, %.loopexit.i ]
-  %306 = or i8 %.0.i, %29
-  %307 = zext nneg i8 %306 to i64
-  ret i64 %307
+range_add_value.exit:                             ; preds = %range_contains_value.exit.thread.i, %.loopexit.i, %306
+  %.0.i = phi i64 [ %288, %range_contains_value.exit.thread.i ], [ 1, %306 ], [ 1, %.loopexit.i ]
+  ret i64 %.0.i
 }
 
 declare ptr @get_fn_opclass_options(ptr noundef) local_unnamed_addr #1

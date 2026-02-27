@@ -4365,9 +4365,9 @@ define void @_ZN6quiche3cid21ConnectionIdentifiers8new_scid17hadf277cd8592610dE(
 29:                                               ; preds = %22, %43
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %31 = load i64, ptr %30, align 8, !noundef !8
-  %32 = icmp ne i128 %3, 0
+  %32 = trunc nuw i128 %3 to i1
   %33 = icmp eq i64 %31, 0
-  %or.cond = or i1 %32, %33
+  %or.cond = or i1 %33, %32
   br i1 %or.cond, label %47, label %48
 
 34:                                               ; preds = %28
@@ -4378,7 +4378,7 @@ define void @_ZN6quiche3cid21ConnectionIdentifiers8new_scid17hadf277cd8592610dE(
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   invoke void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17hd2ae3f9803537bf3E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %23)
-          to label %_ZN6quiche3cid35BoundedNonEmptyConnectionIdVecDeque4iter17hf2e4bdd0504b3b1cE.exit unwind label %90
+          to label %_ZN6quiche3cid35BoundedNonEmptyConnectionIdVecDeque4iter17hf2e4bdd0504b3b1cE.exit unwind label %89
 
 _ZN6quiche3cid35BoundedNonEmptyConnectionIdVecDeque4iter17hf2e4bdd0504b3b1cE.exit: ; preds = %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %14, i64 32, i1 false)
@@ -4387,7 +4387,7 @@ _ZN6quiche3cid35BoundedNonEmptyConnectionIdVecDeque4iter17hf2e4bdd0504b3b1cE.exi
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !541)
   %37 = invoke { i64, i64 } @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hfaf341e0e903ccdfE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %15, ptr noalias noundef nonnull align 8 dereferenceable(8) %36)
-          to label %.noexc unwind label %90
+          to label %.noexc unwind label %89
 
 .noexc:                                           ; preds = %_ZN6quiche3cid35BoundedNonEmptyConnectionIdVecDeque4iter17hf2e4bdd0504b3b1cE.exit
   %38 = extractvalue { i64, i64 } %37, 0
@@ -4400,7 +4400,7 @@ _ZN6quiche3cid35BoundedNonEmptyConnectionIdVecDeque4iter17hf2e4bdd0504b3b1cE.exi
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 32, i1 false)
   %.sroa.4.0.copyload.i = load ptr, ptr %36, align 8, !alias.scope !541, !nonnull !8, !noundef !8
   %42 = invoke noundef i64 @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2de0832771f51bfaE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %13, i64 noundef %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(248) %.sroa.4.0.copyload.i)
-          to label %43 unwind label %90
+          to label %43 unwind label %89
 
 43:                                               ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !544
@@ -4418,7 +4418,7 @@ _ZN6quiche3cid35BoundedNonEmptyConnectionIdVecDeque4iter17hf2e4bdd0504b3b1cE.exi
 47:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   invoke void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17hd2ae3f9803537bf3E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %23)
-          to label %_ZN6quiche3cid35BoundedNonEmptyConnectionIdVecDeque4iter17hf2e4bdd0504b3b1cE.exit35 unwind label %90
+          to label %_ZN6quiche3cid35BoundedNonEmptyConnectionIdVecDeque4iter17hf2e4bdd0504b3b1cE.exit35 unwind label %89
 
 48:                                               ; preds = %29
   store i64 5, ptr %0, align 8
@@ -4426,129 +4426,128 @@ _ZN6quiche3cid35BoundedNonEmptyConnectionIdVecDeque4iter17hf2e4bdd0504b3b1cE.exi
 
 _ZN6quiche3cid35BoundedNonEmptyConnectionIdVecDeque4iter17hf2e4bdd0504b3b1cE.exit35: ; preds = %47
   %49 = invoke noundef align 16 dereferenceable_or_null(80) ptr @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h5772442056579326E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
-          to label %50 unwind label %90
+          to label %50 unwind label %89
 
 50:                                               ; preds = %_ZN6quiche3cid35BoundedNonEmptyConnectionIdVecDeque4iter17hf2e4bdd0504b3b1cE.exit35
   %.not30 = icmp eq ptr %49, null
-  br i1 %.not30, label %55, label %51
+  br i1 %.not30, label %54, label %51
 
 51:                                               ; preds = %50
   %52 = load i128, ptr %49, align 16, !range !547, !noundef !8
   %53 = trunc nuw i128 %52 to i1
-  %54 = trunc nuw i128 %3 to i1
-  br i1 %53, label %62, label %63
+  br i1 %53, label %61, label %62
 
-55:                                               ; preds = %50
+54:                                               ; preds = %50
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %56 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %57 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  store i64 %31, ptr %57, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %56 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  store i64 %31, ptr %56, align 8
   store i128 %3, ptr %16, align 16
-  %58 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i128 %4, ptr %58, align 16
-  %59 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store i64 %6, ptr %59, align 16
-  %60 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  store i64 %7, ptr %60, align 8
-  %61 = call fastcc i64 @_ZN6quiche3cid35BoundedNonEmptyConnectionIdVecDeque6insert17h24f9ae67ebc78479E(ptr noalias noundef align 8 dereferenceable(40) %23, ptr noalias noundef align 16 captures(none) dereferenceable(80) %16)
+  %57 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i128 %4, ptr %57, align 16
+  %58 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  store i64 %6, ptr %58, align 16
+  %59 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  store i64 %7, ptr %59, align 8
+  %60 = call fastcc i64 @_ZN6quiche3cid35BoundedNonEmptyConnectionIdVecDeque6insert17h24f9ae67ebc78479E(ptr noalias noundef align 8 dereferenceable(40) %23, ptr noalias noundef align 16 captures(none) dereferenceable(80) %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %.not32 = icmp eq i64 %61, 20
-  br i1 %.not32, label %73, label %72
+  %.not32 = icmp eq i64 %60, 20
+  br i1 %.not32, label %72, label %71
+
+61:                                               ; preds = %51
+  br i1 %32, label %63, label %70
 
 62:                                               ; preds = %51
-  br i1 %54, label %64, label %71
+  br i1 %32, label %70, label %66
 
-63:                                               ; preds = %51
-  br i1 %54, label %71, label %67
+63:                                               ; preds = %61
+  %64 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %65 = load i128, ptr %64, align 16, !noundef !8
+  %.not48 = icmp eq i128 %65, %4
+  br i1 %.not48, label %66, label %70
 
-64:                                               ; preds = %62
-  %65 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %66 = load i128, ptr %65, align 16, !noundef !8
-  %.not48 = icmp eq i128 %66, %4
-  br i1 %.not48, label %67, label %71
+66:                                               ; preds = %63, %62
+  %67 = getelementptr inbounds nuw i8, ptr %49, i64 72
+  %68 = load i64, ptr %67, align 8, !noundef !8
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %68, ptr %69, align 8
+  br label %70
 
-67:                                               ; preds = %64, %63
-  %68 = getelementptr inbounds nuw i8, ptr %49, i64 72
-  %69 = load i64, ptr %68, align 8, !noundef !8
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %69, ptr %70, align 8
-  br label %71
-
-71:                                               ; preds = %64, %63, %62, %67
-  %storemerge = phi i64 [ 20, %67 ], [ 5, %62 ], [ 5, %63 ], [ 5, %64 ]
+70:                                               ; preds = %63, %62, %61, %66
+  %storemerge = phi i64 [ 20, %66 ], [ 5, %61 ], [ 5, %62 ], [ 5, %63 ]
   store i64 %storemerge, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.critedge
 
-72:                                               ; preds = %55
-  store i64 %61, ptr %0, align 8
-  br label %88
+71:                                               ; preds = %54
+  store i64 %60, ptr %0, align 8
+  br label %87
 
-73:                                               ; preds = %55
-  %74 = load i64, ptr %30, align 8, !noundef !8
-  %75 = add i64 %74, 1
-  store i64 %75, ptr %30, align 8
+72:                                               ; preds = %54
+  %73 = load i64, ptr %30, align 8, !noundef !8
+  %74 = add i64 %73, 1
+  store i64 %74, ptr %30, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 %31, ptr %12, align 8, !noalias !548
-  br i1 %5, label %80, label %.noexc36
+  br i1 %5, label %79, label %.noexc36
 
-.noexc36:                                         ; preds = %73
+.noexc36:                                         ; preds = %72
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !548
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h06ffd9e6cde69f80E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %76)
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4iter17h06ffd9e6cde69f80E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %75)
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !548
   store i64 0, ptr %10, align 8, !noalias !548
-  %77 = call { i64, i64 } @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h586eec72a17e46b2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
-  %78 = extractvalue { i64, i64 } %77, 0
-  %79 = trunc nuw i64 %78 to i1
-  br i1 %79, label %82, label %85
+  %76 = call { i64, i64 } @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h586eec72a17e46b2E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %12, ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
+  %77 = extractvalue { i64, i64 } %76, 0
+  %78 = trunc nuw i64 %77 to i1
+  br i1 %78, label %81, label %84
 
-80:                                               ; preds = %73
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9push_back17h13231b08fd4edd6eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %81, i64 noundef %31, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cb9a47d224065187d655132fdc3d24e1.71)
-  br label %86
+79:                                               ; preds = %72
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9push_back17h13231b08fd4edd6eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %80, i64 noundef %31, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cb9a47d224065187d655132fdc3d24e1.71)
+  br label %85
 
-82:                                               ; preds = %.noexc36
-  %83 = extractvalue { i64, i64 } %77, 1
+81:                                               ; preds = %.noexc36
+  %82 = extractvalue { i64, i64 } %76, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !548
-  %84 = call { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$6remove17ha9ef0347c07d62aeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %76, i64 noundef %83)
+  %83 = call { i64, i64 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$6remove17ha9ef0347c07d62aeE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %75, i64 noundef %82)
   br label %.noexc39
 
-85:                                               ; preds = %.noexc36
+84:                                               ; preds = %.noexc36
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !548
   br label %.noexc39
 
-.noexc39:                                         ; preds = %82, %85
+.noexc39:                                         ; preds = %81, %84
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !548
-  br label %86
+  br label %85
 
-86:                                               ; preds = %80, %.noexc39
+85:                                               ; preds = %79, %.noexc39
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %31, ptr %87, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %31, ptr %86, align 8
   store i64 20, ptr %0, align 8
-  br label %88
+  br label %87
 
-88:                                               ; preds = %72, %.critedge, %86
+87:                                               ; preds = %71, %.critedge, %85
   ret void
 
-.critedge:                                        ; preds = %71, %48, %46, %34, %21
+.critedge:                                        ; preds = %70, %48, %46, %34, %21
   call void @"_ZN4core3ptr49drop_in_place$LT$quiche..packet..ConnectionId$GT$17hed15f16148b73689E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  br label %88
+  br label %87
 
-89:                                               ; preds = %90
+88:                                               ; preds = %89
   resume { ptr, i32 } %lpad.thr_comm
 
-90:                                               ; preds = %_ZN6quiche3cid35BoundedNonEmptyConnectionIdVecDeque4iter17hf2e4bdd0504b3b1cE.exit35, %47, %40, %35, %_ZN6quiche3cid35BoundedNonEmptyConnectionIdVecDeque4iter17hf2e4bdd0504b3b1cE.exit
+89:                                               ; preds = %_ZN6quiche3cid35BoundedNonEmptyConnectionIdVecDeque4iter17hf2e4bdd0504b3b1cE.exit35, %47, %40, %35, %_ZN6quiche3cid35BoundedNonEmptyConnectionIdVecDeque4iter17hf2e4bdd0504b3b1cE.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr49drop_in_place$LT$quiche..packet..ConnectionId$GT$17hed15f16148b73689E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #23
-          to label %89 unwind label %91
+          to label %88 unwind label %90
 
-91:                                               ; preds = %90
-  %92 = landingpad { ptr, i32 }
+90:                                               ; preds = %89
+  %91 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #24
   unreachable

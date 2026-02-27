@@ -2167,7 +2167,7 @@ define internal fastcc i32 @bid_keyword_list(ptr noundef readonly captures(none)
 .lr.ph145:                                        ; preds = %4
   %6 = icmp ne i32 %3, 0
   %.not75 = icmp eq i32 %2, 0
-  %7 = icmp ne i32 %2, 0
+  %7 = trunc nuw i32 %2 to i1
   br label %8
 
 8:                                                ; preds = %.lr.ph145, %select.unfold
@@ -2437,7 +2437,7 @@ bid_keyword.exit:                                 ; preds = %bid_keycmp.exit.us.
 .lr.ph130:                                        ; preds = %.preheader, %73
   %.469129 = phi i64 [ %.469, %73 ], [ %.469126, %.preheader ]
   %.464128 = phi ptr [ %.464, %73 ], [ %.464125, %.preheader ]
-  %.not79127 = phi i1 [ true, %73 ], [ false, %.preheader ]
+  %.not79127 = phi i1 [ true, %73 ], [ %7, %.preheader ]
   %75 = load i8, ptr %.464128, align 1, !tbaa !38
   switch i8 %75, label %73 [
     i8 32, label %..critedge9_crit_edge
@@ -2448,11 +2448,10 @@ bid_keyword.exit:                                 ; preds = %bid_keycmp.exit.us.
   br label %.critedge9, !llvm.loop !106
 
 .critedge9:                                       ; preds = %..critedge9_crit_edge, %.preheader
-  %.not79.lcssa = phi i1 [ %.not79127, %..critedge9_crit_edge ], [ false, %.preheader ]
+  %.not79.lcssa = phi i1 [ %.not79127, %..critedge9_crit_edge ], [ %7, %.preheader ]
   %.464.lcssa = phi ptr [ %.464128, %..critedge9_crit_edge ], [ %.464125, %.preheader ]
   %.469.lcssa = phi i64 [ %.469129, %..critedge9_crit_edge ], [ %.469126, %.preheader ]
-  %or.cond11.not = or i1 %7, %.not79.lcssa
-  br i1 %or.cond11.not, label %select.unfold, label %.critedge
+  br i1 %.not79.lcssa, label %select.unfold, label %.critedge
 
 select.unfold:                                    ; preds = %.critedge9, %bid_keyword.exit
   %.267 = phi i64 [ %68, %bid_keyword.exit ], [ %.469.lcssa, %.critedge9 ]

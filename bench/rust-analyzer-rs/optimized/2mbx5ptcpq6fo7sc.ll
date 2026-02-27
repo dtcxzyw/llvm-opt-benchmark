@@ -19800,8 +19800,6 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   store i64 -1, ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -1, ptr %25, align 8
   br label %14
 }
 
@@ -19854,8 +19852,6 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   store i64 -1, ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -1, ptr %25, align 8
   br label %14
 }
 
@@ -62516,8 +62512,6 @@ define hidden void @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iter
   store i64 -1, ptr %0, align 8, !alias.scope !22881, !noalias !22884
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %24, align 8, !alias.scope !22881, !noalias !22884
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -1, ptr %25, align 8, !alias.scope !22881, !noalias !22884
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd1d0e498c667b684E.llvm.13094975786070861856.exit"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd1d0e498c667b684E.llvm.13094975786070861856.exit": ; preds = %12, %14, %15, %23
@@ -62573,8 +62567,6 @@ define hidden void @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iter
   store i64 -1, ptr %0, align 8, !alias.scope !22894, !noalias !22897
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %24, align 8, !alias.scope !22894, !noalias !22897
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -1, ptr %25, align 8, !alias.scope !22894, !noalias !22897
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdd8a155165994b1bE.llvm.13094975786070861856.exit"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdd8a155165994b1bE.llvm.13094975786070861856.exit": ; preds = %12, %14, %15, %23
@@ -84087,7 +84079,7 @@ _ZN6hir_ty5utils8Generics8len_self17hebe79316bb9af7a0E.exit: ; preds = %110
   %210 = icmp eq i64 %209, 0
   %211 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %212 = load i32, ptr %211, align 8, !range !50, !alias.scope !29828, !noalias !29829
-  %213 = icmp ne i32 %212, 0
+  %213 = trunc nuw i32 %212 to i1
   %or.cond.i.i.i.i.i.i = select i1 %210, i1 %213, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %214, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h6a7cf03636ef4755E.exit.i.i.i"
 
@@ -84177,7 +84169,7 @@ _ZN6hir_ty5utils8Generics8len_self17hebe79316bb9af7a0E.exit: ; preds = %110
   %243 = icmp eq i64 %242, 0
   %244 = getelementptr inbounds nuw i8, ptr %240, i64 16
   %245 = load i32, ptr %244, align 8, !range !50, !alias.scope !29885, !noalias !29886
-  %246 = icmp ne i32 %245, 0
+  %246 = trunc nuw i32 %245 to i1
   %or.cond.i.i.i.i.i21.i = select i1 %243, i1 %246, i1 false
   br i1 %or.cond.i.i.i.i.i21.i, label %247, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h6a7cf03636ef4755E.exit.i.i22.i"
 

@@ -23722,7 +23722,7 @@ define linkonce_odr noundef zeroext i1 @_ZZN5arrow7compute8internal22GetFunction
   %.val.i4.i.i.i.i = load i32, ptr %11, align 4, !tbaa !696
   %.val3.i5.i.i.i.i = load i32, ptr %12, align 4, !tbaa !696
   %13 = icmp eq i32 %.val.i4.i.i.i.i, %.val3.i5.i.i.i.i
-  %14 = and i1 %8, %13
+  %14 = select i1 %13, i1 %8, i1 false
   ret i1 %14
 }
 
@@ -27772,16 +27772,16 @@ define linkonce_odr noundef zeroext i1 @_ZZN5arrow7compute8internal22GetFunction
   br i1 %33, label %21, label %_ZN5arrow7compute8internal11CompareImplINS0_11SortOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_St6vectorINS0_7SortKeyESaISA_EEEENS8_IS3_NS0_13NullPlacementEEEEEEEERKS3_SI_RKT_.exit
 
 _ZN5arrow7compute8internal11CompareImplINS0_11SortOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_St6vectorINS0_7SortKeyESaISA_EEEENS8_IS3_NS0_13NullPlacementEEEEEEEERKS3_SI_RKT_.exit: ; preds = %21, %.lr.ph.i.i.i.i.i.i, %3, %.preheader.i.i.i.i.i.i
-  %.011.i.i.i.i.i.i = phi i1 [ false, %3 ], [ true, %.preheader.i.i.i.i.i.i ], [ %33, %.lr.ph.i.i.i.i.i.i ], [ %33, %21 ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %35 = load i64, ptr %34, align 8, !tbaa !818
-  %36 = getelementptr inbounds i8, ptr %1, i64 %35
-  %37 = getelementptr inbounds i8, ptr %2, i64 %35
-  %.val.i.i.i.i.i = load i32, ptr %36, align 4, !tbaa !696
-  %.val3.i.i.i.i.i = load i32, ptr %37, align 4, !tbaa !696
-  %38 = icmp eq i32 %.val.i.i.i.i.i, %.val3.i.i.i.i.i
-  %39 = and i1 %.011.i.i.i.i.i.i, %38
-  ret i1 %39
+  %34 = phi i1 [ true, %.preheader.i.i.i.i.i.i ], [ false, %3 ], [ %33, %.lr.ph.i.i.i.i.i.i ], [ %33, %21 ]
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %36 = load i64, ptr %35, align 8, !tbaa !818
+  %37 = getelementptr inbounds i8, ptr %1, i64 %36
+  %38 = getelementptr inbounds i8, ptr %2, i64 %36
+  %.val.i.i.i.i.i = load i32, ptr %37, align 4, !tbaa !696
+  %.val3.i.i.i.i.i = load i32, ptr %38, align 4, !tbaa !696
+  %39 = icmp eq i32 %.val.i.i.i.i.i, %.val3.i.i.i.i.i
+  %40 = and i1 %34, %39
+  ret i1 %40
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -37992,7 +37992,7 @@ define linkonce_odr noundef zeroext i1 @_ZZN5arrow7compute8internal22GetFunction
   %.val.i4.i.i.i.i = load i32, ptr %11, align 4, !tbaa !696
   %.val3.i5.i.i.i.i = load i32, ptr %12, align 4, !tbaa !696
   %13 = icmp eq i32 %.val.i4.i.i.i.i, %.val3.i5.i.i.i.i
-  %14 = and i1 %8, %13
+  %14 = select i1 %13, i1 %8, i1 false
   ret i1 %14
 }
 
@@ -41300,7 +41300,7 @@ define linkonce_odr noundef zeroext i1 @_ZZN5arrow7compute8internal22GetFunction
   %32 = sub i64 %30, %31
   %33 = sdiv exact i64 %32, 48
   %.not15.i.i.i.i.i.i = icmp ult i64 %27, %33
-  br i1 %.not15.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, label %_ZN5arrow7compute8internal11CompareImplINS0_14SelectKOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorINS0_7SortKeyESaIS9_EEEEEEvRKT_m.exit.loopexit.i.i.i.i, !llvm.loop !817
+  br i1 %.not15.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, label %_ZN5arrow7compute8internal11CompareImplINS0_14SelectKOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEENS8_IS3_St6vectorINS0_7SortKeyESaISB_EEEEEEEEERKS3_SH_RKT_.exit, !llvm.loop !817
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.preheader.i.i.i.i.i.i, %26
   %34 = phi ptr [ %29, %26 ], [ %15, %.preheader.i.i.i.i.i.i ]
@@ -41309,15 +41309,11 @@ define linkonce_odr noundef zeroext i1 @_ZZN5arrow7compute8internal22GetFunction
   %36 = load ptr, ptr %12, align 8, !tbaa !59
   %37 = getelementptr inbounds nuw %"class.arrow::compute::SortKey", ptr %36, i64 %.01012.i.i.i.i.i.i
   %38 = tail call noundef zeroext i1 @_ZNK5arrow7compute7SortKey6EqualsERKS1_(ptr noundef nonnull align 8 dereferenceable(44) %35, ptr noundef nonnull align 8 dereferenceable(44) %37)
-  br i1 %38, label %26, label %_ZN5arrow7compute8internal11CompareImplINS0_14SelectKOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorINS0_7SortKeyESaIS9_EEEEEEvRKT_m.exit.loopexit.i.i.i.i
+  br i1 %38, label %26, label %_ZN5arrow7compute8internal11CompareImplINS0_14SelectKOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEENS8_IS3_St6vectorINS0_7SortKeyESaISB_EEEEEEEEERKS3_SH_RKT_.exit
 
-_ZN5arrow7compute8internal11CompareImplINS0_14SelectKOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorINS0_7SortKeyESaIS9_EEEEEEvRKT_m.exit.loopexit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %26
-  %39 = and i1 %8, %38
-  br label %_ZN5arrow7compute8internal11CompareImplINS0_14SelectKOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEENS8_IS3_St6vectorINS0_7SortKeyESaISB_EEEEEEEEERKS3_SH_RKT_.exit
-
-_ZN5arrow7compute8internal11CompareImplINS0_14SelectKOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEENS8_IS3_St6vectorINS0_7SortKeyESaISB_EEEEEEEEERKS3_SH_RKT_.exit: ; preds = %3, %.preheader.i.i.i.i.i.i, %_ZN5arrow7compute8internal11CompareImplINS0_14SelectKOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorINS0_7SortKeyESaIS9_EEEEEEvRKT_m.exit.loopexit.i.i.i.i
-  %.011.i.i.i.i.i.i = phi i1 [ false, %3 ], [ %8, %.preheader.i.i.i.i.i.i ], [ %39, %_ZN5arrow7compute8internal11CompareImplINS0_14SelectKOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorINS0_7SortKeyESaIS9_EEEEEEvRKT_m.exit.loopexit.i.i.i.i ]
-  ret i1 %.011.i.i.i.i.i.i
+_ZN5arrow7compute8internal11CompareImplINS0_14SelectKOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEENS8_IS3_St6vectorINS0_7SortKeyESaISB_EEEEEEEEERKS3_SH_RKT_.exit: ; preds = %26, %.lr.ph.i.i.i.i.i.i, %3, %.preheader.i.i.i.i.i.i
+  %.shrunk = phi i1 [ %8, %.preheader.i.i.i.i.i.i ], [ false, %3 ], [ %8, %26 ], [ false, %.lr.ph.i.i.i.i.i.i ]
+  ret i1 %.shrunk
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -44653,8 +44649,8 @@ define linkonce_odr noundef zeroext i1 @_ZZN5arrow7compute8internal22GetFunction
   %.val.i4.i.i.i.i = load i8, ptr %15, align 1, !tbaa !485, !range !125, !noundef !126
   %.val3.i5.i.i.i.i = load i8, ptr %16, align 1, !tbaa !485, !range !125, !noundef !126
   %17 = icmp eq i8 %.val.i4.i.i.i.i, %.val3.i5.i.i.i.i
-  %18 = and i1 %spec.select.i.i.i.i.i.i, %17
-  ret i1 %18
+  %narrow = select i1 %17, i1 %spec.select.i.i.i.i.i.i, i1 false
+  ret i1 %narrow
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -48579,15 +48575,14 @@ define linkonce_odr noundef zeroext i1 @_ZZN5arrow7compute8internal22GetFunction
   br i1 %33, label %21, label %_ZN5arrow7compute8internal11CompareImplINS0_11RankOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_St6vectorINS0_7SortKeyESaISA_EEEENS8_IS3_NS0_13NullPlacementEEENS8_IS3_NS3_10TiebreakerEEEEEEEERKS3_SK_RKT_.exit
 
 _ZN5arrow7compute8internal11CompareImplINS0_11RankOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_St6vectorINS0_7SortKeyESaISA_EEEENS8_IS3_NS0_13NullPlacementEEENS8_IS3_NS3_10TiebreakerEEEEEEEERKS3_SK_RKT_.exit: ; preds = %21, %.lr.ph.i.i.i.i.i.i, %3, %.preheader.i.i.i.i.i.i
-  %.011.i.i.i.i.i.i = phi i1 [ false, %3 ], [ true, %.preheader.i.i.i.i.i.i ], [ %33, %.lr.ph.i.i.i.i.i.i ], [ %33, %21 ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %35 = load i64, ptr %34, align 8, !tbaa !1457
-  %36 = getelementptr inbounds i8, ptr %1, i64 %35
-  %37 = getelementptr inbounds i8, ptr %2, i64 %35
-  %.val.i.i.i.i.i = load i32, ptr %36, align 4, !tbaa !696
-  %.val3.i.i.i.i.i = load i32, ptr %37, align 4, !tbaa !696
-  %38 = icmp eq i32 %.val.i.i.i.i.i, %.val3.i.i.i.i.i
-  %39 = and i1 %.011.i.i.i.i.i.i, %38
+  %34 = phi i1 [ true, %.preheader.i.i.i.i.i.i ], [ false, %3 ], [ %33, %.lr.ph.i.i.i.i.i.i ], [ %33, %21 ]
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %36 = load i64, ptr %35, align 8, !tbaa !1457
+  %37 = getelementptr inbounds i8, ptr %1, i64 %36
+  %38 = getelementptr inbounds i8, ptr %2, i64 %36
+  %.val.i.i.i.i.i = load i32, ptr %37, align 4, !tbaa !696
+  %.val3.i.i.i.i.i = load i32, ptr %38, align 4, !tbaa !696
+  %39 = icmp eq i32 %.val.i.i.i.i.i, %.val3.i.i.i.i.i
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load i64, ptr %40, align 8, !tbaa !1459
   %42 = getelementptr inbounds i8, ptr %1, i64 %41
@@ -48595,8 +48590,9 @@ _ZN5arrow7compute8internal11CompareImplINS0_11RankOptionsEEC2INS_8internal13Prop
   %.val.i6.i.i.i.i = load i32, ptr %42, align 4, !tbaa !1461
   %.val3.i7.i.i.i.i = load i32, ptr %43, align 4, !tbaa !1461
   %44 = icmp eq i32 %.val.i6.i.i.i.i, %.val3.i7.i.i.i.i
-  %45 = and i1 %39, %44
-  ret i1 %45
+  %45 = select i1 %44, i1 %39, i1 false
+  %46 = and i1 %34, %45
+  ret i1 %46
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -52861,16 +52857,16 @@ define linkonce_odr noundef zeroext i1 @_ZZN5arrow7compute8internal22GetFunction
   br i1 %33, label %21, label %_ZN5arrow7compute8internal11CompareImplINS0_19RankQuantileOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_St6vectorINS0_7SortKeyESaISA_EEEENS8_IS3_NS0_13NullPlacementEEEEEEEERKS3_SI_RKT_.exit
 
 _ZN5arrow7compute8internal11CompareImplINS0_19RankQuantileOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_St6vectorINS0_7SortKeyESaISA_EEEENS8_IS3_NS0_13NullPlacementEEEEEEEERKS3_SI_RKT_.exit: ; preds = %21, %.lr.ph.i.i.i.i.i.i, %3, %.preheader.i.i.i.i.i.i
-  %.011.i.i.i.i.i.i = phi i1 [ false, %3 ], [ true, %.preheader.i.i.i.i.i.i ], [ %33, %.lr.ph.i.i.i.i.i.i ], [ %33, %21 ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %35 = load i64, ptr %34, align 8, !tbaa !1579
-  %36 = getelementptr inbounds i8, ptr %1, i64 %35
-  %37 = getelementptr inbounds i8, ptr %2, i64 %35
-  %.val.i.i.i.i.i = load i32, ptr %36, align 4, !tbaa !696
-  %.val3.i.i.i.i.i = load i32, ptr %37, align 4, !tbaa !696
-  %38 = icmp eq i32 %.val.i.i.i.i.i, %.val3.i.i.i.i.i
-  %39 = and i1 %.011.i.i.i.i.i.i, %38
-  ret i1 %39
+  %34 = phi i1 [ true, %.preheader.i.i.i.i.i.i ], [ false, %3 ], [ %33, %.lr.ph.i.i.i.i.i.i ], [ %33, %21 ]
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %36 = load i64, ptr %35, align 8, !tbaa !1579
+  %37 = getelementptr inbounds i8, ptr %1, i64 %36
+  %38 = getelementptr inbounds i8, ptr %2, i64 %36
+  %.val.i.i.i.i.i = load i32, ptr %37, align 4, !tbaa !696
+  %.val3.i.i.i.i.i = load i32, ptr %38, align 4, !tbaa !696
+  %39 = icmp eq i32 %.val.i.i.i.i.i, %.val3.i.i.i.i.i
+  %40 = and i1 %34, %39
+  ret i1 %40
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -59273,8 +59269,8 @@ define linkonce_odr noundef zeroext i1 @_ZZN5arrow7compute8internal22GetFunction
 _ZN5arrow7compute8internal11CompareImplINS0_25InversePermutationOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEENS8_IS3_St10shared_ptrINS_8DataTypeEEEEEEEEERKS3_SG_RKT_.exit: ; preds = %14, %16
   %.0.i.i.i.i.i.i = phi i1 [ %15, %14 ], [ %17, %16 ]
   %18 = icmp eq i64 %.val.i.i.i.i.i, %.val3.i.i.i.i.i
-  %19 = and i1 %18, %.0.i.i.i.i.i.i
-  ret i1 %19
+  %narrow = select i1 %.0.i.i.i.i.i.i, i1 %18, i1 false
+  ret i1 %narrow
 }
 
 ; Function Attrs: mustprogress uwtable

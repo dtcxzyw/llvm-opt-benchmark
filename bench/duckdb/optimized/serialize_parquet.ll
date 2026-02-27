@@ -528,7 +528,7 @@ define void @_ZNK6duckdb7FieldID9SerializeERNS_10SerializerE(ptr noundef nonnull
   %4 = load i8, ptr %3, align 1, !tbaa !3, !range !79, !noundef !80
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr %0, align 8, !range !79
-  %7 = icmp ne i8 %6, 0
+  %7 = trunc nuw i8 %6 to i1
   %or.cond.not.i = select i1 %5, i1 true, i1 %7
   %8 = load ptr, ptr %1, align 8, !tbaa !83
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -2024,7 +2024,7 @@ define void @_ZNK6duckdb14ParquetOptions9SerializeERNS_10SerializerE(ptr noundef
   %5 = load i8, ptr %4, align 1, !tbaa !3, !range !79, !noundef !80
   %6 = trunc nuw i8 %5 to i1
   %7 = load i8, ptr %0, align 8, !range !79
-  %8 = icmp ne i8 %7, 0
+  %8 = trunc nuw i8 %7 to i1
   %or.cond.not.i = select i1 %6, i1 true, i1 %8
   %9 = load ptr, ptr %1, align 8, !tbaa !83
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -2054,7 +2054,7 @@ _ZN6duckdb10Serializer24WritePropertyWithDefaultIbEEvtPKcRKT_.exit: ; preds = %1
   %23 = load i8, ptr %4, align 1, !tbaa !3, !range !79, !noundef !80
   %24 = trunc nuw i8 %23 to i1
   %25 = load i8, ptr %22, align 1, !range !79
-  %26 = icmp ne i8 %25, 0
+  %26 = trunc nuw i8 %25 to i1
   %or.cond.not.i9 = select i1 %24, i1 true, i1 %26
   %27 = load ptr, ptr %1, align 8, !tbaa !83
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
@@ -2107,11 +2107,11 @@ _ZN6duckdb10Serializer24WritePropertyWithDefaultIbEEvtPKcRKT_.exit10: ; preds = 
   %56 = trunc nuw i8 %55 to i1
   %57 = load ptr, ptr %54, align 8
   %58 = icmp ne ptr %57, null
-  %or.cond.not25 = select i1 %56, i1 true, i1 %58
+  %or.cond25.not = select i1 %56, i1 true, i1 %58
   %59 = load ptr, ptr %1, align 8, !tbaa !83
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = load ptr, ptr %60, align 8
-  br i1 %or.cond.not25, label %63, label %62
+  br i1 %or.cond25.not, label %63, label %62
 
 62:                                               ; preds = %_ZN6duckdb10Serializer24WritePropertyWithDefaultIbEEvtPKcRKT_.exit10
   invoke void %61(ptr noundef nonnull align 8 dereferenceable(680) %1, i16 noundef zeroext 104, ptr noundef nonnull @.str.14, i1 noundef zeroext false)
@@ -2130,7 +2130,7 @@ _ZN6duckdb10Serializer24WritePropertyWithDefaultIbEEvtPKcRKT_.exit10: ; preds = 
   %65 = load ptr, ptr %1, align 8, !tbaa !83
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 40
   %67 = load ptr, ptr %66, align 8
-  invoke void %67(ptr noundef nonnull align 8 dereferenceable(680) %1, i1 noundef zeroext %or.cond.not25)
+  invoke void %67(ptr noundef nonnull align 8 dereferenceable(680) %1, i1 noundef zeroext %or.cond25.not)
           to label %_ZN6duckdb10shared_ptrINS_23ParquetEncryptionConfigELb1EED2Ev.exit unwind label %104
 
 _ZN6duckdb10shared_ptrINS_23ParquetEncryptionConfigELb1EED2Ev.exit: ; preds = %.noexc
@@ -2139,9 +2139,10 @@ _ZN6duckdb10shared_ptrINS_23ParquetEncryptionConfigELb1EED2Ev.exit: ; preds = %.
   %.pre = load i8, ptr %4, align 1, !tbaa !3, !range !79
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %68 = trunc nuw i8 %.pre to i1
-  %69 = icmp eq i8 %.pre22, 0
-  %or.cond.not = select i1 %68, i1 true, i1 %69
-  br i1 %or.cond.not, label %74, label %70
+  %.not = xor i1 %68, true
+  %69 = trunc nuw i8 %.pre22 to i1
+  %or.cond = select i1 %.not, i1 %69, i1 false
+  br i1 %or.cond, label %70, label %74
 
 70:                                               ; preds = %_ZN6duckdb10shared_ptrINS_23ParquetEncryptionConfigELb1EED2Ev.exit
   %71 = load ptr, ptr %1, align 8, !tbaa !83
@@ -2165,10 +2166,11 @@ _ZN6duckdb10shared_ptrINS_23ParquetEncryptionConfigELb1EED2Ev.exit: ; preds = %.
   br label %_ZN6duckdb10Serializer24WritePropertyWithDefaultIbEEvtPKcRKT_S6_.exit
 
 _ZN6duckdb10Serializer24WritePropertyWithDefaultIbEEvtPKcRKT_S6_.exit: ; preds = %70, %74
+  %.sink.i14 = xor i1 %or.cond, true
   %84 = load ptr, ptr %1, align 8, !tbaa !83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %86 = load ptr, ptr %85, align 8
-  tail call void %86(ptr noundef nonnull align 8 dereferenceable(680) %1, i1 noundef zeroext %or.cond.not)
+  tail call void %86(ptr noundef nonnull align 8 dereferenceable(680) %1, i1 noundef zeroext %.sink.i14)
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %88 = load i8, ptr %4, align 1, !tbaa !3, !range !79, !noundef !80
   %89 = trunc nuw i8 %88 to i1
@@ -3430,7 +3432,7 @@ define linkonce_odr void @_ZN6duckdb10Serializer10WriteValueINSt7__cxx1112basic_
   %34 = load i8, ptr %9, align 1, !tbaa !3, !range !79, !noundef !80
   %35 = trunc nuw i8 %34 to i1
   %36 = load i8, ptr %27, align 1, !range !79
-  %37 = icmp ne i8 %36, 0
+  %37 = trunc nuw i8 %36 to i1
   %or.cond.not.i7 = select i1 %35, i1 true, i1 %37
   %38 = load ptr, ptr %0, align 8, !tbaa !83
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
