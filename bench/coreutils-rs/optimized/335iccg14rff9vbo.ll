@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$uu_nl..NumberingStyle$GT$17hd8c2d2a9d41db602E"(i64 %.0.val, ptr %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp eq i64 %.0.val, 3
-  br i1 %1, label %2, label %17
+  br i1 %1, label %2, label %18
 
 2:                                                ; preds = %0
   invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Regex$GT$17he4df1cc7465925b6E.llvm.11599604617220858543"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.8.val)
@@ -75,14 +75,16 @@ define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$uu_nl..NumberingSty
 
 16:                                               ; preds = %14, %3
   %eh.lpad-body.i = phi { ptr, i32 } [ %15, %14 ], [ %4, %3 ]
+  %17 = icmp ne ptr %.8.val, null
+  tail call void @llvm.assume(i1 %17)
   tail call void @__rust_dealloc(ptr noundef nonnull %.8.val, i64 noundef 32, i64 noundef 8) #12
   resume { ptr, i32 } %eh.lpad-body.i
 
 "_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$regex..regex..string..Regex$GT$$GT$17h649688b096eaab77E.exit": ; preds = %6, %.noexc.i
   tail call void @__rust_dealloc(ptr noundef nonnull %.8.val, i64 noundef 32, i64 noundef 8) #12
-  br label %17
+  br label %18
 
-17:                                               ; preds = %0, %"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$regex..regex..string..Regex$GT$$GT$17h649688b096eaab77E.exit"
+18:                                               ; preds = %0, %"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$regex..regex..string..Regex$GT$$GT$17h649688b096eaab77E.exit"
   ret void
 }
 

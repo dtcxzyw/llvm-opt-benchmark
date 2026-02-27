@@ -115,6 +115,8 @@ define internal fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopegu
   tail call void @llvm.assume(i1 %24)
   %25 = sub nsw i64 0, %15
   %26 = getelementptr inbounds i8, ptr %.val.i, i64 %25
+  %27 = icmp sgt i64 %12, -1
+  tail call void @llvm.assume(i1 %27)
   tail call void @__rust_dealloc(ptr noundef nonnull %26, i64 noundef %17, i64 noundef %9) #24, !noalias !15
   br label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h569e3361d8ce2458E.exit"
 
@@ -222,12 +224,12 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$validator..types..Validation
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   switch i64 %4, label %6 [
     i64 0, label %7
-    i64 1, label %47
+    i64 1, label %48
   ]
 
 6:                                                ; preds = %1
   tail call void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$validator..types..ValidationError$GT$$GT$17he81271ec927c1bb6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
-  br label %48
+  br label %49
 
 7:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
@@ -288,7 +290,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$validator..types..Validation
   %35 = and i16 %34, %.lcssa.i.i.i
   %36 = getelementptr inbounds i8, ptr %32, i64 -32
   invoke void @"_ZN4core3ptr59drop_in_place$LT$validator..types..ValidationErrorsKind$GT$17h45e243adcc0b352eE.llvm.17854369902771195939"(ptr noalias noundef nonnull align 8 dereferenceable(32) %36)
-          to label %.noexc1 unwind label %45
+          to label %.noexc1 unwind label %46
 
 .noexc.loopexit:                                  ; preds = %.noexc1
   %.pre = load i64, ptr %9, align 8, !alias.scope !73
@@ -299,30 +301,32 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$validator..types..Validation
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %38 = mul i64 %37, 49
   %39 = add nsw i64 %38, 65
-  %40 = icmp eq i64 %39, 0
-  br i1 %40, label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$validator..types..ValidationErrors$GT$$GT$17h8f696a6bffc8bef3E.llvm.17854369902771195939.exit", label %41
+  %40 = icmp ult i64 %39, 9223372036854775793
+  tail call void @llvm.assume(i1 %40)
+  %41 = icmp eq i64 %39, 0
+  br i1 %41, label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$validator..types..ValidationErrors$GT$$GT$17h8f696a6bffc8bef3E.llvm.17854369902771195939.exit", label %42
 
-41:                                               ; preds = %.noexc
+42:                                               ; preds = %.noexc
   %.neg = mul i64 %37, -48
-  %42 = load ptr, ptr %8, align 8, !alias.scope !73, !nonnull !7, !noundef !7
-  %43 = getelementptr i8, ptr %42, i64 %.neg
-  %44 = getelementptr i8, ptr %43, i64 -48
-  tail call void @__rust_dealloc(ptr noundef nonnull %44, i64 noundef %39, i64 noundef 16) #24, !noalias !73
+  %43 = load ptr, ptr %8, align 8, !alias.scope !73, !nonnull !7, !noundef !7
+  %44 = getelementptr i8, ptr %43, i64 %.neg
+  %45 = getelementptr i8, ptr %44, i64 -48
+  tail call void @__rust_dealloc(ptr noundef nonnull %45, i64 noundef %39, i64 noundef 16) #24, !noalias !73
   br label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$validator..types..ValidationErrors$GT$$GT$17h8f696a6bffc8bef3E.llvm.17854369902771195939.exit"
 
-45:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1dfe9770281547f4E.llvm.17854369902771195939.exit.i"
-  %46 = landingpad { ptr, i32 }
+46:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1dfe9770281547f4E.llvm.17854369902771195939.exit.i"
+  %47 = landingpad { ptr, i32 }
           cleanup
   %.val.i = load ptr, ptr %5, align 8, !alias.scope !46, !nonnull !7, !noundef !7
   tail call void @__rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef 48, i64 noundef 8) #24, !noalias !46
-  resume { ptr, i32 } %46
+  resume { ptr, i32 } %47
 
-"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$validator..types..ValidationErrors$GT$$GT$17h8f696a6bffc8bef3E.llvm.17854369902771195939.exit": ; preds = %41, %.noexc, %7
+"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$validator..types..ValidationErrors$GT$$GT$17h8f696a6bffc8bef3E.llvm.17854369902771195939.exit": ; preds = %42, %.noexc, %7
   %.val1.i = load ptr, ptr %5, align 8, !alias.scope !46, !nonnull !7, !noundef !7
   tail call void @__rust_dealloc(ptr noundef nonnull %.val1.i, i64 noundef 48, i64 noundef 8) #24, !noalias !46
-  br label %48
+  br label %49
 
-47:                                               ; preds = %1
+48:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !76
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
@@ -330,9 +334,9 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$validator..types..Validation
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !76
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0cb7a0d947f514c2E.llvm.6944390993391618976"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !76
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !76
-  br label %48
+  br label %49
 
-48:                                               ; preds = %47, %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$validator..types..ValidationErrors$GT$$GT$17h8f696a6bffc8bef3E.llvm.17854369902771195939.exit", %6
+49:                                               ; preds = %48, %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$validator..types..ValidationErrors$GT$$GT$17h8f696a6bffc8bef3E.llvm.17854369902771195939.exit", %6
   ret void
 }
 
@@ -397,7 +401,7 @@ define hidden void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$validat
   %25 = getelementptr inbounds { { ptr, i64 }, { i64, [3 x i64] } }, ptr %.sroa.03.1.i.i.i, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -32
   invoke void @"_ZN4core3ptr59drop_in_place$LT$validator..types..ValidationErrorsKind$GT$17h45e243adcc0b352eE.llvm.17854369902771195939"(ptr noalias noundef nonnull align 8 dereferenceable(32) %26)
-          to label %.noexc unwind label %38
+          to label %.noexc unwind label %39
 
 .noexc:                                           ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1dfe9770281547f4E.llvm.17854369902771195939.exit.i.i.i"
   %27 = add i16 %.lcssa.i.i.i.i.i, -1
@@ -410,26 +414,28 @@ _ZN9hashbrown3raw13RawTableInner13drop_elements17he78dd81bb3a33870E.llvm.1785436
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
   %31 = mul i64 %4, 49
   %32 = add nsw i64 %31, 65
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %"_ZN4core3ptr55drop_in_place$LT$validator..types..ValidationErrors$GT$17hccb70c6bbd2a815cE.exit", label %34
+  %33 = icmp ult i64 %32, 9223372036854775793
+  tail call void @llvm.assume(i1 %33)
+  %34 = icmp eq i64 %32, 0
+  br i1 %34, label %"_ZN4core3ptr55drop_in_place$LT$validator..types..ValidationErrors$GT$17hccb70c6bbd2a815cE.exit", label %35
 
-34:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17he78dd81bb3a33870E.llvm.17854369902771195939.exit.i.i
+35:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17he78dd81bb3a33870E.llvm.17854369902771195939.exit.i.i
   %.neg.i.i = mul i64 %4, -48
-  %35 = load ptr, ptr %2, align 8, !alias.scope !113, !nonnull !7, !noundef !7
-  %36 = getelementptr i8, ptr %35, i64 %.neg.i.i
-  %37 = getelementptr i8, ptr %36, i64 -48
-  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %32, i64 noundef 16) #24, !noalias !113
+  %36 = load ptr, ptr %2, align 8, !alias.scope !113, !nonnull !7, !noundef !7
+  %37 = getelementptr i8, ptr %36, i64 %.neg.i.i
+  %38 = getelementptr i8, ptr %37, i64 -48
+  tail call void @__rust_dealloc(ptr noundef nonnull %38, i64 noundef %32, i64 noundef 16) #24, !noalias !113
   br label %"_ZN4core3ptr55drop_in_place$LT$validator..types..ValidationErrors$GT$17hccb70c6bbd2a815cE.exit"
 
-"_ZN4core3ptr55drop_in_place$LT$validator..types..ValidationErrors$GT$17hccb70c6bbd2a815cE.exit": ; preds = %34, %_ZN9hashbrown3raw13RawTableInner13drop_elements17he78dd81bb3a33870E.llvm.17854369902771195939.exit.i.i, %1
+"_ZN4core3ptr55drop_in_place$LT$validator..types..ValidationErrors$GT$17hccb70c6bbd2a815cE.exit": ; preds = %35, %_ZN9hashbrown3raw13RawTableInner13drop_elements17he78dd81bb3a33870E.llvm.17854369902771195939.exit.i.i, %1
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 48, i64 noundef 8) #24
   ret void
 
-38:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1dfe9770281547f4E.llvm.17854369902771195939.exit.i.i.i"
-  %39 = landingpad { ptr, i32 }
+39:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1dfe9770281547f4E.llvm.17854369902771195939.exit.i.i.i"
+  %40 = landingpad { ptr, i32 }
           cleanup
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 48, i64 noundef 8) #24
-  resume { ptr, i32 } %39
+  resume { ptr, i32 } %40
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -733,6 +739,8 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h890668c9b2984b6eE.llvm.17
   %20 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
   %21 = sub nsw i64 0, %11
   %22 = getelementptr inbounds i8, ptr %20, i64 %21
+  %23 = icmp sgt i64 %8, -1
+  tail call void @llvm.assume(i1 %23)
   tail call void @__rust_dealloc(ptr noundef nonnull %22, i64 noundef %13, i64 noundef %3) #24
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h613b0af57122470fE.llvm.17854369902771195939.exit"
 
@@ -912,7 +920,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9911cf0
   %9 = add i64 %6, 1
   %10 = mul nuw i64 %9, %2
   %11 = add i64 %3, -1
-  %12 = add nuw i64 %11, %10
+  %12 = add nuw i64 %10, %11
   %13 = sub i64 0, %3
   %14 = and i64 %12, %13
   %15 = add i64 %6, 17
@@ -931,6 +939,8 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9911cf0
   %23 = load ptr, ptr %0, align 8, !alias.scope !190, !nonnull !7, !noundef !7
   %24 = sub nsw i64 0, %14
   %25 = getelementptr inbounds i8, ptr %23, i64 %24
+  %26 = icmp sgt i64 %11, -1
+  tail call void @llvm.assume(i1 %26)
   tail call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %16, i64 noundef %3) #24, !noalias !190
   br label %_ZN9hashbrown3raw13RawTableInner12free_buckets17hc46aaf8c8f1e8d54E.llvm.17854369902771195939.exit
 
@@ -1000,7 +1010,7 @@ _ZN9hashbrown3raw13RawTableInner13drop_elements17he78dd81bb3a33870E.llvm.1785436
   %33 = add i64 %6, 1
   %34 = mul nuw i64 %33, %2
   %35 = add i64 %3, -1
-  %36 = add nuw i64 %35, %34
+  %36 = add nuw i64 %34, %35
   %37 = sub i64 0, %3
   %38 = and i64 %36, %37
   %39 = add i64 %6, 17
@@ -1019,6 +1029,8 @@ _ZN9hashbrown3raw13RawTableInner13drop_elements17he78dd81bb3a33870E.llvm.1785436
   %47 = load ptr, ptr %0, align 8, !alias.scope !211, !nonnull !7, !noundef !7
   %48 = sub nsw i64 0, %38
   %49 = getelementptr inbounds i8, ptr %47, i64 %48
+  %50 = icmp sgt i64 %35, -1
+  tail call void @llvm.assume(i1 %50)
   tail call void @__rust_dealloc(ptr noundef nonnull %49, i64 noundef %40, i64 noundef %3) #24, !noalias !211
   br label %_ZN9hashbrown3raw13RawTableInner12free_buckets17hc46aaf8c8f1e8d54E.llvm.17854369902771195939.exit
 
@@ -1556,15 +1568,15 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17h219538e3b4492417E.exit.threa
   br label %168
 
 ._crit_edge.i.i10:                                ; preds = %168
-  %spec.select.i = tail call i64 @llvm.umax.i64(i64 %22, i64 16)
-  %spec.select31.i = tail call i64 @llvm.umin.i64(i64 %22, i64 16)
-  %154 = getelementptr inbounds i8, ptr %.val16.i, i64 %spec.select.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %154, ptr nonnull align 1 %.val16.i, i64 %spec.select31.i, i1 false), !noalias !308
+  %154 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %..i = tail call i64 @llvm.umax.i64(i64 %22, i64 16)
+  %.30.i = tail call i64 @llvm.umin.i64(i64 %22, i64 16)
+  %156 = getelementptr inbounds i8, ptr %.val16.i, i64 %..i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %156, ptr nonnull align 1 %.val16.i, i64 %.30.i, i1 false), !noalias !308
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !308
-  %155 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @"_ZN4core3ptr85drop_in_place$LT$$LP$alloc..borrow..Cow$LT$str$GT$$C$serde_json..value..Value$RP$$GT$17hc5f4d9c7a396909eE.llvm.17854369902771195939", ptr %155, align 8, !noalias !308
-  %156 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 56, ptr %156, align 8, !noalias !308
+  store ptr @"_ZN4core3ptr85drop_in_place$LT$$LP$alloc..borrow..Cow$LT$str$GT$$C$serde_json..value..Value$RP$$GT$17hc5f4d9c7a396909eE.llvm.17854369902771195939", ptr %154, align 8, !noalias !308
+  store i64 56, ptr %155, align 8, !noalias !308
   store ptr %0, ptr %8, align 8, !noalias !308
   %.sroa.0.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.0.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16

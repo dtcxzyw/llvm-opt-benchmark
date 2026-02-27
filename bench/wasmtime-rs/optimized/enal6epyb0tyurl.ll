@@ -10635,7 +10635,7 @@ define internal fastcc void @"_ZN4core3ptr285drop_in_place$LT$alloc..boxed..Box$
 18:                                               ; preds = %22, %.body.i
   %.1.i = phi i64 [ %3, %.body.i ], [ %24, %22 ]
   %19 = icmp eq i64 %.1.i, %.8.val
-  br i1 %19, label %28, label %22
+  br i1 %19, label %29, label %22
 
 20:                                               ; preds = %"_ZN4core3ptr134drop_in_place$LT$addr2line..function..Function$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$GT$$GT$17h439c178630bcb059E.exit.i.i.i.i.i.i"
   %21 = landingpad { ptr, i32 }
@@ -10660,15 +10660,19 @@ define internal fastcc void @"_ZN4core3ptr285drop_in_place$LT$alloc..boxed..Box$
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14223331465801898566.exit.i4": ; preds = %"_ZN4core3ptr250drop_in_place$LT$$LP$gimli..read..UnitOffset$C$addr2line..lazy..LazyCell$LT$core..result..Result$LT$addr2line..function..Function$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$GT$$C$gimli..read..Error$GT$$GT$$RP$$GT$17h94b8473be6ba5aafE.exit.i"
   %27 = mul nsw i64 %.8.val, 72
+  %28 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %28)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %27, i64 noundef 8) #44
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89cefaec755e2d09E.exit5"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89cefaec755e2d09E.exit5": ; preds = %0, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14223331465801898566.exit.i4"
   ret void
 
-28:                                               ; preds = %18
-  %29 = mul nsw i64 %.8.val, 72
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %29, i64 noundef 8) #44
+29:                                               ; preds = %18
+  %30 = mul nsw i64 %.8.val, 72
+  %31 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %31)
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %30, i64 noundef 8) #44
   resume { ptr, i32 } %eh.lpad-body.i
 }
 
@@ -10893,6 +10897,8 @@ define internal void @"_ZN4core3ptr52drop_in_place$LT$target_lexicon..targets..V
 18:                                               ; preds = %9
   %19 = landingpad { ptr, i32 }
           cleanup
+  %20 = icmp ne ptr %.val1, null
+  tail call void @llvm.assume(i1 %20)
   tail call void @__rust_dealloc(ptr noundef nonnull %.val1, i64 noundef 24, i64 noundef 8) #44
   resume { ptr, i32 } %19
 
@@ -11462,7 +11468,7 @@ define internal fastcc void @"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$L
 15:                                               ; preds = %19, %17
   %.1.i = phi i64 [ %7, %17 ], [ %21, %19 ]
   %16 = icmp eq i64 %.1.i, %.8.val
-  br i1 %16, label %25, label %19
+  br i1 %16, label %26, label %19
 
 17:                                               ; preds = %5
   %18 = landingpad { ptr, i32 }
@@ -11483,15 +11489,19 @@ define internal fastcc void @"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$L
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14223331465801898566.exit.i4": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he1bee15603eaa80eE.exit.i"
   %24 = mul nsw i64 %.8.val, 24
+  %25 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %25)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %24, i64 noundef 8) #44
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6f5a36d45de145c2E.exit5"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6f5a36d45de145c2E.exit5": ; preds = %0, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14223331465801898566.exit.i4"
   ret void
 
-25:                                               ; preds = %15
-  %26 = mul nsw i64 %.8.val, 24
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %26, i64 noundef 8) #44
+26:                                               ; preds = %15
+  %27 = mul nsw i64 %.8.val, 24
+  %28 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %28)
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %27, i64 noundef 8) #44
   resume { ptr, i32 } %18
 }
 
@@ -12045,7 +12055,7 @@ define hidden void @"_ZN4core3ptr98drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wa
 21:                                               ; preds = %25, %23
   %.1.i = phi i64 [ %11, %23 ], [ %27, %25 ]
   %22 = icmp eq i64 %.1.i, %5
-  br i1 %22, label %31, label %25
+  br i1 %22, label %32, label %25
 
 23:                                               ; preds = %13
   %24 = landingpad { ptr, i32 }
@@ -12066,15 +12076,19 @@ define hidden void @"_ZN4core3ptr98drop_in_place$LT$alloc..boxed..Box$LT$$u5b$wa
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14223331465801898566.exit.i4": ; preds = %"_ZN4core3ptr63drop_in_place$LT$wasmtime_environ..component..info..CoreDef$GT$17h510674b56cbf1984E.llvm.14223331465801898566.exit.i"
   %30 = shl nsw i64 %5, 5
+  %31 = icmp ne ptr %3, null
+  tail call void @llvm.assume(i1 %31)
   tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %30, i64 noundef 8) #44
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6c9ae326c624e18bE.exit5"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6c9ae326c624e18bE.exit5": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14223331465801898566.exit.i4"
   ret void
 
-31:                                               ; preds = %21
-  %32 = shl nsw i64 %5, 5
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %32, i64 noundef 8) #44
+32:                                               ; preds = %21
+  %33 = shl nsw i64 %5, 5
+  %34 = icmp ne ptr %3, null
+  tail call void @llvm.assume(i1 %34)
+  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %33, i64 noundef 8) #44
   resume { ptr, i32 } %24
 }
 

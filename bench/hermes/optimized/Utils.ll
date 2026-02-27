@@ -27,7 +27,9 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.end:                                           ; preds = %for.body
   %cmp.i.i.i.i.i.i.i.i = icmp eq i8 %3, 51
+  %tobool9 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i.i)
+  tail call void @llvm.assume(i1 %tobool9)
   %call.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %2, i32 noundef 0) #3
   %tobool7.not = icmp eq ptr %res.012, null
   %cmp8.not = icmp eq ptr %call.i, %res.012
@@ -72,7 +74,9 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.end:                                           ; preds = %for.body
   %cmp.i.i.i.i.i.i.i.i = icmp eq i8 %3, 50
+  %tobool12 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i.i)
+  tail call void @llvm.assume(i1 %tobool12)
   %call.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %2, i32 noundef 1) #3
   %4 = icmp eq ptr %call.i, null
   %sub.ptr.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 -16
@@ -150,7 +154,9 @@ for.body.i:                                       ; preds = %if.then8, %for.inc.
 
 if.end.i:                                         ; preds = %for.body.i
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i8 %10, 51
+  %tobool9.i = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i.i.i)
+  tail call void @llvm.assume(i1 %tobool9.i)
   %call.i.i = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %9, i32 noundef 0) #3
   %tobool7.not.i = icmp eq ptr %res.012.i, null
   %cmp8.not.i = icmp eq ptr %call.i.i, %res.012.i
@@ -330,7 +336,9 @@ for.body.i29:                                     ; preds = %if.end17, %for.inc.
 
 if.end.i32:                                       ; preds = %for.body.i29
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq i8 %19, 51
+  %tobool9.i = icmp ne ptr %18, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i.i.i)
+  tail call void @llvm.assume(i1 %tobool9.i)
   %call.i.i33 = tail call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %18, i32 noundef 0) #3
   %tobool7.not.i = icmp eq ptr %res.012.i, null
   %cmp8.not.i34 = icmp eq ptr %call.i.i33, %res.012.i

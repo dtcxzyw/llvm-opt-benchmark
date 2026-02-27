@@ -444,21 +444,23 @@ define hidden void @"_ZN4core3ptr206drop_in_place$LT$alloc..rc..Weak$LT$core..ce
   %17 = sub i64 0, %14
   %18 = and i64 %16, %17
   %19 = tail call i64 @llvm.umax.i64(i64 %14, i64 8)
-  %20 = add i64 %19, 7
+  %20 = add nuw i64 %19, 7
   %21 = add i64 %20, %18
   %22 = sub i64 0, %19
   %23 = and i64 %21, %22
-  %24 = add i64 %19, 15
+  %24 = add nuw i64 %19, 15
   %25 = add i64 %24, %23
   %26 = and i64 %25, %22
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %"_ZN70_$LT$alloc..rc..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h06900f0b70c28d96E.exit", label %28
+  %27 = icmp ult i64 %14, -9223372036854775807
+  tail call void @llvm.assume(i1 %27)
+  %28 = icmp eq i64 %26, 0
+  br i1 %28, label %"_ZN70_$LT$alloc..rc..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h06900f0b70c28d96E.exit", label %29
 
-28:                                               ; preds = %9
+29:                                               ; preds = %9
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef %26, i64 noundef range(i64 1, -9223372036854775807) %19) #13
   br label %"_ZN70_$LT$alloc..rc..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h06900f0b70c28d96E.exit"
 
-"_ZN70_$LT$alloc..rc..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h06900f0b70c28d96E.exit": ; preds = %1, %4, %9, %28
+"_ZN70_$LT$alloc..rc..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h06900f0b70c28d96E.exit": ; preds = %1, %4, %9, %29
   ret void
 }
 

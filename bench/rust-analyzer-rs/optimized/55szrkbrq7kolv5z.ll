@@ -7696,7 +7696,7 @@ define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$L
 13:                                               ; preds = %17, %15
   %.1.i = phi i64 [ %3, %15 ], [ %19, %17 ]
   %14 = icmp eq i64 %.1.i, %.8.val
-  br i1 %14, label %23, label %17
+  br i1 %14, label %24, label %17
 
 15:                                               ; preds = %.noexc.i, %11
   %16 = landingpad { ptr, i32 }
@@ -7717,15 +7717,19 @@ define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$L
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.15956212377945586164.exit.i4": ; preds = %"_ZN4core3ptr43drop_in_place$LT$hir_expand..name..Name$GT$17he023fc5ab385eb70E.exit.i"
   %22 = mul nsw i64 %.8.val, 24
+  %23 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %23)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %22, i64 noundef 8) #50
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf1f460e18fc64242E.exit5"
 
 "_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf1f460e18fc64242E.exit5": ; preds = %0, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.15956212377945586164.exit.i4"
   ret void
 
-23:                                               ; preds = %13
-  %24 = mul nsw i64 %.8.val, 24
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %24, i64 noundef 8) #50
+24:                                               ; preds = %13
+  %25 = mul nsw i64 %.8.val, 24
+  %26 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %26)
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef %25, i64 noundef 8) #50
   resume { ptr, i32 } %16
 }
 
@@ -54006,8 +54010,8 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %27,
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h34856fc93529786eE.exit.i": ; preds = %38, %31, %14
   %41 = phi i64 [ %16, %14 ], [ %35, %38 ], [ %2, %31 ]
-  %.not.i6.i.not = icmp eq i64 %2, %15
-  br i1 %.not.i6.i.not, label %42, label %select.unfold
+  %.not.i7.i.not = icmp eq i64 %2, %15
+  br i1 %.not.i7.i.not, label %42, label %select.unfold
 
 42:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h245b0fff45acc95eE.exit", %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h34856fc93529786eE.exit.i"
   ret i1 false

@@ -59415,65 +59415,67 @@ _ZN4absl12log_internal10LogMessagelsILi20EEERS1_RAT__Kc.exit: ; preds = %14
 26:                                               ; preds = %17, %23
   %27 = phi i8 [ %.pre, %23 ], [ %21, %17 ]
   %.0.i23 = phi ptr [ %25, %23 ], [ %19, %17 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 8
-  %29 = atomicrmw add ptr %28, i32 2 monotonic, align 4
+  %28 = icmp ne ptr %.0.i23, null
+  tail call void @llvm.assume(i1 %28)
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 8
+  %30 = atomicrmw add ptr %29, i32 2 monotonic, align 4
   %or.cond.i = icmp ult i8 %27, 5
-  br i1 %or.cond.i, label %30, label %31, !prof !858
-
-30:                                               ; preds = %26
-  invoke void @_ZN4absl13cord_internal16LogFatalNodeTypeEPNS0_7CordRepE(ptr noundef nonnull %.0.i23) #40
-          to label %.noexc unwind label %46
-
-.noexc:                                           ; preds = %30
-  unreachable
+  br i1 %or.cond.i, label %31, label %32, !prof !858
 
 31:                                               ; preds = %26
-  %32 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #42
-          to label %33 unwind label %46
+  invoke void @_ZN4absl13cord_internal16LogFatalNodeTypeEPNS0_7CordRepE(ptr noundef nonnull %.0.i23) #40
+          to label %.noexc unwind label %47
 
-33:                                               ; preds = %31
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %32, i8 0, i64 16, i1 false)
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i32 2, ptr %34, align 4, !tbaa !94
-  store i64 %3, ptr %32, align 8, !tbaa !119
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 12
-  store i8 1, ptr %35, align 4, !tbaa !96
-  %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store i64 %2, ptr %36, align 8, !tbaa !859
-  %37 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store ptr %.0.i23, ptr %37, align 8, !tbaa !861
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %32, ptr %38, align 8, !tbaa !24
+.noexc:                                           ; preds = %31
+  unreachable
+
+32:                                               ; preds = %26
+  %33 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #42
+          to label %34 unwind label %47
+
+34:                                               ; preds = %32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %33, i8 0, i64 16, i1 false)
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  store i32 2, ptr %35, align 4, !tbaa !94
+  store i64 %3, ptr %33, align 8, !tbaa !119
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 12
+  store i8 1, ptr %36, align 4, !tbaa !96
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  store i64 %2, ptr %37, align 8, !tbaa !859
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  store ptr %.0.i23, ptr %38, align 8, !tbaa !861
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %33, ptr %39, align 8, !tbaa !24
   store i64 1, ptr %0, align 8, !tbaa !24
-  %39 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4absl13cord_internal17cordz_next_sampleE)
-  %40 = load i64, ptr %39, align 8, !tbaa !115
-  %41 = icmp sgt i64 %40, 1
-  br i1 %41, label %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i, label %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i, !prof !117
+  %40 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4absl13cord_internal17cordz_next_sampleE)
+  %41 = load i64, ptr %40, align 8, !tbaa !115
+  %42 = icmp sgt i64 %41, 1
+  br i1 %42, label %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i, label %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i, !prof !117
 
-_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i: ; preds = %33
-  %42 = add nsw i64 %40, -1
-  store i64 %42, ptr %39, align 8, !tbaa !115
+_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i: ; preds = %34
+  %43 = add nsw i64 %41, -1
+  store i64 %43, ptr %40, align 8, !tbaa !115
   br label %_ZN4absl4Cord9InlineRep11EmplaceTreeEPNS_13cord_internal7CordRepENS2_18CordzUpdateTracker16MethodIdentifierE.exit
 
-_ZN4absl13cord_internal20cordz_should_profileEv.exit.i: ; preds = %33
-  %43 = invoke noundef i64 @_ZN4absl13cord_internal25cordz_should_profile_slowERNS0_13SamplingStateE(ptr noundef nonnull align 8 dereferenceable(16) %39)
-          to label %.noexc25 unwind label %46
+_ZN4absl13cord_internal20cordz_should_profileEv.exit.i: ; preds = %34
+  %44 = invoke noundef i64 @_ZN4absl13cord_internal25cordz_should_profile_slowERNS0_13SamplingStateE(ptr noundef nonnull align 8 dereferenceable(16) %40)
+          to label %.noexc25 unwind label %47
 
 .noexc25:                                         ; preds = %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i
-  %44 = icmp sgt i64 %43, 0
-  br i1 %44, label %45, label %_ZN4absl4Cord9InlineRep11EmplaceTreeEPNS_13cord_internal7CordRepENS2_18CordzUpdateTracker16MethodIdentifierE.exit, !prof !118
+  %45 = icmp sgt i64 %44, 0
+  br i1 %45, label %46, label %_ZN4absl4Cord9InlineRep11EmplaceTreeEPNS_13cord_internal7CordRepENS2_18CordzUpdateTracker16MethodIdentifierE.exit, !prof !118
 
-45:                                               ; preds = %.noexc25
-  invoke void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierEl(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 24, i64 noundef %43)
-          to label %_ZN4absl4Cord9InlineRep11EmplaceTreeEPNS_13cord_internal7CordRepENS2_18CordzUpdateTracker16MethodIdentifierE.exit unwind label %46
+46:                                               ; preds = %.noexc25
+  invoke void @_ZN4absl13cord_internal9CordzInfo9TrackCordERNS0_10InlineDataENS0_18CordzUpdateTracker16MethodIdentifierEl(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 24, i64 noundef %44)
+          to label %_ZN4absl4Cord9InlineRep11EmplaceTreeEPNS_13cord_internal7CordRepENS2_18CordzUpdateTracker16MethodIdentifierE.exit unwind label %47
 
-46:                                               ; preds = %45, %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i, %31, %30
-  %47 = landingpad { ptr, i32 }
+47:                                               ; preds = %46, %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i, %32, %31
+  %48 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN4absl4CordD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #41
-  resume { ptr, i32 } %47
+  resume { ptr, i32 } %48
 
-_ZN4absl4Cord9InlineRep11EmplaceTreeEPNS_13cord_internal7CordRepENS2_18CordzUpdateTracker16MethodIdentifierE.exit: ; preds = %.noexc25, %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i, %45
+_ZN4absl4Cord9InlineRep11EmplaceTreeEPNS_13cord_internal7CordRepENS2_18CordzUpdateTracker16MethodIdentifierE.exit: ; preds = %.noexc25, %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i, %46
   ret void
 }
 

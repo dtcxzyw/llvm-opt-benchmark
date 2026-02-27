@@ -2231,7 +2231,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10Cr2Decoder20decodeCanonColorDat
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = tail call noundef ptr @_ZNK8rawspeed7TiffIFD17getEntryRecursiveENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104) %3, i16 noundef zeroext 16385) #30
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %88, label %5
+  br i1 %.not, label %90, label %5
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.083)
@@ -2458,54 +2458,58 @@ _ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_O
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %68 = load i32, ptr %67, align 8, !tbaa !64
   %69 = icmp slt i32 %68, 14
-  br i1 %69, label %76, label %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread107
+  br i1 %69, label %77, label %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread107
 
 70:                                               ; preds = %_ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_OS6_.exit, %70
   %indvars.iv = phi i64 [ 0, %_ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_OS6_.exit ], [ %indvars.iv.next, %70 ]
-  %71 = add nuw i64 %indvars.iv, %.sroa.046.0.i.ph
+  %71 = add nuw nsw i64 %indvars.iv, %.sroa.046.0.i.ph
   %72 = trunc i64 %71 to i32
   %73 = tail call noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef %72)
   %74 = zext i16 %73 to i32
-  %75 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
-  store i32 %74, ptr %75, align 4, !tbaa !113
+  %75 = icmp samesign ult i64 %indvars.iv, 4
+  tail call void @llvm.assume(i1 %75)
+  %76 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
+  store i32 %74, ptr %76, align 4, !tbaa !113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not32 = icmp eq i64 %indvars.iv.next, 4
   br i1 %.not32, label %66, label %70, !llvm.loop !232
 
-76:                                               ; preds = %66
-  %77 = sub nsw i32 14, %68
+77:                                               ; preds = %66
+  %78 = sub nsw i32 14, %68
   %.not.i = icmp ne i8 %23, 4
-  %78 = and i64 %.sroa.083.4..sroa.083.4..sroa.083.4..sroa.083.4..sroa.681.0.copyload, 8589934591
-  %79 = icmp ne i64 %78, 8589934589
-  %80 = select i1 %.not.i, i1 true, i1 %79
-  br i1 %80, label %.preheader, label %.loopexit
+  %79 = and i64 %.sroa.083.4..sroa.083.4..sroa.083.4..sroa.083.4..sroa.681.0.copyload, 8589934591
+  %80 = icmp ne i64 %79, 8589934589
+  %81 = select i1 %.not.i, i1 true, i1 %80
+  br i1 %81, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %76, %.preheader
-  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.preheader ], [ 0, %76 ]
-  %81 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv116
-  %82 = load i32, ptr %81, align 4, !tbaa !113
-  %83 = ashr i32 %82, %77
-  store i32 %83, ptr %81, align 4, !tbaa !113
+.preheader:                                       ; preds = %77, %.preheader
+  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.preheader ], [ 0, %77 ]
+  %82 = icmp samesign ult i64 %indvars.iv116, 4
+  tail call void @llvm.assume(i1 %82)
+  %83 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv116
+  %84 = load i32, ptr %83, align 4, !tbaa !113
+  %85 = ashr i32 %84, %78
+  store i32 %85, ptr %83, align 4, !tbaa !113
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %.not33 = icmp eq i64 %indvars.iv.next117, 4
   br i1 %.not33, label %.loopexit, label %.preheader, !llvm.loop !233
 
-.loopexit:                                        ; preds = %.preheader, %76
-  %84 = load ptr, ptr %27, align 8, !tbaa !33
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 160
-  %86 = load i32, ptr %85, align 4, !tbaa !113
-  %87 = ashr i32 %86, %77
-  %.sroa.0.0.insert.ext.i = zext i32 %87 to i64
+.loopexit:                                        ; preds = %.preheader, %77
+  %86 = load ptr, ptr %27, align 8, !tbaa !33
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 160
+  %88 = load i32, ptr %87, align 4, !tbaa !113
+  %89 = ashr i32 %88, %78
+  %.sroa.0.0.insert.ext.i = zext i32 %89 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.0.insert.ext.i, 4294967296
-  store i64 %.sroa.0.0.insert.insert.i, ptr %85, align 4
+  store i64 %.sroa.0.0.insert.insert.i, ptr %87, align 4
   br label %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread107
 
 _ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread107: ; preds = %.loopexit, %66, %40, %40, %switch.lookup, %switch.lookup, %switch.lookup, %_ZN8rawspeed12_GLOBAL__N_121deduceColorDataFormatEPKNS_9TiffEntryE.exit
   %.1 = phi i1 [ false, %_ZN8rawspeed12_GLOBAL__N_121deduceColorDataFormatEPKNS_9TiffEntryE.exit ], [ true, %66 ], [ true, %.loopexit ], [ false, %40 ], [ false, %40 ], [ false, %switch.lookup ], [ false, %switch.lookup ], [ false, %switch.lookup ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.083)
-  br label %88
+  br label %90
 
-88:                                               ; preds = %1, %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread107
+90:                                               ; preds = %1, %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread107
   %.028 = phi i1 [ %.1, %_ZN8rawspeed12_GLOBAL__N_139getBlackAndWhiteLevelOffsetsInColorDataENS0_15ColorDataFormatENS_8OptionalIiEE.exit.thread107 ], [ false, %1 ]
   ret i1 %.028
 }

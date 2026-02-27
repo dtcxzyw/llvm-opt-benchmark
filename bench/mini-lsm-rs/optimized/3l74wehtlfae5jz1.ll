@@ -6482,25 +6482,27 @@ _ZN10serde_json3ser9Formatter10end_object17h16ac9c73c8dffd40E.exit: ; preds = %3
 
 16:                                               ; preds = %._crit_edge, %_ZN10serde_json3ser9Formatter10end_object17h16ac9c73c8dffd40E.exit
   %17 = phi i64 [ %.pre, %._crit_edge ], [ %15, %_ZN10serde_json3ser9Formatter10end_object17h16ac9c73c8dffd40E.exit ]
-  %18 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
-  %19 = load i64, ptr %.0.val, align 8, !alias.scope !1674, !noalias !1683, !noundef !9
-  %20 = icmp eq i64 %19, %17
-  br i1 %20, label %21, label %22
+  %18 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %18)
+  %19 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
+  %20 = load i64, ptr %.0.val, align 8, !alias.scope !1674, !noalias !1683, !noundef !9
+  %21 = icmp eq i64 %20, %17
+  br i1 %21, label %22, label %23
 
-21:                                               ; preds = %16
+22:                                               ; preds = %16
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h05fddb391e635b6fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.0.val, i64 noundef %17, i64 noundef 1), !noalias !1683
-  %.pre.i.i.i.i.i6 = load i64, ptr %18, align 8, !alias.scope !1700, !noalias !1683
-  br label %22
+  %.pre.i.i.i.i.i6 = load i64, ptr %19, align 8, !alias.scope !1700, !noalias !1683
+  br label %23
 
-22:                                               ; preds = %21, %16
-  %23 = phi i64 [ %17, %16 ], [ %.pre.i.i.i.i.i6, %21 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
-  %25 = load ptr, ptr %24, align 8, !alias.scope !1700, !noalias !1683, !nonnull !9, !noundef !9
-  %26 = getelementptr inbounds i8, ptr %25, i64 %23
-  store i8 125, ptr %26, align 1, !noalias !1701
-  %27 = load i64, ptr %18, align 8, !alias.scope !1700, !noalias !1683, !noundef !9
-  %28 = add i64 %27, 1
-  store i64 %28, ptr %18, align 8, !alias.scope !1700, !noalias !1683
+23:                                               ; preds = %22, %16
+  %24 = phi i64 [ %17, %16 ], [ %.pre.i.i.i.i.i6, %22 ]
+  %25 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
+  %26 = load ptr, ptr %25, align 8, !alias.scope !1700, !noalias !1683, !nonnull !9, !noundef !9
+  %27 = getelementptr inbounds i8, ptr %26, i64 %24
+  store i8 125, ptr %27, align 1, !noalias !1701
+  %28 = load i64, ptr %19, align 8, !alias.scope !1700, !noalias !1683, !noundef !9
+  %29 = add i64 %28, 1
+  store i64 %29, ptr %19, align 8, !alias.scope !1700, !noalias !1683
   ret ptr null
 }
 

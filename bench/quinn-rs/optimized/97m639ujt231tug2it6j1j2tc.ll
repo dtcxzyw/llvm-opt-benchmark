@@ -492,18 +492,21 @@ define hidden void @"_ZN4core3ptr104drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
   %12 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
   %13 = load i64, ptr %12, align 8, !range !6, !invariant.load !3
   %14 = tail call i64 @llvm.umax.i64(i64 %13, i64 8)
-  %15 = add nuw i64 %11, 15
-  %16 = add i64 %15, %14
-  %17 = sub i64 0, %14
-  %18 = and i64 %16, %17
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h964d77205a4ab862E.exit", label %20
+  %15 = add nuw i64 %11, 16
+  %16 = add i64 %14, -1
+  %17 = add i64 %15, %16
+  %18 = sub i64 0, %14
+  %19 = and i64 %17, %18
+  %20 = icmp sgt i64 %16, -1
+  tail call void @llvm.assume(i1 %20)
+  %21 = icmp eq i64 %19, 0
+  br i1 %21, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h964d77205a4ab862E.exit", label %22
 
-20:                                               ; preds = %8
-  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef %18, i64 noundef range(i64 1, -9223372036854775807) %14) #14
+22:                                               ; preds = %8
+  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef %19, i64 noundef range(i64 1, -9223372036854775807) %14) #14
   br label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h964d77205a4ab862E.exit"
 
-"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h964d77205a4ab862E.exit": ; preds = %1, %4, %8, %20
+"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h964d77205a4ab862E.exit": ; preds = %1, %4, %8, %22
   ret void
 }
 
@@ -647,18 +650,21 @@ define hidden void @"_ZN4core3ptr111drop_in_place$LT$alloc..sync..Weak$LT$dyn$u2
   %12 = getelementptr inbounds nuw i8, ptr %.val1, i64 16
   %13 = load i64, ptr %12, align 8, !range !6, !invariant.load !3
   %14 = tail call i64 @llvm.umax.i64(i64 %13, i64 8)
-  %15 = add nuw i64 %11, 15
-  %16 = add i64 %15, %14
-  %17 = sub i64 0, %14
-  %18 = and i64 %16, %17
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc52f36648a8fcbcfE.exit", label %20
+  %15 = add nuw i64 %11, 16
+  %16 = add i64 %14, -1
+  %17 = add i64 %15, %16
+  %18 = sub i64 0, %14
+  %19 = and i64 %17, %18
+  %20 = icmp sgt i64 %16, -1
+  tail call void @llvm.assume(i1 %20)
+  %21 = icmp eq i64 %19, 0
+  br i1 %21, label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc52f36648a8fcbcfE.exit", label %22
 
-20:                                               ; preds = %8
-  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef %18, i64 noundef range(i64 1, -9223372036854775807) %14) #14
+22:                                               ; preds = %8
+  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef %19, i64 noundef range(i64 1, -9223372036854775807) %14) #14
   br label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc52f36648a8fcbcfE.exit"
 
-"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc52f36648a8fcbcfE.exit": ; preds = %1, %4, %8, %20
+"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc52f36648a8fcbcfE.exit": ; preds = %1, %4, %8, %22
   ret void
 }
 

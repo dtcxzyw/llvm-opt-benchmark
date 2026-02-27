@@ -45,11 +45,17 @@ define internal fastcc void @"_ZN4core3ptr233drop_in_place$LT$hashbrown..scopegu
   %18 = sub nuw i64 -9223372036854775808, %9
   %19 = icmp ule i64 %17, %18
   tail call void @llvm.assume(i1 %19)
-  %20 = icmp ne ptr %.val.i, null
+  %20 = icmp ult i64 %9, -9223372036854775807
   tail call void @llvm.assume(i1 %20)
-  %21 = sub nsw i64 0, %15
-  %22 = getelementptr inbounds i8, ptr %.val.i, i64 %21
-  tail call void @__rust_dealloc(ptr noundef nonnull %22, i64 noundef %17, i64 noundef %9) #22, !noalias !12
+  %21 = icmp ne i64 %9, 0
+  tail call void @llvm.assume(i1 %21)
+  %22 = icmp ne ptr %.val.i, null
+  tail call void @llvm.assume(i1 %22)
+  %23 = sub nsw i64 0, %15
+  %24 = getelementptr inbounds i8, ptr %.val.i, i64 %23
+  %25 = icmp sgt i64 %12, -1
+  tail call void @llvm.assume(i1 %25)
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %17, i64 noundef %9) #22, !noalias !12
   br label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h727d7012506f71b9E.exit"
 
 "_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h727d7012506f71b9E.exit": ; preds = %1, %5
@@ -183,10 +189,16 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17h0f2d8eece5dfc4acE.l
   %14 = sub nuw i64 -9223372036854775808, %3
   %15 = icmp ule i64 %13, %14
   tail call void @llvm.assume(i1 %15)
-  %16 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
-  %17 = sub nsw i64 0, %11
-  %18 = getelementptr inbounds i8, ptr %16, i64 %17
-  tail call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef %13, i64 noundef %3) #22
+  %16 = icmp ult i64 %3, -9223372036854775807
+  tail call void @llvm.assume(i1 %16)
+  %17 = icmp ne i64 %3, 0
+  tail call void @llvm.assume(i1 %17)
+  %18 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
+  %19 = sub nsw i64 0, %11
+  %20 = getelementptr inbounds i8, ptr %18, i64 %19
+  %21 = icmp sgt i64 %8, -1
+  tail call void @llvm.assume(i1 %21)
+  tail call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %13, i64 noundef %3) #22
   ret void
 }
 
@@ -200,14 +212,14 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17hb
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !7
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %22, label %8
+  br i1 %7, label %25, label %8
 
 8:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %9 = add i64 %6, 1
   %10 = mul nuw i64 %9, %2
   %11 = add i64 %3, -1
-  %12 = add nuw i64 %11, %10
+  %12 = add nuw i64 %10, %11
   %13 = sub i64 0, %3
   %14 = and i64 %12, %13
   %15 = add i64 %6, 17
@@ -215,13 +227,19 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17hb
   %17 = sub nuw i64 -9223372036854775808, %3
   %18 = icmp ule i64 %16, %17
   tail call void @llvm.assume(i1 %18)
-  %19 = load ptr, ptr %0, align 8, !alias.scope !24, !nonnull !7, !noundef !7
-  %20 = sub nsw i64 0, %14
-  %21 = getelementptr inbounds i8, ptr %19, i64 %20
-  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %16, i64 noundef %3) #22, !noalias !24
-  br label %22
+  %19 = icmp ult i64 %3, -9223372036854775807
+  tail call void @llvm.assume(i1 %19)
+  %20 = icmp ne i64 %3, 0
+  tail call void @llvm.assume(i1 %20)
+  %21 = load ptr, ptr %0, align 8, !alias.scope !24, !nonnull !7, !noundef !7
+  %22 = sub nsw i64 0, %14
+  %23 = getelementptr inbounds i8, ptr %21, i64 %22
+  %24 = icmp sgt i64 %11, -1
+  tail call void @llvm.assume(i1 %24)
+  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %16, i64 noundef %3) #22, !noalias !24
+  br label %25
 
-22:                                               ; preds = %4, %8
+25:                                               ; preds = %4, %8
   ret void
 }
 
@@ -763,10 +781,10 @@ _ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h11ac1c8566f75df4E.exit
   br label %151
 
 ._crit_edge.i.i10:                                ; preds = %151
-  %spec.select.i = tail call i64 @llvm.umax.i64(i64 %22, i64 16)
-  %spec.select64.i = tail call i64 @llvm.umin.i64(i64 %22, i64 16)
-  %150 = getelementptr inbounds i8, ptr %.val18.i, i64 %spec.select.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %150, ptr nonnull align 1 %.val18.i, i64 %spec.select64.i, i1 false), !noalias !103
+  %..i = tail call i64 @llvm.umax.i64(i64 %22, i64 16)
+  %.63.i = tail call i64 @llvm.umin.i64(i64 %22, i64 16)
+  %150 = getelementptr inbounds i8, ptr %.val18.i, i64 %..i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %150, ptr nonnull align 1 %.val18.i, i64 %.63.i, i1 false), !noalias !103
   br label %168
 
 151:                                              ; preds = %151, %.lr.ph.i.i9

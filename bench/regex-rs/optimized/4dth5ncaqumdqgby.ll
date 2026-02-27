@@ -2947,6 +2947,8 @@ define internal fastcc void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopegu
   tail call void @llvm.assume(i1 %24)
   %25 = sub nsw i64 0, %15
   %26 = getelementptr inbounds i8, ptr %.val.i, i64 %25
+  %27 = icmp sgt i64 %12, -1
+  tail call void @llvm.assume(i1 %27)
   tail call void @__rust_dealloc(ptr noundef nonnull %26, i64 noundef %17, i64 noundef %9) #35, !noalias !216
   br label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7656fca3dc56cecfE.exit"
 
@@ -3970,6 +3972,8 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h9749fde9e08ab188E.llvm.12
   %20 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %21 = sub nsw i64 0, %11
   %22 = getelementptr inbounds i8, ptr %20, i64 %21
+  %23 = icmp sgt i64 %8, -1
+  tail call void @llvm.assume(i1 %23)
   tail call void @__rust_dealloc(ptr noundef nonnull %22, i64 noundef %13, i64 noundef %3) #35
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.12622858556511099134.exit"
 
@@ -4146,9 +4150,9 @@ define internal fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17
   %.val19 = load i64, ptr %5, align 8, !noundef !5
   %6 = add i64 %.val19, 1
   %.not.not4.i = icmp eq i64 %6, 0
-  br i1 %.not.not4.i, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread23, label %.lr.ph.i
+  br i1 %.not.not4.i, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread22, label %.lr.ph.i
 
-_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread23: ; preds = %3
+_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread22: ; preds = %3
   %7 = icmp ne ptr %.val18, null
   tail call void @llvm.assume(i1 %7)
   %8 = getelementptr inbounds nuw i8, ptr %.val18, i64 16
@@ -4167,15 +4171,15 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.ex
   br label %16
 
 ._crit_edge.i:                                    ; preds = %16
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %6, i64 16)
-  %spec.select31 = tail call i64 @llvm.umin.i64(i64 %6, i64 16)
-  %13 = getelementptr inbounds i8, ptr %.val18, i64 %spec.select
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %.val18, i64 %spec.select31, i1 false)
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %. = tail call i64 @llvm.umax.i64(i64 %6, i64 16)
+  %.30 = tail call i64 @llvm.umin.i64(i64 %6, i64 16)
+  %15 = getelementptr inbounds i8, ptr %.val18, i64 %.
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull align 1 %.val18, i64 %.30, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %2, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 24, ptr %15, align 8
+  store ptr %2, ptr %13, align 8
+  store i64 24, ptr %14, align 8
   store ptr %0, ptr %4, align 8
   br label %.lr.ph
 
@@ -4206,9 +4210,9 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.ex
   %26 = mul nuw i64 %25, 7
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread23, %._crit_edge.loopexit
-  %.pre-phi = phi i64 [ %26, %._crit_edge.loopexit ], [ 0, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread23 ]
-  %27 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ -1, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread23 ]
+._crit_edge:                                      ; preds = %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread22, %._crit_edge.loopexit
+  %.pre-phi = phi i64 [ %26, %._crit_edge.loopexit ], [ 0, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread22 ]
+  %27 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ -1, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread22 ]
   %28 = icmp ult i64 %27, 8
   %.0 = select i1 %28, i64 %27, i64 %.pre-phi
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4440,7 +4444,7 @@ _ZN9hashbrown3raw13RawTableInner13drop_elements17hb8ab20d6e6271bd8E.llvm.1262285
   %37 = add i64 %6, 1
   %38 = mul nuw i64 %37, %2
   %39 = add i64 %3, -1
-  %40 = add nuw i64 %39, %38
+  %40 = add nuw i64 %38, %39
   %41 = sub i64 0, %3
   %42 = and i64 %40, %41
   %43 = add i64 %6, 17
@@ -4459,6 +4463,8 @@ _ZN9hashbrown3raw13RawTableInner13drop_elements17hb8ab20d6e6271bd8E.llvm.1262285
   %51 = load ptr, ptr %0, align 8, !alias.scope !425, !nonnull !5, !noundef !5
   %52 = sub nsw i64 0, %42
   %53 = getelementptr inbounds i8, ptr %51, i64 %52
+  %54 = icmp sgt i64 %39, -1
+  tail call void @llvm.assume(i1 %54)
   tail call void @__rust_dealloc(ptr noundef nonnull %53, i64 noundef %44, i64 noundef %3) #35, !noalias !425
   br label %_ZN9hashbrown3raw13RawTableInner12free_buckets17h13d94914afbe307bE.llvm.12622858556511099134.exit
 
@@ -4541,7 +4547,7 @@ _ZN9hashbrown3raw13RawTableInner13drop_elements17h9959d055644e7848E.llvm.1262285
   %38 = add i64 %6, 1
   %39 = mul nuw i64 %38, %2
   %40 = add i64 %3, -1
-  %41 = add nuw i64 %40, %39
+  %41 = add nuw i64 %39, %40
   %42 = sub i64 0, %3
   %43 = and i64 %41, %42
   %44 = add i64 %6, 17
@@ -4560,6 +4566,8 @@ _ZN9hashbrown3raw13RawTableInner13drop_elements17h9959d055644e7848E.llvm.1262285
   %52 = load ptr, ptr %0, align 8, !alias.scope !457, !nonnull !5, !noundef !5
   %53 = sub nsw i64 0, %43
   %54 = getelementptr inbounds i8, ptr %52, i64 %53
+  %55 = icmp sgt i64 %40, -1
+  tail call void @llvm.assume(i1 %55)
   tail call void @__rust_dealloc(ptr noundef nonnull %54, i64 noundef %45, i64 noundef %3) #35, !noalias !457
   br label %_ZN9hashbrown3raw13RawTableInner12free_buckets17h13d94914afbe307bE.llvm.12622858556511099134.exit
 

@@ -1905,42 +1905,44 @@ define internal fastcc void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$L
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !4, !nonnull !4
   invoke void %2(ptr noundef nonnull align 1 %.0.val)
-          to label %12 unwind label %3
+          to label %13 unwind label %3
 
 3:                                                ; preds = %0
   %4 = landingpad { ptr, i32 }
           cleanup
-  %5 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %6 = load i64, ptr %5, align 8, !range !20, !invariant.load !4
-  %7 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
-  %8 = load i64, ptr %7, align 8, !range !21, !invariant.load !4
-  %9 = icmp ult i64 %8, -9223372036854775807
-  tail call void @llvm.assume(i1 %9)
-  %10 = icmp eq i64 %6, 0
-  br i1 %10, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb134c06e2f64d8bbE.exit", label %11
+  %5 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %5)
+  %6 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
+  %7 = load i64, ptr %6, align 8, !range !20, !invariant.load !4
+  %8 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
+  %9 = load i64, ptr %8, align 8, !range !21, !invariant.load !4
+  %10 = icmp ult i64 %9, -9223372036854775807
+  tail call void @llvm.assume(i1 %10)
+  %11 = icmp eq i64 %7, 0
+  br i1 %11, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb134c06e2f64d8bbE.exit", label %12
 
-11:                                               ; preds = %3
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %6, i64 noundef range(i64 1, -9223372036854775807) %8) #40
+12:                                               ; preds = %3
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %7, i64 noundef range(i64 1, -9223372036854775807) %9) #40
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb134c06e2f64d8bbE.exit"
 
-12:                                               ; preds = %0
-  %13 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %14 = load i64, ptr %13, align 8, !range !20, !invariant.load !4
-  %15 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
-  %16 = load i64, ptr %15, align 8, !range !21, !invariant.load !4
-  %17 = icmp ult i64 %16, -9223372036854775807
-  tail call void @llvm.assume(i1 %17)
-  %18 = icmp eq i64 %14, 0
-  br i1 %18, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb134c06e2f64d8bbE.exit4", label %19
+13:                                               ; preds = %0
+  %14 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
+  %15 = load i64, ptr %14, align 8, !range !20, !invariant.load !4
+  %16 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
+  %17 = load i64, ptr %16, align 8, !range !21, !invariant.load !4
+  %18 = icmp ult i64 %17, -9223372036854775807
+  tail call void @llvm.assume(i1 %18)
+  %19 = icmp eq i64 %15, 0
+  br i1 %19, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb134c06e2f64d8bbE.exit4", label %20
 
-19:                                               ; preds = %12
-  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %14, i64 noundef range(i64 1, -9223372036854775807) %16) #40
+20:                                               ; preds = %13
+  tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef range(i64 1, -9223372036854775808) %15, i64 noundef range(i64 1, -9223372036854775807) %17) #40
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb134c06e2f64d8bbE.exit4"
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb134c06e2f64d8bbE.exit4": ; preds = %12, %19
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb134c06e2f64d8bbE.exit4": ; preds = %13, %20
   ret void
 
-"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb134c06e2f64d8bbE.exit": ; preds = %11, %3
+"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb134c06e2f64d8bbE.exit": ; preds = %12, %3
   resume { ptr, i32 } %4
 }
 
@@ -2733,38 +2735,40 @@ _ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.12014582817787848890
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.12014582817787848890(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #13 {
   %5 = icmp eq i64 %2, 0
-  br i1 %5, label %6, label %10
+  br i1 %5, label %6, label %11
 
 6:                                                ; preds = %4
   %7 = add i64 %1, -1
   %8 = icmp sgt i64 %7, -1
   tail call void @llvm.assume(i1 %8)
   %9 = inttoptr i64 %1 to ptr
-  br label %11
+  %10 = icmp ne i64 %1, 0
+  tail call void @llvm.assume(i1 %10)
+  br label %12
 
-10:                                               ; preds = %4
-  br i1 %3, label %19, label %14
+11:                                               ; preds = %4
+  br i1 %3, label %20, label %15
 
-11:                                               ; preds = %14, %19, %6
-  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %22, %19 ], [ %18, %14 ]
-  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
-  %13 = insertvalue { ptr, i64 } %12, i64 %2, 1
-  ret { ptr, i64 } %13
+12:                                               ; preds = %15, %20, %6
+  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %23, %20 ], [ %19, %15 ]
+  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
+  %14 = insertvalue { ptr, i64 } %13, i64 %2, 1
+  ret { ptr, i64 } %14
 
-14:                                               ; preds = %10
-  %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %16 = add i64 %1, -1
-  %17 = icmp sgt i64 %16, -1
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #40
-  br label %11
+15:                                               ; preds = %11
+  %16 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %17 = add i64 %1, -1
+  %18 = icmp sgt i64 %17, -1
+  tail call void @llvm.assume(i1 %18)
+  %19 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #40
+  br label %12
 
-19:                                               ; preds = %10
-  %20 = add i64 %1, -1
-  %21 = icmp sgt i64 %20, -1
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #40
-  br label %11
+20:                                               ; preds = %11
+  %21 = add i64 %1, -1
+  %22 = icmp sgt i64 %21, -1
+  tail call void @llvm.assume(i1 %22)
+  %23 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #40
+  br label %12
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable

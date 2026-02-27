@@ -646,6 +646,8 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h6c9846cae15a80ebE.llvm.84
   %20 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %21 = sub nsw i64 0, %11
   %22 = getelementptr inbounds i8, ptr %20, i64 %21
+  %23 = icmp sgt i64 %8, -1
+  tail call void @llvm.assume(i1 %23)
   tail call void @__rust_dealloc(ptr noundef nonnull %22, i64 noundef %13, i64 noundef %3) #24
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.8426763234977947650.exit"
 
@@ -947,7 +949,7 @@ _ZN9hashbrown3raw13RawTableInner13drop_elements17hf602183498fe76d3E.llvm.8426763
   %52 = add i64 %6, 1
   %53 = mul nuw i64 %52, %2
   %54 = add i64 %3, -1
-  %55 = add nuw i64 %54, %53
+  %55 = add nuw i64 %53, %54
   %56 = sub i64 0, %3
   %57 = and i64 %55, %56
   %58 = add i64 %6, 17
@@ -966,6 +968,8 @@ _ZN9hashbrown3raw13RawTableInner13drop_elements17hf602183498fe76d3E.llvm.8426763
   %66 = load ptr, ptr %0, align 8, !alias.scope !209, !nonnull !4, !noundef !4
   %67 = sub nsw i64 0, %57
   %68 = getelementptr inbounds i8, ptr %66, i64 %67
+  %69 = icmp sgt i64 %54, -1
+  tail call void @llvm.assume(i1 %69)
   tail call void @__rust_dealloc(ptr noundef nonnull %68, i64 noundef %59, i64 noundef %3) #24, !noalias !209
   br label %_ZN9hashbrown3raw13RawTableInner12free_buckets17h45aa5389e0a32161E.llvm.8426763234977947650.exit
 
@@ -1075,7 +1079,7 @@ _ZN9hashbrown3raw13RawTableInner13drop_elements17h47f5b8b1a4d1a893E.llvm.8426763
   %49 = add i64 %6, 1
   %50 = mul nuw i64 %49, %2
   %51 = add i64 %3, -1
-  %52 = add nuw i64 %51, %50
+  %52 = add nuw i64 %50, %51
   %53 = sub i64 0, %3
   %54 = and i64 %52, %53
   %55 = add i64 %6, 17
@@ -1094,6 +1098,8 @@ _ZN9hashbrown3raw13RawTableInner13drop_elements17h47f5b8b1a4d1a893E.llvm.8426763
   %63 = load ptr, ptr %0, align 8, !alias.scope !254, !nonnull !4, !noundef !4
   %64 = sub nsw i64 0, %54
   %65 = getelementptr inbounds i8, ptr %63, i64 %64
+  %66 = icmp sgt i64 %51, -1
+  tail call void @llvm.assume(i1 %66)
   tail call void @__rust_dealloc(ptr noundef nonnull %65, i64 noundef %56, i64 noundef %3) #24, !noalias !254
   br label %_ZN9hashbrown3raw13RawTableInner12free_buckets17h45aa5389e0a32161E.llvm.8426763234977947650.exit
 

@@ -62012,6 +62012,7 @@ _ZN12polars_arrow6legacy5array4list16AnonymousBuilder9push_null17h2a72da1b1ab4e1
 .body30.i:                                        ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17h54c77db40a947d5bE.exit56.i", %204, %.loopexit.split-lp92.i, %.loopexit91.i
   %.pn18.i = phi { ptr, i32 } [ %.pn.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17h54c77db40a947d5bE.exit56.i" ], [ %205, %204 ], [ %lpad.loopexit93.i, %.loopexit91.i ], [ %lpad.loopexit.split-lp94.i, %.loopexit.split-lp92.i ]
   %.sroa.06.8.i = phi i1 [ false, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17h54c77db40a947d5bE.exit56.i" ], [ true, %204 ], [ true, %.loopexit91.i ], [ %.sroa.06.7.ph.i, %.loopexit.split-lp92.i ]
+  call void @llvm.assume(i1 %192)
   invoke fastcc void @"_ZN4core3ptr113drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_core..chunked_array..builder..list..ListBuilderTrait$GT$$GT$17h08971461303eab85E"(ptr nonnull %189, ptr nonnull %190) #42
           to label %.thread79.i unwind label %177, !noalias !7164
 
@@ -62727,6 +62728,7 @@ _ZN12polars_arrow6legacy5array4list16AnonymousBuilder9push_null17h2a72da1b1ab4e1
 .body30.i:                                        ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17h54c77db40a947d5bE.exit55.i", %193, %.loopexit.split-lp91.i, %.loopexit90.i
   %.pn18.i = phi { ptr, i32 } [ %.pn.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17h54c77db40a947d5bE.exit55.i" ], [ %194, %193 ], [ %lpad.loopexit92.i, %.loopexit90.i ], [ %lpad.loopexit.split-lp93.i, %.loopexit.split-lp91.i ]
   %.sroa.06.8.i = phi i1 [ false, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17h54c77db40a947d5bE.exit55.i" ], [ true, %193 ], [ true, %.loopexit90.i ], [ %.sroa.06.7.ph.i, %.loopexit.split-lp91.i ]
+  call void @llvm.assume(i1 %181)
   invoke fastcc void @"_ZN4core3ptr113drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_core..chunked_array..builder..list..ListBuilderTrait$GT$$GT$17h08971461303eab85E"(ptr nonnull %178, ptr nonnull %179) #42
           to label %.thread78.i unwind label %166, !noalias !7242
 
@@ -81004,6 +81006,7 @@ _ZN12polars_arrow6legacy5array4list16AnonymousBuilder9push_null17h2a72da1b1ab4e1
 .body30.i.i:                                      ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17h54c77db40a947d5bE.exit55.i.i", %521, %.loopexit.split-lp91.i.i, %.loopexit90.i.i
   %.pn18.i.i = phi { ptr, i32 } [ %.pn.i.i, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17h54c77db40a947d5bE.exit55.i.i" ], [ %522, %521 ], [ %lpad.loopexit92.i.i, %.loopexit90.i.i ], [ %lpad.loopexit.split-lp93.i.i, %.loopexit.split-lp91.i.i ]
   %.sroa.06.8.i.i = phi i1 [ false, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$polars_core..series..Series$GT$$GT$17h54c77db40a947d5bE.exit55.i.i" ], [ true, %521 ], [ true, %.loopexit90.i.i ], [ %.sroa.06.7.ph.i.i, %.loopexit.split-lp91.i.i ]
+  call void @llvm.assume(i1 %509)
   invoke fastcc void @"_ZN4core3ptr113drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_core..chunked_array..builder..list..ListBuilderTrait$GT$$GT$17h08971461303eab85E"(ptr nonnull %506, ptr nonnull %507) #42
           to label %.thread78.i.i unwind label %494, !noalias !9009
 
