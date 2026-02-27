@@ -12540,7 +12540,7 @@ if.then.i:                                        ; preds = %entry
   %tobool9.i = trunc i8 %2 to i1
   %3 = fcmp ole <4 x double> %vecinit3.i.i.i.i.i.i, %x.coerce
   %4 = fcmp olt <4 x double> %vecinit3.i.i.i.i.i.i, %x.coerce
-  %storemerge.in.in.i = select i1 %tobool9.i, <4 x i1> %4, <4 x i1> %3
+  %storemerge.v.v.i = select i1 %tobool9.i, <4 x i1> %4, <4 x i1> %3
   %upperUnbounded_.i = getelementptr inbounds nuw i8, ptr %this, i64 18
   %5 = load i8, ptr %upperUnbounded_.i, align 2
   %tobool22.i = trunc i8 %5 to i1
@@ -12555,12 +12555,12 @@ if.then23.i:                                      ; preds = %if.then.i
 
 if.then30.i:                                      ; preds = %if.then23.i
   %7 = fcmp olt <4 x double> %x.coerce, %vecinit3.i.i.i.i.i2.i
-  %and.i.i.i24.i = and <4 x i1> %7, %storemerge.in.in.i
+  %and.i.i.i24.i = and <4 x i1> %7, %storemerge.v.v.i
   br label %_ZNK8facebook5velox6common18FloatingPointRangeIdE18testFloatingPointsEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEE.exit
 
 if.else43.i:                                      ; preds = %if.then23.i
   %8 = fcmp ole <4 x double> %x.coerce, %vecinit3.i.i.i.i.i2.i
-  %and.i.i.i323.i = and <4 x i1> %8, %storemerge.in.in.i
+  %and.i.i.i323.i = and <4 x i1> %8, %storemerge.v.v.i
   br label %_ZNK8facebook5velox6common18FloatingPointRangeIdE18testFloatingPointsEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEE.exit
 
 if.else58.i:                                      ; preds = %entry
@@ -12582,7 +12582,7 @@ if.else75.i:                                      ; preds = %if.else58.i
   br label %_ZNK8facebook5velox6common18FloatingPointRangeIdE18testFloatingPointsEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEE.exit
 
 _ZNK8facebook5velox6common18FloatingPointRangeIdE18testFloatingPointsEN5xsimd5batchIdNS4_4fma3INS4_4avx2EEEEE.exit: ; preds = %if.then.i, %if.then30.i, %if.else43.i, %if.then68.i, %if.else75.i
-  %retval.sroa.0.0.in.i = phi <4 x i1> [ %11, %if.then68.i ], [ %12, %if.else75.i ], [ %storemerge.in.in.i, %if.then.i ], [ %and.i.i.i24.i, %if.then30.i ], [ %and.i.i.i323.i, %if.else43.i ]
+  %retval.sroa.0.0.in.i = phi <4 x i1> [ %11, %if.then68.i ], [ %12, %if.else75.i ], [ %storemerge.v.v.i, %if.then.i ], [ %and.i.i.i24.i, %if.then30.i ], [ %and.i.i.i323.i, %if.else43.i ]
   %retval.sroa.0.0.i = sext <4 x i1> %retval.sroa.0.0.in.i to <4 x i64>
   %13 = bitcast <4 x i64> %retval.sroa.0.0.i to <4 x double>
   ret <4 x double> %13
@@ -13899,7 +13899,7 @@ if.then.i:                                        ; preds = %entry
   %tobool9.i = trunc i8 %2 to i1
   %3 = fcmp ole <8 x float> %vecinit7.i.i.i.i.i.i, %x.coerce
   %4 = fcmp olt <8 x float> %vecinit7.i.i.i.i.i.i, %x.coerce
-  %storemerge.in.in.i = select i1 %tobool9.i, <8 x i1> %4, <8 x i1> %3
+  %storemerge.v.v.i = select i1 %tobool9.i, <8 x i1> %4, <8 x i1> %3
   %upperUnbounded_.i = getelementptr inbounds nuw i8, ptr %this, i64 18
   %5 = load i8, ptr %upperUnbounded_.i, align 2
   %tobool22.i = trunc i8 %5 to i1
@@ -13917,12 +13917,12 @@ if.then23.i:                                      ; preds = %if.then.i
 
 if.then30.i:                                      ; preds = %if.then23.i
   %8 = fcmp olt <8 x float> %x.coerce, %vecinit7.i.i.i.i.i2.i
-  %and.i.i.i24.i = and <8 x i1> %storemerge.in.in.i, %8
+  %and.i.i.i24.i = and <8 x i1> %storemerge.v.v.i, %8
   br label %_ZNK8facebook5velox6common18FloatingPointRangeIfE18testFloatingPointsEN5xsimd5batchIfNS4_4fma3INS4_4avx2EEEEE.exit
 
 if.else43.i:                                      ; preds = %if.then23.i
   %9 = fcmp ole <8 x float> %x.coerce, %vecinit7.i.i.i.i.i2.i
-  %and.i.i.i323.i = and <8 x i1> %storemerge.in.in.i, %9
+  %and.i.i.i323.i = and <8 x i1> %storemerge.v.v.i, %9
   br label %_ZNK8facebook5velox6common18FloatingPointRangeIfE18testFloatingPointsEN5xsimd5batchIfNS4_4fma3INS4_4avx2EEEEE.exit
 
 if.else58.i:                                      ; preds = %entry
@@ -13944,7 +13944,7 @@ if.else75.i:                                      ; preds = %if.else58.i
   br label %_ZNK8facebook5velox6common18FloatingPointRangeIfE18testFloatingPointsEN5xsimd5batchIfNS4_4fma3INS4_4avx2EEEEE.exit
 
 _ZNK8facebook5velox6common18FloatingPointRangeIfE18testFloatingPointsEN5xsimd5batchIfNS4_4fma3INS4_4avx2EEEEE.exit: ; preds = %if.then.i, %if.then30.i, %if.else43.i, %if.then68.i, %if.else75.i
-  %retval.sroa.0.0.in.i = phi <8 x i1> [ %12, %if.then68.i ], [ %13, %if.else75.i ], [ %storemerge.in.in.i, %if.then.i ], [ %and.i.i.i24.i, %if.then30.i ], [ %and.i.i.i323.i, %if.else43.i ]
+  %retval.sroa.0.0.in.i = phi <8 x i1> [ %12, %if.then68.i ], [ %13, %if.else75.i ], [ %storemerge.v.v.i, %if.then.i ], [ %and.i.i.i24.i, %if.then30.i ], [ %and.i.i.i323.i, %if.else43.i ]
   %retval.sroa.0.0.i = sext <8 x i1> %retval.sroa.0.0.in.i to <8 x i32>
   %14 = bitcast <8 x i32> %retval.sroa.0.0.i to <8 x float>
   ret <8 x float> %14
