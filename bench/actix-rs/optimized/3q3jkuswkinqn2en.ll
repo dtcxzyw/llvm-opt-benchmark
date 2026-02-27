@@ -2220,10 +2220,8 @@ _ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i.i12.i: ; preds =
   %.0.sroa.speculated.i22.i22 = phi i64 [ %.0.sroa.speculated.i22.i21, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i" ], [ %.0.sroa.speculated.i22.i, %52 ], [ 0, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i.i ]
   %60 = phi i64 [ %58, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i" ], [ %56, %52 ], [ 0, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i.i ]
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i4.i27, i64 %.0.sroa.speculated.i22.i22
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN11actix_files8path_buf11PathBufWrap10parse_path17hec1a22edd47e4ef5E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %61, i64 noundef %60, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
 

@@ -551,7 +551,6 @@ define internal fastcc noundef zeroext i1 @check_exclusion_or_unique_constraint(
   %12 = alloca %struct.nameData, align 8
   %13 = alloca [32 x %struct.ScanKeyData], align 16
   %14 = alloca %struct.SnapshotData, align 8
-  %.sroa.0 = alloca [64 x i8], align 8
   %15 = alloca [32 x i64], align 16
   %16 = alloca [32 x i8], align 16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 440
@@ -606,10 +605,8 @@ define internal fastcc noundef zeroext i1 @check_exclusion_or_unique_constraint(
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 13
   %55 = load i8, ptr %54, align 1
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(64) %51, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 4 dereferenceable(64) %51, i64 64, i1 false)
   switch i8 %55, label %61 [
     i8 114, label %56
     i8 109, label %64
@@ -648,7 +645,6 @@ define internal fastcc noundef zeroext i1 @check_exclusion_or_unique_constraint(
 
 ExecWithoutOverlapsNotEmpty.exit:                 ; preds = %56, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   br label %77
 
 77:                                               ; preds = %29, %ExecWithoutOverlapsNotEmpty.exit, %11

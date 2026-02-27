@@ -77808,7 +77808,6 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
   %10 = alloca [16 x i8], align 8
   %11 = alloca [616 x i8], align 8
   %.sroa.633 = alloca [600 x i8], align 8
-  %.sroa.530 = alloca [3904 x i8], align 8
   %12 = alloca [3920 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = load i32, ptr %0, align 4, !range !13951, !noundef !9
@@ -77855,14 +77854,11 @@ define hidden noundef ptr @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Con
 
 33:                                               ; preds = %"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$7get_mut17hb4123759a1e018afE.exit"
   %.sroa.618.sroa.5.0..sroa.618.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.530)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3904) %.sroa.530, ptr noundef nonnull align 8 dereferenceable(3904) %.sroa.618.sroa.5.0..sroa.618.0..sroa_idx.sroa_idx, i64 3904, i1 false)
+  %.sroa.530.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3904) %.sroa.530.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(3904) %.sroa.618.sroa.5.0..sroa.618.0..sroa_idx.sroa_idx, i64 3904, i1 false)
   store i64 %.sroa.016.0.copyload, ptr %12, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %.sroa.618.sroa.0.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.530.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3904) %.sroa.530.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(3904) %.sroa.530, i64 3904, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.530)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.633)
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 1376
   %35 = load i64, ptr %34, align 8, !range !4393, !noundef !9

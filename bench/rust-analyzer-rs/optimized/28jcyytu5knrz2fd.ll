@@ -11395,6 +11395,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %.thread264
   %.sroa.4230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %121, i64 8
   %.sroa.4230.0.copyload = load ptr, ptr %.sroa.4230.0..sroa_idx, align 8, !noalias !2798
   %.sroa.0229.0.copyload = load i64, ptr %121, align 8, !noalias !2798
+  %.sroa.530.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 26
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.530.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.8233.0..sroa_idx, i64 6, i1 false)
   store i64 %.sroa.0229.0.copyload, ptr %21, align 8
   %.sroa.028.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %.sroa.4230.0.copyload, ptr %.sroa.028.sroa.4.0..sroa_idx, align 8
@@ -11402,8 +11404,6 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %.thread264
   store i64 %.sroa.5231.0.copyload, ptr %.sroa.028.sroa.5.0..sroa_idx, align 8
   %.sroa.429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i16 %.sroa.6232.0.copyload, ptr %.sroa.429.0..sroa_idx, align 8
-  %.sroa.530.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 26
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.530.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.8233.0..sroa_idx, i64 6, i1 false)
   %.not = icmp eq i16 %.sroa.6232.0.copyload, 124
   br i1 %.not, label %132, label %160
 

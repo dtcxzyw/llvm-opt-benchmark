@@ -448,62 +448,66 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcb1cb79ff47b58c5E"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(40) %1) unnamed_addr #1 {
+  %3 = alloca [24 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %4 = load i64, ptr %3, align 8, !alias.scope !63, !noundef !4
-  %5 = icmp eq i64 %4, 0
-  br i1 %5, label %26, label %6
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %5 = load i64, ptr %4, align 8, !alias.scope !63, !noundef !4
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %27, label %7
 
-6:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %8 = load i16, ptr %7, align 8, !alias.scope !69, !noundef !4
-  %.not8.i.i = icmp eq i16 %8, 0
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %9 = load i16, ptr %8, align 8, !alias.scope !69, !noundef !4
+  %.not8.i.i = icmp eq i16 %9, 0
   %.promoted.i.i = load ptr, ptr %1, align 8, !alias.scope !69
   br i1 %.not8.i.i, label %.lr.ph.i.i, label %._crit_edge15.i.i
 
-.lr.ph.i.i:                                       ; preds = %6
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.promoted10.i.i = load ptr, ptr %9, align 8, !alias.scope !69
-  br label %10
+.lr.ph.i.i:                                       ; preds = %7
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.promoted10.i.i = load ptr, ptr %10, align 8, !alias.scope !69
+  br label %11
 
-._crit_edge.i.i:                                  ; preds = %10
-  store ptr %16, ptr %9, align 8, !alias.scope !69
-  store ptr %15, ptr %1, align 8, !alias.scope !69
+._crit_edge.i.i:                                  ; preds = %11
+  store ptr %17, ptr %10, align 8, !alias.scope !69
+  store ptr %16, ptr %1, align 8, !alias.scope !69
   br label %._crit_edge15.i.i
 
-10:                                               ; preds = %10, %.lr.ph.i.i
-  %11 = phi ptr [ %.promoted10.i.i, %.lr.ph.i.i ], [ %16, %10 ]
-  %12 = phi ptr [ %.promoted.i.i, %.lr.ph.i.i ], [ %15, %10 ]
-  %13 = load <16 x i8>, ptr %11, align 16, !noalias !69
-  %14 = icmp sgt <16 x i8> %13, splat (i8 -1)
-  %15 = getelementptr inbounds i8, ptr %12, i64 -5888
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.cast.i.i = bitcast <16 x i1> %14 to i16
+11:                                               ; preds = %11, %.lr.ph.i.i
+  %12 = phi ptr [ %.promoted10.i.i, %.lr.ph.i.i ], [ %17, %11 ]
+  %13 = phi ptr [ %.promoted.i.i, %.lr.ph.i.i ], [ %16, %11 ]
+  %14 = load <16 x i8>, ptr %12, align 16, !noalias !69
+  %15 = icmp sgt <16 x i8> %14, splat (i8 -1)
+  %16 = getelementptr inbounds i8, ptr %13, i64 -5888
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %.cast.i.i = bitcast <16 x i1> %15 to i16
   %.not.i.i = icmp eq i16 %.cast.i.i, 0
-  br i1 %.not.i.i, label %10, label %._crit_edge.i.i
+  br i1 %.not.i.i, label %11, label %._crit_edge.i.i
 
-._crit_edge15.i.i:                                ; preds = %6, %._crit_edge.i.i
-  %17 = phi ptr [ %15, %._crit_edge.i.i ], [ %.promoted.i.i, %6 ]
-  %.lcssa.i.i = phi i16 [ %.cast.i.i, %._crit_edge.i.i ], [ %8, %6 ]
-  %18 = add i16 %.lcssa.i.i, -1
-  %19 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
-  %20 = zext nneg i16 %19 to i64
-  %21 = and i16 %18, %.lcssa.i.i
-  store i16 %21, ptr %7, align 8, !alias.scope !69
-  %22 = sub nsw i64 0, %20
-  %23 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, [1 x i64], { { i64, [39 x i64] }, ptr, i32, [1 x i32] } }, ptr %17, i64 %22
-  %24 = add i64 %4, -1
-  store i64 %24, ptr %3, align 8, !alias.scope !63
-  %25 = getelementptr inbounds i8, ptr %23, i64 -368
-  tail call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17ha21ac6c68589afb8E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %25)
-  br label %27
+._crit_edge15.i.i:                                ; preds = %7, %._crit_edge.i.i
+  %18 = phi ptr [ %16, %._crit_edge.i.i ], [ %.promoted.i.i, %7 ]
+  %.lcssa.i.i = phi i16 [ %.cast.i.i, %._crit_edge.i.i ], [ %9, %7 ]
+  %19 = add i16 %.lcssa.i.i, -1
+  %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
+  %21 = zext nneg i16 %20 to i64
+  %22 = and i16 %19, %.lcssa.i.i
+  store i16 %22, ptr %8, align 8, !alias.scope !69
+  %23 = sub nsw i64 0, %21
+  %24 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, [1 x i64], { { i64, [39 x i64] }, ptr, i32, [1 x i32] } }, ptr %18, i64 %23
+  %25 = add i64 %5, -1
+  store i64 %25, ptr %4, align 8, !alias.scope !63
+  %26 = getelementptr inbounds i8, ptr %24, i64 -368
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17ha21ac6c68589afb8E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %26)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %28
 
-26:                                               ; preds = %2
+27:                                               ; preds = %2
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %27
+  br label %28
 
-27:                                               ; preds = %26, %._crit_edge15.i.i
+28:                                               ; preds = %27, %._crit_edge15.i.i
   ret void
 }
 

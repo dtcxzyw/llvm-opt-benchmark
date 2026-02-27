@@ -78919,34 +78919,38 @@ define hidden void @_ZN9workspace10pane_group9PaneGroup5panes17h0322a41a5ca8fdb6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN9workspace10pane_group9PaneGroup10first_pane17h5e5ff5206058956eE(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #1 {
+define hidden void @_ZN9workspace10pane_group9PaneGroup10first_pane17h5e5ff5206058956eE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #1 {
+  %3 = alloca [32 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20442)
-  %3 = load i64, ptr %1, align 8, !range !90, !alias.scope !20442, !noalias !20445, !noundef !4
-  %4 = icmp eq i64 %3, -9223372036854775808
-  br i1 %4, label %_ZN9workspace10pane_group6Member10first_pane17h4dd87b84f2f187f3E.llvm.4784060810856971783.exit, label %.lr.ph.i
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %4 = load i64, ptr %1, align 8, !range !90, !alias.scope !20442, !noalias !20445, !noundef !4
+  %5 = icmp eq i64 %4, -9223372036854775808
+  br i1 %5, label %_ZN9workspace10pane_group6Member10first_pane17h4dd87b84f2f187f3E.llvm.4784060810856971783.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %tailrecurse.i
-  %.tr13.i = phi ptr [ %8, %tailrecurse.i ], [ %1, %2 ]
-  %5 = getelementptr inbounds nuw i8, ptr %.tr13.i, i64 16
-  %6 = load i64, ptr %5, align 8, !noalias !20445, !noundef !4
-  %.not.i = icmp eq i64 %6, 0
-  br i1 %.not.i, label %11, label %tailrecurse.i
+  %.tr13.i = phi ptr [ %9, %tailrecurse.i ], [ %1, %2 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.tr13.i, i64 16
+  %7 = load i64, ptr %6, align 8, !noalias !20445, !noundef !4
+  %.not.i = icmp eq i64 %7, 0
+  br i1 %.not.i, label %12, label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %.lr.ph.i
-  %7 = getelementptr inbounds nuw i8, ptr %.tr13.i, i64 8
-  %8 = load ptr, ptr %7, align 8, !noalias !20445, !nonnull !4, !noundef !4
-  %9 = load i64, ptr %8, align 8, !range !90, !noalias !20447, !noundef !4
-  %10 = icmp eq i64 %9, -9223372036854775808
-  br i1 %10, label %_ZN9workspace10pane_group6Member10first_pane17h4dd87b84f2f187f3E.llvm.4784060810856971783.exit, label %.lr.ph.i
+  %8 = getelementptr inbounds nuw i8, ptr %.tr13.i, i64 8
+  %9 = load ptr, ptr %8, align 8, !noalias !20445, !nonnull !4, !noundef !4
+  %10 = load i64, ptr %9, align 8, !range !90, !noalias !20447, !noundef !4
+  %11 = icmp eq i64 %10, -9223372036854775808
+  br i1 %11, label %_ZN9workspace10pane_group6Member10first_pane17h4dd87b84f2f187f3E.llvm.4784060810856971783.exit, label %.lr.ph.i
 
-11:                                               ; preds = %.lr.ph.i
+12:                                               ; preds = %.lr.ph.i
   tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.097ddff930e31f50958387626443a3b8.276.llvm.4784060810856971783) #51, !noalias !20447
   unreachable
 
 _ZN9workspace10pane_group6Member10first_pane17h4dd87b84f2f187f3E.llvm.4784060810856971783.exit: ; preds = %tailrecurse.i, %2
-  %.tr1.lcssa.i = phi ptr [ %1, %2 ], [ %8, %tailrecurse.i ]
-  %12 = getelementptr inbounds nuw i8, ptr %.tr1.lcssa.i, i64 8
-  tail call void @"_ZN70_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..clone..Clone$GT$5clone17h13db8591b4f63891E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %12)
+  %.tr1.lcssa.i = phi ptr [ %1, %2 ], [ %9, %tailrecurse.i ]
+  %13 = getelementptr inbounds nuw i8, ptr %.tr1.lcssa.i, i64 8
+  call void @"_ZN70_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..clone..Clone$GT$5clone17h13db8591b4f63891E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %13), !noalias !20445
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !20442
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -79293,31 +79297,33 @@ define hidden noundef zeroext i1 @"_ZN9workspace10pane_group6Member8contains28_$
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN9workspace10pane_group6Member10first_pane17h4dd87b84f2f187f3E.llvm.4784060810856971783(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #1 {
-  %3 = load i64, ptr %1, align 8, !range !90, !noundef !4
-  %4 = icmp eq i64 %3, -9223372036854775808
-  br i1 %4, label %tailrecurse._crit_edge, label %.lr.ph
+  %3 = alloca [32 x i8], align 8
+  %4 = load i64, ptr %1, align 8, !range !90, !noundef !4
+  %5 = icmp eq i64 %4, -9223372036854775808
+  br i1 %5, label %tailrecurse._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
-  %.tr13 = phi ptr [ %9, %tailrecurse ], [ %1, %2 ]
-  %5 = getelementptr inbounds nuw i8, ptr %.tr13, i64 16
-  %6 = load i64, ptr %5, align 8, !noundef !4
-  %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %12, label %tailrecurse
+  %.tr13 = phi ptr [ %10, %tailrecurse ], [ %1, %2 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.tr13, i64 16
+  %7 = load i64, ptr %6, align 8, !noundef !4
+  %.not = icmp eq i64 %7, 0
+  br i1 %.not, label %13, label %tailrecurse
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
-  %.tr1.lcssa = phi ptr [ %1, %2 ], [ %9, %tailrecurse ]
-  %7 = getelementptr inbounds nuw i8, ptr %.tr1.lcssa, i64 8
-  tail call void @"_ZN70_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..clone..Clone$GT$5clone17h13db8591b4f63891E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7)
+  %.tr1.lcssa = phi ptr [ %1, %2 ], [ %10, %tailrecurse ]
+  %8 = getelementptr inbounds nuw i8, ptr %.tr1.lcssa, i64 8
+  call void @"_ZN70_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..clone..Clone$GT$5clone17h13db8591b4f63891E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   ret void
 
 tailrecurse:                                      ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw i8, ptr %.tr13, i64 8
-  %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %10 = load i64, ptr %9, align 8, !range !90, !noundef !4
-  %11 = icmp eq i64 %10, -9223372036854775808
-  br i1 %11, label %tailrecurse._crit_edge, label %.lr.ph
+  %9 = getelementptr inbounds nuw i8, ptr %.tr13, i64 8
+  %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
+  %11 = load i64, ptr %10, align 8, !range !90, !noundef !4
+  %12 = icmp eq i64 %11, -9223372036854775808
+  br i1 %12, label %tailrecurse._crit_edge, label %.lr.ph
 
-12:                                               ; preds = %.lr.ph
+13:                                               ; preds = %.lr.ph
   tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.097ddff930e31f50958387626443a3b8.276.llvm.4784060810856971783) #51
   unreachable
 }

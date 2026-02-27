@@ -125579,7 +125579,7 @@ define hidden { float, float } @"_ZN73_$LT$editor..element..EditorElement$u20$as
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %27 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
   %28 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, { [373 x i64] } }, i64, float, float }, ptr %27, i64 %23
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3032) %9, ptr noundef nonnull align 8 dereferenceable(3032) %28, i64 3032, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3032) %9, ptr noundef nonnull align 8 dereferenceable(3032) %28, i64 3032, i1 false)
   br label %29
 
 29:                                               ; preds = %31, %22

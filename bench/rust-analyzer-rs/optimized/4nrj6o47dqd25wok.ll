@@ -53318,7 +53318,6 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %18 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %19 = alloca { ptr, i64 }, align 8
   %20 = alloca { { i64, ptr, {} }, i64 }, align 8
-  %.sroa.10.i.i = alloca [2 x i64], align 8
   %21 = alloca { { ptr, ptr, i64, ptr, {}, { {} } }, i64 }, align 8
   %22 = alloca { ptr, { i64, i64 } }, align 8
   %23 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -53468,7 +53467,6 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   store ptr %81, ptr %.sroa.011.sroa.4.0..sroa_idx.i.i, align 8, !noalias !15321
   %.sroa.212.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i64 0, ptr %.sroa.212.0..sroa_idx.i.i, align 8, !noalias !15321
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10.i.i)
   %82 = icmp eq i64 %.sroa.5128.0.copyload.i.i, 0
   br i1 %82, label %._crit_edge194.i.i, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9a42a42cccde1ff6E.exit.i.lr.ph.i.i"
 
@@ -53544,7 +53542,6 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   br label %.thread161.i.i
 
 ._crit_edge194.i.i:                               ; preds = %154, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9a42a42cccde1ff6E.exit.i.i.i", %80
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i.i)
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h86a200a0273c9626E.llvm.11905809803391100490"(ptr noalias noundef nonnull align 8 dereferenceable(40) %21)
           to label %"_ZN4core3ptr154drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$17hb50abd06520b3b95E.exit105.i.i" unwind label %78
 
@@ -53553,10 +53550,9 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %124 = load i64, ptr %.sroa.212.0..sroa_idx.i.i, align 8, !alias.scope !15345, !noalias !15356, !noundef !4
   %125 = add i64 %124, 1
   store i64 %125, ptr %.sroa.212.0..sroa_idx.i.i, align 8, !alias.scope !15345, !noalias !15356
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.511.0..sroa_idx.i.i.i, i64 16, i1 false), !noalias !15345
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !15321
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.8..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.511.0..sroa_idx.i.i.i, i64 16, i1 false)
   store i64 %.sroa.0.0.copyload.i104.i.i, ptr %20, align 8, !noalias !15321
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.8..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.10.i.i, i64 16, i1 false), !noalias !15321
   %126 = icmp eq i64 %124, %37
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !15321
   %spec.select.i.i = select i1 %126, ptr @anon.5b47fb01172ce3642f26b4239355f179.306, ptr @anon.5b47fb01172ce3642f26b4239355f179.229
@@ -53723,8 +53719,6 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 154:                                              ; preds = %153
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !15321
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !15321
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10.i.i)
   %155 = load ptr, ptr %.sroa.011.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !15382, !noalias !15352, !nonnull !4, !noundef !4
   %156 = load ptr, ptr %.sroa.011.sroa.2.0..sroa_idx.i.i, align 8, !alias.scope !15382, !noalias !15352, !nonnull !4, !noundef !4
   %157 = icmp eq ptr %156, %155
@@ -53884,7 +53878,6 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 
 195:                                              ; preds = %.loopexit184.i.i, %.thread174.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !15321
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.i.i)
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h86a200a0273c9626E.llvm.11905809803391100490"(ptr noalias noundef nonnull align 8 dereferenceable(40) %21)
           to label %"_ZN4core3ptr154drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$$GT$$GT$17hb50abd06520b3b95E.exit120.i.i" unwind label %78
 

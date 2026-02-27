@@ -7572,11 +7572,11 @@ tailrecurse:                                      ; preds = %202, %5
   %44 = or i32 %42, %43
   store i32 %44, ptr %41, align 8, !tbaa !130
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  call void @OSSL_PARAM_construct_uint32(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.2, ptr noundef nonnull %41) #20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7) #20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %45, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !367
+  call void @OSSL_PARAM_construct_uint32(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.2, ptr noundef nonnull %41) #20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !367
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %45) #20
   %46 = getelementptr inbounds nuw i8, ptr %18, i64 3184
   %47 = load ptr, ptr %46, align 8, !tbaa !362
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 144
@@ -14862,11 +14862,11 @@ define i64 @SSL_clear_options(ptr noundef %0, i64 noundef %1) local_unnamed_addr
   %24 = and i64 %23, %21
   store i64 %24, ptr %22, align 8, !tbaa !122
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  call void @OSSL_PARAM_construct_uint64(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.13, ptr noundef nonnull %22) #20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4) #20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !367
+  call void @OSSL_PARAM_construct_uint64(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.13, ptr noundef nonnull %22) #20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !367
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %25) #20
   %26 = getelementptr inbounds nuw i8, ptr %.ph3033, i64 3184
   %27 = load ptr, ptr %26, align 8, !tbaa !362
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 144

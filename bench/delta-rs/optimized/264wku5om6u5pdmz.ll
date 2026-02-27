@@ -6771,7 +6771,6 @@ define internal fastcc void @"_ZN14datafusion_sql4expr60_$LT$impl$u20$datafusion
   %10 = alloca { { i64, ptr, {} }, i64 }, align 8
   %11 = alloca { i128, [32 x i64] }, align 16
   %12 = alloca { i128, [32 x i64] }, align 16
-  %.sroa.5 = alloca [17 x i64], align 8
   %13 = alloca { i64, [21 x i64] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !892)
@@ -6820,8 +6819,8 @@ define internal fastcc void @"_ZN14datafusion_sql4expr60_$LT$impl$u20$datafusion
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !892
   %.sroa.5111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.5111.0.copyload = load i64, ptr %.sroa.5111.0..sroa_idx, align 8, !noalias !892
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.9114.0..sroa_idx, i64 136, i1 false)
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.9114.0..sroa_idx, i64 136, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %13, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %.sroa.5111.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
@@ -6831,9 +6830,6 @@ define internal fastcc void @"_ZN14datafusion_sql4expr60_$LT$impl$u20$datafusion
   store ptr %.sroa.7.0.copyload, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i64 %.sroa.8113.0.copyload, ptr %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.5, i64 136, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   %29 = icmp eq i64 %20, 0
   br i1 %29, label %35, label %36
 
@@ -7047,7 +7043,6 @@ define internal fastcc void @"_ZN14datafusion_sql4expr60_$LT$impl$u20$datafusion
   %10 = alloca { { i64, ptr, {} }, i64 }, align 8
   %11 = alloca { i128, [32 x i64] }, align 16
   %12 = alloca { i128, [32 x i64] }, align 16
-  %.sroa.5 = alloca [17 x i64], align 8
   %13 = alloca { i64, [21 x i64] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !900)
@@ -7096,8 +7091,8 @@ define internal fastcc void @"_ZN14datafusion_sql4expr60_$LT$impl$u20$datafusion
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !900
   %.sroa.5111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.5111.0.copyload = load i64, ptr %.sroa.5111.0..sroa_idx, align 8, !noalias !900
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.9114.0..sroa_idx, i64 136, i1 false)
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.9114.0..sroa_idx, i64 136, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %13, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %.sroa.5111.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
@@ -7107,9 +7102,6 @@ define internal fastcc void @"_ZN14datafusion_sql4expr60_$LT$impl$u20$datafusion
   store ptr %.sroa.7.0.copyload, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i64 %.sroa.8113.0.copyload, ptr %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(136) %.sroa.5, i64 136, i1 false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5)
   %29 = icmp eq i64 %20, 0
   br i1 %29, label %35, label %36
 

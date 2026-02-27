@@ -77995,8 +77995,8 @@ define hidden void @_ZN14deltalake_core6kernel8snapshot13EagerSnapshot7advance17
   br label %360
 
 "_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$deltalake_core..kernel..models..actions..Protocol$GT$$GT$17hcf04dfd7625eddebE.exit263": ; preds = %.loopexit342.thread, %.loopexit342, %354
-  %storemerge.i391 = phi i64 [ 0, %.loopexit342.thread ], [ 1, %.loopexit342 ], [ 1, %354 ]
-  store i64 %storemerge.i391, ptr %36, align 8
+  %.sink.i391 = phi i64 [ 0, %.loopexit342.thread ], [ 1, %.loopexit342 ], [ 1, %354 ]
+  store i64 %.sink.i391, ptr %36, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %45, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.5273, i64 104, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5273)
   br label %342
@@ -79203,8 +79203,8 @@ define hidden void @_ZN14deltalake_core6kernel8snapshot13EagerSnapshot7advance17
   br label %48
 
 "_ZN4core3ptr98drop_in_place$LT$core..option..Option$LT$deltalake_core..kernel..models..actions..Protocol$GT$$GT$17hcf04dfd7625eddebE.exit272": ; preds = %.loopexit365.thread, %.loopexit365, %366
-  %storemerge.i413 = phi i64 [ 0, %.loopexit365.thread ], [ 1, %.loopexit365 ], [ 1, %366 ]
-  store i64 %storemerge.i413, ptr %38, align 8
+  %.sink.i413 = phi i64 [ 0, %.loopexit365.thread ], [ 1, %.loopexit365 ], [ 1, %366 ]
+  store i64 %.sink.i413, ptr %38, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %45, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.5284, i64 104, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5284)
   br label %352

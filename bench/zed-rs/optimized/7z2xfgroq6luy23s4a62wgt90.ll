@@ -4305,43 +4305,47 @@ define hidden noundef zeroext i1 @"_ZN66_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$
 ; Function Attrs: nonlazybind uwtable
 define hidden noalias noundef nonnull ptr @"_ZN68_$LT$alloc..sync..Arc$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h2700446f0f945802E"() unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = alloca [72 x i8], align 8
-  %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.lifetime.start.p0(ptr nonnull %1)
+  %2 = alloca [56 x i8], align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @_ZN5theme8registry13ThemeRegistry3new17hcf1f786472e2ebeeE(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %2, ptr noundef nonnull align 1 inttoptr (i64 1 to ptr), ptr noalias noundef readonly align 8 dereferenceable(40) @anon.af526d7afd9165893e02fad86719fb29.1579.llvm.3256121122046604821)
+  call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 1, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 1, ptr %3, align 8
-  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !888
-  %5 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 72, i64 noundef 8) #39, !noalias !888
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h95c5f5ca5cd0dec9E.llvm.3256121122046604821.exit"
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
+  %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !888
+  %6 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 72, i64 noundef 8) #39, !noalias !888
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %8, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h95c5f5ca5cd0dec9E.llvm.3256121122046604821.exit"
 
-7:                                                ; preds = %0
+8:                                                ; preds = %0
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h6d7f2bdbc63ffea9E(i64 noundef 8, i64 noundef 72) #37
-          to label %.noexc unwind label %8
+          to label %.noexc unwind label %9
 
-.noexc:                                           ; preds = %7
+.noexc:                                           ; preds = %8
   unreachable
 
-8:                                                ; preds = %7
-  %9 = landingpad { ptr, i32 }
+9:                                                ; preds = %8
+  %10 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr51drop_in_place$LT$theme..registry..ThemeRegistry$GT$17h5293601305babb47E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2)
-          to label %"_ZN4core3ptr80drop_in_place$LT$alloc..sync..ArcInner$LT$theme..registry..ThemeRegistry$GT$$GT$17h9e582ed681307d42E.exit" unwind label %10
+  invoke void @"_ZN4core3ptr51drop_in_place$LT$theme..registry..ThemeRegistry$GT$17h5293601305babb47E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %4)
+          to label %"_ZN4core3ptr80drop_in_place$LT$alloc..sync..ArcInner$LT$theme..registry..ThemeRegistry$GT$$GT$17h9e582ed681307d42E.exit" unwind label %11
 
-10:                                               ; preds = %8
-  %11 = landingpad { ptr, i32 }
+11:                                               ; preds = %9
+  %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #40
   unreachable
 
-"_ZN4core3ptr80drop_in_place$LT$alloc..sync..ArcInner$LT$theme..registry..ThemeRegistry$GT$$GT$17h9e582ed681307d42E.exit": ; preds = %8
-  resume { ptr, i32 } %9
+"_ZN4core3ptr80drop_in_place$LT$alloc..sync..ArcInner$LT$theme..registry..ThemeRegistry$GT$$GT$17h9e582ed681307d42E.exit": ; preds = %9
+  resume { ptr, i32 } %10
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h95c5f5ca5cd0dec9E.llvm.3256121122046604821.exit": ; preds = %0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret ptr %5
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  ret ptr %6
 }
 
 ; Function Attrs: nonlazybind uwtable
