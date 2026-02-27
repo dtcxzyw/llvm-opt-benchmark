@@ -513,7 +513,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %.011271147 = phi i8 [ %157, %156 ], [ %868, %863 ]
   %.011281146 = phi float [ 1.000000e+00, %156 ], [ %803, %863 ]
   %.011291145 = phi i1 [ true, %156 ], [ %870, %863 ]
-  %.011341144 = phi i32 [ 0, %156 ], [ %.1, %863 ]
+  %.011341144 = phi i32 [ 0, %156 ], [ %spec.select, %863 ]
   %195 = icmp eq i32 %.011341144, 0
   call void @_ZNK7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13ray_intersectERKNS_3RayINS_5PointIfLm3EEES5_EEjbb(ptr dead_on_unwind nonnull writable sret(%"struct.mitsuba::SurfaceInteraction") align 16 %80, ptr noundef nonnull align 16 dereferenceable(345) %2, ptr noundef nonnull align 16 dereferenceable(64) %75, i32 noundef 14, i1 noundef zeroext %195, i1 noundef zeroext true)
   %196 = load float, ptr %80, align 16
@@ -1659,10 +1659,10 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ER
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %78, ptr noundef nonnull align 16 dereferenceable(64) %80, i64 64, i1 false)
   %803 = load float, ptr %191, align 16
   %804 = fcmp contract une float %801, 0x7FF0000000000000
-  %.1 = select i1 %804, i32 %316, i32 %.011341144
+  %spec.select = select i1 %804, i32 %316, i32 %.011341144
   %.sroa.0.0.copyload.i = load <4 x float>, ptr %76, align 16
   %805 = load i32, ptr %192, align 8
-  %806 = icmp ult i32 %.1, %805
+  %806 = icmp ult i32 %spec.select, %805
   %807 = load ptr, ptr %3, align 8
   %808 = getelementptr inbounds nuw i8, ptr %807, i64 104
   %809 = load ptr, ptr %808, align 8
@@ -1795,7 +1795,7 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EE
   %.not1136 = icmp eq i32 %864, 0
   %865 = select i1 %804, i1 %.not1136, i1 false
   %866 = trunc nuw i8 %.011271147 to i1
-  %867 = or i1 %865, %866
+  %868 = or i1 %865, %866
   %868 = zext i1 %867 to i8
   %869 = and i32 %802, 97
   %870 = icmp ne i32 %869, 0

@@ -24736,12 +24736,12 @@ if.end35:                                         ; preds = %if.else32, %_ZNSt6v
   %tobool.not = icmp eq i64 %dec194, 0
   br i1 %tobool.not, label %cleanup37, label %while.body, !llvm.loop !506
 
-cleanup37.sink.split:                             ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit148
+while.end.loopexit:                               ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit148
   %call1.i142.sink = phi ptr [ %call1.i142, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit148 ], [ %call1.i, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ]
   %call.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %call1.i142.sink)
   br label %cleanup37
 
-cleanup37:                                        ; preds = %if.end35, %cleanup37.sink.split, %_ZN9LogStreamlsIRA36_KcEER11StreamProxyOT_.exit, %_ZTW11errorstream.exit48, %if.end, %_ZN9LogStreamlsIRA33_KcEER11StreamProxyOT_.exit, %_ZTW11errorstream.exit
+cleanup37:                                        ; preds = %if.end35, %while.end.loopexit, %_ZN9LogStreamlsIRA36_KcEER11StreamProxyOT_.exit, %_ZTW11errorstream.exit48, %if.end, %_ZN9LogStreamlsIRA33_KcEER11StreamProxyOT_.exit, %_ZTW11errorstream.exit
   %retval.1 = phi i1 [ false, %_ZN9LogStreamlsIRA33_KcEER11StreamProxyOT_.exit ], [ true, %if.end ], [ false, %_ZN9LogStreamlsIRA36_KcEER11StreamProxyOT_.exit ], [ false, %cleanup37.sink.split ], [ false, %_ZTW11errorstream.exit ], [ false, %_ZTW11errorstream.exit48 ], [ %success.1, %if.end35 ]
   ret i1 %retval.1
 }

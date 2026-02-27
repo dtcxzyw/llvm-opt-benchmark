@@ -2727,12 +2727,12 @@ declare void @dt_control_signal_connect(ptr noundef, i32 noundef, ptr noundef, p
 define internal void @_dt_collection_changed_callback(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %186, label %8
+  br i1 %.not, label %187, label %8
 
 8:                                                ; preds = %6
   tail call void (...) @dt_collection_history_save() #16
   %9 = icmp eq i32 %1, 3
-  br i1 %9, label %10, label %174
+  br i1 %9, label %10, label %175
 
 10:                                               ; preds = %8
   %11 = tail call i32 (...) @dt_control_get_mouse_over_id() #16
@@ -3081,53 +3081,53 @@ define internal void @_dt_collection_changed_callback(ptr readnone captures(none
   %.0133235 = phi ptr [ %.0133, %.lr.ph237 ], [ %.0133231, %164 ]
   %.0134234 = phi i1 [ %.1135, %.lr.ph237 ], [ false, %164 ]
   %.1137233 = phi i32 [ %spec.select, %.lr.ph237 ], [ 0, %164 ]
-  %168 = load ptr, ptr %.0133235, align 8, !tbaa !23
-  %169 = load i32, ptr %168, align 8, !tbaa !41
-  %170 = icmp eq i32 %169, %11
-  %spec.select = select i1 %170, i32 1, i32 %.1137233
-  %171 = icmp eq i32 %169, %4
-  %.1135 = select i1 %171, i1 true, i1 %.0134234
-  %172 = getelementptr inbounds nuw i8, ptr %.0133235, i64 8
-  %.0133 = load ptr, ptr %172, align 8, !tbaa !21
+  %169 = load ptr, ptr %.0133235, align 8, !tbaa !23
+  %170 = load i32, ptr %169, align 8, !tbaa !41
+  %171 = icmp eq i32 %170, %11
+  %spec.select = select i1 %171, i32 1, i32 %.1137233
+  %172 = icmp eq i32 %170, %4
+  %.1135 = select i1 %172, i1 true, i1 %.0134234
+  %173 = getelementptr inbounds nuw i8, ptr %.0133235, i64 8
+  %.0133 = load ptr, ptr %173, align 8, !tbaa !21
   %.not189 = icmp eq ptr %.0133, null
   br i1 %.not189, label %._crit_edge238, label %.lr.ph237
 
-173:                                              ; preds = %._crit_edge238
+174:                                              ; preds = %._crit_edge238
   call void @dt_control_set_mouse_over_id(i32 noundef %4) #16
   br label %._crit_edge238.thread
 
-._crit_edge238.thread:                            ; preds = %164, %._crit_edge238, %173, %162, %157
+._crit_edge238.thread:                            ; preds = %164, %._crit_edge238, %174, %162, %157
   call void (...) @dt_control_queue_redraw_center() #16
-  br label %186
+  br label %187
 
-174:                                              ; preds = %8
-  %175 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.104) #16
-  %176 = icmp sgt i32 %175, 1
-  br i1 %176, label %177, label %179
+175:                                              ; preds = %8
+  %176 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.104) #16
+  %177 = icmp sgt i32 %176, 1
+  br i1 %177, label %178, label %180
 
-177:                                              ; preds = %174
-  %178 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.104) #16
-  br label %179
+178:                                              ; preds = %175
+  %179 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.104) #16
+  br label %180
 
-179:                                              ; preds = %174, %177
-  %180 = phi i32 [ %178, %177 ], [ 1, %174 ]
-  %181 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 %180, ptr %181, align 8, !tbaa !45
-  %182 = tail call fastcc i32 @_thumb_get_imgid(i32 noundef %180)
-  %183 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 %182, ptr %183, align 4, !tbaa !89
-  tail call void @dt_conf_set_int(ptr noundef nonnull @.str.12, i32 noundef %180) #16
+180:                                              ; preds = %175, %178
+  %181 = phi i32 [ %179, %177 ], [ 1, %174 ]
+  %182 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i32 %181, ptr %182, align 8, !tbaa !45
+  %183 = tail call fastcc i32 @_thumb_get_imgid(i32 noundef %181)
+  %184 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  store i32 %183, ptr %184, align 4, !tbaa !89
+  tail call void @dt_conf_set_int(ptr noundef nonnull @.str.12, i32 noundef %181) #16
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.104, i32 noundef 0) #16
-  tail call void @dt_conf_set_int(ptr noundef nonnull @.str.39, i32 noundef %180) #16
+  tail call void @dt_conf_set_int(ptr noundef nonnull @.str.39, i32 noundef %181) #16
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.37, i32 noundef 0) #16
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.38, i32 noundef 0) #16
   tail call void @dt_thumbtable_full_redraw(ptr noundef nonnull %5, i32 noundef 1)
-  %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !46
-  %185 = load i32, ptr %183, align 4, !tbaa !89
-  tail call void @dt_view_lighttable_change_offset(ptr noundef %184, i32 noundef 1, i32 noundef %185) #16
-  br label %186
+  %185 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !46
+  %186 = load i32, ptr %184, align 4, !tbaa !89
+  tail call void @dt_view_lighttable_change_offset(ptr noundef %185, i32 noundef 1, i32 noundef %186) #16
+  br label %187
 
-186:                                              ; preds = %6, %179, %._crit_edge238.thread
+187:                                              ; preds = %6, %180, %._crit_edge238.thread
   ret void
 }
 

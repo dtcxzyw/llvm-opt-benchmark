@@ -687,8 +687,8 @@ retransmission_indicator.exit:                    ; preds = %46, %49
   br i1 %.not394, label %.loopexit, label %.preheader.split
 
 .thread:                                          ; preds = %110
-  %.not394429 = icmp sgt i8 %7, -1
-  br i1 %.not394429, label %.loopexit._crit_edge, label %.preheader.split.us
+  %.not394426 = icmp sgt i8 %7, -1
+  br i1 %.not394426, label %.loopexit._crit_edge, label %.preheader.split.us
 
 .preheader.split.us:                              ; preds = %.thread, %wtp_handle_tpi.exit.us
   %.0369.us = phi i32 [ %229, %wtp_handle_tpi.exit.us ], [ 0, %.thread ]
@@ -798,24 +798,24 @@ wtp_handle_tpi.exit:                              ; preds = %271, %263, %259, %2
   br i1 %.not396, label %.loopexit, label %.preheader.split, !llvm.loop !9
 
 .loopexit:                                        ; preds = %wtp_handle_tpi.exit, %wtp_handle_tpi.exit.us, %216
-  %.1374433 = phi ptr [ %113, %216 ], [ null, %wtp_handle_tpi.exit.us ], [ %113, %wtp_handle_tpi.exit ]
-  %.1382431 = phi ptr [ %115, %216 ], [ null, %wtp_handle_tpi.exit.us ], [ %115, %wtp_handle_tpi.exit ]
+  %.1374430 = phi ptr [ %113, %216 ], [ null, %wtp_handle_tpi.exit.us ], [ %113, %wtp_handle_tpi.exit ]
+  %.1382428 = phi ptr [ %115, %216 ], [ null, %wtp_handle_tpi.exit.us ], [ %115, %wtp_handle_tpi.exit ]
   %.1370 = phi i32 [ 0, %216 ], [ %229, %wtp_handle_tpi.exit.us ], [ %274, %wtp_handle_tpi.exit ]
   br i1 %.not393, label %.loopexit._crit_edge, label %275
 
 .loopexit._crit_edge:                             ; preds = %.thread, %.loopexit
-  %.1370443 = phi i32 [ %.1370, %.loopexit ], [ 0, %.thread ]
-  %.1382431442 = phi ptr [ %.1382431, %.loopexit ], [ null, %.thread ]
-  %.pre = add i32 %.1370443, %.0368
+  %.1370440 = phi i32 [ %.1370, %.loopexit ], [ 0, %.thread ]
+  %.1382428439 = phi ptr [ %.1382428, %.loopexit ], [ null, %.thread ]
+  %.pre = add i32 %.1370440, %.0368
   br label %277
 
 275:                                              ; preds = %.loopexit
   %276 = add i32 %.1370, %.0368
-  tail call void @proto_item_set_len(ptr noundef %.1374433, i32 noundef %276)
+  tail call void @proto_item_set_len(ptr noundef %.1374430, i32 noundef %276)
   br label %277
 
 277:                                              ; preds = %.loopexit._crit_edge, %275
-  %.1382431441 = phi ptr [ %.1382431442, %.loopexit._crit_edge ], [ %.1382431, %275 ]
+  %.1382428438 = phi ptr [ %.1382428439, %.loopexit._crit_edge ], [ %.1382428, %275 ]
   %.pre-phi = phi i32 [ %.pre, %.loopexit._crit_edge ], [ %276, %275 ]
   %278 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.pre-phi)
   %279 = icmp slt i32 %278, 0
@@ -853,7 +853,7 @@ wtp_handle_tpi.exit:                              ; preds = %271, %263, %259, %2
   %293 = zext i16 %.0375 to i32
   %.not397 = icmp eq i8 %.0367, 0
   %294 = tail call ptr @fragment_add_seq(ptr noundef nonnull @wtp_reassembly_table, ptr noundef %0, i32 noundef %.pre-phi, ptr noundef %1, i32 noundef %293, ptr noundef null, i32 noundef %.0376, i32 noundef %278, i1 noundef zeroext %.not397, i32 noundef 0)
-  %295 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.pre-phi, ptr noundef %1, ptr noundef nonnull @.str.164, ptr noundef %294, ptr noundef nonnull @wtp_frag_items, ptr noundef null, ptr noundef %.1382431441)
+  %295 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %.pre-phi, ptr noundef %1, ptr noundef nonnull @.str.164, ptr noundef %294, ptr noundef nonnull @wtp_frag_items, ptr noundef null, ptr noundef %.1382428438)
   %.not398 = icmp eq ptr %294, null
   br i1 %.not398, label %310, label %296
 
@@ -875,7 +875,7 @@ wtp_handle_tpi.exit:                              ; preds = %271, %263, %259, %2
   %307 = load ptr, ptr %306, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %307, i32 noundef 25, ptr noundef nonnull @.str.165, ptr noundef %6, i32 noundef %298)
   %308 = load i32, ptr @hf_wtp_payload, align 4
-  %309 = tail call ptr @proto_tree_add_item(ptr noundef %.1382431441, i32 noundef %308, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef -1, i32 noundef 0)
+  %309 = tail call ptr @proto_tree_add_item(ptr noundef %.1382428438, i32 noundef %308, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef -1, i32 noundef 0)
   br label %315
 
 310:                                              ; preds = %290
@@ -883,7 +883,7 @@ wtp_handle_tpi.exit:                              ; preds = %271, %263, %259, %2
   %312 = load ptr, ptr %311, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %312, i32 noundef 25, ptr noundef nonnull @.str.166, ptr noundef %6, i32 noundef %.0376)
   %313 = load i32, ptr @hf_wtp_payload, align 4
-  %314 = tail call ptr @proto_tree_add_item(ptr noundef %.1382431441, i32 noundef %313, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef -1, i32 noundef 0)
+  %314 = tail call ptr @proto_tree_add_item(ptr noundef %.1382428438, i32 noundef %313, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef -1, i32 noundef 0)
   br label %315
 
 315:                                              ; preds = %302, %305, %310

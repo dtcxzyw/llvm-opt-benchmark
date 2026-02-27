@@ -6167,8 +6167,8 @@ for.body:                                         ; preds = %if.end22, %for.inc
   %runningSquare.val28.val41 = load ptr, ptr %26, align 8
   %runningSquare.val28.val41.val = load i32, ptr %runningSquare.val28.val41, align 4
   %call30 = call noundef i32 @_ZN6hermes6bigint8multiplyENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %agg.tmp24.sroa.0.0.copyload, ptr %agg.tmp24.sroa.2.0.copyload, ptr %runningSquare.val28.val, i32 %runningSquare.val28.val41.val, ptr %runningSquare.val28.val, i32 %runningSquare.val28.val41.val)
-  %cmp33.not = icmp eq i32 %call30, 0
-  br i1 %cmp33.not, label %if.end35, label %cleanup.loopexit.split.loop.exit
+  %cmp.i.not = icmp eq i32 %call30, 0
+  br i1 %cmp.i.not, label %if.end35, label %cleanup
 
 if.end35:                                         ; preds = %for.body
   %27 = and i32 %exponent.addr.0.in216, 2
@@ -6397,7 +6397,7 @@ _ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntR
   call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i167, i8 %cond.i.i, i64 %conv8.i, i1 false)
   br label %cleanup
 
-cleanup.loopexit.split.loop.exit:                 ; preds = %for.body
+cleanup:                                          ; preds = %for.body
   %.status.i.le = shl nuw nsw i32 %call30, 1
   br label %cleanup
 

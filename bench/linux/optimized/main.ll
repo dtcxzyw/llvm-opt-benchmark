@@ -2478,9 +2478,9 @@ define internal fastcc zeroext i1 @obsolete_checksetup(ptr noundef %0) unnamed_a
   %29 = phi i1 [ true, %17 ], [ %4, %24 ], [ %4, %2 ], [ %4, %14 ]
   %30 = getelementptr i8, ptr %3, i64 24
   %31 = icmp ult ptr %30, @__setup_end
-  br i1 %31, label %2, label %.critedge, !llvm.loop !75
+  br i1 %31, label %2, label %32, !llvm.loop !75
 
-.critedge:                                        ; preds = %28, %24, %22
+32:                                               ; preds = %28, %24, %22
   %32 = phi i1 [ true, %22 ], [ %29, %28 ], [ true, %24 ]
   ret i1 %32
 }

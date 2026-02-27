@@ -66917,37 +66917,37 @@ define hidden void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate18p
 
 14:                                               ; preds = %10, %2
   %15 = phi i1 [ false, %2 ], [ %13, %10 ]
-  %16 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables23strictlyBelowUpperBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %8, i32 noundef %1)
-  br i1 %16, label %17, label %21
+  %15 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6linear14ArithVariables23strictlyBelowUpperBoundEj(ptr noundef nonnull align 8 dereferenceable(568) %8, i32 noundef %1)
+  br i1 %15, label %.thread22, label %21
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2760
-  %19 = tail call noundef ptr @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule13rowLacksBoundEjbj(ptr noundef nonnull align 8 dereferenceable(456) %18, i32 noundef %7, i1 noundef zeroext true, i32 noundef %1)
-  %20 = icmp eq ptr %19, null
+.thread22:                                        ; preds = %14
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2760
+  %17 = tail call noundef ptr @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule13rowLacksBoundEjbj(ptr noundef nonnull align 8 dereferenceable(456) %16, i32 noundef %7, i1 noundef zeroext true, i32 noundef %1)
+  %18 = icmp eq ptr %17, null
   br label %21
 
-21:                                               ; preds = %17, %14
+19:                                               ; preds = %17, %14
   %22 = phi i1 [ false, %14 ], [ %20, %17 ]
   br i1 %15, label %23, label %26
 
-23:                                               ; preds = %21
+23:; preds = %21
   %24 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate23propagateCandidateBoundEjb(ptr noundef nonnull align 8 dereferenceable(9440) %0, i32 noundef %1, i1 noundef zeroext false)
   %25 = zext i1 %24 to i8
-  br label %26
+  br label %.thread20
 
-26:                                               ; preds = %23, %21
+.thread20:                                        ; preds = %23, %19
   %.0 = phi i8 [ %25, %23 ], [ 0, %21 ]
-  br i1 %22, label %27, label %32
+  br i1 %22, label %27, label %.thread20
 
-27:                                               ; preds = %26
-  %28 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate23propagateCandidateBoundEjb(ptr noundef nonnull align 8 dereferenceable(9440) %0, i32 noundef %1, i1 noundef zeroext true)
+24:                                               ; preds = %26
+  %25 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate23propagateCandidateBoundEjb(ptr noundef nonnull align 8 dereferenceable(9440) %0, i32 noundef %1, i1 noundef zeroext true)
   %29 = trunc nuw i8 %.0 to i1
   %30 = or i1 %28, %29
   %31 = zext i1 %30 to i8
-  br label %32
+  br label %.thread20
 
-32:                                               ; preds = %27, %26
-  %.1 = phi i8 [ %31, %27 ], [ %.0, %26 ]
+26:                                               ; preds = %27, %.thread20
+  %.015 = phi i8 [ %31, %27 ], [ %.0, %26 ]
   %33 = trunc nuw i8 %.1 to i1
   br i1 %33, label %34, label %37
 
@@ -66956,7 +66956,7 @@ define hidden void @_ZN4cvc58internal6theory5arith6linear18TheoryArithPrivate18p
   %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal7IntStatppEv(ptr noundef nonnull align 8 dereferenceable(8) %35)
   br label %37
 
-37:                                               ; preds = %34, %32
+37: ; preds = %34, %32
   ret void
 }
 

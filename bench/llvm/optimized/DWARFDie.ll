@@ -15092,7 +15092,7 @@ _ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i.i.i.i79: ; preds = %152
 
 _ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i67: ; preds = %_ZZN4llvm16DWARFTypePrinterINS_8DWARFDieEE25appendSubroutineNameAfterES1_S1_bbbENKUlS1_E_clES1_.exit.thread, %164, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i.i.i.i79
   %.0.i4.i303 = phi i1 [ %160, %164 ], [ %7, %_ZZN4llvm16DWARFTypePrinterINS_8DWARFDieEE25appendSubroutineNameAfterES1_S1_bbbENKUlS1_E_clES1_.exit.thread ], [ %160, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i.i.i.i79 ]
-  %.3213.in302 = phi i1 [ %158, %164 ], [ %6, %_ZZN4llvm16DWARFTypePrinterINS_8DWARFDieEE25appendSubroutineNameAfterES1_S1_bbbENKUlS1_E_clES1_.exit.thread ], [ %158, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i.i.i.i79 ]
+  %.3213302 = phi i1 [ %158, %164 ], [ %6, %_ZZN4llvm16DWARFTypePrinterINS_8DWARFDieEE25appendSubroutineNameAfterES1_S1_bbbENKUlS1_E_clES1_.exit.thread ], [ %158, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i.i.i.i79 ]
   %.sroa.0.1.i.i.i.i68 = phi ptr [ %166, %164 ], [ null, %_ZZN4llvm16DWARFTypePrinterINS_8DWARFDieEE25appendSubroutineNameAfterES1_S1_bbbENKUlS1_E_clES1_.exit.thread ], [ null, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i.i.i.i79 ]
   %.sroa.4.1.i.i.i.i69 = phi ptr [ %167, %164 ], [ null, %_ZZN4llvm16DWARFTypePrinterINS_8DWARFDieEE25appendSubroutineNameAfterES1_S1_bbbENKUlS1_E_clES1_.exit.thread ], [ null, %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.i.i.i.i79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -15119,14 +15119,14 @@ _ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.
   %178 = getelementptr inbounds nuw i8, ptr %176, i64 4
   %179 = load i16, ptr %178, align 4, !tbaa !15
   %180 = icmp eq i16 %179, 38
-  %181 = or i1 %.3213.in302, %180
+  %181 = or i1 %.3213302, %180
   %182 = icmp eq i16 %179, 53
   %183 = or i1 %.0.i4.i303, %182
   br label %_ZNK4llvm8DWARFDie6getTagEv.exit61.thread
 
 _ZNK4llvm8DWARFDie6getTagEv.exit61.thread:        ; preds = %_ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i67, %177, %174, %_ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i, %133, %_ZNK4llvm8DWARFDie6getTagEv.exit61, %_ZN4llvm11raw_ostreamlsEc.exit56
-  %.0210 = phi i1 [ %6, %_ZN4llvm11raw_ostreamlsEc.exit56 ], [ %6, %133 ], [ %6, %_ZNK4llvm8DWARFDie6getTagEv.exit61 ], [ %6, %_ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i ], [ %.3213.in302, %_ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i67 ], [ %.3213.in302, %174 ], [ %181, %177 ]
-  %.0208.shrunk = phi i1 [ %7, %_ZN4llvm11raw_ostreamlsEc.exit56 ], [ %7, %133 ], [ %7, %_ZNK4llvm8DWARFDie6getTagEv.exit61 ], [ %7, %_ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i ], [ %.0.i4.i303, %_ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i67 ], [ %.0.i4.i303, %174 ], [ %183, %177 ]
+  %.0210 = phi i1 [ %6, %_ZN4llvm11raw_ostreamlsEc.exit56 ], [ %6, %133 ], [ %6, %_ZNK4llvm8DWARFDie6getTagEv.exit61 ], [ %6, %_ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i ], [ %.3213302, %_ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i67 ], [ %.3213302, %174 ], [ %181, %177 ]
+  %.0208 = phi i1 [ %7, %_ZN4llvm11raw_ostreamlsEc.exit56 ], [ %7, %133 ], [ %7, %_ZNK4llvm8DWARFDie6getTagEv.exit61 ], [ %7, %_ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i ], [ %.0.i4.i303, %_ZN4llvm6detail21resolveReferencedTypeINS_8DWARFDieEEET_S3_NS_5dwarf9AttributeE.exit.i67 ], [ %.0.i4.i303, %174 ], [ %183, %177 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.experimental.noalias.scope.decl(metadata !700)
   br i1 %36, label %186, label %184
@@ -15568,7 +15568,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit88:               ; preds = %186, %184, %431, %4
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit136
 
 _ZN4llvm11raw_ostreamlsEPKc.exit136:              ; preds = %446, %444, %_ZN4llvm11raw_ostreamlsEPKc.exit88
-  br i1 %.0208.shrunk, label %449, label %_ZN4llvm11raw_ostreamlsEPKc.exit139
+  br i1 %.0208, label %449, label %_ZN4llvm11raw_ostreamlsEPKc.exit139
 
 449:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit136
   %450 = load ptr, ptr %0, align 8, !tbaa !532

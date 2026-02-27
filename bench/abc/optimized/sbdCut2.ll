@@ -832,7 +832,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %63 = zext i1 %62 to i32
   br label %common.ret56
 
-common.ret56:                                     ; preds = %6, %13, %Vec_IntPush.exit, %64
+common.ret56:; preds = %6, %13, %Vec_IntPush.exit, %64
   %common.ret56.op = phi i32 [ %75, %64 ], [ 1, %13 ], [ 1, %6 ], [ %63, %Vec_IntPush.exit ]
   ret i32 %common.ret56.op
 
@@ -842,13 +842,13 @@ common.ret56:                                     ; preds = %6, %13, %Vec_IntPus
   %67 = sub nsw i32 %spec.select, %66
   %68 = tail call i32 @Sbd_ManCutCollect_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %67, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %5)
   %.val51 = load i64, ptr %21, align 4
-  %69 = lshr i64 %.val51, 32
-  %70 = trunc nuw i64 %69 to i32
-  %71 = and i32 %70, 536870911
-  %72 = sub nsw i32 %spec.select, %71
-  %73 = tail call i32 @Sbd_ManCutCollect_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %72, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %5)
+  %68 = lshr i64 %.val51, 32
+  %69 = trunc nuw i64 %68 to i32
+  %70 = and i32 %69, 536870911
+  %71 = sub nsw i32 %spec.select, %70
+  %72 = tail call i32 @Sbd_ManCutCollect_rec(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %71, i32 noundef %3, ptr noundef nonnull %4, ptr noundef %5)
   %74 = trunc nuw i32 %68 to i1
-  %75 = select i1 %74, i32 %73, i32 0
+  %75 = select i1 %74, i32 %72, i32 0
   br label %common.ret56
 }
 

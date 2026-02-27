@@ -1952,8 +1952,8 @@ _test_box.exit.thread:                            ; preds = %.preheader.i, %_tes
   br label %195
 
 195:                                              ; preds = %.lr.ph222, %_get_bracketed_list.exit
-  %196 = phi i64 [ %191, %.lr.ph222 ], [ %302, %_get_bracketed_list.exit ]
-  %.9221 = phi i32 [ %.0110181, %.lr.ph222 ], [ %299, %_get_bracketed_list.exit ]
+  %196 = phi i64 [ %191, %.lr.ph222 ], [ %303, %_get_bracketed_list.exit ]
+  %.9221 = phi i32 [ %.0110181, %.lr.ph222 ], [ %300, %_get_bracketed_list.exit ]
   %.0176220 = phi i32 [ 0, %.lr.ph222 ], [ %.1177, %_get_bracketed_list.exit ]
   %.not154 = icmp eq i32 %.0176220, 0
   br i1 %.not154, label %200, label %197
@@ -2130,69 +2130,69 @@ hostrange_within_range.exit.i:                    ; preds = %284
   br i1 %.not55.i, label %.critedge.i, label %254, !llvm.loop !33
 
 .critedge.i:                                      ; preds = %hostrange_within_range.exit.i, %284, %278, %274
-  %293 = trunc nsw i64 %indvars.iv.next.i165 to i32
-  br i1 %.not53.i, label %297, label %294
+  %294 = trunc nsw i64 %indvars.iv.next.i165 to i32
+  br i1 %.not53.i, label %298, label %295
 
-294:                                              ; preds = %.critedge.i
-  %295 = add nuw nsw i32 %270, 1
-  %296 = getelementptr inbounds nuw i8, ptr %203, i64 %271
-  store i8 93, ptr %296, align 1
-  %.pre.i = zext nneg i32 %295 to i64
-  br label %297
+295:                                              ; preds = %.critedge.i
+  %296 = add nuw nsw i32 %270, 1
+  %297 = getelementptr inbounds nuw i8, ptr %203, i64 %271
+  store i8 93, ptr %297, align 1
+  %.pre.i = zext nneg i32 %296 to i64
+  br label %298
 
-297:                                              ; preds = %294, %.critedge.i
+298:                                              ; preds = %295, %.critedge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %294 ], [ %271, %.critedge.i ]
-  %.3.i = phi i32 [ %295, %294 ], [ %270, %.critedge.i ]
-  %298 = getelementptr inbounds nuw i8, ptr %203, i64 %.pre-phi.i
-  store i8 0, ptr %298, align 1
+  %.3.i = phi i32 [ %296, %294 ], [ %270, %.critedge.i ]
+  %299 = getelementptr inbounds nuw i8, ptr %203, i64 %.pre-phi.i
+  store i8 0, ptr %299, align 1
   br label %_get_bracketed_list.exit
 
-_get_bracketed_list.exit:                         ; preds = %244, %272, %297
-  %.1177 = phi i32 [ %.0176220, %272 ], [ %293, %297 ], [ %.0176220, %244 ]
+_get_bracketed_list.exit:                         ; preds = %244, %272, %298
+  %.1177 = phi i32 [ %.0176220, %272 ], [ %294, %297 ], [ %.0176220, %244 ]
   %.0.i = phi i32 [ %273, %272 ], [ %.3.i, %297 ], [ %245, %244 ]
-  %299 = add nsw i32 %.0.i, %.10
-  %300 = load i32, ptr %188, align 4
-  %301 = icmp slt i32 %.1177, %300
-  %302 = sext i32 %299 to i64
-  %303 = icmp ugt i64 %1, %302
-  %304 = select i1 %301, i1 %303, i1 false
-  br i1 %304, label %195, label %.loopexit, !llvm.loop !34
+  %300 = add nsw i32 %.0.i, %.10
+  %301 = load i32, ptr %188, align 4
+  %302 = icmp slt i32 %.1177, %301
+  %303 = sext i32 %300 to i64
+  %304 = icmp ugt i64 %1, %303
+  %305 = select i1 %302, i1 %304, i1 false
+  br i1 %305, label %195, label %.loopexit, !llvm.loop !34
 
 .loopexit:                                        ; preds = %_get_bracketed_list.exit, %.thread, %187
-  %.11 = phi i32 [ %.8, %187 ], [ %.0110181, %.thread ], [ %299, %_get_bracketed_list.exit ]
-  %305 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #22
-  %.not155 = icmp eq i32 %305, 0
-  br i1 %.not155, label %308, label %306
+  %.11 = phi i32 [ %.8, %187 ], [ %.0110181, %.thread ], [ %300, %_get_bracketed_list.exit ]
+  %306 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #22
+  %.not155 = icmp eq i32 %306, 0
+  br i1 %.not155, label %309, label %307
 
-306:                                              ; preds = %.loopexit
-  %307 = tail call ptr @__errno_location() #24
-  store i32 %305, ptr %307, align 4
+307:                                              ; preds = %.loopexit
+  %308 = tail call ptr @__errno_location() #24
+  store i32 %306, ptr %308, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.hostlist_ranged_string_dims) #25
   unreachable
 
-308:                                              ; preds = %.loopexit
-  %309 = sext i32 %.11 to i64
-  %.not156 = icmp ugt i64 %1, %309
-  br i1 %.not156, label %314, label %310
+309:                                              ; preds = %.loopexit
+  %310 = sext i32 %.11 to i64
+  %.not156 = icmp ugt i64 %1, %310
+  br i1 %.not156, label %315, label %311
 
-310:                                              ; preds = %308
+311:                                              ; preds = %309
   %.not157 = icmp eq i64 %1, 0
-  br i1 %.not157, label %316, label %311
+  br i1 %.not157, label %317, label %312
 
-311:                                              ; preds = %310
-  %312 = getelementptr i8, ptr %2, i64 %1
-  %313 = getelementptr i8, ptr %312, i64 -1
-  store i8 0, ptr %313, align 1
-  br label %316
+312:                                              ; preds = %311
+  %313 = getelementptr i8, ptr %2, i64 %1
+  %314 = getelementptr i8, ptr %313, i64 -1
+  store i8 0, ptr %314, align 1
+  br label %317
 
-314:                                              ; preds = %308
-  %315 = getelementptr inbounds i8, ptr %2, i64 %309
-  store i8 0, ptr %315, align 1
-  br label %316
+315:                                              ; preds = %309
+  %316 = getelementptr inbounds i8, ptr %2, i64 %310
+  store i8 0, ptr %316, align 1
+  br label %317
 
-316:                                              ; preds = %310, %311, %314
-  %317 = phi i64 [ -1, %311 ], [ -1, %310 ], [ %309, %314 ]
-  ret i64 %317
+317:                                              ; preds = %311, %312, %315
+  %318 = phi i64 [ -1, %311 ], [ -1, %310 ], [ %310, %314 ]
+  ret i64 %318
 }
 
 ; Function Attrs: nounwind uwtable

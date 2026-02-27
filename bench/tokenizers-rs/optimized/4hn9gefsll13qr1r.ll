@@ -892,20 +892,20 @@ define hidden { i64, i64 } @"_ZN106_$LT$rayon..iter..fold..FoldFolder$LT$C$C$ID$
   %spec.select10.i.i = select i1 %8, i64 %5, i64 undef
   br label %"_ZN105_$LT$rayon..iter..reduce..ReduceFolder$LT$R$C$T$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$7consume17hebe3a221b15dad88E.llvm.14172520758739148588.exit"
 
-9:                                                ; preds = %1
+8:                                                ; preds = %1
   %10 = icmp eq i64 %3, 0
   br i1 %10, label %"_ZN105_$LT$rayon..iter..reduce..ReduceFolder$LT$R$C$T$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$7consume17hebe3a221b15dad88E.llvm.14172520758739148588.exit", label %11
 
-11:                                               ; preds = %9
-  %12 = tail call noundef i64 @_ZN4core3cmp6max_by17h791dab76a2f35e5dE.llvm.838311727041459786(i64 noundef %.sroa.42.0.copyload, i64 noundef %5), !noalias !279
+9:                                                ; preds = %8
+  %10 = tail call noundef i64 @_ZN4core3cmp6max_by17h791dab76a2f35e5dE.llvm.838311727041459786(i64 noundef %.sroa.42.0.copyload, i64 noundef %5), !noalias !279
   br label %"_ZN105_$LT$rayon..iter..reduce..ReduceFolder$LT$R$C$T$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$7consume17hebe3a221b15dad88E.llvm.14172520758739148588.exit"
 
-"_ZN105_$LT$rayon..iter..reduce..ReduceFolder$LT$R$C$T$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$7consume17hebe3a221b15dad88E.llvm.14172520758739148588.exit": ; preds = %7, %9, %11
+"_ZN105_$LT$rayon..iter..reduce..ReduceFolder$LT$R$C$T$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$7consume17hebe3a221b15dad88E.llvm.14172520758739148588.exit": ; preds = %7, %8, %9
   %.sroa.05.0.i.i = phi i64 [ 1, %11 ], [ %3, %7 ], [ 1, %9 ]
-  %.sroa.4.0.i.i = phi i64 [ %12, %11 ], [ %spec.select10.i.i, %7 ], [ %.sroa.42.0.copyload, %9 ]
-  %13 = insertvalue { i64, i64 } poison, i64 %.sroa.05.0.i.i, 0
-  %14 = insertvalue { i64, i64 } %13, i64 %.sroa.4.0.i.i, 1
-  ret { i64, i64 } %14
+  %.sroa.4.0.i.i = phi i64 [ %10, %11 ], [ %spec.select10.i.i, %7 ], [ %.sroa.42.0.copyload, %9 ]
+  %11 = insertvalue { i64, i64 } poison, i64 %.sroa.05.0.i.i, 0
+  %12 = insertvalue { i64, i64 } %11, i64 %.sroa.4.0.i.i, 1
+  ret { i64, i64 } %12
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

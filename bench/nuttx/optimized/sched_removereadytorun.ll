@@ -97,7 +97,7 @@ define zeroext i1 @nxsched_remove_readytorun(ptr noundef captures(none) %0, i1 n
   %46 = zext i1 %45 to i8
   br label %47
 
-47:                                               ; preds = %42, %36
+47:; preds = %42, %36
   %.1 = phi i8 [ %46, %42 ], [ %.034, %36 ]
   %48 = trunc nuw i8 %.1 to i1
   ret i1 %48

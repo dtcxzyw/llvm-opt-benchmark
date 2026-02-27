@@ -7708,76 +7708,76 @@ define void @_ZN9grpc_core26TlsServerSecurityConnector27TlsServerCertificateWatc
   %or.cond42 = select i1 %or.cond34.not, i1 true, i1 %or.cond13
   br i1 %or.cond42, label %46, label %58
 
-46:                                               ; preds = %28
-  %47 = invoke noundef i32 @_ZN9grpc_core26TlsServerSecurityConnector29UpdateHandshakerFactoryLockedEv(ptr noundef nonnull align 8 dereferenceable(192) %29)
-          to label %48 unwind label %51
+45:                                               ; preds = %28
+  %46 = invoke noundef i32 @_ZN9grpc_core26TlsServerSecurityConnector29UpdateHandshakerFactoryLockedEv(ptr noundef nonnull align 8 dereferenceable(192) %29)
+          to label %48 unwind label %50
 
-48:                                               ; preds = %46
-  %.not31 = icmp eq i32 %47, 0
-  br i1 %.not31, label %58, label %49
+47:                                               ; preds = %45
+  %.not31 = icmp eq i32 %46, 0
+  br i1 %.not31, label %57, label %48
 
-49:                                               ; preds = %48
+48:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str, i32 noundef 713) #28
-          to label %50 unwind label %53
+          to label %50 unwind label %52
 
-50:                                               ; preds = %49
+49:                                               ; preds = %48
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 33, ptr nonnull @.str.11)
-          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit unwind label %55
+          to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit unwind label %54
 
-_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit: ; preds = %50
+_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit: ; preds = %49
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %58
-
-51:                                               ; preds = %46
-  %52 = landingpad { ptr, i32 }
-          cleanup
-  br label %62
-
-53:                                               ; preds = %49
-  %54 = landingpad { ptr, i32 }
-          cleanup
   br label %57
 
-55:                                               ; preds = %50
-  %56 = landingpad { ptr, i32 }
+50:                                               ; preds = %45
+  %51 = landingpad { ptr, i32 }
+          cleanup
+  br label %61
+
+52:                                               ; preds = %48
+  %53 = landingpad { ptr, i32 }
+          cleanup
+  br label %56
+
+54:                                               ; preds = %49
+  %55 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
-  br label %57
+  br label %56
 
-57:                                               ; preds = %55, %53
-  %.pn = phi { ptr, i32 } [ %56, %55 ], [ %54, %53 ]
+56:                                               ; preds = %54, %52
+  %.pn = phi { ptr, i32 } [ %55, %55 ], [ %53, %53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %62
+  br label %61
 
-58:                                               ; preds = %28, %48, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit
+57:                                               ; preds = %28, %47, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %59
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %58
 
-59:                                               ; preds = %58
-  %60 = landingpad { ptr, i32 }
+58:                                               ; preds = %57
+  %59 = landingpad { ptr, i32 }
           catch ptr null
-  %61 = extractvalue { ptr, i32 } %60, 0
-  call void @__clang_call_terminate(ptr %61) #32
+  %60 = extractvalue { ptr, i32 } %59, 0
+  call void @__clang_call_terminate(ptr %60) #32
   unreachable
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %58
+_ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %57
   ret void
 
-62:                                               ; preds = %57, %51
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %57 ], [ %52, %51 ]
+61:                                               ; preds = %56, %50
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %57 ], [ %51, %51 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit35 unwind label %63
+          to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit35 unwind label %62
 
-63:                                               ; preds = %62
-  %64 = landingpad { ptr, i32 }
+62:                                               ; preds = %61
+  %63 = landingpad { ptr, i32 }
           catch ptr null
-  %65 = extractvalue { ptr, i32 } %64, 0
-  call void @__clang_call_terminate(ptr %65) #32
+  %64 = extractvalue { ptr, i32 } %63, 0
+  call void @__clang_call_terminate(ptr %64) #32
   unreachable
 
-_ZN4absl12lts_202407229MutexLockD2Ev.exit35:      ; preds = %62
+_ZN4absl12lts_202407229MutexLockD2Ev.exit35:      ; preds = %61
   resume { ptr, i32 } %.pn.pn
 }
 

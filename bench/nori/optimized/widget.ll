@@ -872,13 +872,13 @@ _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit35: ; preds = %_ZNK7nanogui
   %77 = zext i1 %76 to i8
   br label %78
 
-78:                                               ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i30._ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit35_crit_edge, %69, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit35
+78:; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i30._ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit35_crit_edge, %69, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit35
   %79 = phi i1 [ %70, %69 ], [ %67, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit35 ], [ false, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i30._ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit35_crit_edge ]
   %.2 = phi i8 [ %77, %69 ], [ %.066, %_ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit35 ], [ %.066, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.i30._ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit35_crit_edge ]
   %or.cond = or i1 %46, %79
   br i1 %or.cond, label %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit37.critedge, label %93
 
-_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit37.critedge: ; preds = %78
+_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit37.critedge:; preds = %78
   %80 = load i32, ptr %1, align 4
   %81 = load i32, ptr %11, align 8
   %82 = sub nsw i32 %80, %81
@@ -896,7 +896,7 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit37.critedge: ; preds = %78
   %92 = zext i1 %91 to i8
   br label %93
 
-93:                                               ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit37.critedge, %78, %19
+93:; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit37.critedge, %78, %19
   %.1 = phi i8 [ %92, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit37.critedge ], [ %.2, %78 ], [ %.066, %19 ]
   %94 = load ptr, ptr %7, align 8, !noalias !31
   %.not = icmp eq ptr %20, %94

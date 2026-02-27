@@ -5260,7 +5260,7 @@ define internal fastcc void @end_buffer_async_read(ptr noundef %0, i32 noundef %
   %45 = load volatile i64, ptr %37, align 8
   %46 = and i64 %45, 4
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %48, label %56, !prof !18
+  br i1 %47, label %48, label %57, !prof !18
 
 48:                                               ; preds = %44
   tail call void asm sideeffect "839: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 839b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 839) #13, !srcloc !177
@@ -5280,11 +5280,11 @@ define internal fastcc void @end_buffer_async_read(ptr noundef %0, i32 noundef %
   tail call void @folio_end_read(ptr noundef %9, i1 noundef zeroext %51) #13
   br label %57
 
-56:                                               ; preds = %44
+57:                                               ; preds = %44
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %34, i64 noundef %35) #13
-  br label %57
+  br label %58
 
-57:                                               ; preds = %56, %55
+58:                                               ; preds = %57, %55
   ret void
 }
 

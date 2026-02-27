@@ -5112,15 +5112,15 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us: ; pr
 57:                                               ; preds = %.lr.ph.split.split.us
   %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(30) @.str.17) #30
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %.critedge.us, label %60
+  br i1 %59, label %.critedge.us, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72
 
-60:                                               ; preds = %57
+.critedge.us:                                     ; preds = %57
   %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(25) @.str.18) #30
   %62 = icmp eq i32 %61, 0
   %spec.select.us71 = select i1 %62, ptr %54, ptr %.04263.us70
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72
 
-.critedge.us:                                     ; preds = %57
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72: ; preds = %57
   %63 = add i64 %.03964.us69, 1
   %64 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %65 = load i64, ptr %64, align 8, !tbaa !191
@@ -5143,12 +5143,12 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72: ; 
   %71 = icmp eq ptr %70, null
   br i1 %71, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread, label %72
 
-72:                                               ; preds = %.lr.ph.split.split
+72:; preds = %.lr.ph.split.split
   %73 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(30) @.str.17) #30
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %.critedge, label %82
 
-.critedge:                                        ; preds = %72
+.critedge:; preds = %72
   %75 = add i64 %.03964, 1
   %76 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %77 = load i64, ptr %76, align 8, !tbaa !191
@@ -5156,30 +5156,30 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72: ; 
   br i1 %78, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %.critedge
-  %79 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %80 = load ptr, ptr %79, align 8, !tbaa !190
-  %bcmp.i = tail call i32 @bcmp(ptr %2, ptr %80, i64 %1)
-  %81 = icmp eq i32 %bcmp.i, 0
-  br i1 %81, label %.loopexit, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %75 = load ptr, ptr %74, align 8, !tbaa !190
+  %bcmp.i = tail call i32 @bcmp(ptr %2, ptr %75, i64 %1)
+  %76 = icmp eq i32 %bcmp.i, 0
+  br i1 %76, label %.loopexit, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread
 
-82:                                               ; preds = %72
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread: ; preds = %72
   %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(25) @.str.18) #30
-  %84 = icmp eq i32 %83, 0
-  %spec.select = select i1 %84, ptr %69, ptr %.04263
+  %78 = icmp eq i32 %83, 0
+  %spec.select = select i1 %78, ptr %69, ptr %.04263
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread
 
-_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %.critedge, %.lr.ph.split.split, %82
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread:; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %.critedge, %.lr.ph.split.split, %82
   %.143.ph = phi ptr [ %.04263, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %.04263, %.lr.ph.split.split ], [ %spec.select, %82 ], [ %.04263, %.critedge ]
   %.140.ph = phi i64 [ %75, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ %.03964, %.lr.ph.split.split ], [ %.03964, %82 ], [ %75, %.critedge ]
   %85 = add nuw i64 %.03865, 1
   %86 = icmp ult i64 %85, %52
   br i1 %86, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !192
 
-._crit_edge:                                      ; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us
+._crit_edge:; preds = %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us
   %.not.lcssa.i97 = phi i1 [ true, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72 ], [ false, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us ], [ true, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread ]
   %.042.lcssa = phi ptr [ %.143.ph.us73, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72 ], [ %.143.ph.us, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us ], [ %.143.ph, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread ]
   %.039.lcssa = phi i64 [ %.140.ph.us74, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us72 ], [ %.140.ph.us, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread.us ], [ %.140.ph, %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread ]
-  %87 = icmp ne i64 %.039.lcssa, 0
+  %.not = icmp ne i64 %.039.lcssa, 0
   %88 = icmp eq ptr %.042.lcssa, null
   %or.cond.not49 = select i1 %87, i1 true, i1 %88
   %or.cond3 = or i1 %or.cond.not49, %.not.lcssa.i97

@@ -3272,7 +3272,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_uevent_info(ptr noundef readon
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %37, label %9
+  br i1 %.not, label %39, label %9
 
 9:                                                ; preds = %6
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
@@ -3346,9 +3346,9 @@ define internal fastcc range(i32 0, 2) i32 @parse_uevent_info(ptr noundef readon
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %9
   %.031.lcssa = phi i32 [ 0, %9 ], [ %36, %._crit_edge.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %37
+  br label %39
 
-37:                                               ; preds = %6, %._crit_edge
+39:                                               ; preds = %6, %._crit_edge
   %.0 = phi i32 [ %.031.lcssa, %._crit_edge ], [ 0, %6 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0

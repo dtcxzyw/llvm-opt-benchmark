@@ -1098,7 +1098,7 @@ define hidden noundef ptr @_ZN10RegionNode5IdealEP8PhaseGVNb(ptr noundef nonnull
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
   %.not227 = icmp eq ptr %18, null
-  br i1 %.not227, label %922, label %_ZNK10RegionNode7has_phiEv.exit.thread
+  br i1 %.not227, label %919, label %_ZNK10RegionNode7has_phiEv.exit.thread
 
 .critedge:                                        ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1316,7 +1316,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 
 _ZN4Node7set_reqEjPS_.exit250:                    ; preds = %_ZN4Node7set_reqEjPS_.exit, %122, %134
   store ptr null, ptr %120, align 8
-  br label %922
+  br label %919
 
 139:                                              ; preds = %._crit_edge429, %.lr.ph, %63
   %140 = phi i32 [ %.pre, %._crit_edge429 ], [ %58, %.lr.ph ], [ %58, %63 ]
@@ -1687,7 +1687,7 @@ _ZN4Node7set_reqEjPS_.exit270:                    ; preds = %_ZN4Node7del_outEPS
   %324 = trunc i8 %323 to i1
   %..i272 = select i1 %324, ptr %1, ptr null
   tail call void @_ZN10RegionNode27remove_unreachable_subgraphEP12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %..i272)
-  br label %922
+  br label %919
 
 325:                                              ; preds = %._crit_edge390
   %326 = icmp eq i32 %.1196, 1
@@ -1886,7 +1886,7 @@ _ZN10RegionNode21is_unreachable_regionEPK8PhaseGVN.exit: ; preds = %421, %379, %
   %424 = trunc i8 %423 to i1
   %..i292 = select i1 %424, ptr %1, ptr null
   tail call void @_ZN10RegionNode27remove_unreachable_subgraphEP12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %..i292)
-  br label %922
+  br label %919
 
 _ZN10RegionNode21is_unreachable_regionEPK8PhaseGVN.exit291.thread: ; preds = %419, %383, %_ZNK10RegionNode23is_possible_unsafe_loopEPK8PhaseGVN.exit.i290, %325, %_ZN10RegionNode21is_unreachable_regionEPK8PhaseGVN.exit.thread, %319
   %425 = icmp slt i32 %.1196, 2
@@ -1935,7 +1935,7 @@ _ZN4Node7set_reqEjPS_.exit297:                    ; preds = %_ZN10RegionNode21is
   %446 = icmp ne i32 %.0195.lcssa513528, 0
   %or.cond7 = or i1 %2, %446
   %.mux = select i1 %or.cond7, ptr %0, ptr null
-  br i1 %2, label %447, label %922
+  br i1 %2, label %447, label %919
 
 447:                                              ; preds = %_ZN4Node7set_reqEjPS_.exit297
   %448 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2199,7 +2199,7 @@ _ZN4Node7set_reqEjPS_.exit306:                    ; preds = %593, %585, %_ZN4Nod
 
 ._crit_edge401:                                   ; preds = %_ZN4Node7set_reqEjPS_.exit306, %504
   tail call void @_ZN12PhaseIterGVN25remove_globally_dead_nodeEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %1, ptr noundef nonnull %0) #10
-  br label %922
+  br label %919
 
 599:                                              ; preds = %_ZN10RegionNode21is_unreachable_regionEPK8PhaseGVN.exit291.thread
   br i1 %2, label %600, label %.critedge241
@@ -2521,7 +2521,7 @@ _ZN4Node7set_reqEjPS_.exit60.i:                   ; preds = %761, %750, %_ZN4Nod
 
 _ZL12merge_regionP10RegionNodeP8PhaseGVN.exit:    ; preds = %_ZN4Node7set_reqEjPS_.exit60.i
   %.not232 = icmp eq ptr %.243.i, null
-  br i1 %.not232, label %_ZL12merge_regionP10RegionNodeP8PhaseGVN.exit.thread.thread, label %922
+  br i1 %.not232, label %_ZL12merge_regionP10RegionNodeP8PhaseGVN.exit.thread.thread, label %919
 
 _ZL12merge_regionP10RegionNodeP8PhaseGVN.exit.thread.thread: ; preds = %.lr.ph.i.i313, %_ZL12merge_regionP10RegionNodeP8PhaseGVN.exit, %600
   %.pr = load i32, ptr %148, align 8
@@ -2795,7 +2795,7 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %784
   tail call void @_ZN4Node9set_req_XEjPS_P12PhaseIterGVN(ptr noundef nonnull align 8 dereferenceable(52) %.1.i, i32 noundef %811, ptr noundef nonnull %814, ptr noundef nonnull %1) #10
   %912 = load ptr, ptr %909, align 8
   %913 = tail call noundef ptr @_ZN8NodeHash16hash_find_insertEP4Node(ptr noundef nonnull align 8 dereferenceable(40) %912, ptr noundef nonnull %.1.i) #10
-  br label %922
+  br label %919
 
 .critedge240.thread:                              ; preds = %782, %787, %791, %797, %807, %813, %803, %789, %_ZNK10RegionNode14has_unique_phiEv.exit, %604, %770, %_ZL12merge_regionP10RegionNodeP8PhaseGVN.exit.thread.thread
   %914 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2814,7 +2814,7 @@ _ZNK10RegionNode14has_unique_phiEv.exit:          ; preds = %784
   %. = select i1 %921, ptr %0, ptr null
   br label %922
 
-922:                                              ; preds = %_ZN4Node7set_reqEjPS_.exit297, %_ZL12merge_regionP10RegionNodeP8PhaseGVN.exit, %15, %.critedge241, %905, %._crit_edge401, %_ZN10RegionNode21is_unreachable_regionEPK8PhaseGVN.exit, %321, %_ZN4Node7set_reqEjPS_.exit250
+919:                                              ; preds = %_ZN4Node7set_reqEjPS_.exit297, %_ZL12merge_regionP10RegionNodeP8PhaseGVN.exit, %15, %.critedge241, %905, %._crit_edge401, %_ZN10RegionNode21is_unreachable_regionEPK8PhaseGVN.exit, %321, %_ZN4Node7set_reqEjPS_.exit250
   %.0 = phi ptr [ null, %321 ], [ null, %._crit_edge401 ], [ %.mux, %_ZN4Node7set_reqEjPS_.exit297 ], [ null, %15 ], [ %.243.i, %_ZL12merge_regionP10RegionNodeP8PhaseGVN.exit ], [ %0, %905 ], [ %., %.critedge241 ], [ null, %_ZN10RegionNode21is_unreachable_regionEPK8PhaseGVN.exit ], [ %0, %_ZN4Node7set_reqEjPS_.exit250 ]
   ret ptr %.0
 }

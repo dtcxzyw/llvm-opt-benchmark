@@ -30812,16 +30812,16 @@ define internal fastcc void @opj_t1_dec_sigpass_step_mqc(ptr noundef nonnull %0,
   %or.cond = select i1 %261, i1 true, i1 %262
   br i1 %or.cond, label %265, label %.thread
 
-.thread:                                          ; preds = %.loopexit
+262:                                              ; preds = %.loopexit
   %263 = zext i32 %5 to i64
   %264 = sub nsw i64 0, %263
   br label %.sink.split
 
-265:                                              ; preds = %.loopexit
+291:                                              ; preds = %.loopexit
   %266 = icmp eq i32 %4, 3
   br i1 %266, label %267, label %280
 
-267:                                              ; preds = %265
+295:                                              ; preds = %291
   %268 = zext i32 %5 to i64
   br label %.sink.split
 
@@ -31267,7 +31267,7 @@ define internal fastcc void @opj_t1_dec_clnpass_step(ptr noundef nonnull %0, ptr
   %or.cond = select i1 %256, i1 true, i1 %257
   br i1 %or.cond, label %263, label %.thread
 
-.thread:                                          ; preds = %.loopexit
+257:                                              ; preds = %.loopexit
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %259 = load i32, ptr %258, align 8, !tbaa !104
   %260 = add i32 %259, 2
@@ -31275,18 +31275,18 @@ define internal fastcc void @opj_t1_dec_clnpass_step(ptr noundef nonnull %0, ptr
   %262 = sub nsw i64 0, %261
   br label %.sink.split
 
-263:                                              ; preds = %.loopexit
+263:; preds = %.loopexit
   %264 = icmp eq i32 %4, 3
   br i1 %264, label %265, label %281
 
-265:                                              ; preds = %263
+265: ; preds = %263
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %267 = load i32, ptr %266, align 8, !tbaa !104
   %268 = add i32 %267, 2
   %269 = zext i32 %268 to i64
   br label %.sink.split
 
-.sink.split:                                      ; preds = %265, %.thread
+.sink.split:; preds = %265, %257
   %.sink255 = phi i64 [ %262, %.thread ], [ %269, %265 ]
   %.sink254 = phi i32 [ 31, %.thread ], [ 18, %265 ]
   %.sink253 = phi i32 [ 65536, %.thread ], [ 2, %265 ]
@@ -31295,20 +31295,20 @@ define internal fastcc void @opj_t1_dec_clnpass_step(ptr noundef nonnull %0, ptr
   %270 = getelementptr inbounds i32, ptr %1, i64 %.sink255
   %271 = shl i32 %242, %.sink254
   %272 = or disjoint i32 %271, %.sink253
-  %273 = load i32, ptr %270, align 4, !tbaa !59
-  %274 = or i32 %273, %272
+  %278 = load i32, ptr %270, align 4, !tbaa !59
+  %274 = or i32 %278, %272
   store i32 %274, ptr %270, align 4, !tbaa !59
-  %275 = getelementptr inbounds i8, ptr %270, i64 -4
+  %281 = getelementptr inbounds i8, ptr %270, i64 -4
   %276 = load i32, ptr %275, align 4, !tbaa !59
-  %277 = or i32 %276, %.sink244
-  store i32 %277, ptr %275, align 4, !tbaa !59
+  %283 = or i32 %276, %.sink244
+  store i32 %277, ptr %281, align 4, !tbaa !59
   %278 = getelementptr inbounds nuw i8, ptr %270, i64 4
   %279 = load i32, ptr %278, align 4, !tbaa !59
   %280 = or i32 %279, %.sink238
   store i32 %280, ptr %278, align 4, !tbaa !59
   br label %281
 
-281:                                              ; preds = %.sink.split, %.loopexit198, %263, %6
+281:; preds = %.sink.split, %.loopexit198, %263, %6
   ret void
 }
 

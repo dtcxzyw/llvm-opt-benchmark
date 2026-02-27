@@ -1255,9 +1255,9 @@ _ZN5clang6interpL30DiagnoseUninitializedSubobjectERNS0_11InterpStateENS_14Source
   %.5 = phi i1 [ false, %_ZN5clang6interpL30DiagnoseUninitializedSubobjectERNS0_11InterpStateENS_14SourceLocationEPKNS_9FieldDeclE.exit ], [ %.464, %70 ]
   %104 = add nuw i64 %.03263, 1
   %.not36 = icmp eq i64 %104, %20
-  br i1 %.not36, label %.loopexit, label %70, !llvm.loop !182
+  br i1 %.not36, label %.loopexit.loopexit72, label %70, !llvm.loop !182
 
-.loopexit:                                        ; preds = %103, %.lr.ph, %.lr.ph70, %.preheader57, %.preheader, %_ZNK5clang6interp7Pointer13getElemRecordEv.exit
+.loopexit.loopexit72:                             ; preds = %103, %.lr.ph, %.lr.ph70, %.preheader57, %.preheader, %_ZNK5clang6interp7Pointer13getElemRecordEv.exit
   %.1 = phi i1 [ %59, %.lr.ph70 ], [ %68, %.lr.ph ], [ true, %_ZNK5clang6interp7Pointer13getElemRecordEv.exit ], [ true, %.preheader ], [ true, %.preheader57 ], [ %.5, %103 ]
   ret i1 %.1
 }

@@ -21649,8 +21649,8 @@ define hidden void @"_ZN3exr5block6reader15Reader$LT$R$GT$18read_from_buffered17
   %47 = lshr i32 %.sroa.5.032.ph.i.i.i, 12
   %48 = or i32 %46, %47
   %49 = and i32 %.sroa.667.sroa.0.sroa.0.0.insert.ext72.i.i, %48
-  %or.cond.not.not.i.i = icmp eq i32 %49, 0
-  br i1 %or.cond.not.not.i.i, label %_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i, label %55
+  %brmerge.not9.i.i.i = icmp eq i32 %49, 0
+  br i1 %brmerge.not9.i.i.i, label %_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i, label %55
 
 50:                                               ; preds = %33, %31
   %.sroa.667.sroa.12.sroa.0.0.ph.i.i = phi i24 [ -8388608, %31 ], [ %.sroa.667.sroa.12.sroa.0.0.copyload.i.i, %33 ]
@@ -22116,8 +22116,8 @@ define hidden void @"_ZN3exr5block6reader15Reader$LT$R$GT$18read_from_buffered17
   %46 = lshr i32 %.sroa.5.032.ph.i.i.i, 12
   %47 = or i32 %45, %46
   %48 = and i32 %.sroa.667.sroa.0.sroa.0.0.insert.ext72.i.i, %47
-  %or.cond.not.not.i.i = icmp eq i32 %48, 0
-  br i1 %or.cond.not.not.i.i, label %_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i, label %54
+  %brmerge.not9.i.i.i = icmp eq i32 %48, 0
+  br i1 %brmerge.not9.i.i.i, label %_ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i, label %54
 
 49:                                               ; preds = %32, %30
   %.sroa.667.sroa.12.sroa.0.0.ph.i.i = phi i24 [ -8388608, %30 ], [ %.sroa.667.sroa.12.sroa.0.0.copyload.i.i, %32 ]

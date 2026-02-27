@@ -1204,7 +1204,7 @@ Vec_IntPush.exit42:                               ; preds = %.Vec_IntGrow.exit10
   %90 = select i1 %89, i32 1, i32 %57
   br label %91
 
-91:                                               ; preds = %11, %4, %Vec_IntPush.exit42, %Vec_IntPush.exit
+91:; preds = %11, %4, %Vec_IntPush.exit42, %Vec_IntPush.exit
   %.0 = phi i32 [ %90, %Vec_IntPush.exit42 ], [ 1, %4 ], [ 0, %Vec_IntPush.exit ], [ 0, %11 ]
   ret i32 %.0
 }
@@ -3885,7 +3885,7 @@ Vec_IntPush.exit42:                               ; preds = %.Vec_IntGrow.exit10
   %90 = select i1 %89, i32 1, i32 %57
   br label %91
 
-91:                                               ; preds = %11, %4, %Vec_IntPush.exit42, %Vec_IntPush.exit
+91:; preds = %11, %4, %Vec_IntPush.exit42, %Vec_IntPush.exit
   %.0 = phi i32 [ %90, %Vec_IntPush.exit42 ], [ 1, %4 ], [ 0, %Vec_IntPush.exit ], [ 0, %11 ]
   ret i32 %.0
 }

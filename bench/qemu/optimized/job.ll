@@ -2344,7 +2344,7 @@ define internal fastcc void @job_cancel_async_locked(ptr noundef %0, i1 noundef 
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 185
   %41 = load i8, ptr %40, align 1, !range !4, !noundef !5
   %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %50, label %43
+  br i1 %42, label %49, label %43
 
 43:                                               ; preds = %39, %38
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 183
@@ -2357,7 +2357,7 @@ define internal fastcc void @job_cancel_async_locked(ptr noundef %0, i1 noundef 
   store i8 %49, ptr %45, align 8
   br label %50
 
-50:                                               ; preds = %43, %39
+49:                                               ; preds = %43, %39
   ret void
 }
 

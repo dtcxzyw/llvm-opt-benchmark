@@ -3156,13 +3156,13 @@ define void @_ZN3gmx4Grid22sortColumnsGpuGeometryEPNS_11GridSetDataEiNS_8ArrayRe
 
 .critedge:                                        ; preds = %135, %.critedge
   %143 = phi i1 [ true, %135 ], [ false, %.critedge ]
-  %indvars.iv = phi i64 [ 0, %135 ], [ 1, %.critedge ]
-  %144 = mul nuw nsw i64 %indvars.iv, %55
+  %144 = phi i64 [ 0, %135 ], [ 1, %.critedge ]
+  %144 = mul nuw nsw i64 %144, %55
   %145 = add nsw i64 %144, %98
   %146 = trunc nsw i64 %145 to i32
   %147 = sub i32 %.neg, %146
   %.sroa.speculated112 = tail call i32 @llvm.smin.i32(i32 %147, i32 %23)
-  %148 = trunc nuw i64 %indvars.iv to i1
+  %148 = trunc nuw i64 %144 to i1
   %149 = getelementptr inbounds i32, ptr %26, i64 %145
   %150 = load float, ptr %18, align 4, !tbaa !96
   %151 = load float, ptr %46, align 8, !tbaa !96
@@ -3176,16 +3176,16 @@ define void @_ZN3gmx4Grid22sortColumnsGpuGeometryEPNS_11GridSetDataEiNS_8ArrayRe
   store ptr %52, ptr %48, align 8, !tbaa !123
   store ptr %31, ptr %11, align 8, !tbaa !130
   store ptr %54, ptr %53, align 8, !tbaa !130
-  tail call void @_ZN3gmx4Grid8fillCellEPNS_11GridSetDataEPNS_16nbnxn_atomdata_tEiiNS_8ArrayRefIKiEENS5_IKNS_11BasicVectorIfEEEE(ptr noundef nonnull align 8 dereferenceable(380) %0, ptr noundef %1, ptr noundef %6, i32 noundef %146, i32 noundef %155, ptr noundef nonnull byval(%"class.gmx::ArrayRef.23") align 8 %10, ptr noundef nonnull byval(%"class.gmx::ArrayRef.26") align 8 %11)
-  %156 = add nsw i32 %22, %146
-  %157 = sub i32 %.neg, %156
-  %.sroa.speculated.c = tail call i32 @llvm.smin.i32(i32 %157, i32 %22)
-  %158 = add nsw i32 %.sroa.speculated.c, %156
+  tail call void @_ZN3gmx4Grid8fillCellEPNS_11GridSetDataEPNS_16nbnxn_atomdata_tEiiNS_8ArrayRefIKiEENS5_IKNS_11BasicVectorIfEEEE(ptr noundef nonnull align 8 dereferenceable(380) %0, ptr noundef %1, ptr noundef %6, i32 noundef %146, i32 noundef %154, ptr noundef nonnull byval(%"class.gmx::ArrayRef.23") align 8 %10, ptr noundef nonnull byval(%"class.gmx::ArrayRef.26") align 8 %11)
+  %155 = add nsw i32 %22, %146
+  %156 = sub i32 %.neg, %155
+  %.sroa.speculated.c = tail call i32 @llvm.smin.i32(i32 %156, i32 %22)
+  %157 = add nsw i32 %.sroa.speculated.c, %155
   store ptr %3, ptr %10, align 8, !tbaa !123
   store ptr %52, ptr %48, align 8, !tbaa !123
   store ptr %31, ptr %11, align 8, !tbaa !130
   store ptr %54, ptr %53, align 8, !tbaa !130
-  tail call void @_ZN3gmx4Grid8fillCellEPNS_11GridSetDataEPNS_16nbnxn_atomdata_tEiiNS_8ArrayRefIKiEENS5_IKNS_11BasicVectorIfEEEE(ptr noundef nonnull align 8 dereferenceable(380) %0, ptr noundef %1, ptr noundef %6, i32 noundef %156, i32 noundef %158, ptr noundef nonnull byval(%"class.gmx::ArrayRef.23") align 8 %10, ptr noundef nonnull byval(%"class.gmx::ArrayRef.26") align 8 %11)
+  tail call void @_ZN3gmx4Grid8fillCellEPNS_11GridSetDataEPNS_16nbnxn_atomdata_tEiiNS_8ArrayRefIKiEENS5_IKNS_11BasicVectorIfEEEE(ptr noundef nonnull align 8 dereferenceable(380) %0, ptr noundef %1, ptr noundef %6, i32 noundef %155, i32 noundef %157, ptr noundef nonnull byval(%"class.gmx::ArrayRef.23") align 8 %10, ptr noundef nonnull byval(%"class.gmx::ArrayRef.26") align 8 %11)
   br i1 %143, label %.critedge, label %142, !llvm.loop !205
 }
 

@@ -11704,7 +11704,7 @@ define linkonce_odr void @_ZN7rocksdb12ShardedCacheINS_11clock_cache15ClockCache
   %11 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   %12 = load i64, ptr %11, align 8, !tbaa !17
   %.not.us = icmp eq i64 %12, -1
-  br i1 %.not.us, label %22, label %13
+  br i1 %.not.us, label %20, label %13
 
 13:                                               ; preds = %.lr.ph.us
   %14 = load ptr, ptr %10, align 8, !tbaa !167
@@ -11720,13 +11720,13 @@ define linkonce_odr void @_ZN7rocksdb12ShardedCacheINS_11clock_cache15ClockCache
   %21 = zext i1 %20 to i8
   br label %22
 
-22:                                               ; preds = %16, %.lr.ph.us
+20:                                               ; preds = %16, %.lr.ph.us
   %.1.us = phi i8 [ %21, %16 ], [ %.028.us, %.lr.ph.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us.backedge
 
-.lr.ph.us.backedge:                               ; preds = %22, %._crit_edge.us
+.lr.ph.us.backedge:; preds = %22, %._crit_edge.us
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %22 ], [ 0, %._crit_edge.us ]
   %.028.us.be = phi i8 [ %.1.us, %22 ], [ 0, %._crit_edge.us ]
   br label %.lr.ph.us, !llvm.loop !366
@@ -11736,10 +11736,10 @@ define linkonce_odr void @_ZN7rocksdb12ShardedCacheINS_11clock_cache15ClockCache
   br i1 %23, label %.lr.ph.us.backedge, label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit17
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.split.us: ; preds = %13
-  %24 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdaPv(ptr noundef nonnull %7) #32
-  resume { ptr, i32 } %24
+  resume { ptr, i32 } %21
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit17: ; preds = %._crit_edge.us, %3
   tail call void @_ZdaPv(ptr noundef nonnull %7) #32
@@ -12907,7 +12907,7 @@ define linkonce_odr void @_ZN7rocksdb12ShardedCacheINS_11clock_cache15ClockCache
   %11 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   %12 = load i64, ptr %11, align 8, !tbaa !17
   %.not.us = icmp eq i64 %12, -1
-  br i1 %.not.us, label %22, label %13
+  br i1 %.not.us, label %20, label %13
 
 13:                                               ; preds = %.lr.ph.us
   %14 = load ptr, ptr %10, align 8, !tbaa !250
@@ -12923,13 +12923,13 @@ define linkonce_odr void @_ZN7rocksdb12ShardedCacheINS_11clock_cache15ClockCache
   %21 = zext i1 %20 to i8
   br label %22
 
-22:                                               ; preds = %16, %.lr.ph.us
+20:                                               ; preds = %16, %.lr.ph.us
   %.1.us = phi i8 [ %21, %16 ], [ %.028.us, %.lr.ph.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us.backedge
 
-.lr.ph.us.backedge:                               ; preds = %22, %._crit_edge.us
+.lr.ph.us.backedge:; preds = %22, %._crit_edge.us
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %22 ], [ 0, %._crit_edge.us ]
   %.028.us.be = phi i8 [ %.1.us, %22 ], [ 0, %._crit_edge.us ]
   br label %.lr.ph.us, !llvm.loop !374
@@ -12939,10 +12939,10 @@ define linkonce_odr void @_ZN7rocksdb12ShardedCacheINS_11clock_cache15ClockCache
   br i1 %23, label %.lr.ph.us.backedge, label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit17
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.split.us: ; preds = %13
-  %24 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdaPv(ptr noundef nonnull %7) #32
-  resume { ptr, i32 } %24
+  resume { ptr, i32 } %21
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit17: ; preds = %._crit_edge.us, %3
   tail call void @_ZdaPv(ptr noundef nonnull %7) #32

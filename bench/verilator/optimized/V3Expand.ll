@@ -1633,7 +1633,7 @@ define linkonce_odr dso_local void @_ZN15ExpandOkVisitor5visitEP7AstNode(ptr nou
   %8 = load i8, ptr %7, align 1, !tbaa !72, !range !61, !noundef !62
   store i8 0, ptr %7, align 1, !tbaa !17
   invoke void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-          to label %9 unwind label %20
+          to label %9 unwind label %18
 
 9:                                                ; preds = %2
   %10 = xor i1 %6, true
@@ -1652,11 +1652,11 @@ define linkonce_odr dso_local void @_ZN15ExpandOkVisitor5visitEP7AstNode(ptr nou
   store i8 %19, ptr %7, align 1, !tbaa !17
   ret void
 
-20:                                               ; preds = %2
-  %21 = landingpad { ptr, i32 }
+18:                                               ; preds = %2
+  %19 = landingpad { ptr, i32 }
           cleanup
   store i8 %8, ptr %7, align 1, !tbaa !72
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

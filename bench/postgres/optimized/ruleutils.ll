@@ -10755,40 +10755,40 @@ simple_quote_literal.exit:                        ; preds = %57
   %77 = zext i1 %76 to i8
   br label %78
 
-78:                                               ; preds = %71, %70, %68
+78:; preds = %71, %70, %68
   %.1 = phi i8 [ %77, %71 ], [ 0, %70 ], [ %.0, %68 ]
   %79 = trunc nuw i8 %.1 to i1
   %80 = icmp ne i32 %2, 0
   %or.cond = or i1 %80, %79
   br i1 %or.cond, label %.thread, label %84
 
-.thread:                                          ; preds = %68, %78
+.thread:; preds = %68, %78
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %82 = load i32, ptr %81, align 8
   %83 = call ptr @format_type_with_typemod(i32 noundef %69, i32 noundef %82) #10
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %6, ptr noundef nonnull @.str.77, ptr noundef %83) #10
   br label %84
 
-84:                                               ; preds = %78, %.thread
+81:                                               ; preds = %78, %.thread
   %.val44 = load ptr, ptr %1, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %86 = load i32, ptr %85, align 4
-  %.not.i45 = icmp eq i32 %86, 0
-  br i1 %.not.i45, label %get_const_collation.exit, label %87
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %83 = load i32, ptr %82, align 4
+  %.not.i45 = icmp eq i32 %83, 0
+  br i1 %.not.i45, label %get_const_collation.exit, label %84
 
-87:                                               ; preds = %84
-  %88 = load i32, ptr %27, align 4
-  %89 = call i32 @get_typcollation(i32 noundef %88) #10
-  %90 = load i32, ptr %85, align 4
-  %.not6.i46 = icmp eq i32 %90, %89
-  br i1 %.not6.i46, label %get_const_collation.exit, label %91
+84:                                               ; preds = %81
+  %85 = load i32, ptr %27, align 4
+  %86 = call i32 @get_typcollation(i32 noundef %85) #10
+  %87 = load i32, ptr %82, align 4
+  %.not6.i46 = icmp eq i32 %87, %86
+  br i1 %.not6.i46, label %get_const_collation.exit, label %88
 
-91:                                               ; preds = %87
-  %92 = call ptr @generate_collation_name(i32 noundef %90)
-  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %.val44, ptr noundef nonnull @.str.95, ptr noundef %92) #10
+88:                                               ; preds = %84
+  %89 = call ptr @generate_collation_name(i32 noundef %87)
+  call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %.val44, ptr noundef nonnull @.str.95, ptr noundef %89) #10
   br label %get_const_collation.exit
 
-get_const_collation.exit:                         ; preds = %91, %87, %84, %24, %20, %12, %66, %10
+get_const_collation.exit:                         ; preds = %88, %84, %81, %24, %20, %12, %66, %10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

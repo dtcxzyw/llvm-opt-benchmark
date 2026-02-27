@@ -2107,11 +2107,11 @@ _ZN6duckdb10Serializer24WritePropertyWithDefaultIbEEvtPKcRKT_.exit10: ; preds = 
   %56 = trunc nuw i8 %55 to i1
   %57 = load ptr, ptr %54, align 8
   %58 = icmp ne ptr %57, null
-  %or.cond25.not = select i1 %56, i1 true, i1 %58
+  %or.cond.not25 = select i1 %56, i1 true, i1 %58
   %59 = load ptr, ptr %1, align 8, !tbaa !83
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = load ptr, ptr %60, align 8
-  br i1 %or.cond25.not, label %63, label %62
+  br i1 %or.cond.not25, label %63, label %62
 
 62:                                               ; preds = %_ZN6duckdb10Serializer24WritePropertyWithDefaultIbEEvtPKcRKT_.exit10
   invoke void %61(ptr noundef nonnull align 8 dereferenceable(680) %1, i16 noundef zeroext 104, ptr noundef nonnull @.str.14, i1 noundef zeroext false)
@@ -2130,7 +2130,7 @@ _ZN6duckdb10Serializer24WritePropertyWithDefaultIbEEvtPKcRKT_.exit10: ; preds = 
   %65 = load ptr, ptr %1, align 8, !tbaa !83
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 40
   %67 = load ptr, ptr %66, align 8
-  invoke void %67(ptr noundef nonnull align 8 dereferenceable(680) %1, i1 noundef zeroext %or.cond25.not)
+  invoke void %67(ptr noundef nonnull align 8 dereferenceable(680) %1, i1 noundef zeroext %or.cond.not25)
           to label %_ZN6duckdb10shared_ptrINS_23ParquetEncryptionConfigELb1EED2Ev.exit unwind label %104
 
 _ZN6duckdb10shared_ptrINS_23ParquetEncryptionConfigELb1EED2Ev.exit: ; preds = %.noexc
