@@ -4984,7 +4984,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb3a027330886b1b5E.exit: ;
   %20 = icmp eq i64 %15, 0
   br i1 %20, label %"_ZN106_$LT$allocator_api2..stable..alloc..global..Global$u20$as$u20$allocator_api2..stable..alloc..Allocator$GT$10deallocate17he5d5389288bbc6faE.exit", label %21
 
-21:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb3a027330886b1b5E.exit
+21:; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb3a027330886b1b5E.exit
   %22 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %23 = sub nsw i64 0, %13
   %24 = getelementptr inbounds i8, ptr %22, i64 %23

@@ -1072,8 +1072,8 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
   %7 = alloca [2048 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %6, i8 noundef 0, i64 noundef 8192, i1 noundef false) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %7, i8 noundef 0, i64 noundef 2048, i1 noundef false) #7
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %6, i8 noundef 0, i64 noundef 8192, i1 noundef false) #6
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %7, i8 noundef 0, i64 noundef 2048, i1 noundef false) #6
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2)
   %9 = add i32 %2, 1
   %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %9)
@@ -1148,59 +1148,59 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
   %41 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %32, i64 noundef %34, i32 noundef 2, i64 noundef %37, ptr noundef nonnull @.str.183, i32 noundef %40)
   %42 = add i32 %41, %.139.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %43 = icmp samesign ult i64 %indvars.iv.next.i, %30
-  %44 = icmp slt i32 %42, 2048
-  %45 = select i1 %43, i1 %44, i1 false
-  br i1 %45, label %.lr.ph.i, label %convert_oid_to_str.exit, !llvm.loop !16
+  %42 = icmp samesign ult i64 %indvars.iv.next.i, %30
+  %43 = icmp slt i32 %42, 2048
+  %44 = select i1 %42, i1 %43, i1 false
+  br i1 %44, label %.lr.ph.i, label %convert_oid_to_str.exit, !llvm.loop !16
 
 convert_oid_to_str.exit:                          ; preds = %.lr.ph.i
   %.not = icmp eq i32 %42, 0
   br i1 %.not, label %convert_oid_to_str.exit.thread, label %convert_oid_to_str.exit.thread58
 
 convert_oid_to_str.exit.thread:                   ; preds = %5, %convert_oid_to_str.exit
-  %46 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 2048, i32 noundef 2, i64 noundef 2048, ptr noundef nonnull @.str.175)
+  %45 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 2048, i32 noundef 2, i64 noundef 2048, ptr noundef nonnull @.str.175)
   br label %convert_oid_to_str.exit.thread58
 
 convert_oid_to_str.exit.thread58:                 ; preds = %26, %convert_oid_to_str.exit.thread, %convert_oid_to_str.exit
   %.not53 = icmp eq ptr %1, null
-  br i1 %.not53, label %67, label %47
+  br i1 %.not53, label %66, label %46
 
-47:                                               ; preds = %convert_oid_to_str.exit.thread58
+46:                                               ; preds = %convert_oid_to_str.exit.thread58
   %.not54 = icmp eq i8 %12, 0
-  %48 = select i1 %.not54, ptr @.str.178, ptr @.str.177
+  %47 = select i1 %.not54, ptr @.str.178, ptr @.str.177
   switch i32 %4, label %50 [
-    i32 0, label %51
-    i32 1, label %49
+    i32 0, label %50
+    i32 1, label %48
   ]
 
-49:                                               ; preds = %47
-  br label %51
+48:                                               ; preds = %46
+  br label %50
 
-50:                                               ; preds = %47
-  br label %51
+49:                                               ; preds = %46
+  br label %50
 
-51:                                               ; preds = %47, %50, %49
+50:                                               ; preds = %46, %49, %48
   %.048 = phi ptr [ @.str.176, %50 ], [ @.str.180, %49 ], [ @.str.179, %47 ]
-  %.0 = phi ptr [ @.str.176, %50 ], [ %48, %49 ], [ %48, %47 ]
-  %52 = shl nuw nsw i32 %15, 2
-  %53 = add nuw nsw i32 %52, 4
-  %54 = load i32, ptr @ett_obj_ident, align 4
-  %55 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %2, i32 noundef %53, i32 noundef %54, ptr noundef null, ptr noundef nonnull @.str.181, ptr noundef nonnull %.048, ptr noundef nonnull %7, ptr noundef nonnull %.0)
-  %56 = load i32, ptr @hf_oid_sub, align 4
-  %57 = call ptr @proto_tree_add_uint(ptr noundef %55, i32 noundef %56, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef %15)
-  %58 = load i32, ptr @hf_oid_prefix, align 4
-  %59 = zext i8 %10 to i32
-  %60 = call ptr @proto_tree_add_uint(ptr noundef %55, i32 noundef %58, ptr noundef %0, i32 noundef %9, i32 noundef 1, i32 noundef %59)
-  %61 = load i32, ptr @hf_oid_include, align 4
-  %62 = zext i8 %12 to i64
-  %63 = call ptr @proto_tree_add_boolean(ptr noundef %55, i32 noundef %61, ptr noundef %0, i32 noundef %11, i32 noundef 1, i64 noundef %62)
-  %64 = load i32, ptr @hf_oid_str, align 4
-  %65 = add i32 %2, 4
-  %66 = call ptr @proto_tree_add_string(ptr noundef %55, i32 noundef %64, ptr noundef %0, i32 noundef %65, i32 noundef %52, ptr noundef nonnull %7)
-  br label %67
+  %.0 = phi ptr [ @.str.176, %50 ], [ %47, %49 ], [ %48, %47 ]
+  %51 = shl nuw nsw i32 %15, 2
+  %52 = add nuw nsw i32 %51, 4
+  %53 = load i32, ptr @ett_obj_ident, align 4
+  %54 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %2, i32 noundef %52, i32 noundef %53, ptr noundef null, ptr noundef nonnull @.str.181, ptr noundef nonnull %.048, ptr noundef nonnull %7, ptr noundef nonnull %.0)
+  %55 = load i32, ptr @hf_oid_sub, align 4
+  %56 = call ptr @proto_tree_add_uint(ptr noundef %54, i32 noundef %55, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef %15)
+  %57 = load i32, ptr @hf_oid_prefix, align 4
+  %58 = zext i8 %10 to i32
+  %59 = call ptr @proto_tree_add_uint(ptr noundef %54, i32 noundef %57, ptr noundef %0, i32 noundef %9, i32 noundef 1, i32 noundef %58)
+  %60 = load i32, ptr @hf_oid_include, align 4
+  %61 = zext i8 %12 to i64
+  %62 = call ptr @proto_tree_add_boolean(ptr noundef %54, i32 noundef %60, ptr noundef %0, i32 noundef %11, i32 noundef 1, i64 noundef %61)
+  %63 = load i32, ptr @hf_oid_str, align 4
+  %64 = add i32 %2, 4
+  %65 = call ptr @proto_tree_add_string(ptr noundef %54, i32 noundef %63, ptr noundef %0, i32 noundef %64, i32 noundef %51, ptr noundef nonnull %7)
+  br label %66
 
-67:                                               ; preds = %convert_oid_to_str.exit.thread58, %51
-  %.050 = phi i32 [ %53, %51 ], [ %2, %convert_oid_to_str.exit.thread58 ]
+66:                                               ; preds = %convert_oid_to_str.exit.thread58, %50
+  %.050 = phi i32 [ %52, %51 ], [ %2, %convert_oid_to_str.exit.thread58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.050

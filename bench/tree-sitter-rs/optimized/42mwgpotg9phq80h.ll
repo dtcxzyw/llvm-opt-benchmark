@@ -2868,11 +2868,11 @@ define hidden void @_ZN5alloc11collections5btree3mem7replace17hdb78cf47100d07aeE
   %8 = add nuw nsw i64 %.sroa.6.0.lcssa.i.i, 1
   br i1 %.not.i.not.i.i.i, label %"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$27deallocating_next_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h95d8c890bf89c71dE.llvm.10840908634243202882.exit", label %9
 
-9:                                                ; preds = %._crit_edge.i.i
+9:; preds = %._crit_edge.i.i
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.i.i, i64 544
   %11 = icmp samesign ult i64 %.sroa.6.0.lcssa.i.i, 11
   tail call void @llvm.assume(i1 %11)
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %8
   %13 = load ptr, ptr %12, align 8, !noalias !706, !nonnull !12, !noundef !12
   %14 = add i64 %.sroa.5.0.lcssa.i.i, -1
   %.not11.i.i.i.i = icmp eq i64 %14, 0
@@ -3000,11 +3000,11 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %12 = add nuw nsw i64 %.sroa.6.0.lcssa, 1
   br i1 %.not.i.not.i, label %"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17h68628787b784317aE.exit", label %13
 
-13:                                               ; preds = %._crit_edge
+13:; preds = %._crit_edge
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 544
   %15 = icmp samesign ult i64 %.sroa.6.0.lcssa, 11
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %12
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %12
   %17 = load ptr, ptr %16, align 8, !noalias !725, !nonnull !12, !noundef !12
   %18 = add i64 %.sroa.5.0.lcssa, -1
   %.not11.i.i = icmp eq i64 %18, 0
@@ -3088,14 +3088,14 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %.sroa.5.0.lcssa.i = phi i64 [ %4, %2 ], [ %25, %._crit_edge.loopexit.i ]
   %.sroa.0.0.lcssa.i = phi ptr [ %5, %2 ], [ %22, %._crit_edge.loopexit.i ]
   %.not.i.not.i.i = icmp eq i64 %.sroa.5.0.lcssa.i, 0
-  %12 = add nuw nsw i64 %.sroa.6.0.lcssa.i, 1
+  %11 = add nuw nsw i64 %.sroa.6.0.lcssa.i, 1
   br i1 %.not.i.not.i.i, label %.loopexit, label %13
 
-13:                                               ; preds = %._crit_edge.i
+13:; preds = %._crit_edge.i
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa.i, i64 544
   %15 = icmp samesign ult i64 %.sroa.6.0.lcssa.i, 11
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %12
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %12
   %17 = load ptr, ptr %16, align 8, !noalias !744, !nonnull !12, !noundef !12
   %18 = add i64 %.sroa.5.0.lcssa.i, -1
   %.not11.i.i.i = icmp eq i64 %18, 0

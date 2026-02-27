@@ -1209,11 +1209,11 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %12 = add nuw nsw i64 %.sroa.6.0.lcssa, 1
   br i1 %.not.i.not.i, label %"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17h9d90bc93199ec4bcE.exit", label %13
 
-13:                                               ; preds = %._crit_edge
+13:; preds = %._crit_edge
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 808
   %15 = icmp samesign ult i64 %.sroa.6.0.lcssa, 11
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %12
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %12
   %17 = load ptr, ptr %16, align 8, !noalias !208, !nonnull !11, !noundef !11
   %18 = add i64 %.sroa.5.0.lcssa, -1
   %.not11.i.i = icmp eq i64 %18, 0
@@ -1300,11 +1300,11 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %12 = add nuw nsw i64 %.sroa.6.0.lcssa, 1
   br i1 %.not.i.not.i, label %"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17h36666cdcac50dfebE.exit", label %13
 
-13:                                               ; preds = %._crit_edge
+13:; preds = %._crit_edge
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 192
   %15 = icmp samesign ult i64 %.sroa.6.0.lcssa, 11
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %12
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %12
   %17 = load ptr, ptr %16, align 8, !noalias !221, !nonnull !11, !noundef !11
   %18 = add i64 %.sroa.5.0.lcssa, -1
   %.not11.i.i = icmp eq i64 %18, 0

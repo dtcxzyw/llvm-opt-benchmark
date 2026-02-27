@@ -17940,15 +17940,15 @@ define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..o
   %15 = icmp ult i64 %8, -9223372036854775807
   tail call void @llvm.assume(i1 %15)
   %16 = icmp eq i64 %14, 0
-  br i1 %16, label %18, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.8351105841907204142.exit"
+  br i1 %16, label %17, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.8351105841907204142.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.8351105841907204142.exit": ; preds = %1
   %17 = icmp sgt i64 %9, -1
   tail call void @llvm.assume(i1 %17)
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %14, i64 noundef %8) #17
-  br label %18
+  br label %17
 
-18:                                               ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.8351105841907204142.exit"
+17:                                               ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.8351105841907204142.exit"
   ret void
 }
 
@@ -17991,15 +17991,15 @@ define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..o
   %15 = icmp ult i64 %8, -9223372036854775807
   tail call void @llvm.assume(i1 %15)
   %16 = icmp eq i64 %14, 0
-  br i1 %16, label %18, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.8351105841907204142.exit"
+  br i1 %16, label %17, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.8351105841907204142.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.8351105841907204142.exit": ; preds = %1
   %17 = icmp sgt i64 %9, -1
   tail call void @llvm.assume(i1 %17)
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %14, i64 noundef %8) #17
-  br label %18
+  br label %17
 
-18:                                               ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.8351105841907204142.exit"
+17:                                               ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.8351105841907204142.exit"
   ret void
 }
 
@@ -18021,15 +18021,15 @@ define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..o
   %15 = icmp ult i64 %8, -9223372036854775807
   tail call void @llvm.assume(i1 %15)
   %16 = icmp eq i64 %14, 0
-  br i1 %16, label %18, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.8351105841907204142.exit"
+  br i1 %16, label %17, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.8351105841907204142.exit"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.8351105841907204142.exit": ; preds = %1
   %17 = icmp sgt i64 %9, -1
   tail call void @llvm.assume(i1 %17)
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %14, i64 noundef %8) #17
-  br label %18
+  br label %17
 
-18:                                               ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.8351105841907204142.exit"
+17:                                               ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.8351105841907204142.exit"
   ret void
 }
 

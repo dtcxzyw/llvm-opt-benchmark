@@ -7102,8 +7102,8 @@ define internal fastcc void @"_ZN4core3ptr93drop_in_place$LT$alloc..boxed..Box$L
           cleanup
   %14 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %14)
-  %15 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
-  %16 = load i64, ptr %15, align 8, !range !606, !invariant.load !4
+  %16 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
+  %17 = load i64, ptr %16, align 8, !range !606, !invariant.load !4
   %17 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
   %18 = load i64, ptr %17, align 8, !range !607, !invariant.load !4
   %19 = icmp ult i64 %18, -9223372036854775807

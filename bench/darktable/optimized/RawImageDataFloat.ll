@@ -401,29 +401,29 @@ _ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_O
   br i1 %exitcond230.not, label %104, label %108, !llvm.loop !113
 
 .lr.ph205:                                        ; preds = %.lr.ph201
-  %116 = add nsw i32 %119, 2
-  %117 = ashr i32 %116, 2
-  br label %120
+  %115 = add nsw i32 %118, 2
+  %116 = ashr i32 %115, 2
+  br label %119
 
 .lr.ph201:                                        ; preds = %104, %.lr.ph201
   %.066199.idx = phi i64 [ %.066199.add, %.lr.ph201 ], [ 100, %104 ]
-  %.068198 = phi i32 [ %119, %.lr.ph201 ], [ 0, %104 ]
+  %.068198 = phi i32 [ %118, %.lr.ph201 ], [ 0, %104 ]
   %.066199.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.066199.idx
-  %118 = load i32, ptr %.066199.ptr, align 4, !tbaa !106
-  %119 = add nsw i32 %118, %.068198
+  %117 = load i32, ptr %.066199.ptr, align 4, !tbaa !106
+  %118 = add nsw i32 %117, %.068198
   %.066199.add = add nuw nsw i64 %.066199.idx, 4
   %.not75 = icmp eq i64 %.066199.add, 116
   br i1 %.not75, label %.lr.ph205, label %.lr.ph201
 
-120:                                              ; preds = %.lr.ph205, %120
+119:                                              ; preds = %.lr.ph205, %119
   %.063204.idx = phi i64 [ 100, %.lr.ph205 ], [ %.063204.add, %120 ]
   %.063204.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.063204.idx
-  store i32 %117, ptr %.063204.ptr, align 4, !tbaa !106
+  store i32 %116, ptr %.063204.ptr, align 4, !tbaa !106
   %.063204.add = add nuw nsw i64 %.063204.idx, 4
   %.not76 = icmp eq i64 %.063204.add, 116
-  br i1 %.not76, label %.loopexit, label %120
+  br i1 %.not76, label %.loopexit, label %119
 
-.loopexit:                                        ; preds = %120, %100, %104
+.loopexit:                                        ; preds = %119, %100, %104
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }

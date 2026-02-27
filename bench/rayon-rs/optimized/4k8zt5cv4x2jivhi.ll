@@ -63,21 +63,21 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h2c83d87f31
   %5 = inttoptr i64 %4 to ptr
   %6 = icmp ne i64 %4, 0
   tail call void @llvm.assume(i1 %6)
-  %7 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
+  %8 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %7, ptr %2, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %9, ptr %10, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %9, ptr %9, align 8
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h14fcd6ddb83fe083E.llvm.9679142966780209040"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
-          to label %"_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h389c90f79e7d37dcE.exit" unwind label %11
+          to label %"_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h389c90f79e7d37dcE.exit" unwind label %10
 
-11:                                               ; preds = %1
-  %12 = landingpad { ptr, i32 }
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
           cleanup
   call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef 16, i64 noundef 8) #19
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %11
 
 "_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h389c90f79e7d37dcE.exit": ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -93,25 +93,25 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h94c2fe8421
   %5 = and i64 %4, -8
   %6 = inttoptr i64 %5 to ptr
   %7 = icmp ne i64 %5, 0
-  tail call void @llvm.assume(i1 %7)
-  %8 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
+  tail call void @llvm.assume(i1 %8)
+  %9 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %8, ptr %2, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %10, ptr %11, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %9, ptr %10, align 8
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h14fcd6ddb83fe083E.llvm.9679142966780209040"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
-          to label %14 unwind label %12
+          to label %13 unwind label %11
 
-12:                                               ; preds = %1
-  %13 = landingpad { ptr, i32 }
+11:                                               ; preds = %1
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 16, i64 noundef 8) #19
   call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef 8, i64 noundef 8) #19
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %12
 
-14:                                               ; preds = %1
+13:                                               ; preds = %1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 16, i64 noundef 8) #19
   call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef 8, i64 noundef 8) #19
@@ -699,40 +699,40 @@ _ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.3707938170552112821.
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.3707938170552112821(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #4 {
   %5 = icmp eq i64 %2, 0
-  br i1 %5, label %6, label %11
+  br i1 %5, label %6, label %10
 
 6:                                                ; preds = %4
   %7 = add i64 %1, -1
   %8 = icmp sgt i64 %7, -1
   tail call void @llvm.assume(i1 %8)
   %9 = inttoptr i64 %1 to ptr
-  %10 = icmp ne i64 %1, 0
+  %9 = icmp ne i64 %1, 0
   tail call void @llvm.assume(i1 %10)
   br label %12
 
-11:                                               ; preds = %4
-  br i1 %3, label %20, label %15
+10:                                               ; preds = %4
+  br i1 %3, label %19, label %14
 
-12:                                               ; preds = %15, %20, %6
-  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %23, %20 ], [ %19, %15 ]
-  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
-  %14 = insertvalue { ptr, i64 } %13, i64 %2, 1
-  ret { ptr, i64 } %14
+11:                                               ; preds = %14, %19, %6
+  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %22, %20 ], [ %18, %15 ]
+  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
+  %13 = insertvalue { ptr, i64 } %12, i64 %2, 1
+  ret { ptr, i64 } %13
 
-15:                                               ; preds = %11
-  %16 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %17 = add i64 %1, -1
-  %18 = icmp sgt i64 %17, -1
-  tail call void @llvm.assume(i1 %18)
-  %19 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #19
-  br label %12
+14:                                               ; preds = %10
+  %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %16 = add i64 %1, -1
+  %17 = icmp sgt i64 %16, -1
+  tail call void @llvm.assume(i1 %17)
+  %18 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #19
+  br label %11
 
-20:                                               ; preds = %11
-  %21 = add i64 %1, -1
-  %22 = icmp sgt i64 %21, -1
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #19
-  br label %12
+19:                                               ; preds = %10
+  %20 = add i64 %1, -1
+  %21 = icmp sgt i64 %20, -1
+  tail call void @llvm.assume(i1 %21)
+  %22 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #19
+  br label %11
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable

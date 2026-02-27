@@ -456,11 +456,11 @@ define hidden void @"_ZN4core3ptr206drop_in_place$LT$alloc..rc..Weak$LT$core..ce
   %28 = icmp eq i64 %26, 0
   br i1 %28, label %"_ZN70_$LT$alloc..rc..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h06900f0b70c28d96E.exit", label %29
 
-29:                                               ; preds = %9
+28:                                               ; preds = %9
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef %26, i64 noundef range(i64 1, -9223372036854775807) %19) #13
   br label %"_ZN70_$LT$alloc..rc..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h06900f0b70c28d96E.exit"
 
-"_ZN70_$LT$alloc..rc..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h06900f0b70c28d96E.exit": ; preds = %1, %4, %9, %29
+"_ZN70_$LT$alloc..rc..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h06900f0b70c28d96E.exit": ; preds = %1, %4, %9, %28
   ret void
 }
 

@@ -876,9 +876,9 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.exit: ; p
   tail call void @llvm.experimental.noalias.scope.decl(metadata !175)
   %.val11.i = load ptr, ptr %0, align 8, !alias.scope !175
   %.not5.i.i = icmp eq i64 %15, 0
-  br i1 %.not5.i.i, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h050e4510560d0497E.exit.thread18.i, label %.lr.ph.i.i
+  br i1 %.not5.i.i, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h050e4510560d0497E.exit.thread19.i, label %.lr.ph.i.i
 
-_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h050e4510560d0497E.exit.thread18.i: ; preds = %130
+_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h050e4510560d0497E.exit.thread19.i: ; preds = %130
   %131 = icmp ne ptr %.val11.i, null
   tail call void @llvm.assume(i1 %131)
   br label %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h3136a4fc5ae63fadE.exit
@@ -894,10 +894,10 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h050e4510560d0497E.ex
   br label %137
 
 ._crit_edge.i.i:                                  ; preds = %137
-  %..i = tail call i64 @llvm.umax.i64(i64 %15, i64 16)
-  %.24.i = tail call i64 @llvm.umin.i64(i64 %15, i64 16)
-  %136 = getelementptr inbounds i8, ptr %.val11.i, i64 %..i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %136, ptr nonnull align 1 %.val11.i, i64 %.24.i, i1 false), !noalias !175
+  %spec.select.i = tail call i64 @llvm.umax.i64(i64 %15, i64 16)
+  %spec.select25.i = tail call i64 @llvm.umin.i64(i64 %15, i64 16)
+  %136 = getelementptr inbounds i8, ptr %.val11.i, i64 %spec.select.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %136, ptr nonnull align 1 %.val11.i, i64 %spec.select25.i, i1 false), !noalias !175
   br label %144
 
 137:                                              ; preds = %137, %.lr.ph.i.i
@@ -1040,7 +1040,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.exit.i: ;
   %exitcond.not.i = icmp eq i64 %.sroa.0.08.i, %13
   br i1 %exitcond.not.i, label %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h3136a4fc5ae63fadE.exit, label %144
 
-_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h3136a4fc5ae63fadE.exit: ; preds = %210, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h050e4510560d0497E.exit.thread18.i
+_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h3136a4fc5ae63fadE.exit: ; preds = %210, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h050e4510560d0497E.exit.thread19.i
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %212 = sub i64 %.sroa.03.0.i, %7
   store i64 %212, ptr %211, align 8, !alias.scope !175

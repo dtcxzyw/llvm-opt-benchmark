@@ -8335,10 +8335,10 @@ define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hf23e6a0ec42f607
   tail call void @llvm.assume(i1 %10)
   br label %12
 
-11:                                               ; preds = %4
+14:                                               ; preds = %4
   br i1 %3, label %20, label %15
 
-12:                                               ; preds = %15, %20, %6
+12:; preds = %15, %19, %6
   %.sroa.05.0 = phi ptr [ %9, %6 ], [ %23, %20 ], [ %19, %15 ]
   %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %2, 1
@@ -8352,11 +8352,11 @@ define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hf23e6a0ec42f607
   %19 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #46
   br label %12
 
-20:                                               ; preds = %11
-  %21 = add i64 %1, -1
-  %22 = icmp sgt i64 %21, -1
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #46
+19:                                               ; preds = %11
+  %20 = add i64 %1, -1
+  %21 = icmp sgt i64 %20, -1
+  tail call void @llvm.assume(i1 %21)
+  %22 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #46
   br label %12
 }
 

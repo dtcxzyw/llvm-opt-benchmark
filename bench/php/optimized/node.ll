@@ -6367,7 +6367,7 @@ instanceof_function.exit:                         ; preds = %14
   %.0168 = phi ptr [ null, %7 ], [ %9, %20 ], [ %9, %.thread ]
   %.0 = phi i32 [ 0, %7 ], [ 1, %20 ], [ 1, %.thread ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.0171, i32 noundef %.0, ptr noundef %.0170, i32 noundef %.0169, ptr noundef %.0168) #11
-  br label %153
+  br label %151
 
 .critedge:                                        ; preds = %14, %instanceof_function.exit, %13
   %25 = load ptr, ptr %4, align 8, !tbaa !9
@@ -6383,7 +6383,7 @@ instanceof_function.exit:                         ; preds = %14
   %33 = load ptr, ptr %32, align 8, !tbaa !64
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef nonnull %34) #11
-  br label %153
+  br label %151
 
 35:                                               ; preds = %.critedge
   %36 = load ptr, ptr %27, align 8, !tbaa !76
@@ -6400,7 +6400,7 @@ instanceof_function.exit:                         ; preds = %14
   %45 = load ptr, ptr %44, align 8, !tbaa !64
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.11, ptr noundef nonnull %46) #11
-  br label %153
+  br label %151
 
 47:                                               ; preds = %35
   %48 = load ptr, ptr %39, align 8, !tbaa !76
@@ -6411,7 +6411,7 @@ instanceof_function.exit:                         ; preds = %14
   store i64 0, ptr %1, align 8, !tbaa !9
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %51, align 8, !tbaa !9
-  br label %153
+  br label %151
 
 52:                                               ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -6463,7 +6463,7 @@ instanceof_function.exit:                         ; preds = %14
   store i64 34, ptr %1, align 8, !tbaa !9
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %75, align 8, !tbaa !9
-  br label %153
+  br label %151
 
 76:                                               ; preds = %.lr.ph
   %77 = tail call fastcc zeroext i1 @php_dom_is_equal_attr(ptr noundef %.0189228, ptr noundef %36)
@@ -6473,7 +6473,7 @@ instanceof_function.exit:                         ; preds = %14
   store i64 36, ptr %1, align 8, !tbaa !9
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %79, align 8, !tbaa !9
-  br label %153
+  br label %151
 
 .critedge215:                                     ; preds = %71, %69, %63, %59
   %.0190 = phi ptr [ %36, %63 ], [ null, %59 ], [ %36, %69 ], [ %36, %71 ]
@@ -6481,7 +6481,7 @@ instanceof_function.exit:                         ; preds = %14
   %80 = icmp eq ptr %.0183, null
   %81 = icmp eq ptr %.0185, null
   %or.cond4 = select i1 %80, i1 true, i1 %81
-  br i1 %or.cond4, label %144, label %.preheader224
+  br i1 %or.cond4, label %142, label %.preheader224
 
 .preheader224:                                    ; preds = %.critedge215
   %82 = getelementptr inbounds nuw i8, ptr %.0183, i64 40
@@ -6527,7 +6527,7 @@ instanceof_function.exit:                         ; preds = %14
   %.0174.lcssa = phi i64 [ 0, %.preheader223 ], [ %93, %.lr.ph238 ]
   %.0173.lcssa = phi ptr [ %.0185, %.preheader223 ], [ %91, %.lr.ph238 ]
   %.not210 = icmp eq ptr %.0178.lcssa, %.0173.lcssa
-  br i1 %.not210, label %96, label %144
+  br i1 %.not210, label %96, label %142
 
 96:                                               ; preds = %._crit_edge
   %97 = icmp eq ptr %.0191, null
@@ -6544,7 +6544,7 @@ instanceof_function.exit:                         ; preds = %14
   store i64 10, ptr %1, align 8, !tbaa !9
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %102, align 8, !tbaa !9
-  br label %153
+  br label %151
 
 103:                                              ; preds = %98
   %104 = icmp eq ptr %.0190, null
@@ -6560,7 +6560,7 @@ instanceof_function.exit:                         ; preds = %14
   store i64 20, ptr %1, align 8, !tbaa !9
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %108, align 8, !tbaa !9
-  br label %153
+  br label %151
 
 109:                                              ; preds = %105
   br i1 %.0176.lcssa, label %110, label %112
@@ -6570,7 +6570,7 @@ instanceof_function.exit:                         ; preds = %14
   store i64 2, ptr %1, align 8, !tbaa !9
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %111, align 8, !tbaa !9
-  br label %153
+  br label %151
 
 112:                                              ; preds = %109
   br i1 %.0181.lcssa, label %113, label %115
@@ -6580,7 +6580,7 @@ instanceof_function.exit:                         ; preds = %14
   store i64 4, ptr %1, align 8, !tbaa !9
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %114, align 8, !tbaa !9
-  br label %153
+  br label %151
 
 115:                                              ; preds = %112
   %116 = icmp ugt i64 %.0179.lcssa, %.0174.lcssa
@@ -6632,7 +6632,7 @@ instanceof_function.exit:                         ; preds = %14
   tail call void @llvm.assume(i1 %134)
   br label %135
 
-135:                                              ; preds = %141, %131
+135:   ; preds = %139, %131
   %.4 = phi ptr [ %.3, %131 ], [ %137, %141 ]
   %136 = getelementptr inbounds nuw i8, ptr %.4, i64 48
   %137 = load ptr, ptr %136, align 8, !tbaa !45
@@ -6641,42 +6641,42 @@ instanceof_function.exit:                         ; preds = %14
 
 139:                                              ; preds = %135
   store i64 2, ptr %1, align 8, !tbaa !9
-  %140 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 4, ptr %140, align 8, !tbaa !9
-  br label %153
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 4, ptr %138, align 8, !tbaa !9
+  br label %151
 
-141:                                              ; preds = %135
+139:                                              ; preds = %135
   %.not212 = icmp eq ptr %137, null
-  br i1 %.not212, label %142, label %135
+  br i1 %.not212, label %140, label %135
 
-142:                                              ; preds = %141
+140:                                              ; preds = %139
   store i64 4, ptr %1, align 8, !tbaa !9
-  %143 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 4, ptr %143, align 8, !tbaa !9
-  br label %153
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 4, ptr %141, align 8, !tbaa !9
+  br label %151
 
-144:                                              ; preds = %._crit_edge, %.critedge215
-  %145 = icmp eq ptr %.0183, %.0185
-  br i1 %145, label %146, label %148
+142:                                              ; preds = %._crit_edge, %.critedge215
+  %143 = icmp eq ptr %.0183, %.0185
+  br i1 %143, label %144, label %146
 
-146:                                              ; preds = %144
+144:                                              ; preds = %142
   tail call void @llvm.assume(i1 %80)
-  %147 = icmp ult ptr %37, %25
-  br label %150
+  %145 = icmp ult ptr %37, %25
+  br label %148
 
-148:                                              ; preds = %144
-  %149 = icmp ult ptr %.0183, %.0185
-  br label %150
+146:                                              ; preds = %142
+  %147 = icmp ult ptr %.0183, %.0185
+  br label %148
 
-150:                                              ; preds = %148, %146
-  %.sink = phi i1 [ %149, %148 ], [ %147, %146 ]
-  %151 = select i1 %.sink, i64 35, i64 37
-  store i64 %151, ptr %1, align 8, !tbaa !9
-  %152 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 4, ptr %152, align 8, !tbaa !9
-  br label %153
+148:                                              ; preds = %146, %144
+  %.sink = phi i1 [ %147, %148 ], [ %145, %146 ]
+  %149 = select i1 %.sink, i64 35, i64 37
+  store i64 %149, ptr %1, align 8, !tbaa !9
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 4, ptr %150, align 8, !tbaa !9
+  br label %151
 
-153:                                              ; preds = %74, %78, %24, %101, %107, %110, %113, %139, %142, %150, %50, %41, %29
+151:                                              ; preds = %74, %78, %24, %101, %107, %110, %113, %139, %140, %148, %50, %41, %29
   ret void
 }
 

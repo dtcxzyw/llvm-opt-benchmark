@@ -6383,7 +6383,7 @@ define hidden noundef zeroext i1 @_ZN18tracing_subscriber6filter3env9EnvFilter7e
   %13 = load i64, ptr %1, align 8, !range !457
   %14 = icmp samesign ult i64 %13, %12
   %or.cond = select i1 %.not25, i1 true, i1 %14
-  br i1 %or.cond, label %.critedge30, label %72
+  br i1 %or.cond, label %.critedge30, label %74
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -6504,11 +6504,11 @@ _ZN3std3sys4sync6rwlock5futex6RwLock4read17h71ab566576a387feE.exit: ; preds = %3
   %69 = icmp eq i64 %67, 0
   br i1 %69, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %60
+.lr.ph.preheader:; preds = %60
   %.sroa.019.143 = getelementptr inbounds nuw i8, ptr %65, i64 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge32
+.lr.ph:; preds = %.lr.ph.preheader, %76
   %.sroa.019.145 = phi ptr [ %.sroa.019.1, %.critedge32 ], [ %.sroa.019.143, %.lr.ph.preheader ]
   %.sroa.019.044 = phi ptr [ %.sroa.019.145, %.critedge32 ], [ %65, %.lr.ph.preheader ]
   %70 = load i64, ptr %.sroa.019.044, align 8, !range !456, !noundef !4
@@ -6522,15 +6522,15 @@ _ZN3std3sys4sync6rwlock5futex6RwLock4read17h71ab566576a387feE.exit: ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
-72:                                               ; preds = %.critedge
-  %73 = call noundef zeroext i1 @"_ZN18tracing_subscriber6filter9directive74DirectiveSet$LT$tracing_subscriber..filter..directive..StaticDirective$GT$7enabled17hd44d965863307517E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(464) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1)
+74:                                               ; preds = %.critedge
+  %75 = call noundef zeroext i1 @"_ZN18tracing_subscriber6filter9directive74DirectiveSet$LT$tracing_subscriber..filter..directive..StaticDirective$GT$7enabled17hd44d965863307517E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(464) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1)
   br label %.critedge30
 
-.critedge30:                                      ; preds = %58, %.critedge, %75, %72
-  %.sroa.0.0 = phi i1 [ true, %58 ], [ true, %75 ], [ %73, %72 ], [ false, %.critedge ]
+.critedge30:                                      ; preds = %58, %.critedge, %75, %74
+  %.sroa.0.0 = phi i1 [ true, %58 ], [ true, %75 ], [ %75, %72 ], [ false, %.critedge ]
   ret i1 %.sroa.0.0
 
-.critedge32:                                      ; preds = %.lr.ph
+76:                                               ; preds = %.lr.ph
   %74 = icmp eq ptr %.sroa.019.145, %68
   %.sroa.019.1.idx = select i1 %74, i64 0, i64 8
   %.sroa.019.1 = getelementptr inbounds nuw i8, ptr %.sroa.019.145, i64 %.sroa.019.1.idx

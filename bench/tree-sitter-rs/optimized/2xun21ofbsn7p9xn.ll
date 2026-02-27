@@ -781,10 +781,10 @@ _ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h11ac1c8566f75df4E.exit
   br label %151
 
 ._crit_edge.i.i10:                                ; preds = %151
-  %..i = tail call i64 @llvm.umax.i64(i64 %22, i64 16)
-  %.63.i = tail call i64 @llvm.umin.i64(i64 %22, i64 16)
-  %150 = getelementptr inbounds i8, ptr %.val18.i, i64 %..i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %150, ptr nonnull align 1 %.val18.i, i64 %.63.i, i1 false), !noalias !103
+  %spec.select.i = tail call i64 @llvm.umax.i64(i64 %22, i64 16)
+  %spec.select64.i = tail call i64 @llvm.umin.i64(i64 %22, i64 16)
+  %150 = getelementptr inbounds i8, ptr %.val18.i, i64 %spec.select.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %150, ptr nonnull align 1 %.val18.i, i64 %spec.select64.i, i1 false), !noalias !103
   br label %168
 
 151:                                              ; preds = %151, %.lr.ph.i.i9

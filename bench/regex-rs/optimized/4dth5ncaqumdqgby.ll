@@ -4150,9 +4150,9 @@ define internal fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17
   %.val19 = load i64, ptr %5, align 8, !noundef !5
   %6 = add i64 %.val19, 1
   %.not.not4.i = icmp eq i64 %6, 0
-  br i1 %.not.not4.i, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread22, label %.lr.ph.i
+  br i1 %.not.not4.i, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread23, label %.lr.ph.i
 
-_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread22: ; preds = %3
+_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread23: ; preds = %3
   %7 = icmp ne ptr %.val18, null
   tail call void @llvm.assume(i1 %7)
   %8 = getelementptr inbounds nuw i8, ptr %.val18, i64 16
@@ -4210,7 +4210,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.ex
   %26 = mul nuw i64 %25, 7
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread22, %._crit_edge.loopexit
+._crit_edge:                                      ; preds = %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread23, %._crit_edge.loopexit
   %.pre-phi = phi i64 [ %26, %._crit_edge.loopexit ], [ 0, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread22 ]
   %27 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ -1, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h17c5779ca74bbe5fE.exit.thread22 ]
   %28 = icmp ult i64 %27, 8
