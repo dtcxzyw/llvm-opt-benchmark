@@ -1117,7 +1117,7 @@ define void @_ZN10Parameters9randomDirEiPdd(ptr noundef nonnull readnone align 8
   br i1 %exitcond.not, label %.lr.ph25.preheader, label %.lr.ph, !llvm.loop !15
 
 .lr.ph25.preheader:                               ; preds = %.lr.ph
-  %12 = tail call double @sqrt(double noundef %11) #27
+  %12 = tail call double @llvm.sqrt.f64(double %11)
   %13 = fdiv double %3, %12
   %wide.trip.count31 = zext nneg i32 %1 to i64
   br label %.lr.ph25
@@ -1160,7 +1160,7 @@ define void @_ZN10Parameters6rattleEd(ptr noundef nonnull align 8 captures(none)
   br i1 %exitcond.not.i, label %.lr.ph25.preheader.i, label %.lr.ph.i, !llvm.loop !15
 
 .lr.ph25.preheader.i:                             ; preds = %.lr.ph.i
-  %13 = tail call double @sqrt(double noundef %12) #27
+  %13 = tail call double @llvm.sqrt.f64(double %12)
   %14 = fdiv double %1, %13
   br label %.lr.ph25.i
 
@@ -4168,6 +4168,9 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #23
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
