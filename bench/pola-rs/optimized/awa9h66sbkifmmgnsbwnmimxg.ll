@@ -42073,13 +42073,13 @@ define internal void @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h5e04ba5e
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %"_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h84ae5351433ece02E.exit", label %9
 
-9:                                                ; preds = %1
-  %10 = load ptr, ptr %4, align 8, !nonnull !6, !noundef !6
-  %11 = shl nuw nsw i64 %7, 4
-  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %10, i64 noundef range(i64 1, -9223372036854775808) %11, i64 noundef 8) #33
+8:                                                ; preds = %1
+  %9 = load ptr, ptr %4, align 8, !nonnull !6, !noundef !6
+  %10 = shl nuw nsw i64 %7, 4
+  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %9, i64 noundef range(i64 1, -9223372036854775808) %10, i64 noundef 8) #33
   br label %"_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h84ae5351433ece02E.exit"
 
-"_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h84ae5351433ece02E.exit": ; preds = %1, %9
+"_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h84ae5351433ece02E.exit": ; preds = %1, %8
   tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %4, i64 noundef 16, i64 noundef 8) #33
   ret void
 }

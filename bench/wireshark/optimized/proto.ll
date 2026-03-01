@@ -35353,7 +35353,7 @@ proto_item_set_generated.exit:                    ; preds = %36, %39, %42
   %73 = tail call ptr @proto_tree_add_bytes(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef %2, i32 noundef %72, ptr noundef %70)
   %74 = and i32 %9, 1
   %.not124 = icmp eq i32 %74, 0
-  br i1 %.not124, label %135, label %75
+  br i1 %.not124, label %134, label %75
 
 75:                                               ; preds = %67
   %76 = and i32 %9, 12
@@ -35465,7 +35465,7 @@ proto_item_set_generated.exit153:                 ; preds = %106, %103, %101, %.
 ._crit_edge:                                      ; preds = %.lr.ph, %115
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %73, ptr noundef nonnull @.str.199, ptr noundef %121)
   %.not131 = icmp eq ptr %5, null
-  br i1 %.not131, label %proto_item_set_generated.exit141, label %132
+  br i1 %.not131, label %proto_item_set_generated.exit141, label %131
 
 .lr.ph:                                           ; preds = %115, %.lr.ph
   %.0158 = phi i64 [ %131, %.lr.ph ], [ 0, %115 ]
@@ -35483,35 +35483,35 @@ proto_item_set_generated.exit153:                 ; preds = %106, %103, %101, %.
   %exitcond.not = icmp eq i64 %131, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
 
-132:                                              ; preds = %._crit_edge
-  %133 = tail call ptr @expert_get_summary(ptr noundef nonnull %5)
-  %134 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %6, ptr noundef %73, ptr noundef nonnull %5, ptr noundef nonnull @.str.200, ptr noundef %133, ptr noundef %121)
+131:                                              ; preds = %._crit_edge
+  %132 = tail call ptr @expert_get_summary(ptr noundef nonnull %5)
+  %133 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %6, ptr noundef %73, ptr noundef nonnull %5, ptr noundef nonnull @.str.200, ptr noundef %132, ptr noundef %121)
   br label %proto_item_set_generated.exit141
 
-135:                                              ; preds = %67
+134:                                              ; preds = %67
   %.not125 = icmp eq i32 %4, -1
-  br i1 %.not125, label %proto_item_set_generated.exit141, label %136
+  br i1 %.not125, label %proto_item_set_generated.exit141, label %135
 
-136:                                              ; preds = %135
+135:                                              ; preds = %134
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %73, ptr noundef nonnull @.str.196)
-  %137 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 2)
-  %.not.i154 = icmp eq ptr %137, null
-  br i1 %.not.i154, label %proto_item_set_generated.exit141, label %138
+  %136 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 2)
+  %.not.i154 = icmp eq ptr %136, null
+  br i1 %.not.i154, label %proto_item_set_generated.exit141, label %137
 
-138:                                              ; preds = %136
-  %139 = getelementptr inbounds nuw i8, ptr %137, i64 40
-  %140 = load ptr, ptr %139, align 8
-  %.not5.i155 = icmp eq ptr %140, null
-  br i1 %.not5.i155, label %proto_item_set_generated.exit141, label %141
+137:                                              ; preds = %135
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 40
+  %139 = load ptr, ptr %138, align 8
+  %.not5.i155 = icmp eq ptr %139, null
+  br i1 %.not5.i155, label %proto_item_set_generated.exit141, label %140
 
-141:                                              ; preds = %138
-  %142 = getelementptr inbounds nuw i8, ptr %140, i64 28
-  %143 = load i32, ptr %142, align 4
-  %144 = or i32 %143, 2
-  store i32 %144, ptr %142, align 4
+140:                                              ; preds = %137
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 28
+  %142 = load i32, ptr %141, align 4
+  %143 = or i32 %142, 2
+  store i32 %143, ptr %141, align 4
   br label %proto_item_set_generated.exit141
 
-proto_item_set_generated.exit141:                 ; preds = %141, %138, %136, %97, %94, %92, %85, %82, %80, %63, %60, %57, %51, %48, %46, %135, %111, %112, %91, %79, %132, %._crit_edge, %proto_item_set_generated.exit
+proto_item_set_generated.exit141:                 ; preds = %140, %137, %135, %97, %94, %92, %85, %82, %80, %63, %60, %57, %51, %48, %46, %134, %111, %112, %91, %79, %131, %._crit_edge, %proto_item_set_generated.exit
   %.0111 = phi ptr [ %38, %proto_item_set_generated.exit ], [ %73, %._crit_edge ], [ %38, %51 ], [ %73, %112 ], [ %73, %111 ], [ %59, %63 ], [ %73, %135 ], [ %73, %97 ], [ %73, %91 ], [ %73, %85 ], [ %73, %79 ], [ %73, %132 ], [ %38, %46 ], [ %38, %48 ], [ null, %57 ], [ %59, %60 ], [ %73, %80 ], [ %73, %82 ], [ %73, %92 ], [ %73, %94 ], [ %73, %136 ], [ %73, %138 ], [ %73, %141 ]
   ret ptr %.0111
 }

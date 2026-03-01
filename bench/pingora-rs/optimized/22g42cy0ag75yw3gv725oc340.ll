@@ -3071,7 +3071,7 @@ define hidden void @_ZN13pingora_cache3key12CacheHashKey12combined_bin17h1c5877b
   %.sroa.0.0.copyload = load i8, ptr %9, align 1, !alias.scope !472
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 98
   %10 = trunc nuw i8 %.sroa.0.0.copyload to i1
-  br i1 %10, label %11, label %48
+  br i1 %10, label %11, label %51
 
 11:                                               ; preds = %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %8, ptr noundef nonnull align 2 dereferenceable(16) %.sroa.4.0..sroa_idx, i64 16, i1 false)
@@ -3139,56 +3139,56 @@ define hidden void @_ZN13pingora_cache3key12CacheHashKey12combined_bin17h1c5877b
   br label %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h5f18b63bf2d51db7E.exit6"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit18.i.i.i2": ; preds = %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h5f18b63bf2d51db7E.exit.thread", %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h5f18b63bf2d51db7E.exit"
-  %storemerge.in.i.i.i10 = phi i64 [ %24, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h5f18b63bf2d51db7E.exit.thread" ], [ %28, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h5f18b63bf2d51db7E.exit" ]
-  %36 = getelementptr inbounds nuw i8, ptr %13, i64 %storemerge.in.i.i.i10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %36, ptr noundef nonnull align 2 dereferenceable(16) %.sroa.4.0..sroa_idx, i64 16, i1 false)
-  %37 = add nuw nsw i64 %storemerge.in.i.i.i10, 16
+  %38 = phi i64 [ %24, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h5f18b63bf2d51db7E.exit.thread" ], [ %28, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h5f18b63bf2d51db7E.exit" ]
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 %38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %39, ptr noundef nonnull align 2 dereferenceable(16) %.sroa.4.0..sroa_idx, i64 16, i1 false)
+  %40 = add nuw nsw i64 %38, 16
   br label %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h5f18b63bf2d51db7E.exit6"
 
 "_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h5f18b63bf2d51db7E.exit6": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i5", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit18.i.i.i2"
-  %storemerge.in.i.i.i3 = phi i64 [ %35, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i5" ], [ %37, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit18.i.i.i2" ]
+  %storemerge.in.i.i.i3 = phi i64 [ %35, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i5" ], [ %40, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit18.i.i.i2" ]
   %storemerge.i.i.i4 = trunc nuw i64 %storemerge.in.i.i.i3 to i8
   store i8 %storemerge.i.i.i4, ptr %14, align 8, !alias.scope !556, !noalias !549
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !557
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(208) %7, i64 208, i1 false)
   call void @"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17hadb7c538995025e4E"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !561)
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 72
   call void @llvm.experimental.noalias.scope.decl(metadata !564)
   call void @llvm.experimental.noalias.scope.decl(metadata !567)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !569
   call void @"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17h065cdc582791e410E"(ptr noalias noundef nonnull sret([64 x i8]) align 1 captures(none) dereferenceable(64) %3), !noalias !569
   call void @llvm.experimental.noalias.scope.decl(metadata !572)
   call void @llvm.experimental.noalias.scope.decl(metadata !575)
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 200
-  %40 = load i8, ptr %39, align 8, !alias.scope !577, !noalias !578, !noundef !8
-  %41 = zext i8 %40 to i64
-  %42 = icmp ult i8 %40, -127
-  call void @llvm.assume(i1 %42)
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %44 = load i64, ptr %43, align 8, !alias.scope !580, !noalias !581, !noundef !8
-  %45 = add i64 %44, %41
-  store i64 %45, ptr %43, align 8, !alias.scope !580, !noalias !581
-  %46 = icmp eq i8 %40, -128
-  br i1 %46, label %_ZN6digest11FixedOutput14finalize_fixed17h1cacf6c30090ca87E.exit, label %.lr.ph.preheader.i.i.i.i.i
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 200
+  %43 = load i8, ptr %42, align 8, !alias.scope !577, !noalias !578, !noundef !8
+  %44 = zext i8 %43 to i64
+  %45 = icmp ult i8 %43, -127
+  call void @llvm.assume(i1 %45)
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %47 = load i64, ptr %46, align 8, !alias.scope !580, !noalias !581, !noundef !8
+  %48 = add i64 %47, %44
+  store i64 %48, ptr %46, align 8, !alias.scope !580, !noalias !581
+  %49 = icmp eq i8 %43, -128
+  br i1 %49, label %_ZN6digest11FixedOutput14finalize_fixed17h1cacf6c30090ca87E.exit, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h5f18b63bf2d51db7E.exit6"
-  %47 = getelementptr inbounds nuw i8, ptr %38, i64 %41
-  %gepdiff.i.i.i.i = sub nuw nsw i64 128, %41
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %47, i8 0, i64 %gepdiff.i.i.i.i, i1 false), !alias.scope !582, !noalias !578
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 %44
+  %gepdiff.i.i.i.i = sub nuw nsw i64 128, %44
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %50, i8 0, i64 %gepdiff.i.i.i.i, i1 false), !alias.scope !582, !noalias !578
   br label %_ZN6digest11FixedOutput14finalize_fixed17h1cacf6c30090ca87E.exit
 
 _ZN6digest11FixedOutput14finalize_fixed17h1cacf6c30090ca87E.exit: ; preds = %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h5f18b63bf2d51db7E.exit6", %.lr.ph.preheader.i.i.i.i.i
-  store i8 0, ptr %39, align 8, !alias.scope !585, !noalias !578
-  call void @_ZN6blake214Blake2bVarCore18finalize_with_flag17h040e51b69bda32cdE(ptr noalias noundef nonnull align 8 dereferenceable(208) %4, ptr noalias noundef nonnull readonly align 1 dereferenceable(129) %38, i64 noundef 0, ptr noalias noundef nonnull align 1 dereferenceable(64) %3), !noalias !588
+  store i8 0, ptr %42, align 8, !alias.scope !585, !noalias !578
+  call void @_ZN6blake214Blake2bVarCore18finalize_with_flag17h040e51b69bda32cdE(ptr noalias noundef nonnull align 8 dereferenceable(208) %4, ptr noalias noundef nonnull readonly align 1 dereferenceable(129) %41, i64 noundef 0, ptr noalias noundef nonnull align 1 dereferenceable(64) %3), !noalias !588
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull readonly align 1 dereferenceable(16) %3, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !569
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !557
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(16) %5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %48
+  br label %51
 
-48:                                               ; preds = %_ZN6digest11FixedOutput14finalize_fixed17h1cacf6c30090ca87E.exit, %2
+51:                                               ; preds = %_ZN6digest11FixedOutput14finalize_fixed17h1cacf6c30090ca87E.exit, %2
   ret void
 }
 
@@ -3289,48 +3289,48 @@ define hidden void @_ZN13pingora_cache3key12CacheHashKey8combined17h7b7e2618e8a3
   br label %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h5f18b63bf2d51db7E.exit6.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit18.i.i.i2.i": ; preds = %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h5f18b63bf2d51db7E.exit.i", %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h5f18b63bf2d51db7E.exit.thread.i"
-  %storemerge.in.i.i.i12.i = phi i64 [ %26, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h5f18b63bf2d51db7E.exit.thread.i" ], [ %30, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h5f18b63bf2d51db7E.exit.i" ]
-  %38 = getelementptr inbounds nuw i8, ptr %15, i64 %storemerge.in.i.i.i12.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %38, ptr noundef nonnull readonly align 1 dereferenceable(16) %8, i64 16, i1 false), !alias.scope !678, !noalias !682
-  %39 = add nuw nsw i64 %storemerge.in.i.i.i12.i, 16
+  %40 = phi i64 [ %26, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h5f18b63bf2d51db7E.exit.thread.i" ], [ %30, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h5f18b63bf2d51db7E.exit.i" ]
+  %41 = getelementptr inbounds nuw i8, ptr %15, i64 %40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %41, ptr noundef nonnull readonly align 1 dereferenceable(16) %8, i64 16, i1 false), !alias.scope !678, !noalias !682
+  %42 = add nuw nsw i64 %40, 16
   br label %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h5f18b63bf2d51db7E.exit6.i"
 
 "_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h5f18b63bf2d51db7E.exit6.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit18.i.i.i2.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i5.i"
-  %storemerge.in.i.i.i3.i = phi i64 [ %37, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i5.i" ], [ %39, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit18.i.i.i2.i" ]
+  %storemerge.in.i.i.i3.i = phi i64 [ %37, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit.i.i.i5.i" ], [ %42, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ce68e1d38d43822E.exit18.i.i.i2.i" ]
   %storemerge.i.i.i4.i = trunc nuw i64 %storemerge.in.i.i.i3.i to i8
   store i8 %storemerge.i.i.i4.i, ptr %16, align 8, !alias.scope !684, !noalias !671
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !685
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(208) %7, i64 208, i1 false), !noalias !603
   call void @"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17hadb7c538995025e4E"(ptr noalias noundef nonnull sret([16 x i8]) align 1 captures(none) dereferenceable(16) %5), !noalias !603
   call void @llvm.experimental.noalias.scope.decl(metadata !689)
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 72
   call void @llvm.experimental.noalias.scope.decl(metadata !692)
   call void @llvm.experimental.noalias.scope.decl(metadata !695)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !697
   call void @"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17h065cdc582791e410E"(ptr noalias noundef nonnull sret([64 x i8]) align 1 captures(none) dereferenceable(64) %3), !noalias !697
   call void @llvm.experimental.noalias.scope.decl(metadata !700)
   call void @llvm.experimental.noalias.scope.decl(metadata !703)
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 200
-  %42 = load i8, ptr %41, align 8, !alias.scope !705, !noalias !706, !noundef !8
-  %43 = zext i8 %42 to i64
-  %44 = icmp ult i8 %42, -127
-  call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %46 = load i64, ptr %45, align 8, !alias.scope !708, !noalias !709, !noundef !8
-  %47 = add i64 %46, %43
-  store i64 %47, ptr %45, align 8, !alias.scope !708, !noalias !709
-  %48 = icmp eq i8 %42, -128
-  br i1 %48, label %_ZN6digest11FixedOutput14finalize_fixed17h1cacf6c30090ca87E.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 200
+  %45 = load i8, ptr %44, align 8, !alias.scope !705, !noalias !706, !noundef !8
+  %46 = zext i8 %45 to i64
+  %47 = icmp ult i8 %45, -127
+  call void @llvm.assume(i1 %47)
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %49 = load i64, ptr %48, align 8, !alias.scope !708, !noalias !709, !noundef !8
+  %50 = add i64 %49, %46
+  store i64 %50, ptr %48, align 8, !alias.scope !708, !noalias !709
+  %51 = icmp eq i8 %45, -128
+  br i1 %51, label %_ZN6digest11FixedOutput14finalize_fixed17h1cacf6c30090ca87E.exit.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h5f18b63bf2d51db7E.exit6.i"
-  %49 = getelementptr inbounds nuw i8, ptr %40, i64 %43
-  %gepdiff.i.i.i.i.i = sub nuw nsw i64 128, %43
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %49, i8 0, i64 %gepdiff.i.i.i.i.i, i1 false), !alias.scope !710, !noalias !706
+  %52 = getelementptr inbounds nuw i8, ptr %43, i64 %46
+  %gepdiff.i.i.i.i.i = sub nuw nsw i64 128, %46
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %52, i8 0, i64 %gepdiff.i.i.i.i.i, i1 false), !alias.scope !710, !noalias !706
   br label %_ZN6digest11FixedOutput14finalize_fixed17h1cacf6c30090ca87E.exit.i
 
 _ZN6digest11FixedOutput14finalize_fixed17h1cacf6c30090ca87E.exit.i: ; preds = %.lr.ph.preheader.i.i.i.i.i.i, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h5f18b63bf2d51db7E.exit6.i"
-  store i8 0, ptr %41, align 8, !alias.scope !713, !noalias !706
-  call void @_ZN6blake214Blake2bVarCore18finalize_with_flag17h040e51b69bda32cdE(ptr noalias noundef nonnull align 8 dereferenceable(208) %4, ptr noalias noundef nonnull readonly align 1 dereferenceable(129) %40, i64 noundef 0, ptr noalias noundef nonnull align 1 dereferenceable(64) %3), !noalias !716
+  store i8 0, ptr %44, align 8, !alias.scope !713, !noalias !706
+  call void @_ZN6blake214Blake2bVarCore18finalize_with_flag17h040e51b69bda32cdE(ptr noalias noundef nonnull align 8 dereferenceable(208) %4, ptr noalias noundef nonnull readonly align 1 dereferenceable(129) %43, i64 noundef 0, ptr noalias noundef nonnull align 1 dereferenceable(64) %3), !noalias !716
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull readonly align 1 dereferenceable(16) %3, i64 16, i1 false), !noalias !603
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !697
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !685

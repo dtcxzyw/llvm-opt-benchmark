@@ -166494,7 +166494,7 @@ zend_string_equals.exit79.thread:                 ; preds = %58, %25, %zend_stri
   %37 = getelementptr i8, ptr %3, i64 16
   %.val = load i32, ptr %37, align 8, !tbaa !55
   tail call fastcc void @zend_fetch_this_var(i32 noundef %0, i32 %.val, ptr noundef nonnull %1)
-  br label %117
+  br label %116
 
 zend_string_equals.exit79.thread81:               ; preds = %30, %zend_string_equals.exit79
   switch i32 %0, label %40 [
@@ -166586,7 +166586,7 @@ zend_string_equals.exit.thread82:                 ; preds = %63, %zend_string_eq
   %.073.ph = phi ptr [ %54, %78 ], [ %54, %70 ], [ %48, %47 ], [ %39, %38 ]
   %79 = icmp ne ptr %.073.ph, null
   tail call void @llvm.assume(i1 %79)
-  br label %108
+  br label %107
 
 80:                                               ; preds = %zend_string_equals.exit.thread82, %zend_string_equals.exit.thread82, %zend_string_equals.exit79.thread81, %zend_string_equals.exit79.thread81, %71, %40, %49, %53
   %.073 = phi ptr [ %54, %53 ], [ %23, %49 ], [ @executor_globals, %zend_string_equals.exit79.thread81 ], [ @executor_globals, %zend_string_equals.exit79.thread81 ], [ @executor_globals, %zend_string_equals.exit.thread82 ], [ @executor_globals, %40 ], [ @executor_globals, %zend_string_equals.exit.thread82 ], [ @executor_globals, %71 ]
@@ -166597,68 +166597,68 @@ zend_string_equals.exit.thread82:                 ; preds = %63, %zend_string_eq
     i32 0, label %82
   ]
 
-82:                                               ; preds = %80, %80
-  %83 = getelementptr inbounds nuw i8, ptr %.073, i64 8
-  %84 = load i32, ptr %83, align 8
-  %85 = and i32 %84, 65280
-  %.not77 = icmp eq i32 %85, 0
-  br i1 %.not77, label %99, label %86
+81:                                               ; preds = %80, %80
+  %82 = getelementptr inbounds nuw i8, ptr %.073, i64 8
+  %83 = load i32, ptr %82, align 8
+  %84 = and i32 %83, 65280
+  %.not77 = icmp eq i32 %84, 0
+  br i1 %.not77, label %98, label %85
 
-86:                                               ; preds = %82
-  %87 = and i32 %84, 255
-  %88 = icmp eq i32 %87, 10
-  br i1 %88, label %89, label %.sink.split, !prof !60
+85:                                               ; preds = %81
+  %86 = and i32 %83, 255
+  %87 = icmp eq i32 %86, 10
+  br i1 %87, label %88, label %.sink.split, !prof !60
 
-89:                                               ; preds = %86
-  %90 = load ptr, ptr %.073, align 8, !tbaa !55
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %93 = load i32, ptr %92, align 8
-  %94 = and i32 %93, 65280
-  %.not78 = icmp eq i32 %94, 0
-  br i1 %.not78, label %99, label %.sink.split
+88:                                               ; preds = %85
+  %89 = load ptr, ptr %.073, align 8, !tbaa !55
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  %92 = load i32, ptr %91, align 8
+  %93 = and i32 %92, 65280
+  %.not78 = icmp eq i32 %93, 0
+  br i1 %.not78, label %98, label %.sink.split
 
-.sink.split:                                      ; preds = %86, %89
-  %.sink3 = phi i32 [ %93, %89 ], [ %84, %86 ]
-  %.sink.in = phi ptr [ %91, %89 ], [ %.073, %86 ]
-  %95 = and i32 %.sink3, 65280
-  %96 = icmp ne i32 %95, 0
-  tail call void @llvm.assume(i1 %96)
+.sink.split:                                      ; preds = %85, %88
+  %.sink3 = phi i32 [ %92, %89 ], [ %83, %86 ]
+  %.sink.in = phi ptr [ %90, %89 ], [ %.073, %86 ]
+  %94 = and i32 %.sink3, 65280
+  %95 = icmp ne i32 %94, 0
+  tail call void @llvm.assume(i1 %95)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !55
-  %97 = load i32, ptr %.sink, align 4, !tbaa !56
-  %98 = add i32 %97, 1
-  store i32 %98, ptr %.sink, align 4, !tbaa !56
-  br label %99
+  %96 = load i32, ptr %.sink, align 4, !tbaa !56
+  %97 = add i32 %96, 1
+  store i32 %97, ptr %.sink, align 4, !tbaa !56
+  br label %98
 
-99:                                               ; preds = %.sink.split, %82, %89
-  %.074 = phi ptr [ %.073, %82 ], [ %91, %89 ], [ %.sink.in, %.sink.split ]
-  %100 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %101 = load i32, ptr %100, align 8, !tbaa !55
-  %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds i8, ptr %1, i64 %102
-  %104 = load ptr, ptr %.074, align 8, !tbaa !55
-  %105 = getelementptr inbounds nuw i8, ptr %.074, i64 8
-  %106 = load i32, ptr %105, align 8, !tbaa !55
-  store ptr %104, ptr %103, align 8, !tbaa !55
-  %107 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  store i32 %106, ptr %107, align 8, !tbaa !55
-  br label %117
+98:                                               ; preds = %.sink.split, %81, %88
+  %.074 = phi ptr [ %.073, %82 ], [ %90, %89 ], [ %.sink.in, %.sink.split ]
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %100 = load i32, ptr %99, align 8, !tbaa !55
+  %101 = sext i32 %100 to i64
+  %102 = getelementptr inbounds i8, ptr %1, i64 %101
+  %103 = load ptr, ptr %.074, align 8, !tbaa !55
+  %104 = getelementptr inbounds nuw i8, ptr %.074, i64 8
+  %105 = load i32, ptr %104, align 8, !tbaa !55
+  store ptr %103, ptr %102, align 8, !tbaa !55
+  %106 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  store i32 %105, ptr %106, align 8, !tbaa !55
+  br label %116
 
-108:                                              ; preds = %.thread, %80
+107:                                              ; preds = %.thread, %80
   %.07384 = phi ptr [ %.073.ph, %.thread ], [ %.073, %80 ]
-  %109 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %110 = load i32, ptr %109, align 8, !tbaa !55
-  %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds i8, ptr %1, i64 %111
-  store ptr %.07384, ptr %112, align 8, !tbaa !55
-  %113 = load i32, ptr %109, align 8, !tbaa !55
-  %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds i8, ptr %1, i64 %114
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  store i32 12, ptr %116, align 8, !tbaa !55
-  br label %117
+  %108 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %109 = load i32, ptr %108, align 8, !tbaa !55
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds i8, ptr %1, i64 %110
+  store ptr %.07384, ptr %111, align 8, !tbaa !55
+  %112 = load i32, ptr %108, align 8, !tbaa !55
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds i8, ptr %1, i64 %113
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  store i32 12, ptr %115, align 8, !tbaa !55
+  br label %116
 
-117:                                              ; preds = %99, %108, %zend_string_equals.exit79.thread
+116:                                              ; preds = %98, %107, %zend_string_equals.exit79.thread
   %.pn = load ptr, ptr %1, align 8, !tbaa !58
   %storemerge = getelementptr inbounds nuw i8, ptr %.pn, i64 32
   store ptr %storemerge, ptr %1, align 8, !tbaa !58

@@ -108,7 +108,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 define void @Cnf_ManTransferCuts(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !33
-  tail call void @Aig_MmFlexRestart(ptr noundef %3) #6
+  tail call void @Aig_MmFlexRestart(ptr noundef %3) #5
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !15
@@ -140,7 +140,7 @@ define void @Cnf_ManTransferCuts(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %or.cond, label %.sink.split, label %20
 
 20:                                               ; preds = %14
-  %21 = tail call ptr @Cnf_CutCreate(ptr noundef nonnull %0, ptr noundef nonnull %12) #6
+  %21 = tail call ptr @Cnf_CutCreate(ptr noundef nonnull %0, ptr noundef nonnull %12) #5
   br label %.sink.split
 
 .sink.split:                                      ; preds = %14, %20
@@ -196,7 +196,7 @@ define void @Cnf_ManFreeCuts(ptr noundef readonly captures(none) %0) local_unnam
   br i1 %.not, label %17, label %16
 
 16:                                               ; preds = %13
-  tail call void @Cnf_CutFree(ptr noundef nonnull %15) #6
+  tail call void @Cnf_CutFree(ptr noundef nonnull %15) #5
   store ptr null, ptr %14, align 8, !tbaa !34
   %.pre = load ptr, ptr %0, align 8, !tbaa !3
   br label %17
@@ -393,7 +393,7 @@ Aig_ManObj.exit93:                                ; preds = %63
   %.val89 = load ptr, ptr %81, align 8, !tbaa !34
   %82 = getelementptr inbounds nuw i8, ptr %74, i64 36
   %83 = load i32, ptr %82, align 4, !tbaa !44
-  %84 = tail call ptr @Cnf_CutCompose(ptr noundef nonnull %0, ptr noundef nonnull %.val87, ptr noundef %.val89, i32 noundef %83) #6
+  %84 = tail call ptr @Cnf_CutCompose(ptr noundef nonnull %0, ptr noundef nonnull %.val87, ptr noundef %.val89, i32 noundef %83) #5
   %cond = icmp eq ptr %84, null
   br i1 %cond, label %101, label %85
 
@@ -415,16 +415,16 @@ Aig_ManObj.exit93:                                ; preds = %63
   br i1 %97, label %98, label %99
 
 98:                                               ; preds = %85, %89
-  tail call void @Cnf_CutFree(ptr noundef nonnull %84) #6
+  tail call void @Cnf_CutFree(ptr noundef nonnull %84) #5
   br label %101
 
 99:                                               ; preds = %89
   %100 = getelementptr i8, ptr %74, i64 40
   store ptr %84, ptr %22, align 8, !tbaa !34
   store ptr null, ptr %100, align 8, !tbaa !34
-  tail call void @Cnf_CutUpdateRefs(ptr noundef nonnull %0, ptr noundef nonnull %.val87, ptr noundef nonnull %.val89, ptr noundef nonnull %84) #6
-  tail call void @Cnf_CutFree(ptr noundef nonnull %.val87) #6
-  tail call void @Cnf_CutFree(ptr noundef nonnull %.val89) #6
+  tail call void @Cnf_CutUpdateRefs(ptr noundef nonnull %0, ptr noundef nonnull %.val87, ptr noundef nonnull %.val89, ptr noundef nonnull %84) #5
+  tail call void @Cnf_CutFree(ptr noundef nonnull %.val87) #5
+  tail call void @Cnf_CutFree(ptr noundef nonnull %.val89) #5
   br label %.critedge4
 
 101:                                              ; preds = %80, %98, %75

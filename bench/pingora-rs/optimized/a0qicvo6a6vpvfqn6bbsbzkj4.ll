@@ -197,7 +197,7 @@ _ZN11pingora_lru11linked_list5Nodes8new_node17h5bb5feb2947f715eE.exit: ; preds =
   %28 = add nsw i64 %18, 2
   br label %54
 
-29:                                               ; preds = %2
+29:; preds = %2
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %31 = add nsw i64 %4, -1
   store i64 %31, ptr %3, align 8
@@ -212,42 +212,42 @@ _ZN11pingora_lru11linked_list5Nodes8new_node17h5bb5feb2947f715eE.exit: ; preds =
   %38 = load i64, ptr %37, align 8, !noundef !3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   switch i64 %38, label %39 [
-    i64 0, label %44
-    i64 1, label %46
+    i64 0, label %43
+    i64 1, label %45
   ]
 
-39:                                               ; preds = %29
-  %40 = add i64 %38, -2
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %42 = load i64, ptr %41, align 8, !alias.scope !19, !noalias !22, !noundef !3
-  %43 = icmp ult i64 %40, %42
-  br i1 %43, label %48, label %52
+38:                                               ; preds = %29
+  %39 = add i64 %38, -2
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %41 = load i64, ptr %40, align 8, !alias.scope !19, !noalias !22, !noundef !3
+  %42 = icmp ult i64 %39, %41
+  br i1 %42, label %47, label %51
 
-44:                                               ; preds = %29
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
+43:                                               ; preds = %29
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit"
 
-46:                                               ; preds = %29
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
+45:                                               ; preds = %29
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit"
 
-48:                                               ; preds = %39
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %50 = load ptr, ptr %49, align 8, !alias.scope !19, !noalias !22, !nonnull !3, !noundef !3
-  %51 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %50, i64 %40
+47:                                               ; preds = %38
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %49 = load ptr, ptr %48, align 8, !alias.scope !19, !noalias !22, !nonnull !3, !noundef !3
+  %50 = getelementptr inbounds nuw { i64, i64, i64 }, ptr %49, i64 %39
   br label %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit"
 
-52:                                               ; preds = %39
-  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %40, i64 noundef %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.4) #13, !noalias !19
+51:                                               ; preds = %38
+  tail call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %39, i64 noundef %41, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ff2e992120c34a933ceff030207ecd38.4) #13, !noalias !19
   unreachable
 
-"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit": ; preds = %44, %46, %48
-  %.sroa.0.0.i = phi ptr [ %51, %48 ], [ %45, %44 ], [ %47, %46 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 16
-  store i64 %1, ptr %53, align 8
-  br label %54
+"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit": ; preds = %43, %45, %47
+  %.sroa.0.0.i = phi ptr [ %50, %48 ], [ %44, %44 ], [ %46, %46 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 16
+  store i64 %1, ptr %52, align 8
+  br label %53
 
-54:                                               ; preds = %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit", %_ZN11pingora_lru11linked_list5Nodes8new_node17h5bb5feb2947f715eE.exit
+53:                                               ; preds = %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit", %_ZN11pingora_lru11linked_list5Nodes8new_node17h5bb5feb2947f715eE.exit
   %.sroa.0.0 = phi i64 [ %28, %_ZN11pingora_lru11linked_list5Nodes8new_node17h5bb5feb2947f715eE.exit ], [ %38, %"_ZN91_$LT$pingora_lru..linked_list..Nodes$u20$as$u20$core..ops..index..IndexMut$LT$usize$GT$$GT$9index_mut17hb5701dfddf68a816E.exit" ]
   ret i64 %.sroa.0.0
 }

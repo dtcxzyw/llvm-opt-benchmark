@@ -1768,9 +1768,9 @@ define internal void @_ZN15crossbeam_epoch8deferred8Deferred3new4call17hb83e8bd2
   br i1 %8, label %"_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h3efd2e483f3c25e9E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit.i.i.i.i": ; preds = %1
-  %9 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
-  %10 = shl nuw nsw i64 %7, 4
-  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %9, i64 noundef %10, i64 noundef 8) #23
+  %8 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
+  %9 = shl nuw nsw i64 %7, 4
+  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %8, i64 noundef %9, i64 noundef 8) #23
   br label %"_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h3efd2e483f3c25e9E.exit"
 
 "_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h3efd2e483f3c25e9E.exit": ; preds = %1, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit.i.i.i.i"

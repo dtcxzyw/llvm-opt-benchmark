@@ -208,7 +208,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17hb
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !7
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %24, label %8
+  br i1 %7, label %22, label %8
 
 8:                                                ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
@@ -233,7 +233,7 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17hb
   tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %16, i64 noundef %3) #22, !noalias !24
   br label %24
 
-24:                                               ; preds = %4, %8
+22:                                               ; preds = %4, %8
   ret void
 }
 
@@ -775,10 +775,10 @@ _ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h11ac1c8566f75df4E.exit
   br label %151
 
 ._crit_edge.i.i10:                                ; preds = %151
-  %..i = tail call i64 @llvm.umax.i64(i64 %22, i64 16)
-  %.63.i = tail call i64 @llvm.umin.i64(i64 %22, i64 16)
-  %150 = getelementptr inbounds i8, ptr %.val18.i, i64 %..i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %150, ptr nonnull align 1 %.val18.i, i64 %.63.i, i1 false), !noalias !103
+  %spec.select.i = tail call i64 @llvm.umax.i64(i64 %22, i64 16)
+  %spec.select64.i = tail call i64 @llvm.umin.i64(i64 %22, i64 16)
+  %150 = getelementptr inbounds i8, ptr %.val18.i, i64 %spec.select.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %150, ptr nonnull align 1 %.val18.i, i64 %spec.select64.i, i1 false), !noalias !103
   br label %168
 
 151:                                              ; preds = %151, %.lr.ph.i.i9

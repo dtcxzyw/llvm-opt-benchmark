@@ -4542,7 +4542,7 @@ define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821
 11:                                               ; preds = %4
   br i1 %3, label %20, label %15
 
-12:                                               ; preds = %15, %20, %6
+12:; preds = %15, %20, %6
   %.sroa.05.0 = phi ptr [ %9, %6 ], [ %23, %20 ], [ %19, %15 ]
   %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %2, 1
@@ -4556,7 +4556,7 @@ define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821
   %19 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #25
   br label %12
 
-20:                                               ; preds = %11
+14:                                               ; preds = %11
   %21 = add i64 %1, -1
   %22 = icmp sgt i64 %21, -1
   tail call void @llvm.assume(i1 %22)

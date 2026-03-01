@@ -586,7 +586,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   call void @_ZN11parking_lot10raw_rwlock9RawRwLock18unlock_shared_slow17hd7b98226de795fccE(ptr noundef nonnull align 8 %34)
   br label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit27"
 
-"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit27": ; preds = %85, %81, %133, %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34"
+"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit27": ; preds = %85, %81, %132, %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34"
   %.val19.pn = phi ptr [ %45, %133 ], [ %.val21, %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34" ], [ %.val23, %81 ], [ %.val23, %85 ]
   %.val20.pn = phi ptr [ %46, %133 ], [ %.val22, %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34" ], [ %.val24, %81 ], [ %.val24, %85 ]
   %.pn = insertvalue { ptr, ptr } poison, ptr %.val19.pn, 0
@@ -705,7 +705,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
 _ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit: ; preds = %43
   %125 = atomicrmw add ptr %45, i64 1 monotonic, align 8
   %126 = icmp slt i64 %125, 0
-  br i1 %126, label %131, label %127
+  br i1 %126, label %130, label %127
 
 127:                                              ; preds = %_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit
   %128 = icmp ne ptr %46, null
@@ -714,15 +714,15 @@ _ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit: ; preds = %43
   %130 = icmp slt i64 %129, 0
   br i1 %130, label %132, label %133
 
-131:                                              ; preds = %_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit
+130:                                              ; preds = %_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit
+  tail call void @llvm.trap()
+  unreachable
+
+131:                                              ; preds = %127
   tail call void @llvm.trap()
   unreachable
 
 132:                                              ; preds = %127
-  tail call void @llvm.trap()
-  unreachable
-
-133:                                              ; preds = %127
   call void @"_ZN4core3ptr50drop_in_place$LT$pingora_timeout..timer..Timer$GT$17h4a17a76a217a0b3eE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit27"

@@ -16567,10 +16567,10 @@ define internal fastcc noundef zeroext i1 @tls12_prf(i32 noundef range(i32 8, 32
   %.not25 = icmp eq i64 %13, 0
   br i1 %.not25, label %43, label %33
 
-33:                                               ; preds = %22
+46:                                               ; preds = %22
   %34 = add i64 %14, %29
-  %35 = getelementptr i8, ptr %26, i64 %29
-  %36 = load ptr, ptr %4, align 8
+  %48 = getelementptr i8, ptr %26, i64 %29
+  %49 = load ptr, ptr %4, align 8
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %38 = load i32, ptr %37, align 8
   %39 = zext i32 %38 to i64
@@ -16580,7 +16580,7 @@ define internal fastcc noundef zeroext i1 @tls12_prf(i32 noundef range(i32 8, 32
   %42 = tail call ptr @__memcpy_chk(ptr noundef %35, ptr noundef %36, i64 noundef %39, i64 noundef %40) #31, !alias.scope !179
   br label %43
 
-43:                                               ; preds = %33, %22
+51:                                               ; preds = %46, %22
   %44 = tail call ptr @gcry_md_algo_name(i32 noundef %0) #32
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load i32, ptr %45, align 8
