@@ -4495,10 +4495,6 @@ declare void @_ZN4node6crypto10ByteSource18FromStringOrBufferEPNS_11EnvironmentE
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef range(i32 0, 4) i32 @_ZN4node6crypto12_GLOBAL__N_115ParsePrivateKeyEPSt10unique_ptrI11evp_pkey_stNS_15FunctionDeleterIS3_XadL_Z13EVP_PKEY_freeEEEEERKNS0_24PrivateKeyEncodingConfigEPKcm(ptr noundef nonnull captures(none) %pkey, ptr noundef nonnull align 8 dereferenceable(56) %config, ptr noundef %key, i64 noundef %key_len) unnamed_addr #3 {
 entry:
-  %length.i.i = alloca i64, align 8
-  %ref.tmp.i.i = alloca i64, align 8
-  %ref.tmp20.i.i = alloca i64, align 8
-  %ref.tmp22.i.i = alloca i64, align 8
   %passphrase = alloca ptr, align 8
   %p = alloca ptr, align 8
   %p60 = alloca ptr, align 8
@@ -4591,17 +4587,13 @@ if.then23:                                        ; preds = %_ZNKR2v85MaybeIN4no
   br i1 %cmp.i30.not, label %return, label %if.end29
 
 if.end29:                                         ; preds = %if.then23
-  call void @llvm.lifetime.start.p0(ptr nonnull %length.i.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp20.i.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp22.i.i)
   %cmp.i.i = icmp ult i64 %key_len, 2
-  br i1 %cmp.i.i, label %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.thread.i, label %lor.lhs.false.i.i
+  br i1 %cmp.i.i, label %if.else34, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end29
   %8 = load i8, ptr %key, align 1
   %cmp1.not.i.i = icmp eq i8 %8, 48
-  br i1 %cmp1.not.i.i, label %if.end.i.i, label %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.thread.i
+  br i1 %cmp1.not.i.i, label %if.end.i.i, label %if.else34
 
 if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %arrayidx2.i.i = getelementptr inbounds nuw i8, ptr %key, i64 1
@@ -4616,7 +4608,7 @@ if.then4.i.i:                                     ; preds = %if.end.i.i
   %cmp9.i.i = icmp ugt i64 %add.i.i, %key_len
   %cmp11.i.i = icmp samesign ugt i8 %10, 8
   %or.cond.i.i = select i1 %cmp9.i.i, i1 true, i1 %cmp11.i.i
-  br i1 %or.cond.i.i, label %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.thread.i, label %if.end13.i.i
+  br i1 %or.cond.i.i, label %if.else34, label %if.end13.i.i
 
 if.end13.i.i:                                     ; preds = %if.then4.i.i
   %cmp1420.not.i.i = icmp eq i8 %10, 0
@@ -4637,72 +4629,54 @@ for.body.i.i:                                     ; preds = %if.end13.i.i, %for.
 
 for.end.i.i:                                      ; preds = %for.body.i.i, %if.end13.i.i
   %or19.lcssa.i.i = phi i64 [ 0, %if.end13.i.i ], [ %or.i.i, %for.body.i.i ]
-  store i64 %or19.lcssa.i.i, ptr %length.i.i, align 8
   %sub.i.i = add i64 %key_len, -2
   %sub19.i.i = sub i64 %sub.i.i, %conv8.i.i
-  store i64 %sub19.i.i, ptr %ref.tmp.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %or19.lcssa.i.i, %sub19.i.i
-  %__b.__a.i.i.i = select i1 %cmp.i.i.i, ptr %length.i.i, ptr %ref.tmp.i.i
+  %13 = tail call i64 @llvm.umin.i64(i64 %or19.lcssa.i.i, i64 %sub19.i.i)
   br label %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.i
 
 if.else.i.i:                                      ; preds = %if.end.i.i
   %sub21.i.i = add i64 %key_len, -2
-  store i64 %sub21.i.i, ptr %ref.tmp20.i.i, align 8
   %conv24.i.i = zext nneg i8 %9 to i64
-  store i64 %conv24.i.i, ptr %ref.tmp22.i.i, align 8
-  %cmp.i16.i.i = icmp ugt i64 %sub21.i.i, %conv24.i.i
-  %__b.__a.i17.i.i = select i1 %cmp.i16.i.i, ptr %ref.tmp22.i.i, ptr %ref.tmp20.i.i
+  %14 = tail call i64 @llvm.umin.i64(i64 %sub21.i.i, i64 %conv24.i.i)
   br label %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.i
 
-_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.thread.i: ; preds = %if.then4.i.i, %lor.lhs.false.i.i, %if.end29
-  call void @llvm.lifetime.end.p0(ptr nonnull %length.i.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp20.i.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp22.i.i)
-  br label %if.else34
-
 _ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.i: ; preds = %if.else.i.i, %for.end.i.i
-  %offset.0.i = phi i64 [ 2, %if.else.i.i ], [ %add.i.i, %for.end.i.i ]
-  %storemerge.in.i.i = phi ptr [ %__b.__a.i17.i.i, %if.else.i.i ], [ %__b.__a.i.i.i, %for.end.i.i ]
-  %storemerge.i.i = load i64, ptr %storemerge.in.i.i, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %length.i.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp20.i.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp22.i.i)
-  %cmp.not.i32 = icmp eq i64 %storemerge.i.i, 0
+  %offset.1.i = phi i64 [ %add.i.i, %for.end.i.i ], [ 2, %if.else.i.i ]
+  %len.0.i = phi i64 [ %13, %for.end.i.i ], [ %14, %if.else.i.i ]
+  %cmp.not.i32 = icmp eq i64 %len.0.i, 0
   br i1 %cmp.not.i32, label %if.else34, label %_ZN4node6crypto12_GLOBAL__N_125IsEncryptedPrivateKeyInfoEPKhm.exit
 
 _ZN4node6crypto12_GLOBAL__N_125IsEncryptedPrivateKeyInfoEPKhm.exit: ; preds = %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.i
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %key, i64 %offset.0.i
-  %13 = load i8, ptr %arrayidx.i, align 1
-  %cmp1.i.not = icmp eq i8 %13, 2
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %key, i64 %offset.1.i
+  %15 = load i8, ptr %arrayidx.i, align 1
+  %cmp1.i.not = icmp eq i8 %15, 2
   br i1 %cmp1.i.not, label %if.else34, label %if.then31
 
 if.then31:                                        ; preds = %_ZN4node6crypto12_GLOBAL__N_125IsEncryptedPrivateKeyInfoEPKhm.exit
   %call33 = call ptr @d2i_PKCS8PrivateKey_bio(ptr noundef nonnull %call26, ptr noundef null, ptr noundef nonnull @_ZN4node6crypto16PasswordCallbackEPciiPv, ptr noundef nonnull %passphrase) #23
-  %14 = load ptr, ptr %pkey, align 8
+  %16 = load ptr, ptr %pkey, align 8
   store ptr %call33, ptr %pkey, align 8
-  %tobool.not.i.i33 = icmp eq ptr %14, null
+  %tobool.not.i.i33 = icmp eq ptr %16, null
   br i1 %tobool.not.i.i33, label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit44.thread, label %if.then.i.i34
 
 if.then.i.i34:                                    ; preds = %if.then31
-  call void @EVP_PKEY_free(ptr noundef nonnull %14) #23
+  call void @EVP_PKEY_free(ptr noundef nonnull %16) #23
   br label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit44.thread
 
-if.else34:                                        ; preds = %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.thread.i, %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.i, %_ZN4node6crypto12_GLOBAL__N_125IsEncryptedPrivateKeyInfoEPKhm.exit
+if.else34:                                        ; preds = %lor.lhs.false.i.i, %if.end29, %if.then4.i.i, %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.i, %_ZN4node6crypto12_GLOBAL__N_125IsEncryptedPrivateKeyInfoEPKhm.exit
   %call36 = tail call ptr @d2i_PKCS8_PRIV_KEY_INFO_bio(ptr noundef nonnull %call26, ptr noundef null) #23
   %cmp.i36.not = icmp eq ptr %call36, null
   br i1 %cmp.i36.not, label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit44.thread, label %if.then38
 
 if.then38:                                        ; preds = %if.else34
   %call40 = tail call ptr @EVP_PKCS82PKEY(ptr noundef nonnull %call36) #23
-  %15 = load ptr, ptr %pkey, align 8
+  %17 = load ptr, ptr %pkey, align 8
   store ptr %call40, ptr %pkey, align 8
-  %tobool.not.i.i37 = icmp eq ptr %15, null
+  %tobool.not.i.i37 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i37, label %if.then.i41, label %if.then.i.i38
 
 if.then.i.i38:                                    ; preds = %if.then38
-  tail call void @EVP_PKEY_free(ptr noundef nonnull %15) #23
+  tail call void @EVP_PKEY_free(ptr noundef nonnull %17) #23
   br label %if.then.i41
 
 if.then.i41:                                      ; preds = %if.then.i.i38, %if.then38
@@ -4714,8 +4688,8 @@ _ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2E
   br label %if.end64
 
 do.body47:                                        ; preds = %_ZNKR2v85MaybeIN4node6crypto14PKEncodingTypeEE8FromJustEv.exit98
-  %16 = load i8, ptr %type_, align 8
-  %tobool.i = trunc i8 %16 to i1
+  %18 = load i8, ptr %type_, align 8
+  %tobool.i = trunc i8 %18 to i1
   br i1 %tobool.i, label %_ZNKR2v85MaybeIN4node6crypto14PKEncodingTypeEE8FromJustEv.exit106, label %if.then.i105
 
 if.then.i105:                                     ; preds = %do.body47
@@ -4724,8 +4698,8 @@ if.then.i105:                                     ; preds = %do.body47
   br label %_ZNKR2v85MaybeIN4node6crypto14PKEncodingTypeEE8FromJustEv.exit106
 
 _ZNKR2v85MaybeIN4node6crypto14PKEncodingTypeEE8FromJustEv.exit106: ; preds = %if.then.i105, %do.body47
-  %17 = phi i32 [ %.pre, %if.then.i105 ], [ %7, %do.body47 ]
-  %cmp50.not = icmp eq i32 %17, 3
+  %19 = phi i32 [ %.pre, %if.then.i105 ], [ %7, %do.body47 ]
+  %cmp50.not = icmp eq i32 %19, 3
   br i1 %cmp50.not, label %do.end59, label %do.body56
 
 do.body56:                                        ; preds = %_ZNKR2v85MaybeIN4node6crypto14PKEncodingTypeEE8FromJustEv.exit106
@@ -4736,13 +4710,13 @@ do.body56:                                        ; preds = %_ZNKR2v85MaybeIN4no
 do.end59:                                         ; preds = %_ZNKR2v85MaybeIN4node6crypto14PKEncodingTypeEE8FromJustEv.exit106
   store ptr %key, ptr %p60, align 8
   %call61 = call ptr @d2i_PrivateKey(i32 noundef 408, ptr noundef null, ptr noundef nonnull %p60, i64 noundef %key_len) #23
-  %18 = load ptr, ptr %pkey, align 8
+  %20 = load ptr, ptr %pkey, align 8
   store ptr %call61, ptr %pkey, align 8
-  %tobool.not.i.i45 = icmp eq ptr %18, null
+  %tobool.not.i.i45 = icmp eq ptr %20, null
   br i1 %tobool.not.i.i45, label %if.end64, label %if.then.i.i46
 
 if.then.i.i46:                                    ; preds = %do.end59
-  call void @EVP_PKEY_free(ptr noundef nonnull %18) #23
+  call void @EVP_PKEY_free(ptr noundef nonnull %20) #23
   br label %if.end64
 
 if.end64:                                         ; preds = %if.then.i.i46, %do.end59, %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit44.thread, %if.then.i.i28, %if.then17, %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit.thread
@@ -4751,13 +4725,13 @@ if.end64:                                         ; preds = %if.then.i.i46, %do.
   br i1 %cmp66.not, label %if.end68, label %if.then67
 
 if.then67:                                        ; preds = %if.end64
-  %19 = load ptr, ptr %pkey, align 8
+  %21 = load ptr, ptr %pkey, align 8
   store ptr null, ptr %pkey, align 8
-  %tobool.not.i.i48 = icmp eq ptr %19, null
+  %tobool.not.i.i48 = icmp eq ptr %21, null
   br i1 %tobool.not.i.i48, label %if.end71, label %if.then.i.i49
 
 if.then.i.i49:                                    ; preds = %if.then67
-  call void @EVP_PKEY_free(ptr noundef nonnull %19) #23
+  call void @EVP_PKEY_free(ptr noundef nonnull %21) #23
   br label %if.end68
 
 if.end68:                                         ; preds = %if.then.i.i49, %if.end64
@@ -4766,15 +4740,15 @@ if.end68:                                         ; preds = %if.then.i.i49, %if.
   br i1 %cmp.i51.not, label %if.end71, label %return
 
 if.end71:                                         ; preds = %if.then67, %if.end68
-  %20 = and i64 %call65, 4286578688
-  %cmp73 = icmp eq i64 %20, 75497472
+  %22 = and i64 %call65, 4286578688
+  %cmp73 = icmp eq i64 %22, 75497472
   br i1 %cmp73, label %land.lhs.true, label %if.end81
 
 land.lhs.true:                                    ; preds = %if.end71
   %retval.0.i5674 = and i64 %call65, 8388607
   %cmp75 = icmp eq i64 %retval.0.i5674, 104
-  %21 = load i8, ptr %passphrase_, align 8
-  %tobool.i57 = trunc i8 %21 to i1
+  %23 = load i8, ptr %passphrase_, align 8
+  %tobool.i57 = trunc i8 %23 to i1
   %or.cond = select i1 %cmp75, i1 %tobool.i57, i1 false
   br i1 %or.cond, label %return, label %if.end81
 
@@ -5495,21 +5469,13 @@ _ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2E
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4node6crypto12_GLOBAL__N_115IsRSAPrivateKeyEPKhm(ptr noundef readonly captures(none) %data, i64 noundef %size) unnamed_addr #4 {
 entry:
-  %length.i = alloca i64, align 8
-  %ref.tmp.i = alloca i64, align 8
-  %ref.tmp20.i = alloca i64, align 8
-  %ref.tmp22.i = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %length.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp20.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp22.i)
   %cmp.i = icmp ult i64 %size, 2
-  br i1 %cmp.i, label %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.thread, label %lor.lhs.false.i
+  br i1 %cmp.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
   %0 = load i8, ptr %data, align 1
   %cmp1.not.i = icmp eq i8 %0, 48
-  br i1 %cmp1.not.i, label %if.end.i, label %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.thread
+  br i1 %cmp1.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %arrayidx2.i = getelementptr inbounds nuw i8, ptr %data, i64 1
@@ -5524,7 +5490,7 @@ if.then4.i:                                       ; preds = %if.end.i
   %cmp9.i = icmp ugt i64 %add.i, %size
   %cmp11.i = icmp samesign ugt i8 %2, 8
   %or.cond.i = select i1 %cmp9.i, i1 true, i1 %cmp11.i
-  br i1 %or.cond.i, label %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.thread, label %if.end13.i
+  br i1 %or.cond.i, label %return, label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then4.i
   %cmp1420.not.i = icmp eq i8 %2, 0
@@ -5545,61 +5511,43 @@ for.body.i:                                       ; preds = %if.end13.i, %for.bo
 
 for.end.i:                                        ; preds = %for.body.i, %if.end13.i
   %or19.lcssa.i = phi i64 [ 0, %if.end13.i ], [ %or.i, %for.body.i ]
-  store i64 %or19.lcssa.i, ptr %length.i, align 8
   %sub.i = add i64 %size, -2
   %sub19.i = sub i64 %sub.i, %conv8.i
-  store i64 %sub19.i, ptr %ref.tmp.i, align 8
-  %cmp.i.i = icmp ult i64 %or19.lcssa.i, %sub19.i
-  %__b.__a.i.i = select i1 %cmp.i.i, ptr %length.i, ptr %ref.tmp.i
+  %5 = tail call i64 @llvm.umin.i64(i64 %or19.lcssa.i, i64 %sub19.i)
   br label %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit
 
 if.else.i:                                        ; preds = %if.end.i
   %sub21.i = add i64 %size, -2
-  store i64 %sub21.i, ptr %ref.tmp20.i, align 8
   %conv24.i = zext nneg i8 %1 to i64
-  store i64 %conv24.i, ptr %ref.tmp22.i, align 8
-  %cmp.i16.i = icmp ugt i64 %sub21.i, %conv24.i
-  %__b.__a.i17.i = select i1 %cmp.i16.i, ptr %ref.tmp22.i, ptr %ref.tmp20.i
+  %6 = tail call i64 @llvm.umin.i64(i64 %sub21.i, i64 %conv24.i)
   br label %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit
 
-_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.thread: ; preds = %entry, %lor.lhs.false.i, %if.then4.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %length.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp20.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp22.i)
-  br label %return
-
 _ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit: ; preds = %for.end.i, %if.else.i
-  %offset.0 = phi i64 [ 2, %if.else.i ], [ %add.i, %for.end.i ]
-  %storemerge.in.i = phi ptr [ %__b.__a.i17.i, %if.else.i ], [ %__b.__a.i.i, %for.end.i ]
-  %storemerge.i = load i64, ptr %storemerge.in.i, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %length.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp20.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp22.i)
-  %cmp = icmp ugt i64 %storemerge.i, 2
+  %offset.1 = phi i64 [ %add.i, %for.end.i ], [ 2, %if.else.i ]
+  %len.0 = phi i64 [ %5, %for.end.i ], [ %6, %if.else.i ]
+  %cmp = icmp ugt i64 %len.0, 2
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit
-  %arrayidx = getelementptr inbounds nuw i8, ptr %data, i64 %offset.0
-  %5 = load i8, ptr %arrayidx, align 1
-  %cmp1 = icmp eq i8 %5, 2
+  %arrayidx = getelementptr inbounds nuw i8, ptr %data, i64 %offset.1
+  %7 = load i8, ptr %arrayidx, align 1
+  %cmp1 = icmp eq i8 %7, 2
   br i1 %cmp1, label %land.lhs.true2, label %return
 
 land.lhs.true2:                                   ; preds = %land.lhs.true
   %arrayidx3 = getelementptr i8, ptr %arrayidx, i64 1
-  %6 = load i8, ptr %arrayidx3, align 1
-  %cmp5 = icmp eq i8 %6, 1
+  %8 = load i8, ptr %arrayidx3, align 1
+  %cmp5 = icmp eq i8 %8, 1
   br i1 %cmp5, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %land.lhs.true2
   %arrayidx7 = getelementptr i8, ptr %arrayidx, i64 2
-  %7 = load i8, ptr %arrayidx7, align 1
-  %tobool.not = icmp ult i8 %7, 2
+  %9 = load i8, ptr %arrayidx7, align 1
+  %tobool.not = icmp ult i8 %9, 2
   br label %return
 
-return:                                           ; preds = %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.thread, %land.lhs.true, %land.lhs.true2, %land.rhs, %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit
-  %retval.0 = phi i1 [ false, %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit ], [ false, %land.lhs.true2 ], [ false, %land.lhs.true ], [ %tobool.not, %land.rhs ], [ false, %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.thread ]
+return:                                           ; preds = %lor.lhs.false.i, %entry, %if.then4.i, %land.lhs.true, %land.lhs.true2, %land.rhs, %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit
+  %retval.0 = phi i1 [ false, %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit ], [ false, %land.lhs.true2 ], [ false, %land.lhs.true ], [ %tobool.not, %land.rhs ], [ false, %if.then4.i ], [ false, %entry ], [ false, %lor.lhs.false.i ]
   ret i1 %retval.0
 }
 
@@ -16203,10 +16151,10 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #19
 declare void @llvm.assume(i1 noundef) #20
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #21
+declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #21
+declare i64 @llvm.umax.i64(i64, i64) #21
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

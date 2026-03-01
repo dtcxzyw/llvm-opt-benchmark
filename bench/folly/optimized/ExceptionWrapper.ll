@@ -32,8 +32,6 @@ $_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEE6appen
 
 $_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEE12traitsLengthEPKc = comdat any
 
-$_ZN5folly13fbstring_coreIcE12expandNoinitEmbb = comdat any
-
 $_ZN5folly13fbstring_coreIcE12reserveSmallEmb = comdat any
 
 $_ZN5folly13fbstring_coreIcE7reserveEmb = comdat any
@@ -440,7 +438,7 @@ declare noundef ptr @_ZN5folly6detail25exception_ptr_get_object_ERKNSt15__except
 ; Function Attrs: mustprogress noinline uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %28, label %4, !prof !64
+  br i1 %.not, label %74, label %4, !prof !64
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -454,30 +452,125 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN5folly14
   %13 = load ptr, ptr %0, align 8, !tbaa !37
   %14 = icmp ult i8 %8, 64
   %15 = select i1 %14, ptr %0, ptr %13
-  %16 = tail call noundef ptr @_ZN5folly13fbstring_coreIcE12expandNoinitEmbb(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %2, i1 noundef zeroext true, i1 noundef zeroext false)
-  %17 = icmp ule ptr %15, %1
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 %12
-  %.not30 = icmp ugt ptr %18, %1
-  %or.cond = select i1 %17, i1 %.not30, i1 false, !prof !65
-  br i1 %or.cond, label %19, label %.critedge, !prof !65
+  %16 = and i8 %8, -64
+  %17 = icmp eq i8 %16, 0
+  br i1 %17, label %18, label %28
 
-19:                                               ; preds = %4
-  %20 = load ptr, ptr %0, align 8, !tbaa !37
-  %21 = load i8, ptr %7, align 1, !tbaa !37
-  %22 = icmp ult i8 %21, 64
-  %23 = select i1 %22, ptr %0, ptr %20
-  %24 = ptrtoint ptr %1 to i64
-  %25 = ptrtoint ptr %15 to i64
-  %26 = sub i64 %24, %25
-  %27 = getelementptr inbounds i8, ptr %23, i64 %26
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %16, ptr align 1 %27, i64 %2, i1 false)
-  br label %28
+18:                                               ; preds = %4
+  %19 = add i64 %10, %2
+  %20 = icmp ugt i64 %19, 23
+  br i1 %20, label %26, label %21, !prof !65
 
-.critedge:                                        ; preds = %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr align 1 %1, i64 %2, i1 false)
-  br label %28
+21:                                               ; preds = %18
+  %22 = trunc nuw nsw i64 %19 to i8
+  %23 = sub nuw nsw i8 23, %22
+  store i8 %23, ptr %7, align 1, !tbaa !37
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 %19
+  store i8 0, ptr %24, align 1, !tbaa !37
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 %10
+  br label %_ZN5folly13fbstring_coreIcE12expandNoinitEmbb.exit
 
-28:                                               ; preds = %19, %.critedge, %3
+26:                                               ; preds = %18
+  %27 = tail call i64 @llvm.umax.i64(i64 %19, i64 46)
+  tail call void @_ZN5folly13fbstring_coreIcE12reserveSmallEmb(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %27, i1 noundef zeroext false)
+  br label %.noexc
+
+28:                                               ; preds = %4
+  %29 = add i64 %6, %2
+  %cond.i = icmp eq i8 %16, 64
+  br i1 %cond.i, label %30, label %36
+
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds i8, ptr %13, i64 -8
+  %32 = load atomic i64, ptr %31 acquire, align 8
+  %33 = icmp ugt i64 %32, 1
+  br i1 %33, label %34, label %36
+
+34:                                               ; preds = %30
+  %35 = load i64, ptr %5, align 8, !tbaa !37
+  br label %_ZNK5folly13fbstring_coreIcE8capacityEv.exit.i
+
+36:                                               ; preds = %30, %28
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %38 = load i64, ptr %37, align 8, !tbaa !66
+  %39 = and i64 %38, 4611686018427387903
+  br label %_ZNK5folly13fbstring_coreIcE8capacityEv.exit.i
+
+_ZNK5folly13fbstring_coreIcE8capacityEv.exit.i:   ; preds = %36, %34
+  %.0.i.i = phi i64 [ %39, %36 ], [ %35, %34 ]
+  %40 = icmp ugt i64 %29, %.0.i.i
+  br i1 %40, label %41, label %.noexc, !prof !64
+
+41:                                               ; preds = %_ZNK5folly13fbstring_coreIcE8capacityEv.exit.i
+  %42 = load i8, ptr %7, align 1, !tbaa !37
+  %43 = and i8 %42, -64
+  switch i8 %43, label %51 [
+    i8 0, label %_ZNK5folly13fbstring_coreIcE8capacityEv.exit15.i
+    i8 64, label %44
+  ]
+
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %0, align 8, !tbaa !37
+  %46 = getelementptr inbounds i8, ptr %45, i64 -8
+  %47 = load atomic i64, ptr %46 acquire, align 8
+  %48 = icmp ugt i64 %47, 1
+  br i1 %48, label %49, label %51
+
+49:                                               ; preds = %44
+  %50 = load i64, ptr %5, align 8, !tbaa !37
+  br label %_ZNK5folly13fbstring_coreIcE8capacityEv.exit15.i
+
+51:                                               ; preds = %44, %41
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %53 = load i64, ptr %52, align 8, !tbaa !66
+  %54 = and i64 %53, 4611686018427387903
+  br label %_ZNK5folly13fbstring_coreIcE8capacityEv.exit15.i
+
+_ZNK5folly13fbstring_coreIcE8capacityEv.exit15.i: ; preds = %51, %49, %41
+  %.0.i14.i = phi i64 [ %54, %51 ], [ %50, %49 ], [ 23, %41 ]
+  %55 = mul i64 %.0.i14.i, 3
+  %56 = lshr i64 %55, 1
+  %57 = add nuw i64 %56, 1
+  %58 = tail call i64 @llvm.umax.i64(i64 %29, i64 %57)
+  tail call void @_ZN5folly13fbstring_coreIcE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %58, i1 noundef zeroext false)
+  br label %.noexc
+
+.noexc:                                           ; preds = %26, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit15.i, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit.i
+  %.0..0.18.i = phi i64 [ %19, %26 ], [ %29, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit.i ], [ %29, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit15.i ]
+  %.0.i = phi i64 [ %10, %26 ], [ %6, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit.i ], [ %6, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit15.i ]
+  store i64 %.0..0.18.i, ptr %5, align 8, !tbaa !37
+  %59 = load ptr, ptr %0, align 8, !tbaa !37
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 %.0..0.18.i
+  store i8 0, ptr %60, align 1, !tbaa !37
+  %61 = load ptr, ptr %0, align 8, !tbaa !37
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %.0.i
+  br label %_ZN5folly13fbstring_coreIcE12expandNoinitEmbb.exit
+
+_ZN5folly13fbstring_coreIcE12expandNoinitEmbb.exit: ; preds = %.noexc, %21
+  %.011.i = phi ptr [ %62, %.noexc ], [ %25, %21 ]
+  %63 = icmp ule ptr %15, %1
+  %64 = getelementptr inbounds nuw i8, ptr %15, i64 %12
+  %.not32 = icmp ugt ptr %64, %1
+  %or.cond = select i1 %63, i1 %.not32, i1 false, !prof !68
+  br i1 %or.cond, label %65, label %.critedge, !prof !68
+
+65:                                               ; preds = %_ZN5folly13fbstring_coreIcE12expandNoinitEmbb.exit
+  %66 = load ptr, ptr %0, align 8, !tbaa !37
+  %67 = load i8, ptr %7, align 1, !tbaa !37
+  %68 = icmp ult i8 %67, 64
+  %69 = select i1 %68, ptr %0, ptr %66
+  %70 = ptrtoint ptr %1 to i64
+  %71 = ptrtoint ptr %15 to i64
+  %72 = sub i64 %70, %71
+  %73 = getelementptr inbounds i8, ptr %69, i64 %72
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.011.i, ptr align 1 %73, i64 %2, i1 false)
+  br label %74
+
+.critedge:                                        ; preds = %_ZN5folly13fbstring_coreIcE12expandNoinitEmbb.exit
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.011.i, ptr align 1 %1, i64 %2, i1 false)
+  br label %74
+
+74:                                               ; preds = %65, %.critedge, %3
   ret ptr %0
 }
 
@@ -493,138 +586,6 @@ define linkonce_odr noundef i64 @_ZN5folly14basic_fbstringIcSt11char_traitsIcESa
 4:                                                ; preds = %1
   tail call void @_ZN5folly6detail16throw_exception_ISt11logic_errorJPKcEEEvDpT0_(ptr noundef nonnull @.str.9) #20
   unreachable
-}
-
-; Function Attrs: inlinehint mustprogress uwtable
-define linkonce_odr noundef ptr @_ZN5folly13fbstring_coreIcE12expandNoinitEmbb(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #8 comdat align 2 {
-  %5 = alloca i64, align 8
-  %6 = alloca i64, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 23
-  %8 = load i8, ptr %7, align 1, !tbaa !37
-  %9 = and i8 %8, -64
-  %10 = icmp eq i8 %9, 0
-  br i1 %10, label %11, label %24
-
-11:                                               ; preds = %4
-  %12 = zext nneg i8 %8 to i64
-  %13 = sub nsw i64 23, %12
-  %14 = add i64 %13, %1
-  store i64 %14, ptr %5, align 8, !tbaa !51
-  %15 = icmp ugt i64 %14, 23
-  %or.cond.not = or i1 %3, %15
-  br i1 %or.cond.not, label %21, label %16, !prof !66
-
-16:                                               ; preds = %11
-  %17 = trunc nuw nsw i64 %14 to i8
-  %18 = sub nuw nsw i8 23, %17
-  store i8 %18, ptr %7, align 1, !tbaa !37
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %14
-  store i8 0, ptr %19, align 1, !tbaa !37
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %13
-  br label %66
-
-21:                                               ; preds = %11
-  %22 = icmp ult i64 %14, 46
-  %.0..val25 = load i64, ptr %5, align 8
-  %.pre = select i1 %22, i64 46, i64 %.0..val25
-  %23 = select i1 %2, i64 %.pre, i64 %14
-  tail call void @_ZN5folly13fbstring_coreIcE12reserveSmallEmb(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %23, i1 noundef zeroext %3)
-  br label %60
-
-24:                                               ; preds = %4
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !37
-  %27 = add i64 %26, %1
-  store i64 %27, ptr %5, align 8, !tbaa !51
-  %cond = icmp eq i8 %9, 64
-  br i1 %cond, label %28, label %35
-
-28:                                               ; preds = %24
-  %29 = load ptr, ptr %0, align 8, !tbaa !37
-  %30 = getelementptr inbounds i8, ptr %29, i64 -8
-  %31 = load atomic i64, ptr %30 acquire, align 8
-  %32 = icmp ugt i64 %31, 1
-  br i1 %32, label %33, label %35
-
-33:                                               ; preds = %28
-  %34 = load i64, ptr %25, align 8, !tbaa !37
-  br label %_ZNK5folly13fbstring_coreIcE8capacityEv.exit
-
-35:                                               ; preds = %24, %28
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %37 = load i64, ptr %36, align 8, !tbaa !67
-  %38 = and i64 %37, 4611686018427387903
-  br label %_ZNK5folly13fbstring_coreIcE8capacityEv.exit
-
-_ZNK5folly13fbstring_coreIcE8capacityEv.exit:     ; preds = %33, %35
-  %.0.i = phi i64 [ %38, %35 ], [ %34, %33 ]
-  %39 = icmp ugt i64 %27, %.0.i
-  br i1 %39, label %40, label %60, !prof !64
-
-40:                                               ; preds = %_ZNK5folly13fbstring_coreIcE8capacityEv.exit
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br i1 %2, label %41, label %58
-
-41:                                               ; preds = %40
-  %42 = load i8, ptr %7, align 1, !tbaa !37
-  %43 = and i8 %42, -64
-  switch i8 %43, label %51 [
-    i8 0, label %_ZNK5folly13fbstring_coreIcE8capacityEv.exit15
-    i8 64, label %44
-  ]
-
-44:                                               ; preds = %41
-  %45 = load ptr, ptr %0, align 8, !tbaa !37
-  %46 = getelementptr inbounds i8, ptr %45, i64 -8
-  %47 = load atomic i64, ptr %46 acquire, align 8
-  %48 = icmp ugt i64 %47, 1
-  br i1 %48, label %49, label %51
-
-49:                                               ; preds = %44
-  %50 = load i64, ptr %25, align 8, !tbaa !37
-  br label %_ZNK5folly13fbstring_coreIcE8capacityEv.exit15
-
-51:                                               ; preds = %44, %41
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %53 = load i64, ptr %52, align 8, !tbaa !67
-  %54 = and i64 %53, 4611686018427387903
-  br label %_ZNK5folly13fbstring_coreIcE8capacityEv.exit15
-
-_ZNK5folly13fbstring_coreIcE8capacityEv.exit15:   ; preds = %41, %49, %51
-  %.0.i14 = phi i64 [ %54, %51 ], [ %50, %49 ], [ 23, %41 ]
-  %55 = mul i64 %.0.i14, 3
-  %56 = lshr i64 %55, 1
-  %57 = add nuw i64 %56, 1
-  store i64 %57, ptr %6, align 8, !tbaa !51
-  %.0..0..0.20 = load i64, ptr %5, align 8, !tbaa !51
-  %.not21 = icmp ugt i64 %.0..0..0.20, %56
-  %..i16 = select i1 %.not21, ptr %5, ptr %6
-  br label %58
-
-58:                                               ; preds = %40, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit15
-  %.in = phi ptr [ %..i16, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit15 ], [ %5, %40 ]
-  %59 = load i64, ptr %.in, align 8, !tbaa !51
-  tail call void @_ZN5folly13fbstring_coreIcE7reserveEmb(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %59, i1 noundef zeroext false)
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %60
-
-60:                                               ; preds = %_ZNK5folly13fbstring_coreIcE8capacityEv.exit, %58, %21
-  %.0 = phi i64 [ %13, %21 ], [ %26, %58 ], [ %26, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit ]
-  %.0..0..0.18 = load i64, ptr %5, align 8, !tbaa !51
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.0..0..0.18, ptr %61, align 8, !tbaa !37
-  %62 = load ptr, ptr %0, align 8, !tbaa !37
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %.0..0..0.18
-  store i8 0, ptr %63, align 1, !tbaa !37
-  %64 = load ptr, ptr %0, align 8, !tbaa !37
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 %.0
-  br label %66
-
-66:                                               ; preds = %60, %16
-  %.011 = phi ptr [ %65, %60 ], [ %20, %16 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret ptr %.011
 }
 
 ; Function Attrs: mustprogress noinline uwtable
@@ -715,7 +676,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
 .sink.split:                                      ; preds = %34, %_ZN5folly13checkedMallocEm.exit
   %.sink = phi i64 [ %33, %_ZN5folly13checkedMallocEm.exit ], [ %44, %34 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink, ptr %45, align 8, !tbaa !67
+  store i64 %.sink, ptr %45, align 8, !tbaa !66
   br label %46
 
 46:                                               ; preds = %.sink.split, %3
@@ -1184,7 +1145,7 @@ define linkonce_odr void @_ZN5folly13fbstring_coreIcE13reserveMediumEm(ptr nound
   %4 = alloca %struct.Initializer, align 1
   %5 = alloca %"class.folly::fbstring_core", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !67
+  %7 = load i64, ptr %6, align 8, !tbaa !66
   %8 = and i64 %7, 4611686018427387903
   %.not = icmp ugt i64 %1, %8
   br i1 %.not, label %9, label %53
@@ -1231,14 +1192,14 @@ _ZN5folly14goodMallocSizeEm.exit:                 ; preds = %_ZN5folly10canNallo
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !37
   %29 = add i64 %28, 1
-  %30 = load i64, ptr %6, align 8, !tbaa !67
+  %30 = load i64, ptr %6, align 8, !tbaa !66
   %31 = and i64 %30, 4611686018427387903
   %32 = add nuw nsw i64 %31, 1
   %33 = call noalias noundef nonnull ptr @_ZN5folly12smartReallocEPvmmm(ptr noundef %26, i64 noundef %29, i64 noundef %32, i64 noundef %.0.i)
   store ptr %33, ptr %0, align 8, !tbaa !37
   %34 = add i64 %.0.i, 9223372036854775807
   %35 = or i64 %34, -9223372036854775808
-  store i64 %35, ptr %6, align 8, !tbaa !67
+  store i64 %35, ptr %6, align 8, !tbaa !66
   br label %53
 
 36:                                               ; preds = %9
@@ -1311,7 +1272,7 @@ define linkonce_odr void @_ZN5folly13fbstring_coreIcE12reserveLargeEm(ptr nounde
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i64, ptr %11, align 8, !tbaa !67
+  %12 = load i64, ptr %11, align 8, !tbaa !66
   %13 = and i64 %12, 4611686018427387903
   %14 = icmp ugt i64 %8, %13
   br i1 %14, label %15, label %23
@@ -1325,7 +1286,7 @@ define linkonce_odr void @_ZN5folly13fbstring_coreIcE12reserveLargeEm(ptr nounde
   store ptr %20, ptr %0, align 8, !tbaa !37
   %21 = load i64, ptr %3, align 8, !tbaa !51
   %22 = or i64 %21, 4611686018427387904
-  store i64 %22, ptr %11, align 8, !tbaa !67
+  store i64 %22, ptr %11, align 8, !tbaa !66
   br label %23
 
 23:                                               ; preds = %10, %15, %9
@@ -1398,7 +1359,7 @@ define linkonce_odr void @_ZN5folly13fbstring_coreIcE7unshareEm(ptr noundef nonn
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !67
+  %5 = load i64, ptr %4, align 8, !tbaa !66
   %6 = and i64 %5, 4611686018427387903
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %1, i64 %6)
   store i64 %.sroa.speculated, ptr %3, align 8, !tbaa !51
@@ -1423,7 +1384,7 @@ _ZN5folly13fbstring_coreIcE10RefCounted13decrementRefsEPc.exit: ; preds = %2, %1
   store ptr %11, ptr %0, align 8, !tbaa !37
   %18 = load i64, ptr %3, align 8, !tbaa !51
   %19 = or i64 %18, 4611686018427387904
-  store i64 %19, ptr %4, align 8, !tbaa !67
+  store i64 %19, ptr %4, align 8, !tbaa !66
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }
@@ -1704,7 +1665,7 @@ _ZN5folly13checkedMallocEm.exit:                  ; preds = %_ZN5folly14goodMall
   %26 = add i64 %.0.i, 9223372036854775807
   %27 = or i64 %26, -9223372036854775808
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %27, ptr %28, align 8, !tbaa !67
+  store i64 %27, ptr %28, align 8, !tbaa !66
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 %2
   store i8 0, ptr %29, align 1, !tbaa !37
   ret void
@@ -1732,7 +1693,7 @@ _ZN5folly13fbstring_coreIcE10RefCounted6createEPKcPm.exit: ; preds = %3, %6
   %10 = load i64, ptr %4, align 8, !tbaa !51
   %11 = or i64 %10, 4611686018427387904
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %11, ptr %12, align 8, !tbaa !67
+  store i64 %11, ptr %12, align 8, !tbaa !66
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 %2
   store i8 0, ptr %13, align 1, !tbaa !37
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1857,10 +1818,10 @@ attributes #31 = { nounwind allocsize(1) }
 !62 = distinct !{!62, !63, !"_ZN5folly8demangleERKSt9type_info: argument 0"}
 !63 = distinct !{!63, !"_ZN5folly8demangleERKSt9type_info"}
 !64 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!65 = !{!"branch_weights", i32 1, i32 4001}
-!66 = !{!"branch_weights", i32 2002, i32 2000}
-!67 = !{!68, !12, i64 16}
-!68 = !{!"_ZTSN5folly13fbstring_coreIcE11MediumLargeE", !45, i64 0, !12, i64 8, !12, i64 16}
+!65 = !{!"branch_weights", i32 2002, i32 2000}
+!66 = !{!67, !12, i64 16}
+!67 = !{!"_ZTSN5folly13fbstring_coreIcE11MediumLargeE", !45, i64 0, !12, i64 8, !12, i64 16}
+!68 = !{!"branch_weights", i32 1, i32 4001}
 !69 = !{!"branch_weights", i32 1, i32 1048575}
 !70 = !{!26, !26, i64 0}
 !71 = !{i8 0, i8 2}

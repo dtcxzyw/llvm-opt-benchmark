@@ -41832,21 +41832,19 @@ _ZNSt6vectorIN12_GLOBAL__N_19FieldInfoESaIS1_EE12emplace_backIJRNS0_9FieldTypeEE
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %138 = load i8, ptr %137, align 8, !tbaa !885, !range !379, !noundef !380
   %139 = trunc nuw i8 %138 to i1
-  br i1 %139, label %144, label %140
+  br i1 %139, label %143, label %140
 
 140:                                              ; preds = %_ZNSt6vectorIN12_GLOBAL__N_19FieldInfoESaIS1_EE12emplace_backIJRNS0_9FieldTypeEEEERS1_DpOT_.exit
   %141 = load i32, ptr %127, align 4, !tbaa !499
-  %142 = icmp ult i32 %141, %136
-  %..i7 = select i1 %142, ptr %126, ptr %127
-  %143 = load i32, ptr %..i7, align 4, !tbaa !499
-  store i32 %143, ptr %127, align 4, !tbaa !886
-  br label %144
+  %142 = call i32 @llvm.umax.i32(i32 %141, i32 %136)
+  store i32 %142, ptr %127, align 4, !tbaa !886
+  br label %143
 
-144:                                              ; preds = %140, %_ZNSt6vectorIN12_GLOBAL__N_19FieldInfoESaIS1_EE12emplace_backIJRNS0_9FieldTypeEEEERS1_DpOT_.exit
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %146 = load i32, ptr %145, align 8, !tbaa !499
-  %.sroa.speculated = call i32 @llvm.umax.i32(i32 %146, i32 %4)
-  store i32 %.sroa.speculated, ptr %145, align 8, !tbaa !889
+143:                                              ; preds = %140, %_ZNSt6vectorIN12_GLOBAL__N_19FieldInfoESaIS1_EE12emplace_backIJRNS0_9FieldTypeEEEERS1_DpOT_.exit
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %145 = load i32, ptr %144, align 8, !tbaa !499
+  %.sroa.speculated = call i32 @llvm.umax.i32(i32 %145, i32 %4)
+  store i32 %.sroa.speculated, ptr %144, align 8, !tbaa !889
   ret ptr %126
 }
 

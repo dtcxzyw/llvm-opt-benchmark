@@ -48785,9 +48785,9 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h7bec37dec
   %.sroa.0.0191 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.0.be, %.backedge ]
   %.sroa.11.0190 = phi i64 [ %1, %.lr.ph ], [ %.sroa.11.0.be, %.backedge ]
   %.sroa.017.0189 = phi ptr [ %2, %.lr.ph ], [ %.sroa.017.0.be, %.backedge ]
-  %.sroa.020.0188 = phi i32 [ %3, %.lr.ph ], [ %432, %.backedge ]
+  %.sroa.020.0188 = phi i32 [ %3, %.lr.ph ], [ %414, %.backedge ]
   %19 = icmp eq i32 %.sroa.020.0188, 0
-  br i1 %19, label %430, label %431
+  br i1 %19, label %412, label %413
 
 ._crit_edge:                                      ; preds = %.backedge, %5
   %.sroa.11.0.lcssa = phi i64 [ %1, %5 ], [ %.sroa.11.0.be, %.backedge ]
@@ -48805,15 +48805,15 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h7bec37dec
   %25 = sub nuw nsw i64 %.sroa.11.0.lcssa, %22
   br label %26
 
-26:                                               ; preds = %392, %21
-  %.sroa.9.0.i = phi i64 [ %..i, %21 ], [ %25, %392 ]
-  %.sroa.01.0.i = phi ptr [ %.sroa.0.0.lcssa, %21 ], [ %24, %392 ]
+26:                                               ; preds = %374, %21
+  %.sroa.9.0.i = phi i64 [ %..i, %21 ], [ %25, %374 ]
+  %.sroa.01.0.i = phi ptr [ %.sroa.0.0.lcssa, %21 ], [ %24, %374 ]
   %27 = icmp ugt i64 %.sroa.9.0.i, 12
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %26
   %29 = icmp samesign ugt i64 %.sroa.9.0.i, 8
-  br i1 %29, label %261, label %391
+  br i1 %29, label %250, label %373
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 96
@@ -48938,1501 +48938,1483 @@ _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit25.i.
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit30.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit25.i.i
   %.mux.i.i29.i.i = fcmp ogt double %45, %.val.i26.cast.i.i
-  %72 = select i1 %.mux.i.i29.i.i, ptr %64, ptr %36, !unpredictable !3
+  %72 = select i1 %.mux.i.i29.i.i, i64 %70, i64 %42
   %73 = select i1 %.mux.i.i29.i.i, double %45, double %.val.i26.cast.i.i
-  %74 = load i64, ptr %72, align 8, !alias.scope !6820
-  store i64 %74, ptr %36, align 8, !alias.scope !6820
+  store i64 %72, ptr %36, align 8, !alias.scope !6820
   store double %73, ptr %64, align 8, !alias.scope !6820
   %brmerge.not.i.i33.i.i = fcmp uno double %59, %52
-  %75 = bitcast i64 %74 to double
-  br i1 %brmerge.not.i.i33.i.i, label %76, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit35.i.i, !prof !2798
+  %74 = bitcast i64 %72 to double
+  br i1 %brmerge.not.i.i33.i.i, label %75, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit35.i.i, !prof !2798
 
-76:                                               ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit30.i.i
+75:                                               ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit30.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit35.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit30.i.i
   %.mux.i.i34.i.i = fcmp olt double %59, %52
-  %77 = select i1 %.mux.i.i34.i.i, ptr %50, ptr %43, !unpredictable !3
-  %78 = select i1 %.mux.i.i34.i.i, double %52, double %59
-  %79 = load i64, ptr %77, align 8, !alias.scope !6820
-  store i64 %79, ptr %43, align 8, !alias.scope !6820
-  store double %78, ptr %50, align 8, !alias.scope !6820
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 32
-  %.val1.i37.i.i = load double, ptr %80, align 8, !alias.scope !6820, !noundef !3
+  %76 = select i1 %.mux.i.i34.i.i, i64 %56, i64 %49
+  %77 = select i1 %.mux.i.i34.i.i, double %52, double %59
+  store i64 %76, ptr %43, align 8, !alias.scope !6820
+  store double %77, ptr %50, align 8, !alias.scope !6820
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 32
+  %.val1.i37.i.i = load double, ptr %78, align 8, !alias.scope !6820, !noundef !3
   %brmerge.not.i.i38.i.i = fcmp uno double %62, %.val1.i37.i.i
-  %81 = bitcast i64 %79 to double
-  br i1 %brmerge.not.i.i38.i.i, label %82, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit40.i.i, !prof !2798
+  %79 = bitcast i64 %76 to double
+  br i1 %brmerge.not.i.i38.i.i, label %80, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit40.i.i, !prof !2798
 
-82:                                               ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit35.i.i
+80:                                               ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit35.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit40.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit35.i.i
   %.mux.i.i39.i.i = fcmp olt double %62, %.val1.i37.i.i
-  %83 = select i1 %.mux.i.i39.i.i, ptr %58, ptr %80, !unpredictable !3
-  %84 = select i1 %.mux.i.i39.i.i, double %.val1.i37.i.i, double %62
-  %85 = load i64, ptr %83, align 8, !alias.scope !6820
-  store i64 %85, ptr %80, align 8, !alias.scope !6820
-  store double %84, ptr %58, align 8, !alias.scope !6820
+  %81 = select i1 %.mux.i.i39.i.i, ptr %58, ptr %78, !unpredictable !3
+  %82 = select i1 %.mux.i.i39.i.i, double %.val1.i37.i.i, double %62
+  %83 = load i64, ptr %81, align 8, !alias.scope !6820
+  store i64 %83, ptr %78, align 8, !alias.scope !6820
+  store double %82, ptr %58, align 8, !alias.scope !6820
   %brmerge.not.i.i43.i.i = fcmp uno double %48, %55
-  %86 = bitcast i64 %85 to double
-  br i1 %brmerge.not.i.i43.i.i, label %87, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit45.i.i, !prof !2798
+  %84 = bitcast i64 %83 to double
+  br i1 %brmerge.not.i.i43.i.i, label %85, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit45.i.i, !prof !2798
 
-87:                                               ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit40.i.i
+85:                                               ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit40.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit45.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit40.i.i
   %.mux.i.i44.i.i = fcmp olt double %48, %55
-  %88 = select i1 %.mux.i.i44.i.i, ptr %44, ptr %51, !unpredictable !3
-  %89 = select i1 %.mux.i.i44.i.i, double %55, double %48
-  %90 = load i64, ptr %88, align 8, !alias.scope !6820
-  store i64 %90, ptr %51, align 8, !alias.scope !6820
-  store double %89, ptr %44, align 8, !alias.scope !6820
+  %86 = select i1 %.mux.i.i44.i.i, ptr %44, ptr %51, !unpredictable !3
+  %87 = select i1 %.mux.i.i44.i.i, double %55, double %48
+  %88 = load i64, ptr %86, align 8, !alias.scope !6820
+  store i64 %88, ptr %51, align 8, !alias.scope !6820
+  store double %87, ptr %44, align 8, !alias.scope !6820
   %brmerge.not.i.i48.i.i = fcmp uno double %41, %69
-  %91 = bitcast i64 %90 to double
-  br i1 %brmerge.not.i.i48.i.i, label %92, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit50.i.i, !prof !2798
+  %89 = bitcast i64 %88 to double
+  br i1 %brmerge.not.i.i48.i.i, label %90, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit50.i.i, !prof !2798
 
-92:                                               ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit45.i.i
+90:                                               ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit45.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit50.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit45.i.i
   %.mux.i.i49.i.i = fcmp olt double %41, %69
-  %93 = select i1 %.mux.i.i49.i.i, ptr %37, ptr %65, !unpredictable !3
-  %94 = select i1 %.mux.i.i49.i.i, double %69, double %41
-  %95 = load i64, ptr %93, align 8, !alias.scope !6820
-  store i64 %95, ptr %65, align 8, !alias.scope !6820
-  store double %94, ptr %37, align 8, !alias.scope !6820
-  %brmerge.not.i.i53.i.i = fcmp uno double %86, %38
-  %96 = bitcast i64 %95 to double
-  br i1 %brmerge.not.i.i53.i.i, label %97, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit55.i.i, !prof !2798
+  %91 = select i1 %.mux.i.i49.i.i, ptr %37, ptr %65, !unpredictable !3
+  %92 = select i1 %.mux.i.i49.i.i, double %69, double %41
+  %93 = load i64, ptr %91, align 8, !alias.scope !6820
+  store i64 %93, ptr %65, align 8, !alias.scope !6820
+  store double %92, ptr %37, align 8, !alias.scope !6820
+  %brmerge.not.i.i53.i.i = fcmp uno double %84, %38
+  %94 = bitcast i64 %93 to double
+  br i1 %brmerge.not.i.i53.i.i, label %95, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit55.i.i, !prof !2798
 
-97:                                               ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit50.i.i
+95:                                               ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit50.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit55.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit50.i.i
-  %.mux.i.i54.i.i = fcmp olt double %86, %38
-  %98 = select i1 %.mux.i.i54.i.i, ptr %80, ptr %.sroa.01.0.i, !unpredictable !3
-  %99 = select i1 %.mux.i.i54.i.i, double %38, double %86
-  %100 = load i64, ptr %98, align 8, !alias.scope !6820
-  store i64 %100, ptr %.sroa.01.0.i, align 8, !alias.scope !6820
-  store double %99, ptr %80, align 8, !alias.scope !6820
-  %brmerge.not.i.i58.i.i = fcmp uno double %81, %75
-  %101 = bitcast i64 %100 to double
-  br i1 %brmerge.not.i.i58.i.i, label %102, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit60.i.i, !prof !2798
+  %.mux.i.i54.i.i = fcmp olt double %84, %38
+  %96 = select i1 %.mux.i.i54.i.i, ptr %78, ptr %.sroa.01.0.i, !unpredictable !3
+  %97 = select i1 %.mux.i.i54.i.i, double %38, double %84
+  %98 = load i64, ptr %96, align 8, !alias.scope !6820
+  store i64 %98, ptr %.sroa.01.0.i, align 8, !alias.scope !6820
+  store double %97, ptr %78, align 8, !alias.scope !6820
+  %brmerge.not.i.i58.i.i = fcmp uno double %79, %74
+  %99 = bitcast i64 %98 to double
+  br i1 %brmerge.not.i.i58.i.i, label %100, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit60.i.i, !prof !2798
 
-102:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit55.i.i
+100:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit55.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit60.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit55.i.i
-  %.mux.i.i59.i.i = fcmp olt double %81, %75
-  %103 = select i1 %.mux.i.i59.i.i, ptr %43, ptr %36, !unpredictable !3
-  %104 = select i1 %.mux.i.i59.i.i, double %75, double %81
-  %105 = load i64, ptr %103, align 8, !alias.scope !6820
-  store i64 %105, ptr %36, align 8, !alias.scope !6820
-  store double %104, ptr %43, align 8, !alias.scope !6820
-  %brmerge.not.i.i63.i.i = fcmp uno double %73, %78
-  %106 = bitcast i64 %105 to double
-  br i1 %brmerge.not.i.i63.i.i, label %107, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit65.i.i, !prof !2798
+  %.mux.i.i59.i.i = fcmp olt double %79, %74
+  %101 = select i1 %.mux.i.i59.i.i, i64 %76, i64 %72
+  %102 = select i1 %.mux.i.i59.i.i, double %74, double %79
+  store i64 %101, ptr %36, align 8, !alias.scope !6820
+  store double %102, ptr %43, align 8, !alias.scope !6820
+  %brmerge.not.i.i63.i.i = fcmp uno double %73, %77
+  %103 = bitcast i64 %101 to double
+  br i1 %brmerge.not.i.i63.i.i, label %104, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit65.i.i, !prof !2798
 
-107:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit60.i.i
+104:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit60.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit65.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit60.i.i
-  %.mux.i.i64.i.i = fcmp olt double %73, %78
-  %108 = select i1 %.mux.i.i64.i.i, ptr %64, ptr %50, !unpredictable !3
-  %109 = select i1 %.mux.i.i64.i.i, double %78, double %73
-  %110 = load i64, ptr %108, align 8, !alias.scope !6820
-  store i64 %110, ptr %50, align 8, !alias.scope !6820
-  store double %109, ptr %64, align 8, !alias.scope !6820
-  %brmerge.not.i.i68.i.i = fcmp uno double %96, %91
-  %111 = bitcast i64 %110 to double
-  br i1 %brmerge.not.i.i68.i.i, label %112, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit70.i.i, !prof !2798
+  %.mux.i.i64.i.i = fcmp olt double %73, %77
+  %105 = select i1 %.mux.i.i64.i.i, ptr %64, ptr %50, !unpredictable !3
+  %106 = select i1 %.mux.i.i64.i.i, double %77, double %73
+  %107 = load i64, ptr %105, align 8, !alias.scope !6820
+  store i64 %107, ptr %50, align 8, !alias.scope !6820
+  store double %106, ptr %64, align 8, !alias.scope !6820
+  %brmerge.not.i.i68.i.i = fcmp uno double %94, %89
+  %108 = bitcast i64 %107 to double
+  br i1 %brmerge.not.i.i68.i.i, label %109, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit70.i.i, !prof !2798
 
-112:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit65.i.i
+109:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit65.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit70.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit65.i.i
-  %.mux.i.i69.i.i = fcmp olt double %96, %91
-  %113 = select i1 %.mux.i.i69.i.i, ptr %65, ptr %51, !unpredictable !3
-  %114 = select i1 %.mux.i.i69.i.i, double %91, double %96
-  %115 = load i64, ptr %113, align 8, !alias.scope !6820
-  store i64 %115, ptr %51, align 8, !alias.scope !6820
-  store double %114, ptr %65, align 8, !alias.scope !6820
-  %brmerge.not.i.i73.i.i = fcmp uno double %94, %89
-  %116 = bitcast i64 %115 to double
-  br i1 %brmerge.not.i.i73.i.i, label %117, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit75.i.i, !prof !2798
+  %.mux.i.i69.i.i = fcmp olt double %94, %89
+  %110 = select i1 %.mux.i.i69.i.i, i64 %93, i64 %88
+  %111 = select i1 %.mux.i.i69.i.i, double %89, double %94
+  store i64 %110, ptr %51, align 8, !alias.scope !6820
+  store double %111, ptr %65, align 8, !alias.scope !6820
+  %brmerge.not.i.i73.i.i = fcmp uno double %92, %87
+  %112 = bitcast i64 %110 to double
+  br i1 %brmerge.not.i.i73.i.i, label %113, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit75.i.i, !prof !2798
 
-117:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit70.i.i
+113:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit70.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit75.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit70.i.i
-  %.mux.i.i74.i.i = fcmp olt double %94, %89
-  %118 = select i1 %.mux.i.i74.i.i, ptr %37, ptr %44, !unpredictable !3
-  %119 = select i1 %.mux.i.i74.i.i, double %89, double %94
-  %120 = load i64, ptr %118, align 8, !alias.scope !6820
-  store i64 %120, ptr %44, align 8, !alias.scope !6820
-  store double %119, ptr %37, align 8, !alias.scope !6820
-  %brmerge.not.i.i78.i.i = fcmp uno double %34, %84
-  %121 = bitcast i64 %120 to double
-  br i1 %brmerge.not.i.i78.i.i, label %122, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit80.i.i, !prof !2798
+  %.mux.i.i74.i.i = fcmp olt double %92, %87
+  %114 = select i1 %.mux.i.i74.i.i, ptr %37, ptr %44, !unpredictable !3
+  %115 = select i1 %.mux.i.i74.i.i, double %87, double %92
+  %116 = load i64, ptr %114, align 8, !alias.scope !6820
+  store i64 %116, ptr %44, align 8, !alias.scope !6820
+  store double %115, ptr %37, align 8, !alias.scope !6820
+  %brmerge.not.i.i78.i.i = fcmp uno double %34, %82
+  %117 = bitcast i64 %116 to double
+  br i1 %brmerge.not.i.i78.i.i, label %118, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit80.i.i, !prof !2798
 
-122:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit75.i.i
+118:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit75.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit80.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit75.i.i
-  %.mux.i.i79.i.i = fcmp olt double %34, %84
-  %123 = select i1 %.mux.i.i79.i.i, ptr %31, ptr %58, !unpredictable !3
-  %124 = select i1 %.mux.i.i79.i.i, double %84, double %34
-  %125 = load i64, ptr %123, align 8, !alias.scope !6820
-  store i64 %125, ptr %58, align 8, !alias.scope !6820
-  store double %124, ptr %31, align 8, !alias.scope !6820
-  %brmerge.not.i.i83.i.i = fcmp uno double %109, %99
-  %126 = bitcast i64 %125 to double
-  br i1 %brmerge.not.i.i83.i.i, label %127, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit85.i.i, !prof !2798
+  %.mux.i.i79.i.i = fcmp olt double %34, %82
+  %119 = select i1 %.mux.i.i79.i.i, ptr %31, ptr %58, !unpredictable !3
+  %120 = select i1 %.mux.i.i79.i.i, double %82, double %34
+  %121 = load i64, ptr %119, align 8, !alias.scope !6820
+  store i64 %121, ptr %58, align 8, !alias.scope !6820
+  store double %120, ptr %31, align 8, !alias.scope !6820
+  %brmerge.not.i.i83.i.i = fcmp uno double %106, %97
+  %122 = bitcast i64 %121 to double
+  br i1 %brmerge.not.i.i83.i.i, label %123, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit85.i.i, !prof !2798
 
-127:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit80.i.i
+123:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit80.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit85.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit80.i.i
-  %.mux.i.i84.i.i = fcmp olt double %109, %99
-  %128 = select i1 %.mux.i.i84.i.i, ptr %64, ptr %80, !unpredictable !3
-  %129 = select i1 %.mux.i.i84.i.i, double %99, double %109
-  %130 = load i64, ptr %128, align 8, !alias.scope !6820
-  store i64 %130, ptr %80, align 8, !alias.scope !6820
-  store double %129, ptr %64, align 8, !alias.scope !6820
-  %brmerge.not.i.i88.i.i = fcmp uno double %121, %66
-  %131 = bitcast i64 %130 to double
-  br i1 %brmerge.not.i.i88.i.i, label %132, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit90.i.i, !prof !2798
+  %.mux.i.i84.i.i = fcmp olt double %106, %97
+  %124 = select i1 %.mux.i.i84.i.i, ptr %64, ptr %78, !unpredictable !3
+  %125 = select i1 %.mux.i.i84.i.i, double %97, double %106
+  %126 = load i64, ptr %124, align 8, !alias.scope !6820
+  store i64 %126, ptr %78, align 8, !alias.scope !6820
+  store double %125, ptr %64, align 8, !alias.scope !6820
+  %brmerge.not.i.i88.i.i = fcmp uno double %117, %66
+  %127 = bitcast i64 %126 to double
+  br i1 %brmerge.not.i.i88.i.i, label %128, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit90.i.i, !prof !2798
 
-132:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit85.i.i
+128:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit85.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit90.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit85.i.i
-  %.mux.i.i89.i.i = fcmp olt double %121, %66
-  %133 = select i1 %.mux.i.i89.i.i, ptr %44, ptr %57, !unpredictable !3
-  %134 = select i1 %.mux.i.i89.i.i, double %66, double %121
-  %135 = load i64, ptr %133, align 8, !alias.scope !6820
-  store i64 %135, ptr %57, align 8, !alias.scope !6820
-  store double %134, ptr %44, align 8, !alias.scope !6820
-  %brmerge.not.i.i93.i.i = fcmp uno double %114, %126
-  %136 = bitcast i64 %135 to double
-  br i1 %brmerge.not.i.i93.i.i, label %137, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit95.i.i, !prof !2798
+  %.mux.i.i89.i.i = fcmp olt double %117, %66
+  %129 = select i1 %.mux.i.i89.i.i, ptr %44, ptr %57, !unpredictable !3
+  %130 = select i1 %.mux.i.i89.i.i, double %66, double %117
+  %131 = load i64, ptr %129, align 8, !alias.scope !6820
+  store i64 %131, ptr %57, align 8, !alias.scope !6820
+  store double %130, ptr %44, align 8, !alias.scope !6820
+  %brmerge.not.i.i93.i.i = fcmp uno double %111, %122
+  %132 = bitcast i64 %131 to double
+  br i1 %brmerge.not.i.i93.i.i, label %133, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit95.i.i, !prof !2798
 
-137:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit90.i.i
+133:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit90.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit95.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit90.i.i
-  %.mux.i.i94.i.i = fcmp ogt double %114, %126
-  %138 = select i1 %.mux.i.i94.i.i, ptr %58, ptr %65, !unpredictable !3
-  %139 = select i1 %.mux.i.i94.i.i, double %114, double %126
-  %140 = load i64, ptr %138, align 8, !alias.scope !6820
-  store i64 %140, ptr %65, align 8, !alias.scope !6820
-  store double %139, ptr %58, align 8, !alias.scope !6820
-  %brmerge.not.i.i98.i.i = fcmp uno double %124, %119
-  %141 = bitcast i64 %140 to double
-  br i1 %brmerge.not.i.i98.i.i, label %142, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit100.i.i, !prof !2798
+  %.mux.i.i94.i.i = fcmp ogt double %111, %122
+  %134 = select i1 %.mux.i.i94.i.i, ptr %58, ptr %65, !unpredictable !3
+  %135 = select i1 %.mux.i.i94.i.i, double %111, double %122
+  %136 = load i64, ptr %134, align 8, !alias.scope !6820
+  store i64 %136, ptr %65, align 8, !alias.scope !6820
+  store double %135, ptr %58, align 8, !alias.scope !6820
+  %brmerge.not.i.i98.i.i = fcmp uno double %120, %115
+  %137 = bitcast i64 %136 to double
+  br i1 %brmerge.not.i.i98.i.i, label %138, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit100.i.i, !prof !2798
 
-142:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit95.i.i
+138:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit95.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit100.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit95.i.i
-  %.mux.i.i99.i.i = fcmp olt double %124, %119
-  %143 = select i1 %.mux.i.i99.i.i, ptr %31, ptr %37, !unpredictable !3
-  %144 = select i1 %.mux.i.i99.i.i, double %119, double %124
-  %145 = load i64, ptr %143, align 8, !alias.scope !6820
-  store i64 %145, ptr %37, align 8, !alias.scope !6820
-  store double %144, ptr %31, align 8, !alias.scope !6820
-  %brmerge.not.i.i103.i.i = fcmp uno double %136, %101
-  %146 = bitcast i64 %145 to double
-  br i1 %brmerge.not.i.i103.i.i, label %147, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit105.i.i, !prof !2798
+  %.mux.i.i99.i.i = fcmp olt double %120, %115
+  %139 = select i1 %.mux.i.i99.i.i, ptr %31, ptr %37, !unpredictable !3
+  %140 = select i1 %.mux.i.i99.i.i, double %115, double %120
+  %141 = load i64, ptr %139, align 8, !alias.scope !6820
+  store i64 %141, ptr %37, align 8, !alias.scope !6820
+  store double %140, ptr %31, align 8, !alias.scope !6820
+  %brmerge.not.i.i103.i.i = fcmp uno double %132, %99
+  %142 = bitcast i64 %141 to double
+  br i1 %brmerge.not.i.i103.i.i, label %143, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit105.i.i, !prof !2798
 
-147:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit100.i.i
+143:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit100.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit105.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit100.i.i
-  %.mux.i.i104.i.i = fcmp olt double %136, %101
-  %148 = select i1 %.mux.i.i104.i.i, ptr %57, ptr %.sroa.01.0.i, !unpredictable !3
-  %149 = select i1 %.mux.i.i104.i.i, double %101, double %136
-  %150 = load i64, ptr %148, align 8, !alias.scope !6820
-  store i64 %150, ptr %.sroa.01.0.i, align 8, !alias.scope !6820
-  store double %149, ptr %57, align 8, !alias.scope !6820
-  %brmerge.not.i.i108.i.i = fcmp uno double %141, %111
-  %151 = bitcast i64 %150 to double
-  br i1 %brmerge.not.i.i108.i.i, label %152, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit110.i.i, !prof !2798
+  %.mux.i.i104.i.i = fcmp olt double %132, %99
+  %144 = select i1 %.mux.i.i104.i.i, i64 %131, i64 %98
+  %145 = select i1 %.mux.i.i104.i.i, double %99, double %132
+  store i64 %144, ptr %.sroa.01.0.i, align 8, !alias.scope !6820
+  store double %145, ptr %57, align 8, !alias.scope !6820
+  %brmerge.not.i.i108.i.i = fcmp uno double %137, %108
+  %146 = bitcast i64 %144 to double
+  br i1 %brmerge.not.i.i108.i.i, label %147, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit110.i.i, !prof !2798
 
-152:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit105.i.i
+147:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit105.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit110.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit105.i.i
-  %.mux.i.i109.i.i = fcmp olt double %141, %111
-  %153 = select i1 %.mux.i.i109.i.i, ptr %65, ptr %50, !unpredictable !3
-  %154 = select i1 %.mux.i.i109.i.i, double %111, double %141
-  %155 = load i64, ptr %153, align 8, !alias.scope !6820
-  store i64 %155, ptr %50, align 8, !alias.scope !6820
-  store double %154, ptr %65, align 8, !alias.scope !6820
-  %brmerge.not.i.i113.i.i = fcmp uno double %116, %131
-  %156 = bitcast i64 %155 to double
-  br i1 %brmerge.not.i.i113.i.i, label %157, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit115.i.i, !prof !2798
+  %.mux.i.i109.i.i = fcmp olt double %137, %108
+  %148 = select i1 %.mux.i.i109.i.i, i64 %136, i64 %107
+  %149 = select i1 %.mux.i.i109.i.i, double %108, double %137
+  store i64 %148, ptr %50, align 8, !alias.scope !6820
+  store double %149, ptr %65, align 8, !alias.scope !6820
+  %brmerge.not.i.i113.i.i = fcmp uno double %112, %127
+  %150 = bitcast i64 %148 to double
+  br i1 %brmerge.not.i.i113.i.i, label %151, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit115.i.i, !prof !2798
 
-157:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit110.i.i
+151:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit110.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit115.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit110.i.i
-  %.mux.i.i114.i.i = fcmp olt double %116, %131
-  %158 = select i1 %.mux.i.i114.i.i, ptr %51, ptr %80, !unpredictable !3
-  %159 = select i1 %.mux.i.i114.i.i, double %131, double %116
-  %160 = load i64, ptr %158, align 8, !alias.scope !6820
-  store i64 %160, ptr %80, align 8, !alias.scope !6820
-  store double %159, ptr %51, align 8, !alias.scope !6820
-  %brmerge.not.i.i118.i.i = fcmp uno double %139, %129
-  %161 = bitcast i64 %160 to double
-  br i1 %brmerge.not.i.i118.i.i, label %162, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit120.i.i, !prof !2798
+  %.mux.i.i114.i.i = fcmp olt double %112, %127
+  %152 = select i1 %.mux.i.i114.i.i, i64 %110, i64 %126
+  %153 = select i1 %.mux.i.i114.i.i, double %127, double %112
+  store i64 %152, ptr %78, align 8, !alias.scope !6820
+  store double %153, ptr %51, align 8, !alias.scope !6820
+  %brmerge.not.i.i118.i.i = fcmp uno double %135, %125
+  %154 = bitcast i64 %152 to double
+  br i1 %brmerge.not.i.i118.i.i, label %155, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit120.i.i, !prof !2798
 
-162:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit115.i.i
+155:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit115.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit120.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit115.i.i
-  %.mux.i.i119.i.i = fcmp olt double %139, %129
-  %163 = select i1 %.mux.i.i119.i.i, ptr %58, ptr %64, !unpredictable !3
-  %164 = select i1 %.mux.i.i119.i.i, double %129, double %139
-  %165 = load i64, ptr %163, align 8, !alias.scope !6820
-  store i64 %165, ptr %64, align 8, !alias.scope !6820
-  store double %164, ptr %58, align 8, !alias.scope !6820
-  %brmerge.not.i.i123.i.i = fcmp uno double %134, %146
-  %166 = bitcast i64 %165 to double
-  br i1 %brmerge.not.i.i123.i.i, label %167, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit125.i.i, !prof !2798
+  %.mux.i.i119.i.i = fcmp olt double %135, %125
+  %156 = select i1 %.mux.i.i119.i.i, ptr %58, ptr %64, !unpredictable !3
+  %157 = select i1 %.mux.i.i119.i.i, double %125, double %135
+  %158 = load i64, ptr %156, align 8, !alias.scope !6820
+  store i64 %158, ptr %64, align 8, !alias.scope !6820
+  store double %157, ptr %58, align 8, !alias.scope !6820
+  %brmerge.not.i.i123.i.i = fcmp uno double %130, %142
+  %159 = bitcast i64 %158 to double
+  br i1 %brmerge.not.i.i123.i.i, label %160, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit125.i.i, !prof !2798
 
-167:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit120.i.i
+160:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit120.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit125.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit120.i.i
-  %.mux.i.i124.i.i = fcmp ogt double %134, %146
-  %168 = select i1 %.mux.i.i124.i.i, ptr %37, ptr %44, !unpredictable !3
-  %169 = select i1 %.mux.i.i124.i.i, double %134, double %146
-  %170 = load i64, ptr %168, align 8, !alias.scope !6820
-  store i64 %170, ptr %44, align 8, !alias.scope !6820
-  store double %169, ptr %37, align 8, !alias.scope !6820
-  %brmerge.not.i.i128.i.i = fcmp uno double %106, %151
-  %171 = bitcast i64 %170 to double
-  br i1 %brmerge.not.i.i128.i.i, label %172, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit130.i.i, !prof !2798
+  %.mux.i.i124.i.i = fcmp ogt double %130, %142
+  %161 = select i1 %.mux.i.i124.i.i, ptr %37, ptr %44, !unpredictable !3
+  %162 = select i1 %.mux.i.i124.i.i, double %130, double %142
+  %163 = load i64, ptr %161, align 8, !alias.scope !6820
+  store i64 %163, ptr %44, align 8, !alias.scope !6820
+  store double %162, ptr %37, align 8, !alias.scope !6820
+  %brmerge.not.i.i128.i.i = fcmp uno double %103, %146
+  %164 = bitcast i64 %163 to double
+  br i1 %brmerge.not.i.i128.i.i, label %165, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit130.i.i, !prof !2798
 
-172:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit125.i.i
+165:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit125.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit130.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit125.i.i
-  %.mux.i.i129.i.i = fcmp olt double %106, %151
-  %173 = select i1 %.mux.i.i129.i.i, ptr %36, ptr %.sroa.01.0.i, !unpredictable !3
-  %174 = select i1 %.mux.i.i129.i.i, double %151, double %106
-  %175 = load i64, ptr %173, align 8, !alias.scope !6820
-  store i64 %175, ptr %.sroa.01.0.i, align 8, !alias.scope !6820
-  store double %174, ptr %36, align 8, !alias.scope !6820
-  %brmerge.not.i.i133.i.i = fcmp uno double %149, %104
-  br i1 %brmerge.not.i.i133.i.i, label %176, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit135.i.i, !prof !2798
+  %.mux.i.i129.i.i = fcmp olt double %103, %146
+  %166 = select i1 %.mux.i.i129.i.i, ptr %36, ptr %.sroa.01.0.i, !unpredictable !3
+  %167 = select i1 %.mux.i.i129.i.i, double %146, double %103
+  %168 = load i64, ptr %166, align 8, !alias.scope !6820
+  store i64 %168, ptr %.sroa.01.0.i, align 8, !alias.scope !6820
+  store double %167, ptr %36, align 8, !alias.scope !6820
+  %brmerge.not.i.i133.i.i = fcmp uno double %145, %102
+  br i1 %brmerge.not.i.i133.i.i, label %169, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit135.i.i, !prof !2798
 
-176:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit130.i.i
+169:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit130.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit135.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit130.i.i
-  %.mux.i.i134.i.i = fcmp olt double %149, %104
-  %177 = select i1 %.mux.i.i134.i.i, ptr %57, ptr %43, !unpredictable !3
-  %178 = select i1 %.mux.i.i134.i.i, double %104, double %149
-  %179 = load i64, ptr %177, align 8, !alias.scope !6820
-  store i64 %179, ptr %43, align 8, !alias.scope !6820
-  store double %178, ptr %57, align 8, !alias.scope !6820
-  %brmerge.not.i.i138.i.i = fcmp uno double %171, %166
-  %180 = bitcast i64 %179 to double
-  br i1 %brmerge.not.i.i138.i.i, label %181, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit140.i.i, !prof !2798
+  %.mux.i.i134.i.i = fcmp olt double %145, %102
+  %170 = select i1 %.mux.i.i134.i.i, ptr %57, ptr %43, !unpredictable !3
+  %171 = select i1 %.mux.i.i134.i.i, double %102, double %145
+  %172 = load i64, ptr %170, align 8, !alias.scope !6820
+  store i64 %172, ptr %43, align 8, !alias.scope !6820
+  store double %171, ptr %57, align 8, !alias.scope !6820
+  %brmerge.not.i.i138.i.i = fcmp uno double %164, %159
+  %173 = bitcast i64 %172 to double
+  br i1 %brmerge.not.i.i138.i.i, label %174, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit140.i.i, !prof !2798
 
-181:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit135.i.i
+174:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit135.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit140.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit135.i.i
-  %.mux.i.i139.i.i = fcmp olt double %171, %166
-  %182 = select i1 %.mux.i.i139.i.i, ptr %44, ptr %64, !unpredictable !3
-  %183 = select i1 %.mux.i.i139.i.i, double %166, double %171
-  %184 = load i64, ptr %182, align 8, !alias.scope !6820
-  store i64 %184, ptr %64, align 8, !alias.scope !6820
-  store double %183, ptr %44, align 8, !alias.scope !6820
-  %brmerge.not.i.i143.i.i = fcmp uno double %154, %159
-  %185 = bitcast i64 %184 to double
-  br i1 %brmerge.not.i.i143.i.i, label %186, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit145.i.i, !prof !2798
+  %.mux.i.i139.i.i = fcmp olt double %164, %159
+  %175 = select i1 %.mux.i.i139.i.i, i64 %163, i64 %158
+  %176 = select i1 %.mux.i.i139.i.i, double %159, double %164
+  store i64 %175, ptr %64, align 8, !alias.scope !6820
+  store double %176, ptr %44, align 8, !alias.scope !6820
+  %brmerge.not.i.i143.i.i = fcmp uno double %149, %153
+  %177 = bitcast i64 %175 to double
+  br i1 %brmerge.not.i.i143.i.i, label %178, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit145.i.i, !prof !2798
 
-186:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit140.i.i
+178:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit140.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit145.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit140.i.i
-  %.mux.i.i144.i.i = fcmp olt double %154, %159
-  %187 = select i1 %.mux.i.i144.i.i, ptr %65, ptr %51, !unpredictable !3
-  %188 = select i1 %.mux.i.i144.i.i, double %159, double %154
-  %189 = load i64, ptr %187, align 8, !alias.scope !6820
-  store i64 %189, ptr %51, align 8, !alias.scope !6820
-  store double %188, ptr %65, align 8, !alias.scope !6820
-  %brmerge.not.i.i148.i.i = fcmp uno double %164, %169
-  %190 = bitcast i64 %189 to double
-  br i1 %brmerge.not.i.i148.i.i, label %191, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit150.i.i, !prof !2798
+  %.mux.i.i144.i.i = fcmp olt double %149, %153
+  %179 = select i1 %.mux.i.i144.i.i, ptr %65, ptr %51, !unpredictable !3
+  %180 = select i1 %.mux.i.i144.i.i, double %153, double %149
+  %181 = load i64, ptr %179, align 8, !alias.scope !6820
+  store i64 %181, ptr %51, align 8, !alias.scope !6820
+  store double %180, ptr %65, align 8, !alias.scope !6820
+  %brmerge.not.i.i148.i.i = fcmp uno double %157, %162
+  %182 = bitcast i64 %181 to double
+  br i1 %brmerge.not.i.i148.i.i, label %183, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit150.i.i, !prof !2798
 
-191:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit145.i.i
+183:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit145.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit150.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit145.i.i
-  %.mux.i.i149.i.i = fcmp olt double %164, %169
-  %192 = select i1 %.mux.i.i149.i.i, ptr %58, ptr %37, !unpredictable !3
-  %193 = select i1 %.mux.i.i149.i.i, double %169, double %164
-  %194 = load i64, ptr %192, align 8, !alias.scope !6820
-  store i64 %194, ptr %37, align 8, !alias.scope !6820
-  store double %193, ptr %58, align 8, !alias.scope !6820
-  %brmerge.not.i.i153.i.i = fcmp uno double %174, %156
-  %195 = bitcast i64 %194 to double
-  br i1 %brmerge.not.i.i153.i.i, label %196, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit155.i.i, !prof !2798
+  %.mux.i.i149.i.i = fcmp olt double %157, %162
+  %184 = select i1 %.mux.i.i149.i.i, ptr %58, ptr %37, !unpredictable !3
+  %185 = select i1 %.mux.i.i149.i.i, double %162, double %157
+  %186 = load i64, ptr %184, align 8, !alias.scope !6820
+  store i64 %186, ptr %37, align 8, !alias.scope !6820
+  store double %185, ptr %58, align 8, !alias.scope !6820
+  %brmerge.not.i.i153.i.i = fcmp uno double %167, %150
+  %187 = bitcast i64 %186 to double
+  br i1 %brmerge.not.i.i153.i.i, label %188, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit155.i.i, !prof !2798
 
-196:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit150.i.i
+188:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit150.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit155.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit150.i.i
-  %.mux.i.i154.i.i = fcmp ogt double %174, %156
-  %197 = select i1 %.mux.i.i154.i.i, ptr %50, ptr %36, !unpredictable !3
-  %198 = select i1 %.mux.i.i154.i.i, double %174, double %156
-  %199 = load i64, ptr %197, align 8, !alias.scope !6820
-  store i64 %199, ptr %36, align 8, !alias.scope !6820
-  store double %198, ptr %50, align 8, !alias.scope !6820
-  %brmerge.not.i.i158.i.i = fcmp uno double %161, %180
-  %200 = bitcast i64 %199 to double
-  br i1 %brmerge.not.i.i158.i.i, label %201, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit160.i.i, !prof !2798
+  %.mux.i.i154.i.i = fcmp ogt double %167, %150
+  %189 = select i1 %.mux.i.i154.i.i, ptr %50, ptr %36, !unpredictable !3
+  %190 = select i1 %.mux.i.i154.i.i, double %167, double %150
+  %191 = load i64, ptr %189, align 8, !alias.scope !6820
+  store i64 %191, ptr %36, align 8, !alias.scope !6820
+  store double %190, ptr %50, align 8, !alias.scope !6820
+  %brmerge.not.i.i158.i.i = fcmp uno double %154, %173
+  %192 = bitcast i64 %191 to double
+  br i1 %brmerge.not.i.i158.i.i, label %193, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit160.i.i, !prof !2798
 
-201:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit155.i.i
+193:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit155.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit160.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit155.i.i
-  %.mux.i.i159.i.i = fcmp olt double %161, %180
-  %202 = select i1 %.mux.i.i159.i.i, ptr %80, ptr %43, !unpredictable !3
-  %203 = select i1 %.mux.i.i159.i.i, double %180, double %161
-  %204 = load i64, ptr %202, align 8, !alias.scope !6820
-  store i64 %204, ptr %43, align 8, !alias.scope !6820
-  store double %203, ptr %80, align 8, !alias.scope !6820
-  %brmerge.not.i.i163.i.i = fcmp uno double %178, %185
-  %205 = bitcast i64 %204 to double
-  br i1 %brmerge.not.i.i163.i.i, label %206, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit165.i.i, !prof !2798
+  %.mux.i.i159.i.i = fcmp olt double %154, %173
+  %194 = select i1 %.mux.i.i159.i.i, i64 %152, i64 %172
+  %195 = select i1 %.mux.i.i159.i.i, double %173, double %154
+  store i64 %194, ptr %43, align 8, !alias.scope !6820
+  store double %195, ptr %78, align 8, !alias.scope !6820
+  %brmerge.not.i.i163.i.i = fcmp uno double %171, %177
+  %196 = bitcast i64 %194 to double
+  br i1 %brmerge.not.i.i163.i.i, label %197, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit165.i.i, !prof !2798
 
-206:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit160.i.i
+197:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit160.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit165.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit160.i.i
-  %.mux.i.i164.i.i = fcmp ogt double %178, %185
-  %207 = select i1 %.mux.i.i164.i.i, ptr %64, ptr %57, !unpredictable !3
-  %208 = select i1 %.mux.i.i164.i.i, double %178, double %185
-  %209 = load i64, ptr %207, align 8, !alias.scope !6820
-  store i64 %209, ptr %57, align 8, !alias.scope !6820
-  store double %208, ptr %64, align 8, !alias.scope !6820
-  %brmerge.not.i.i168.i.i = fcmp uno double %183, %195
-  %210 = bitcast i64 %209 to double
-  br i1 %brmerge.not.i.i168.i.i, label %211, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit170.i.i, !prof !2798
+  %.mux.i.i164.i.i = fcmp ogt double %171, %177
+  %198 = select i1 %.mux.i.i164.i.i, ptr %64, ptr %57, !unpredictable !3
+  %199 = select i1 %.mux.i.i164.i.i, double %171, double %177
+  %200 = load i64, ptr %198, align 8, !alias.scope !6820
+  store i64 %200, ptr %57, align 8, !alias.scope !6820
+  store double %199, ptr %64, align 8, !alias.scope !6820
+  %brmerge.not.i.i168.i.i = fcmp uno double %176, %187
+  %201 = bitcast i64 %200 to double
+  br i1 %brmerge.not.i.i168.i.i, label %202, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit170.i.i, !prof !2798
 
-211:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit165.i.i
+202:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit165.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit170.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit165.i.i
-  %.mux.i.i169.i.i = fcmp ogt double %183, %195
-  %212 = select i1 %.mux.i.i169.i.i, ptr %37, ptr %44, !unpredictable !3
-  %213 = select i1 %.mux.i.i169.i.i, double %183, double %195
-  %214 = load i64, ptr %212, align 8, !alias.scope !6820
-  store i64 %214, ptr %44, align 8, !alias.scope !6820
-  store double %213, ptr %37, align 8, !alias.scope !6820
-  %brmerge.not.i.i173.i.i = fcmp uno double %205, %200
-  %215 = bitcast i64 %214 to double
-  br i1 %brmerge.not.i.i173.i.i, label %216, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit175.i.i, !prof !2798
+  %.mux.i.i169.i.i = fcmp ogt double %176, %187
+  %203 = select i1 %.mux.i.i169.i.i, ptr %37, ptr %44, !unpredictable !3
+  %204 = select i1 %.mux.i.i169.i.i, double %176, double %187
+  %205 = load i64, ptr %203, align 8, !alias.scope !6820
+  store i64 %205, ptr %44, align 8, !alias.scope !6820
+  store double %204, ptr %37, align 8, !alias.scope !6820
+  %brmerge.not.i.i173.i.i = fcmp uno double %196, %192
+  %206 = bitcast i64 %205 to double
+  br i1 %brmerge.not.i.i173.i.i, label %207, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit175.i.i, !prof !2798
 
-216:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit170.i.i
+207:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit170.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit175.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit170.i.i
-  %.mux.i.i174.i.i = fcmp olt double %205, %200
-  %217 = select i1 %.mux.i.i174.i.i, ptr %43, ptr %36, !unpredictable !3
-  %218 = select i1 %.mux.i.i174.i.i, double %200, double %205
-  %219 = load i64, ptr %217, align 8, !alias.scope !6820
-  store i64 %219, ptr %36, align 8, !alias.scope !6820
-  store double %218, ptr %43, align 8, !alias.scope !6820
-  %brmerge.not.i.i178.i.i = fcmp uno double %203, %198
-  br i1 %brmerge.not.i.i178.i.i, label %220, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit180.i.i, !prof !2798
+  %.mux.i.i174.i.i = fcmp olt double %196, %192
+  %208 = select i1 %.mux.i.i174.i.i, i64 %194, i64 %191
+  %209 = select i1 %.mux.i.i174.i.i, double %192, double %196
+  store i64 %208, ptr %36, align 8, !alias.scope !6820
+  store double %209, ptr %43, align 8, !alias.scope !6820
+  %brmerge.not.i.i178.i.i = fcmp uno double %195, %190
+  br i1 %brmerge.not.i.i178.i.i, label %210, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit180.i.i, !prof !2798
 
-220:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit175.i.i
+210:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit175.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit180.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit175.i.i
-  %.mux.i.i179.i.i = fcmp olt double %203, %198
-  %221 = select i1 %.mux.i.i179.i.i, ptr %80, ptr %50, !unpredictable !3
-  %222 = select i1 %.mux.i.i179.i.i, double %198, double %203
-  %223 = load i64, ptr %221, align 8, !alias.scope !6820
-  store i64 %223, ptr %50, align 8, !alias.scope !6820
-  store double %222, ptr %80, align 8, !alias.scope !6820
-  %brmerge.not.i.i183.i.i = fcmp uno double %190, %210
-  %224 = bitcast i64 %223 to double
-  br i1 %brmerge.not.i.i183.i.i, label %225, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit185.i.i, !prof !2798
+  %.mux.i.i179.i.i = fcmp olt double %195, %190
+  %211 = select i1 %.mux.i.i179.i.i, ptr %78, ptr %50, !unpredictable !3
+  %212 = select i1 %.mux.i.i179.i.i, double %190, double %195
+  %213 = load i64, ptr %211, align 8, !alias.scope !6820
+  store i64 %213, ptr %50, align 8, !alias.scope !6820
+  store double %212, ptr %78, align 8, !alias.scope !6820
+  %brmerge.not.i.i183.i.i = fcmp uno double %182, %201
+  %214 = bitcast i64 %213 to double
+  br i1 %brmerge.not.i.i183.i.i, label %215, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit185.i.i, !prof !2798
 
-225:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit180.i.i
+215:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit180.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit185.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit180.i.i
-  %.mux.i.i184.i.i = fcmp olt double %190, %210
-  %226 = select i1 %.mux.i.i184.i.i, ptr %51, ptr %57, !unpredictable !3
-  %227 = select i1 %.mux.i.i184.i.i, double %210, double %190
-  %228 = load i64, ptr %226, align 8, !alias.scope !6820
-  store i64 %228, ptr %57, align 8, !alias.scope !6820
-  store double %227, ptr %51, align 8, !alias.scope !6820
-  %brmerge.not.i.i188.i.i = fcmp uno double %188, %208
-  %229 = bitcast i64 %228 to double
-  br i1 %brmerge.not.i.i188.i.i, label %230, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit190.i.i, !prof !2798
+  %.mux.i.i184.i.i = fcmp olt double %182, %201
+  %216 = select i1 %.mux.i.i184.i.i, i64 %181, i64 %200
+  %217 = select i1 %.mux.i.i184.i.i, double %201, double %182
+  store i64 %216, ptr %57, align 8, !alias.scope !6820
+  store double %217, ptr %51, align 8, !alias.scope !6820
+  %brmerge.not.i.i188.i.i = fcmp uno double %180, %199
+  %218 = bitcast i64 %216 to double
+  br i1 %brmerge.not.i.i188.i.i, label %219, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit190.i.i, !prof !2798
 
-230:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit185.i.i
+219:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit185.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit190.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit185.i.i
-  %.mux.i.i189.i.i = fcmp olt double %188, %208
-  %231 = select i1 %.mux.i.i189.i.i, ptr %65, ptr %64, !unpredictable !3
-  %232 = select i1 %.mux.i.i189.i.i, double %208, double %188
-  %233 = load i64, ptr %231, align 8, !alias.scope !6820
-  store i64 %233, ptr %64, align 8, !alias.scope !6820
-  store double %232, ptr %65, align 8, !alias.scope !6820
-  %brmerge.not.i.i193.i.i = fcmp uno double %218, %224
-  %234 = bitcast i64 %233 to double
-  br i1 %brmerge.not.i.i193.i.i, label %235, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit195.i.i, !prof !2798
+  %.mux.i.i189.i.i = fcmp olt double %180, %199
+  %220 = select i1 %.mux.i.i189.i.i, ptr %65, ptr %64, !unpredictable !3
+  %221 = select i1 %.mux.i.i189.i.i, double %199, double %180
+  %222 = load i64, ptr %220, align 8, !alias.scope !6820
+  store i64 %222, ptr %64, align 8, !alias.scope !6820
+  store double %221, ptr %65, align 8, !alias.scope !6820
+  %brmerge.not.i.i193.i.i = fcmp uno double %209, %214
+  %223 = bitcast i64 %222 to double
+  br i1 %brmerge.not.i.i193.i.i, label %224, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit195.i.i, !prof !2798
 
-235:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit190.i.i
+224:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit190.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit195.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit190.i.i
-  %.mux.i.i194.i.i = fcmp ogt double %218, %224
-  %236 = select i1 %.mux.i.i194.i.i, ptr %50, ptr %43, !unpredictable !3
-  %237 = select i1 %.mux.i.i194.i.i, double %218, double %224
-  %238 = load i64, ptr %236, align 8, !alias.scope !6820
-  store i64 %238, ptr %43, align 8, !alias.scope !6820
-  store double %237, ptr %50, align 8, !alias.scope !6820
-  %brmerge.not.i.i198.i.i = fcmp uno double %222, %229
-  br i1 %brmerge.not.i.i198.i.i, label %239, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit200.i.i, !prof !2798
+  %.mux.i.i194.i.i = fcmp ogt double %209, %214
+  %225 = select i1 %.mux.i.i194.i.i, ptr %50, ptr %43, !unpredictable !3
+  %226 = select i1 %.mux.i.i194.i.i, double %209, double %214
+  %227 = load i64, ptr %225, align 8, !alias.scope !6820
+  store i64 %227, ptr %43, align 8, !alias.scope !6820
+  store double %226, ptr %50, align 8, !alias.scope !6820
+  %brmerge.not.i.i198.i.i = fcmp uno double %212, %218
+  br i1 %brmerge.not.i.i198.i.i, label %228, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit200.i.i, !prof !2798
 
-239:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit195.i.i
+228:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit195.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit200.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit195.i.i
-  %.mux.i.i199.i.i = fcmp ogt double %222, %229
-  %240 = select i1 %.mux.i.i199.i.i, ptr %57, ptr %80, !unpredictable !3
-  %241 = select i1 %.mux.i.i199.i.i, double %222, double %229
-  %242 = load i64, ptr %240, align 8, !alias.scope !6820
-  store i64 %242, ptr %80, align 8, !alias.scope !6820
-  store double %241, ptr %57, align 8, !alias.scope !6820
-  %brmerge.not.i.i203.i.i = fcmp uno double %227, %234
-  %243 = bitcast i64 %242 to double
-  br i1 %brmerge.not.i.i203.i.i, label %244, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit205.i.i, !prof !2798
+  %.mux.i.i199.i.i = fcmp ogt double %212, %218
+  %229 = select i1 %.mux.i.i199.i.i, ptr %57, ptr %78, !unpredictable !3
+  %230 = select i1 %.mux.i.i199.i.i, double %212, double %218
+  %231 = load i64, ptr %229, align 8, !alias.scope !6820
+  store i64 %231, ptr %78, align 8, !alias.scope !6820
+  store double %230, ptr %57, align 8, !alias.scope !6820
+  %brmerge.not.i.i203.i.i = fcmp uno double %217, %223
+  %232 = bitcast i64 %231 to double
+  br i1 %brmerge.not.i.i203.i.i, label %233, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit205.i.i, !prof !2798
 
-244:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit200.i.i
+233:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit200.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit205.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit200.i.i
-  %.mux.i.i204.i.i = fcmp olt double %227, %234
-  %245 = select i1 %.mux.i.i204.i.i, ptr %51, ptr %64, !unpredictable !3
-  %246 = select i1 %.mux.i.i204.i.i, double %234, double %227
-  %247 = load i64, ptr %245, align 8, !alias.scope !6820
-  store i64 %247, ptr %64, align 8, !alias.scope !6820
-  store double %246, ptr %51, align 8, !alias.scope !6820
-  %brmerge.not.i.i208.i.i = fcmp uno double %232, %215
-  %248 = bitcast i64 %247 to double
-  br i1 %brmerge.not.i.i208.i.i, label %249, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit210.i.i, !prof !2798
+  %.mux.i.i204.i.i = fcmp olt double %217, %223
+  %234 = select i1 %.mux.i.i204.i.i, ptr %51, ptr %64, !unpredictable !3
+  %235 = select i1 %.mux.i.i204.i.i, double %223, double %217
+  %236 = load i64, ptr %234, align 8, !alias.scope !6820
+  store i64 %236, ptr %64, align 8, !alias.scope !6820
+  store double %235, ptr %51, align 8, !alias.scope !6820
+  %brmerge.not.i.i208.i.i = fcmp uno double %221, %206
+  %237 = bitcast i64 %236 to double
+  br i1 %brmerge.not.i.i208.i.i, label %238, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit210.i.i, !prof !2798
 
-249:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit205.i.i
+238:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit205.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit210.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit205.i.i
-  %.mux.i.i209.i.i = fcmp ogt double %232, %215
-  %250 = select i1 %.mux.i.i209.i.i, ptr %44, ptr %65, !unpredictable !3
-  %251 = select i1 %.mux.i.i209.i.i, double %232, double %215
-  %252 = load i64, ptr %250, align 8, !alias.scope !6820
-  store i64 %252, ptr %65, align 8, !alias.scope !6820
-  store double %251, ptr %44, align 8, !alias.scope !6820
-  %brmerge.not.i.i213.i.i = fcmp uno double %237, %243
-  br i1 %brmerge.not.i.i213.i.i, label %253, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit215.i.i, !prof !2798
+  %.mux.i.i209.i.i = fcmp ogt double %221, %206
+  %239 = select i1 %.mux.i.i209.i.i, ptr %44, ptr %65, !unpredictable !3
+  %240 = select i1 %.mux.i.i209.i.i, double %221, double %206
+  %241 = load i64, ptr %239, align 8, !alias.scope !6820
+  store i64 %241, ptr %65, align 8, !alias.scope !6820
+  store double %240, ptr %44, align 8, !alias.scope !6820
+  %brmerge.not.i.i213.i.i = fcmp uno double %226, %232
+  br i1 %brmerge.not.i.i213.i.i, label %242, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit215.i.i, !prof !2798
 
-253:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit210.i.i
+242:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit210.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit215.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit210.i.i
-  %.mux.i.i214.i.i = fcmp ogt double %237, %243
-  %254 = select i1 %.mux.i.i214.i.i, ptr %80, ptr %50, !unpredictable !3
-  %255 = select i1 %.mux.i.i214.i.i, double %237, double %243
-  %256 = load i64, ptr %254, align 8, !alias.scope !6820
-  store i64 %256, ptr %50, align 8, !alias.scope !6820
-  store double %255, ptr %80, align 8, !alias.scope !6820
-  %brmerge.not.i.i218.i.i = fcmp uno double %241, %248
-  br i1 %brmerge.not.i.i218.i.i, label %257, label %_ZN4core5slice4sort6shared9smallsort14sort13_optimal17hffa212cef805ae65E.exit.i, !prof !2798
+  %.mux.i.i214.i.i = fcmp ogt double %226, %232
+  %243 = select i1 %.mux.i.i214.i.i, ptr %78, ptr %50, !unpredictable !3
+  %244 = select i1 %.mux.i.i214.i.i, double %226, double %232
+  %245 = load i64, ptr %243, align 8, !alias.scope !6820
+  store i64 %245, ptr %50, align 8, !alias.scope !6820
+  store double %244, ptr %78, align 8, !alias.scope !6820
+  %brmerge.not.i.i218.i.i = fcmp uno double %230, %237
+  br i1 %brmerge.not.i.i218.i.i, label %246, label %_ZN4core5slice4sort6shared9smallsort14sort13_optimal17hffa212cef805ae65E.exit.i, !prof !2798
 
-257:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit215.i.i
+246:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit215.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort14sort13_optimal17hffa212cef805ae65E.exit.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit215.i.i
-  %.mux.i.i219.i.i = fcmp ogt double %241, %248
-  %258 = select i1 %.mux.i.i219.i.i, ptr %64, ptr %57, !unpredictable !3
-  %259 = select i1 %.mux.i.i219.i.i, double %241, double %248
-  %260 = load i64, ptr %258, align 8, !alias.scope !6820
-  store i64 %260, ptr %57, align 8, !alias.scope !6820
-  store double %259, ptr %64, align 8, !alias.scope !6820
-  br label %391
+  %.mux.i.i219.i.i = fcmp ogt double %230, %237
+  %247 = select i1 %.mux.i.i219.i.i, ptr %64, ptr %57, !unpredictable !3
+  %248 = select i1 %.mux.i.i219.i.i, double %230, double %237
+  %249 = load i64, ptr %247, align 8, !alias.scope !6820
+  store i64 %249, ptr %57, align 8, !alias.scope !6820
+  store double %248, ptr %64, align 8, !alias.scope !6820
+  br label %373
 
-261:                                              ; preds = %28
-  %262 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 24
-  %.val.i.i11.i = load double, ptr %262, align 8, !alias.scope !6823, !noundef !3
+250:                                              ; preds = %28
+  %251 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 24
+  %.val.i.i11.i = load double, ptr %251, align 8, !alias.scope !6823, !noundef !3
   %.val1.i.i12.i = load double, ptr %.sroa.01.0.i, align 8, !alias.scope !6823, !noundef !3
   %brmerge.not.i.i.i13.i = fcmp uno double %.val.i.i11.i, %.val1.i.i12.i
-  br i1 %brmerge.not.i.i.i13.i, label %263, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit.i14.i, !prof !2798
+  br i1 %brmerge.not.i.i.i13.i, label %252, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit.i14.i, !prof !2798
 
-263:                                              ; preds = %261
+252:                                              ; preds = %250
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
-_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit.i14.i: ; preds = %261
+_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit.i14.i: ; preds = %250
   %.mux.i.i.i15.i = fcmp olt double %.val.i.i11.i, %.val1.i.i12.i
-  %264 = select i1 %.mux.i.i.i15.i, ptr %262, ptr %.sroa.01.0.i, !unpredictable !3
-  %265 = select i1 %.mux.i.i.i15.i, double %.val1.i.i12.i, double %.val.i.i11.i
-  %266 = load i64, ptr %264, align 8, !alias.scope !6823
-  store i64 %266, ptr %.sroa.01.0.i, align 8, !alias.scope !6823
-  store double %265, ptr %262, align 8, !alias.scope !6823
-  %267 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 8
-  %268 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 56
-  %.val.i1.i16.i = load double, ptr %268, align 8, !alias.scope !6823, !noundef !3
-  %.val1.i2.i17.i = load double, ptr %267, align 8, !alias.scope !6823, !noundef !3
+  %253 = select i1 %.mux.i.i.i15.i, ptr %251, ptr %.sroa.01.0.i, !unpredictable !3
+  %254 = select i1 %.mux.i.i.i15.i, double %.val1.i.i12.i, double %.val.i.i11.i
+  %255 = load i64, ptr %253, align 8, !alias.scope !6823
+  store i64 %255, ptr %.sroa.01.0.i, align 8, !alias.scope !6823
+  store double %254, ptr %251, align 8, !alias.scope !6823
+  %256 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 56
+  %.val.i1.i16.i = load double, ptr %257, align 8, !alias.scope !6823, !noundef !3
+  %.val1.i2.i17.i = load double, ptr %256, align 8, !alias.scope !6823, !noundef !3
   %brmerge.not.i.i3.i18.i = fcmp uno double %.val.i1.i16.i, %.val1.i2.i17.i
-  %269 = bitcast i64 %266 to double
-  br i1 %brmerge.not.i.i3.i18.i, label %270, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit5.i19.i, !prof !2798
+  %258 = bitcast i64 %255 to double
+  br i1 %brmerge.not.i.i3.i18.i, label %259, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit5.i19.i, !prof !2798
 
-270:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit.i14.i
+259:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit.i14.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit5.i19.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit.i14.i
   %.mux.i.i4.i20.i = fcmp olt double %.val.i1.i16.i, %.val1.i2.i17.i
-  %271 = select i1 %.mux.i.i4.i20.i, ptr %268, ptr %267, !unpredictable !3
-  %272 = select i1 %.mux.i.i4.i20.i, double %.val1.i2.i17.i, double %.val.i1.i16.i
-  %273 = load i64, ptr %271, align 8, !alias.scope !6823
-  store i64 %273, ptr %267, align 8, !alias.scope !6823
-  store double %272, ptr %268, align 8, !alias.scope !6823
-  %274 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 16
-  %275 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 40
-  %.val.i6.i21.i = load double, ptr %275, align 8, !alias.scope !6823, !noundef !3
-  %.val1.i7.i22.i = load double, ptr %274, align 8, !alias.scope !6823, !noundef !3
+  %260 = select i1 %.mux.i.i4.i20.i, ptr %257, ptr %256, !unpredictable !3
+  %261 = select i1 %.mux.i.i4.i20.i, double %.val1.i2.i17.i, double %.val.i1.i16.i
+  %262 = load i64, ptr %260, align 8, !alias.scope !6823
+  store i64 %262, ptr %256, align 8, !alias.scope !6823
+  store double %261, ptr %257, align 8, !alias.scope !6823
+  %263 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 16
+  %264 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 40
+  %.val.i6.i21.i = load double, ptr %264, align 8, !alias.scope !6823, !noundef !3
+  %.val1.i7.i22.i = load double, ptr %263, align 8, !alias.scope !6823, !noundef !3
   %brmerge.not.i.i8.i23.i = fcmp uno double %.val.i6.i21.i, %.val1.i7.i22.i
-  %276 = bitcast i64 %273 to double
-  br i1 %brmerge.not.i.i8.i23.i, label %277, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit10.i24.i, !prof !2798
+  %265 = bitcast i64 %262 to double
+  br i1 %brmerge.not.i.i8.i23.i, label %266, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit10.i24.i, !prof !2798
 
-277:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit5.i19.i
+266:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit5.i19.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit10.i24.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit5.i19.i
   %.mux.i.i9.i25.i = fcmp olt double %.val.i6.i21.i, %.val1.i7.i22.i
-  %278 = select i1 %.mux.i.i9.i25.i, ptr %275, ptr %274, !unpredictable !3
-  %279 = select i1 %.mux.i.i9.i25.i, double %.val1.i7.i22.i, double %.val.i6.i21.i
-  %280 = load i64, ptr %278, align 8, !alias.scope !6823
-  store i64 %280, ptr %274, align 8, !alias.scope !6823
-  store double %279, ptr %275, align 8, !alias.scope !6823
-  %281 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 32
-  %282 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 64
-  %.val.i11.i26.i = load double, ptr %282, align 8, !alias.scope !6823, !noundef !3
-  %.val1.i12.i27.i = load double, ptr %281, align 8, !alias.scope !6823, !noundef !3
+  %267 = select i1 %.mux.i.i9.i25.i, ptr %264, ptr %263, !unpredictable !3
+  %268 = select i1 %.mux.i.i9.i25.i, double %.val1.i7.i22.i, double %.val.i6.i21.i
+  %269 = load i64, ptr %267, align 8, !alias.scope !6823
+  store i64 %269, ptr %263, align 8, !alias.scope !6823
+  store double %268, ptr %264, align 8, !alias.scope !6823
+  %270 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 32
+  %271 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 64
+  %.val.i11.i26.i = load double, ptr %271, align 8, !alias.scope !6823, !noundef !3
+  %.val1.i12.i27.i = load double, ptr %270, align 8, !alias.scope !6823, !noundef !3
   %brmerge.not.i.i13.i28.i = fcmp uno double %.val.i11.i26.i, %.val1.i12.i27.i
-  %283 = bitcast i64 %280 to double
-  br i1 %brmerge.not.i.i13.i28.i, label %284, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit15.i29.i, !prof !2798
+  %272 = bitcast i64 %269 to double
+  br i1 %brmerge.not.i.i13.i28.i, label %273, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit15.i29.i, !prof !2798
 
-284:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit10.i24.i
+273:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit10.i24.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit15.i29.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit10.i24.i
   %.mux.i.i14.i30.i = fcmp olt double %.val.i11.i26.i, %.val1.i12.i27.i
-  %285 = select i1 %.mux.i.i14.i30.i, ptr %282, ptr %281, !unpredictable !3
-  %286 = select i1 %.mux.i.i14.i30.i, double %.val1.i12.i27.i, double %.val.i11.i26.i
-  %287 = load i64, ptr %285, align 8, !alias.scope !6823
-  store i64 %287, ptr %281, align 8, !alias.scope !6823
-  store double %286, ptr %282, align 8, !alias.scope !6823
-  %brmerge.not.i.i18.i31.i = fcmp uno double %272, %269
-  %288 = bitcast i64 %287 to double
-  br i1 %brmerge.not.i.i18.i31.i, label %289, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit20.i32.i, !prof !2798
+  %274 = select i1 %.mux.i.i14.i30.i, ptr %271, ptr %270, !unpredictable !3
+  %275 = select i1 %.mux.i.i14.i30.i, double %.val1.i12.i27.i, double %.val.i11.i26.i
+  %276 = load i64, ptr %274, align 8, !alias.scope !6823
+  store i64 %276, ptr %270, align 8, !alias.scope !6823
+  store double %275, ptr %271, align 8, !alias.scope !6823
+  %brmerge.not.i.i18.i31.i = fcmp uno double %261, %258
+  %277 = bitcast i64 %276 to double
+  br i1 %brmerge.not.i.i18.i31.i, label %278, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit20.i32.i, !prof !2798
 
-289:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit15.i29.i
+278:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit15.i29.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit20.i32.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit15.i29.i
-  %.mux.i.i19.i33.i = fcmp olt double %272, %269
-  %290 = select i1 %.mux.i.i19.i33.i, ptr %268, ptr %.sroa.01.0.i, !unpredictable !3
-  %291 = select i1 %.mux.i.i19.i33.i, double %269, double %272
-  %292 = load i64, ptr %290, align 8, !alias.scope !6823
-  store i64 %292, ptr %.sroa.01.0.i, align 8, !alias.scope !6823
-  store double %291, ptr %268, align 8, !alias.scope !6823
-  %brmerge.not.i.i23.i34.i = fcmp uno double %288, %283
-  %293 = bitcast i64 %292 to double
-  br i1 %brmerge.not.i.i23.i34.i, label %294, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit25.i35.i, !prof !2798
+  %.mux.i.i19.i33.i = fcmp olt double %261, %258
+  %279 = select i1 %.mux.i.i19.i33.i, ptr %257, ptr %.sroa.01.0.i, !unpredictable !3
+  %280 = select i1 %.mux.i.i19.i33.i, double %258, double %261
+  %281 = load i64, ptr %279, align 8, !alias.scope !6823
+  store i64 %281, ptr %.sroa.01.0.i, align 8, !alias.scope !6823
+  store double %280, ptr %257, align 8, !alias.scope !6823
+  %brmerge.not.i.i23.i34.i = fcmp uno double %277, %272
+  %282 = bitcast i64 %281 to double
+  br i1 %brmerge.not.i.i23.i34.i, label %283, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit25.i35.i, !prof !2798
 
-294:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit20.i32.i
+283:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit20.i32.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit25.i35.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit20.i32.i
-  %.mux.i.i24.i36.i = fcmp olt double %288, %283
-  %295 = select i1 %.mux.i.i24.i36.i, ptr %281, ptr %274, !unpredictable !3
-  %296 = select i1 %.mux.i.i24.i36.i, double %283, double %288
-  %297 = load i64, ptr %295, align 8, !alias.scope !6823
-  store i64 %297, ptr %274, align 8, !alias.scope !6823
-  store double %296, ptr %281, align 8, !alias.scope !6823
-  %brmerge.not.i.i28.i37.i = fcmp uno double %286, %265
-  %298 = bitcast i64 %297 to double
-  br i1 %brmerge.not.i.i28.i37.i, label %299, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit30.i38.i, !prof !2798
+  %.mux.i.i24.i36.i = fcmp olt double %277, %272
+  %284 = select i1 %.mux.i.i24.i36.i, i64 %276, i64 %269
+  %285 = select i1 %.mux.i.i24.i36.i, double %272, double %277
+  store i64 %284, ptr %263, align 8, !alias.scope !6823
+  store double %285, ptr %270, align 8, !alias.scope !6823
+  %brmerge.not.i.i28.i37.i = fcmp uno double %275, %254
+  %286 = bitcast i64 %284 to double
+  br i1 %brmerge.not.i.i28.i37.i, label %287, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit30.i38.i, !prof !2798
 
-299:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit25.i35.i
+287:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit25.i35.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit30.i38.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit25.i35.i
-  %.mux.i.i29.i39.i = fcmp olt double %286, %265
-  %300 = select i1 %.mux.i.i29.i39.i, ptr %282, ptr %262, !unpredictable !3
-  %301 = select i1 %.mux.i.i29.i39.i, double %265, double %286
-  %302 = load i64, ptr %300, align 8, !alias.scope !6823
-  store i64 %302, ptr %262, align 8, !alias.scope !6823
-  store double %301, ptr %282, align 8, !alias.scope !6823
-  %303 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 48
-  %.val.i31.i.i = load double, ptr %303, align 8, !alias.scope !6823, !noundef !3
-  %brmerge.not.i.i33.i40.i = fcmp uno double %.val.i31.i.i, %279
-  %304 = bitcast i64 %302 to double
-  br i1 %brmerge.not.i.i33.i40.i, label %305, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit35.i41.i, !prof !2798
+  %.mux.i.i29.i39.i = fcmp olt double %275, %254
+  %288 = select i1 %.mux.i.i29.i39.i, ptr %271, ptr %251, !unpredictable !3
+  %289 = select i1 %.mux.i.i29.i39.i, double %254, double %275
+  %290 = load i64, ptr %288, align 8, !alias.scope !6823
+  store i64 %290, ptr %251, align 8, !alias.scope !6823
+  store double %289, ptr %271, align 8, !alias.scope !6823
+  %291 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 48
+  %.val.i31.i.i = load double, ptr %291, align 8, !alias.scope !6823, !noundef !3
+  %brmerge.not.i.i33.i40.i = fcmp uno double %.val.i31.i.i, %268
+  %292 = bitcast i64 %290 to double
+  br i1 %brmerge.not.i.i33.i40.i, label %293, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit35.i41.i, !prof !2798
 
-305:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit30.i38.i
+293:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit30.i38.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit35.i41.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit30.i38.i
-  %.mux.i.i34.i42.i = fcmp olt double %.val.i31.i.i, %279
-  %306 = select i1 %.mux.i.i34.i42.i, ptr %303, ptr %275, !unpredictable !3
-  %307 = select i1 %.mux.i.i34.i42.i, double %279, double %.val.i31.i.i
-  %308 = load i64, ptr %306, align 8, !alias.scope !6823
-  store i64 %308, ptr %275, align 8, !alias.scope !6823
-  store double %307, ptr %303, align 8, !alias.scope !6823
-  %brmerge.not.i.i38.i43.i = fcmp uno double %298, %293
-  %309 = bitcast i64 %308 to double
-  br i1 %brmerge.not.i.i38.i43.i, label %310, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit40.i44.i, !prof !2798
+  %.mux.i.i34.i42.i = fcmp olt double %.val.i31.i.i, %268
+  %294 = select i1 %.mux.i.i34.i42.i, ptr %291, ptr %264, !unpredictable !3
+  %295 = select i1 %.mux.i.i34.i42.i, double %268, double %.val.i31.i.i
+  %296 = load i64, ptr %294, align 8, !alias.scope !6823
+  store i64 %296, ptr %264, align 8, !alias.scope !6823
+  store double %295, ptr %291, align 8, !alias.scope !6823
+  %brmerge.not.i.i38.i43.i = fcmp uno double %286, %282
+  %297 = bitcast i64 %296 to double
+  br i1 %brmerge.not.i.i38.i43.i, label %298, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit40.i44.i, !prof !2798
 
-310:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit35.i41.i
+298:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit35.i41.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit40.i44.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit35.i41.i
-  %.mux.i.i39.i45.i = fcmp olt double %298, %293
-  %311 = select i1 %.mux.i.i39.i45.i, ptr %274, ptr %.sroa.01.0.i, !unpredictable !3
-  %312 = select i1 %.mux.i.i39.i45.i, double %293, double %298
-  %313 = load i64, ptr %311, align 8, !alias.scope !6823
-  store i64 %313, ptr %.sroa.01.0.i, align 8, !alias.scope !6823
-  store double %312, ptr %274, align 8, !alias.scope !6823
-  %brmerge.not.i.i43.i46.i = fcmp uno double %304, %276
-  %314 = bitcast i64 %313 to double
-  br i1 %brmerge.not.i.i43.i46.i, label %315, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit45.i47.i, !prof !2798
+  %.mux.i.i39.i45.i = fcmp olt double %286, %282
+  %299 = select i1 %.mux.i.i39.i45.i, i64 %284, i64 %281
+  %300 = select i1 %.mux.i.i39.i45.i, double %282, double %286
+  store i64 %299, ptr %.sroa.01.0.i, align 8, !alias.scope !6823
+  store double %300, ptr %263, align 8, !alias.scope !6823
+  %brmerge.not.i.i43.i46.i = fcmp uno double %292, %265
+  %301 = bitcast i64 %299 to double
+  br i1 %brmerge.not.i.i43.i46.i, label %302, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit45.i47.i, !prof !2798
 
-315:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit40.i44.i
+302:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit40.i44.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit45.i47.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit40.i44.i
-  %.mux.i.i44.i48.i = fcmp olt double %304, %276
-  %316 = select i1 %.mux.i.i44.i48.i, ptr %262, ptr %267, !unpredictable !3
-  %317 = select i1 %.mux.i.i44.i48.i, double %276, double %304
-  %318 = load i64, ptr %316, align 8, !alias.scope !6823
-  store i64 %318, ptr %267, align 8, !alias.scope !6823
-  store double %317, ptr %262, align 8, !alias.scope !6823
-  %brmerge.not.i.i48.i49.i = fcmp uno double %296, %309
-  %319 = bitcast i64 %318 to double
-  br i1 %brmerge.not.i.i48.i49.i, label %320, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit50.i50.i, !prof !2798
+  %.mux.i.i44.i48.i = fcmp olt double %292, %265
+  %303 = select i1 %.mux.i.i44.i48.i, i64 %290, i64 %262
+  %304 = select i1 %.mux.i.i44.i48.i, double %265, double %292
+  store i64 %303, ptr %256, align 8, !alias.scope !6823
+  store double %304, ptr %251, align 8, !alias.scope !6823
+  %brmerge.not.i.i48.i49.i = fcmp uno double %285, %297
+  %305 = bitcast i64 %303 to double
+  br i1 %brmerge.not.i.i48.i49.i, label %306, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit50.i50.i, !prof !2798
 
-320:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit45.i47.i
+306:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit45.i47.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit50.i50.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit45.i47.i
-  %.mux.i.i49.i51.i = fcmp ogt double %296, %309
-  %321 = select i1 %.mux.i.i49.i51.i, ptr %275, ptr %281, !unpredictable !3
-  %322 = select i1 %.mux.i.i49.i51.i, double %296, double %309
-  %323 = load i64, ptr %321, align 8, !alias.scope !6823
-  store i64 %323, ptr %281, align 8, !alias.scope !6823
-  store double %322, ptr %275, align 8, !alias.scope !6823
-  %brmerge.not.i.i53.i52.i = fcmp uno double %301, %291
-  %324 = bitcast i64 %323 to double
-  br i1 %brmerge.not.i.i53.i52.i, label %325, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit55.i53.i, !prof !2798
+  %.mux.i.i49.i51.i = fcmp ogt double %285, %297
+  %307 = select i1 %.mux.i.i49.i51.i, ptr %264, ptr %270, !unpredictable !3
+  %308 = select i1 %.mux.i.i49.i51.i, double %285, double %297
+  %309 = load i64, ptr %307, align 8, !alias.scope !6823
+  store i64 %309, ptr %270, align 8, !alias.scope !6823
+  store double %308, ptr %264, align 8, !alias.scope !6823
+  %brmerge.not.i.i53.i52.i = fcmp uno double %289, %280
+  %310 = bitcast i64 %309 to double
+  br i1 %brmerge.not.i.i53.i52.i, label %311, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit55.i53.i, !prof !2798
 
-325:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit50.i50.i
+311:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit50.i50.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit55.i53.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit50.i50.i
-  %.mux.i.i54.i54.i = fcmp olt double %301, %291
-  %326 = select i1 %.mux.i.i54.i54.i, ptr %282, ptr %268, !unpredictable !3
-  %327 = select i1 %.mux.i.i54.i54.i, double %291, double %301
-  %328 = load i64, ptr %326, align 8, !alias.scope !6823
-  store i64 %328, ptr %268, align 8, !alias.scope !6823
-  store double %327, ptr %282, align 8, !alias.scope !6823
-  %brmerge.not.i.i58.i55.i = fcmp uno double %324, %319
-  %329 = bitcast i64 %328 to double
-  br i1 %brmerge.not.i.i58.i55.i, label %330, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit60.i56.i, !prof !2798
+  %.mux.i.i54.i54.i = fcmp olt double %289, %280
+  %312 = select i1 %.mux.i.i54.i54.i, ptr %271, ptr %257, !unpredictable !3
+  %313 = select i1 %.mux.i.i54.i54.i, double %280, double %289
+  %314 = load i64, ptr %312, align 8, !alias.scope !6823
+  store i64 %314, ptr %257, align 8, !alias.scope !6823
+  store double %313, ptr %271, align 8, !alias.scope !6823
+  %brmerge.not.i.i58.i55.i = fcmp uno double %310, %305
+  %315 = bitcast i64 %314 to double
+  br i1 %brmerge.not.i.i58.i55.i, label %316, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit60.i56.i, !prof !2798
 
-330:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit55.i53.i
+316:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit55.i53.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit60.i56.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit55.i53.i
-  %.mux.i.i59.i57.i = fcmp olt double %324, %319
-  %331 = select i1 %.mux.i.i59.i57.i, ptr %281, ptr %267, !unpredictable !3
-  %332 = select i1 %.mux.i.i59.i57.i, double %319, double %324
-  %333 = load i64, ptr %331, align 8, !alias.scope !6823
-  store i64 %333, ptr %267, align 8, !alias.scope !6823
-  store double %332, ptr %281, align 8, !alias.scope !6823
-  %brmerge.not.i.i63.i58.i = fcmp uno double %307, %317
-  %334 = bitcast i64 %333 to double
-  br i1 %brmerge.not.i.i63.i58.i, label %335, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit65.i59.i, !prof !2798
+  %.mux.i.i59.i57.i = fcmp olt double %310, %305
+  %317 = select i1 %.mux.i.i59.i57.i, i64 %309, i64 %303
+  %318 = select i1 %.mux.i.i59.i57.i, double %305, double %310
+  store i64 %317, ptr %256, align 8, !alias.scope !6823
+  store double %318, ptr %270, align 8, !alias.scope !6823
+  %brmerge.not.i.i63.i58.i = fcmp uno double %295, %304
+  %319 = bitcast i64 %317 to double
+  br i1 %brmerge.not.i.i63.i58.i, label %320, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit65.i59.i, !prof !2798
 
-335:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit60.i56.i
+320:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit60.i56.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit65.i59.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit60.i56.i
-  %.mux.i.i64.i60.i = fcmp olt double %307, %317
-  %336 = select i1 %.mux.i.i64.i60.i, ptr %303, ptr %262, !unpredictable !3
-  %337 = select i1 %.mux.i.i64.i60.i, double %317, double %307
-  %338 = load i64, ptr %336, align 8, !alias.scope !6823
-  store i64 %338, ptr %262, align 8, !alias.scope !6823
-  store double %337, ptr %303, align 8, !alias.scope !6823
-  %brmerge.not.i.i68.i61.i = fcmp uno double %322, %329
-  %339 = bitcast i64 %338 to double
-  br i1 %brmerge.not.i.i68.i61.i, label %340, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit70.i62.i, !prof !2798
+  %.mux.i.i64.i60.i = fcmp olt double %295, %304
+  %321 = select i1 %.mux.i.i64.i60.i, ptr %291, ptr %251, !unpredictable !3
+  %322 = select i1 %.mux.i.i64.i60.i, double %304, double %295
+  %323 = load i64, ptr %321, align 8, !alias.scope !6823
+  store i64 %323, ptr %251, align 8, !alias.scope !6823
+  store double %322, ptr %291, align 8, !alias.scope !6823
+  %brmerge.not.i.i68.i61.i = fcmp uno double %308, %315
+  %324 = bitcast i64 %323 to double
+  br i1 %brmerge.not.i.i68.i61.i, label %325, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit70.i62.i, !prof !2798
 
-340:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit65.i59.i
+325:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit65.i59.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit70.i62.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit65.i59.i
-  %.mux.i.i69.i63.i = fcmp ogt double %322, %329
-  %341 = select i1 %.mux.i.i69.i63.i, ptr %268, ptr %275, !unpredictable !3
-  %342 = select i1 %.mux.i.i69.i63.i, double %322, double %329
-  %343 = load i64, ptr %341, align 8, !alias.scope !6823
-  store i64 %343, ptr %275, align 8, !alias.scope !6823
-  store double %342, ptr %268, align 8, !alias.scope !6823
-  %brmerge.not.i.i73.i64.i = fcmp uno double %334, %314
-  %344 = bitcast i64 %343 to double
-  br i1 %brmerge.not.i.i73.i64.i, label %345, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit75.i65.i, !prof !2798
+  %.mux.i.i69.i63.i = fcmp ogt double %308, %315
+  %326 = select i1 %.mux.i.i69.i63.i, ptr %257, ptr %264, !unpredictable !3
+  %327 = select i1 %.mux.i.i69.i63.i, double %308, double %315
+  %328 = load i64, ptr %326, align 8, !alias.scope !6823
+  store i64 %328, ptr %264, align 8, !alias.scope !6823
+  store double %327, ptr %257, align 8, !alias.scope !6823
+  %brmerge.not.i.i73.i64.i = fcmp uno double %319, %301
+  %329 = bitcast i64 %328 to double
+  br i1 %brmerge.not.i.i73.i64.i, label %330, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit75.i65.i, !prof !2798
 
-345:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit70.i62.i
+330:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit70.i62.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit75.i65.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit70.i62.i
-  %.mux.i.i74.i66.i = fcmp olt double %334, %314
-  %346 = select i1 %.mux.i.i74.i66.i, ptr %267, ptr %.sroa.01.0.i, !unpredictable !3
-  %347 = select i1 %.mux.i.i74.i66.i, double %314, double %334
-  %348 = load i64, ptr %346, align 8, !alias.scope !6823
-  store i64 %348, ptr %.sroa.01.0.i, align 8, !alias.scope !6823
-  store double %347, ptr %267, align 8, !alias.scope !6823
-  %brmerge.not.i.i78.i67.i = fcmp uno double %332, %312
-  br i1 %brmerge.not.i.i78.i67.i, label %349, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit80.i68.i, !prof !2798
+  %.mux.i.i74.i66.i = fcmp olt double %319, %301
+  %331 = select i1 %.mux.i.i74.i66.i, i64 %317, i64 %299
+  %332 = select i1 %.mux.i.i74.i66.i, double %301, double %319
+  store i64 %331, ptr %.sroa.01.0.i, align 8, !alias.scope !6823
+  store double %332, ptr %256, align 8, !alias.scope !6823
+  %brmerge.not.i.i78.i67.i = fcmp uno double %318, %300
+  br i1 %brmerge.not.i.i78.i67.i, label %333, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit80.i68.i, !prof !2798
 
-349:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit75.i65.i
+333:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit75.i65.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit80.i68.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit75.i65.i
-  %.mux.i.i79.i69.i = fcmp olt double %332, %312
-  %350 = select i1 %.mux.i.i79.i69.i, ptr %281, ptr %274, !unpredictable !3
-  %351 = select i1 %.mux.i.i79.i69.i, double %312, double %332
-  %352 = load i64, ptr %350, align 8, !alias.scope !6823
-  store i64 %352, ptr %274, align 8, !alias.scope !6823
-  store double %351, ptr %281, align 8, !alias.scope !6823
-  %brmerge.not.i.i83.i70.i = fcmp uno double %344, %339
-  %353 = bitcast i64 %352 to double
-  br i1 %brmerge.not.i.i83.i70.i, label %354, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit85.i71.i, !prof !2798
+  %.mux.i.i79.i69.i = fcmp olt double %318, %300
+  %334 = select i1 %.mux.i.i79.i69.i, ptr %270, ptr %263, !unpredictable !3
+  %335 = select i1 %.mux.i.i79.i69.i, double %300, double %318
+  %336 = load i64, ptr %334, align 8, !alias.scope !6823
+  store i64 %336, ptr %263, align 8, !alias.scope !6823
+  store double %335, ptr %270, align 8, !alias.scope !6823
+  %brmerge.not.i.i83.i70.i = fcmp uno double %329, %324
+  %337 = bitcast i64 %336 to double
+  br i1 %brmerge.not.i.i83.i70.i, label %338, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit85.i71.i, !prof !2798
 
-354:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit80.i68.i
+338:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit80.i68.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit85.i71.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit80.i68.i
-  %.mux.i.i84.i72.i = fcmp olt double %344, %339
-  %355 = select i1 %.mux.i.i84.i72.i, ptr %275, ptr %262, !unpredictable !3
-  %356 = select i1 %.mux.i.i84.i72.i, double %339, double %344
-  %357 = load i64, ptr %355, align 8, !alias.scope !6823
-  store i64 %357, ptr %262, align 8, !alias.scope !6823
-  store double %356, ptr %275, align 8, !alias.scope !6823
-  %brmerge.not.i.i88.i73.i = fcmp uno double %327, %337
-  %358 = bitcast i64 %357 to double
-  br i1 %brmerge.not.i.i88.i73.i, label %359, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit90.i74.i, !prof !2798
+  %.mux.i.i84.i72.i = fcmp olt double %329, %324
+  %339 = select i1 %.mux.i.i84.i72.i, i64 %328, i64 %323
+  %340 = select i1 %.mux.i.i84.i72.i, double %324, double %329
+  store i64 %339, ptr %251, align 8, !alias.scope !6823
+  store double %340, ptr %264, align 8, !alias.scope !6823
+  %brmerge.not.i.i88.i73.i = fcmp uno double %313, %322
+  %341 = bitcast i64 %339 to double
+  br i1 %brmerge.not.i.i88.i73.i, label %342, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit90.i74.i, !prof !2798
 
-359:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit85.i71.i
+342:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit85.i71.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit90.i74.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit85.i71.i
-  %.mux.i.i89.i75.i = fcmp olt double %327, %337
-  %360 = select i1 %.mux.i.i89.i75.i, ptr %282, ptr %303, !unpredictable !3
-  %361 = select i1 %.mux.i.i89.i75.i, double %337, double %327
-  %362 = load i64, ptr %360, align 8, !alias.scope !6823
-  store i64 %362, ptr %303, align 8, !alias.scope !6823
-  store double %361, ptr %282, align 8, !alias.scope !6823
-  %brmerge.not.i.i93.i76.i = fcmp uno double %358, %353
-  %363 = bitcast i64 %362 to double
-  br i1 %brmerge.not.i.i93.i76.i, label %364, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit95.i77.i, !prof !2798
+  %.mux.i.i89.i75.i = fcmp olt double %313, %322
+  %343 = select i1 %.mux.i.i89.i75.i, ptr %271, ptr %291, !unpredictable !3
+  %344 = select i1 %.mux.i.i89.i75.i, double %322, double %313
+  %345 = load i64, ptr %343, align 8, !alias.scope !6823
+  store i64 %345, ptr %291, align 8, !alias.scope !6823
+  store double %344, ptr %271, align 8, !alias.scope !6823
+  %brmerge.not.i.i93.i76.i = fcmp uno double %341, %337
+  %346 = bitcast i64 %345 to double
+  br i1 %brmerge.not.i.i93.i76.i, label %347, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit95.i77.i, !prof !2798
 
-364:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit90.i74.i
+347:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit90.i74.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit95.i77.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit90.i74.i
-  %.mux.i.i94.i78.i = fcmp olt double %358, %353
-  %365 = select i1 %.mux.i.i94.i78.i, ptr %262, ptr %274, !unpredictable !3
-  %366 = select i1 %.mux.i.i94.i78.i, double %353, double %358
-  %367 = load i64, ptr %365, align 8, !alias.scope !6823
-  store i64 %367, ptr %274, align 8, !alias.scope !6823
-  store double %366, ptr %262, align 8, !alias.scope !6823
-  %brmerge.not.i.i98.i79.i = fcmp uno double %356, %351
-  %368 = bitcast i64 %367 to double
-  br i1 %brmerge.not.i.i98.i79.i, label %369, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit100.i80.i, !prof !2798
+  %.mux.i.i94.i78.i = fcmp olt double %341, %337
+  %348 = select i1 %.mux.i.i94.i78.i, i64 %339, i64 %336
+  %349 = select i1 %.mux.i.i94.i78.i, double %337, double %341
+  store i64 %348, ptr %263, align 8, !alias.scope !6823
+  store double %349, ptr %251, align 8, !alias.scope !6823
+  %brmerge.not.i.i98.i79.i = fcmp uno double %340, %335
+  %350 = bitcast i64 %348 to double
+  br i1 %brmerge.not.i.i98.i79.i, label %351, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit100.i80.i, !prof !2798
 
-369:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit95.i77.i
+351:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit95.i77.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit100.i80.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit95.i77.i
-  %.mux.i.i99.i81.i = fcmp olt double %356, %351
-  %370 = select i1 %.mux.i.i99.i81.i, ptr %275, ptr %281, !unpredictable !3
-  %371 = select i1 %.mux.i.i99.i81.i, double %351, double %356
-  %372 = load i64, ptr %370, align 8, !alias.scope !6823
-  store i64 %372, ptr %281, align 8, !alias.scope !6823
-  store double %371, ptr %275, align 8, !alias.scope !6823
-  %brmerge.not.i.i103.i82.i = fcmp uno double %342, %363
-  %373 = bitcast i64 %372 to double
-  br i1 %brmerge.not.i.i103.i82.i, label %374, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit105.i83.i, !prof !2798
+  %.mux.i.i99.i81.i = fcmp olt double %340, %335
+  %352 = select i1 %.mux.i.i99.i81.i, ptr %264, ptr %270, !unpredictable !3
+  %353 = select i1 %.mux.i.i99.i81.i, double %335, double %340
+  %354 = load i64, ptr %352, align 8, !alias.scope !6823
+  store i64 %354, ptr %270, align 8, !alias.scope !6823
+  store double %353, ptr %264, align 8, !alias.scope !6823
+  %brmerge.not.i.i103.i82.i = fcmp uno double %327, %346
+  %355 = bitcast i64 %354 to double
+  br i1 %brmerge.not.i.i103.i82.i, label %356, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit105.i83.i, !prof !2798
 
-374:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit100.i80.i
+356:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit100.i80.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit105.i83.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit100.i80.i
-  %.mux.i.i104.i84.i = fcmp olt double %342, %363
-  %375 = select i1 %.mux.i.i104.i84.i, ptr %268, ptr %303, !unpredictable !3
-  %376 = select i1 %.mux.i.i104.i84.i, double %363, double %342
-  %377 = load i64, ptr %375, align 8, !alias.scope !6823
-  store i64 %377, ptr %303, align 8, !alias.scope !6823
-  store double %376, ptr %268, align 8, !alias.scope !6823
-  %brmerge.not.i.i108.i85.i = fcmp uno double %347, %368
-  %378 = bitcast i64 %377 to double
-  br i1 %brmerge.not.i.i108.i85.i, label %379, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit110.i86.i, !prof !2798
+  %.mux.i.i104.i84.i = fcmp olt double %327, %346
+  %357 = select i1 %.mux.i.i104.i84.i, ptr %257, ptr %291, !unpredictable !3
+  %358 = select i1 %.mux.i.i104.i84.i, double %346, double %327
+  %359 = load i64, ptr %357, align 8, !alias.scope !6823
+  store i64 %359, ptr %291, align 8, !alias.scope !6823
+  store double %358, ptr %257, align 8, !alias.scope !6823
+  %brmerge.not.i.i108.i85.i = fcmp uno double %332, %350
+  %360 = bitcast i64 %359 to double
+  br i1 %brmerge.not.i.i108.i85.i, label %361, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit110.i86.i, !prof !2798
 
-379:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit105.i83.i
+361:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit105.i83.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit110.i86.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit105.i83.i
-  %.mux.i.i109.i87.i = fcmp ogt double %347, %368
-  %380 = select i1 %.mux.i.i109.i87.i, ptr %274, ptr %267, !unpredictable !3
-  %381 = select i1 %.mux.i.i109.i87.i, double %347, double %368
-  %382 = load i64, ptr %380, align 8, !alias.scope !6823
-  store i64 %382, ptr %267, align 8, !alias.scope !6823
-  store double %381, ptr %274, align 8, !alias.scope !6823
-  %brmerge.not.i.i113.i88.i = fcmp uno double %366, %373
-  br i1 %brmerge.not.i.i113.i88.i, label %383, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit115.i89.i, !prof !2798
+  %.mux.i.i109.i87.i = fcmp ogt double %332, %350
+  %362 = select i1 %.mux.i.i109.i87.i, ptr %263, ptr %256, !unpredictable !3
+  %363 = select i1 %.mux.i.i109.i87.i, double %332, double %350
+  %364 = load i64, ptr %362, align 8, !alias.scope !6823
+  store i64 %364, ptr %256, align 8, !alias.scope !6823
+  store double %363, ptr %263, align 8, !alias.scope !6823
+  %brmerge.not.i.i113.i88.i = fcmp uno double %349, %355
+  br i1 %brmerge.not.i.i113.i88.i, label %365, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit115.i89.i, !prof !2798
 
-383:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit110.i86.i
+365:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit110.i86.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit115.i89.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit110.i86.i
-  %.mux.i.i114.i90.i = fcmp ogt double %366, %373
-  %384 = select i1 %.mux.i.i114.i90.i, ptr %281, ptr %262, !unpredictable !3
-  %385 = select i1 %.mux.i.i114.i90.i, double %366, double %373
-  %386 = load i64, ptr %384, align 8, !alias.scope !6823
-  store i64 %386, ptr %262, align 8, !alias.scope !6823
-  store double %385, ptr %281, align 8, !alias.scope !6823
-  %brmerge.not.i.i118.i91.i = fcmp uno double %371, %378
-  br i1 %brmerge.not.i.i118.i91.i, label %387, label %_ZN4core5slice4sort6shared9smallsort13sort9_optimal17h941fac2fcacf8827E.exit.i, !prof !2798
+  %.mux.i.i114.i90.i = fcmp ogt double %349, %355
+  %366 = select i1 %.mux.i.i114.i90.i, ptr %270, ptr %251, !unpredictable !3
+  %367 = select i1 %.mux.i.i114.i90.i, double %349, double %355
+  %368 = load i64, ptr %366, align 8, !alias.scope !6823
+  store i64 %368, ptr %251, align 8, !alias.scope !6823
+  store double %367, ptr %270, align 8, !alias.scope !6823
+  %brmerge.not.i.i118.i91.i = fcmp uno double %353, %360
+  br i1 %brmerge.not.i.i118.i91.i, label %369, label %_ZN4core5slice4sort6shared9smallsort13sort9_optimal17h941fac2fcacf8827E.exit.i, !prof !2798
 
-387:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit115.i89.i
+369:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit115.i89.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort13sort9_optimal17h941fac2fcacf8827E.exit.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17ha074b85f42d3c6c2E.exit115.i89.i
-  %.mux.i.i119.i93.i = fcmp ogt double %371, %378
-  %388 = select i1 %.mux.i.i119.i93.i, ptr %303, ptr %275, !unpredictable !3
-  %389 = select i1 %.mux.i.i119.i93.i, double %371, double %378
-  %390 = load i64, ptr %388, align 8, !alias.scope !6823
-  store i64 %390, ptr %275, align 8, !alias.scope !6823
-  store double %389, ptr %303, align 8, !alias.scope !6823
-  br label %391
+  %.mux.i.i119.i93.i = fcmp ogt double %353, %360
+  %370 = select i1 %.mux.i.i119.i93.i, ptr %291, ptr %264, !unpredictable !3
+  %371 = select i1 %.mux.i.i119.i93.i, double %353, double %360
+  %372 = load i64, ptr %370, align 8, !alias.scope !6823
+  store i64 %372, ptr %264, align 8, !alias.scope !6823
+  store double %371, ptr %291, align 8, !alias.scope !6823
+  br label %373
 
-391:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort13sort9_optimal17h941fac2fcacf8827E.exit.i, %_ZN4core5slice4sort6shared9smallsort14sort13_optimal17hffa212cef805ae65E.exit.i, %28
+373:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort13sort9_optimal17h941fac2fcacf8827E.exit.i, %_ZN4core5slice4sort6shared9smallsort14sort13_optimal17hffa212cef805ae65E.exit.i, %28
   %.sroa.09.0.i = phi i64 [ 13, %_ZN4core5slice4sort6shared9smallsort14sort13_optimal17hffa212cef805ae65E.exit.i ], [ 9, %_ZN4core5slice4sort6shared9smallsort13sort9_optimal17h941fac2fcacf8827E.exit.i ], [ 1, %28 ]
   call fastcc void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17h4a6439bbb97bf627E(ptr noalias noundef nonnull align 8 %.sroa.01.0.i, i64 noundef %.sroa.9.0.i, i64 noundef %.sroa.09.0.i)
-  br i1 %23, label %.sink.split.i, label %392
+  br i1 %23, label %.sink.split.i, label %374
 
-392:                                              ; preds = %391
+374:                                              ; preds = %373
   %.not.i = icmp eq ptr %.sroa.01.0.i, %.sroa.0.0.lcssa
-  br i1 %.not.i, label %26, label %393
+  br i1 %.not.i, label %26, label %375
 
-393:                                              ; preds = %392
+375:                                              ; preds = %374
   call void @llvm.experimental.noalias.scope.decl(metadata !6826)
-  %394 = add nsw i64 %.sroa.11.0.lcssa, -1
-  %395 = getelementptr inbounds nuw double, ptr %10, i64 %394
-  %396 = getelementptr inbounds nuw double, ptr %.sroa.0.0.lcssa, i64 %394
-  %397 = getelementptr i8, ptr %24, i64 -8
+  %376 = add nsw i64 %.sroa.11.0.lcssa, -1
+  %377 = getelementptr inbounds nuw double, ptr %10, i64 %376
+  %378 = getelementptr inbounds nuw double, ptr %.sroa.0.0.lcssa, i64 %376
+  %379 = getelementptr i8, ptr %24, i64 -8
   br label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit26.i.i"
-  %398 = getelementptr i8, ptr %415, i64 8
-  %399 = getelementptr i8, ptr %414, i64 8
-  %400 = and i64 %.sroa.11.0.lcssa, 1
-  %401 = icmp eq i64 %400, 0
-  br i1 %401, label %425, label %417
+  %380 = getelementptr i8, ptr %397, i64 8
+  %381 = getelementptr i8, ptr %396, i64 8
+  %382 = and i64 %.sroa.11.0.lcssa, 1
+  %383 = icmp eq i64 %382, 0
+  br i1 %383, label %407, label %399
 
-.lr.ph.i.i:                                       ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit26.i.i", %393
-  %.sroa.0.020.i.i = phi ptr [ %409, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit26.i.i" ], [ %.sroa.0.0.lcssa, %393 ]
-  %.sroa.06.019.i.i = phi ptr [ %411, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit26.i.i" ], [ %24, %393 ]
-  %.sroa.010.018.i.i = phi ptr [ %406, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit26.i.i" ], [ %10, %393 ]
-  %.sroa.013.017.i.i = phi ptr [ %415, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit26.i.i" ], [ %397, %393 ]
-  %.sroa.015.016.i.i = phi ptr [ %414, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit26.i.i" ], [ %396, %393 ]
-  %.sroa.017.015.i.i = phi ptr [ %416, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit26.i.i" ], [ %395, %393 ]
-  %.sroa.018.014.i.i = phi i64 [ %402, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit26.i.i" ], [ 0, %393 ]
-  %402 = add nuw nsw i64 %.sroa.018.014.i.i, 1
+.lr.ph.i.i:                                       ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit26.i.i", %375
+  %.sroa.0.020.i.i = phi ptr [ %391, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit26.i.i" ], [ %.sroa.0.0.lcssa, %375 ]
+  %.sroa.06.019.i.i = phi ptr [ %393, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit26.i.i" ], [ %24, %375 ]
+  %.sroa.010.018.i.i = phi ptr [ %388, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit26.i.i" ], [ %10, %375 ]
+  %.sroa.013.017.i.i = phi ptr [ %397, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit26.i.i" ], [ %379, %375 ]
+  %.sroa.015.016.i.i = phi ptr [ %396, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit26.i.i" ], [ %378, %375 ]
+  %.sroa.017.015.i.i = phi ptr [ %398, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit26.i.i" ], [ %377, %375 ]
+  %.sroa.018.014.i.i = phi i64 [ %384, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit26.i.i" ], [ 0, %375 ]
+  %384 = add nuw nsw i64 %.sroa.018.014.i.i, 1
   %.sroa.06.0.val.i.i = load double, ptr %.sroa.06.019.i.i, align 8, !alias.scope !6829, !noundef !3
   %.sroa.0.0.val.i.i = load double, ptr %.sroa.0.020.i.i, align 8, !alias.scope !6829, !noundef !3
   %brmerge.not.i.i.i = fcmp uno double %.sroa.06.0.val.i.i, %.sroa.0.0.val.i.i
-  br i1 %brmerge.not.i.i.i, label %403, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit.i.i", !prof !2798
+  br i1 %brmerge.not.i.i.i, label %385, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit.i.i", !prof !2798
 
-403:                                              ; preds = %.lr.ph.i.i
+385:                                              ; preds = %.lr.ph.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32, !noalias !6826
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit.i.i": ; preds = %.lr.ph.i.i
   %.mux.i.i.i = fcmp olt double %.sroa.06.0.val.i.i, %.sroa.0.0.val.i.i
   %..i23.i.i = select i1 %.mux.i.i.i, ptr %.sroa.06.019.i.i, ptr %.sroa.0.020.i.i
-  %404 = load i64, ptr %..i23.i.i, align 8, !alias.scope !6829, !noalias !6830
-  store i64 %404, ptr %.sroa.010.018.i.i, align 8, !noalias !6834
+  %386 = load i64, ptr %..i23.i.i, align 8, !alias.scope !6829, !noalias !6830
+  store i64 %386, ptr %.sroa.010.018.i.i, align 8, !noalias !6834
   %.sroa.015.0.val.i.i = load double, ptr %.sroa.015.016.i.i, align 8, !alias.scope !6829, !noundef !3
   %.sroa.013.0.val.i.i = load double, ptr %.sroa.013.017.i.i, align 8, !alias.scope !6829, !noundef !3
   %brmerge.not.i24.i.i = fcmp uno double %.sroa.015.0.val.i.i, %.sroa.013.0.val.i.i
-  br i1 %brmerge.not.i24.i.i, label %405, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit26.i.i", !prof !2798
+  br i1 %brmerge.not.i24.i.i, label %387, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit26.i.i", !prof !2798
 
-405:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit.i.i"
+387:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit.i.i"
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32, !noalias !6826
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit26.i.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit.i.i"
-  %406 = getelementptr inbounds nuw i8, ptr %.sroa.010.018.i.i, i64 8
-  %407 = xor i1 %.mux.i.i.i, true
-  %408 = zext i1 %407 to i64
-  %409 = getelementptr inbounds nuw double, ptr %.sroa.0.020.i.i, i64 %408
-  %410 = zext i1 %.mux.i.i.i to i64
-  %411 = getelementptr inbounds nuw double, ptr %.sroa.06.019.i.i, i64 %410
+  %388 = getelementptr inbounds nuw i8, ptr %.sroa.010.018.i.i, i64 8
+  %389 = xor i1 %.mux.i.i.i, true
+  %390 = zext i1 %389 to i64
+  %391 = getelementptr inbounds nuw double, ptr %.sroa.0.020.i.i, i64 %390
+  %392 = zext i1 %.mux.i.i.i to i64
+  %393 = getelementptr inbounds nuw double, ptr %.sroa.06.019.i.i, i64 %392
   %.mux.i25.i.i = fcmp olt double %.sroa.015.0.val.i.i, %.sroa.013.0.val.i.i
   %..i.i.i = select i1 %.mux.i25.i.i, ptr %.sroa.013.017.i.i, ptr %.sroa.015.016.i.i
-  %412 = xor i1 %.mux.i25.i.i, true
-  %413 = load i64, ptr %..i.i.i, align 8, !alias.scope !6829, !noalias !6835
-  store i64 %413, ptr %.sroa.017.015.i.i, align 8, !noalias !6839
-  %.neg.i.i.i = sext i1 %412 to i64
-  %414 = getelementptr double, ptr %.sroa.015.016.i.i, i64 %.neg.i.i.i
+  %394 = xor i1 %.mux.i25.i.i, true
+  %395 = load i64, ptr %..i.i.i, align 8, !alias.scope !6829, !noalias !6835
+  store i64 %395, ptr %.sroa.017.015.i.i, align 8, !noalias !6839
+  %.neg.i.i.i = sext i1 %394 to i64
+  %396 = getelementptr double, ptr %.sroa.015.016.i.i, i64 %.neg.i.i.i
   %.neg15.i.i.i = sext i1 %.mux.i25.i.i to i64
-  %415 = getelementptr double, ptr %.sroa.013.017.i.i, i64 %.neg15.i.i.i
-  %416 = getelementptr inbounds i8, ptr %.sroa.017.015.i.i, i64 -8
-  %exitcond.not.i.i = icmp eq i64 %402, %22
+  %397 = getelementptr double, ptr %.sroa.013.017.i.i, i64 %.neg15.i.i.i
+  %398 = getelementptr inbounds i8, ptr %.sroa.017.015.i.i, i64 -8
+  %exitcond.not.i.i = icmp eq i64 %384, %22
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-417:                                              ; preds = %._crit_edge.i.i
-  %418 = icmp ult ptr %409, %398
-  %.sroa.0.0..sroa.06.0.i.i = select i1 %418, ptr %409, ptr %411
-  %419 = load i64, ptr %.sroa.0.0..sroa.06.0.i.i, align 8, !alias.scope !6829
-  store i64 %419, ptr %406, align 8, !noalias !6829
-  %420 = zext i1 %418 to i64
-  %421 = getelementptr inbounds nuw double, ptr %409, i64 %420
-  %422 = xor i1 %418, true
-  %423 = zext i1 %422 to i64
-  %424 = getelementptr inbounds nuw double, ptr %411, i64 %423
-  br label %425
+399:                                              ; preds = %._crit_edge.i.i
+  %400 = icmp ult ptr %391, %380
+  %.sroa.0.0..sroa.06.0.i.i = select i1 %400, ptr %391, ptr %393
+  %401 = load i64, ptr %.sroa.0.0..sroa.06.0.i.i, align 8, !alias.scope !6829
+  store i64 %401, ptr %388, align 8, !noalias !6829
+  %402 = zext i1 %400 to i64
+  %403 = getelementptr inbounds nuw double, ptr %391, i64 %402
+  %404 = xor i1 %400, true
+  %405 = zext i1 %404 to i64
+  %406 = getelementptr inbounds nuw double, ptr %393, i64 %405
+  br label %407
 
-425:                                              ; preds = %417, %._crit_edge.i.i
-  %.sroa.06.1.i.i = phi ptr [ %411, %._crit_edge.i.i ], [ %424, %417 ]
-  %.sroa.0.1.i.i = phi ptr [ %409, %._crit_edge.i.i ], [ %421, %417 ]
-  %426 = icmp ne ptr %.sroa.0.1.i.i, %398
-  %427 = icmp ne ptr %.sroa.06.1.i.i, %399
-  %or.cond.i.i = select i1 %426, i1 true, i1 %427, !prof !1976
-  br i1 %or.cond.i.i, label %428, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h43e302f14d82b28fE.exit.i, !prof !1976
+407:                                              ; preds = %399, %._crit_edge.i.i
+  %.sroa.06.1.i.i = phi ptr [ %393, %._crit_edge.i.i ], [ %406, %399 ]
+  %.sroa.0.1.i.i = phi ptr [ %391, %._crit_edge.i.i ], [ %403, %399 ]
+  %408 = icmp ne ptr %.sroa.0.1.i.i, %380
+  %409 = icmp ne ptr %.sroa.06.1.i.i, %381
+  %or.cond.i.i = select i1 %408, i1 true, i1 %409, !prof !1976
+  br i1 %or.cond.i.i, label %410, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h43e302f14d82b28fE.exit.i, !prof !1976
 
-428:                                              ; preds = %425
+410:                                              ; preds = %407
   call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17hd63a5aaa27f351b7E() #32, !noalias !6826
   unreachable
 
-_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h43e302f14d82b28fE.exit.i: ; preds = %425
-  %429 = shl nuw nsw i64 %.sroa.11.0.lcssa, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.lcssa, ptr nonnull align 8 %10, i64 %429, i1 false)
+_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h43e302f14d82b28fE.exit.i: ; preds = %407
+  %411 = shl nuw nsw i64 %.sroa.11.0.lcssa, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.lcssa, ptr nonnull align 8 %10, i64 %411, i1 false)
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %391, %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h43e302f14d82b28fE.exit.i
+.sink.split.i:                                    ; preds = %373, %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h43e302f14d82b28fE.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !6817
   br label %_ZN4core5slice4sort6shared9smallsort18small_sort_network17hdba05b16efb9b857E.exit
 
-430:                                              ; preds = %18
+412:                                              ; preds = %18
   call void @_ZN4core5slice4sort8unstable8heapsort8heapsort17hf6dfda34229d04c1E(ptr noalias noundef nonnull align 8 %.sroa.0.0191, i64 noundef %.sroa.11.0190, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
   br label %_ZN4core5slice4sort6shared9smallsort18small_sort_network17hdba05b16efb9b857E.exit
 
-431:                                              ; preds = %18
-  %432 = add i32 %.sroa.020.0188, -1
+413:                                              ; preds = %18
+  %414 = add i32 %.sroa.020.0188, -1
   call void @llvm.experimental.noalias.scope.decl(metadata !6840)
-  %433 = lshr i64 %.sroa.11.0190, 3
-  %.idx.i = shl nuw nsw i64 %433, 5
-  %434 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 %.idx.i
-  %.idx1.i = mul nuw i64 %433, 56
-  %435 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 %.idx1.i
-  %436 = icmp ult i64 %.sroa.11.0190, 64
-  br i1 %436, label %439, label %437
+  %415 = lshr i64 %.sroa.11.0190, 3
+  %.idx.i = shl nuw nsw i64 %415, 5
+  %416 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 %.idx.i
+  %.idx1.i = mul nuw i64 %415, 56
+  %417 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 %.idx1.i
+  %418 = icmp ult i64 %.sroa.11.0190, 64
+  br i1 %418, label %421, label %419
 
-437:                                              ; preds = %431
-  %438 = call fastcc noundef ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h69b649d1ad779d50E(ptr noundef nonnull readonly align 8 %.sroa.0.0191, ptr noundef readonly %434, ptr noundef readonly %435, i64 noundef %433)
+419:                                              ; preds = %413
+  %420 = call fastcc noundef ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h69b649d1ad779d50E(ptr noundef nonnull readonly align 8 %.sroa.0.0191, ptr noundef readonly %416, ptr noundef readonly %417, i64 noundef %415)
   br label %_ZN4core5slice4sort6shared5pivot12choose_pivot17hfc65b82990ab1151E.exit
 
-439:                                              ; preds = %431
+421:                                              ; preds = %413
   %.val5.i = load double, ptr %.sroa.0.0191, align 8, !alias.scope !6840, !noundef !3
-  %.val6.i = load double, ptr %434, align 8, !alias.scope !6840, !noundef !3
+  %.val6.i = load double, ptr %416, align 8, !alias.scope !6840, !noundef !3
   %brmerge.not.i.i = fcmp uno double %.val5.i, %.val6.i
-  br i1 %brmerge.not.i.i, label %440, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit.i", !prof !2798
+  br i1 %brmerge.not.i.i, label %422, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit.i", !prof !2798
 
-440:                                              ; preds = %439
+422:                                              ; preds = %421
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32, !noalias !6840
   unreachable
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit.i": ; preds = %439
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit.i": ; preds = %421
   %.mux.i.i = fcmp olt double %.val5.i, %.val6.i
-  %.val4.i = load double, ptr %435, align 8, !alias.scope !6840, !noundef !3
+  %.val4.i = load double, ptr %417, align 8, !alias.scope !6840, !noundef !3
   %brmerge.not.i7.i = fcmp uno double %.val5.i, %.val4.i
-  br i1 %brmerge.not.i7.i, label %441, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit9.i", !prof !2798
+  br i1 %brmerge.not.i7.i, label %423, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit9.i", !prof !2798
 
-441:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit.i"
+423:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit.i"
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32, !noalias !6840
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit9.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit.i"
   %.mux.i8.i = fcmp olt double %.val5.i, %.val4.i
-  %442 = xor i1 %.mux.i.i, %.mux.i8.i
-  br i1 %442, label %_ZN4core5slice4sort6shared5pivot12choose_pivot17hfc65b82990ab1151E.exit, label %443
+  %424 = xor i1 %.mux.i.i, %.mux.i8.i
+  br i1 %424, label %_ZN4core5slice4sort6shared5pivot12choose_pivot17hfc65b82990ab1151E.exit, label %425
 
-443:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit9.i"
+425:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit9.i"
   %brmerge.not.i10.i = fcmp uno double %.val6.i, %.val4.i
-  br i1 %brmerge.not.i10.i, label %444, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit12.i", !prof !2798
+  br i1 %brmerge.not.i10.i, label %426, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit12.i", !prof !2798
 
-444:                                              ; preds = %443
+426:                                              ; preds = %425
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32, !noalias !6840
   unreachable
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit12.i": ; preds = %443
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit12.i": ; preds = %425
   %.mux.i11.i = fcmp olt double %.val6.i, %.val4.i
-  %445 = xor i1 %.mux.i.i, %.mux.i11.i
-  %..i.i = select i1 %445, ptr %435, ptr %434
+  %427 = xor i1 %.mux.i.i, %.mux.i11.i
+  %..i.i = select i1 %427, ptr %417, ptr %416
   br label %_ZN4core5slice4sort6shared5pivot12choose_pivot17hfc65b82990ab1151E.exit
 
-_ZN4core5slice4sort6shared5pivot12choose_pivot17hfc65b82990ab1151E.exit: ; preds = %437, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit9.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit12.i"
-  %.sroa.0.0.i.sink.i = phi ptr [ %438, %437 ], [ %.sroa.0.0191, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit9.i" ], [ %..i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit12.i" ]
-  %446 = ptrtoint ptr %.sroa.0.0.i.sink.i to i64
-  %447 = ptrtoint ptr %.sroa.0.0191 to i64
-  %448 = sub nuw i64 %446, %447
-  %.sroa.0.0.i = lshr exact i64 %448, 3
+_ZN4core5slice4sort6shared5pivot12choose_pivot17hfc65b82990ab1151E.exit: ; preds = %419, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit9.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit12.i"
+  %.sroa.0.0.i.sink.i = phi ptr [ %420, %419 ], [ %.sroa.0.0191, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit9.i" ], [ %..i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit12.i" ]
+  %428 = ptrtoint ptr %.sroa.0.0.i.sink.i to i64
+  %429 = ptrtoint ptr %.sroa.0.0191 to i64
+  %430 = sub nuw i64 %428, %429
+  %.sroa.0.0.i = lshr exact i64 %430, 3
   %.not = icmp eq ptr %.sroa.017.0189, null
-  br i1 %.not, label %453, label %449
+  br i1 %.not, label %435, label %431
 
-_ZN4core5slice4sort6shared9smallsort18small_sort_network17hdba05b16efb9b857E.exit: ; preds = %.sink.split.i, %._crit_edge, %430
+_ZN4core5slice4sort6shared9smallsort18small_sort_network17hdba05b16efb9b857E.exit: ; preds = %.sink.split.i, %._crit_edge, %412
   ret void
 
-449:                                              ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17hfc65b82990ab1151E.exit
-  %450 = icmp ult i64 %.sroa.0.0.i, %.sroa.11.0190
-  call void @llvm.assume(i1 %450)
-  %451 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 %448
+431:                                              ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17hfc65b82990ab1151E.exit
+  %432 = icmp ult i64 %.sroa.0.0.i, %.sroa.11.0190
+  call void @llvm.assume(i1 %432)
+  %433 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 %430
   %.sroa.017.0.val = load double, ptr %.sroa.017.0189, align 8, !noundef !3
-  %.val = load double, ptr %451, align 8, !noundef !3
+  %.val = load double, ptr %433, align 8, !noundef !3
   %brmerge.not.i = fcmp uno double %.sroa.017.0.val, %.val
-  br i1 %brmerge.not.i, label %452, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit", !prof !2798
+  br i1 %brmerge.not.i, label %434, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit", !prof !2798
 
-452:                                              ; preds = %449
+434:                                              ; preds = %431
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
   unreachable
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit": ; preds = %449
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit": ; preds = %431
   %.mux.i = fcmp olt double %.sroa.017.0.val, %.val
-  br i1 %.mux.i, label %453, label %505
+  br i1 %.mux.i, label %435, label %487
 
-453:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit", %_ZN4core5slice4sort6shared5pivot12choose_pivot17hfc65b82990ab1151E.exit
+435:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit", %_ZN4core5slice4sort6shared5pivot12choose_pivot17hfc65b82990ab1151E.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !6843)
   %.not.i27 = icmp ult i64 %.sroa.0.0.i, %.sroa.11.0190
-  br i1 %.not.i27, label %455, label %454
+  br i1 %.not.i27, label %437, label %436
 
-454:                                              ; preds = %453
+436:                                              ; preds = %435
   call void @llvm.trap()
   unreachable
 
-455:                                              ; preds = %453
+437:                                              ; preds = %435
   call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$14swap_unchecked17h33cc02827726ec35E"(ptr noalias noundef nonnull align 8 %.sroa.0.0191, i64 noundef range(i64 33, 0) %.sroa.11.0190, i64 noundef 0, i64 noundef range(i64 0, 2305843009213693952) %.sroa.0.0.i)
-  %456 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 8
+  %438 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !6846)
   call void @llvm.experimental.noalias.scope.decl(metadata !6849)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !6851
-  %457 = load double, ptr %456, align 8, !alias.scope !6852, !noalias !6849, !noundef !3
-  store double %457, ptr %9, align 8, !noalias !6851
+  %439 = load double, ptr %438, align 8, !alias.scope !6852, !noalias !6849, !noundef !3
+  store double %439, ptr %9, align 8, !noalias !6851
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !6851
-  %458 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 16
+  %440 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 16
   store ptr %9, ptr %17, align 8, !noalias !6851
-  %459 = getelementptr double, ptr %.sroa.0.0191, i64 %.sroa.11.0190
-  %460 = getelementptr i8, ptr %459, i64 -8
-  %461 = icmp ult ptr %458, %460
+  %441 = getelementptr double, ptr %.sroa.0.0191, i64 %.sroa.11.0190
+  %442 = getelementptr i8, ptr %441, i64 -8
+  %443 = icmp ult ptr %440, %442
   %.val1.i18.pre.pre.i.i = load double, ptr %.sroa.0.0191, align 8, !alias.scope !6853, !noalias !6854
-  br i1 %461, label %.lr.ph.i.i32, label %.preheader.i.i
+  br i1 %443, label %.lr.ph.i.i32, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit34.i.i", %455
-  %.promoted80.i.i = phi ptr [ %458, %455 ], [ %492, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit34.i.i" ]
-  %.promoted36.i.i = phi ptr [ %456, %455 ], [ %486, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit34.i.i" ]
-  %.promoted.i.i = phi i64 [ 0, %455 ], [ %491, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit34.i.i" ]
-  %462 = icmp eq ptr %.promoted80.i.i, %459
-  br i1 %462, label %._crit_edge.i.i31, label %.lr.ph39.i.i
+.preheader.i.i:                                   ; preds = %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit34.i.i", %437
+  %.promoted80.i.i = phi ptr [ %440, %437 ], [ %474, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit34.i.i" ]
+  %.promoted36.i.i = phi ptr [ %438, %437 ], [ %468, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit34.i.i" ]
+  %.promoted.i.i = phi i64 [ 0, %437 ], [ %473, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit34.i.i" ]
+  %444 = icmp eq ptr %.promoted80.i.i, %441
+  br i1 %444, label %._crit_edge.i.i31, label %.lr.ph39.i.i
 
 .lr.ph39.i.i:                                     ; preds = %.preheader.i.i
   %.val.i.i28.i = load double, ptr %.promoted80.i.i, align 8, !alias.scope !6852, !noalias !6857, !noundef !3
   %brmerge.not.i.i.i29.i = fcmp uno double %.val.i.i28.i, %.val1.i18.pre.pre.i.i
   br i1 %brmerge.not.i.i.i29.i, label %._crit_edge.i, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit.i.i", !prof !1960
 
-463:                                              ; preds = %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit.i.i"
-  %.val.i.i.i29 = load double, ptr %471, align 8, !alias.scope !6852, !noalias !6857, !noundef !3
+445:                                              ; preds = %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit.i.i"
+  %.val.i.i.i29 = load double, ptr %453, align 8, !alias.scope !6852, !noalias !6857, !noundef !3
   %brmerge.not.i.i.i.i30 = fcmp uno double %.val.i.i.i29, %.val1.i18.pre.pre.i.i
   br i1 %brmerge.not.i.i.i.i30, label %._crit_edge.i, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit.i.i", !prof !6860
 
-._crit_edge.i:                                    ; preds = %.lr.ph39.i.i, %463
-  %.lcssa9.i = phi ptr [ %471, %463 ], [ %.promoted80.i.i, %.lr.ph39.i.i ]
-  %.lcssa5.i = phi i64 [ %470, %463 ], [ %.promoted.i.i, %.lr.ph39.i.i ]
-  %.lcssa.i = phi ptr [ %466, %463 ], [ %.promoted36.i.i, %.lr.ph39.i.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph39.i.i, %445
+  %.lcssa9.i = phi ptr [ %453, %445 ], [ %.promoted80.i.i, %.lr.ph39.i.i ]
+  %.lcssa5.i = phi i64 [ %452, %445 ], [ %.promoted.i.i, %.lr.ph39.i.i ]
+  %.lcssa.i = phi ptr [ %448, %445 ], [ %.promoted36.i.i, %.lr.ph39.i.i ]
   store ptr %.lcssa9.i, ptr %15, align 8, !noalias !6851
   store i64 %.lcssa5.i, ptr %16, align 8, !noalias !6851
   store ptr %.lcssa.i, ptr %8, align 8, !noalias !6851
   br label %.invoke.i.i
 
-"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit.i.i": ; preds = %.lr.ph39.i.i, %463
-  %.val.i.i30.i = phi double [ %.val.i.i.i29, %463 ], [ %.val.i.i28.i, %.lr.ph39.i.i ]
-  %464 = phi ptr [ %466, %463 ], [ %.promoted36.i.i, %.lr.ph39.i.i ]
-  %465 = phi i64 [ %470, %463 ], [ %.promoted.i.i, %.lr.ph39.i.i ]
-  %466 = phi ptr [ %471, %463 ], [ %.promoted80.i.i, %.lr.ph39.i.i ]
+"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit.i.i": ; preds = %.lr.ph39.i.i, %445
+  %.val.i.i30.i = phi double [ %.val.i.i.i29, %445 ], [ %.val.i.i28.i, %.lr.ph39.i.i ]
+  %446 = phi ptr [ %448, %445 ], [ %.promoted36.i.i, %.lr.ph39.i.i ]
+  %447 = phi i64 [ %452, %445 ], [ %.promoted.i.i, %.lr.ph39.i.i ]
+  %448 = phi ptr [ %453, %445 ], [ %.promoted80.i.i, %.lr.ph39.i.i ]
   %.mux.i.i.i.i28 = fcmp olt double %.val.i.i30.i, %.val1.i18.pre.pre.i.i
-  %467 = getelementptr inbounds nuw double, ptr %456, i64 %465
-  %468 = load i64, ptr %467, align 8, !alias.scope !6852, !noalias !6857
-  store i64 %468, ptr %464, align 8, !alias.scope !6852, !noalias !6857
-  store double %.val.i.i30.i, ptr %467, align 8, !alias.scope !6852, !noalias !6857
-  %469 = zext i1 %.mux.i.i.i.i28 to i64
-  %470 = add i64 %465, %469
-  %471 = getelementptr inbounds nuw i8, ptr %466, i64 8
-  %472 = icmp eq ptr %471, %459
-  br i1 %472, label %._crit_edge.i.i31, label %463
+  %449 = getelementptr inbounds nuw double, ptr %438, i64 %447
+  %450 = load i64, ptr %449, align 8, !alias.scope !6852, !noalias !6857
+  store i64 %450, ptr %446, align 8, !alias.scope !6852, !noalias !6857
+  store double %.val.i.i30.i, ptr %449, align 8, !alias.scope !6852, !noalias !6857
+  %451 = zext i1 %.mux.i.i.i.i28 to i64
+  %452 = add i64 %447, %451
+  %453 = getelementptr inbounds nuw i8, ptr %448, i64 8
+  %454 = icmp eq ptr %453, %441
+  br i1 %454, label %._crit_edge.i.i31, label %445
 
 ._crit_edge.i.i31:                                ; preds = %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit.i.i", %.preheader.i.i
-  %473 = phi ptr [ %.promoted36.i.i, %.preheader.i.i ], [ %466, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit.i.i" ]
-  %474 = phi i64 [ %.promoted.i.i, %.preheader.i.i ], [ %470, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit.i.i" ]
-  store i64 %474, ptr %16, align 8, !noalias !6851
-  store ptr %473, ptr %8, align 8, !noalias !6851
+  %455 = phi ptr [ %.promoted36.i.i, %.preheader.i.i ], [ %448, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit.i.i" ]
+  %456 = phi i64 [ %.promoted.i.i, %.preheader.i.i ], [ %452, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit.i.i" ]
+  store i64 %456, ptr %16, align 8, !noalias !6851
+  store ptr %455, ptr %8, align 8, !noalias !6851
   store ptr %9, ptr %15, align 8, !noalias !6851
-  %brmerge.not.i.i19.i.i = fcmp uno double %457, %.val1.i18.pre.pre.i.i
+  %brmerge.not.i.i19.i.i = fcmp uno double %439, %.val1.i18.pre.pre.i.i
   br i1 %brmerge.not.i.i19.i.i, label %.invoke.i.i, label %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h53d3051e3a172b28E.exit.i, !prof !2798
 
-475:                                              ; preds = %.invoke.i.i
-  %476 = landingpad { ptr, i32 }
+457:                                              ; preds = %.invoke.i.i
+  %458 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr83drop_in_place$LT$core..slice..sort..unstable..quicksort..GapGuardRaw$LT$f64$GT$$GT$17h09e55e1ed28e3289E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #33
-          to label %common.resume unwind label %494, !noalias !6849
+          to label %common.resume unwind label %476, !noalias !6849
 
-.lr.ph.i.i32:                                     ; preds = %455, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit34.i.i"
-  %477 = phi ptr [ %492, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit34.i.i" ], [ %458, %455 ]
-  %478 = phi i64 [ %491, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit34.i.i" ], [ 0, %455 ]
-  %479 = phi ptr [ %486, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit34.i.i" ], [ %456, %455 ]
-  %.val.i23.i.i = load double, ptr %477, align 8, !alias.scope !6852, !noalias !6861, !noundef !3
+.lr.ph.i.i32:                                     ; preds = %437, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit34.i.i"
+  %459 = phi ptr [ %474, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit34.i.i" ], [ %440, %437 ]
+  %460 = phi i64 [ %473, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit34.i.i" ], [ 0, %437 ]
+  %461 = phi ptr [ %468, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit34.i.i" ], [ %438, %437 ]
+  %.val.i23.i.i = load double, ptr %459, align 8, !alias.scope !6852, !noalias !6861, !noundef !3
   %brmerge.not.i.i25.i.i = fcmp uno double %.val.i23.i.i, %.val1.i18.pre.pre.i.i
-  br i1 %brmerge.not.i.i25.i.i, label %480, label %481, !prof !2798
+  br i1 %brmerge.not.i.i25.i.i, label %462, label %463, !prof !2798
 
-480:                                              ; preds = %.lr.ph.i.i32
-  store ptr %479, ptr %8, align 8, !noalias !6851
-  store i64 %478, ptr %16, align 8, !noalias !6851
-  store ptr %477, ptr %15, align 8, !noalias !6851
+462:                                              ; preds = %.lr.ph.i.i32
+  store ptr %461, ptr %8, align 8, !noalias !6851
+  store i64 %460, ptr %16, align 8, !noalias !6851
+  store ptr %459, ptr %15, align 8, !noalias !6851
   br label %.invoke.i.i
 
-481:                                              ; preds = %.lr.ph.i.i32
+463:                                              ; preds = %.lr.ph.i.i32
   %.mux.i.i26.i.i = fcmp olt double %.val.i23.i.i, %.val1.i18.pre.pre.i.i
-  %482 = getelementptr inbounds nuw double, ptr %456, i64 %478
-  %483 = load i64, ptr %482, align 8, !alias.scope !6852, !noalias !6861
-  store i64 %483, ptr %479, align 8, !alias.scope !6852, !noalias !6861
-  store double %.val.i23.i.i, ptr %482, align 8, !alias.scope !6852, !noalias !6861
-  %484 = zext i1 %.mux.i.i26.i.i to i64
-  %485 = add i64 %478, %484
-  %486 = getelementptr inbounds nuw i8, ptr %477, i64 8
-  %.val.i29.i.i = load double, ptr %486, align 8, !alias.scope !6852, !noalias !6864, !noundef !3
+  %464 = getelementptr inbounds nuw double, ptr %438, i64 %460
+  %465 = load i64, ptr %464, align 8, !alias.scope !6852, !noalias !6861
+  store i64 %465, ptr %461, align 8, !alias.scope !6852, !noalias !6861
+  store double %.val.i23.i.i, ptr %464, align 8, !alias.scope !6852, !noalias !6861
+  %466 = zext i1 %.mux.i.i26.i.i to i64
+  %467 = add i64 %460, %466
+  %468 = getelementptr inbounds nuw i8, ptr %459, i64 8
+  %.val.i29.i.i = load double, ptr %468, align 8, !alias.scope !6852, !noalias !6864, !noundef !3
   %brmerge.not.i.i31.i.i = fcmp uno double %.val.i29.i.i, %.val1.i18.pre.pre.i.i
-  br i1 %brmerge.not.i.i31.i.i, label %487, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit34.i.i", !prof !2798
+  br i1 %brmerge.not.i.i31.i.i, label %469, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit34.i.i", !prof !2798
 
-487:                                              ; preds = %481
-  store ptr %477, ptr %8, align 8, !noalias !6851
-  store i64 %485, ptr %16, align 8, !noalias !6851
-  store ptr %486, ptr %15, align 8, !noalias !6851
+469:                                              ; preds = %463
+  store ptr %459, ptr %8, align 8, !noalias !6851
+  store i64 %467, ptr %16, align 8, !noalias !6851
+  store ptr %468, ptr %15, align 8, !noalias !6851
   br label %.invoke.i.i
 
-.invoke.i.i:                                      ; preds = %._crit_edge.i.i31, %487, %480, %._crit_edge.i
+.invoke.i.i:                                      ; preds = %._crit_edge.i.i31, %469, %462, %._crit_edge.i
   invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
-          to label %.cont.i.i unwind label %475, !noalias !6849
+          to label %.cont.i.i unwind label %457, !noalias !6849
 
 .cont.i.i:                                        ; preds = %.invoke.i.i
   unreachable
 
-"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit34.i.i": ; preds = %481
+"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h0e8cedfd353e4697E.exit34.i.i": ; preds = %463
   %.mux.i.i32.i.i = fcmp olt double %.val.i29.i.i, %.val1.i18.pre.pre.i.i
-  %488 = getelementptr inbounds nuw double, ptr %456, i64 %485
-  %489 = load i64, ptr %488, align 8, !alias.scope !6852, !noalias !6864
-  store i64 %489, ptr %477, align 8, !alias.scope !6852, !noalias !6864
-  store double %.val.i29.i.i, ptr %488, align 8, !alias.scope !6852, !noalias !6864
-  %490 = zext i1 %.mux.i.i32.i.i to i64
-  %491 = add i64 %485, %490
-  %492 = getelementptr inbounds nuw i8, ptr %477, i64 16
-  %493 = icmp ult ptr %492, %460
-  br i1 %493, label %.lr.ph.i.i32, label %.preheader.i.i
+  %470 = getelementptr inbounds nuw double, ptr %438, i64 %467
+  %471 = load i64, ptr %470, align 8, !alias.scope !6852, !noalias !6864
+  store i64 %471, ptr %459, align 8, !alias.scope !6852, !noalias !6864
+  store double %.val.i29.i.i, ptr %470, align 8, !alias.scope !6852, !noalias !6864
+  %472 = zext i1 %.mux.i.i32.i.i to i64
+  %473 = add i64 %467, %472
+  %474 = getelementptr inbounds nuw i8, ptr %459, i64 16
+  %475 = icmp ult ptr %474, %442
+  br i1 %475, label %.lr.ph.i.i32, label %.preheader.i.i
 
-494:                                              ; preds = %475
-  %495 = landingpad { ptr, i32 }
+476:                                              ; preds = %457
+  %477 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #34, !noalias !6849
   unreachable
 
-common.resume:                                    ; preds = %525, %475
-  %common.resume.op = phi { ptr, i32 } [ %476, %475 ], [ %526, %525 ]
+common.resume:                                    ; preds = %507, %457
+  %common.resume.op = phi { ptr, i32 } [ %458, %457 ], [ %508, %507 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h53d3051e3a172b28E.exit.i: ; preds = %._crit_edge.i.i31
-  %.mux.i.i20.i.i = fcmp olt double %457, %.val1.i18.pre.pre.i.i
-  %496 = getelementptr inbounds nuw double, ptr %456, i64 %474
-  %497 = load i64, ptr %496, align 8, !alias.scope !6852, !noalias !6867
-  store i64 %497, ptr %473, align 8, !alias.scope !6852, !noalias !6867
-  store double %457, ptr %496, align 8, !alias.scope !6852, !noalias !6867
-  %498 = zext i1 %.mux.i.i20.i.i to i64
-  %499 = add i64 %474, %498
+  %.mux.i.i20.i.i = fcmp olt double %439, %.val1.i18.pre.pre.i.i
+  %478 = getelementptr inbounds nuw double, ptr %438, i64 %456
+  %479 = load i64, ptr %478, align 8, !alias.scope !6852, !noalias !6867
+  store i64 %479, ptr %455, align 8, !alias.scope !6852, !noalias !6867
+  store double %439, ptr %478, align 8, !alias.scope !6852, !noalias !6867
+  %480 = zext i1 %.mux.i.i20.i.i to i64
+  %481 = add i64 %456, %480
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !6851
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !6851
-  %.not5.i = icmp ult i64 %499, %.sroa.11.0190
-  br i1 %.not5.i, label %_ZN4core5slice4sort8unstable9quicksort9partition17hf9e45f3ddd139929E.exit, label %500
+  %.not5.i = icmp ult i64 %481, %.sroa.11.0190
+  br i1 %.not5.i, label %_ZN4core5slice4sort8unstable9quicksort9partition17hf9e45f3ddd139929E.exit, label %482
 
-500:                                              ; preds = %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h53d3051e3a172b28E.exit.i
+482:                                              ; preds = %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h53d3051e3a172b28E.exit.i
   call void @llvm.trap()
   unreachable
 
 _ZN4core5slice4sort8unstable9quicksort9partition17hf9e45f3ddd139929E.exit: ; preds = %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h53d3051e3a172b28E.exit.i
-  call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$14swap_unchecked17h33cc02827726ec35E"(ptr noalias noundef nonnull align 8 %.sroa.0.0191, i64 noundef range(i64 33, 0) %.sroa.11.0190, i64 noundef 0, i64 noundef %499)
-  %501 = getelementptr inbounds nuw double, ptr %.sroa.0.0191, i64 %499
-  %502 = getelementptr inbounds nuw i8, ptr %501, i64 8
-  %503 = xor i64 %499, -1
-  %504 = add i64 %.sroa.11.0190, %503
-  call void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h7bec37decbf543e2E(ptr noalias noundef nonnull align 8 %.sroa.0.0191, i64 noundef %499, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.017.0189, i32 noundef %432, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
+  call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$14swap_unchecked17h33cc02827726ec35E"(ptr noalias noundef nonnull align 8 %.sroa.0.0191, i64 noundef range(i64 33, 0) %.sroa.11.0190, i64 noundef 0, i64 noundef %481)
+  %483 = getelementptr inbounds nuw double, ptr %.sroa.0.0191, i64 %481
+  %484 = getelementptr inbounds nuw i8, ptr %483, i64 8
+  %485 = xor i64 %481, -1
+  %486 = add i64 %.sroa.11.0190, %485
+  call void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h7bec37decbf543e2E(ptr noalias noundef nonnull align 8 %.sroa.0.0191, i64 noundef %481, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.017.0189, i32 noundef %414, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
   br label %.backedge
 
-505:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit"
+487:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17hf265583536d005fdE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !6868)
   call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$14swap_unchecked17h33cc02827726ec35E"(ptr noalias noundef nonnull align 8 %.sroa.0.0191, i64 noundef range(i64 33, 0) %.sroa.11.0190, i64 noundef 0, i64 noundef range(i64 0, -1) %.sroa.0.0.i)
-  %506 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 8
+  %488 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !6871)
   call void @llvm.experimental.noalias.scope.decl(metadata !6874)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !6876
-  %507 = load double, ptr %506, align 8, !alias.scope !6877, !noalias !6874, !noundef !3
-  store double %507, ptr %7, align 8, !noalias !6876
+  %489 = load double, ptr %488, align 8, !alias.scope !6877, !noalias !6874, !noundef !3
+  store double %489, ptr %7, align 8, !noalias !6876
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !6876
-  %508 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 16
+  %490 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 16
   store ptr %7, ptr %14, align 8, !noalias !6876
-  %509 = getelementptr double, ptr %.sroa.0.0191, i64 %.sroa.11.0190
-  %510 = getelementptr i8, ptr %509, i64 -8
-  %511 = icmp ult ptr %508, %510
+  %491 = getelementptr double, ptr %.sroa.0.0191, i64 %.sroa.11.0190
+  %492 = getelementptr i8, ptr %491, i64 -8
+  %493 = icmp ult ptr %490, %492
   %.val1.i18.pre.pre.i.i34 = load double, ptr %.sroa.0.0191, align 8, !alias.scope !6878, !noalias !6879
-  br i1 %511, label %.lr.ph.i.i54, label %.preheader.i.i35
+  br i1 %493, label %.lr.ph.i.i54, label %.preheader.i.i35
 
-.preheader.i.i35:                                 ; preds = %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit34.i.i", %505
-  %.promoted80.i.i36 = phi ptr [ %508, %505 ], [ %542, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit34.i.i" ]
-  %.promoted36.i.i37 = phi ptr [ %506, %505 ], [ %536, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit34.i.i" ]
-  %.promoted.i.i38 = phi i64 [ 0, %505 ], [ %541, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit34.i.i" ]
-  %512 = icmp eq ptr %.promoted80.i.i36, %509
-  br i1 %512, label %._crit_edge.i.i51, label %.lr.ph39.i.i39
+.preheader.i.i35:                                 ; preds = %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit34.i.i", %487
+  %.promoted80.i.i36 = phi ptr [ %490, %487 ], [ %524, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit34.i.i" ]
+  %.promoted36.i.i37 = phi ptr [ %488, %487 ], [ %518, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit34.i.i" ]
+  %.promoted.i.i38 = phi i64 [ 0, %487 ], [ %523, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit34.i.i" ]
+  %494 = icmp eq ptr %.promoted80.i.i36, %491
+  br i1 %494, label %._crit_edge.i.i51, label %.lr.ph39.i.i39
 
 .lr.ph39.i.i39:                                   ; preds = %.preheader.i.i35
   %.val.i.i28.i40 = load double, ptr %.promoted80.i.i36, align 8, !alias.scope !6877, !noalias !6882, !noundef !3
   %brmerge.not.i.i.i.i29.i = fcmp uno double %.val1.i18.pre.pre.i.i34, %.val.i.i28.i40
   br i1 %brmerge.not.i.i.i.i29.i, label %._crit_edge.i43, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit.i.i", !prof !1960
 
-513:                                              ; preds = %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit.i.i"
-  %.val.i.i.i42 = load double, ptr %521, align 8, !alias.scope !6877, !noalias !6882, !noundef !3
+495:                                              ; preds = %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit.i.i"
+  %.val.i.i.i42 = load double, ptr %503, align 8, !alias.scope !6877, !noalias !6882, !noundef !3
   %brmerge.not.i.i.i.i.i = fcmp uno double %.val1.i18.pre.pre.i.i34, %.val.i.i.i42
   br i1 %brmerge.not.i.i.i.i.i, label %._crit_edge.i43, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit.i.i", !prof !6860
 
-._crit_edge.i43:                                  ; preds = %.lr.ph39.i.i39, %513
-  %.lcssa9.i44 = phi ptr [ %521, %513 ], [ %.promoted80.i.i36, %.lr.ph39.i.i39 ]
-  %.lcssa5.i45 = phi i64 [ %520, %513 ], [ %.promoted.i.i38, %.lr.ph39.i.i39 ]
-  %.lcssa.i46 = phi ptr [ %516, %513 ], [ %.promoted36.i.i37, %.lr.ph39.i.i39 ]
+._crit_edge.i43:                                  ; preds = %.lr.ph39.i.i39, %495
+  %.lcssa9.i44 = phi ptr [ %503, %495 ], [ %.promoted80.i.i36, %.lr.ph39.i.i39 ]
+  %.lcssa5.i45 = phi i64 [ %502, %495 ], [ %.promoted.i.i38, %.lr.ph39.i.i39 ]
+  %.lcssa.i46 = phi ptr [ %498, %495 ], [ %.promoted36.i.i37, %.lr.ph39.i.i39 ]
   store ptr %.lcssa9.i44, ptr %12, align 8, !noalias !6876
   store i64 %.lcssa5.i45, ptr %13, align 8, !noalias !6876
   store ptr %.lcssa.i46, ptr %6, align 8, !noalias !6876
   br label %.invoke.i.i47
 
-"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit.i.i": ; preds = %.lr.ph39.i.i39, %513
-  %.val.i.i30.i41 = phi double [ %.val.i.i.i42, %513 ], [ %.val.i.i28.i40, %.lr.ph39.i.i39 ]
-  %514 = phi ptr [ %516, %513 ], [ %.promoted36.i.i37, %.lr.ph39.i.i39 ]
-  %515 = phi i64 [ %520, %513 ], [ %.promoted.i.i38, %.lr.ph39.i.i39 ]
-  %516 = phi ptr [ %521, %513 ], [ %.promoted80.i.i36, %.lr.ph39.i.i39 ]
+"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit.i.i": ; preds = %.lr.ph39.i.i39, %495
+  %.val.i.i30.i41 = phi double [ %.val.i.i.i42, %495 ], [ %.val.i.i28.i40, %.lr.ph39.i.i39 ]
+  %496 = phi ptr [ %498, %495 ], [ %.promoted36.i.i37, %.lr.ph39.i.i39 ]
+  %497 = phi i64 [ %502, %495 ], [ %.promoted.i.i38, %.lr.ph39.i.i39 ]
+  %498 = phi ptr [ %503, %495 ], [ %.promoted80.i.i36, %.lr.ph39.i.i39 ]
   %.mux.i.i.i.i.i = fcmp uge double %.val1.i18.pre.pre.i.i34, %.val.i.i30.i41
-  %517 = getelementptr inbounds nuw double, ptr %506, i64 %515
-  %518 = load i64, ptr %517, align 8, !alias.scope !6877, !noalias !6882
-  store i64 %518, ptr %514, align 8, !alias.scope !6877, !noalias !6882
-  store double %.val.i.i30.i41, ptr %517, align 8, !alias.scope !6877, !noalias !6882
-  %519 = zext i1 %.mux.i.i.i.i.i to i64
-  %520 = add i64 %515, %519
-  %521 = getelementptr inbounds nuw i8, ptr %516, i64 8
-  %522 = icmp eq ptr %521, %509
-  br i1 %522, label %._crit_edge.i.i51, label %513
+  %499 = getelementptr inbounds nuw double, ptr %488, i64 %497
+  %500 = load i64, ptr %499, align 8, !alias.scope !6877, !noalias !6882
+  store i64 %500, ptr %496, align 8, !alias.scope !6877, !noalias !6882
+  store double %.val.i.i30.i41, ptr %499, align 8, !alias.scope !6877, !noalias !6882
+  %501 = zext i1 %.mux.i.i.i.i.i to i64
+  %502 = add i64 %497, %501
+  %503 = getelementptr inbounds nuw i8, ptr %498, i64 8
+  %504 = icmp eq ptr %503, %491
+  br i1 %504, label %._crit_edge.i.i51, label %495
 
 ._crit_edge.i.i51:                                ; preds = %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit.i.i", %.preheader.i.i35
-  %523 = phi ptr [ %.promoted36.i.i37, %.preheader.i.i35 ], [ %516, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit.i.i" ]
-  %524 = phi i64 [ %.promoted.i.i38, %.preheader.i.i35 ], [ %520, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit.i.i" ]
-  store i64 %524, ptr %13, align 8, !noalias !6876
-  store ptr %523, ptr %6, align 8, !noalias !6876
+  %505 = phi ptr [ %.promoted36.i.i37, %.preheader.i.i35 ], [ %498, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit.i.i" ]
+  %506 = phi i64 [ %.promoted.i.i38, %.preheader.i.i35 ], [ %502, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit.i.i" ]
+  store i64 %506, ptr %13, align 8, !noalias !6876
+  store ptr %505, ptr %6, align 8, !noalias !6876
   store ptr %7, ptr %12, align 8, !noalias !6876
-  %brmerge.not.i.i.i19.i.i = fcmp uno double %.val1.i18.pre.pre.i.i34, %507
+  %brmerge.not.i.i.i19.i.i = fcmp uno double %.val1.i18.pre.pre.i.i34, %489
   br i1 %brmerge.not.i.i.i19.i.i, label %.invoke.i.i47, label %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h8101b8937cca9049E.exit.i, !prof !2798
 
-525:                                              ; preds = %.invoke.i.i47
-  %526 = landingpad { ptr, i32 }
+507:                                              ; preds = %.invoke.i.i47
+  %508 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr83drop_in_place$LT$core..slice..sort..unstable..quicksort..GapGuardRaw$LT$f64$GT$$GT$17h09e55e1ed28e3289E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #33
-          to label %common.resume unwind label %544, !noalias !6874
+          to label %common.resume unwind label %526, !noalias !6874
 
-.lr.ph.i.i54:                                     ; preds = %505, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit34.i.i"
-  %527 = phi ptr [ %542, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit34.i.i" ], [ %508, %505 ]
-  %528 = phi i64 [ %541, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit34.i.i" ], [ 0, %505 ]
-  %529 = phi ptr [ %536, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit34.i.i" ], [ %506, %505 ]
-  %.val.i23.i.i55 = load double, ptr %527, align 8, !alias.scope !6877, !noalias !6885, !noundef !3
+.lr.ph.i.i54:                                     ; preds = %487, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit34.i.i"
+  %509 = phi ptr [ %524, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit34.i.i" ], [ %490, %487 ]
+  %510 = phi i64 [ %523, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit34.i.i" ], [ 0, %487 ]
+  %511 = phi ptr [ %518, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit34.i.i" ], [ %488, %487 ]
+  %.val.i23.i.i55 = load double, ptr %509, align 8, !alias.scope !6877, !noalias !6885, !noundef !3
   %brmerge.not.i.i.i25.i.i = fcmp uno double %.val1.i18.pre.pre.i.i34, %.val.i23.i.i55
-  br i1 %brmerge.not.i.i.i25.i.i, label %530, label %531, !prof !2798
+  br i1 %brmerge.not.i.i.i25.i.i, label %512, label %513, !prof !2798
 
-530:                                              ; preds = %.lr.ph.i.i54
-  store ptr %529, ptr %6, align 8, !noalias !6876
-  store i64 %528, ptr %13, align 8, !noalias !6876
-  store ptr %527, ptr %12, align 8, !noalias !6876
+512:                                              ; preds = %.lr.ph.i.i54
+  store ptr %511, ptr %6, align 8, !noalias !6876
+  store i64 %510, ptr %13, align 8, !noalias !6876
+  store ptr %509, ptr %12, align 8, !noalias !6876
   br label %.invoke.i.i47
 
-531:                                              ; preds = %.lr.ph.i.i54
+513:                                              ; preds = %.lr.ph.i.i54
   %.mux.i.i.i26.i.i = fcmp uge double %.val1.i18.pre.pre.i.i34, %.val.i23.i.i55
-  %532 = getelementptr inbounds nuw double, ptr %506, i64 %528
-  %533 = load i64, ptr %532, align 8, !alias.scope !6877, !noalias !6885
-  store i64 %533, ptr %529, align 8, !alias.scope !6877, !noalias !6885
-  store double %.val.i23.i.i55, ptr %532, align 8, !alias.scope !6877, !noalias !6885
-  %534 = zext i1 %.mux.i.i.i26.i.i to i64
-  %535 = add i64 %528, %534
-  %536 = getelementptr inbounds nuw i8, ptr %527, i64 8
-  %.val.i29.i.i56 = load double, ptr %536, align 8, !alias.scope !6877, !noalias !6888, !noundef !3
+  %514 = getelementptr inbounds nuw double, ptr %488, i64 %510
+  %515 = load i64, ptr %514, align 8, !alias.scope !6877, !noalias !6885
+  store i64 %515, ptr %511, align 8, !alias.scope !6877, !noalias !6885
+  store double %.val.i23.i.i55, ptr %514, align 8, !alias.scope !6877, !noalias !6885
+  %516 = zext i1 %.mux.i.i.i26.i.i to i64
+  %517 = add i64 %510, %516
+  %518 = getelementptr inbounds nuw i8, ptr %509, i64 8
+  %.val.i29.i.i56 = load double, ptr %518, align 8, !alias.scope !6877, !noalias !6888, !noundef !3
   %brmerge.not.i.i.i31.i.i = fcmp uno double %.val1.i18.pre.pre.i.i34, %.val.i29.i.i56
-  br i1 %brmerge.not.i.i.i31.i.i, label %537, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit34.i.i", !prof !2798
+  br i1 %brmerge.not.i.i.i31.i.i, label %519, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit34.i.i", !prof !2798
 
-537:                                              ; preds = %531
-  store ptr %527, ptr %6, align 8, !noalias !6876
-  store i64 %535, ptr %13, align 8, !noalias !6876
-  store ptr %536, ptr %12, align 8, !noalias !6876
+519:                                              ; preds = %513
+  store ptr %509, ptr %6, align 8, !noalias !6876
+  store i64 %517, ptr %13, align 8, !noalias !6876
+  store ptr %518, ptr %12, align 8, !noalias !6876
   br label %.invoke.i.i47
 
-.invoke.i.i47:                                    ; preds = %._crit_edge.i.i51, %537, %530, %._crit_edge.i43
+.invoke.i.i47:                                    ; preds = %._crit_edge.i.i51, %519, %512, %._crit_edge.i43
   invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.704) #32
-          to label %.cont.i.i48 unwind label %525, !noalias !6874
+          to label %.cont.i.i48 unwind label %507, !noalias !6874
 
 .cont.i.i48:                                      ; preds = %.invoke.i.i47
   unreachable
 
-"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit34.i.i": ; preds = %531
+"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17hc228339b11b8bb37E.exit34.i.i": ; preds = %513
   %.mux.i.i.i32.i.i = fcmp uge double %.val1.i18.pre.pre.i.i34, %.val.i29.i.i56
-  %538 = getelementptr inbounds nuw double, ptr %506, i64 %535
-  %539 = load i64, ptr %538, align 8, !alias.scope !6877, !noalias !6888
-  store i64 %539, ptr %527, align 8, !alias.scope !6877, !noalias !6888
-  store double %.val.i29.i.i56, ptr %538, align 8, !alias.scope !6877, !noalias !6888
-  %540 = zext i1 %.mux.i.i.i32.i.i to i64
-  %541 = add i64 %535, %540
-  %542 = getelementptr inbounds nuw i8, ptr %527, i64 16
-  %543 = icmp ult ptr %542, %510
-  br i1 %543, label %.lr.ph.i.i54, label %.preheader.i.i35
+  %520 = getelementptr inbounds nuw double, ptr %488, i64 %517
+  %521 = load i64, ptr %520, align 8, !alias.scope !6877, !noalias !6888
+  store i64 %521, ptr %509, align 8, !alias.scope !6877, !noalias !6888
+  store double %.val.i29.i.i56, ptr %520, align 8, !alias.scope !6877, !noalias !6888
+  %522 = zext i1 %.mux.i.i.i32.i.i to i64
+  %523 = add i64 %517, %522
+  %524 = getelementptr inbounds nuw i8, ptr %509, i64 16
+  %525 = icmp ult ptr %524, %492
+  br i1 %525, label %.lr.ph.i.i54, label %.preheader.i.i35
 
-544:                                              ; preds = %525
-  %545 = landingpad { ptr, i32 }
+526:                                              ; preds = %507
+  %527 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #34, !noalias !6874
   unreachable
 
 _ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h8101b8937cca9049E.exit.i: ; preds = %._crit_edge.i.i51
-  %.mux.i.i.i20.i.i = fcmp uge double %.val1.i18.pre.pre.i.i34, %507
-  %546 = getelementptr inbounds nuw double, ptr %506, i64 %524
-  %547 = load i64, ptr %546, align 8, !alias.scope !6877, !noalias !6891
-  store i64 %547, ptr %523, align 8, !alias.scope !6877, !noalias !6891
-  store double %507, ptr %546, align 8, !alias.scope !6877, !noalias !6891
-  %548 = zext i1 %.mux.i.i.i20.i.i to i64
-  %549 = add i64 %524, %548
+  %.mux.i.i.i20.i.i = fcmp uge double %.val1.i18.pre.pre.i.i34, %489
+  %528 = getelementptr inbounds nuw double, ptr %488, i64 %506
+  %529 = load i64, ptr %528, align 8, !alias.scope !6877, !noalias !6891
+  store i64 %529, ptr %505, align 8, !alias.scope !6877, !noalias !6891
+  store double %489, ptr %528, align 8, !alias.scope !6877, !noalias !6891
+  %530 = zext i1 %.mux.i.i.i20.i.i to i64
+  %531 = add i64 %506, %530
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !6876
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !6876
-  %.not5.i53 = icmp ult i64 %549, %.sroa.11.0190
-  br i1 %.not5.i53, label %_ZN4core5slice4sort8unstable9quicksort9partition17hca89f514a808382eE.exit, label %550
+  %.not5.i53 = icmp ult i64 %531, %.sroa.11.0190
+  br i1 %.not5.i53, label %_ZN4core5slice4sort8unstable9quicksort9partition17hca89f514a808382eE.exit, label %532
 
-550:                                              ; preds = %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h8101b8937cca9049E.exit.i
+532:                                              ; preds = %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h8101b8937cca9049E.exit.i
   call void @llvm.trap()
   unreachable
 
 _ZN4core5slice4sort8unstable9quicksort9partition17hca89f514a808382eE.exit: ; preds = %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h8101b8937cca9049E.exit.i
-  call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$14swap_unchecked17h33cc02827726ec35E"(ptr noalias noundef nonnull align 8 %.sroa.0.0191, i64 noundef range(i64 33, 0) %.sroa.11.0190, i64 noundef 0, i64 noundef %549)
-  %551 = add nuw i64 %549, 1
-  %552 = sub nuw i64 %.sroa.11.0190, %551
-  %553 = getelementptr inbounds nuw double, ptr %.sroa.0.0191, i64 %551
+  call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$14swap_unchecked17h33cc02827726ec35E"(ptr noalias noundef nonnull align 8 %.sroa.0.0191, i64 noundef range(i64 33, 0) %.sroa.11.0190, i64 noundef 0, i64 noundef %531)
+  %533 = add nuw i64 %531, 1
+  %534 = sub nuw i64 %.sroa.11.0190, %533
+  %535 = getelementptr inbounds nuw double, ptr %.sroa.0.0191, i64 %533
   br label %.backedge
 
 .backedge:                                        ; preds = %_ZN4core5slice4sort8unstable9quicksort9partition17hca89f514a808382eE.exit, %_ZN4core5slice4sort8unstable9quicksort9partition17hf9e45f3ddd139929E.exit
-  %.sroa.017.0.be = phi ptr [ %501, %_ZN4core5slice4sort8unstable9quicksort9partition17hf9e45f3ddd139929E.exit ], [ null, %_ZN4core5slice4sort8unstable9quicksort9partition17hca89f514a808382eE.exit ]
-  %.sroa.11.0.be = phi i64 [ %504, %_ZN4core5slice4sort8unstable9quicksort9partition17hf9e45f3ddd139929E.exit ], [ %552, %_ZN4core5slice4sort8unstable9quicksort9partition17hca89f514a808382eE.exit ]
-  %.sroa.0.0.be = phi ptr [ %502, %_ZN4core5slice4sort8unstable9quicksort9partition17hf9e45f3ddd139929E.exit ], [ %553, %_ZN4core5slice4sort8unstable9quicksort9partition17hca89f514a808382eE.exit ]
-  %554 = icmp ult i64 %.sroa.11.0.be, 33
-  br i1 %554, label %._crit_edge, label %18
+  %.sroa.017.0.be = phi ptr [ %483, %_ZN4core5slice4sort8unstable9quicksort9partition17hf9e45f3ddd139929E.exit ], [ null, %_ZN4core5slice4sort8unstable9quicksort9partition17hca89f514a808382eE.exit ]
+  %.sroa.11.0.be = phi i64 [ %486, %_ZN4core5slice4sort8unstable9quicksort9partition17hf9e45f3ddd139929E.exit ], [ %534, %_ZN4core5slice4sort8unstable9quicksort9partition17hca89f514a808382eE.exit ]
+  %.sroa.0.0.be = phi ptr [ %484, %_ZN4core5slice4sort8unstable9quicksort9partition17hf9e45f3ddd139929E.exit ], [ %535, %_ZN4core5slice4sort8unstable9quicksort9partition17hca89f514a808382eE.exit ]
+  %536 = icmp ult i64 %.sroa.11.0.be, 33
+  br i1 %536, label %._crit_edge, label %18
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -50458,9 +50440,9 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17hbe916ac2d
   %.sroa.0.0191 = phi ptr [ %0, %.lr.ph ], [ %.sroa.0.0.be, %.backedge ]
   %.sroa.11.0190 = phi i64 [ %1, %.lr.ph ], [ %.sroa.11.0.be, %.backedge ]
   %.sroa.017.0189 = phi ptr [ %2, %.lr.ph ], [ %.sroa.017.0.be, %.backedge ]
-  %.sroa.020.0188 = phi i32 [ %3, %.lr.ph ], [ %432, %.backedge ]
+  %.sroa.020.0188 = phi i32 [ %3, %.lr.ph ], [ %414, %.backedge ]
   %19 = icmp eq i32 %.sroa.020.0188, 0
-  br i1 %19, label %430, label %431
+  br i1 %19, label %412, label %413
 
 ._crit_edge:                                      ; preds = %.backedge, %5
   %.sroa.11.0.lcssa = phi i64 [ %1, %5 ], [ %.sroa.11.0.be, %.backedge ]
@@ -50478,15 +50460,15 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17hbe916ac2d
   %25 = sub nuw nsw i64 %.sroa.11.0.lcssa, %22
   br label %26
 
-26:                                               ; preds = %392, %21
-  %.sroa.9.0.i = phi i64 [ %..i, %21 ], [ %25, %392 ]
-  %.sroa.01.0.i = phi ptr [ %.sroa.0.0.lcssa, %21 ], [ %24, %392 ]
+26:                                               ; preds = %374, %21
+  %.sroa.9.0.i = phi i64 [ %..i, %21 ], [ %25, %374 ]
+  %.sroa.01.0.i = phi ptr [ %.sroa.0.0.lcssa, %21 ], [ %24, %374 ]
   %27 = icmp ugt i64 %.sroa.9.0.i, 12
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %26
   %29 = icmp samesign ugt i64 %.sroa.9.0.i, 8
-  br i1 %29, label %261, label %391
+  br i1 %29, label %250, label %373
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 96
@@ -50611,1501 +50593,1483 @@ _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit25.i.
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit30.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit25.i.i
   %.mux.i.i29.i.i = fcmp ogt double %45, %.val.i26.cast.i.i
-  %72 = select i1 %.mux.i.i29.i.i, ptr %64, ptr %36, !unpredictable !3
+  %72 = select i1 %.mux.i.i29.i.i, i64 %70, i64 %42
   %73 = select i1 %.mux.i.i29.i.i, double %45, double %.val.i26.cast.i.i
-  %74 = load i64, ptr %72, align 8, !alias.scope !6895
-  store i64 %74, ptr %36, align 8, !alias.scope !6895
+  store i64 %72, ptr %36, align 8, !alias.scope !6895
   store double %73, ptr %64, align 8, !alias.scope !6895
   %brmerge.not.i.i33.i.i = fcmp uno double %59, %52
-  %75 = bitcast i64 %74 to double
-  br i1 %brmerge.not.i.i33.i.i, label %76, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit35.i.i, !prof !2798
+  %74 = bitcast i64 %72 to double
+  br i1 %brmerge.not.i.i33.i.i, label %75, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit35.i.i, !prof !2798
 
-76:                                               ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit30.i.i
+75:                                               ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit30.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit35.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit30.i.i
   %.mux.i.i34.i.i = fcmp olt double %59, %52
-  %77 = select i1 %.mux.i.i34.i.i, ptr %50, ptr %43, !unpredictable !3
-  %78 = select i1 %.mux.i.i34.i.i, double %52, double %59
-  %79 = load i64, ptr %77, align 8, !alias.scope !6895
-  store i64 %79, ptr %43, align 8, !alias.scope !6895
-  store double %78, ptr %50, align 8, !alias.scope !6895
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 32
-  %.val1.i37.i.i = load double, ptr %80, align 8, !alias.scope !6895, !noundef !3
+  %76 = select i1 %.mux.i.i34.i.i, i64 %56, i64 %49
+  %77 = select i1 %.mux.i.i34.i.i, double %52, double %59
+  store i64 %76, ptr %43, align 8, !alias.scope !6895
+  store double %77, ptr %50, align 8, !alias.scope !6895
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 32
+  %.val1.i37.i.i = load double, ptr %78, align 8, !alias.scope !6895, !noundef !3
   %brmerge.not.i.i38.i.i = fcmp uno double %62, %.val1.i37.i.i
-  %81 = bitcast i64 %79 to double
-  br i1 %brmerge.not.i.i38.i.i, label %82, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit40.i.i, !prof !2798
+  %79 = bitcast i64 %76 to double
+  br i1 %brmerge.not.i.i38.i.i, label %80, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit40.i.i, !prof !2798
 
-82:                                               ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit35.i.i
+80:                                               ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit35.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit40.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit35.i.i
   %.mux.i.i39.i.i = fcmp olt double %62, %.val1.i37.i.i
-  %83 = select i1 %.mux.i.i39.i.i, ptr %58, ptr %80, !unpredictable !3
-  %84 = select i1 %.mux.i.i39.i.i, double %.val1.i37.i.i, double %62
-  %85 = load i64, ptr %83, align 8, !alias.scope !6895
-  store i64 %85, ptr %80, align 8, !alias.scope !6895
-  store double %84, ptr %58, align 8, !alias.scope !6895
+  %81 = select i1 %.mux.i.i39.i.i, ptr %58, ptr %78, !unpredictable !3
+  %82 = select i1 %.mux.i.i39.i.i, double %.val1.i37.i.i, double %62
+  %83 = load i64, ptr %81, align 8, !alias.scope !6895
+  store i64 %83, ptr %78, align 8, !alias.scope !6895
+  store double %82, ptr %58, align 8, !alias.scope !6895
   %brmerge.not.i.i43.i.i = fcmp uno double %48, %55
-  %86 = bitcast i64 %85 to double
-  br i1 %brmerge.not.i.i43.i.i, label %87, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit45.i.i, !prof !2798
+  %84 = bitcast i64 %83 to double
+  br i1 %brmerge.not.i.i43.i.i, label %85, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit45.i.i, !prof !2798
 
-87:                                               ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit40.i.i
+85:                                               ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit40.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit45.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit40.i.i
   %.mux.i.i44.i.i = fcmp olt double %48, %55
-  %88 = select i1 %.mux.i.i44.i.i, ptr %44, ptr %51, !unpredictable !3
-  %89 = select i1 %.mux.i.i44.i.i, double %55, double %48
-  %90 = load i64, ptr %88, align 8, !alias.scope !6895
-  store i64 %90, ptr %51, align 8, !alias.scope !6895
-  store double %89, ptr %44, align 8, !alias.scope !6895
+  %86 = select i1 %.mux.i.i44.i.i, ptr %44, ptr %51, !unpredictable !3
+  %87 = select i1 %.mux.i.i44.i.i, double %55, double %48
+  %88 = load i64, ptr %86, align 8, !alias.scope !6895
+  store i64 %88, ptr %51, align 8, !alias.scope !6895
+  store double %87, ptr %44, align 8, !alias.scope !6895
   %brmerge.not.i.i48.i.i = fcmp uno double %41, %69
-  %91 = bitcast i64 %90 to double
-  br i1 %brmerge.not.i.i48.i.i, label %92, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit50.i.i, !prof !2798
+  %89 = bitcast i64 %88 to double
+  br i1 %brmerge.not.i.i48.i.i, label %90, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit50.i.i, !prof !2798
 
-92:                                               ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit45.i.i
+90:                                               ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit45.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit50.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit45.i.i
   %.mux.i.i49.i.i = fcmp olt double %41, %69
-  %93 = select i1 %.mux.i.i49.i.i, ptr %37, ptr %65, !unpredictable !3
-  %94 = select i1 %.mux.i.i49.i.i, double %69, double %41
-  %95 = load i64, ptr %93, align 8, !alias.scope !6895
-  store i64 %95, ptr %65, align 8, !alias.scope !6895
-  store double %94, ptr %37, align 8, !alias.scope !6895
-  %brmerge.not.i.i53.i.i = fcmp uno double %86, %38
-  %96 = bitcast i64 %95 to double
-  br i1 %brmerge.not.i.i53.i.i, label %97, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit55.i.i, !prof !2798
+  %91 = select i1 %.mux.i.i49.i.i, ptr %37, ptr %65, !unpredictable !3
+  %92 = select i1 %.mux.i.i49.i.i, double %69, double %41
+  %93 = load i64, ptr %91, align 8, !alias.scope !6895
+  store i64 %93, ptr %65, align 8, !alias.scope !6895
+  store double %92, ptr %37, align 8, !alias.scope !6895
+  %brmerge.not.i.i53.i.i = fcmp uno double %84, %38
+  %94 = bitcast i64 %93 to double
+  br i1 %brmerge.not.i.i53.i.i, label %95, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit55.i.i, !prof !2798
 
-97:                                               ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit50.i.i
+95:                                               ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit50.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit55.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit50.i.i
-  %.mux.i.i54.i.i = fcmp olt double %86, %38
-  %98 = select i1 %.mux.i.i54.i.i, ptr %80, ptr %.sroa.01.0.i, !unpredictable !3
-  %99 = select i1 %.mux.i.i54.i.i, double %38, double %86
-  %100 = load i64, ptr %98, align 8, !alias.scope !6895
-  store i64 %100, ptr %.sroa.01.0.i, align 8, !alias.scope !6895
-  store double %99, ptr %80, align 8, !alias.scope !6895
-  %brmerge.not.i.i58.i.i = fcmp uno double %81, %75
-  %101 = bitcast i64 %100 to double
-  br i1 %brmerge.not.i.i58.i.i, label %102, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit60.i.i, !prof !2798
+  %.mux.i.i54.i.i = fcmp olt double %84, %38
+  %96 = select i1 %.mux.i.i54.i.i, ptr %78, ptr %.sroa.01.0.i, !unpredictable !3
+  %97 = select i1 %.mux.i.i54.i.i, double %38, double %84
+  %98 = load i64, ptr %96, align 8, !alias.scope !6895
+  store i64 %98, ptr %.sroa.01.0.i, align 8, !alias.scope !6895
+  store double %97, ptr %78, align 8, !alias.scope !6895
+  %brmerge.not.i.i58.i.i = fcmp uno double %79, %74
+  %99 = bitcast i64 %98 to double
+  br i1 %brmerge.not.i.i58.i.i, label %100, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit60.i.i, !prof !2798
 
-102:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit55.i.i
+100:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit55.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit60.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit55.i.i
-  %.mux.i.i59.i.i = fcmp olt double %81, %75
-  %103 = select i1 %.mux.i.i59.i.i, ptr %43, ptr %36, !unpredictable !3
-  %104 = select i1 %.mux.i.i59.i.i, double %75, double %81
-  %105 = load i64, ptr %103, align 8, !alias.scope !6895
-  store i64 %105, ptr %36, align 8, !alias.scope !6895
-  store double %104, ptr %43, align 8, !alias.scope !6895
-  %brmerge.not.i.i63.i.i = fcmp uno double %73, %78
-  %106 = bitcast i64 %105 to double
-  br i1 %brmerge.not.i.i63.i.i, label %107, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit65.i.i, !prof !2798
+  %.mux.i.i59.i.i = fcmp olt double %79, %74
+  %101 = select i1 %.mux.i.i59.i.i, i64 %76, i64 %72
+  %102 = select i1 %.mux.i.i59.i.i, double %74, double %79
+  store i64 %101, ptr %36, align 8, !alias.scope !6895
+  store double %102, ptr %43, align 8, !alias.scope !6895
+  %brmerge.not.i.i63.i.i = fcmp uno double %73, %77
+  %103 = bitcast i64 %101 to double
+  br i1 %brmerge.not.i.i63.i.i, label %104, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit65.i.i, !prof !2798
 
-107:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit60.i.i
+104:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit60.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit65.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit60.i.i
-  %.mux.i.i64.i.i = fcmp olt double %73, %78
-  %108 = select i1 %.mux.i.i64.i.i, ptr %64, ptr %50, !unpredictable !3
-  %109 = select i1 %.mux.i.i64.i.i, double %78, double %73
-  %110 = load i64, ptr %108, align 8, !alias.scope !6895
-  store i64 %110, ptr %50, align 8, !alias.scope !6895
-  store double %109, ptr %64, align 8, !alias.scope !6895
-  %brmerge.not.i.i68.i.i = fcmp uno double %96, %91
-  %111 = bitcast i64 %110 to double
-  br i1 %brmerge.not.i.i68.i.i, label %112, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit70.i.i, !prof !2798
+  %.mux.i.i64.i.i = fcmp olt double %73, %77
+  %105 = select i1 %.mux.i.i64.i.i, ptr %64, ptr %50, !unpredictable !3
+  %106 = select i1 %.mux.i.i64.i.i, double %77, double %73
+  %107 = load i64, ptr %105, align 8, !alias.scope !6895
+  store i64 %107, ptr %50, align 8, !alias.scope !6895
+  store double %106, ptr %64, align 8, !alias.scope !6895
+  %brmerge.not.i.i68.i.i = fcmp uno double %94, %89
+  %108 = bitcast i64 %107 to double
+  br i1 %brmerge.not.i.i68.i.i, label %109, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit70.i.i, !prof !2798
 
-112:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit65.i.i
+109:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit65.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit70.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit65.i.i
-  %.mux.i.i69.i.i = fcmp olt double %96, %91
-  %113 = select i1 %.mux.i.i69.i.i, ptr %65, ptr %51, !unpredictable !3
-  %114 = select i1 %.mux.i.i69.i.i, double %91, double %96
-  %115 = load i64, ptr %113, align 8, !alias.scope !6895
-  store i64 %115, ptr %51, align 8, !alias.scope !6895
-  store double %114, ptr %65, align 8, !alias.scope !6895
-  %brmerge.not.i.i73.i.i = fcmp uno double %94, %89
-  %116 = bitcast i64 %115 to double
-  br i1 %brmerge.not.i.i73.i.i, label %117, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit75.i.i, !prof !2798
+  %.mux.i.i69.i.i = fcmp olt double %94, %89
+  %110 = select i1 %.mux.i.i69.i.i, i64 %93, i64 %88
+  %111 = select i1 %.mux.i.i69.i.i, double %89, double %94
+  store i64 %110, ptr %51, align 8, !alias.scope !6895
+  store double %111, ptr %65, align 8, !alias.scope !6895
+  %brmerge.not.i.i73.i.i = fcmp uno double %92, %87
+  %112 = bitcast i64 %110 to double
+  br i1 %brmerge.not.i.i73.i.i, label %113, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit75.i.i, !prof !2798
 
-117:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit70.i.i
+113:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit70.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit75.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit70.i.i
-  %.mux.i.i74.i.i = fcmp olt double %94, %89
-  %118 = select i1 %.mux.i.i74.i.i, ptr %37, ptr %44, !unpredictable !3
-  %119 = select i1 %.mux.i.i74.i.i, double %89, double %94
-  %120 = load i64, ptr %118, align 8, !alias.scope !6895
-  store i64 %120, ptr %44, align 8, !alias.scope !6895
-  store double %119, ptr %37, align 8, !alias.scope !6895
-  %brmerge.not.i.i78.i.i = fcmp uno double %34, %84
-  %121 = bitcast i64 %120 to double
-  br i1 %brmerge.not.i.i78.i.i, label %122, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit80.i.i, !prof !2798
+  %.mux.i.i74.i.i = fcmp olt double %92, %87
+  %114 = select i1 %.mux.i.i74.i.i, ptr %37, ptr %44, !unpredictable !3
+  %115 = select i1 %.mux.i.i74.i.i, double %87, double %92
+  %116 = load i64, ptr %114, align 8, !alias.scope !6895
+  store i64 %116, ptr %44, align 8, !alias.scope !6895
+  store double %115, ptr %37, align 8, !alias.scope !6895
+  %brmerge.not.i.i78.i.i = fcmp uno double %34, %82
+  %117 = bitcast i64 %116 to double
+  br i1 %brmerge.not.i.i78.i.i, label %118, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit80.i.i, !prof !2798
 
-122:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit75.i.i
+118:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit75.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit80.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit75.i.i
-  %.mux.i.i79.i.i = fcmp olt double %34, %84
-  %123 = select i1 %.mux.i.i79.i.i, ptr %31, ptr %58, !unpredictable !3
-  %124 = select i1 %.mux.i.i79.i.i, double %84, double %34
-  %125 = load i64, ptr %123, align 8, !alias.scope !6895
-  store i64 %125, ptr %58, align 8, !alias.scope !6895
-  store double %124, ptr %31, align 8, !alias.scope !6895
-  %brmerge.not.i.i83.i.i = fcmp uno double %109, %99
-  %126 = bitcast i64 %125 to double
-  br i1 %brmerge.not.i.i83.i.i, label %127, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit85.i.i, !prof !2798
+  %.mux.i.i79.i.i = fcmp olt double %34, %82
+  %119 = select i1 %.mux.i.i79.i.i, ptr %31, ptr %58, !unpredictable !3
+  %120 = select i1 %.mux.i.i79.i.i, double %82, double %34
+  %121 = load i64, ptr %119, align 8, !alias.scope !6895
+  store i64 %121, ptr %58, align 8, !alias.scope !6895
+  store double %120, ptr %31, align 8, !alias.scope !6895
+  %brmerge.not.i.i83.i.i = fcmp uno double %106, %97
+  %122 = bitcast i64 %121 to double
+  br i1 %brmerge.not.i.i83.i.i, label %123, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit85.i.i, !prof !2798
 
-127:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit80.i.i
+123:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit80.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit85.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit80.i.i
-  %.mux.i.i84.i.i = fcmp olt double %109, %99
-  %128 = select i1 %.mux.i.i84.i.i, ptr %64, ptr %80, !unpredictable !3
-  %129 = select i1 %.mux.i.i84.i.i, double %99, double %109
-  %130 = load i64, ptr %128, align 8, !alias.scope !6895
-  store i64 %130, ptr %80, align 8, !alias.scope !6895
-  store double %129, ptr %64, align 8, !alias.scope !6895
-  %brmerge.not.i.i88.i.i = fcmp uno double %121, %66
-  %131 = bitcast i64 %130 to double
-  br i1 %brmerge.not.i.i88.i.i, label %132, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit90.i.i, !prof !2798
+  %.mux.i.i84.i.i = fcmp olt double %106, %97
+  %124 = select i1 %.mux.i.i84.i.i, ptr %64, ptr %78, !unpredictable !3
+  %125 = select i1 %.mux.i.i84.i.i, double %97, double %106
+  %126 = load i64, ptr %124, align 8, !alias.scope !6895
+  store i64 %126, ptr %78, align 8, !alias.scope !6895
+  store double %125, ptr %64, align 8, !alias.scope !6895
+  %brmerge.not.i.i88.i.i = fcmp uno double %117, %66
+  %127 = bitcast i64 %126 to double
+  br i1 %brmerge.not.i.i88.i.i, label %128, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit90.i.i, !prof !2798
 
-132:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit85.i.i
+128:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit85.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit90.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit85.i.i
-  %.mux.i.i89.i.i = fcmp olt double %121, %66
-  %133 = select i1 %.mux.i.i89.i.i, ptr %44, ptr %57, !unpredictable !3
-  %134 = select i1 %.mux.i.i89.i.i, double %66, double %121
-  %135 = load i64, ptr %133, align 8, !alias.scope !6895
-  store i64 %135, ptr %57, align 8, !alias.scope !6895
-  store double %134, ptr %44, align 8, !alias.scope !6895
-  %brmerge.not.i.i93.i.i = fcmp uno double %114, %126
-  %136 = bitcast i64 %135 to double
-  br i1 %brmerge.not.i.i93.i.i, label %137, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit95.i.i, !prof !2798
+  %.mux.i.i89.i.i = fcmp olt double %117, %66
+  %129 = select i1 %.mux.i.i89.i.i, ptr %44, ptr %57, !unpredictable !3
+  %130 = select i1 %.mux.i.i89.i.i, double %66, double %117
+  %131 = load i64, ptr %129, align 8, !alias.scope !6895
+  store i64 %131, ptr %57, align 8, !alias.scope !6895
+  store double %130, ptr %44, align 8, !alias.scope !6895
+  %brmerge.not.i.i93.i.i = fcmp uno double %111, %122
+  %132 = bitcast i64 %131 to double
+  br i1 %brmerge.not.i.i93.i.i, label %133, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit95.i.i, !prof !2798
 
-137:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit90.i.i
+133:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit90.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit95.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit90.i.i
-  %.mux.i.i94.i.i = fcmp ogt double %114, %126
-  %138 = select i1 %.mux.i.i94.i.i, ptr %58, ptr %65, !unpredictable !3
-  %139 = select i1 %.mux.i.i94.i.i, double %114, double %126
-  %140 = load i64, ptr %138, align 8, !alias.scope !6895
-  store i64 %140, ptr %65, align 8, !alias.scope !6895
-  store double %139, ptr %58, align 8, !alias.scope !6895
-  %brmerge.not.i.i98.i.i = fcmp uno double %124, %119
-  %141 = bitcast i64 %140 to double
-  br i1 %brmerge.not.i.i98.i.i, label %142, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit100.i.i, !prof !2798
+  %.mux.i.i94.i.i = fcmp ogt double %111, %122
+  %134 = select i1 %.mux.i.i94.i.i, ptr %58, ptr %65, !unpredictable !3
+  %135 = select i1 %.mux.i.i94.i.i, double %111, double %122
+  %136 = load i64, ptr %134, align 8, !alias.scope !6895
+  store i64 %136, ptr %65, align 8, !alias.scope !6895
+  store double %135, ptr %58, align 8, !alias.scope !6895
+  %brmerge.not.i.i98.i.i = fcmp uno double %120, %115
+  %137 = bitcast i64 %136 to double
+  br i1 %brmerge.not.i.i98.i.i, label %138, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit100.i.i, !prof !2798
 
-142:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit95.i.i
+138:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit95.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit100.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit95.i.i
-  %.mux.i.i99.i.i = fcmp olt double %124, %119
-  %143 = select i1 %.mux.i.i99.i.i, ptr %31, ptr %37, !unpredictable !3
-  %144 = select i1 %.mux.i.i99.i.i, double %119, double %124
-  %145 = load i64, ptr %143, align 8, !alias.scope !6895
-  store i64 %145, ptr %37, align 8, !alias.scope !6895
-  store double %144, ptr %31, align 8, !alias.scope !6895
-  %brmerge.not.i.i103.i.i = fcmp uno double %136, %101
-  %146 = bitcast i64 %145 to double
-  br i1 %brmerge.not.i.i103.i.i, label %147, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit105.i.i, !prof !2798
+  %.mux.i.i99.i.i = fcmp olt double %120, %115
+  %139 = select i1 %.mux.i.i99.i.i, ptr %31, ptr %37, !unpredictable !3
+  %140 = select i1 %.mux.i.i99.i.i, double %115, double %120
+  %141 = load i64, ptr %139, align 8, !alias.scope !6895
+  store i64 %141, ptr %37, align 8, !alias.scope !6895
+  store double %140, ptr %31, align 8, !alias.scope !6895
+  %brmerge.not.i.i103.i.i = fcmp uno double %132, %99
+  %142 = bitcast i64 %141 to double
+  br i1 %brmerge.not.i.i103.i.i, label %143, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit105.i.i, !prof !2798
 
-147:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit100.i.i
+143:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit100.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit105.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit100.i.i
-  %.mux.i.i104.i.i = fcmp olt double %136, %101
-  %148 = select i1 %.mux.i.i104.i.i, ptr %57, ptr %.sroa.01.0.i, !unpredictable !3
-  %149 = select i1 %.mux.i.i104.i.i, double %101, double %136
-  %150 = load i64, ptr %148, align 8, !alias.scope !6895
-  store i64 %150, ptr %.sroa.01.0.i, align 8, !alias.scope !6895
-  store double %149, ptr %57, align 8, !alias.scope !6895
-  %brmerge.not.i.i108.i.i = fcmp uno double %141, %111
-  %151 = bitcast i64 %150 to double
-  br i1 %brmerge.not.i.i108.i.i, label %152, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit110.i.i, !prof !2798
+  %.mux.i.i104.i.i = fcmp olt double %132, %99
+  %144 = select i1 %.mux.i.i104.i.i, i64 %131, i64 %98
+  %145 = select i1 %.mux.i.i104.i.i, double %99, double %132
+  store i64 %144, ptr %.sroa.01.0.i, align 8, !alias.scope !6895
+  store double %145, ptr %57, align 8, !alias.scope !6895
+  %brmerge.not.i.i108.i.i = fcmp uno double %137, %108
+  %146 = bitcast i64 %144 to double
+  br i1 %brmerge.not.i.i108.i.i, label %147, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit110.i.i, !prof !2798
 
-152:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit105.i.i
+147:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit105.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit110.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit105.i.i
-  %.mux.i.i109.i.i = fcmp olt double %141, %111
-  %153 = select i1 %.mux.i.i109.i.i, ptr %65, ptr %50, !unpredictable !3
-  %154 = select i1 %.mux.i.i109.i.i, double %111, double %141
-  %155 = load i64, ptr %153, align 8, !alias.scope !6895
-  store i64 %155, ptr %50, align 8, !alias.scope !6895
-  store double %154, ptr %65, align 8, !alias.scope !6895
-  %brmerge.not.i.i113.i.i = fcmp uno double %116, %131
-  %156 = bitcast i64 %155 to double
-  br i1 %brmerge.not.i.i113.i.i, label %157, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit115.i.i, !prof !2798
+  %.mux.i.i109.i.i = fcmp olt double %137, %108
+  %148 = select i1 %.mux.i.i109.i.i, i64 %136, i64 %107
+  %149 = select i1 %.mux.i.i109.i.i, double %108, double %137
+  store i64 %148, ptr %50, align 8, !alias.scope !6895
+  store double %149, ptr %65, align 8, !alias.scope !6895
+  %brmerge.not.i.i113.i.i = fcmp uno double %112, %127
+  %150 = bitcast i64 %148 to double
+  br i1 %brmerge.not.i.i113.i.i, label %151, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit115.i.i, !prof !2798
 
-157:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit110.i.i
+151:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit110.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit115.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit110.i.i
-  %.mux.i.i114.i.i = fcmp olt double %116, %131
-  %158 = select i1 %.mux.i.i114.i.i, ptr %51, ptr %80, !unpredictable !3
-  %159 = select i1 %.mux.i.i114.i.i, double %131, double %116
-  %160 = load i64, ptr %158, align 8, !alias.scope !6895
-  store i64 %160, ptr %80, align 8, !alias.scope !6895
-  store double %159, ptr %51, align 8, !alias.scope !6895
-  %brmerge.not.i.i118.i.i = fcmp uno double %139, %129
-  %161 = bitcast i64 %160 to double
-  br i1 %brmerge.not.i.i118.i.i, label %162, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit120.i.i, !prof !2798
+  %.mux.i.i114.i.i = fcmp olt double %112, %127
+  %152 = select i1 %.mux.i.i114.i.i, i64 %110, i64 %126
+  %153 = select i1 %.mux.i.i114.i.i, double %127, double %112
+  store i64 %152, ptr %78, align 8, !alias.scope !6895
+  store double %153, ptr %51, align 8, !alias.scope !6895
+  %brmerge.not.i.i118.i.i = fcmp uno double %135, %125
+  %154 = bitcast i64 %152 to double
+  br i1 %brmerge.not.i.i118.i.i, label %155, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit120.i.i, !prof !2798
 
-162:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit115.i.i
+155:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit115.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit120.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit115.i.i
-  %.mux.i.i119.i.i = fcmp olt double %139, %129
-  %163 = select i1 %.mux.i.i119.i.i, ptr %58, ptr %64, !unpredictable !3
-  %164 = select i1 %.mux.i.i119.i.i, double %129, double %139
-  %165 = load i64, ptr %163, align 8, !alias.scope !6895
-  store i64 %165, ptr %64, align 8, !alias.scope !6895
-  store double %164, ptr %58, align 8, !alias.scope !6895
-  %brmerge.not.i.i123.i.i = fcmp uno double %134, %146
-  %166 = bitcast i64 %165 to double
-  br i1 %brmerge.not.i.i123.i.i, label %167, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit125.i.i, !prof !2798
+  %.mux.i.i119.i.i = fcmp olt double %135, %125
+  %156 = select i1 %.mux.i.i119.i.i, ptr %58, ptr %64, !unpredictable !3
+  %157 = select i1 %.mux.i.i119.i.i, double %125, double %135
+  %158 = load i64, ptr %156, align 8, !alias.scope !6895
+  store i64 %158, ptr %64, align 8, !alias.scope !6895
+  store double %157, ptr %58, align 8, !alias.scope !6895
+  %brmerge.not.i.i123.i.i = fcmp uno double %130, %142
+  %159 = bitcast i64 %158 to double
+  br i1 %brmerge.not.i.i123.i.i, label %160, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit125.i.i, !prof !2798
 
-167:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit120.i.i
+160:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit120.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit125.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit120.i.i
-  %.mux.i.i124.i.i = fcmp ogt double %134, %146
-  %168 = select i1 %.mux.i.i124.i.i, ptr %37, ptr %44, !unpredictable !3
-  %169 = select i1 %.mux.i.i124.i.i, double %134, double %146
-  %170 = load i64, ptr %168, align 8, !alias.scope !6895
-  store i64 %170, ptr %44, align 8, !alias.scope !6895
-  store double %169, ptr %37, align 8, !alias.scope !6895
-  %brmerge.not.i.i128.i.i = fcmp uno double %106, %151
-  %171 = bitcast i64 %170 to double
-  br i1 %brmerge.not.i.i128.i.i, label %172, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit130.i.i, !prof !2798
+  %.mux.i.i124.i.i = fcmp ogt double %130, %142
+  %161 = select i1 %.mux.i.i124.i.i, ptr %37, ptr %44, !unpredictable !3
+  %162 = select i1 %.mux.i.i124.i.i, double %130, double %142
+  %163 = load i64, ptr %161, align 8, !alias.scope !6895
+  store i64 %163, ptr %44, align 8, !alias.scope !6895
+  store double %162, ptr %37, align 8, !alias.scope !6895
+  %brmerge.not.i.i128.i.i = fcmp uno double %103, %146
+  %164 = bitcast i64 %163 to double
+  br i1 %brmerge.not.i.i128.i.i, label %165, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit130.i.i, !prof !2798
 
-172:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit125.i.i
+165:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit125.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit130.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit125.i.i
-  %.mux.i.i129.i.i = fcmp olt double %106, %151
-  %173 = select i1 %.mux.i.i129.i.i, ptr %36, ptr %.sroa.01.0.i, !unpredictable !3
-  %174 = select i1 %.mux.i.i129.i.i, double %151, double %106
-  %175 = load i64, ptr %173, align 8, !alias.scope !6895
-  store i64 %175, ptr %.sroa.01.0.i, align 8, !alias.scope !6895
-  store double %174, ptr %36, align 8, !alias.scope !6895
-  %brmerge.not.i.i133.i.i = fcmp uno double %149, %104
-  br i1 %brmerge.not.i.i133.i.i, label %176, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit135.i.i, !prof !2798
+  %.mux.i.i129.i.i = fcmp olt double %103, %146
+  %166 = select i1 %.mux.i.i129.i.i, ptr %36, ptr %.sroa.01.0.i, !unpredictable !3
+  %167 = select i1 %.mux.i.i129.i.i, double %146, double %103
+  %168 = load i64, ptr %166, align 8, !alias.scope !6895
+  store i64 %168, ptr %.sroa.01.0.i, align 8, !alias.scope !6895
+  store double %167, ptr %36, align 8, !alias.scope !6895
+  %brmerge.not.i.i133.i.i = fcmp uno double %145, %102
+  br i1 %brmerge.not.i.i133.i.i, label %169, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit135.i.i, !prof !2798
 
-176:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit130.i.i
+169:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit130.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit135.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit130.i.i
-  %.mux.i.i134.i.i = fcmp olt double %149, %104
-  %177 = select i1 %.mux.i.i134.i.i, ptr %57, ptr %43, !unpredictable !3
-  %178 = select i1 %.mux.i.i134.i.i, double %104, double %149
-  %179 = load i64, ptr %177, align 8, !alias.scope !6895
-  store i64 %179, ptr %43, align 8, !alias.scope !6895
-  store double %178, ptr %57, align 8, !alias.scope !6895
-  %brmerge.not.i.i138.i.i = fcmp uno double %171, %166
-  %180 = bitcast i64 %179 to double
-  br i1 %brmerge.not.i.i138.i.i, label %181, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit140.i.i, !prof !2798
+  %.mux.i.i134.i.i = fcmp olt double %145, %102
+  %170 = select i1 %.mux.i.i134.i.i, ptr %57, ptr %43, !unpredictable !3
+  %171 = select i1 %.mux.i.i134.i.i, double %102, double %145
+  %172 = load i64, ptr %170, align 8, !alias.scope !6895
+  store i64 %172, ptr %43, align 8, !alias.scope !6895
+  store double %171, ptr %57, align 8, !alias.scope !6895
+  %brmerge.not.i.i138.i.i = fcmp uno double %164, %159
+  %173 = bitcast i64 %172 to double
+  br i1 %brmerge.not.i.i138.i.i, label %174, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit140.i.i, !prof !2798
 
-181:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit135.i.i
+174:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit135.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit140.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit135.i.i
-  %.mux.i.i139.i.i = fcmp olt double %171, %166
-  %182 = select i1 %.mux.i.i139.i.i, ptr %44, ptr %64, !unpredictable !3
-  %183 = select i1 %.mux.i.i139.i.i, double %166, double %171
-  %184 = load i64, ptr %182, align 8, !alias.scope !6895
-  store i64 %184, ptr %64, align 8, !alias.scope !6895
-  store double %183, ptr %44, align 8, !alias.scope !6895
-  %brmerge.not.i.i143.i.i = fcmp uno double %154, %159
-  %185 = bitcast i64 %184 to double
-  br i1 %brmerge.not.i.i143.i.i, label %186, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit145.i.i, !prof !2798
+  %.mux.i.i139.i.i = fcmp olt double %164, %159
+  %175 = select i1 %.mux.i.i139.i.i, i64 %163, i64 %158
+  %176 = select i1 %.mux.i.i139.i.i, double %159, double %164
+  store i64 %175, ptr %64, align 8, !alias.scope !6895
+  store double %176, ptr %44, align 8, !alias.scope !6895
+  %brmerge.not.i.i143.i.i = fcmp uno double %149, %153
+  %177 = bitcast i64 %175 to double
+  br i1 %brmerge.not.i.i143.i.i, label %178, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit145.i.i, !prof !2798
 
-186:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit140.i.i
+178:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit140.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit145.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit140.i.i
-  %.mux.i.i144.i.i = fcmp olt double %154, %159
-  %187 = select i1 %.mux.i.i144.i.i, ptr %65, ptr %51, !unpredictable !3
-  %188 = select i1 %.mux.i.i144.i.i, double %159, double %154
-  %189 = load i64, ptr %187, align 8, !alias.scope !6895
-  store i64 %189, ptr %51, align 8, !alias.scope !6895
-  store double %188, ptr %65, align 8, !alias.scope !6895
-  %brmerge.not.i.i148.i.i = fcmp uno double %164, %169
-  %190 = bitcast i64 %189 to double
-  br i1 %brmerge.not.i.i148.i.i, label %191, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit150.i.i, !prof !2798
+  %.mux.i.i144.i.i = fcmp olt double %149, %153
+  %179 = select i1 %.mux.i.i144.i.i, ptr %65, ptr %51, !unpredictable !3
+  %180 = select i1 %.mux.i.i144.i.i, double %153, double %149
+  %181 = load i64, ptr %179, align 8, !alias.scope !6895
+  store i64 %181, ptr %51, align 8, !alias.scope !6895
+  store double %180, ptr %65, align 8, !alias.scope !6895
+  %brmerge.not.i.i148.i.i = fcmp uno double %157, %162
+  %182 = bitcast i64 %181 to double
+  br i1 %brmerge.not.i.i148.i.i, label %183, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit150.i.i, !prof !2798
 
-191:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit145.i.i
+183:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit145.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit150.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit145.i.i
-  %.mux.i.i149.i.i = fcmp olt double %164, %169
-  %192 = select i1 %.mux.i.i149.i.i, ptr %58, ptr %37, !unpredictable !3
-  %193 = select i1 %.mux.i.i149.i.i, double %169, double %164
-  %194 = load i64, ptr %192, align 8, !alias.scope !6895
-  store i64 %194, ptr %37, align 8, !alias.scope !6895
-  store double %193, ptr %58, align 8, !alias.scope !6895
-  %brmerge.not.i.i153.i.i = fcmp uno double %174, %156
-  %195 = bitcast i64 %194 to double
-  br i1 %brmerge.not.i.i153.i.i, label %196, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit155.i.i, !prof !2798
+  %.mux.i.i149.i.i = fcmp olt double %157, %162
+  %184 = select i1 %.mux.i.i149.i.i, ptr %58, ptr %37, !unpredictable !3
+  %185 = select i1 %.mux.i.i149.i.i, double %162, double %157
+  %186 = load i64, ptr %184, align 8, !alias.scope !6895
+  store i64 %186, ptr %37, align 8, !alias.scope !6895
+  store double %185, ptr %58, align 8, !alias.scope !6895
+  %brmerge.not.i.i153.i.i = fcmp uno double %167, %150
+  %187 = bitcast i64 %186 to double
+  br i1 %brmerge.not.i.i153.i.i, label %188, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit155.i.i, !prof !2798
 
-196:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit150.i.i
+188:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit150.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit155.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit150.i.i
-  %.mux.i.i154.i.i = fcmp ogt double %174, %156
-  %197 = select i1 %.mux.i.i154.i.i, ptr %50, ptr %36, !unpredictable !3
-  %198 = select i1 %.mux.i.i154.i.i, double %174, double %156
-  %199 = load i64, ptr %197, align 8, !alias.scope !6895
-  store i64 %199, ptr %36, align 8, !alias.scope !6895
-  store double %198, ptr %50, align 8, !alias.scope !6895
-  %brmerge.not.i.i158.i.i = fcmp uno double %161, %180
-  %200 = bitcast i64 %199 to double
-  br i1 %brmerge.not.i.i158.i.i, label %201, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit160.i.i, !prof !2798
+  %.mux.i.i154.i.i = fcmp ogt double %167, %150
+  %189 = select i1 %.mux.i.i154.i.i, ptr %50, ptr %36, !unpredictable !3
+  %190 = select i1 %.mux.i.i154.i.i, double %167, double %150
+  %191 = load i64, ptr %189, align 8, !alias.scope !6895
+  store i64 %191, ptr %36, align 8, !alias.scope !6895
+  store double %190, ptr %50, align 8, !alias.scope !6895
+  %brmerge.not.i.i158.i.i = fcmp uno double %154, %173
+  %192 = bitcast i64 %191 to double
+  br i1 %brmerge.not.i.i158.i.i, label %193, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit160.i.i, !prof !2798
 
-201:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit155.i.i
+193:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit155.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit160.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit155.i.i
-  %.mux.i.i159.i.i = fcmp olt double %161, %180
-  %202 = select i1 %.mux.i.i159.i.i, ptr %80, ptr %43, !unpredictable !3
-  %203 = select i1 %.mux.i.i159.i.i, double %180, double %161
-  %204 = load i64, ptr %202, align 8, !alias.scope !6895
-  store i64 %204, ptr %43, align 8, !alias.scope !6895
-  store double %203, ptr %80, align 8, !alias.scope !6895
-  %brmerge.not.i.i163.i.i = fcmp uno double %178, %185
-  %205 = bitcast i64 %204 to double
-  br i1 %brmerge.not.i.i163.i.i, label %206, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit165.i.i, !prof !2798
+  %.mux.i.i159.i.i = fcmp olt double %154, %173
+  %194 = select i1 %.mux.i.i159.i.i, i64 %152, i64 %172
+  %195 = select i1 %.mux.i.i159.i.i, double %173, double %154
+  store i64 %194, ptr %43, align 8, !alias.scope !6895
+  store double %195, ptr %78, align 8, !alias.scope !6895
+  %brmerge.not.i.i163.i.i = fcmp uno double %171, %177
+  %196 = bitcast i64 %194 to double
+  br i1 %brmerge.not.i.i163.i.i, label %197, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit165.i.i, !prof !2798
 
-206:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit160.i.i
+197:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit160.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit165.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit160.i.i
-  %.mux.i.i164.i.i = fcmp ogt double %178, %185
-  %207 = select i1 %.mux.i.i164.i.i, ptr %64, ptr %57, !unpredictable !3
-  %208 = select i1 %.mux.i.i164.i.i, double %178, double %185
-  %209 = load i64, ptr %207, align 8, !alias.scope !6895
-  store i64 %209, ptr %57, align 8, !alias.scope !6895
-  store double %208, ptr %64, align 8, !alias.scope !6895
-  %brmerge.not.i.i168.i.i = fcmp uno double %183, %195
-  %210 = bitcast i64 %209 to double
-  br i1 %brmerge.not.i.i168.i.i, label %211, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit170.i.i, !prof !2798
+  %.mux.i.i164.i.i = fcmp ogt double %171, %177
+  %198 = select i1 %.mux.i.i164.i.i, ptr %64, ptr %57, !unpredictable !3
+  %199 = select i1 %.mux.i.i164.i.i, double %171, double %177
+  %200 = load i64, ptr %198, align 8, !alias.scope !6895
+  store i64 %200, ptr %57, align 8, !alias.scope !6895
+  store double %199, ptr %64, align 8, !alias.scope !6895
+  %brmerge.not.i.i168.i.i = fcmp uno double %176, %187
+  %201 = bitcast i64 %200 to double
+  br i1 %brmerge.not.i.i168.i.i, label %202, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit170.i.i, !prof !2798
 
-211:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit165.i.i
+202:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit165.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit170.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit165.i.i
-  %.mux.i.i169.i.i = fcmp ogt double %183, %195
-  %212 = select i1 %.mux.i.i169.i.i, ptr %37, ptr %44, !unpredictable !3
-  %213 = select i1 %.mux.i.i169.i.i, double %183, double %195
-  %214 = load i64, ptr %212, align 8, !alias.scope !6895
-  store i64 %214, ptr %44, align 8, !alias.scope !6895
-  store double %213, ptr %37, align 8, !alias.scope !6895
-  %brmerge.not.i.i173.i.i = fcmp uno double %205, %200
-  %215 = bitcast i64 %214 to double
-  br i1 %brmerge.not.i.i173.i.i, label %216, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit175.i.i, !prof !2798
+  %.mux.i.i169.i.i = fcmp ogt double %176, %187
+  %203 = select i1 %.mux.i.i169.i.i, ptr %37, ptr %44, !unpredictable !3
+  %204 = select i1 %.mux.i.i169.i.i, double %176, double %187
+  %205 = load i64, ptr %203, align 8, !alias.scope !6895
+  store i64 %205, ptr %44, align 8, !alias.scope !6895
+  store double %204, ptr %37, align 8, !alias.scope !6895
+  %brmerge.not.i.i173.i.i = fcmp uno double %196, %192
+  %206 = bitcast i64 %205 to double
+  br i1 %brmerge.not.i.i173.i.i, label %207, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit175.i.i, !prof !2798
 
-216:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit170.i.i
+207:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit170.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit175.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit170.i.i
-  %.mux.i.i174.i.i = fcmp olt double %205, %200
-  %217 = select i1 %.mux.i.i174.i.i, ptr %43, ptr %36, !unpredictable !3
-  %218 = select i1 %.mux.i.i174.i.i, double %200, double %205
-  %219 = load i64, ptr %217, align 8, !alias.scope !6895
-  store i64 %219, ptr %36, align 8, !alias.scope !6895
-  store double %218, ptr %43, align 8, !alias.scope !6895
-  %brmerge.not.i.i178.i.i = fcmp uno double %203, %198
-  br i1 %brmerge.not.i.i178.i.i, label %220, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit180.i.i, !prof !2798
+  %.mux.i.i174.i.i = fcmp olt double %196, %192
+  %208 = select i1 %.mux.i.i174.i.i, i64 %194, i64 %191
+  %209 = select i1 %.mux.i.i174.i.i, double %192, double %196
+  store i64 %208, ptr %36, align 8, !alias.scope !6895
+  store double %209, ptr %43, align 8, !alias.scope !6895
+  %brmerge.not.i.i178.i.i = fcmp uno double %195, %190
+  br i1 %brmerge.not.i.i178.i.i, label %210, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit180.i.i, !prof !2798
 
-220:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit175.i.i
+210:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit175.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit180.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit175.i.i
-  %.mux.i.i179.i.i = fcmp olt double %203, %198
-  %221 = select i1 %.mux.i.i179.i.i, ptr %80, ptr %50, !unpredictable !3
-  %222 = select i1 %.mux.i.i179.i.i, double %198, double %203
-  %223 = load i64, ptr %221, align 8, !alias.scope !6895
-  store i64 %223, ptr %50, align 8, !alias.scope !6895
-  store double %222, ptr %80, align 8, !alias.scope !6895
-  %brmerge.not.i.i183.i.i = fcmp uno double %190, %210
-  %224 = bitcast i64 %223 to double
-  br i1 %brmerge.not.i.i183.i.i, label %225, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit185.i.i, !prof !2798
+  %.mux.i.i179.i.i = fcmp olt double %195, %190
+  %211 = select i1 %.mux.i.i179.i.i, ptr %78, ptr %50, !unpredictable !3
+  %212 = select i1 %.mux.i.i179.i.i, double %190, double %195
+  %213 = load i64, ptr %211, align 8, !alias.scope !6895
+  store i64 %213, ptr %50, align 8, !alias.scope !6895
+  store double %212, ptr %78, align 8, !alias.scope !6895
+  %brmerge.not.i.i183.i.i = fcmp uno double %182, %201
+  %214 = bitcast i64 %213 to double
+  br i1 %brmerge.not.i.i183.i.i, label %215, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit185.i.i, !prof !2798
 
-225:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit180.i.i
+215:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit180.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit185.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit180.i.i
-  %.mux.i.i184.i.i = fcmp olt double %190, %210
-  %226 = select i1 %.mux.i.i184.i.i, ptr %51, ptr %57, !unpredictable !3
-  %227 = select i1 %.mux.i.i184.i.i, double %210, double %190
-  %228 = load i64, ptr %226, align 8, !alias.scope !6895
-  store i64 %228, ptr %57, align 8, !alias.scope !6895
-  store double %227, ptr %51, align 8, !alias.scope !6895
-  %brmerge.not.i.i188.i.i = fcmp uno double %188, %208
-  %229 = bitcast i64 %228 to double
-  br i1 %brmerge.not.i.i188.i.i, label %230, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit190.i.i, !prof !2798
+  %.mux.i.i184.i.i = fcmp olt double %182, %201
+  %216 = select i1 %.mux.i.i184.i.i, i64 %181, i64 %200
+  %217 = select i1 %.mux.i.i184.i.i, double %201, double %182
+  store i64 %216, ptr %57, align 8, !alias.scope !6895
+  store double %217, ptr %51, align 8, !alias.scope !6895
+  %brmerge.not.i.i188.i.i = fcmp uno double %180, %199
+  %218 = bitcast i64 %216 to double
+  br i1 %brmerge.not.i.i188.i.i, label %219, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit190.i.i, !prof !2798
 
-230:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit185.i.i
+219:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit185.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit190.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit185.i.i
-  %.mux.i.i189.i.i = fcmp olt double %188, %208
-  %231 = select i1 %.mux.i.i189.i.i, ptr %65, ptr %64, !unpredictable !3
-  %232 = select i1 %.mux.i.i189.i.i, double %208, double %188
-  %233 = load i64, ptr %231, align 8, !alias.scope !6895
-  store i64 %233, ptr %64, align 8, !alias.scope !6895
-  store double %232, ptr %65, align 8, !alias.scope !6895
-  %brmerge.not.i.i193.i.i = fcmp uno double %218, %224
-  %234 = bitcast i64 %233 to double
-  br i1 %brmerge.not.i.i193.i.i, label %235, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit195.i.i, !prof !2798
+  %.mux.i.i189.i.i = fcmp olt double %180, %199
+  %220 = select i1 %.mux.i.i189.i.i, ptr %65, ptr %64, !unpredictable !3
+  %221 = select i1 %.mux.i.i189.i.i, double %199, double %180
+  %222 = load i64, ptr %220, align 8, !alias.scope !6895
+  store i64 %222, ptr %64, align 8, !alias.scope !6895
+  store double %221, ptr %65, align 8, !alias.scope !6895
+  %brmerge.not.i.i193.i.i = fcmp uno double %209, %214
+  %223 = bitcast i64 %222 to double
+  br i1 %brmerge.not.i.i193.i.i, label %224, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit195.i.i, !prof !2798
 
-235:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit190.i.i
+224:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit190.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit195.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit190.i.i
-  %.mux.i.i194.i.i = fcmp ogt double %218, %224
-  %236 = select i1 %.mux.i.i194.i.i, ptr %50, ptr %43, !unpredictable !3
-  %237 = select i1 %.mux.i.i194.i.i, double %218, double %224
-  %238 = load i64, ptr %236, align 8, !alias.scope !6895
-  store i64 %238, ptr %43, align 8, !alias.scope !6895
-  store double %237, ptr %50, align 8, !alias.scope !6895
-  %brmerge.not.i.i198.i.i = fcmp uno double %222, %229
-  br i1 %brmerge.not.i.i198.i.i, label %239, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit200.i.i, !prof !2798
+  %.mux.i.i194.i.i = fcmp ogt double %209, %214
+  %225 = select i1 %.mux.i.i194.i.i, ptr %50, ptr %43, !unpredictable !3
+  %226 = select i1 %.mux.i.i194.i.i, double %209, double %214
+  %227 = load i64, ptr %225, align 8, !alias.scope !6895
+  store i64 %227, ptr %43, align 8, !alias.scope !6895
+  store double %226, ptr %50, align 8, !alias.scope !6895
+  %brmerge.not.i.i198.i.i = fcmp uno double %212, %218
+  br i1 %brmerge.not.i.i198.i.i, label %228, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit200.i.i, !prof !2798
 
-239:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit195.i.i
+228:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit195.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit200.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit195.i.i
-  %.mux.i.i199.i.i = fcmp ogt double %222, %229
-  %240 = select i1 %.mux.i.i199.i.i, ptr %57, ptr %80, !unpredictable !3
-  %241 = select i1 %.mux.i.i199.i.i, double %222, double %229
-  %242 = load i64, ptr %240, align 8, !alias.scope !6895
-  store i64 %242, ptr %80, align 8, !alias.scope !6895
-  store double %241, ptr %57, align 8, !alias.scope !6895
-  %brmerge.not.i.i203.i.i = fcmp uno double %227, %234
-  %243 = bitcast i64 %242 to double
-  br i1 %brmerge.not.i.i203.i.i, label %244, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit205.i.i, !prof !2798
+  %.mux.i.i199.i.i = fcmp ogt double %212, %218
+  %229 = select i1 %.mux.i.i199.i.i, ptr %57, ptr %78, !unpredictable !3
+  %230 = select i1 %.mux.i.i199.i.i, double %212, double %218
+  %231 = load i64, ptr %229, align 8, !alias.scope !6895
+  store i64 %231, ptr %78, align 8, !alias.scope !6895
+  store double %230, ptr %57, align 8, !alias.scope !6895
+  %brmerge.not.i.i203.i.i = fcmp uno double %217, %223
+  %232 = bitcast i64 %231 to double
+  br i1 %brmerge.not.i.i203.i.i, label %233, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit205.i.i, !prof !2798
 
-244:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit200.i.i
+233:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit200.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit205.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit200.i.i
-  %.mux.i.i204.i.i = fcmp olt double %227, %234
-  %245 = select i1 %.mux.i.i204.i.i, ptr %51, ptr %64, !unpredictable !3
-  %246 = select i1 %.mux.i.i204.i.i, double %234, double %227
-  %247 = load i64, ptr %245, align 8, !alias.scope !6895
-  store i64 %247, ptr %64, align 8, !alias.scope !6895
-  store double %246, ptr %51, align 8, !alias.scope !6895
-  %brmerge.not.i.i208.i.i = fcmp uno double %232, %215
-  %248 = bitcast i64 %247 to double
-  br i1 %brmerge.not.i.i208.i.i, label %249, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit210.i.i, !prof !2798
+  %.mux.i.i204.i.i = fcmp olt double %217, %223
+  %234 = select i1 %.mux.i.i204.i.i, ptr %51, ptr %64, !unpredictable !3
+  %235 = select i1 %.mux.i.i204.i.i, double %223, double %217
+  %236 = load i64, ptr %234, align 8, !alias.scope !6895
+  store i64 %236, ptr %64, align 8, !alias.scope !6895
+  store double %235, ptr %51, align 8, !alias.scope !6895
+  %brmerge.not.i.i208.i.i = fcmp uno double %221, %206
+  %237 = bitcast i64 %236 to double
+  br i1 %brmerge.not.i.i208.i.i, label %238, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit210.i.i, !prof !2798
 
-249:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit205.i.i
+238:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit205.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit210.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit205.i.i
-  %.mux.i.i209.i.i = fcmp ogt double %232, %215
-  %250 = select i1 %.mux.i.i209.i.i, ptr %44, ptr %65, !unpredictable !3
-  %251 = select i1 %.mux.i.i209.i.i, double %232, double %215
-  %252 = load i64, ptr %250, align 8, !alias.scope !6895
-  store i64 %252, ptr %65, align 8, !alias.scope !6895
-  store double %251, ptr %44, align 8, !alias.scope !6895
-  %brmerge.not.i.i213.i.i = fcmp uno double %237, %243
-  br i1 %brmerge.not.i.i213.i.i, label %253, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit215.i.i, !prof !2798
+  %.mux.i.i209.i.i = fcmp ogt double %221, %206
+  %239 = select i1 %.mux.i.i209.i.i, ptr %44, ptr %65, !unpredictable !3
+  %240 = select i1 %.mux.i.i209.i.i, double %221, double %206
+  %241 = load i64, ptr %239, align 8, !alias.scope !6895
+  store i64 %241, ptr %65, align 8, !alias.scope !6895
+  store double %240, ptr %44, align 8, !alias.scope !6895
+  %brmerge.not.i.i213.i.i = fcmp uno double %226, %232
+  br i1 %brmerge.not.i.i213.i.i, label %242, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit215.i.i, !prof !2798
 
-253:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit210.i.i
+242:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit210.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit215.i.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit210.i.i
-  %.mux.i.i214.i.i = fcmp ogt double %237, %243
-  %254 = select i1 %.mux.i.i214.i.i, ptr %80, ptr %50, !unpredictable !3
-  %255 = select i1 %.mux.i.i214.i.i, double %237, double %243
-  %256 = load i64, ptr %254, align 8, !alias.scope !6895
-  store i64 %256, ptr %50, align 8, !alias.scope !6895
-  store double %255, ptr %80, align 8, !alias.scope !6895
-  %brmerge.not.i.i218.i.i = fcmp uno double %241, %248
-  br i1 %brmerge.not.i.i218.i.i, label %257, label %_ZN4core5slice4sort6shared9smallsort14sort13_optimal17h7df1e98e60d75933E.exit.i, !prof !2798
+  %.mux.i.i214.i.i = fcmp ogt double %226, %232
+  %243 = select i1 %.mux.i.i214.i.i, ptr %78, ptr %50, !unpredictable !3
+  %244 = select i1 %.mux.i.i214.i.i, double %226, double %232
+  %245 = load i64, ptr %243, align 8, !alias.scope !6895
+  store i64 %245, ptr %50, align 8, !alias.scope !6895
+  store double %244, ptr %78, align 8, !alias.scope !6895
+  %brmerge.not.i.i218.i.i = fcmp uno double %230, %237
+  br i1 %brmerge.not.i.i218.i.i, label %246, label %_ZN4core5slice4sort6shared9smallsort14sort13_optimal17h7df1e98e60d75933E.exit.i, !prof !2798
 
-257:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit215.i.i
+246:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit215.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort14sort13_optimal17h7df1e98e60d75933E.exit.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit215.i.i
-  %.mux.i.i219.i.i = fcmp ogt double %241, %248
-  %258 = select i1 %.mux.i.i219.i.i, ptr %64, ptr %57, !unpredictable !3
-  %259 = select i1 %.mux.i.i219.i.i, double %241, double %248
-  %260 = load i64, ptr %258, align 8, !alias.scope !6895
-  store i64 %260, ptr %57, align 8, !alias.scope !6895
-  store double %259, ptr %64, align 8, !alias.scope !6895
-  br label %391
+  %.mux.i.i219.i.i = fcmp ogt double %230, %237
+  %247 = select i1 %.mux.i.i219.i.i, ptr %64, ptr %57, !unpredictable !3
+  %248 = select i1 %.mux.i.i219.i.i, double %230, double %237
+  %249 = load i64, ptr %247, align 8, !alias.scope !6895
+  store i64 %249, ptr %57, align 8, !alias.scope !6895
+  store double %248, ptr %64, align 8, !alias.scope !6895
+  br label %373
 
-261:                                              ; preds = %28
-  %262 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 24
-  %.val.i.i11.i = load double, ptr %262, align 8, !alias.scope !6898, !noundef !3
+250:                                              ; preds = %28
+  %251 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 24
+  %.val.i.i11.i = load double, ptr %251, align 8, !alias.scope !6898, !noundef !3
   %.val1.i.i12.i = load double, ptr %.sroa.01.0.i, align 8, !alias.scope !6898, !noundef !3
   %brmerge.not.i.i.i13.i = fcmp uno double %.val.i.i11.i, %.val1.i.i12.i
-  br i1 %brmerge.not.i.i.i13.i, label %263, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit.i14.i, !prof !2798
+  br i1 %brmerge.not.i.i.i13.i, label %252, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit.i14.i, !prof !2798
 
-263:                                              ; preds = %261
+252:                                              ; preds = %250
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
-_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit.i14.i: ; preds = %261
+_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit.i14.i: ; preds = %250
   %.mux.i.i.i15.i = fcmp olt double %.val.i.i11.i, %.val1.i.i12.i
-  %264 = select i1 %.mux.i.i.i15.i, ptr %262, ptr %.sroa.01.0.i, !unpredictable !3
-  %265 = select i1 %.mux.i.i.i15.i, double %.val1.i.i12.i, double %.val.i.i11.i
-  %266 = load i64, ptr %264, align 8, !alias.scope !6898
-  store i64 %266, ptr %.sroa.01.0.i, align 8, !alias.scope !6898
-  store double %265, ptr %262, align 8, !alias.scope !6898
-  %267 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 8
-  %268 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 56
-  %.val.i1.i16.i = load double, ptr %268, align 8, !alias.scope !6898, !noundef !3
-  %.val1.i2.i17.i = load double, ptr %267, align 8, !alias.scope !6898, !noundef !3
+  %253 = select i1 %.mux.i.i.i15.i, ptr %251, ptr %.sroa.01.0.i, !unpredictable !3
+  %254 = select i1 %.mux.i.i.i15.i, double %.val1.i.i12.i, double %.val.i.i11.i
+  %255 = load i64, ptr %253, align 8, !alias.scope !6898
+  store i64 %255, ptr %.sroa.01.0.i, align 8, !alias.scope !6898
+  store double %254, ptr %251, align 8, !alias.scope !6898
+  %256 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 56
+  %.val.i1.i16.i = load double, ptr %257, align 8, !alias.scope !6898, !noundef !3
+  %.val1.i2.i17.i = load double, ptr %256, align 8, !alias.scope !6898, !noundef !3
   %brmerge.not.i.i3.i18.i = fcmp uno double %.val.i1.i16.i, %.val1.i2.i17.i
-  %269 = bitcast i64 %266 to double
-  br i1 %brmerge.not.i.i3.i18.i, label %270, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit5.i19.i, !prof !2798
+  %258 = bitcast i64 %255 to double
+  br i1 %brmerge.not.i.i3.i18.i, label %259, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit5.i19.i, !prof !2798
 
-270:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit.i14.i
+259:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit.i14.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit5.i19.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit.i14.i
   %.mux.i.i4.i20.i = fcmp olt double %.val.i1.i16.i, %.val1.i2.i17.i
-  %271 = select i1 %.mux.i.i4.i20.i, ptr %268, ptr %267, !unpredictable !3
-  %272 = select i1 %.mux.i.i4.i20.i, double %.val1.i2.i17.i, double %.val.i1.i16.i
-  %273 = load i64, ptr %271, align 8, !alias.scope !6898
-  store i64 %273, ptr %267, align 8, !alias.scope !6898
-  store double %272, ptr %268, align 8, !alias.scope !6898
-  %274 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 16
-  %275 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 40
-  %.val.i6.i21.i = load double, ptr %275, align 8, !alias.scope !6898, !noundef !3
-  %.val1.i7.i22.i = load double, ptr %274, align 8, !alias.scope !6898, !noundef !3
+  %260 = select i1 %.mux.i.i4.i20.i, ptr %257, ptr %256, !unpredictable !3
+  %261 = select i1 %.mux.i.i4.i20.i, double %.val1.i2.i17.i, double %.val.i1.i16.i
+  %262 = load i64, ptr %260, align 8, !alias.scope !6898
+  store i64 %262, ptr %256, align 8, !alias.scope !6898
+  store double %261, ptr %257, align 8, !alias.scope !6898
+  %263 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 16
+  %264 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 40
+  %.val.i6.i21.i = load double, ptr %264, align 8, !alias.scope !6898, !noundef !3
+  %.val1.i7.i22.i = load double, ptr %263, align 8, !alias.scope !6898, !noundef !3
   %brmerge.not.i.i8.i23.i = fcmp uno double %.val.i6.i21.i, %.val1.i7.i22.i
-  %276 = bitcast i64 %273 to double
-  br i1 %brmerge.not.i.i8.i23.i, label %277, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit10.i24.i, !prof !2798
+  %265 = bitcast i64 %262 to double
+  br i1 %brmerge.not.i.i8.i23.i, label %266, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit10.i24.i, !prof !2798
 
-277:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit5.i19.i
+266:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit5.i19.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit10.i24.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit5.i19.i
   %.mux.i.i9.i25.i = fcmp olt double %.val.i6.i21.i, %.val1.i7.i22.i
-  %278 = select i1 %.mux.i.i9.i25.i, ptr %275, ptr %274, !unpredictable !3
-  %279 = select i1 %.mux.i.i9.i25.i, double %.val1.i7.i22.i, double %.val.i6.i21.i
-  %280 = load i64, ptr %278, align 8, !alias.scope !6898
-  store i64 %280, ptr %274, align 8, !alias.scope !6898
-  store double %279, ptr %275, align 8, !alias.scope !6898
-  %281 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 32
-  %282 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 64
-  %.val.i11.i26.i = load double, ptr %282, align 8, !alias.scope !6898, !noundef !3
-  %.val1.i12.i27.i = load double, ptr %281, align 8, !alias.scope !6898, !noundef !3
+  %267 = select i1 %.mux.i.i9.i25.i, ptr %264, ptr %263, !unpredictable !3
+  %268 = select i1 %.mux.i.i9.i25.i, double %.val1.i7.i22.i, double %.val.i6.i21.i
+  %269 = load i64, ptr %267, align 8, !alias.scope !6898
+  store i64 %269, ptr %263, align 8, !alias.scope !6898
+  store double %268, ptr %264, align 8, !alias.scope !6898
+  %270 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 32
+  %271 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 64
+  %.val.i11.i26.i = load double, ptr %271, align 8, !alias.scope !6898, !noundef !3
+  %.val1.i12.i27.i = load double, ptr %270, align 8, !alias.scope !6898, !noundef !3
   %brmerge.not.i.i13.i28.i = fcmp uno double %.val.i11.i26.i, %.val1.i12.i27.i
-  %283 = bitcast i64 %280 to double
-  br i1 %brmerge.not.i.i13.i28.i, label %284, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit15.i29.i, !prof !2798
+  %272 = bitcast i64 %269 to double
+  br i1 %brmerge.not.i.i13.i28.i, label %273, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit15.i29.i, !prof !2798
 
-284:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit10.i24.i
+273:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit10.i24.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit15.i29.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit10.i24.i
   %.mux.i.i14.i30.i = fcmp olt double %.val.i11.i26.i, %.val1.i12.i27.i
-  %285 = select i1 %.mux.i.i14.i30.i, ptr %282, ptr %281, !unpredictable !3
-  %286 = select i1 %.mux.i.i14.i30.i, double %.val1.i12.i27.i, double %.val.i11.i26.i
-  %287 = load i64, ptr %285, align 8, !alias.scope !6898
-  store i64 %287, ptr %281, align 8, !alias.scope !6898
-  store double %286, ptr %282, align 8, !alias.scope !6898
-  %brmerge.not.i.i18.i31.i = fcmp uno double %272, %269
-  %288 = bitcast i64 %287 to double
-  br i1 %brmerge.not.i.i18.i31.i, label %289, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit20.i32.i, !prof !2798
+  %274 = select i1 %.mux.i.i14.i30.i, ptr %271, ptr %270, !unpredictable !3
+  %275 = select i1 %.mux.i.i14.i30.i, double %.val1.i12.i27.i, double %.val.i11.i26.i
+  %276 = load i64, ptr %274, align 8, !alias.scope !6898
+  store i64 %276, ptr %270, align 8, !alias.scope !6898
+  store double %275, ptr %271, align 8, !alias.scope !6898
+  %brmerge.not.i.i18.i31.i = fcmp uno double %261, %258
+  %277 = bitcast i64 %276 to double
+  br i1 %brmerge.not.i.i18.i31.i, label %278, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit20.i32.i, !prof !2798
 
-289:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit15.i29.i
+278:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit15.i29.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit20.i32.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit15.i29.i
-  %.mux.i.i19.i33.i = fcmp olt double %272, %269
-  %290 = select i1 %.mux.i.i19.i33.i, ptr %268, ptr %.sroa.01.0.i, !unpredictable !3
-  %291 = select i1 %.mux.i.i19.i33.i, double %269, double %272
-  %292 = load i64, ptr %290, align 8, !alias.scope !6898
-  store i64 %292, ptr %.sroa.01.0.i, align 8, !alias.scope !6898
-  store double %291, ptr %268, align 8, !alias.scope !6898
-  %brmerge.not.i.i23.i34.i = fcmp uno double %288, %283
-  %293 = bitcast i64 %292 to double
-  br i1 %brmerge.not.i.i23.i34.i, label %294, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit25.i35.i, !prof !2798
+  %.mux.i.i19.i33.i = fcmp olt double %261, %258
+  %279 = select i1 %.mux.i.i19.i33.i, ptr %257, ptr %.sroa.01.0.i, !unpredictable !3
+  %280 = select i1 %.mux.i.i19.i33.i, double %258, double %261
+  %281 = load i64, ptr %279, align 8, !alias.scope !6898
+  store i64 %281, ptr %.sroa.01.0.i, align 8, !alias.scope !6898
+  store double %280, ptr %257, align 8, !alias.scope !6898
+  %brmerge.not.i.i23.i34.i = fcmp uno double %277, %272
+  %282 = bitcast i64 %281 to double
+  br i1 %brmerge.not.i.i23.i34.i, label %283, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit25.i35.i, !prof !2798
 
-294:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit20.i32.i
+283:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit20.i32.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit25.i35.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit20.i32.i
-  %.mux.i.i24.i36.i = fcmp olt double %288, %283
-  %295 = select i1 %.mux.i.i24.i36.i, ptr %281, ptr %274, !unpredictable !3
-  %296 = select i1 %.mux.i.i24.i36.i, double %283, double %288
-  %297 = load i64, ptr %295, align 8, !alias.scope !6898
-  store i64 %297, ptr %274, align 8, !alias.scope !6898
-  store double %296, ptr %281, align 8, !alias.scope !6898
-  %brmerge.not.i.i28.i37.i = fcmp uno double %286, %265
-  %298 = bitcast i64 %297 to double
-  br i1 %brmerge.not.i.i28.i37.i, label %299, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit30.i38.i, !prof !2798
+  %.mux.i.i24.i36.i = fcmp olt double %277, %272
+  %284 = select i1 %.mux.i.i24.i36.i, i64 %276, i64 %269
+  %285 = select i1 %.mux.i.i24.i36.i, double %272, double %277
+  store i64 %284, ptr %263, align 8, !alias.scope !6898
+  store double %285, ptr %270, align 8, !alias.scope !6898
+  %brmerge.not.i.i28.i37.i = fcmp uno double %275, %254
+  %286 = bitcast i64 %284 to double
+  br i1 %brmerge.not.i.i28.i37.i, label %287, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit30.i38.i, !prof !2798
 
-299:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit25.i35.i
+287:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit25.i35.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit30.i38.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit25.i35.i
-  %.mux.i.i29.i39.i = fcmp olt double %286, %265
-  %300 = select i1 %.mux.i.i29.i39.i, ptr %282, ptr %262, !unpredictable !3
-  %301 = select i1 %.mux.i.i29.i39.i, double %265, double %286
-  %302 = load i64, ptr %300, align 8, !alias.scope !6898
-  store i64 %302, ptr %262, align 8, !alias.scope !6898
-  store double %301, ptr %282, align 8, !alias.scope !6898
-  %303 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 48
-  %.val.i31.i.i = load double, ptr %303, align 8, !alias.scope !6898, !noundef !3
-  %brmerge.not.i.i33.i40.i = fcmp uno double %.val.i31.i.i, %279
-  %304 = bitcast i64 %302 to double
-  br i1 %brmerge.not.i.i33.i40.i, label %305, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit35.i41.i, !prof !2798
+  %.mux.i.i29.i39.i = fcmp olt double %275, %254
+  %288 = select i1 %.mux.i.i29.i39.i, ptr %271, ptr %251, !unpredictable !3
+  %289 = select i1 %.mux.i.i29.i39.i, double %254, double %275
+  %290 = load i64, ptr %288, align 8, !alias.scope !6898
+  store i64 %290, ptr %251, align 8, !alias.scope !6898
+  store double %289, ptr %271, align 8, !alias.scope !6898
+  %291 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 48
+  %.val.i31.i.i = load double, ptr %291, align 8, !alias.scope !6898, !noundef !3
+  %brmerge.not.i.i33.i40.i = fcmp uno double %.val.i31.i.i, %268
+  %292 = bitcast i64 %290 to double
+  br i1 %brmerge.not.i.i33.i40.i, label %293, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit35.i41.i, !prof !2798
 
-305:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit30.i38.i
+293:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit30.i38.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit35.i41.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit30.i38.i
-  %.mux.i.i34.i42.i = fcmp olt double %.val.i31.i.i, %279
-  %306 = select i1 %.mux.i.i34.i42.i, ptr %303, ptr %275, !unpredictable !3
-  %307 = select i1 %.mux.i.i34.i42.i, double %279, double %.val.i31.i.i
-  %308 = load i64, ptr %306, align 8, !alias.scope !6898
-  store i64 %308, ptr %275, align 8, !alias.scope !6898
-  store double %307, ptr %303, align 8, !alias.scope !6898
-  %brmerge.not.i.i38.i43.i = fcmp uno double %298, %293
-  %309 = bitcast i64 %308 to double
-  br i1 %brmerge.not.i.i38.i43.i, label %310, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit40.i44.i, !prof !2798
+  %.mux.i.i34.i42.i = fcmp olt double %.val.i31.i.i, %268
+  %294 = select i1 %.mux.i.i34.i42.i, ptr %291, ptr %264, !unpredictable !3
+  %295 = select i1 %.mux.i.i34.i42.i, double %268, double %.val.i31.i.i
+  %296 = load i64, ptr %294, align 8, !alias.scope !6898
+  store i64 %296, ptr %264, align 8, !alias.scope !6898
+  store double %295, ptr %291, align 8, !alias.scope !6898
+  %brmerge.not.i.i38.i43.i = fcmp uno double %286, %282
+  %297 = bitcast i64 %296 to double
+  br i1 %brmerge.not.i.i38.i43.i, label %298, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit40.i44.i, !prof !2798
 
-310:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit35.i41.i
+298:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit35.i41.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit40.i44.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit35.i41.i
-  %.mux.i.i39.i45.i = fcmp olt double %298, %293
-  %311 = select i1 %.mux.i.i39.i45.i, ptr %274, ptr %.sroa.01.0.i, !unpredictable !3
-  %312 = select i1 %.mux.i.i39.i45.i, double %293, double %298
-  %313 = load i64, ptr %311, align 8, !alias.scope !6898
-  store i64 %313, ptr %.sroa.01.0.i, align 8, !alias.scope !6898
-  store double %312, ptr %274, align 8, !alias.scope !6898
-  %brmerge.not.i.i43.i46.i = fcmp uno double %304, %276
-  %314 = bitcast i64 %313 to double
-  br i1 %brmerge.not.i.i43.i46.i, label %315, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit45.i47.i, !prof !2798
+  %.mux.i.i39.i45.i = fcmp olt double %286, %282
+  %299 = select i1 %.mux.i.i39.i45.i, i64 %284, i64 %281
+  %300 = select i1 %.mux.i.i39.i45.i, double %282, double %286
+  store i64 %299, ptr %.sroa.01.0.i, align 8, !alias.scope !6898
+  store double %300, ptr %263, align 8, !alias.scope !6898
+  %brmerge.not.i.i43.i46.i = fcmp uno double %292, %265
+  %301 = bitcast i64 %299 to double
+  br i1 %brmerge.not.i.i43.i46.i, label %302, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit45.i47.i, !prof !2798
 
-315:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit40.i44.i
+302:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit40.i44.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit45.i47.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit40.i44.i
-  %.mux.i.i44.i48.i = fcmp olt double %304, %276
-  %316 = select i1 %.mux.i.i44.i48.i, ptr %262, ptr %267, !unpredictable !3
-  %317 = select i1 %.mux.i.i44.i48.i, double %276, double %304
-  %318 = load i64, ptr %316, align 8, !alias.scope !6898
-  store i64 %318, ptr %267, align 8, !alias.scope !6898
-  store double %317, ptr %262, align 8, !alias.scope !6898
-  %brmerge.not.i.i48.i49.i = fcmp uno double %296, %309
-  %319 = bitcast i64 %318 to double
-  br i1 %brmerge.not.i.i48.i49.i, label %320, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit50.i50.i, !prof !2798
+  %.mux.i.i44.i48.i = fcmp olt double %292, %265
+  %303 = select i1 %.mux.i.i44.i48.i, i64 %290, i64 %262
+  %304 = select i1 %.mux.i.i44.i48.i, double %265, double %292
+  store i64 %303, ptr %256, align 8, !alias.scope !6898
+  store double %304, ptr %251, align 8, !alias.scope !6898
+  %brmerge.not.i.i48.i49.i = fcmp uno double %285, %297
+  %305 = bitcast i64 %303 to double
+  br i1 %brmerge.not.i.i48.i49.i, label %306, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit50.i50.i, !prof !2798
 
-320:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit45.i47.i
+306:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit45.i47.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit50.i50.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit45.i47.i
-  %.mux.i.i49.i51.i = fcmp ogt double %296, %309
-  %321 = select i1 %.mux.i.i49.i51.i, ptr %275, ptr %281, !unpredictable !3
-  %322 = select i1 %.mux.i.i49.i51.i, double %296, double %309
-  %323 = load i64, ptr %321, align 8, !alias.scope !6898
-  store i64 %323, ptr %281, align 8, !alias.scope !6898
-  store double %322, ptr %275, align 8, !alias.scope !6898
-  %brmerge.not.i.i53.i52.i = fcmp uno double %301, %291
-  %324 = bitcast i64 %323 to double
-  br i1 %brmerge.not.i.i53.i52.i, label %325, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit55.i53.i, !prof !2798
+  %.mux.i.i49.i51.i = fcmp ogt double %285, %297
+  %307 = select i1 %.mux.i.i49.i51.i, ptr %264, ptr %270, !unpredictable !3
+  %308 = select i1 %.mux.i.i49.i51.i, double %285, double %297
+  %309 = load i64, ptr %307, align 8, !alias.scope !6898
+  store i64 %309, ptr %270, align 8, !alias.scope !6898
+  store double %308, ptr %264, align 8, !alias.scope !6898
+  %brmerge.not.i.i53.i52.i = fcmp uno double %289, %280
+  %310 = bitcast i64 %309 to double
+  br i1 %brmerge.not.i.i53.i52.i, label %311, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit55.i53.i, !prof !2798
 
-325:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit50.i50.i
+311:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit50.i50.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit55.i53.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit50.i50.i
-  %.mux.i.i54.i54.i = fcmp olt double %301, %291
-  %326 = select i1 %.mux.i.i54.i54.i, ptr %282, ptr %268, !unpredictable !3
-  %327 = select i1 %.mux.i.i54.i54.i, double %291, double %301
-  %328 = load i64, ptr %326, align 8, !alias.scope !6898
-  store i64 %328, ptr %268, align 8, !alias.scope !6898
-  store double %327, ptr %282, align 8, !alias.scope !6898
-  %brmerge.not.i.i58.i55.i = fcmp uno double %324, %319
-  %329 = bitcast i64 %328 to double
-  br i1 %brmerge.not.i.i58.i55.i, label %330, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit60.i56.i, !prof !2798
+  %.mux.i.i54.i54.i = fcmp olt double %289, %280
+  %312 = select i1 %.mux.i.i54.i54.i, ptr %271, ptr %257, !unpredictable !3
+  %313 = select i1 %.mux.i.i54.i54.i, double %280, double %289
+  %314 = load i64, ptr %312, align 8, !alias.scope !6898
+  store i64 %314, ptr %257, align 8, !alias.scope !6898
+  store double %313, ptr %271, align 8, !alias.scope !6898
+  %brmerge.not.i.i58.i55.i = fcmp uno double %310, %305
+  %315 = bitcast i64 %314 to double
+  br i1 %brmerge.not.i.i58.i55.i, label %316, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit60.i56.i, !prof !2798
 
-330:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit55.i53.i
+316:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit55.i53.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit60.i56.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit55.i53.i
-  %.mux.i.i59.i57.i = fcmp olt double %324, %319
-  %331 = select i1 %.mux.i.i59.i57.i, ptr %281, ptr %267, !unpredictable !3
-  %332 = select i1 %.mux.i.i59.i57.i, double %319, double %324
-  %333 = load i64, ptr %331, align 8, !alias.scope !6898
-  store i64 %333, ptr %267, align 8, !alias.scope !6898
-  store double %332, ptr %281, align 8, !alias.scope !6898
-  %brmerge.not.i.i63.i58.i = fcmp uno double %307, %317
-  %334 = bitcast i64 %333 to double
-  br i1 %brmerge.not.i.i63.i58.i, label %335, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit65.i59.i, !prof !2798
+  %.mux.i.i59.i57.i = fcmp olt double %310, %305
+  %317 = select i1 %.mux.i.i59.i57.i, i64 %309, i64 %303
+  %318 = select i1 %.mux.i.i59.i57.i, double %305, double %310
+  store i64 %317, ptr %256, align 8, !alias.scope !6898
+  store double %318, ptr %270, align 8, !alias.scope !6898
+  %brmerge.not.i.i63.i58.i = fcmp uno double %295, %304
+  %319 = bitcast i64 %317 to double
+  br i1 %brmerge.not.i.i63.i58.i, label %320, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit65.i59.i, !prof !2798
 
-335:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit60.i56.i
+320:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit60.i56.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit65.i59.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit60.i56.i
-  %.mux.i.i64.i60.i = fcmp olt double %307, %317
-  %336 = select i1 %.mux.i.i64.i60.i, ptr %303, ptr %262, !unpredictable !3
-  %337 = select i1 %.mux.i.i64.i60.i, double %317, double %307
-  %338 = load i64, ptr %336, align 8, !alias.scope !6898
-  store i64 %338, ptr %262, align 8, !alias.scope !6898
-  store double %337, ptr %303, align 8, !alias.scope !6898
-  %brmerge.not.i.i68.i61.i = fcmp uno double %322, %329
-  %339 = bitcast i64 %338 to double
-  br i1 %brmerge.not.i.i68.i61.i, label %340, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit70.i62.i, !prof !2798
+  %.mux.i.i64.i60.i = fcmp olt double %295, %304
+  %321 = select i1 %.mux.i.i64.i60.i, ptr %291, ptr %251, !unpredictable !3
+  %322 = select i1 %.mux.i.i64.i60.i, double %304, double %295
+  %323 = load i64, ptr %321, align 8, !alias.scope !6898
+  store i64 %323, ptr %251, align 8, !alias.scope !6898
+  store double %322, ptr %291, align 8, !alias.scope !6898
+  %brmerge.not.i.i68.i61.i = fcmp uno double %308, %315
+  %324 = bitcast i64 %323 to double
+  br i1 %brmerge.not.i.i68.i61.i, label %325, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit70.i62.i, !prof !2798
 
-340:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit65.i59.i
+325:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit65.i59.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit70.i62.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit65.i59.i
-  %.mux.i.i69.i63.i = fcmp ogt double %322, %329
-  %341 = select i1 %.mux.i.i69.i63.i, ptr %268, ptr %275, !unpredictable !3
-  %342 = select i1 %.mux.i.i69.i63.i, double %322, double %329
-  %343 = load i64, ptr %341, align 8, !alias.scope !6898
-  store i64 %343, ptr %275, align 8, !alias.scope !6898
-  store double %342, ptr %268, align 8, !alias.scope !6898
-  %brmerge.not.i.i73.i64.i = fcmp uno double %334, %314
-  %344 = bitcast i64 %343 to double
-  br i1 %brmerge.not.i.i73.i64.i, label %345, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit75.i65.i, !prof !2798
+  %.mux.i.i69.i63.i = fcmp ogt double %308, %315
+  %326 = select i1 %.mux.i.i69.i63.i, ptr %257, ptr %264, !unpredictable !3
+  %327 = select i1 %.mux.i.i69.i63.i, double %308, double %315
+  %328 = load i64, ptr %326, align 8, !alias.scope !6898
+  store i64 %328, ptr %264, align 8, !alias.scope !6898
+  store double %327, ptr %257, align 8, !alias.scope !6898
+  %brmerge.not.i.i73.i64.i = fcmp uno double %319, %301
+  %329 = bitcast i64 %328 to double
+  br i1 %brmerge.not.i.i73.i64.i, label %330, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit75.i65.i, !prof !2798
 
-345:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit70.i62.i
+330:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit70.i62.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit75.i65.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit70.i62.i
-  %.mux.i.i74.i66.i = fcmp olt double %334, %314
-  %346 = select i1 %.mux.i.i74.i66.i, ptr %267, ptr %.sroa.01.0.i, !unpredictable !3
-  %347 = select i1 %.mux.i.i74.i66.i, double %314, double %334
-  %348 = load i64, ptr %346, align 8, !alias.scope !6898
-  store i64 %348, ptr %.sroa.01.0.i, align 8, !alias.scope !6898
-  store double %347, ptr %267, align 8, !alias.scope !6898
-  %brmerge.not.i.i78.i67.i = fcmp uno double %332, %312
-  br i1 %brmerge.not.i.i78.i67.i, label %349, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit80.i68.i, !prof !2798
+  %.mux.i.i74.i66.i = fcmp olt double %319, %301
+  %331 = select i1 %.mux.i.i74.i66.i, i64 %317, i64 %299
+  %332 = select i1 %.mux.i.i74.i66.i, double %301, double %319
+  store i64 %331, ptr %.sroa.01.0.i, align 8, !alias.scope !6898
+  store double %332, ptr %256, align 8, !alias.scope !6898
+  %brmerge.not.i.i78.i67.i = fcmp uno double %318, %300
+  br i1 %brmerge.not.i.i78.i67.i, label %333, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit80.i68.i, !prof !2798
 
-349:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit75.i65.i
+333:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit75.i65.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit80.i68.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit75.i65.i
-  %.mux.i.i79.i69.i = fcmp olt double %332, %312
-  %350 = select i1 %.mux.i.i79.i69.i, ptr %281, ptr %274, !unpredictable !3
-  %351 = select i1 %.mux.i.i79.i69.i, double %312, double %332
-  %352 = load i64, ptr %350, align 8, !alias.scope !6898
-  store i64 %352, ptr %274, align 8, !alias.scope !6898
-  store double %351, ptr %281, align 8, !alias.scope !6898
-  %brmerge.not.i.i83.i70.i = fcmp uno double %344, %339
-  %353 = bitcast i64 %352 to double
-  br i1 %brmerge.not.i.i83.i70.i, label %354, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit85.i71.i, !prof !2798
+  %.mux.i.i79.i69.i = fcmp olt double %318, %300
+  %334 = select i1 %.mux.i.i79.i69.i, ptr %270, ptr %263, !unpredictable !3
+  %335 = select i1 %.mux.i.i79.i69.i, double %300, double %318
+  %336 = load i64, ptr %334, align 8, !alias.scope !6898
+  store i64 %336, ptr %263, align 8, !alias.scope !6898
+  store double %335, ptr %270, align 8, !alias.scope !6898
+  %brmerge.not.i.i83.i70.i = fcmp uno double %329, %324
+  %337 = bitcast i64 %336 to double
+  br i1 %brmerge.not.i.i83.i70.i, label %338, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit85.i71.i, !prof !2798
 
-354:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit80.i68.i
+338:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit80.i68.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit85.i71.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit80.i68.i
-  %.mux.i.i84.i72.i = fcmp olt double %344, %339
-  %355 = select i1 %.mux.i.i84.i72.i, ptr %275, ptr %262, !unpredictable !3
-  %356 = select i1 %.mux.i.i84.i72.i, double %339, double %344
-  %357 = load i64, ptr %355, align 8, !alias.scope !6898
-  store i64 %357, ptr %262, align 8, !alias.scope !6898
-  store double %356, ptr %275, align 8, !alias.scope !6898
-  %brmerge.not.i.i88.i73.i = fcmp uno double %327, %337
-  %358 = bitcast i64 %357 to double
-  br i1 %brmerge.not.i.i88.i73.i, label %359, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit90.i74.i, !prof !2798
+  %.mux.i.i84.i72.i = fcmp olt double %329, %324
+  %339 = select i1 %.mux.i.i84.i72.i, i64 %328, i64 %323
+  %340 = select i1 %.mux.i.i84.i72.i, double %324, double %329
+  store i64 %339, ptr %251, align 8, !alias.scope !6898
+  store double %340, ptr %264, align 8, !alias.scope !6898
+  %brmerge.not.i.i88.i73.i = fcmp uno double %313, %322
+  %341 = bitcast i64 %339 to double
+  br i1 %brmerge.not.i.i88.i73.i, label %342, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit90.i74.i, !prof !2798
 
-359:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit85.i71.i
+342:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit85.i71.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit90.i74.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit85.i71.i
-  %.mux.i.i89.i75.i = fcmp olt double %327, %337
-  %360 = select i1 %.mux.i.i89.i75.i, ptr %282, ptr %303, !unpredictable !3
-  %361 = select i1 %.mux.i.i89.i75.i, double %337, double %327
-  %362 = load i64, ptr %360, align 8, !alias.scope !6898
-  store i64 %362, ptr %303, align 8, !alias.scope !6898
-  store double %361, ptr %282, align 8, !alias.scope !6898
-  %brmerge.not.i.i93.i76.i = fcmp uno double %358, %353
-  %363 = bitcast i64 %362 to double
-  br i1 %brmerge.not.i.i93.i76.i, label %364, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit95.i77.i, !prof !2798
+  %.mux.i.i89.i75.i = fcmp olt double %313, %322
+  %343 = select i1 %.mux.i.i89.i75.i, ptr %271, ptr %291, !unpredictable !3
+  %344 = select i1 %.mux.i.i89.i75.i, double %322, double %313
+  %345 = load i64, ptr %343, align 8, !alias.scope !6898
+  store i64 %345, ptr %291, align 8, !alias.scope !6898
+  store double %344, ptr %271, align 8, !alias.scope !6898
+  %brmerge.not.i.i93.i76.i = fcmp uno double %341, %337
+  %346 = bitcast i64 %345 to double
+  br i1 %brmerge.not.i.i93.i76.i, label %347, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit95.i77.i, !prof !2798
 
-364:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit90.i74.i
+347:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit90.i74.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit95.i77.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit90.i74.i
-  %.mux.i.i94.i78.i = fcmp olt double %358, %353
-  %365 = select i1 %.mux.i.i94.i78.i, ptr %262, ptr %274, !unpredictable !3
-  %366 = select i1 %.mux.i.i94.i78.i, double %353, double %358
-  %367 = load i64, ptr %365, align 8, !alias.scope !6898
-  store i64 %367, ptr %274, align 8, !alias.scope !6898
-  store double %366, ptr %262, align 8, !alias.scope !6898
-  %brmerge.not.i.i98.i79.i = fcmp uno double %356, %351
-  %368 = bitcast i64 %367 to double
-  br i1 %brmerge.not.i.i98.i79.i, label %369, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit100.i80.i, !prof !2798
+  %.mux.i.i94.i78.i = fcmp olt double %341, %337
+  %348 = select i1 %.mux.i.i94.i78.i, i64 %339, i64 %336
+  %349 = select i1 %.mux.i.i94.i78.i, double %337, double %341
+  store i64 %348, ptr %263, align 8, !alias.scope !6898
+  store double %349, ptr %251, align 8, !alias.scope !6898
+  %brmerge.not.i.i98.i79.i = fcmp uno double %340, %335
+  %350 = bitcast i64 %348 to double
+  br i1 %brmerge.not.i.i98.i79.i, label %351, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit100.i80.i, !prof !2798
 
-369:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit95.i77.i
+351:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit95.i77.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit100.i80.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit95.i77.i
-  %.mux.i.i99.i81.i = fcmp olt double %356, %351
-  %370 = select i1 %.mux.i.i99.i81.i, ptr %275, ptr %281, !unpredictable !3
-  %371 = select i1 %.mux.i.i99.i81.i, double %351, double %356
-  %372 = load i64, ptr %370, align 8, !alias.scope !6898
-  store i64 %372, ptr %281, align 8, !alias.scope !6898
-  store double %371, ptr %275, align 8, !alias.scope !6898
-  %brmerge.not.i.i103.i82.i = fcmp uno double %342, %363
-  %373 = bitcast i64 %372 to double
-  br i1 %brmerge.not.i.i103.i82.i, label %374, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit105.i83.i, !prof !2798
+  %.mux.i.i99.i81.i = fcmp olt double %340, %335
+  %352 = select i1 %.mux.i.i99.i81.i, ptr %264, ptr %270, !unpredictable !3
+  %353 = select i1 %.mux.i.i99.i81.i, double %335, double %340
+  %354 = load i64, ptr %352, align 8, !alias.scope !6898
+  store i64 %354, ptr %270, align 8, !alias.scope !6898
+  store double %353, ptr %264, align 8, !alias.scope !6898
+  %brmerge.not.i.i103.i82.i = fcmp uno double %327, %346
+  %355 = bitcast i64 %354 to double
+  br i1 %brmerge.not.i.i103.i82.i, label %356, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit105.i83.i, !prof !2798
 
-374:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit100.i80.i
+356:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit100.i80.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit105.i83.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit100.i80.i
-  %.mux.i.i104.i84.i = fcmp olt double %342, %363
-  %375 = select i1 %.mux.i.i104.i84.i, ptr %268, ptr %303, !unpredictable !3
-  %376 = select i1 %.mux.i.i104.i84.i, double %363, double %342
-  %377 = load i64, ptr %375, align 8, !alias.scope !6898
-  store i64 %377, ptr %303, align 8, !alias.scope !6898
-  store double %376, ptr %268, align 8, !alias.scope !6898
-  %brmerge.not.i.i108.i85.i = fcmp uno double %347, %368
-  %378 = bitcast i64 %377 to double
-  br i1 %brmerge.not.i.i108.i85.i, label %379, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit110.i86.i, !prof !2798
+  %.mux.i.i104.i84.i = fcmp olt double %327, %346
+  %357 = select i1 %.mux.i.i104.i84.i, ptr %257, ptr %291, !unpredictable !3
+  %358 = select i1 %.mux.i.i104.i84.i, double %346, double %327
+  %359 = load i64, ptr %357, align 8, !alias.scope !6898
+  store i64 %359, ptr %291, align 8, !alias.scope !6898
+  store double %358, ptr %257, align 8, !alias.scope !6898
+  %brmerge.not.i.i108.i85.i = fcmp uno double %332, %350
+  %360 = bitcast i64 %359 to double
+  br i1 %brmerge.not.i.i108.i85.i, label %361, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit110.i86.i, !prof !2798
 
-379:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit105.i83.i
+361:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit105.i83.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit110.i86.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit105.i83.i
-  %.mux.i.i109.i87.i = fcmp ogt double %347, %368
-  %380 = select i1 %.mux.i.i109.i87.i, ptr %274, ptr %267, !unpredictable !3
-  %381 = select i1 %.mux.i.i109.i87.i, double %347, double %368
-  %382 = load i64, ptr %380, align 8, !alias.scope !6898
-  store i64 %382, ptr %267, align 8, !alias.scope !6898
-  store double %381, ptr %274, align 8, !alias.scope !6898
-  %brmerge.not.i.i113.i88.i = fcmp uno double %366, %373
-  br i1 %brmerge.not.i.i113.i88.i, label %383, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit115.i89.i, !prof !2798
+  %.mux.i.i109.i87.i = fcmp ogt double %332, %350
+  %362 = select i1 %.mux.i.i109.i87.i, ptr %263, ptr %256, !unpredictable !3
+  %363 = select i1 %.mux.i.i109.i87.i, double %332, double %350
+  %364 = load i64, ptr %362, align 8, !alias.scope !6898
+  store i64 %364, ptr %256, align 8, !alias.scope !6898
+  store double %363, ptr %263, align 8, !alias.scope !6898
+  %brmerge.not.i.i113.i88.i = fcmp uno double %349, %355
+  br i1 %brmerge.not.i.i113.i88.i, label %365, label %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit115.i89.i, !prof !2798
 
-383:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit110.i86.i
+365:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit110.i86.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit115.i89.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit110.i86.i
-  %.mux.i.i114.i90.i = fcmp ogt double %366, %373
-  %384 = select i1 %.mux.i.i114.i90.i, ptr %281, ptr %262, !unpredictable !3
-  %385 = select i1 %.mux.i.i114.i90.i, double %366, double %373
-  %386 = load i64, ptr %384, align 8, !alias.scope !6898
-  store i64 %386, ptr %262, align 8, !alias.scope !6898
-  store double %385, ptr %281, align 8, !alias.scope !6898
-  %brmerge.not.i.i118.i91.i = fcmp uno double %371, %378
-  br i1 %brmerge.not.i.i118.i91.i, label %387, label %_ZN4core5slice4sort6shared9smallsort13sort9_optimal17h5453f895dfe551d8E.exit.i, !prof !2798
+  %.mux.i.i114.i90.i = fcmp ogt double %349, %355
+  %366 = select i1 %.mux.i.i114.i90.i, ptr %270, ptr %251, !unpredictable !3
+  %367 = select i1 %.mux.i.i114.i90.i, double %349, double %355
+  %368 = load i64, ptr %366, align 8, !alias.scope !6898
+  store i64 %368, ptr %251, align 8, !alias.scope !6898
+  store double %367, ptr %270, align 8, !alias.scope !6898
+  %brmerge.not.i.i118.i91.i = fcmp uno double %353, %360
+  br i1 %brmerge.not.i.i118.i91.i, label %369, label %_ZN4core5slice4sort6shared9smallsort13sort9_optimal17h5453f895dfe551d8E.exit.i, !prof !2798
 
-387:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit115.i89.i
+369:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit115.i89.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
 _ZN4core5slice4sort6shared9smallsort13sort9_optimal17h5453f895dfe551d8E.exit.i: ; preds = %_ZN4core5slice4sort6shared9smallsort12swap_if_less17hf955660994f805d2E.exit115.i89.i
-  %.mux.i.i119.i93.i = fcmp ogt double %371, %378
-  %388 = select i1 %.mux.i.i119.i93.i, ptr %303, ptr %275, !unpredictable !3
-  %389 = select i1 %.mux.i.i119.i93.i, double %371, double %378
-  %390 = load i64, ptr %388, align 8, !alias.scope !6898
-  store i64 %390, ptr %275, align 8, !alias.scope !6898
-  store double %389, ptr %303, align 8, !alias.scope !6898
-  br label %391
+  %.mux.i.i119.i93.i = fcmp ogt double %353, %360
+  %370 = select i1 %.mux.i.i119.i93.i, ptr %291, ptr %264, !unpredictable !3
+  %371 = select i1 %.mux.i.i119.i93.i, double %353, double %360
+  %372 = load i64, ptr %370, align 8, !alias.scope !6898
+  store i64 %372, ptr %264, align 8, !alias.scope !6898
+  store double %371, ptr %291, align 8, !alias.scope !6898
+  br label %373
 
-391:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort13sort9_optimal17h5453f895dfe551d8E.exit.i, %_ZN4core5slice4sort6shared9smallsort14sort13_optimal17h7df1e98e60d75933E.exit.i, %28
+373:                                              ; preds = %_ZN4core5slice4sort6shared9smallsort13sort9_optimal17h5453f895dfe551d8E.exit.i, %_ZN4core5slice4sort6shared9smallsort14sort13_optimal17h7df1e98e60d75933E.exit.i, %28
   %.sroa.09.0.i = phi i64 [ 13, %_ZN4core5slice4sort6shared9smallsort14sort13_optimal17h7df1e98e60d75933E.exit.i ], [ 9, %_ZN4core5slice4sort6shared9smallsort13sort9_optimal17h5453f895dfe551d8E.exit.i ], [ 1, %28 ]
   call fastcc void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17hb680f34662b9117dE(ptr noalias noundef nonnull align 8 %.sroa.01.0.i, i64 noundef %.sroa.9.0.i, i64 noundef %.sroa.09.0.i)
-  br i1 %23, label %.sink.split.i, label %392
+  br i1 %23, label %.sink.split.i, label %374
 
-392:                                              ; preds = %391
+374:                                              ; preds = %373
   %.not.i = icmp eq ptr %.sroa.01.0.i, %.sroa.0.0.lcssa
-  br i1 %.not.i, label %26, label %393
+  br i1 %.not.i, label %26, label %375
 
-393:                                              ; preds = %392
+375:                                              ; preds = %374
   call void @llvm.experimental.noalias.scope.decl(metadata !6901)
-  %394 = add nsw i64 %.sroa.11.0.lcssa, -1
-  %395 = getelementptr inbounds nuw double, ptr %10, i64 %394
-  %396 = getelementptr inbounds nuw double, ptr %.sroa.0.0.lcssa, i64 %394
-  %397 = getelementptr i8, ptr %24, i64 -8
+  %376 = add nsw i64 %.sroa.11.0.lcssa, -1
+  %377 = getelementptr inbounds nuw double, ptr %10, i64 %376
+  %378 = getelementptr inbounds nuw double, ptr %.sroa.0.0.lcssa, i64 %376
+  %379 = getelementptr i8, ptr %24, i64 -8
   br label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit26.i.i"
-  %398 = getelementptr i8, ptr %415, i64 8
-  %399 = getelementptr i8, ptr %414, i64 8
-  %400 = and i64 %.sroa.11.0.lcssa, 1
-  %401 = icmp eq i64 %400, 0
-  br i1 %401, label %425, label %417
+  %380 = getelementptr i8, ptr %397, i64 8
+  %381 = getelementptr i8, ptr %396, i64 8
+  %382 = and i64 %.sroa.11.0.lcssa, 1
+  %383 = icmp eq i64 %382, 0
+  br i1 %383, label %407, label %399
 
-.lr.ph.i.i:                                       ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit26.i.i", %393
-  %.sroa.0.020.i.i = phi ptr [ %409, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit26.i.i" ], [ %.sroa.0.0.lcssa, %393 ]
-  %.sroa.06.019.i.i = phi ptr [ %411, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit26.i.i" ], [ %24, %393 ]
-  %.sroa.010.018.i.i = phi ptr [ %406, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit26.i.i" ], [ %10, %393 ]
-  %.sroa.013.017.i.i = phi ptr [ %415, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit26.i.i" ], [ %397, %393 ]
-  %.sroa.015.016.i.i = phi ptr [ %414, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit26.i.i" ], [ %396, %393 ]
-  %.sroa.017.015.i.i = phi ptr [ %416, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit26.i.i" ], [ %395, %393 ]
-  %.sroa.018.014.i.i = phi i64 [ %402, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit26.i.i" ], [ 0, %393 ]
-  %402 = add nuw nsw i64 %.sroa.018.014.i.i, 1
+.lr.ph.i.i:                                       ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit26.i.i", %375
+  %.sroa.0.020.i.i = phi ptr [ %391, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit26.i.i" ], [ %.sroa.0.0.lcssa, %375 ]
+  %.sroa.06.019.i.i = phi ptr [ %393, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit26.i.i" ], [ %24, %375 ]
+  %.sroa.010.018.i.i = phi ptr [ %388, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit26.i.i" ], [ %10, %375 ]
+  %.sroa.013.017.i.i = phi ptr [ %397, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit26.i.i" ], [ %379, %375 ]
+  %.sroa.015.016.i.i = phi ptr [ %396, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit26.i.i" ], [ %378, %375 ]
+  %.sroa.017.015.i.i = phi ptr [ %398, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit26.i.i" ], [ %377, %375 ]
+  %.sroa.018.014.i.i = phi i64 [ %384, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit26.i.i" ], [ 0, %375 ]
+  %384 = add nuw nsw i64 %.sroa.018.014.i.i, 1
   %.sroa.06.0.val.i.i = load double, ptr %.sroa.06.019.i.i, align 8, !alias.scope !6904, !noundef !3
   %.sroa.0.0.val.i.i = load double, ptr %.sroa.0.020.i.i, align 8, !alias.scope !6904, !noundef !3
   %brmerge.not.i.i.i = fcmp uno double %.sroa.06.0.val.i.i, %.sroa.0.0.val.i.i
-  br i1 %brmerge.not.i.i.i, label %403, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit.i.i", !prof !2798
+  br i1 %brmerge.not.i.i.i, label %385, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit.i.i", !prof !2798
 
-403:                                              ; preds = %.lr.ph.i.i
+385:                                              ; preds = %.lr.ph.i.i
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32, !noalias !6901
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit.i.i": ; preds = %.lr.ph.i.i
   %.mux.i.i.i = fcmp olt double %.sroa.06.0.val.i.i, %.sroa.0.0.val.i.i
   %..i23.i.i = select i1 %.mux.i.i.i, ptr %.sroa.06.019.i.i, ptr %.sroa.0.020.i.i
-  %404 = load i64, ptr %..i23.i.i, align 8, !alias.scope !6904, !noalias !6905
-  store i64 %404, ptr %.sroa.010.018.i.i, align 8, !noalias !6909
+  %386 = load i64, ptr %..i23.i.i, align 8, !alias.scope !6904, !noalias !6905
+  store i64 %386, ptr %.sroa.010.018.i.i, align 8, !noalias !6909
   %.sroa.015.0.val.i.i = load double, ptr %.sroa.015.016.i.i, align 8, !alias.scope !6904, !noundef !3
   %.sroa.013.0.val.i.i = load double, ptr %.sroa.013.017.i.i, align 8, !alias.scope !6904, !noundef !3
   %brmerge.not.i24.i.i = fcmp uno double %.sroa.015.0.val.i.i, %.sroa.013.0.val.i.i
-  br i1 %brmerge.not.i24.i.i, label %405, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit26.i.i", !prof !2798
+  br i1 %brmerge.not.i24.i.i, label %387, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit26.i.i", !prof !2798
 
-405:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit.i.i"
+387:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit.i.i"
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32, !noalias !6901
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit26.i.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit.i.i"
-  %406 = getelementptr inbounds nuw i8, ptr %.sroa.010.018.i.i, i64 8
-  %407 = xor i1 %.mux.i.i.i, true
-  %408 = zext i1 %407 to i64
-  %409 = getelementptr inbounds nuw double, ptr %.sroa.0.020.i.i, i64 %408
-  %410 = zext i1 %.mux.i.i.i to i64
-  %411 = getelementptr inbounds nuw double, ptr %.sroa.06.019.i.i, i64 %410
+  %388 = getelementptr inbounds nuw i8, ptr %.sroa.010.018.i.i, i64 8
+  %389 = xor i1 %.mux.i.i.i, true
+  %390 = zext i1 %389 to i64
+  %391 = getelementptr inbounds nuw double, ptr %.sroa.0.020.i.i, i64 %390
+  %392 = zext i1 %.mux.i.i.i to i64
+  %393 = getelementptr inbounds nuw double, ptr %.sroa.06.019.i.i, i64 %392
   %.mux.i25.i.i = fcmp olt double %.sroa.015.0.val.i.i, %.sroa.013.0.val.i.i
   %..i.i.i = select i1 %.mux.i25.i.i, ptr %.sroa.013.017.i.i, ptr %.sroa.015.016.i.i
-  %412 = xor i1 %.mux.i25.i.i, true
-  %413 = load i64, ptr %..i.i.i, align 8, !alias.scope !6904, !noalias !6910
-  store i64 %413, ptr %.sroa.017.015.i.i, align 8, !noalias !6914
-  %.neg.i.i.i = sext i1 %412 to i64
-  %414 = getelementptr double, ptr %.sroa.015.016.i.i, i64 %.neg.i.i.i
+  %394 = xor i1 %.mux.i25.i.i, true
+  %395 = load i64, ptr %..i.i.i, align 8, !alias.scope !6904, !noalias !6910
+  store i64 %395, ptr %.sroa.017.015.i.i, align 8, !noalias !6914
+  %.neg.i.i.i = sext i1 %394 to i64
+  %396 = getelementptr double, ptr %.sroa.015.016.i.i, i64 %.neg.i.i.i
   %.neg15.i.i.i = sext i1 %.mux.i25.i.i to i64
-  %415 = getelementptr double, ptr %.sroa.013.017.i.i, i64 %.neg15.i.i.i
-  %416 = getelementptr inbounds i8, ptr %.sroa.017.015.i.i, i64 -8
-  %exitcond.not.i.i = icmp eq i64 %402, %22
+  %397 = getelementptr double, ptr %.sroa.013.017.i.i, i64 %.neg15.i.i.i
+  %398 = getelementptr inbounds i8, ptr %.sroa.017.015.i.i, i64 -8
+  %exitcond.not.i.i = icmp eq i64 %384, %22
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-417:                                              ; preds = %._crit_edge.i.i
-  %418 = icmp ult ptr %409, %398
-  %.sroa.0.0..sroa.06.0.i.i = select i1 %418, ptr %409, ptr %411
-  %419 = load i64, ptr %.sroa.0.0..sroa.06.0.i.i, align 8, !alias.scope !6904
-  store i64 %419, ptr %406, align 8, !noalias !6904
-  %420 = zext i1 %418 to i64
-  %421 = getelementptr inbounds nuw double, ptr %409, i64 %420
-  %422 = xor i1 %418, true
-  %423 = zext i1 %422 to i64
-  %424 = getelementptr inbounds nuw double, ptr %411, i64 %423
-  br label %425
+399:                                              ; preds = %._crit_edge.i.i
+  %400 = icmp ult ptr %391, %380
+  %.sroa.0.0..sroa.06.0.i.i = select i1 %400, ptr %391, ptr %393
+  %401 = load i64, ptr %.sroa.0.0..sroa.06.0.i.i, align 8, !alias.scope !6904
+  store i64 %401, ptr %388, align 8, !noalias !6904
+  %402 = zext i1 %400 to i64
+  %403 = getelementptr inbounds nuw double, ptr %391, i64 %402
+  %404 = xor i1 %400, true
+  %405 = zext i1 %404 to i64
+  %406 = getelementptr inbounds nuw double, ptr %393, i64 %405
+  br label %407
 
-425:                                              ; preds = %417, %._crit_edge.i.i
-  %.sroa.06.1.i.i = phi ptr [ %411, %._crit_edge.i.i ], [ %424, %417 ]
-  %.sroa.0.1.i.i = phi ptr [ %409, %._crit_edge.i.i ], [ %421, %417 ]
-  %426 = icmp ne ptr %.sroa.0.1.i.i, %398
-  %427 = icmp ne ptr %.sroa.06.1.i.i, %399
-  %or.cond.i.i = select i1 %426, i1 true, i1 %427, !prof !1976
-  br i1 %or.cond.i.i, label %428, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hded4c67a948fa164E.exit.i, !prof !1976
+407:                                              ; preds = %399, %._crit_edge.i.i
+  %.sroa.06.1.i.i = phi ptr [ %393, %._crit_edge.i.i ], [ %406, %399 ]
+  %.sroa.0.1.i.i = phi ptr [ %391, %._crit_edge.i.i ], [ %403, %399 ]
+  %408 = icmp ne ptr %.sroa.0.1.i.i, %380
+  %409 = icmp ne ptr %.sroa.06.1.i.i, %381
+  %or.cond.i.i = select i1 %408, i1 true, i1 %409, !prof !1976
+  br i1 %or.cond.i.i, label %410, label %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hded4c67a948fa164E.exit.i, !prof !1976
 
-428:                                              ; preds = %425
+410:                                              ; preds = %407
   call void @_ZN4core5slice4sort6shared9smallsort22panic_on_ord_violation17hd63a5aaa27f351b7E() #32, !noalias !6901
   unreachable
 
-_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hded4c67a948fa164E.exit.i: ; preds = %425
-  %429 = shl nuw nsw i64 %.sroa.11.0.lcssa, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.lcssa, ptr nonnull align 8 %10, i64 %429, i1 false)
+_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hded4c67a948fa164E.exit.i: ; preds = %407
+  %411 = shl nuw nsw i64 %.sroa.11.0.lcssa, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.sroa.0.0.lcssa, ptr nonnull align 8 %10, i64 %411, i1 false)
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %391, %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hded4c67a948fa164E.exit.i
+.sink.split.i:                                    ; preds = %373, %_ZN4core5slice4sort6shared9smallsort19bidirectional_merge17hded4c67a948fa164E.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !6892
   br label %_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf22aa05ae7e314a7E.exit
 
-430:                                              ; preds = %18
+412:                                              ; preds = %18
   call void @_ZN4core5slice4sort8unstable8heapsort8heapsort17h07b74657106937a3E(ptr noalias noundef nonnull align 8 %.sroa.0.0191, i64 noundef %.sroa.11.0190, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
   br label %_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf22aa05ae7e314a7E.exit
 
-431:                                              ; preds = %18
-  %432 = add i32 %.sroa.020.0188, -1
+413:                                              ; preds = %18
+  %414 = add i32 %.sroa.020.0188, -1
   call void @llvm.experimental.noalias.scope.decl(metadata !6915)
-  %433 = lshr i64 %.sroa.11.0190, 3
-  %.idx.i = shl nuw nsw i64 %433, 5
-  %434 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 %.idx.i
-  %.idx1.i = mul nuw i64 %433, 56
-  %435 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 %.idx1.i
-  %436 = icmp ult i64 %.sroa.11.0190, 64
-  br i1 %436, label %439, label %437
+  %415 = lshr i64 %.sroa.11.0190, 3
+  %.idx.i = shl nuw nsw i64 %415, 5
+  %416 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 %.idx.i
+  %.idx1.i = mul nuw i64 %415, 56
+  %417 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 %.idx1.i
+  %418 = icmp ult i64 %.sroa.11.0190, 64
+  br i1 %418, label %421, label %419
 
-437:                                              ; preds = %431
-  %438 = call fastcc noundef ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h5b3eaec92d395e3aE(ptr noundef nonnull readonly align 8 %.sroa.0.0191, ptr noundef readonly %434, ptr noundef readonly %435, i64 noundef %433)
+419:                                              ; preds = %413
+  %420 = call fastcc noundef ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h5b3eaec92d395e3aE(ptr noundef nonnull readonly align 8 %.sroa.0.0191, ptr noundef readonly %416, ptr noundef readonly %417, i64 noundef %415)
   br label %_ZN4core5slice4sort6shared5pivot12choose_pivot17h7a181b45b49c7b0cE.exit
 
-439:                                              ; preds = %431
+421:                                              ; preds = %413
   %.val5.i = load double, ptr %.sroa.0.0191, align 8, !alias.scope !6915, !noundef !3
-  %.val6.i = load double, ptr %434, align 8, !alias.scope !6915, !noundef !3
+  %.val6.i = load double, ptr %416, align 8, !alias.scope !6915, !noundef !3
   %brmerge.not.i.i = fcmp uno double %.val5.i, %.val6.i
-  br i1 %brmerge.not.i.i, label %440, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit.i", !prof !2798
+  br i1 %brmerge.not.i.i, label %422, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit.i", !prof !2798
 
-440:                                              ; preds = %439
+422:                                              ; preds = %421
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32, !noalias !6915
   unreachable
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit.i": ; preds = %439
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit.i": ; preds = %421
   %.mux.i.i = fcmp olt double %.val5.i, %.val6.i
-  %.val4.i = load double, ptr %435, align 8, !alias.scope !6915, !noundef !3
+  %.val4.i = load double, ptr %417, align 8, !alias.scope !6915, !noundef !3
   %brmerge.not.i7.i = fcmp uno double %.val5.i, %.val4.i
-  br i1 %brmerge.not.i7.i, label %441, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit9.i", !prof !2798
+  br i1 %brmerge.not.i7.i, label %423, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit9.i", !prof !2798
 
-441:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit.i"
+423:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit.i"
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32, !noalias !6915
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit9.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit.i"
   %.mux.i8.i = fcmp olt double %.val5.i, %.val4.i
-  %442 = xor i1 %.mux.i.i, %.mux.i8.i
-  br i1 %442, label %_ZN4core5slice4sort6shared5pivot12choose_pivot17h7a181b45b49c7b0cE.exit, label %443
+  %424 = xor i1 %.mux.i.i, %.mux.i8.i
+  br i1 %424, label %_ZN4core5slice4sort6shared5pivot12choose_pivot17h7a181b45b49c7b0cE.exit, label %425
 
-443:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit9.i"
+425:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit9.i"
   %brmerge.not.i10.i = fcmp uno double %.val6.i, %.val4.i
-  br i1 %brmerge.not.i10.i, label %444, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit12.i", !prof !2798
+  br i1 %brmerge.not.i10.i, label %426, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit12.i", !prof !2798
 
-444:                                              ; preds = %443
+426:                                              ; preds = %425
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32, !noalias !6915
   unreachable
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit12.i": ; preds = %443
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit12.i": ; preds = %425
   %.mux.i11.i = fcmp olt double %.val6.i, %.val4.i
-  %445 = xor i1 %.mux.i.i, %.mux.i11.i
-  %..i.i = select i1 %445, ptr %435, ptr %434
+  %427 = xor i1 %.mux.i.i, %.mux.i11.i
+  %..i.i = select i1 %427, ptr %417, ptr %416
   br label %_ZN4core5slice4sort6shared5pivot12choose_pivot17h7a181b45b49c7b0cE.exit
 
-_ZN4core5slice4sort6shared5pivot12choose_pivot17h7a181b45b49c7b0cE.exit: ; preds = %437, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit9.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit12.i"
-  %.sroa.0.0.i.sink.i = phi ptr [ %438, %437 ], [ %.sroa.0.0191, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit9.i" ], [ %..i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit12.i" ]
-  %446 = ptrtoint ptr %.sroa.0.0.i.sink.i to i64
-  %447 = ptrtoint ptr %.sroa.0.0191 to i64
-  %448 = sub nuw i64 %446, %447
-  %.sroa.0.0.i = lshr exact i64 %448, 3
+_ZN4core5slice4sort6shared5pivot12choose_pivot17h7a181b45b49c7b0cE.exit: ; preds = %419, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit9.i", %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit12.i"
+  %.sroa.0.0.i.sink.i = phi ptr [ %420, %419 ], [ %.sroa.0.0191, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit9.i" ], [ %..i.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit12.i" ]
+  %428 = ptrtoint ptr %.sroa.0.0.i.sink.i to i64
+  %429 = ptrtoint ptr %.sroa.0.0191 to i64
+  %430 = sub nuw i64 %428, %429
+  %.sroa.0.0.i = lshr exact i64 %430, 3
   %.not = icmp eq ptr %.sroa.017.0189, null
-  br i1 %.not, label %453, label %449
+  br i1 %.not, label %435, label %431
 
-_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf22aa05ae7e314a7E.exit: ; preds = %.sink.split.i, %._crit_edge, %430
+_ZN4core5slice4sort6shared9smallsort18small_sort_network17hf22aa05ae7e314a7E.exit: ; preds = %.sink.split.i, %._crit_edge, %412
   ret void
 
-449:                                              ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17h7a181b45b49c7b0cE.exit
-  %450 = icmp ult i64 %.sroa.0.0.i, %.sroa.11.0190
-  call void @llvm.assume(i1 %450)
-  %451 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 %448
+431:                                              ; preds = %_ZN4core5slice4sort6shared5pivot12choose_pivot17h7a181b45b49c7b0cE.exit
+  %432 = icmp ult i64 %.sroa.0.0.i, %.sroa.11.0190
+  call void @llvm.assume(i1 %432)
+  %433 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 %430
   %.sroa.017.0.val = load double, ptr %.sroa.017.0189, align 8, !noundef !3
-  %.val = load double, ptr %451, align 8, !noundef !3
+  %.val = load double, ptr %433, align 8, !noundef !3
   %brmerge.not.i = fcmp uno double %.sroa.017.0.val, %.val
-  br i1 %brmerge.not.i, label %452, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit", !prof !2798
+  br i1 %brmerge.not.i, label %434, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit", !prof !2798
 
-452:                                              ; preds = %449
+434:                                              ; preds = %431
   call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
   unreachable
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit": ; preds = %449
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit": ; preds = %431
   %.mux.i = fcmp olt double %.sroa.017.0.val, %.val
-  br i1 %.mux.i, label %453, label %505
+  br i1 %.mux.i, label %435, label %487
 
-453:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit", %_ZN4core5slice4sort6shared5pivot12choose_pivot17h7a181b45b49c7b0cE.exit
+435:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit", %_ZN4core5slice4sort6shared5pivot12choose_pivot17h7a181b45b49c7b0cE.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !6918)
   %.not.i27 = icmp ult i64 %.sroa.0.0.i, %.sroa.11.0190
-  br i1 %.not.i27, label %455, label %454
+  br i1 %.not.i27, label %437, label %436
 
-454:                                              ; preds = %453
+436:                                              ; preds = %435
   call void @llvm.trap()
   unreachable
 
-455:                                              ; preds = %453
+437:                                              ; preds = %435
   call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$14swap_unchecked17h33cc02827726ec35E"(ptr noalias noundef nonnull align 8 %.sroa.0.0191, i64 noundef range(i64 33, 0) %.sroa.11.0190, i64 noundef 0, i64 noundef range(i64 0, 2305843009213693952) %.sroa.0.0.i)
-  %456 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 8
+  %438 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !6921)
   call void @llvm.experimental.noalias.scope.decl(metadata !6924)
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !6926
-  %457 = load double, ptr %456, align 8, !alias.scope !6927, !noalias !6924, !noundef !3
-  store double %457, ptr %9, align 8, !noalias !6926
+  %439 = load double, ptr %438, align 8, !alias.scope !6927, !noalias !6924, !noundef !3
+  store double %439, ptr %9, align 8, !noalias !6926
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !6926
-  %458 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 16
+  %440 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 16
   store ptr %9, ptr %17, align 8, !noalias !6926
-  %459 = getelementptr double, ptr %.sroa.0.0191, i64 %.sroa.11.0190
-  %460 = getelementptr i8, ptr %459, i64 -8
-  %461 = icmp ult ptr %458, %460
+  %441 = getelementptr double, ptr %.sroa.0.0191, i64 %.sroa.11.0190
+  %442 = getelementptr i8, ptr %441, i64 -8
+  %443 = icmp ult ptr %440, %442
   %.val1.i18.pre.pre.i.i = load double, ptr %.sroa.0.0191, align 8, !alias.scope !6928, !noalias !6929
-  br i1 %461, label %.lr.ph.i.i32, label %.preheader.i.i
+  br i1 %443, label %.lr.ph.i.i32, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit34.i.i", %455
-  %.promoted80.i.i = phi ptr [ %458, %455 ], [ %492, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit34.i.i" ]
-  %.promoted36.i.i = phi ptr [ %456, %455 ], [ %486, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit34.i.i" ]
-  %.promoted.i.i = phi i64 [ 0, %455 ], [ %491, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit34.i.i" ]
-  %462 = icmp eq ptr %.promoted80.i.i, %459
-  br i1 %462, label %._crit_edge.i.i31, label %.lr.ph39.i.i
+.preheader.i.i:                                   ; preds = %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit34.i.i", %437
+  %.promoted80.i.i = phi ptr [ %440, %437 ], [ %474, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit34.i.i" ]
+  %.promoted36.i.i = phi ptr [ %438, %437 ], [ %468, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit34.i.i" ]
+  %.promoted.i.i = phi i64 [ 0, %437 ], [ %473, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit34.i.i" ]
+  %444 = icmp eq ptr %.promoted80.i.i, %441
+  br i1 %444, label %._crit_edge.i.i31, label %.lr.ph39.i.i
 
 .lr.ph39.i.i:                                     ; preds = %.preheader.i.i
   %.val.i.i28.i = load double, ptr %.promoted80.i.i, align 8, !alias.scope !6927, !noalias !6932, !noundef !3
   %brmerge.not.i.i.i29.i = fcmp uno double %.val.i.i28.i, %.val1.i18.pre.pre.i.i
   br i1 %brmerge.not.i.i.i29.i, label %._crit_edge.i, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit.i.i", !prof !1960
 
-463:                                              ; preds = %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit.i.i"
-  %.val.i.i.i29 = load double, ptr %471, align 8, !alias.scope !6927, !noalias !6932, !noundef !3
+445:                                              ; preds = %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit.i.i"
+  %.val.i.i.i29 = load double, ptr %453, align 8, !alias.scope !6927, !noalias !6932, !noundef !3
   %brmerge.not.i.i.i.i30 = fcmp uno double %.val.i.i.i29, %.val1.i18.pre.pre.i.i
   br i1 %brmerge.not.i.i.i.i30, label %._crit_edge.i, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit.i.i", !prof !6860
 
-._crit_edge.i:                                    ; preds = %.lr.ph39.i.i, %463
-  %.lcssa9.i = phi ptr [ %471, %463 ], [ %.promoted80.i.i, %.lr.ph39.i.i ]
-  %.lcssa5.i = phi i64 [ %470, %463 ], [ %.promoted.i.i, %.lr.ph39.i.i ]
-  %.lcssa.i = phi ptr [ %466, %463 ], [ %.promoted36.i.i, %.lr.ph39.i.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph39.i.i, %445
+  %.lcssa9.i = phi ptr [ %453, %445 ], [ %.promoted80.i.i, %.lr.ph39.i.i ]
+  %.lcssa5.i = phi i64 [ %452, %445 ], [ %.promoted.i.i, %.lr.ph39.i.i ]
+  %.lcssa.i = phi ptr [ %448, %445 ], [ %.promoted36.i.i, %.lr.ph39.i.i ]
   store ptr %.lcssa9.i, ptr %15, align 8, !noalias !6926
   store i64 %.lcssa5.i, ptr %16, align 8, !noalias !6926
   store ptr %.lcssa.i, ptr %8, align 8, !noalias !6926
   br label %.invoke.i.i
 
-"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit.i.i": ; preds = %.lr.ph39.i.i, %463
-  %.val.i.i30.i = phi double [ %.val.i.i.i29, %463 ], [ %.val.i.i28.i, %.lr.ph39.i.i ]
-  %464 = phi ptr [ %466, %463 ], [ %.promoted36.i.i, %.lr.ph39.i.i ]
-  %465 = phi i64 [ %470, %463 ], [ %.promoted.i.i, %.lr.ph39.i.i ]
-  %466 = phi ptr [ %471, %463 ], [ %.promoted80.i.i, %.lr.ph39.i.i ]
+"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit.i.i": ; preds = %.lr.ph39.i.i, %445
+  %.val.i.i30.i = phi double [ %.val.i.i.i29, %445 ], [ %.val.i.i28.i, %.lr.ph39.i.i ]
+  %446 = phi ptr [ %448, %445 ], [ %.promoted36.i.i, %.lr.ph39.i.i ]
+  %447 = phi i64 [ %452, %445 ], [ %.promoted.i.i, %.lr.ph39.i.i ]
+  %448 = phi ptr [ %453, %445 ], [ %.promoted80.i.i, %.lr.ph39.i.i ]
   %.mux.i.i.i.i28 = fcmp olt double %.val.i.i30.i, %.val1.i18.pre.pre.i.i
-  %467 = getelementptr inbounds nuw double, ptr %456, i64 %465
-  %468 = load i64, ptr %467, align 8, !alias.scope !6927, !noalias !6932
-  store i64 %468, ptr %464, align 8, !alias.scope !6927, !noalias !6932
-  store double %.val.i.i30.i, ptr %467, align 8, !alias.scope !6927, !noalias !6932
-  %469 = zext i1 %.mux.i.i.i.i28 to i64
-  %470 = add i64 %465, %469
-  %471 = getelementptr inbounds nuw i8, ptr %466, i64 8
-  %472 = icmp eq ptr %471, %459
-  br i1 %472, label %._crit_edge.i.i31, label %463
+  %449 = getelementptr inbounds nuw double, ptr %438, i64 %447
+  %450 = load i64, ptr %449, align 8, !alias.scope !6927, !noalias !6932
+  store i64 %450, ptr %446, align 8, !alias.scope !6927, !noalias !6932
+  store double %.val.i.i30.i, ptr %449, align 8, !alias.scope !6927, !noalias !6932
+  %451 = zext i1 %.mux.i.i.i.i28 to i64
+  %452 = add i64 %447, %451
+  %453 = getelementptr inbounds nuw i8, ptr %448, i64 8
+  %454 = icmp eq ptr %453, %441
+  br i1 %454, label %._crit_edge.i.i31, label %445
 
 ._crit_edge.i.i31:                                ; preds = %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit.i.i", %.preheader.i.i
-  %473 = phi ptr [ %.promoted36.i.i, %.preheader.i.i ], [ %466, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit.i.i" ]
-  %474 = phi i64 [ %.promoted.i.i, %.preheader.i.i ], [ %470, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit.i.i" ]
-  store i64 %474, ptr %16, align 8, !noalias !6926
-  store ptr %473, ptr %8, align 8, !noalias !6926
+  %455 = phi ptr [ %.promoted36.i.i, %.preheader.i.i ], [ %448, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit.i.i" ]
+  %456 = phi i64 [ %.promoted.i.i, %.preheader.i.i ], [ %452, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit.i.i" ]
+  store i64 %456, ptr %16, align 8, !noalias !6926
+  store ptr %455, ptr %8, align 8, !noalias !6926
   store ptr %9, ptr %15, align 8, !noalias !6926
-  %brmerge.not.i.i19.i.i = fcmp uno double %457, %.val1.i18.pre.pre.i.i
+  %brmerge.not.i.i19.i.i = fcmp uno double %439, %.val1.i18.pre.pre.i.i
   br i1 %brmerge.not.i.i19.i.i, label %.invoke.i.i, label %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h3f5ba091d9a1bdd6E.exit.i, !prof !2798
 
-475:                                              ; preds = %.invoke.i.i
-  %476 = landingpad { ptr, i32 }
+457:                                              ; preds = %.invoke.i.i
+  %458 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr83drop_in_place$LT$core..slice..sort..unstable..quicksort..GapGuardRaw$LT$f64$GT$$GT$17h09e55e1ed28e3289E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #33
-          to label %common.resume unwind label %494, !noalias !6924
+          to label %common.resume unwind label %476, !noalias !6924
 
-.lr.ph.i.i32:                                     ; preds = %455, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit34.i.i"
-  %477 = phi ptr [ %492, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit34.i.i" ], [ %458, %455 ]
-  %478 = phi i64 [ %491, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit34.i.i" ], [ 0, %455 ]
-  %479 = phi ptr [ %486, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit34.i.i" ], [ %456, %455 ]
-  %.val.i23.i.i = load double, ptr %477, align 8, !alias.scope !6927, !noalias !6935, !noundef !3
+.lr.ph.i.i32:                                     ; preds = %437, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit34.i.i"
+  %459 = phi ptr [ %474, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit34.i.i" ], [ %440, %437 ]
+  %460 = phi i64 [ %473, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit34.i.i" ], [ 0, %437 ]
+  %461 = phi ptr [ %468, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit34.i.i" ], [ %438, %437 ]
+  %.val.i23.i.i = load double, ptr %459, align 8, !alias.scope !6927, !noalias !6935, !noundef !3
   %brmerge.not.i.i25.i.i = fcmp uno double %.val.i23.i.i, %.val1.i18.pre.pre.i.i
-  br i1 %brmerge.not.i.i25.i.i, label %480, label %481, !prof !2798
+  br i1 %brmerge.not.i.i25.i.i, label %462, label %463, !prof !2798
 
-480:                                              ; preds = %.lr.ph.i.i32
-  store ptr %479, ptr %8, align 8, !noalias !6926
-  store i64 %478, ptr %16, align 8, !noalias !6926
-  store ptr %477, ptr %15, align 8, !noalias !6926
+462:                                              ; preds = %.lr.ph.i.i32
+  store ptr %461, ptr %8, align 8, !noalias !6926
+  store i64 %460, ptr %16, align 8, !noalias !6926
+  store ptr %459, ptr %15, align 8, !noalias !6926
   br label %.invoke.i.i
 
-481:                                              ; preds = %.lr.ph.i.i32
+463:                                              ; preds = %.lr.ph.i.i32
   %.mux.i.i26.i.i = fcmp olt double %.val.i23.i.i, %.val1.i18.pre.pre.i.i
-  %482 = getelementptr inbounds nuw double, ptr %456, i64 %478
-  %483 = load i64, ptr %482, align 8, !alias.scope !6927, !noalias !6935
-  store i64 %483, ptr %479, align 8, !alias.scope !6927, !noalias !6935
-  store double %.val.i23.i.i, ptr %482, align 8, !alias.scope !6927, !noalias !6935
-  %484 = zext i1 %.mux.i.i26.i.i to i64
-  %485 = add i64 %478, %484
-  %486 = getelementptr inbounds nuw i8, ptr %477, i64 8
-  %.val.i29.i.i = load double, ptr %486, align 8, !alias.scope !6927, !noalias !6938, !noundef !3
+  %464 = getelementptr inbounds nuw double, ptr %438, i64 %460
+  %465 = load i64, ptr %464, align 8, !alias.scope !6927, !noalias !6935
+  store i64 %465, ptr %461, align 8, !alias.scope !6927, !noalias !6935
+  store double %.val.i23.i.i, ptr %464, align 8, !alias.scope !6927, !noalias !6935
+  %466 = zext i1 %.mux.i.i26.i.i to i64
+  %467 = add i64 %460, %466
+  %468 = getelementptr inbounds nuw i8, ptr %459, i64 8
+  %.val.i29.i.i = load double, ptr %468, align 8, !alias.scope !6927, !noalias !6938, !noundef !3
   %brmerge.not.i.i31.i.i = fcmp uno double %.val.i29.i.i, %.val1.i18.pre.pre.i.i
-  br i1 %brmerge.not.i.i31.i.i, label %487, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit34.i.i", !prof !2798
+  br i1 %brmerge.not.i.i31.i.i, label %469, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit34.i.i", !prof !2798
 
-487:                                              ; preds = %481
-  store ptr %477, ptr %8, align 8, !noalias !6926
-  store i64 %485, ptr %16, align 8, !noalias !6926
-  store ptr %486, ptr %15, align 8, !noalias !6926
+469:                                              ; preds = %463
+  store ptr %459, ptr %8, align 8, !noalias !6926
+  store i64 %467, ptr %16, align 8, !noalias !6926
+  store ptr %468, ptr %15, align 8, !noalias !6926
   br label %.invoke.i.i
 
-.invoke.i.i:                                      ; preds = %._crit_edge.i.i31, %487, %480, %._crit_edge.i
+.invoke.i.i:                                      ; preds = %._crit_edge.i.i31, %469, %462, %._crit_edge.i
   invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
-          to label %.cont.i.i unwind label %475, !noalias !6924
+          to label %.cont.i.i unwind label %457, !noalias !6924
 
 .cont.i.i:                                        ; preds = %.invoke.i.i
   unreachable
 
-"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit34.i.i": ; preds = %481
+"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17h6a27825c40a4eb15E.exit34.i.i": ; preds = %463
   %.mux.i.i32.i.i = fcmp olt double %.val.i29.i.i, %.val1.i18.pre.pre.i.i
-  %488 = getelementptr inbounds nuw double, ptr %456, i64 %485
-  %489 = load i64, ptr %488, align 8, !alias.scope !6927, !noalias !6938
-  store i64 %489, ptr %477, align 8, !alias.scope !6927, !noalias !6938
-  store double %.val.i29.i.i, ptr %488, align 8, !alias.scope !6927, !noalias !6938
-  %490 = zext i1 %.mux.i.i32.i.i to i64
-  %491 = add i64 %485, %490
-  %492 = getelementptr inbounds nuw i8, ptr %477, i64 16
-  %493 = icmp ult ptr %492, %460
-  br i1 %493, label %.lr.ph.i.i32, label %.preheader.i.i
+  %470 = getelementptr inbounds nuw double, ptr %438, i64 %467
+  %471 = load i64, ptr %470, align 8, !alias.scope !6927, !noalias !6938
+  store i64 %471, ptr %459, align 8, !alias.scope !6927, !noalias !6938
+  store double %.val.i29.i.i, ptr %470, align 8, !alias.scope !6927, !noalias !6938
+  %472 = zext i1 %.mux.i.i32.i.i to i64
+  %473 = add i64 %467, %472
+  %474 = getelementptr inbounds nuw i8, ptr %459, i64 16
+  %475 = icmp ult ptr %474, %442
+  br i1 %475, label %.lr.ph.i.i32, label %.preheader.i.i
 
-494:                                              ; preds = %475
-  %495 = landingpad { ptr, i32 }
+476:                                              ; preds = %457
+  %477 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #34, !noalias !6924
   unreachable
 
-common.resume:                                    ; preds = %525, %475
-  %common.resume.op = phi { ptr, i32 } [ %476, %475 ], [ %526, %525 ]
+common.resume:                                    ; preds = %507, %457
+  %common.resume.op = phi { ptr, i32 } [ %458, %457 ], [ %508, %507 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h3f5ba091d9a1bdd6E.exit.i: ; preds = %._crit_edge.i.i31
-  %.mux.i.i20.i.i = fcmp olt double %457, %.val1.i18.pre.pre.i.i
-  %496 = getelementptr inbounds nuw double, ptr %456, i64 %474
-  %497 = load i64, ptr %496, align 8, !alias.scope !6927, !noalias !6941
-  store i64 %497, ptr %473, align 8, !alias.scope !6927, !noalias !6941
-  store double %457, ptr %496, align 8, !alias.scope !6927, !noalias !6941
-  %498 = zext i1 %.mux.i.i20.i.i to i64
-  %499 = add i64 %474, %498
+  %.mux.i.i20.i.i = fcmp olt double %439, %.val1.i18.pre.pre.i.i
+  %478 = getelementptr inbounds nuw double, ptr %438, i64 %456
+  %479 = load i64, ptr %478, align 8, !alias.scope !6927, !noalias !6941
+  store i64 %479, ptr %455, align 8, !alias.scope !6927, !noalias !6941
+  store double %439, ptr %478, align 8, !alias.scope !6927, !noalias !6941
+  %480 = zext i1 %.mux.i.i20.i.i to i64
+  %481 = add i64 %456, %480
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !6926
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !6926
-  %.not5.i = icmp ult i64 %499, %.sroa.11.0190
-  br i1 %.not5.i, label %_ZN4core5slice4sort8unstable9quicksort9partition17hf2d966b60b0eae10E.exit, label %500
+  %.not5.i = icmp ult i64 %481, %.sroa.11.0190
+  br i1 %.not5.i, label %_ZN4core5slice4sort8unstable9quicksort9partition17hf2d966b60b0eae10E.exit, label %482
 
-500:                                              ; preds = %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h3f5ba091d9a1bdd6E.exit.i
+482:                                              ; preds = %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h3f5ba091d9a1bdd6E.exit.i
   call void @llvm.trap()
   unreachable
 
 _ZN4core5slice4sort8unstable9quicksort9partition17hf2d966b60b0eae10E.exit: ; preds = %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h3f5ba091d9a1bdd6E.exit.i
-  call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$14swap_unchecked17h33cc02827726ec35E"(ptr noalias noundef nonnull align 8 %.sroa.0.0191, i64 noundef range(i64 33, 0) %.sroa.11.0190, i64 noundef 0, i64 noundef %499)
-  %501 = getelementptr inbounds nuw double, ptr %.sroa.0.0191, i64 %499
-  %502 = getelementptr inbounds nuw i8, ptr %501, i64 8
-  %503 = xor i64 %499, -1
-  %504 = add i64 %.sroa.11.0190, %503
-  call void @_ZN4core5slice4sort8unstable9quicksort9quicksort17hbe916ac2d48bff32E(ptr noalias noundef nonnull align 8 %.sroa.0.0191, i64 noundef %499, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.017.0189, i32 noundef %432, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
+  call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$14swap_unchecked17h33cc02827726ec35E"(ptr noalias noundef nonnull align 8 %.sroa.0.0191, i64 noundef range(i64 33, 0) %.sroa.11.0190, i64 noundef 0, i64 noundef %481)
+  %483 = getelementptr inbounds nuw double, ptr %.sroa.0.0191, i64 %481
+  %484 = getelementptr inbounds nuw i8, ptr %483, i64 8
+  %485 = xor i64 %481, -1
+  %486 = add i64 %.sroa.11.0190, %485
+  call void @_ZN4core5slice4sort8unstable9quicksort9quicksort17hbe916ac2d48bff32E(ptr noalias noundef nonnull align 8 %.sroa.0.0191, i64 noundef %481, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.017.0189, i32 noundef %414, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
   br label %.backedge
 
-505:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit"
+487:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by28_$u7b$$u7b$closure$u7d$$u7d$17h29cda529274b6242E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !6942)
   call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$14swap_unchecked17h33cc02827726ec35E"(ptr noalias noundef nonnull align 8 %.sroa.0.0191, i64 noundef range(i64 33, 0) %.sroa.11.0190, i64 noundef 0, i64 noundef range(i64 0, -1) %.sroa.0.0.i)
-  %506 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 8
+  %488 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !6945)
   call void @llvm.experimental.noalias.scope.decl(metadata !6948)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !6950
-  %507 = load double, ptr %506, align 8, !alias.scope !6951, !noalias !6948, !noundef !3
-  store double %507, ptr %7, align 8, !noalias !6950
+  %489 = load double, ptr %488, align 8, !alias.scope !6951, !noalias !6948, !noundef !3
+  store double %489, ptr %7, align 8, !noalias !6950
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !6950
-  %508 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 16
+  %490 = getelementptr inbounds nuw i8, ptr %.sroa.0.0191, i64 16
   store ptr %7, ptr %14, align 8, !noalias !6950
-  %509 = getelementptr double, ptr %.sroa.0.0191, i64 %.sroa.11.0190
-  %510 = getelementptr i8, ptr %509, i64 -8
-  %511 = icmp ult ptr %508, %510
+  %491 = getelementptr double, ptr %.sroa.0.0191, i64 %.sroa.11.0190
+  %492 = getelementptr i8, ptr %491, i64 -8
+  %493 = icmp ult ptr %490, %492
   %.val1.i18.pre.pre.i.i34 = load double, ptr %.sroa.0.0191, align 8, !alias.scope !6952, !noalias !6953
-  br i1 %511, label %.lr.ph.i.i54, label %.preheader.i.i35
+  br i1 %493, label %.lr.ph.i.i54, label %.preheader.i.i35
 
-.preheader.i.i35:                                 ; preds = %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit34.i.i", %505
-  %.promoted80.i.i36 = phi ptr [ %508, %505 ], [ %542, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit34.i.i" ]
-  %.promoted36.i.i37 = phi ptr [ %506, %505 ], [ %536, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit34.i.i" ]
-  %.promoted.i.i38 = phi i64 [ 0, %505 ], [ %541, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit34.i.i" ]
-  %512 = icmp eq ptr %.promoted80.i.i36, %509
-  br i1 %512, label %._crit_edge.i.i51, label %.lr.ph39.i.i39
+.preheader.i.i35:                                 ; preds = %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit34.i.i", %487
+  %.promoted80.i.i36 = phi ptr [ %490, %487 ], [ %524, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit34.i.i" ]
+  %.promoted36.i.i37 = phi ptr [ %488, %487 ], [ %518, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit34.i.i" ]
+  %.promoted.i.i38 = phi i64 [ 0, %487 ], [ %523, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit34.i.i" ]
+  %494 = icmp eq ptr %.promoted80.i.i36, %491
+  br i1 %494, label %._crit_edge.i.i51, label %.lr.ph39.i.i39
 
 .lr.ph39.i.i39:                                   ; preds = %.preheader.i.i35
   %.val.i.i28.i40 = load double, ptr %.promoted80.i.i36, align 8, !alias.scope !6951, !noalias !6956, !noundef !3
   %brmerge.not.i.i.i.i29.i = fcmp uno double %.val1.i18.pre.pre.i.i34, %.val.i.i28.i40
   br i1 %brmerge.not.i.i.i.i29.i, label %._crit_edge.i43, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit.i.i", !prof !1960
 
-513:                                              ; preds = %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit.i.i"
-  %.val.i.i.i42 = load double, ptr %521, align 8, !alias.scope !6951, !noalias !6956, !noundef !3
+495:                                              ; preds = %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit.i.i"
+  %.val.i.i.i42 = load double, ptr %503, align 8, !alias.scope !6951, !noalias !6956, !noundef !3
   %brmerge.not.i.i.i.i.i = fcmp uno double %.val1.i18.pre.pre.i.i34, %.val.i.i.i42
   br i1 %brmerge.not.i.i.i.i.i, label %._crit_edge.i43, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit.i.i", !prof !6860
 
-._crit_edge.i43:                                  ; preds = %.lr.ph39.i.i39, %513
-  %.lcssa9.i44 = phi ptr [ %521, %513 ], [ %.promoted80.i.i36, %.lr.ph39.i.i39 ]
-  %.lcssa5.i45 = phi i64 [ %520, %513 ], [ %.promoted.i.i38, %.lr.ph39.i.i39 ]
-  %.lcssa.i46 = phi ptr [ %516, %513 ], [ %.promoted36.i.i37, %.lr.ph39.i.i39 ]
+._crit_edge.i43:                                  ; preds = %.lr.ph39.i.i39, %495
+  %.lcssa9.i44 = phi ptr [ %503, %495 ], [ %.promoted80.i.i36, %.lr.ph39.i.i39 ]
+  %.lcssa5.i45 = phi i64 [ %502, %495 ], [ %.promoted.i.i38, %.lr.ph39.i.i39 ]
+  %.lcssa.i46 = phi ptr [ %498, %495 ], [ %.promoted36.i.i37, %.lr.ph39.i.i39 ]
   store ptr %.lcssa9.i44, ptr %12, align 8, !noalias !6950
   store i64 %.lcssa5.i45, ptr %13, align 8, !noalias !6950
   store ptr %.lcssa.i46, ptr %6, align 8, !noalias !6950
   br label %.invoke.i.i47
 
-"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit.i.i": ; preds = %.lr.ph39.i.i39, %513
-  %.val.i.i30.i41 = phi double [ %.val.i.i.i42, %513 ], [ %.val.i.i28.i40, %.lr.ph39.i.i39 ]
-  %514 = phi ptr [ %516, %513 ], [ %.promoted36.i.i37, %.lr.ph39.i.i39 ]
-  %515 = phi i64 [ %520, %513 ], [ %.promoted.i.i38, %.lr.ph39.i.i39 ]
-  %516 = phi ptr [ %521, %513 ], [ %.promoted80.i.i36, %.lr.ph39.i.i39 ]
+"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit.i.i": ; preds = %.lr.ph39.i.i39, %495
+  %.val.i.i30.i41 = phi double [ %.val.i.i.i42, %495 ], [ %.val.i.i28.i40, %.lr.ph39.i.i39 ]
+  %496 = phi ptr [ %498, %495 ], [ %.promoted36.i.i37, %.lr.ph39.i.i39 ]
+  %497 = phi i64 [ %502, %495 ], [ %.promoted.i.i38, %.lr.ph39.i.i39 ]
+  %498 = phi ptr [ %503, %495 ], [ %.promoted80.i.i36, %.lr.ph39.i.i39 ]
   %.mux.i.i.i.i.i = fcmp uge double %.val1.i18.pre.pre.i.i34, %.val.i.i30.i41
-  %517 = getelementptr inbounds nuw double, ptr %506, i64 %515
-  %518 = load i64, ptr %517, align 8, !alias.scope !6951, !noalias !6956
-  store i64 %518, ptr %514, align 8, !alias.scope !6951, !noalias !6956
-  store double %.val.i.i30.i41, ptr %517, align 8, !alias.scope !6951, !noalias !6956
-  %519 = zext i1 %.mux.i.i.i.i.i to i64
-  %520 = add i64 %515, %519
-  %521 = getelementptr inbounds nuw i8, ptr %516, i64 8
-  %522 = icmp eq ptr %521, %509
-  br i1 %522, label %._crit_edge.i.i51, label %513
+  %499 = getelementptr inbounds nuw double, ptr %488, i64 %497
+  %500 = load i64, ptr %499, align 8, !alias.scope !6951, !noalias !6956
+  store i64 %500, ptr %496, align 8, !alias.scope !6951, !noalias !6956
+  store double %.val.i.i30.i41, ptr %499, align 8, !alias.scope !6951, !noalias !6956
+  %501 = zext i1 %.mux.i.i.i.i.i to i64
+  %502 = add i64 %497, %501
+  %503 = getelementptr inbounds nuw i8, ptr %498, i64 8
+  %504 = icmp eq ptr %503, %491
+  br i1 %504, label %._crit_edge.i.i51, label %495
 
 ._crit_edge.i.i51:                                ; preds = %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit.i.i", %.preheader.i.i35
-  %523 = phi ptr [ %.promoted36.i.i37, %.preheader.i.i35 ], [ %516, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit.i.i" ]
-  %524 = phi i64 [ %.promoted.i.i38, %.preheader.i.i35 ], [ %520, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit.i.i" ]
-  store i64 %524, ptr %13, align 8, !noalias !6950
-  store ptr %523, ptr %6, align 8, !noalias !6950
+  %505 = phi ptr [ %.promoted36.i.i37, %.preheader.i.i35 ], [ %498, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit.i.i" ]
+  %506 = phi i64 [ %.promoted.i.i38, %.preheader.i.i35 ], [ %502, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit.i.i" ]
+  store i64 %506, ptr %13, align 8, !noalias !6950
+  store ptr %505, ptr %6, align 8, !noalias !6950
   store ptr %7, ptr %12, align 8, !noalias !6950
-  %brmerge.not.i.i.i19.i.i = fcmp uno double %.val1.i18.pre.pre.i.i34, %507
+  %brmerge.not.i.i.i19.i.i = fcmp uno double %.val1.i18.pre.pre.i.i34, %489
   br i1 %brmerge.not.i.i.i19.i.i, label %.invoke.i.i47, label %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h24b48b3d5e213935E.exit.i, !prof !2798
 
-525:                                              ; preds = %.invoke.i.i47
-  %526 = landingpad { ptr, i32 }
+507:                                              ; preds = %.invoke.i.i47
+  %508 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr83drop_in_place$LT$core..slice..sort..unstable..quicksort..GapGuardRaw$LT$f64$GT$$GT$17h09e55e1ed28e3289E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #33
-          to label %common.resume unwind label %544, !noalias !6948
+          to label %common.resume unwind label %526, !noalias !6948
 
-.lr.ph.i.i54:                                     ; preds = %505, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit34.i.i"
-  %527 = phi ptr [ %542, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit34.i.i" ], [ %508, %505 ]
-  %528 = phi i64 [ %541, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit34.i.i" ], [ 0, %505 ]
-  %529 = phi ptr [ %536, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit34.i.i" ], [ %506, %505 ]
-  %.val.i23.i.i55 = load double, ptr %527, align 8, !alias.scope !6951, !noalias !6959, !noundef !3
+.lr.ph.i.i54:                                     ; preds = %487, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit34.i.i"
+  %509 = phi ptr [ %524, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit34.i.i" ], [ %490, %487 ]
+  %510 = phi i64 [ %523, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit34.i.i" ], [ 0, %487 ]
+  %511 = phi ptr [ %518, %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit34.i.i" ], [ %488, %487 ]
+  %.val.i23.i.i55 = load double, ptr %509, align 8, !alias.scope !6951, !noalias !6959, !noundef !3
   %brmerge.not.i.i.i25.i.i = fcmp uno double %.val1.i18.pre.pre.i.i34, %.val.i23.i.i55
-  br i1 %brmerge.not.i.i.i25.i.i, label %530, label %531, !prof !2798
+  br i1 %brmerge.not.i.i.i25.i.i, label %512, label %513, !prof !2798
 
-530:                                              ; preds = %.lr.ph.i.i54
-  store ptr %529, ptr %6, align 8, !noalias !6950
-  store i64 %528, ptr %13, align 8, !noalias !6950
-  store ptr %527, ptr %12, align 8, !noalias !6950
+512:                                              ; preds = %.lr.ph.i.i54
+  store ptr %511, ptr %6, align 8, !noalias !6950
+  store i64 %510, ptr %13, align 8, !noalias !6950
+  store ptr %509, ptr %12, align 8, !noalias !6950
   br label %.invoke.i.i47
 
-531:                                              ; preds = %.lr.ph.i.i54
+513:                                              ; preds = %.lr.ph.i.i54
   %.mux.i.i.i26.i.i = fcmp uge double %.val1.i18.pre.pre.i.i34, %.val.i23.i.i55
-  %532 = getelementptr inbounds nuw double, ptr %506, i64 %528
-  %533 = load i64, ptr %532, align 8, !alias.scope !6951, !noalias !6959
-  store i64 %533, ptr %529, align 8, !alias.scope !6951, !noalias !6959
-  store double %.val.i23.i.i55, ptr %532, align 8, !alias.scope !6951, !noalias !6959
-  %534 = zext i1 %.mux.i.i.i26.i.i to i64
-  %535 = add i64 %528, %534
-  %536 = getelementptr inbounds nuw i8, ptr %527, i64 8
-  %.val.i29.i.i56 = load double, ptr %536, align 8, !alias.scope !6951, !noalias !6962, !noundef !3
+  %514 = getelementptr inbounds nuw double, ptr %488, i64 %510
+  %515 = load i64, ptr %514, align 8, !alias.scope !6951, !noalias !6959
+  store i64 %515, ptr %511, align 8, !alias.scope !6951, !noalias !6959
+  store double %.val.i23.i.i55, ptr %514, align 8, !alias.scope !6951, !noalias !6959
+  %516 = zext i1 %.mux.i.i.i26.i.i to i64
+  %517 = add i64 %510, %516
+  %518 = getelementptr inbounds nuw i8, ptr %509, i64 8
+  %.val.i29.i.i56 = load double, ptr %518, align 8, !alias.scope !6951, !noalias !6962, !noundef !3
   %brmerge.not.i.i.i31.i.i = fcmp uno double %.val1.i18.pre.pre.i.i34, %.val.i29.i.i56
-  br i1 %brmerge.not.i.i.i31.i.i, label %537, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit34.i.i", !prof !2798
+  br i1 %brmerge.not.i.i.i31.i.i, label %519, label %"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit34.i.i", !prof !2798
 
-537:                                              ; preds = %531
-  store ptr %527, ptr %6, align 8, !noalias !6950
-  store i64 %535, ptr %13, align 8, !noalias !6950
-  store ptr %536, ptr %12, align 8, !noalias !6950
+519:                                              ; preds = %513
+  store ptr %509, ptr %6, align 8, !noalias !6950
+  store i64 %517, ptr %13, align 8, !noalias !6950
+  store ptr %518, ptr %12, align 8, !noalias !6950
   br label %.invoke.i.i47
 
-.invoke.i.i47:                                    ; preds = %._crit_edge.i.i51, %537, %530, %._crit_edge.i43
+.invoke.i.i47:                                    ; preds = %._crit_edge.i.i51, %519, %512, %._crit_edge.i43
   invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.6505cacf4ee087cdec2b416b9e4fc700.709) #32
-          to label %.cont.i.i48 unwind label %525, !noalias !6948
+          to label %.cont.i.i48 unwind label %507, !noalias !6948
 
 .cont.i.i48:                                      ; preds = %.invoke.i.i47
   unreachable
 
-"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit34.i.i": ; preds = %531
+"_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic28_$u7b$$u7b$closure$u7d$$u7d$17he3e90e9ed9df32dfE.exit34.i.i": ; preds = %513
   %.mux.i.i.i32.i.i = fcmp uge double %.val1.i18.pre.pre.i.i34, %.val.i29.i.i56
-  %538 = getelementptr inbounds nuw double, ptr %506, i64 %535
-  %539 = load i64, ptr %538, align 8, !alias.scope !6951, !noalias !6962
-  store i64 %539, ptr %527, align 8, !alias.scope !6951, !noalias !6962
-  store double %.val.i29.i.i56, ptr %538, align 8, !alias.scope !6951, !noalias !6962
-  %540 = zext i1 %.mux.i.i.i32.i.i to i64
-  %541 = add i64 %535, %540
-  %542 = getelementptr inbounds nuw i8, ptr %527, i64 16
-  %543 = icmp ult ptr %542, %510
-  br i1 %543, label %.lr.ph.i.i54, label %.preheader.i.i35
+  %520 = getelementptr inbounds nuw double, ptr %488, i64 %517
+  %521 = load i64, ptr %520, align 8, !alias.scope !6951, !noalias !6962
+  store i64 %521, ptr %509, align 8, !alias.scope !6951, !noalias !6962
+  store double %.val.i29.i.i56, ptr %520, align 8, !alias.scope !6951, !noalias !6962
+  %522 = zext i1 %.mux.i.i.i32.i.i to i64
+  %523 = add i64 %517, %522
+  %524 = getelementptr inbounds nuw i8, ptr %509, i64 16
+  %525 = icmp ult ptr %524, %492
+  br i1 %525, label %.lr.ph.i.i54, label %.preheader.i.i35
 
-544:                                              ; preds = %525
-  %545 = landingpad { ptr, i32 }
+526:                                              ; preds = %507
+  %527 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #34, !noalias !6948
   unreachable
 
 _ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h24b48b3d5e213935E.exit.i: ; preds = %._crit_edge.i.i51
-  %.mux.i.i.i20.i.i = fcmp uge double %.val1.i18.pre.pre.i.i34, %507
-  %546 = getelementptr inbounds nuw double, ptr %506, i64 %524
-  %547 = load i64, ptr %546, align 8, !alias.scope !6951, !noalias !6965
-  store i64 %547, ptr %523, align 8, !alias.scope !6951, !noalias !6965
-  store double %507, ptr %546, align 8, !alias.scope !6951, !noalias !6965
-  %548 = zext i1 %.mux.i.i.i20.i.i to i64
-  %549 = add i64 %524, %548
+  %.mux.i.i.i20.i.i = fcmp uge double %.val1.i18.pre.pre.i.i34, %489
+  %528 = getelementptr inbounds nuw double, ptr %488, i64 %506
+  %529 = load i64, ptr %528, align 8, !alias.scope !6951, !noalias !6965
+  store i64 %529, ptr %505, align 8, !alias.scope !6951, !noalias !6965
+  store double %489, ptr %528, align 8, !alias.scope !6951, !noalias !6965
+  %530 = zext i1 %.mux.i.i.i20.i.i to i64
+  %531 = add i64 %506, %530
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !6950
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !6950
-  %.not5.i53 = icmp ult i64 %549, %.sroa.11.0190
-  br i1 %.not5.i53, label %_ZN4core5slice4sort8unstable9quicksort9partition17h2518e827127b6272E.exit, label %550
+  %.not5.i53 = icmp ult i64 %531, %.sroa.11.0190
+  br i1 %.not5.i53, label %_ZN4core5slice4sort8unstable9quicksort9partition17h2518e827127b6272E.exit, label %532
 
-550:                                              ; preds = %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h24b48b3d5e213935E.exit.i
+532:                                              ; preds = %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h24b48b3d5e213935E.exit.i
   call void @llvm.trap()
   unreachable
 
 _ZN4core5slice4sort8unstable9quicksort9partition17h2518e827127b6272E.exit: ; preds = %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h24b48b3d5e213935E.exit.i
-  call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$14swap_unchecked17h33cc02827726ec35E"(ptr noalias noundef nonnull align 8 %.sroa.0.0191, i64 noundef range(i64 33, 0) %.sroa.11.0190, i64 noundef 0, i64 noundef %549)
-  %551 = add nuw i64 %549, 1
-  %552 = sub nuw i64 %.sroa.11.0190, %551
-  %553 = getelementptr inbounds nuw double, ptr %.sroa.0.0191, i64 %551
+  call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$14swap_unchecked17h33cc02827726ec35E"(ptr noalias noundef nonnull align 8 %.sroa.0.0191, i64 noundef range(i64 33, 0) %.sroa.11.0190, i64 noundef 0, i64 noundef %531)
+  %533 = add nuw i64 %531, 1
+  %534 = sub nuw i64 %.sroa.11.0190, %533
+  %535 = getelementptr inbounds nuw double, ptr %.sroa.0.0191, i64 %533
   br label %.backedge
 
 .backedge:                                        ; preds = %_ZN4core5slice4sort8unstable9quicksort9partition17h2518e827127b6272E.exit, %_ZN4core5slice4sort8unstable9quicksort9partition17hf2d966b60b0eae10E.exit
-  %.sroa.017.0.be = phi ptr [ %501, %_ZN4core5slice4sort8unstable9quicksort9partition17hf2d966b60b0eae10E.exit ], [ null, %_ZN4core5slice4sort8unstable9quicksort9partition17h2518e827127b6272E.exit ]
-  %.sroa.11.0.be = phi i64 [ %504, %_ZN4core5slice4sort8unstable9quicksort9partition17hf2d966b60b0eae10E.exit ], [ %552, %_ZN4core5slice4sort8unstable9quicksort9partition17h2518e827127b6272E.exit ]
-  %.sroa.0.0.be = phi ptr [ %502, %_ZN4core5slice4sort8unstable9quicksort9partition17hf2d966b60b0eae10E.exit ], [ %553, %_ZN4core5slice4sort8unstable9quicksort9partition17h2518e827127b6272E.exit ]
-  %554 = icmp ult i64 %.sroa.11.0.be, 33
-  br i1 %554, label %._crit_edge, label %18
+  %.sroa.017.0.be = phi ptr [ %483, %_ZN4core5slice4sort8unstable9quicksort9partition17hf2d966b60b0eae10E.exit ], [ null, %_ZN4core5slice4sort8unstable9quicksort9partition17h2518e827127b6272E.exit ]
+  %.sroa.11.0.be = phi i64 [ %486, %_ZN4core5slice4sort8unstable9quicksort9partition17hf2d966b60b0eae10E.exit ], [ %534, %_ZN4core5slice4sort8unstable9quicksort9partition17h2518e827127b6272E.exit ]
+  %.sroa.0.0.be = phi ptr [ %484, %_ZN4core5slice4sort8unstable9quicksort9partition17hf2d966b60b0eae10E.exit ], [ %535, %_ZN4core5slice4sort8unstable9quicksort9partition17h2518e827127b6272E.exit ]
+  %536 = icmp ult i64 %.sroa.11.0.be, 33
+  br i1 %536, label %._crit_edge, label %18
 }
 
 ; Function Attrs: nonlazybind uwtable

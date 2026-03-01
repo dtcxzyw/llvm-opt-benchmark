@@ -3753,8 +3753,6 @@ eh.resume:                                        ; preds = %lpad5, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN5folly13fbstring_coreIcE12expandNoinitEmbb(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %delta, i1 noundef zeroext %expGrowth, i1 noundef zeroext %disableSSO) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %newSz = alloca i64, align 8
-  %ref.tmp15 = alloca i64, align 8
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 23
   %0 = load i8, ptr %arrayidx.i, align 1
   %1 = and i8 %0, -64
@@ -3765,7 +3763,6 @@ if.then:                                          ; preds = %entry
   %conv.i = zext nneg i8 %0 to i64
   %sub.i = sub nsw i64 23, %conv.i
   %add = add i64 %sub.i, %delta
-  store i64 %add, ptr %newSz, align 8
   %cmp4 = icmp ugt i64 %add, 23
   %or.cond.not = or i1 %disableSSO, %cmp4
   br i1 %or.cond.not, label %if.end, label %if.then5
@@ -3789,7 +3786,6 @@ if.else:                                          ; preds = %entry
   %size_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i64, ptr %size_, align 8
   %add9 = add i64 %3, %delta
-  store i64 %add9, ptr %newSz, align 8
   %cond31 = icmp eq i8 %1, 64
   br i1 %cond31, label %sw.bb2.i, label %sw.epilog.i
 
@@ -3816,52 +3812,44 @@ _ZNK5folly13fbstring_coreIcE8capacityEv.exit:     ; preds = %if.then.i, %sw.epil
   br i1 %cmp11, label %if.then12, label %if.end23
 
 if.then12:                                        ; preds = %_ZNK5folly13fbstring_coreIcE8capacityEv.exit
-  %.pre32 = load i8, ptr %arrayidx.i, align 1
   br i1 %expGrowth, label %cond.true14, label %cond.end20
 
 cond.true14:                                      ; preds = %if.then12
-  %8 = and i8 %.pre32, -64
-  switch i8 %8, label %sw.epilog.i16 [
+  %8 = load i8, ptr %arrayidx.i, align 1
+  %9 = and i8 %8, -64
+  switch i8 %9, label %sw.epilog.i16 [
     i8 0, label %_ZNK5folly13fbstring_coreIcE8capacityEv.exit22
     i8 64, label %sw.bb2.i13
   ]
 
 sw.bb2.i13:                                       ; preds = %cond.true14
-  %9 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i14 = getelementptr inbounds i8, ptr %9, i64 -8
-  %10 = load atomic i64, ptr %add.ptr.i.i.i14 acquire, align 8
-  %cmp.i15 = icmp ugt i64 %10, 1
+  %10 = load ptr, ptr %this, align 8
+  %add.ptr.i.i.i14 = getelementptr inbounds i8, ptr %10, i64 -8
+  %11 = load atomic i64, ptr %add.ptr.i.i.i14 acquire, align 8
+  %cmp.i15 = icmp ugt i64 %11, 1
   br i1 %cmp.i15, label %if.then.i20, label %sw.epilog.i16
 
 if.then.i20:                                      ; preds = %sw.bb2.i13
-  %11 = load i64, ptr %size_, align 8
-  %.pre.pre = load i8, ptr %arrayidx.i, align 1
+  %12 = load i64, ptr %size_, align 8
   br label %_ZNK5folly13fbstring_coreIcE8capacityEv.exit22
 
 sw.epilog.i16:                                    ; preds = %sw.bb2.i13, %cond.true14
   %capacity_.i.i17 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %12 = load i64, ptr %capacity_.i.i17, align 8
-  %and.i.i18 = and i64 %12, 4611686018427387903
-  %13 = lshr i64 %12, 56
-  %14 = trunc nuw i64 %13 to i8
+  %13 = load i64, ptr %capacity_.i.i17, align 8
+  %and.i.i18 = and i64 %13, 4611686018427387903
   br label %_ZNK5folly13fbstring_coreIcE8capacityEv.exit22
 
 _ZNK5folly13fbstring_coreIcE8capacityEv.exit22:   ; preds = %cond.true14, %if.then.i20, %sw.epilog.i16
-  %.pre = phi i8 [ %14, %sw.epilog.i16 ], [ %.pre.pre, %if.then.i20 ], [ %.pre32, %cond.true14 ]
-  %retval.0.i19 = phi i64 [ %and.i.i18, %sw.epilog.i16 ], [ %11, %if.then.i20 ], [ 23, %cond.true14 ]
+  %retval.0.i19 = phi i64 [ %and.i.i18, %sw.epilog.i16 ], [ %12, %if.then.i20 ], [ 23, %cond.true14 ]
   %mul = mul i64 %retval.0.i19, 3
   %div7 = lshr i64 %mul, 1
   %add17 = add nuw i64 %div7, 1
-  store i64 %add17, ptr %ref.tmp15, align 8
-  %newSz.0.newSz.0.newSz.0.30 = load i64, ptr %newSz, align 8
-  %cmp.i23.not = icmp ugt i64 %newSz.0.newSz.0.newSz.0.30, %div7
-  %__b.__a.i24 = select i1 %cmp.i23.not, ptr %newSz, ptr %ref.tmp15
+  %14 = tail call i64 @llvm.umax.i64(i64 %add9, i64 %add17)
   br label %cond.end20
 
 cond.end20:                                       ; preds = %if.then12, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit22
-  %15 = phi i8 [ %.pre, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit22 ], [ %.pre32, %if.then12 ]
-  %cond21.in = phi ptr [ %__b.__a.i24, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit22 ], [ %newSz, %if.then12 ]
-  %cond21 = load i64, ptr %cond21.in, align 8
+  %cond21 = phi i64 [ %14, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit22 ], [ %add9, %if.then12 ]
+  %15 = load i8, ptr %arrayidx.i, align 1
   %16 = and i8 %15, -64
   switch i8 %16, label %sw.default.i [
     i8 0, label %sw.bb.i
@@ -3884,13 +3872,13 @@ sw.bb3.i:                                         ; preds = %cond.end20
 sw.default.i:                                     ; preds = %cond.end20
   unreachable
 
-if.end23:                                         ; preds = %sw.bb3.i, %sw.bb2.i27, %sw.bb.i, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit, %if.end
-  %sz.0 = phi i64 [ %sub.i, %if.end ], [ %3, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit ], [ %3, %sw.bb.i ], [ %3, %sw.bb2.i27 ], [ %3, %sw.bb3.i ]
-  %newSz.0.newSz.0.newSz.0. = load i64, ptr %newSz, align 8
+if.end23:                                         ; preds = %_ZNK5folly13fbstring_coreIcE8capacityEv.exit, %sw.bb3.i, %sw.bb2.i27, %sw.bb.i, %if.end
+  %newSz.0.newSz.0. = phi i64 [ %add, %if.end ], [ %add9, %sw.bb3.i ], [ %add9, %sw.bb.i ], [ %add9, %sw.bb2.i27 ], [ %add9, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit ]
+  %sz.0 = phi i64 [ %sub.i, %if.end ], [ %3, %sw.bb3.i ], [ %3, %sw.bb.i ], [ %3, %sw.bb2.i27 ], [ %3, %_ZNK5folly13fbstring_coreIcE8capacityEv.exit ]
   %size_24 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  store i64 %newSz.0.newSz.0.newSz.0., ptr %size_24, align 8
+  store i64 %newSz.0.newSz.0., ptr %size_24, align 8
   %17 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %17, i64 %newSz.0.newSz.0.newSz.0.
+  %arrayidx = getelementptr inbounds i8, ptr %17, i64 %newSz.0.newSz.0.
   store i8 0, ptr %arrayidx, align 1
   %18 = load ptr, ptr %this, align 8
   %add.ptr26 = getelementptr inbounds i8, ptr %18, i64 %sz.0

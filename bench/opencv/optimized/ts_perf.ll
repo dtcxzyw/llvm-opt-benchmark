@@ -20765,22 +20765,22 @@ _ZN7testing15AssertionResultD2Ev.exit80:          ; preds = %.noexc.i.i76, %214,
   store i32 %232, ptr %15, align 4, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 1, ptr %16, align 4, !tbaa !136
-  %233 = icmp eq i32 %232, 0
-  %..i = select i1 %233, ptr %16, ptr %15
+  %233 = call i32 @llvm.umax.i32(i32 %232, i32 1)
   %234 = load i32, ptr %225, align 4, !tbaa !136, !noalias !362
-  %235 = load i32, ptr %..i, align 4, !tbaa !136, !noalias !362
-  %.not.i81 = icmp ugt i32 %234, %235
-  br i1 %.not.i81, label %237, label %236
+  %.not.i81 = icmp ugt i32 %234, %233
+  br i1 %.not.i81, label %236, label %235
 
-236:                                              ; preds = %224
+235:                                              ; preds = %224
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %14)
   br label %_ZN7testing8internal11CmpHelperLEIjjEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit
 
-237:                                              ; preds = %224
+236:                                              ; preds = %224
+  %237 = icmp eq i32 %232, 0
+  %..i = select i1 %237, ptr %16, ptr %15
   call void @_ZN7testing8internal18CmpHelperOpFailureIjjEENS_15AssertionResultEPKcS4_RKT_RKT0_S4_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %14, ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.192, ptr noundef nonnull align 4 dereferenceable(4) %225, ptr noundef nonnull align 4 dereferenceable(4) %..i, ptr noundef nonnull @.str.262)
   br label %_ZN7testing8internal11CmpHelperLEIjjEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit
 
-_ZN7testing8internal11CmpHelperLEIjjEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit: ; preds = %236, %237
+_ZN7testing8internal11CmpHelperLEIjjEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit: ; preds = %235, %236
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %238 = load i8, ptr %14, align 8, !tbaa !150, !range !41, !noundef !42

@@ -8610,8 +8610,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort13sort9_optimal17h383274
   %spec.store.select.i.i.i.i.i.i.i.i35 = select i1 %250, i64 %247, i64 %249
   %251 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i35, 0
   %252 = select i1 %251, ptr %236, ptr %235
-  %.3.i36 = select i1 %251, ptr %68, ptr %26
-  %253 = load i64, ptr %.3.i36, align 8
+  %253 = select i1 %251, i64 %217, i64 %199
   store i64 %253, ptr %26, align 8
   store ptr %252, ptr %68, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4083)

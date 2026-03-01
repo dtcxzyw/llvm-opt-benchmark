@@ -226,11 +226,11 @@ _ZNSt10unique_ptrIN5ZXing4OneD9RowReader13DecodingStateESt14default_deleteIS3_EE
   br i1 %72, label %73, label %78
 
 73:                                               ; preds = %62
-  %74 = load i16, ptr %spec.select.i.i.i.i, align 2, !tbaa !62, !noalias !53
-  %75 = icmp ult i16 %70, %74
-  %spec.select49.i.i.i.i = select i1 %75, ptr %.sroa.12.i.i, ptr %spec.select.i.i.i.i
-  %76 = load i16, ptr %spec.select47.i.i.i.i, align 2, !tbaa !62, !noalias !53
-  %77 = icmp ult i16 %68, %76
+  %74 = tail call i16 @llvm.umax.i16(i16 %66, i16 %64)
+  %75 = tail call i16 @llvm.umin.i16(i16 %66, i16 %64)
+  %76 = icmp ult i16 %70, %75
+  %spec.select49.i.i.i.i = select i1 %76, ptr %.sroa.12.i.i, ptr %spec.select.i.i.i.i
+  %77 = icmp ult i16 %68, %74
   %spec.select51.i.i.i.i = select i1 %77, ptr %spec.select47.i.i.i.i, ptr %.sroa.8.i.i
   br label %"_ZZNK5ZXing4OneD16DXFilmEdgeReader13decodePatternEiRNS_11PatternViewERSt10unique_ptrINS0_9RowReader13DecodingStateESt14default_deleteIS6_EEENK3$_0clERKS2_i.exit.i"
 
@@ -298,11 +298,11 @@ _ZN5ZXing11PatternView8skipPairEv.exit.i:         ; preds = %"_ZZNK5ZXing4OneD16
   br i1 %106, label %107, label %112
 
 107:                                              ; preds = %93
-  %108 = load i16, ptr %spec.select.i.i.i12.i, align 2, !tbaa !62, !noalias !53
-  %109 = icmp ult i16 %104, %108
-  %spec.select49.i.i.i20.i = select i1 %109, ptr %.sroa.12.i11.i, ptr %spec.select.i.i.i12.i
-  %110 = load i16, ptr %spec.select47.i.i.i13.i, align 2, !tbaa !62, !noalias !53
-  %111 = icmp ult i16 %102, %110
+  %108 = tail call i16 @llvm.umax.i16(i16 %100, i16 %98)
+  %109 = tail call i16 @llvm.umin.i16(i16 %100, i16 %98)
+  %110 = icmp ult i16 %104, %109
+  %spec.select49.i.i.i20.i = select i1 %110, ptr %.sroa.12.i11.i, ptr %spec.select.i.i.i12.i
+  %111 = icmp ult i16 %102, %108
   %spec.select51.i.i.i21.i = select i1 %111, ptr %spec.select47.i.i.i13.i, ptr %.sroa.8.i10.i
   br label %"_ZZNK5ZXing4OneD16DXFilmEdgeReader13decodePatternEiRNS_11PatternViewERSt10unique_ptrINS0_9RowReader13DecodingStateESt14default_deleteIS6_EEENK3$_0clERKS2_i.exit22.i"
 

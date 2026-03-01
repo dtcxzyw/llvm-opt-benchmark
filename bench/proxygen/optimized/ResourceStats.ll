@@ -1666,12 +1666,12 @@ if.else60:                                        ; preds = %cond.end56
   %sub55 = sub i64 %15, %begin.0.lcssa
   %16 = trunc i64 %sub55 to i32
   %17 = shl i32 %16, 1
-  %.pre = call i32 @llvm.umax.i32(i32 %17, i32 200)
-  %18 = call i32 @llvm.umin.i32(i32 %.pre, i32 20000)
+  %18 = call i32 @llvm.umax.i32(i32 %17, i32 200)
+  %19 = call i32 @llvm.umin.i32(i32 %18, i32 20000)
   br label %if.end67
 
 if.end67:                                         ; preds = %for.end.thread, %if.else60, %if.then48, %cond.end56
-  %target.0 = phi i32 [ 200, %cond.end56 ], [ %18, %if.else60 ], [ 200, %if.then48 ], [ 200, %for.end.thread ]
+  %target.0 = phi i32 [ 200, %cond.end56 ], [ %19, %if.else60 ], [ 200, %if.then48 ], [ 200, %for.end.thread ]
   br i1 %cmp, label %if.then69, label %seqcst_fail50.i122
 
 if.then69:                                        ; preds = %if.end67
@@ -1682,7 +1682,7 @@ seqcst_fail50.i122:                               ; preds = %if.end67
   %sub71 = sub i32 %target.0, %0
   %div72 = sdiv i32 %sub71, 8
   %add73 = add i32 %div72, %0
-  %19 = cmpxchg weak ptr %spinCutoff, i32 %0, i32 %add73 seq_cst seq_cst, align 4
+  %20 = cmpxchg weak ptr %spinCutoff, i32 %0, i32 %add73 seq_cst seq_cst, align 4
   br label %return
 
 return:                                           ; preds = %if.end, %invoke.cont34, %if.end.us, %for.end.thread, %for.end, %seqcst_fail50.i122, %if.then69
@@ -1690,14 +1690,14 @@ return:                                           ; preds = %if.end, %invoke.con
   ret i32 %retval.0
 
 terminate.lpad.split:                             ; preds = %if.end29
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
   br label %terminate.lpad
 
 terminate.lpad:                                   ; preds = %terminate.lpad.split.us, %terminate.lpad.split
-  %.us-phi127 = phi { ptr, i32 } [ %20, %terminate.lpad.split ], [ %8, %terminate.lpad.split.us ]
-  %21 = extractvalue { ptr, i32 } %.us-phi127, 0
-  call void @__clang_call_terminate(ptr %21) #24
+  %.us-phi127 = phi { ptr, i32 } [ %21, %terminate.lpad.split ], [ %8, %terminate.lpad.split.us ]
+  %22 = extractvalue { ptr, i32 } %.us-phi127, 0
+  call void @__clang_call_terminate(ptr %22) #24
   unreachable
 }
 

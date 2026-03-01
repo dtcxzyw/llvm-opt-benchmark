@@ -1498,11 +1498,11 @@ land.lhs.true87:                                  ; preds = %for.body
 
 if.then90:                                        ; preds = %land.lhs.true87
   %cmp.i.i87 = icmp slt i64 %81, %79
+  %83 = call i64 @llvm.smax.i64(i64 %81, i64 %79)
   %__b.__a.i = select i1 %cmp.i.i87, ptr %startReferencePeriod, ptr %d1
   %cmp.i.i88 = icmp slt i64 %80, %82
+  %84 = call i64 @llvm.smin.i64(i64 %80, i64 %82)
   %__b.__a.i89 = select i1 %cmp.i.i88, ptr %endReferencePeriod, ptr %d2
-  %83 = load i64, ptr %__b.__a.i, align 8, !tbaa !39
-  %84 = load i64, ptr %__b.__a.i89, align 8, !tbaa !39
   %cmp.i.not.i = icmp sgt i64 %83, %84
   br i1 %cmp.i.not.i, label %if.then.i92, label %do.end.i
 
