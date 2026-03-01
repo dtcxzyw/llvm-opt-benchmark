@@ -2968,7 +2968,7 @@ define linkonce_odr void @_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArra
   %27 = shl nuw nsw i32 %12, 1
   %28 = and i32 %16, -2
   store ptr %7, ptr %0, align 8, !tbaa !266
-  br label %40
+  br label %41
 
 29:                                               ; preds = %2
   %30 = ashr i32 %16, 2
@@ -2985,25 +2985,27 @@ define linkonce_odr void @_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArra
   %37 = shl nuw nsw i32 %12, 2
   %38 = and i32 %16, -4
   store ptr %7, ptr %0, align 8, !tbaa !266
-  %39 = icmp samesign uge i32 %38, %37
+  %39 = icmp ne i32 %38, 0
   tail call void @llvm.assume(i1 %39)
-  br label %40
+  %40 = icmp samesign uge i32 %38, %37
+  tail call void @llvm.assume(i1 %40)
+  br label %41
 
-40:                                               ; preds = %29, %19
+41:                                               ; preds = %29, %19
   %.sink30 = phi i32 [ %38, %29 ], [ %28, %19 ]
   %.sink28 = phi i32 [ %35, %29 ], [ %25, %19 ]
   %.sink24 = phi i32 [ %37, %29 ], [ %27, %19 ]
-  %41 = mul nuw nsw i32 %.sink30, %14
-  %42 = icmp eq i32 %.sink28, %41
-  tail call void @llvm.assume(i1 %42)
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink28, ptr %43, align 8, !tbaa !82
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sink30, ptr %44, align 8, !tbaa !267
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sink24, ptr %45, align 4, !tbaa !269
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %14, ptr %46, align 8, !tbaa !270
+  %42 = mul nuw nsw i32 %.sink30, %14
+  %43 = icmp eq i32 %.sink28, %42
+  tail call void @llvm.assume(i1 %43)
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.sink28, ptr %44, align 8, !tbaa !82
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.sink30, ptr %45, align 8, !tbaa !267
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %.sink24, ptr %46, align 4, !tbaa !269
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %14, ptr %47, align 8, !tbaa !270
   ret void
 }
 

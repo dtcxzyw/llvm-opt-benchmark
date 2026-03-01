@@ -31325,11 +31325,11 @@ define { i32, i32 } @_ZN4fish3fds13wopen_cloexec17hce368140301abc68E(ptr noalias
   %11 = extractvalue { i32, i32 } %10, 0
   %12 = extractvalue { i32, i32 } %10, 1
   %13 = trunc i32 %11 to i1
-  br i1 %13, label %14, label %22
+  br i1 %13, label %14, label %23
 
 14:                                               ; preds = %.noexc
   %.not.i = icmp eq i32 %12, 4
-  br i1 %.not.i, label %15, label %22
+  br i1 %.not.i, label %15, label %23
 
 15:                                               ; preds = %14
   %16 = invoke noundef i32 @_ZN4fish6signal19signal_check_cancel17h11924faa90d83cb1E()
@@ -31337,36 +31337,38 @@ define { i32, i32 } @_ZN4fish3fds13wopen_cloexec17hce368140301abc68E(ptr noalias
 
 .noexc4:                                          ; preds = %15
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %9, label %22
+  br i1 %17, label %9, label %23
 
 18:                                               ; preds = %15, %9
   %19 = landingpad { ptr, i32 }
           cleanup
+  %20 = icmp ne ptr %6, null
+  tail call void @llvm.assume(i1 %20)
   store i8 0, ptr %6, align 1
-  %20 = icmp eq i64 %7, 0
-  br i1 %20, label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit", label %21
+  %21 = icmp eq i64 %7, 0
+  br i1 %21, label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit", label %22
 
-21:                                               ; preds = %18
+22:                                               ; preds = %18
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %6, i64 noundef range(i64 1, 0) %7, i64 noundef 1) #36
   br label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit"
 
-22:                                               ; preds = %.noexc4, %14, %.noexc
+23:                                               ; preds = %.noexc4, %14, %.noexc
   %.lcssa.i = phi i32 [ %12, %.noexc ], [ 4, %.noexc4 ], [ %12, %14 ]
   %.sroa.0.0.i = phi i32 [ 0, %.noexc ], [ 1, %.noexc4 ], [ 1, %14 ]
   store i8 0, ptr %6, align 1
-  %23 = icmp eq i64 %7, 0
-  br i1 %23, label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit5", label %24
+  %24 = icmp eq i64 %7, 0
+  br i1 %24, label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit5", label %25
 
-24:                                               ; preds = %22
+25:                                               ; preds = %23
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %6, i64 noundef range(i64 1, 0) %7, i64 noundef 1) #36
   br label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit5"
 
-"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit5": ; preds = %22, %24
-  %25 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.i, 0
-  %26 = insertvalue { i32, i32 } %25, i32 %.lcssa.i, 1
-  ret { i32, i32 } %26
+"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit5": ; preds = %23, %25
+  %26 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.i, 0
+  %27 = insertvalue { i32, i32 } %26, i32 %.lcssa.i, 1
+  ret { i32, i32 } %27
 
-"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit": ; preds = %21, %18
+"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit": ; preds = %22, %18
   resume { ptr, i32 } %19
 }
 
@@ -31417,7 +31419,7 @@ define { i32, i32 } @_ZN4fish3fds9wopen_dir17hde3f8548a82b06b7E(ptr noalias noun
   %12 = trunc i32 %10 to i1
   %.not.i.i = icmp eq i32 %11, 4
   %or.cond.i = select i1 %12, i1 %.not.i.i, i1 false
-  br i1 %or.cond.i, label %13, label %20
+  br i1 %or.cond.i, label %13, label %21
 
 13:                                               ; preds = %.noexc
   %14 = invoke noundef i32 @_ZN4fish6signal19signal_check_cancel17h11924faa90d83cb1E()
@@ -31425,36 +31427,38 @@ define { i32, i32 } @_ZN4fish3fds9wopen_dir17hde3f8548a82b06b7E(ptr noalias noun
 
 .noexc4:                                          ; preds = %13
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %8, label %20
+  br i1 %15, label %8, label %21
 
 16:                                               ; preds = %13, %8
   %17 = landingpad { ptr, i32 }
           cleanup
+  %18 = icmp ne ptr %5, null
+  tail call void @llvm.assume(i1 %18)
   store i8 0, ptr %5, align 1
-  %18 = icmp eq i64 %6, 0
-  br i1 %18, label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit", label %19
+  %19 = icmp eq i64 %6, 0
+  br i1 %19, label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit", label %20
 
-19:                                               ; preds = %16
+20:                                               ; preds = %16
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %5, i64 noundef range(i64 1, 0) %6, i64 noundef 1) #36
   br label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit"
 
-20:                                               ; preds = %.noexc4, %.noexc
+21:                                               ; preds = %.noexc4, %.noexc
   %.lcssa.i.i = phi i32 [ %11, %.noexc ], [ 4, %.noexc4 ]
   store i8 0, ptr %5, align 1
-  %21 = icmp eq i64 %6, 0
-  br i1 %21, label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit5", label %22
+  %22 = icmp eq i64 %6, 0
+  br i1 %22, label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit5", label %23
 
-22:                                               ; preds = %20
+23:                                               ; preds = %21
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %5, i64 noundef range(i64 1, 0) %6, i64 noundef 1) #36
   br label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit5"
 
-"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit5": ; preds = %20, %22
+"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit5": ; preds = %21, %23
   %..i = and i32 %10, 1
-  %23 = insertvalue { i32, i32 } poison, i32 %..i, 0
-  %24 = insertvalue { i32, i32 } %23, i32 %.lcssa.i.i, 1
-  ret { i32, i32 } %24
+  %24 = insertvalue { i32, i32 } poison, i32 %..i, 0
+  %25 = insertvalue { i32, i32 } %24, i32 %.lcssa.i.i, 1
+  ret { i32, i32 } %25
 
-"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit": ; preds = %19, %16
+"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit": ; preds = %20, %16
   resume { ptr, i32 } %17
 }
 

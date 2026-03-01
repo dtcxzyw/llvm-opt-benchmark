@@ -5370,6 +5370,8 @@ define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..boxed..Box$L
 
 9:                                                ; preds = %7, %2
   %eh.lpad-body = phi { ptr, i32 } [ %8, %7 ], [ %3, %2 ]
+  %10 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %10)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 96, i64 noundef 8) #35
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -5506,6 +5508,8 @@ define internal fastcc void @"_ZN4core3ptr77drop_in_place$LT$alloc..boxed..Box$L
 
 21:                                               ; preds = %18, %6
   %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %7, %6 ]
+  %22 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %22)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 56, i64 noundef 8) #35
   resume { ptr, i32 } %eh.lpad-body
 }
@@ -5798,17 +5802,21 @@ define internal fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$L
 define internal fastcc void @"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$hir..diagnostics..UnresolvedMacroCall$GT$$GT$17h115e361c9385918eE"(ptr %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he215162da8aa1582E.llvm.12053455592450410520"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-          to label %"_ZN4core3ptr58drop_in_place$LT$hir..diagnostics..UnresolvedMacroCall$GT$17hdd54c9758daaa43cE.exit" unwind label %2
+          to label %"_ZN4core3ptr58drop_in_place$LT$hir..diagnostics..UnresolvedMacroCall$GT$17hdd54c9758daaa43cE.exit" unwind label %3
 
 "_ZN4core3ptr58drop_in_place$LT$hir..diagnostics..UnresolvedMacroCall$GT$17hdd54c9758daaa43cE.exit": ; preds = %0
+  %2 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %2)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 72, i64 noundef 8) #35
   ret void
 
-2:                                                ; preds = %0
-  %3 = landingpad { ptr, i32 }
+3:                                                ; preds = %0
+  %4 = landingpad { ptr, i32 }
           cleanup
+  %5 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %5)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 72, i64 noundef 8) #35
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %4
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5896,17 +5904,21 @@ define hidden void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$ide_
 define internal fastcc void @"_ZN4core3ptr88drop_in_place$LT$alloc..boxed..Box$LT$hir..diagnostics..MacroExpansionParseError$GT$$GT$17h5fe5e2ced2737ff9E"(ptr %.0.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
   invoke void @"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$$u5b$syntax..syntax_error..SyntaxError$u5d$$GT$$GT$17h409d5a84431e5e38E.llvm.12053455592450410520"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
-          to label %"_ZN4core3ptr63drop_in_place$LT$hir..diagnostics..MacroExpansionParseError$GT$17h931a79e8f93cb2acE.exit" unwind label %2
+          to label %"_ZN4core3ptr63drop_in_place$LT$hir..diagnostics..MacroExpansionParseError$GT$17h931a79e8f93cb2acE.exit" unwind label %3
 
 "_ZN4core3ptr63drop_in_place$LT$hir..diagnostics..MacroExpansionParseError$GT$17h931a79e8f93cb2acE.exit": ; preds = %0
+  %2 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %2)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 48, i64 noundef 8) #35
   ret void
 
-2:                                                ; preds = %0
-  %3 = landingpad { ptr, i32 }
+3:                                                ; preds = %0
+  %4 = landingpad { ptr, i32 }
           cleanup
+  %5 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %5)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 48, i64 noundef 8) #35
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %4
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5967,6 +5979,8 @@ define internal fastcc void @"_ZN4core3ptr90drop_in_place$LT$alloc..boxed..Box$L
 
 21:                                               ; preds = %18, %6
   %eh.lpad-body = phi { ptr, i32 } [ %19, %18 ], [ %7, %6 ]
+  %22 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %22)
   tail call void @__rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 40, i64 noundef 8) #35
   resume { ptr, i32 } %eh.lpad-body
 }

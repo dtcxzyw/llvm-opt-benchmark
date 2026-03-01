@@ -762,6 +762,8 @@ if.end.i68:                                       ; preds = %if.end.i76
   %16 = load ptr, ptr %jsonValue, align 8, !noalias !17
   %17 = load i32, ptr %_depth.i, align 8, !noalias !17
   %sub.i = add nsw i32 %17, -1
+  %or.cond = icmp ne i32 %17, 2147483647
+  tail call void @llvm.assume(i1 %or.cond)
   %_depth.i210 = getelementptr inbounds nuw i8, ptr %16, i64 36
   %18 = load i32, ptr %_depth.i210, align 4, !noalias !17
   %cmp4.i = icmp eq i32 %18, %17
@@ -789,6 +791,7 @@ if.end.i32.lr.ph:                                 ; preds = %if.end.i76, %if.end
   %_string_buf_loc.i = getelementptr inbounds nuw i8, ptr %ref.tmp3.i.sroa.0.sroa.0.0.copyload480, i64 24
   %parser.i1009 = getelementptr inbounds nuw i8, ptr %ref.tmp3.i.sroa.0.sroa.0.0.copyload480, i64 16
   %sub.i.i = add nsw i32 %ref.tmp3.i.sroa.0.sroa.2.0.copyload479, -1
+  %or.cond12 = icmp ne i32 %ref.tmp3.i.sroa.0.sroa.2.0.copyload479, 2147483647
   br label %if.end.i32
 
 if.end.i32:                                       ; preds = %if.end.i32.lr.ph, %_ZN8simdjson15simdjson_resultINS_7haswell8ondemand15object_iteratorEEppEv.exit
@@ -1244,6 +1247,7 @@ if.end5.i:                                        ; preds = %sw.bb31.i, %if.end.
   ]
 
 _ZN8simdjson15simdjson_resultINS_7haswell8ondemand15object_iteratorEEppEv.exit.thread: ; preds = %if.end5.i
+  tail call void @llvm.assume(i1 %or.cond12)
   store i32 %sub.i.i, ptr %_depth.i.i311481, align 4
   br label %return
 
@@ -1334,6 +1338,8 @@ if.then.i83:                                      ; preds = %if.end.i48
   %16 = load ptr, ptr %jsonValue, align 8, !noalias !36
   %17 = load i32, ptr %_depth.i.i, align 8, !noalias !36
   %sub.i.i = add nsw i32 %17, -1
+  %or.cond = icmp ne i32 %17, 2147483647
+  tail call void @llvm.assume(i1 %or.cond)
   %_depth.i43.i = getelementptr inbounds nuw i8, ptr %16, i64 36
   %18 = load i32, ptr %_depth.i43.i, align 4, !noalias !36
   %cmp4.i.i = icmp eq i32 %18, %17
@@ -1412,6 +1418,7 @@ if.end.i146.lr.ph:                                ; preds = %_ZNR5folly8Expected
   %cmp.i74.i = icmp sgt i32 %ref.tmp3.i.sroa.0.sroa.2.0.copyload, -1
   %cmp2.i77.i = icmp ne i32 %add.i92, 2147483647
   %sub.i.i340 = add nsw i32 %ref.tmp3.i.sroa.0.sroa.2.0.copyload, -1
+  %or.cond5 = icmp ne i32 %ref.tmp3.i.sroa.0.sroa.2.0.copyload, 2147483647
   %error.i9.i.promoted = load i32, ptr %error.i9.i, align 8
   br label %if.end.i146
 
@@ -1562,6 +1569,7 @@ if.end6.i:                                        ; preds = %if.end6.i.loopexit,
   ]
 
 _ZN8simdjson15simdjson_resultINS_7haswell8ondemand14array_iteratorEEppEv.exit.thread: ; preds = %if.end6.i
+  call void @llvm.assume(i1 %or.cond5)
   store i32 %sub.i.i340, ptr %_depth.i.i.i217, align 4
   br label %return
 

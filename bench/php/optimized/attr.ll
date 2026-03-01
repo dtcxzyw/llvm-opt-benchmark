@@ -225,7 +225,7 @@ define hidden range(i32 -1, 1) i32 @dom_attr_value_write(ptr noundef %0, ptr nou
 
 5:                                                ; preds = %2
   tail call void @php_dom_throw_error(i32 noundef 11, i1 noundef zeroext true) #9
-  br label %44
+  br label %45
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -261,38 +261,40 @@ define hidden range(i32 -1, 1) i32 @dom_attr_value_write(ptr noundef %0, ptr nou
 dom_attr_value_will_change.exit:                  ; preds = %14, %17
   %25 = load ptr, ptr %1, align 8, !tbaa !9
   tail call void @dom_remove_all_children(ptr noundef nonnull %3) #9
-  %26 = load ptr, ptr %15, align 8, !tbaa !11
-  %.not.i = icmp eq ptr %26, null
+  %26 = icmp ne ptr %0, null
+  tail call void @llvm.assume(i1 %26)
+  %27 = load ptr, ptr %15, align 8, !tbaa !11
+  %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %php_dom_follow_spec_doc_ref.exit.thread, label %php_dom_follow_spec_doc_ref.exit
 
 php_dom_follow_spec_doc_ref.exit:                 ; preds = %dom_attr_value_will_change.exit
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 44
-  %28 = load i16, ptr %27, align 4
-  %29 = and i16 %28, 255
-  %30 = icmp eq i16 %29, 2
-  br i1 %30, label %31, label %php_dom_follow_spec_doc_ref.exit.thread
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 44
+  %29 = load i16, ptr %28, align 4
+  %30 = and i16 %29, 255
+  %31 = icmp eq i16 %30, 2
+  br i1 %31, label %32, label %php_dom_follow_spec_doc_ref.exit.thread
 
-31:                                               ; preds = %php_dom_follow_spec_doc_ref.exit
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %33 = load ptr, ptr %32, align 8, !tbaa !32
-  %34 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %35 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %36 = load i64, ptr %35, align 8, !tbaa !30
-  %37 = trunc i64 %36 to i32
-  %38 = tail call ptr @xmlNewDocTextLen(ptr noundef %33, ptr noundef nonnull %34, i32 noundef %37) #9
-  %39 = tail call ptr @xmlAddChild(ptr noundef nonnull %3, ptr noundef %38) #9
-  br label %44
+32:                                               ; preds = %php_dom_follow_spec_doc_ref.exit
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %34 = load ptr, ptr %33, align 8, !tbaa !32
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %37 = load i64, ptr %36, align 8, !tbaa !30
+  %38 = trunc i64 %37 to i32
+  %39 = tail call ptr @xmlNewDocTextLen(ptr noundef %34, ptr noundef nonnull %35, i32 noundef %38) #9
+  %40 = tail call ptr @xmlAddChild(ptr noundef nonnull %3, ptr noundef %39) #9
+  br label %45
 
 php_dom_follow_spec_doc_ref.exit.thread:          ; preds = %dom_attr_value_will_change.exit, %php_dom_follow_spec_doc_ref.exit
-  %40 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %41 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %42 = load i64, ptr %41, align 8, !tbaa !30
-  %43 = trunc i64 %42 to i32
-  tail call void @xmlNodeSetContentLen(ptr noundef nonnull %3, ptr noundef nonnull %40, i32 noundef %43) #9
-  br label %44
+  %41 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %43 = load i64, ptr %42, align 8, !tbaa !30
+  %44 = trunc i64 %43 to i32
+  tail call void @xmlNodeSetContentLen(ptr noundef nonnull %3, ptr noundef nonnull %41, i32 noundef %44) #9
+  br label %45
 
-44:                                               ; preds = %31, %php_dom_follow_spec_doc_ref.exit.thread, %5
-  %.0 = phi i32 [ -1, %5 ], [ 0, %php_dom_follow_spec_doc_ref.exit.thread ], [ 0, %31 ]
+45:                                               ; preds = %32, %php_dom_follow_spec_doc_ref.exit.thread, %5
+  %.0 = phi i32 [ -1, %5 ], [ 0, %php_dom_follow_spec_doc_ref.exit.thread ], [ 0, %32 ]
   ret i32 %.0
 }
 

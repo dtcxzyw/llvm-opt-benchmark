@@ -1975,7 +1975,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17h0e3c264006ba64b3E.exit.i
   %65 = getelementptr inbounds nuw i8, ptr %52, i64 120
   %66 = load ptr, ptr %65, align 8, !invariant.load !5, !nonnull !5
   %67 = invoke noundef zeroext i1 %66(ptr noundef align 1 %64, ptr noalias noundef nonnull align 8 dereferenceable(1400) %.0.i11.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %9)
-          to label %68 unwind label %156
+          to label %68 unwind label %157
 
 68:                                               ; preds = %"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$3get17h74db891c863dee91E.exit.i"
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2225,6 +2225,8 @@ _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.llvm.10559302552934589985.exit
 152:                                              ; preds = %151
   %153 = landingpad { ptr, i32 }
           cleanup
+  %154 = icmp ne i64 %.sroa.0.sroa.4.0.copyload.i, 0
+  call void @llvm.assume(i1 %154)
   br label %.body.thread.sink.split.i
 
 .noexc5.i:                                        ; preds = %151
@@ -2238,10 +2240,10 @@ _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.llvm.10559302552934589985.exit
   unreachable
 
 .noexc7.i:                                        ; preds = %73
-  %154 = icmp ne ptr %.sroa.0.sroa.5.0.copyload.i, null
-  call void @llvm.assume(i1 %154)
-  %155 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.5.0.copyload.i, i64 40
-  store atomic i64 %.sroa.0.sroa.4.0.copyload.i, ptr %155 release, align 8
+  %155 = icmp ne ptr %.sroa.0.sroa.5.0.copyload.i, null
+  call void @llvm.assume(i1 %155)
+  %156 = getelementptr inbounds nuw i8, ptr %.sroa.0.sroa.5.0.copyload.i, i64 40
+  store atomic i64 %.sroa.0.sroa.4.0.copyload.i, ptr %156 release, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !315
   br label %"_ZN14regex_automata4util4pool5inner22PoolGuard$LT$T$C$F$GT$7put_imp17h98017a89e92b23d5E.exit.i"
 
@@ -2254,18 +2256,18 @@ _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.llvm.10559302552934589985.exit
   call void @__rust_dealloc(ptr noundef nonnull %71, i64 noundef 1400, i64 noundef 8) #17
   br label %.body.thread.i
 
-.body.thread.i:                                   ; preds = %156, %.body.thread.sink.split.i, %.body.i.i, %.thread.i.i
-  %eh.lpad-body20.i = phi { ptr, i32 } [ %115, %.body.i.i ], [ %lpad.thr_comm.split-lp.i, %156 ], [ %lpad.phi.i.i, %.thread.i.i ], [ %eh.lpad-body20.ph.i, %.body.thread.sink.split.i ]
+.body.thread.i:                                   ; preds = %157, %.body.thread.sink.split.i, %.body.i.i, %.thread.i.i
+  %eh.lpad-body20.i = phi { ptr, i32 } [ %115, %.body.i.i ], [ %lpad.thr_comm.split-lp.i, %157 ], [ %lpad.phi.i.i, %.thread.i.i ], [ %eh.lpad-body20.ph.i, %.body.thread.sink.split.i ]
   resume { ptr, i32 } %eh.lpad-body20.i
 
-156:                                              ; preds = %"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$3get17h74db891c863dee91E.exit.i"
+157:                                              ; preds = %"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$3get17h74db891c863dee91E.exit.i"
   %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr366drop_in_place$LT$regex_automata..util..pool..PoolGuard$LT$regex_automata..meta..regex..Cache$C$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$regex_automata..meta..regex..Cache$u2b$core..panic..unwind_safe..RefUnwindSafe$u2b$core..marker..Send$u2b$core..panic..unwind_safe..UnwindSafe$u2b$core..marker..Sync$GT$$GT$$GT$17hbeface92ee71476fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8) #18
-          to label %.body.thread.i unwind label %157
+          to label %.body.thread.i unwind label %158
 
-157:                                              ; preds = %156
-  %158 = landingpad { ptr, i32 }
+158:                                              ; preds = %157
+  %159 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #19
   unreachable

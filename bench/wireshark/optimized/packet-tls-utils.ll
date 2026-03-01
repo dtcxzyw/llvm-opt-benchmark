@@ -16549,7 +16549,7 @@ define internal fastcc noundef zeroext i1 @tls12_prf(i32 noundef range(i32 8, 32
 
 21:                                               ; preds = %12
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1227)
-  br label %51
+  br label %53
 
 22:                                               ; preds = %12
   %23 = trunc i64 %19 to i32
@@ -16561,41 +16561,45 @@ define internal fastcc noundef zeroext i1 @tls12_prf(i32 noundef range(i32 8, 32
   %28 = load i32, ptr %15, align 8
   %29 = zext i32 %28 to i64
   %30 = tail call i64 @llvm.usub.sat.i64(i64 %19, i64 %14)
-  %31 = tail call ptr @__memcpy_chk(ptr noundef %26, ptr noundef %27, i64 noundef %29, i64 noundef %30) #31, !alias.scope !175
+  %31 = icmp ne i64 %30, -1
+  tail call void @llvm.assume(i1 %31)
+  %32 = tail call ptr @__memcpy_chk(ptr noundef %26, ptr noundef %27, i64 noundef %29, i64 noundef %30) #31, !alias.scope !175
   %.not25 = icmp eq i64 %13, 0
-  br i1 %.not25, label %41, label %32
+  br i1 %.not25, label %43, label %33
 
-32:                                               ; preds = %22
-  %33 = add i64 %14, %29
-  %34 = getelementptr i8, ptr %26, i64 %29
-  %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %37 = load i32, ptr %36, align 8
-  %38 = zext i32 %37 to i64
-  %39 = tail call i64 @llvm.usub.sat.i64(i64 %19, i64 %33)
-  %40 = tail call ptr @__memcpy_chk(ptr noundef %34, ptr noundef %35, i64 noundef %38, i64 noundef %39) #31, !alias.scope !179
-  br label %41
+33:                                               ; preds = %22
+  %34 = add i64 %14, %29
+  %35 = getelementptr i8, ptr %26, i64 %29
+  %36 = load ptr, ptr %4, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %38 = load i32, ptr %37, align 8
+  %39 = zext i32 %38 to i64
+  %40 = tail call i64 @llvm.usub.sat.i64(i64 %19, i64 %34)
+  %41 = icmp ne i64 %40, -1
+  tail call void @llvm.assume(i1 %41)
+  %42 = tail call ptr @__memcpy_chk(ptr noundef %35, ptr noundef %36, i64 noundef %39, i64 noundef %40) #31, !alias.scope !179
+  br label %43
 
-41:                                               ; preds = %32, %22
-  %42 = tail call ptr @gcry_md_algo_name(i32 noundef %0) #32
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %44 = load i32, ptr %43, align 8
-  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1228, ptr noundef %42, i32 noundef %44, i32 noundef %23)
-  %45 = tail call fastcc i32 @tls_hash(ptr noundef %1, ptr %20, i32 %23, i32 noundef %0, ptr noundef %5, i32 noundef %6)
+43:                                               ; preds = %33, %22
+  %44 = tail call ptr @gcry_md_algo_name(i32 noundef %0) #32
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %46 = load i32, ptr %45, align 8
+  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.1228, ptr noundef %44, i32 noundef %46, i32 noundef %23)
+  %47 = tail call fastcc i32 @tls_hash(ptr noundef %1, ptr %20, i32 %23, i32 noundef %0, ptr noundef %5, i32 noundef %6)
   tail call void @g_free(ptr noundef %20)
-  %.not26 = icmp eq i32 %45, -1
-  br i1 %.not26, label %51, label %46
+  %.not26 = icmp eq i32 %47, -1
+  br i1 %.not26, label %53, label %48
 
-46:                                               ; preds = %41
-  %47 = load ptr, ptr %5, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %49 = load i32, ptr %48, align 8
-  %50 = zext i32 %49 to i64
-  tail call void @ssl_print_data(ptr noundef nonnull @.str.1220, ptr noundef %47, i64 noundef %50)
-  br label %51
+48:                                               ; preds = %43
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %51 = load i32, ptr %50, align 8
+  %52 = zext i32 %51 to i64
+  tail call void @ssl_print_data(ptr noundef nonnull @.str.1220, ptr noundef %49, i64 noundef %52)
+  br label %53
 
-51:                                               ; preds = %41, %46, %21
-  %.0 = phi i1 [ false, %21 ], [ true, %46 ], [ false, %41 ]
+53:                                               ; preds = %43, %48, %21
+  %.0 = phi i1 [ false, %21 ], [ true, %48 ], [ false, %43 ]
   ret i1 %.0
 }
 

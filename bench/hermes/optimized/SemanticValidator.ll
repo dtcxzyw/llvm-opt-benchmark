@@ -5368,7 +5368,9 @@ if.then8:                                         ; preds = %_ZN4llvh12DenseMapB
 
 if.end24.i:                                       ; preds = %if.then8
   %cmp.i.i.i.i.i.i.i23.i = icmp eq i32 %10, 26
+  %tobool2629.i = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i23.i)
+  tail call void @llvm.assume(i1 %tobool2629.i)
   br label %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit
 
 _ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit: ; preds = %if.then8, %if.end24.i
@@ -5412,22 +5414,22 @@ if.then23:                                        ; preds = %if.else20
   %kind_.i.i.i.i.i.i.i.i.i51 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %18 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i51, align 8
   switch i32 %18, label %if.end24.i58 [
-    i32 25, label %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit60
-    i32 21, label %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit60
-    i32 20, label %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit60
-    i32 15, label %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit60
-    i32 14, label %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit60
-    i32 13, label %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit60
-    i32 12, label %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit60
-    i32 11, label %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit60
+    i32 25, label %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit61
+    i32 21, label %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit61
+    i32 20, label %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit61
+    i32 15, label %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit61
+    i32 14, label %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit61
+    i32 13, label %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit61
+    i32 12, label %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit61
+    i32 11, label %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit61
   ]
 
 if.end24.i58:                                     ; preds = %if.then23
   %cmp.i.i.i.i.i.i.i23.i59 = icmp eq i32 %18, 26
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i23.i59)
-  br label %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit60
+  br label %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit61
 
-_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit60: ; preds = %if.then23, %if.then23, %if.then23, %if.then23, %if.then23, %if.then23, %if.then23, %if.then23, %if.end24.i58
+_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit61: ; preds = %if.then23, %if.then23, %if.then23, %if.then23, %if.then23, %if.then23, %if.then23, %if.then23, %if.end24.i58
   %retval.0.i57 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = load i32, ptr %retval.0.i57, align 4
   %add.ptr29 = getelementptr inbounds nuw i8, ptr %breakStmt, i64 48
@@ -5437,19 +5439,19 @@ _ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13Statement
 if.else30:                                        ; preds = %if.else20
   %sm_31 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %20 = load ptr, ptr %sm_31, align 8
-  %sourceRange_.i61 = getelementptr inbounds nuw i8, ptr %breakStmt, i64 24
-  %retval.sroa.0.0.copyload.i62 = load ptr, ptr %sourceRange_.i61, align 8
-  %retval.sroa.2.0.sourceRange_.sroa_idx.i63 = getelementptr inbounds nuw i8, ptr %breakStmt, i64 32
-  %retval.sroa.2.0.copyload.i64 = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i63, align 8
-  %LHSKind.i67 = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 16
-  %RHSKind.i68 = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 17
-  store i8 1, ptr %RHSKind.i68, align 1
+  %sourceRange_.i62 = getelementptr inbounds nuw i8, ptr %breakStmt, i64 24
+  %retval.sroa.0.0.copyload.i63 = load ptr, ptr %sourceRange_.i62, align 8
+  %retval.sroa.2.0.sourceRange_.sroa_idx.i64 = getelementptr inbounds nuw i8, ptr %breakStmt, i64 32
+  %retval.sroa.2.0.copyload.i65 = load ptr, ptr %retval.sroa.2.0.sourceRange_.sroa_idx.i64, align 8
+  %LHSKind.i68 = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 16
+  %RHSKind.i69 = getelementptr inbounds nuw i8, ptr %ref.tmp34, i64 17
+  store i8 1, ptr %RHSKind.i69, align 1
   store ptr @.str.34, ptr %ref.tmp34, align 8
-  store i8 3, ptr %LHSKind.i67, align 8
-  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %20, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i62, ptr %retval.sroa.2.0.copyload.i64, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp34, i32 noundef 0) #21
+  store i8 3, ptr %LHSKind.i68, align 8
+  call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %20, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i63, ptr %retval.sroa.2.0.copyload.i65, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp34, i32 noundef 0) #21
   br label %if.end36
 
-if.end36:                                         ; preds = %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit60, %if.else30, %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit, %_ZN4llvhplERKNS_5TwineES2_.exit48
+if.end36:                                         ; preds = %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit61, %if.else30, %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit, %_ZN4llvhplERKNS_5TwineES2_.exit48
   %21 = load ptr, ptr %_label, align 8
   %call.i = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %21, ptr noundef %breakStmt)
   ret void
@@ -5473,7 +5475,9 @@ entry:
 
 if.end24:                                         ; preds = %entry
   %cmp.i.i.i.i.i.i.i23 = icmp eq i32 %0, 26
+  %tobool2629 = icmp ne ptr %node, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i23)
+  tail call void @llvm.assume(i1 %tobool2629)
   br label %return
 
 return:                                           ; preds = %entry, %if.end24
@@ -5557,9 +5561,9 @@ if.then8:                                         ; preds = %_ZN4llvh12DenseMapB
   %10 = load i32, ptr %kind_.i.i.i.i.i.i.i, align 8
   %11 = add i32 %10, -11
   %12 = icmp ult i32 %11, 5
-  br i1 %12, label %if.then11, label %_ZN4llvhplERKNS_5TwineES2_.exit50
+  br i1 %12, label %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit, label %_ZN4llvhplERKNS_5TwineES2_.exit50
 
-if.then11:                                        ; preds = %if.then8
+_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit: ; preds = %if.then8
   %retval.0.i = getelementptr inbounds nuw i8, ptr %9, i64 48
   %13 = load i32, ptr %retval.0.i, align 4
   %add.ptr = getelementptr inbounds nuw i8, ptr %continueStmt, i64 48
@@ -5655,7 +5659,7 @@ if.else53:                                        ; preds = %if.else43
   call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %20, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i138, ptr %retval.sroa.2.0.copyload.i140, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp57, i32 noundef 0) #21
   br label %if.end59
 
-if.end59:                                         ; preds = %if.then46, %if.else53, %_ZN4llvhplERKNS_5TwineES2_.exit134, %_ZN4llvhplERKNS_5TwineES2_.exit50, %if.then11
+if.end59:                                         ; preds = %if.then46, %if.else53, %_ZN4llvhplERKNS_5TwineES2_.exit134, %_ZN4llvhplERKNS_5TwineES2_.exit50, %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit
   %21 = load ptr, ptr %_label, align 8
   %call.i = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %21, ptr noundef %continueStmt)
   ret void
