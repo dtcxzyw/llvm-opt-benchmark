@@ -6147,8 +6147,8 @@ define internal fastcc { i64, i64 } @_ZN7Imf_3_419DeepTiledOutputFile4Data13next
   %23 = add i64 %.8.val, 1
   %.sroa.18.8.insert.ext = and i64 %23, 4294967295
   %24 = and i64 %.8.val, -4294967296
-  %.sroa.18.12.insert.shift = add i64 %24, 4294967296
-  %.sroa.18.12.insert.insert = or disjoint i64 %.sroa.18.8.insert.ext, %.sroa.18.12.insert.shift
+  %.sroa.18.12.insert.ext = add i64 %24, 4294967296
+  %.sroa.18.12.insert.insert = or disjoint i64 %.sroa.18.8.insert.ext, %.sroa.18.12.insert.ext
   br label %80
 
 25:                                               ; preds = %19
@@ -6160,8 +6160,8 @@ define internal fastcc { i64, i64 } @_ZN7Imf_3_419DeepTiledOutputFile4Data13next
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %28 = load i32, ptr %27, align 4, !tbaa !161
   %.not99 = icmp sgt i32 %28, %.sroa.18.8.extract.trunc26
-  %.sroa.18.12.insert.shift57 = add i64 %.sroa.18.8.insert.mask23, 4294967296
-  %spec.select = select i1 %.not99, i64 %.sroa.18.8.insert.insert24, i64 %.sroa.18.12.insert.shift57
+  %.sroa.18.12.insert.ext56 = add i64 %.sroa.18.8.insert.mask23, 4294967296
+  %spec.select = select i1 %.not99, i64 %.sroa.18.8.insert.insert24, i64 %.sroa.18.12.insert.ext56
   br label %80
 
 29:                                               ; preds = %19
@@ -6209,8 +6209,8 @@ define internal fastcc { i64, i64 } @_ZN7Imf_3_419DeepTiledOutputFile4Data13next
   %48 = add i64 %.8.val, 1
   %.sroa.18.8.insert.ext35 = and i64 %48, 4294967295
   %49 = and i64 %.8.val, -4294967296
-  %.sroa.18.12.insert.shift65 = add i64 %49, 4294967296
-  %.sroa.18.12.insert.insert67 = or disjoint i64 %.sroa.18.8.insert.ext35, %.sroa.18.12.insert.shift65
+  %.sroa.18.12.insert.ext64 = add i64 %49, 4294967296
+  %.sroa.18.12.insert.insert67 = or disjoint i64 %.sroa.18.8.insert.ext35, %.sroa.18.12.insert.ext64
   br label %59
 
 50:                                               ; preds = %44
@@ -6222,8 +6222,8 @@ define internal fastcc { i64, i64 } @_ZN7Imf_3_419DeepTiledOutputFile4Data13next
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %53 = load i32, ptr %52, align 4, !tbaa !161
   %.not91 = icmp sgt i32 %53, %.sroa.18.8.extract.trunc45
-  %.sroa.18.12.insert.shift73 = add i64 %.sroa.18.8.insert.mask42, 4294967296
-  %spec.select1 = select i1 %.not91, i64 %.sroa.18.8.insert.insert43, i64 %.sroa.18.12.insert.shift73
+  %.sroa.18.12.insert.ext72 = add i64 %.sroa.18.8.insert.mask42, 4294967296
+  %spec.select1 = select i1 %.not91, i64 %.sroa.18.8.insert.insert43, i64 %.sroa.18.12.insert.ext72
   br label %59
 
 54:                                               ; preds = %44

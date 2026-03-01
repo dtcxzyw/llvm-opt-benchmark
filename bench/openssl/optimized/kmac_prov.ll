@@ -739,7 +739,7 @@ define internal fastcc range(i32 0, 2) i32 @kmac_setkey(ptr noundef %0, ptr noun
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 269, ptr noundef nonnull @__func__.kmac_setkey) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 105, ptr noundef null) #6
-  br label %65
+  br label %64
 
 10:                                               ; preds = %3
   %11 = icmp slt i32 %7, 1
@@ -749,7 +749,7 @@ define internal fastcc range(i32 0, 2) i32 @kmac_setkey(ptr noundef %0, ptr noun
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 292, ptr noundef nonnull @__func__.kmac_setkey) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 166, ptr noundef null) #6
-  br label %65
+  br label %64
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -806,62 +806,62 @@ encode_string.exit.i:                             ; preds = %get_encode_size.exi
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 575, ptr noundef nonnull @__func__.encode_string) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 202, ptr noundef null) #6
-  br label %64
+  br label %63
 
 39:                                               ; preds = %36, %13
   %.013.ph.i = phi i64 [ 0, %13 ], [ %27, %36 ]
-  %40 = add nuw nsw i64 %16, 1
-  %41 = add nuw nsw i64 %40, %.013.ph.i
-  %.lhs.trunc.i = trunc nuw i64 %41 to i32
-  %42 = urem i32 %.lhs.trunc.i, %7
-  %.zext.i = zext nneg i32 %42 to i64
-  %43 = sub nsw i64 %41, %.zext.i
-  store i64 %43, ptr %15, align 8, !tbaa !24
-  %44 = icmp ult i64 %43, 673
-  %45 = icmp samesign ult i32 %7, 256
-  %or.cond15 = select i1 %44, i1 %45, i1 false, !prof !31
-  br i1 %or.cond15, label %46, label %64, !prof !31
+  %sext57.i.i = add nuw nsw i64 %16, 1
+  %40 = add nuw nsw i64 %sext57.i.i, %.013.ph.i
+  %.lhs.trunc.i = trunc nuw i64 %40 to i32
+  %41 = urem i32 %.lhs.trunc.i, %7
+  %.zext.i = zext nneg i32 %41 to i64
+  %42 = sub nsw i64 %40, %.zext.i
+  store i64 %42, ptr %15, align 8, !tbaa !24
+  %43 = icmp ult i64 %42, 673
+  %44 = icmp samesign ult i32 %7, 256
+  %or.cond15 = select i1 %43, i1 %44, i1 false, !prof !31
+  br i1 %or.cond15, label %45, label %63, !prof !31
 
-46:                                               ; preds = %39
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 69
+45:                                               ; preds = %39
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 69
   store i8 1, ptr %14, align 1, !tbaa !20
-  %48 = trunc nuw i32 %7 to i8
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 70
-  store i8 %48, ptr %47, align 1, !tbaa !20
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull readonly align 16 %4, i64 %.013.ph.i, i1 false)
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %.013.ph.i
-  %.0.fr.i.i = freeze ptr %50
-  %51 = ptrtoint ptr %.0.fr.i.i to i64
-  %52 = ptrtoint ptr %14 to i64
-  %53 = sub i64 %51, %52
-  %54 = trunc i64 %53 to i32
-  %sext.i.i = shl i64 %53, 32
-  %55 = ashr exact i64 %sext.i.i, 32
-  %56 = add nsw i64 %16, -1
-  %57 = add nsw i64 %56, %55
-  %58 = urem i64 %57, %16
-  %59 = sub nuw nsw i64 %57, %58
-  %60 = trunc i64 %59 to i32
-  %.not.i10.i = icmp eq i32 %60, %54
-  br i1 %.not.i10.i, label %kmac_bytepad_encode_key.exit, label %61
+  %47 = trunc nuw i32 %7 to i8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 70
+  store i8 %47, ptr %46, align 1, !tbaa !20
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %48, ptr nonnull readonly align 16 %4, i64 %.013.ph.i, i1 false)
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.013.ph.i
+  %.0.fr.i.i = freeze ptr %49
+  %50 = ptrtoint ptr %.0.fr.i.i to i64
+  %51 = ptrtoint ptr %14 to i64
+  %52 = sub i64 %50, %51
+  %53 = trunc i64 %52 to i32
+  %sext.i.i = shl i64 %52, 32
+  %54 = ashr exact i64 %sext.i.i, 32
+  %55 = add nsw i64 %16, -1
+  %56 = add nsw i64 %55, %54
+  %57 = urem i64 %56, %16
+  %58 = sub nuw nsw i64 %56, %57
+  %59 = trunc i64 %58 to i32
+  %.not.i10.i = icmp eq i32 %59, %53
+  br i1 %.not.i10.i, label %kmac_bytepad_encode_key.exit, label %60
 
-61:                                               ; preds = %46
-  %62 = sub i64 %59, %53
-  %sext53.i.i = shl i64 %62, 32
-  %63 = ashr exact i64 %sext53.i.i, 32
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.0.fr.i.i, i8 0, i64 %63, i1 false)
+60:                                               ; preds = %45
+  %61 = sub i64 %58, %52
+  %sext53.i.i = shl i64 %61, 32
+  %62 = ashr exact i64 %sext53.i.i, 32
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.0.fr.i.i, i8 0, i64 %62, i1 false)
   br label %kmac_bytepad_encode_key.exit
 
-kmac_bytepad_encode_key.exit:                     ; preds = %46, %61
+kmac_bytepad_encode_key.exit:                     ; preds = %45, %60
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %65
+  br label %64
 
-64:                                               ; preds = %39, %encode_string.exit.i
+63:                                               ; preds = %39, %encode_string.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %65
+  br label %64
 
-65:                                               ; preds = %64, %kmac_bytepad_encode_key.exit, %12, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %12 ], [ 0, %64 ], [ 1, %kmac_bytepad_encode_key.exit ]
+64:                                               ; preds = %63, %kmac_bytepad_encode_key.exit, %12, %9
+  %.0 = phi i32 [ 0, %9 ], [ 0, %12 ], [ 0, %63 ], [ 1, %kmac_bytepad_encode_key.exit ]
   ret i32 %.0
 }
 

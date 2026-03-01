@@ -4263,13 +4263,14 @@ define nonnull ptr @l___private_Std_Internal_Parsec_ByteArray_0__Std_Internal_Pa
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %10, %9, %7, %1
+  %11 = and i64 %2, 510
   %.b = load i1, ptr @l_Std_Internal_Parsec_ByteArray_digit___closed__1, align 1
   %.neg = select i1 %.b, i64 416, i64 0
-  %11 = add i64 %.neg, %2
-  %12 = and i64 %11, 510
-  %13 = or disjoint i64 %12, 1
-  %14 = inttoptr i64 %13 to ptr
-  ret ptr %14
+  %12 = add nuw nsw i64 %.neg, %11
+  %13 = and i64 %12, 510
+  %14 = or disjoint i64 %13, 1
+  %15 = inttoptr i64 %14 to ptr
+  ret ptr %15
 }
 
 ; Function Attrs: nounwind uwtable

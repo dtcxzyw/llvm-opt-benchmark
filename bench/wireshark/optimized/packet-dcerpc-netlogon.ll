@@ -6778,15 +6778,15 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %select.unfold.
 
 159:                                              ; preds = %136
   %160 = load i64, ptr %.1.i142, align 8
-  %161 = and i64 %160, -4294967296
-  %162 = getelementptr inbounds nuw i8, ptr %.1.i142, i64 8
-  %163 = load i64, ptr %162, align 8
-  %164 = add i64 %163, %160
+  %161 = getelementptr inbounds nuw i8, ptr %.1.i142, i64 8
+  %162 = load i64, ptr %161, align 8
+  %163 = and i64 %162, -4294967296
+  %164 = add i64 %162, %160
+  %165 = add i64 %163, %160
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %165 = and i64 %164, 4294967295
-  %166 = add i64 %163, %161
-  %167 = and i64 %166, -4294967296
-  %168 = or disjoint i64 %165, %167
+  %166 = and i64 %164, 4294967295
+  %167 = and i64 %165, -4294967296
+  %168 = or disjoint i64 %167, %166
   store i64 %168, ptr %22, align 8
   %.not193 = icmp eq i32 %94, 0
   br i1 %.not193, label %._crit_edge185, label %.lr.ph184
@@ -6812,7 +6812,7 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %select.unfold.
   call void @crypt_des_ecb(ptr noundef nonnull %23, ptr noundef nonnull %22, ptr noundef %173)
   %174 = getelementptr i8, ptr %173, i64 9
   call void @crypt_des_ecb(ptr noundef nonnull %11, ptr noundef nonnull %23, ptr noundef %174)
-  call void @crypt_des_ecb(ptr noundef nonnull %23, ptr noundef nonnull %162, ptr noundef nonnull %11)
+  call void @crypt_des_ecb(ptr noundef nonnull %23, ptr noundef nonnull %161, ptr noundef nonnull %11)
   call void @crypt_des_ecb(ptr noundef nonnull %24, ptr noundef nonnull %23, ptr noundef nonnull %169)
   %175 = load i64, ptr %24, align 8
   %176 = icmp eq i64 %175, %32

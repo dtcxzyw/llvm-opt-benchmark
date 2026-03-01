@@ -19704,9 +19704,9 @@ define hidden void @"_ZN17cranelift_codegen8machinst5vcode22VRegAllocator$LT$I$G
 
 21:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  switch i64 %.sroa.445.0.copyload, label %44 [
+  switch i64 %.sroa.445.0.copyload, label %43 [
     i64 1, label %23
-    i64 2, label %33
+    i64 2, label %32
   ]
 
 22:                                               ; preds = %17
@@ -19721,101 +19721,100 @@ define hidden void @"_ZN17cranelift_codegen8machinst5vcode22VRegAllocator$LT$I$G
   %28 = or disjoint i32 %26, %27
   br label %29
 
-29:                                               ; preds = %33, %23
-  %.sink87 = phi i32 [ %40, %33 ], [ %28, %23 ]
-  %.sink = phi i32 [ %43, %33 ], [ 8388604, %23 ]
+29:                                               ; preds = %32, %23
+  %.sink87 = phi i32 [ %39, %32 ], [ %28, %23 ]
+  %.sink = phi i32 [ %42, %32 ], [ 8388604, %23 ]
   store i32 %.sink87, ptr %6, align 8
   %.sroa.455.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %.sink, ptr %.sroa.455.0..sroa_idx, align 4
   %.sroa.01.0.copyload.i = load i64, ptr %6, align 8, !alias.scope !2711
   %30 = and i64 %.sroa.01.0.copyload.i, 4294967295
-  %.not79 = icmp eq i64 %30, 8388604
+  %.not79 = icmp ne i64 %30, 8388604
   %.sroa.2.0.extract.shift.mask.i.i = and i64 %.sroa.01.0.copyload.i, -4294967296
-  %.not80 = icmp eq i64 %.sroa.2.0.extract.shift.mask.i.i, 36028779839094784
-  %.idx = select i1 %.not79, i64 0, i64 4
-  %.idx78 = select i1 %.not80, i64 0, i64 4
+  %.not80 = icmp ne i64 %.sroa.2.0.extract.shift.mask.i.i, 36028779839094784
+  %.idx = zext i1 %.not79 to i64
+  %.idx78 = zext i1 %.not80 to i64
   %31 = add nuw nsw i64 %.idx, %.idx78
-  %32 = lshr exact i64 %31, 2
-  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.647.0.copyload, i64 %32)
+  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sroa.647.0.copyload, i64 %31)
   %.not82 = icmp eq i64 %.0.sroa.speculated.i.i.i, 0
   br i1 %.not82, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf5ccae4fea5cf66aE.exit.thread", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf5ccae4fea5cf66aE.exit"
 
-33:                                               ; preds = %21
-  %34 = load i8, ptr %.sroa.044.0.copyload, align 1, !range !101, !noundef !11
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.044.0.copyload, i64 1
-  %36 = load i8, ptr %35, align 1, !range !101, !noundef !11
-  %37 = trunc i64 %13 to i32
-  %38 = shl i32 %37, 2
-  %39 = zext nneg i8 %34 to i32
-  %40 = or disjoint i32 %38, %39
-  %41 = add i32 %38, 4
-  %42 = zext nneg i8 %36 to i32
-  %43 = or disjoint i32 %41, %42
+32:                                               ; preds = %21
+  %33 = load i8, ptr %.sroa.044.0.copyload, align 1, !range !101, !noundef !11
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.044.0.copyload, i64 1
+  %35 = load i8, ptr %34, align 1, !range !101, !noundef !11
+  %36 = trunc i64 %13 to i32
+  %37 = shl i32 %36, 2
+  %38 = zext nneg i8 %33 to i32
+  %39 = or disjoint i32 %37, %38
+  %40 = add i32 %37, 4
+  %41 = zext nneg i8 %35 to i32
+  %42 = or disjoint i32 %40, %41
   br label %29
 
-44:                                               ; preds = %21
+43:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @anon.93d33193ed412401645690e7206ea482.290, ptr %5, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %46, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @anon.93d33193ed412401645690e7206ea482.61.llvm.6890334928246803750, ptr %47, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 0, ptr %48, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 1, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr null, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr @anon.93d33193ed412401645690e7206ea482.61.llvm.6890334928246803750, ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 0, ptr %47, align 8
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.93d33193ed412401645690e7206ea482.291) #42
   unreachable
 
-"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf5ccae4fea5cf66aE.exit": ; preds = %29, %61
-  %.sroa.8.081 = phi i64 [ %62, %61 ], [ 0, %29 ]
-  %49 = getelementptr inbounds nuw i32, ptr %6, i64 %.sroa.8.081
-  %50 = load i32, ptr %49, align 4, !noundef !11
-  %51 = icmp ult i32 %50, 768
-  br i1 %51, label %60, label %61
+"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf5ccae4fea5cf66aE.exit": ; preds = %29, %60
+  %.sroa.8.081 = phi i64 [ %61, %60 ], [ 0, %29 ]
+  %48 = getelementptr inbounds nuw i32, ptr %6, i64 %.sroa.8.081
+  %49 = load i32, ptr %48, align 4, !noundef !11
+  %50 = icmp ult i32 %49, 768
+  br i1 %50, label %59, label %60
 
-"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf5ccae4fea5cf66aE.exit.thread.loopexit": ; preds = %61
+"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf5ccae4fea5cf66aE.exit.thread.loopexit": ; preds = %60
   %.pre = load i64, ptr %12, align 8
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf5ccae4fea5cf66aE.exit.thread"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf5ccae4fea5cf66aE.exit.thread": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf5ccae4fea5cf66aE.exit.thread.loopexit", %29
-  %52 = phi i64 [ %.pre, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf5ccae4fea5cf66aE.exit.thread.loopexit" ], [ %18, %29 ]
+  %51 = phi i64 [ %.pre, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf5ccae4fea5cf66aE.exit.thread.loopexit" ], [ %18, %29 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2714)
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %54 = load i64, ptr %53, align 8, !alias.scope !2714, !noalias !2717, !noundef !11
-  %55 = icmp ugt i64 %52, %54
-  br i1 %55, label %56, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h11dc446818a2dc09E.llvm.14502953478370073462.exit.i"
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %53 = load i64, ptr %52, align 8, !alias.scope !2714, !noalias !2717, !noundef !11
+  %54 = icmp ugt i64 %51, %53
+  br i1 %54, label %55, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h11dc446818a2dc09E.llvm.14502953478370073462.exit.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h11dc446818a2dc09E.llvm.14502953478370073462.exit.i": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf5ccae4fea5cf66aE.exit.thread"
-  store i64 %52, ptr %53, align 8, !alias.scope !2719, !noalias !2717
+  store i64 %51, ptr %52, align 8, !alias.scope !2719, !noalias !2717
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h95361556c487612bE.exit"
 
-56:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf5ccae4fea5cf66aE.exit.thread"
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %58 = sub nuw i64 %52, %54
+55:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf5ccae4fea5cf66aE.exit.thread"
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %57 = sub nuw i64 %51, %53
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2722
   store i8 7, ptr %4, align 8, !noalias !2714
-  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hd28f75c33b22356dE.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57, i64 noundef %58, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !2717
+  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hd28f75c33b22356dE.llvm.14502953478370073462"(ptr noalias noundef nonnull align 8 dereferenceable(24) %56, i64 noundef %57, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %4), !noalias !2717
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2722
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h95361556c487612bE.exit"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h95361556c487612bE.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h11dc446818a2dc09E.llvm.14502953478370073462.exit.i", %56
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 %.sroa.01.0.copyload.i, ptr %59, align 4
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h95361556c487612bE.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8truncate17h11dc446818a2dc09E.llvm.14502953478370073462.exit.i", %55
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 %.sroa.01.0.copyload.i, ptr %58, align 4
   store i8 7, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %16
 
-60:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf5ccae4fea5cf66aE.exit"
+59:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf5ccae4fea5cf66aE.exit"
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.93d33193ed412401645690e7206ea482.288) #42
   unreachable
 
-61:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf5ccae4fea5cf66aE.exit"
-  %62 = add nuw nsw i64 %.sroa.8.081, 1
-  %63 = getelementptr inbounds nuw i16, ptr %.sroa.546.0.copyload, i64 %.sroa.8.081
-  %64 = load i16, ptr %63, align 2, !noundef !11
-  tail call void @"_ZN17cranelift_codegen8machinst5vcode22VRegAllocator$LT$I$GT$13set_vreg_type17h65a5abedad107c96E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %1, i32 noundef %50, i16 noundef %64)
-  %exitcond.not = icmp eq i64 %62, %.0.sroa.speculated.i.i.i
+60:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf5ccae4fea5cf66aE.exit"
+  %61 = add nuw nsw i64 %.sroa.8.081, 1
+  %62 = getelementptr inbounds nuw i16, ptr %.sroa.546.0.copyload, i64 %.sroa.8.081
+  %63 = load i16, ptr %62, align 2, !noundef !11
+  tail call void @"_ZN17cranelift_codegen8machinst5vcode22VRegAllocator$LT$I$GT$13set_vreg_type17h65a5abedad107c96E"(ptr noalias noundef nonnull align 8 dereferenceable(144) %1, i32 noundef %49, i16 noundef %63)
+  %exitcond.not = icmp eq i64 %61, %.0.sroa.speculated.i.i.i
   br i1 %exitcond.not, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf5ccae4fea5cf66aE.exit.thread.loopexit", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hf5ccae4fea5cf66aE.exit"
 }
 

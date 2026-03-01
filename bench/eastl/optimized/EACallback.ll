@@ -534,10 +534,11 @@ entry:
   %0 = load ptr, ptr %mpEnd, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %pIterator to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
+  %sub.ptr.div = and i64 %sub.ptr.sub, -8
+  %sub = add i64 %sub.ptr.div, -8
   %add.ptr = getelementptr inbounds nuw i8, ptr %pIterator, i64 8
-  %reass.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %mul = add i64 %reass.sub, -8
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %pIterator, ptr nonnull align 8 %add.ptr, i64 %mul, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %pIterator, ptr nonnull align 8 %add.ptr, i64 %sub, i1 false)
   %1 = load ptr, ptr %mpEnd, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %1, i64 -8
   store ptr %incdec.ptr, ptr %mpEnd, align 8
@@ -1103,17 +1104,17 @@ for.body.lr.ph:                                   ; preds = %entry
   store ptr %mNextCallbackEventTick, ptr %tickInfo.sroa.7, align 8
   store i64 %2, ptr %userEventInfo.sroa.0, align 8
   store ptr %nextCallBackUserEvent, ptr %userEventInfo.sroa.7, align 8
-  %sub.ptr.lhs.cast.i78 = ptrtoint ptr %4 to i64
+  %sub.ptr.lhs.cast.i81 = ptrtoint ptr %4 to i64
   %mRandom = getelementptr inbounds nuw i8, ptr %this, i64 140
   %mbAsync = getelementptr inbounds nuw i8, ptr %this, i64 138
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %7 = phi ptr [ %4, %for.body.lr.ph ], [ %36, %for.inc ]
-  %sub.ptr.lhs.cast.i84 = phi i64 [ %sub.ptr.lhs.cast.i78, %for.body.lr.ph ], [ %sub.ptr.lhs.cast.i, %for.inc ]
+  %sub.ptr.lhs.cast.i87 = phi i64 [ %sub.ptr.lhs.cast.i81, %for.body.lr.ph ], [ %sub.ptr.lhs.cast.i, %for.inc ]
   %8 = phi ptr [ %3, %for.body.lr.ph ], [ %37, %for.inc ]
-  %i.083 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %8, i64 %i.083
+  %i.086 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %arrayidx.i = getelementptr inbounds ptr, ptr %8, i64 %i.086
   %9 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not = icmp eq ptr %9, null
   br i1 %tobool.not, label %if.else64, label %if.then14
@@ -1155,21 +1156,21 @@ if.then.i:                                        ; preds = %if.then20
   %15 = load ptr, ptr %mpFunctionArg.i, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef %15, i64 noundef %11, i64 noundef %sub)
   %.pre = load ptr, ptr %mpEnd.i, align 8
-  %.pre85 = load ptr, ptr %mCallbackArray, align 8
+  %.pre88 = load ptr, ptr %mCallbackArray, align 8
   br label %_ZN2EA4StdC8Callback4CallEmm.exit
 
 _ZN2EA4StdC8Callback4CallEmm.exit:                ; preds = %if.then20, %if.then.i
-  %16 = phi ptr [ %8, %if.then20 ], [ %.pre85, %if.then.i ]
+  %16 = phi ptr [ %8, %if.then20 ], [ %.pre88, %if.then.i ]
   %17 = phi ptr [ %7, %if.then20 ], [ %.pre, %if.then.i ]
   %sub.ptr.lhs.cast.i67 = ptrtoint ptr %17 to i64
   %sub.ptr.rhs.cast.i68 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i69 = sub i64 %sub.ptr.lhs.cast.i67, %sub.ptr.rhs.cast.i68
   %sub.ptr.div.i70 = ashr exact i64 %sub.ptr.sub.i69, 3
-  %cmp25 = icmp ult i64 %i.083, %sub.ptr.div.i70
+  %cmp25 = icmp ult i64 %i.086, %sub.ptr.div.i70
   br i1 %cmp25, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %_ZN2EA4StdC8Callback4CallEmm.exit
-  %arrayidx.i71 = getelementptr inbounds ptr, ptr %16, i64 %i.083
+  %arrayidx.i71 = getelementptr inbounds ptr, ptr %16, i64 %i.086
   %18 = load ptr, ptr %arrayidx.i71, align 8
   %cmp28 = icmp eq ptr %18, %9
   br i1 %cmp28, label %if.then29, label %for.inc
@@ -1257,17 +1258,18 @@ if.then56:                                        ; preds = %if.then52
 
 if.else64:                                        ; preds = %for.body
   %sub.ptr.rhs.cast.i77 = ptrtoint ptr %arrayidx.i to i64
+  %sub.ptr.sub.i78 = sub i64 %sub.ptr.lhs.cast.i87, %sub.ptr.rhs.cast.i77
+  %sub.ptr.div.i79 = and i64 %sub.ptr.sub.i78, -8
+  %sub.i80 = add i64 %sub.ptr.div.i79, -8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %reass.sub.i = add i64 %sub.ptr.lhs.cast.i84, -8
-  %mul.i = sub i64 %reass.sub.i, %sub.ptr.rhs.cast.i77
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %arrayidx.i, ptr nonnull align 8 %add.ptr.i, i64 %mul.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %arrayidx.i, ptr nonnull align 8 %add.ptr.i, i64 %sub.i80, i1 false)
   %35 = load ptr, ptr %mpEnd.i, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %35, i64 -8
   store ptr %incdec.ptr.i, ptr %mpEnd.i, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then.i.i.i, %if.then6.i, %if.then.i73, %if.then33, %if.else64, %_ZN2EA4StdC8Callback4CallEmm.exit, %land.lhs.true, %if.end50, %if.then56, %if.then52, %sw.epilog
-  %inc = add nuw i64 %i.083, 1
+  %inc = add nuw i64 %i.086, 1
   %36 = load ptr, ptr %mpEnd.i, align 8
   %37 = load ptr, ptr %mCallbackArray, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %36 to i64

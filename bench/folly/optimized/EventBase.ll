@@ -8185,9 +8185,9 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPoli
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !208
   %8 = and i64 %7, -256
-  %9 = and i64 %7, 255
-  %10 = add i64 %8, -256
-  %11 = or disjoint i64 %10, %9
+  %9 = add i64 %8, -256
+  %10 = and i64 %7, 255
+  %11 = or disjoint i64 %9, %10
   store i64 %11, ptr %6, align 8, !tbaa !208
   %12 = and i64 %2, 255
   %13 = icmp samesign ult i64 %12, 16
@@ -8201,7 +8201,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPoli
   br i1 %19, label %20, label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPNS_6detail18EventBaseLocalBaseEvvvvEEE29adjustSizeAndBeginBeforeEraseENS1_11F14ItemIterIPNS1_8F14ChunkIS6_EEEE.exit
 
 20:                                               ; preds = %5
-  %21 = icmp eq i64 %10, 0
+  %21 = icmp eq i64 %9, 0
   br i1 %21, label %_ZN5folly3f146detail11F14ItemIterIPNS1_8F14ChunkIPNS_6detail18EventBaseLocalBaseEEEE17precheckedAdvanceEv.exit.i, label %22
 
 22:                                               ; preds = %20
@@ -9377,9 +9377,9 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_21VectorContainerPol
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i64, ptr %27, align 8, !tbaa !208
   %29 = and i64 %28, -256
-  %30 = and i64 %28, 255
-  %31 = add i64 %29, -256
-  %32 = or disjoint i64 %31, %30
+  %30 = add i64 %29, -256
+  %31 = and i64 %28, 255
+  %32 = or disjoint i64 %30, %31
   store i64 %32, ptr %27, align 8, !tbaa !208
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 %2
   %34 = load i8, ptr %33, align 1, !tbaa !41

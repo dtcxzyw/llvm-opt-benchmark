@@ -1797,11 +1797,11 @@ define internal fastcc range(i32 -1, 2) i32 @ar_update(i64 noundef %0, i64 nound
 ensure_ar_table.exit:                             ; preds = %.thread
   switch i32 %38, label %ar_add_direct_with_hash.exit [
     i32 0, label %43
-    i32 2, label %82
+    i32 2, label %81
   ]
 
 43:                                               ; preds = %ensure_ar_table.exit
-  br i1 %.not3243, label %44, label %72
+  br i1 %.not3243, label %44, label %71
 
 44:                                               ; preds = %43
   %45 = load i64, ptr %5, align 8, !tbaa !7
@@ -1841,67 +1841,67 @@ ar_add_direct_with_hash.exit.thread:              ; preds = %49, %53
   %67 = zext nneg i32 %66 to i64
   %68 = or i64 %64, %67
   %69 = and i64 %63, 983040
-  %70 = add nuw nsw i64 %69, 65536
-  %71 = or i64 %68, %70
-  store i64 %71, ptr %8, align 8, !tbaa !11
+  %narrow.i.i = add nuw nsw i64 %69, 65536
+  %70 = or i64 %68, %narrow.i.i
+  store i64 %70, ptr %8, align 8, !tbaa !11
   br label %ar_add_direct_with_hash.exit
 
-72:                                               ; preds = %43
-  %73 = add i64 %0, 24
-  %74 = inttoptr i64 %73 to ptr
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %76 = getelementptr %struct.ar_table_pair_struct, ptr %75, i64 %.02941
-  %77 = load i64, ptr %5, align 8, !tbaa !7
-  %.not34 = icmp eq i64 %37, %77
-  br i1 %.not34, label %79, label %78
+71:                                               ; preds = %43
+  %72 = add i64 %0, 24
+  %73 = inttoptr i64 %72 to ptr
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %75 = getelementptr %struct.ar_table_pair_struct, ptr %74, i64 %.02941
+  %76 = load i64, ptr %5, align 8, !tbaa !7
+  %.not34 = icmp eq i64 %37, %76
+  br i1 %.not34, label %78, label %77
 
-78:                                               ; preds = %72
-  store i64 %77, ptr %76, align 8, !tbaa !45
-  br label %79
+77:                                               ; preds = %71
+  store i64 %76, ptr %75, align 8, !tbaa !45
+  br label %78
 
-79:                                               ; preds = %78, %72
-  %80 = load i64, ptr %6, align 8, !tbaa !7
-  %81 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store i64 %80, ptr %81, align 8, !tbaa !47
+78:                                               ; preds = %77, %71
+  %79 = load i64, ptr %6, align 8, !tbaa !7
+  %80 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  store i64 %79, ptr %80, align 8, !tbaa !47
   br label %ar_add_direct_with_hash.exit
 
-82:                                               ; preds = %ensure_ar_table.exit
-  br i1 %.not3243, label %ar_add_direct_with_hash.exit, label %83
+81:                                               ; preds = %ensure_ar_table.exit
+  br i1 %.not3243, label %ar_add_direct_with_hash.exit, label %82
 
-83:                                               ; preds = %82
-  %84 = add i64 %0, 24
-  %85 = inttoptr i64 %84 to ptr
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %87 = getelementptr %struct.ar_table_pair_struct, ptr %86, i64 %.02941
-  store i64 36, ptr %87, align 8, !tbaa !45
-  %88 = getelementptr i8, ptr %85, i64 %.02941
-  store i8 -1, ptr %88, align 1, !tbaa !22
-  %89 = load i64, ptr %8, align 8, !tbaa !11
-  %90 = trunc i64 %89 to i32
-  %91 = lshr i32 %90, 16
-  %92 = and i32 %91, 15
-  %93 = add nsw i32 %92, -1
-  %.not.i37 = icmp eq i32 %93, 0
-  br i1 %.not.i37, label %99, label %94
+82:                                               ; preds = %81
+  %83 = add i64 %0, 24
+  %84 = inttoptr i64 %83 to ptr
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %86 = getelementptr %struct.ar_table_pair_struct, ptr %85, i64 %.02941
+  store i64 36, ptr %86, align 8, !tbaa !45
+  %87 = getelementptr i8, ptr %84, i64 %.02941
+  store i8 -1, ptr %87, align 1, !tbaa !22
+  %88 = load i64, ptr %8, align 8, !tbaa !11
+  %89 = trunc i64 %88 to i32
+  %90 = lshr i32 %89, 16
+  %91 = and i32 %90, 15
+  %92 = add nsw i32 %91, -1
+  %.not.i37 = icmp eq i32 %92, 0
+  br i1 %.not.i37, label %98, label %93
 
-94:                                               ; preds = %83
-  %95 = sext i32 %93 to i64
-  %96 = and i64 %89, -983041
-  %97 = shl nsw i64 %95, 16
-  %98 = or i64 %97, %96
+93:                                               ; preds = %82
+  %94 = sext i32 %92 to i64
+  %95 = and i64 %88, -983041
+  %96 = shl nsw i64 %94, 16
+  %97 = or i64 %96, %95
   br label %RHASH_AR_TABLE_SIZE_DEC.exit
 
-99:                                               ; preds = %83
-  %100 = and i64 %89, -16711681
+98:                                               ; preds = %82
+  %99 = and i64 %88, -16711681
   br label %RHASH_AR_TABLE_SIZE_DEC.exit
 
-RHASH_AR_TABLE_SIZE_DEC.exit:                     ; preds = %94, %99
-  %storemerge.i = phi i64 [ %98, %94 ], [ %100, %99 ]
+RHASH_AR_TABLE_SIZE_DEC.exit:                     ; preds = %93, %98
+  %storemerge.i = phi i64 [ %97, %93 ], [ %99, %98 ]
   store i64 %storemerge.i, ptr %8, align 8, !tbaa !11
   br label %ar_add_direct_with_hash.exit
 
-ar_add_direct_with_hash.exit:                     ; preds = %ensure_ar_table.exit, %79, %RHASH_AR_TABLE_SIZE_DEC.exit, %82, %ar_add_direct_with_hash.exit.thread, %44, %4
-  %.0 = phi i32 [ -1, %4 ], [ -1, %44 ], [ %.02842, %ar_add_direct_with_hash.exit.thread ], [ %.02842, %82 ], [ %.02842, %RHASH_AR_TABLE_SIZE_DEC.exit ], [ %.02842, %79 ], [ %.02842, %ensure_ar_table.exit ]
+ar_add_direct_with_hash.exit:                     ; preds = %ensure_ar_table.exit, %78, %RHASH_AR_TABLE_SIZE_DEC.exit, %81, %ar_add_direct_with_hash.exit.thread, %44, %4
+  %.0 = phi i32 [ -1, %4 ], [ -1, %44 ], [ %.02842, %ar_add_direct_with_hash.exit.thread ], [ %.02842, %81 ], [ %.02842, %RHASH_AR_TABLE_SIZE_DEC.exit ], [ %.02842, %78 ], [ %.02842, %ensure_ar_table.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }
@@ -10808,7 +10808,7 @@ define internal fastcc void @ar_insert(i64 noundef %0, i64 noundef %1, i64 nound
   %6 = load i64, ptr %4, align 8, !tbaa !11
   %7 = and i64 %6, 32768
   %.not.i = icmp eq i64 %7, 0
-  br i1 %.not.i, label %8, label %79, !prof !59
+  br i1 %.not.i, label %8, label %78, !prof !59
 
 8:                                                ; preds = %3
   %9 = trunc i64 %5 to i8
@@ -10846,7 +10846,7 @@ define internal fastcc void @ar_insert(i64 noundef %0, i64 noundef %1, i64 nound
 
 ar_find_entry.exit:                               ; preds = %19
   %24 = icmp eq i64 %indvars.iv.i.i, 8
-  br i1 %24, label %ar_find_entry.exit.thread, label %75
+  br i1 %24, label %ar_find_entry.exit.thread, label %74
 
 ar_find_entry.exit.thread:                        ; preds = %23, %8, %ar_find_entry.exit
   %25 = load i64, ptr %4, align 8, !tbaa !11
@@ -10854,7 +10854,7 @@ ar_find_entry.exit.thread:                        ; preds = %23, %8, %ar_find_en
   %27 = lshr i32 %26, 16
   %28 = and i32 %27, 15
   %29 = icmp samesign ugt i32 %28, 7
-  br i1 %29, label %79, label %30
+  br i1 %29, label %78, label %30
 
 30:                                               ; preds = %ar_find_entry.exit.thread
   %31 = lshr i32 %26, 20
@@ -10962,19 +10962,19 @@ ar_compact_table.exit:                            ; preds = %.ar_compact_table.e
   %70 = zext nneg i32 %69 to i64
   %71 = or disjoint i64 %68, %70
   %72 = and i64 %67, 983040
-  %73 = add nuw nsw i64 %72, 65536
-  %74 = or i64 %71, %73
-  store i64 %74, ptr %4, align 8, !tbaa !11
-  br label %79
+  %narrow.i = add nuw nsw i64 %72, 65536
+  %73 = or i64 %71, %narrow.i
+  store i64 %73, ptr %4, align 8, !tbaa !11
+  br label %78
 
-75:                                               ; preds = %ar_find_entry.exit
-  %76 = and i64 %indvars.iv.i.i, 4294967295
-  %77 = getelementptr %struct.ar_table_pair_struct, ptr %14, i64 %76
-  %78 = getelementptr i8, ptr %77, i64 16
-  store i64 %2, ptr %78, align 8, !tbaa !47
-  br label %79
+74:                                               ; preds = %ar_find_entry.exit
+  %75 = and i64 %indvars.iv.i.i, 4294967295
+  %76 = getelementptr %struct.ar_table_pair_struct, ptr %14, i64 %75
+  %77 = getelementptr i8, ptr %76, i64 16
+  store i64 %2, ptr %77, align 8, !tbaa !47
+  br label %78
 
-79:                                               ; preds = %ar_find_entry.exit.thread, %3, %75, %ar_compact_table.exit
+78:                                               ; preds = %ar_find_entry.exit.thread, %3, %74, %ar_compact_table.exit
   ret void
 }
 

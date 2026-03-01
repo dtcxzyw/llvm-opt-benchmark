@@ -1369,10 +1369,10 @@ define internal void @init_default_clut() #3 {
 24:                                               ; preds = %21
   %25 = and i32 %23, 1
   %.not79 = icmp eq i32 %25, 0
-  %26 = select i1 %.not79, i32 0, i32 255
+  %26 = select i1 %.not79, i32 0, i32 16711680
   %27 = and i32 %23, 2
   %.not80 = icmp eq i32 %27, 0
-  %28 = select i1 %.not80, i32 0, i32 255
+  %28 = select i1 %.not80, i32 0, i32 65280
   %.not81 = icmp samesign ult i64 %indvars.iv91, 4
   %29 = select i1 %.not81, i32 0, i32 255
   br label %78
@@ -1400,11 +1400,11 @@ define internal void @init_default_clut() #3 {
   ]
 
 38:                                               ; preds = %30
-  %39 = select i1 %.not73, i32 0, i32 85
-  %40 = select i1 %.not74, i32 0, i32 170
+  %39 = select i1 %.not73, i32 0, i32 5570560
+  %40 = select i1 %.not74, i32 0, i32 11141120
   %41 = or disjoint i32 %39, %40
-  %42 = select i1 %.not75, i32 0, i32 85
-  %43 = select i1 %.not76, i32 0, i32 170
+  %42 = select i1 %.not75, i32 0, i32 21760
+  %43 = select i1 %.not76, i32 0, i32 43520
   %44 = or disjoint i32 %42, %43
   %45 = select i1 %.not77, i32 0, i32 85
   %46 = select i1 %.not78, i32 0, i32 170
@@ -1412,11 +1412,11 @@ define internal void @init_default_clut() #3 {
   br label %78
 
 48:                                               ; preds = %30
-  %49 = select i1 %.not73, i32 0, i32 85
-  %50 = select i1 %.not74, i32 0, i32 170
+  %49 = select i1 %.not73, i32 0, i32 5570560
+  %50 = select i1 %.not74, i32 0, i32 11141120
   %51 = or disjoint i32 %49, %50
-  %52 = select i1 %.not75, i32 0, i32 85
-  %53 = select i1 %.not76, i32 0, i32 170
+  %52 = select i1 %.not75, i32 0, i32 21760
+  %53 = select i1 %.not76, i32 0, i32 43520
   %54 = or disjoint i32 %52, %53
   %55 = select i1 %.not77, i32 0, i32 85
   %56 = select i1 %.not78, i32 0, i32 170
@@ -1424,11 +1424,11 @@ define internal void @init_default_clut() #3 {
   br label %78
 
 58:                                               ; preds = %30
-  %59 = select i1 %.not73, i32 127, i32 170
-  %60 = select i1 %.not74, i32 0, i32 85
+  %59 = select i1 %.not73, i32 8323072, i32 11141120
+  %60 = select i1 %.not74, i32 0, i32 5570560
   %61 = add nuw nsw i32 %59, %60
-  %62 = select i1 %.not75, i32 127, i32 170
-  %63 = select i1 %.not76, i32 0, i32 85
+  %62 = select i1 %.not75, i32 32512, i32 43520
+  %63 = select i1 %.not76, i32 0, i32 21760
   %64 = add nuw nsw i32 %62, %63
   %65 = select i1 %.not77, i32 127, i32 170
   %66 = select i1 %.not78, i32 0, i32 85
@@ -1436,11 +1436,11 @@ define internal void @init_default_clut() #3 {
   br label %78
 
 68:                                               ; preds = %30
-  %69 = select i1 %.not73, i32 0, i32 43
-  %70 = select i1 %.not74, i32 0, i32 85
+  %69 = select i1 %.not73, i32 0, i32 2818048
+  %70 = select i1 %.not74, i32 0, i32 5570560
   %71 = add nuw nsw i32 %69, %70
-  %72 = select i1 %.not75, i32 0, i32 43
-  %73 = select i1 %.not76, i32 0, i32 85
+  %72 = select i1 %.not75, i32 0, i32 11008
+  %73 = select i1 %.not76, i32 0, i32 21760
   %74 = add nuw nsw i32 %72, %73
   %75 = select i1 %.not77, i32 0, i32 43
   %76 = select i1 %.not78, i32 0, i32 85
@@ -1455,18 +1455,16 @@ define internal void @init_default_clut() #3 {
   %.151 = phi i32 [ %28, %24 ], [ %44, %38 ], [ %54, %48 ], [ %64, %58 ], [ %74, %68 ]
   %.1 = phi i32 [ %29, %24 ], [ %47, %38 ], [ %57, %48 ], [ %67, %58 ], [ %77, %68 ]
   %.0 = phi i32 [ 1056964608, %24 ], [ -16777216, %38 ], [ 2130706432, %48 ], [ -16777216, %58 ], [ -16777216, %68 ]
-  %79 = shl nuw nsw i32 %.153, 16
-  %80 = shl nuw nsw i32 %.151, 8
-  %81 = or i32 %80, %79
-  %82 = or i32 %81, %.1
-  %83 = or i32 %82, %.0
-  %84 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @default_clut, i64 88), i64 %indvars.iv91
-  store i32 %83, ptr %84, align 4, !tbaa !106
+  %79 = or i32 %.151, %.153
+  %80 = or i32 %79, %.1
+  %81 = or i32 %80, %.0
+  %82 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @default_clut, i64 88), i64 %indvars.iv91
+  store i32 %81, ptr %82, align 4, !tbaa !106
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next92, 256
-  br i1 %exitcond94.not, label %85, label %21, !llvm.loop !126
+  br i1 %exitcond94.not, label %83, label %21, !llvm.loop !126
 
-85:                                               ; preds = %78
+83:                                               ; preds = %78
   ret void
 }
 

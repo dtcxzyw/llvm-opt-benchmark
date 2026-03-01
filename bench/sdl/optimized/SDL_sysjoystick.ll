@@ -1063,83 +1063,82 @@ define internal zeroext i1 @LINUX_JoystickRumble(ptr noundef readonly captures(n
   store i16 %1, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 74
   store i16 %2, ptr %14, align 2
-  br label %29
+  br label %28
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 49
   %17 = load i8, ptr %16, align 1, !range !5, !noundef !6
   %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %19, label %27
+  br i1 %18, label %19, label %26
 
 19:                                               ; preds = %15
-  %20 = lshr i16 %1, 1
-  %21 = lshr i16 %2, 1
-  %narrow = add nuw i16 %21, %20
-  %22 = lshr i16 %narrow, 1
-  %23 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  store i16 81, ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %6, i64 66
-  store i16 -1, ptr %24, align 2
-  %25 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store i16 90, ptr %25, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 76
-  store i16 %22, ptr %26, align 4
-  br label %29
+  %20 = lshr i16 %1, 2
+  %21 = lshr i16 %2, 2
+  %narrow = add nuw nsw i16 %21, %20
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  store i16 81, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 66
+  store i16 -1, ptr %23, align 2
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  store i16 90, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 76
+  store i16 %narrow, ptr %25, align 4
+  br label %28
 
-27:                                               ; preds = %15
-  %28 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.23) #18
-  br label %63
+26:                                               ; preds = %15
+  %27 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.23) #18
+  br label %62
 
-29:                                               ; preds = %19, %10
-  %30 = load ptr, ptr %5, align 8
-  %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  %33 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %31, i64 noundef 1076905344, ptr noundef nonnull %32) #18
-  %34 = icmp slt i32 %33, 0
-  br i1 %34, label %35, label %48
+28:                                               ; preds = %19, %10
+  %29 = load ptr, ptr %5, align 8
+  %30 = load i32, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 56
+  %32 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %30, i64 noundef 1076905344, ptr noundef nonnull %31) #18
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %34, label %47
 
-35:                                               ; preds = %29
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 58
-  store i16 -1, ptr %37, align 2
-  %38 = load ptr, ptr %5, align 8
-  %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 56
-  %41 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %39, i64 noundef 1076905344, ptr noundef nonnull %40) #18
-  %42 = icmp slt i32 %41, 0
-  br i1 %42, label %43, label %48
+34:                                               ; preds = %28
+  %35 = load ptr, ptr %5, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 58
+  store i16 -1, ptr %36, align 2
+  %37 = load ptr, ptr %5, align 8
+  %38 = load i32, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 56
+  %40 = tail call i32 (i32, i64, ...) @ioctl(i32 noundef %38, i64 noundef 1076905344, ptr noundef nonnull %39) #18
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %42, label %47
 
-43:                                               ; preds = %35
-  %44 = tail call ptr @__errno_location() #19
-  %45 = load i32, ptr %44, align 4
-  %46 = tail call ptr @strerror(i32 noundef %45) #18
-  %47 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.24, ptr noundef %46) #18
-  br label %63
+42:                                               ; preds = %34
+  %43 = tail call ptr @__errno_location() #19
+  %44 = load i32, ptr %43, align 4
+  %45 = tail call ptr @strerror(i32 noundef %44) #18
+  %46 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.24, ptr noundef %45) #18
+  br label %62
 
-48:                                               ; preds = %35, %29
-  %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 21, ptr %49, align 8
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 58
-  %52 = load i16, ptr %51, align 2
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 %52, ptr %53, align 2
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 1, ptr %54, align 4
-  %55 = load i32, ptr %50, align 8
-  %56 = call i64 @write(i32 noundef %55, ptr noundef nonnull %4, i64 noundef 24) #18
-  %57 = icmp slt i64 %56, 0
-  br i1 %57, label %58, label %63
+47:                                               ; preds = %34, %28
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i16 21, ptr %48, align 8
+  %49 = load ptr, ptr %5, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 58
+  %51 = load i16, ptr %50, align 2
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 18
+  store i16 %51, ptr %52, align 2
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  store i32 1, ptr %53, align 4
+  %54 = load i32, ptr %49, align 8
+  %55 = call i64 @write(i32 noundef %54, ptr noundef nonnull %4, i64 noundef 24) #18
+  %56 = icmp slt i64 %55, 0
+  br i1 %56, label %57, label %62
 
-58:                                               ; preds = %48
-  %59 = tail call ptr @__errno_location() #19
-  %60 = load i32, ptr %59, align 4
-  %61 = tail call ptr @strerror(i32 noundef %60) #18
-  %62 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.25, ptr noundef %61) #18
-  br label %63
+57:                                               ; preds = %47
+  %58 = tail call ptr @__errno_location() #19
+  %59 = load i32, ptr %58, align 4
+  %60 = tail call ptr @strerror(i32 noundef %59) #18
+  %61 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.25, ptr noundef %60) #18
+  br label %62
 
-63:                                               ; preds = %48, %58, %43, %27
-  %.0 = phi i1 [ %47, %43 ], [ %62, %58 ], [ %28, %27 ], [ true, %48 ]
+62:                                               ; preds = %47, %57, %42, %26
+  %.0 = phi i1 [ %46, %42 ], [ %61, %57 ], [ %27, %26 ], [ true, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }

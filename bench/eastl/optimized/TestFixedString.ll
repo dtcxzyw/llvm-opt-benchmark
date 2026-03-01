@@ -3391,25 +3391,25 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   %11 = phi i8 [ %.pre.i, %if.then.i.i ], [ %9, %if.then9 ]
   %tobool.i.i13.i = icmp slt i8 %11, 0
   %12 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i22 = getelementptr inbounds i16, ptr %12, i64 %10
+  %add.ptr.i.i.i23 = getelementptr inbounds i16, ptr %12, i64 %10
   %conv.i.i.i15.i = zext nneg i8 %11 to i64
   %sub.i.i.i16.i = sub nsw i64 11, %conv.i.i.i15.i
-  %add.ptr.i1.i.i23 = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i16.i
-  %cond.i17.i = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i22, ptr %add.ptr.i1.i.i23
+  %add.ptr.i1.i.i24 = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i16.i
+  %cond.i17.i = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i23, ptr %add.ptr.i1.i.i24
   %add.ptr.idx.i.i = shl nsw i64 %sub, 1
-  %add.ptr.i.i24 = getelementptr inbounds i8, ptr %cond.i17.i, i64 %add.ptr.idx.i.i
+  %add.ptr.i.i25 = getelementptr inbounds i8, ptr %cond.i17.i, i64 %add.ptr.idx.i.i
   %cmp5.i.i = icmp sgt i64 %sub, 0
   br i1 %cmp5.i.i, label %while.body.i.i.preheader, label %_ZN5eastl28CharStringUninitializedFillNIDsEEPT_S2_mS1_.exit.i
 
 while.body.i.i.preheader:                         ; preds = %if.end.i
-  %cond.i17.i27 = ptrtoint ptr %cond.i17.i to i64
+  %cond.i17.i28 = ptrtoint ptr %cond.i17.i to i64
   %13 = shl i64 %n, 1
-  %14 = add i64 %13, %cond.i17.i27
+  %14 = add i64 %13, %cond.i17.i28
   %15 = shl i64 %cond.i, 1
   %16 = sub i64 %14, %15
-  %17 = add i64 %cond.i17.i27, 2
+  %17 = add i64 %cond.i17.i28, 2
   %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 %17)
-  %18 = xor i64 %cond.i17.i27, -1
+  %18 = xor i64 %cond.i17.i28, -1
   %19 = add i64 %umax, %18
   %20 = and i64 %19, -2
   %21 = add i64 %20, 2
@@ -3417,22 +3417,22 @@ while.body.i.i.preheader:                         ; preds = %if.end.i
   br label %_ZN5eastl28CharStringUninitializedFillNIDsEEPT_S2_mS1_.exit.i
 
 _ZN5eastl28CharStringUninitializedFillNIDsEEPT_S2_mS1_.exit.i: ; preds = %while.body.i.i.preheader, %if.end.i
-  store i16 0, ptr %add.ptr.i.i24, align 2
+  store i16 0, ptr %add.ptr.i.i25, align 2
   %22 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i20.i = icmp slt i8 %22, 0
-  br i1 %tobool.i.i20.i, label %cond.true.i.i26, label %cond.false.i.i25
+  br i1 %tobool.i.i20.i, label %cond.true.i.i27, label %cond.false.i.i26
 
-cond.true.i.i26:                                  ; preds = %_ZN5eastl28CharStringUninitializedFillNIDsEEPT_S2_mS1_.exit.i
+cond.true.i.i27:                                  ; preds = %_ZN5eastl28CharStringUninitializedFillNIDsEEPT_S2_mS1_.exit.i
   store i64 %n, ptr %mnSize.i.i, align 8
   br label %if.end11
 
-cond.false.i.i25:                                 ; preds = %_ZN5eastl28CharStringUninitializedFillNIDsEEPT_S2_mS1_.exit.i
+cond.false.i.i26:                                 ; preds = %_ZN5eastl28CharStringUninitializedFillNIDsEEPT_S2_mS1_.exit.i
   %23 = trunc i64 %n to i8
   %conv.i.i21.i = sub i8 11, %23
   store i8 %conv.i.i21.i, ptr %mnRemainingSize.i.i, align 1
   br label %if.end11
 
-if.end11:                                         ; preds = %cond.false.i.i25, %cond.true.i.i26, %cond.false.i.i, %cond.true.i.i, %if.then, %if.else
+if.end11:                                         ; preds = %cond.false.i.i26, %cond.true.i.i27, %cond.false.i.i, %cond.true.i.i, %if.then, %if.else
   ret void
 }
 
@@ -4649,25 +4649,25 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   %11 = phi i8 [ %.pre.i, %if.then.i.i ], [ %9, %if.then9 ]
   %tobool.i.i13.i = icmp slt i8 %11, 0
   %12 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i22 = getelementptr inbounds i32, ptr %12, i64 %10
+  %add.ptr.i.i.i23 = getelementptr inbounds i32, ptr %12, i64 %10
   %conv.i.i.i15.i = zext nneg i8 %11 to i64
   %sub.i.i.i16.i = sub nsw i64 5, %conv.i.i.i15.i
-  %add.ptr.i1.i.i23 = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i16.i
-  %cond.i17.i = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i22, ptr %add.ptr.i1.i.i23
+  %add.ptr.i1.i.i24 = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i16.i
+  %cond.i17.i = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i23, ptr %add.ptr.i1.i.i24
   %add.ptr.idx.i.i = shl nsw i64 %sub, 2
-  %add.ptr.i.i24 = getelementptr inbounds i8, ptr %cond.i17.i, i64 %add.ptr.idx.i.i
+  %add.ptr.i.i25 = getelementptr inbounds i8, ptr %cond.i17.i, i64 %add.ptr.idx.i.i
   %cmp5.i.i = icmp sgt i64 %sub, 0
   br i1 %cmp5.i.i, label %while.body.i.i.preheader, label %_ZN5eastl28CharStringUninitializedFillNIDiEEPT_S2_mS1_.exit.i
 
 while.body.i.i.preheader:                         ; preds = %if.end.i
-  %cond.i17.i27 = ptrtoint ptr %cond.i17.i to i64
+  %cond.i17.i28 = ptrtoint ptr %cond.i17.i to i64
   %13 = shl i64 %n, 2
-  %14 = add i64 %13, %cond.i17.i27
+  %14 = add i64 %13, %cond.i17.i28
   %15 = shl i64 %cond.i, 2
   %16 = sub i64 %14, %15
-  %17 = add i64 %cond.i17.i27, 4
+  %17 = add i64 %cond.i17.i28, 4
   %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 %17)
-  %18 = xor i64 %cond.i17.i27, -1
+  %18 = xor i64 %cond.i17.i28, -1
   %19 = add i64 %umax, %18
   %20 = and i64 %19, -4
   %21 = add i64 %20, 4
@@ -4675,22 +4675,22 @@ while.body.i.i.preheader:                         ; preds = %if.end.i
   br label %_ZN5eastl28CharStringUninitializedFillNIDiEEPT_S2_mS1_.exit.i
 
 _ZN5eastl28CharStringUninitializedFillNIDiEEPT_S2_mS1_.exit.i: ; preds = %while.body.i.i.preheader, %if.end.i
-  store i32 0, ptr %add.ptr.i.i24, align 4
+  store i32 0, ptr %add.ptr.i.i25, align 4
   %22 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i20.i = icmp slt i8 %22, 0
-  br i1 %tobool.i.i20.i, label %cond.true.i.i26, label %cond.false.i.i25
+  br i1 %tobool.i.i20.i, label %cond.true.i.i27, label %cond.false.i.i26
 
-cond.true.i.i26:                                  ; preds = %_ZN5eastl28CharStringUninitializedFillNIDiEEPT_S2_mS1_.exit.i
+cond.true.i.i27:                                  ; preds = %_ZN5eastl28CharStringUninitializedFillNIDiEEPT_S2_mS1_.exit.i
   store i64 %n, ptr %mnSize.i.i, align 8
   br label %if.end11
 
-cond.false.i.i25:                                 ; preds = %_ZN5eastl28CharStringUninitializedFillNIDiEEPT_S2_mS1_.exit.i
+cond.false.i.i26:                                 ; preds = %_ZN5eastl28CharStringUninitializedFillNIDiEEPT_S2_mS1_.exit.i
   %23 = trunc i64 %n to i8
   %conv.i.i21.i = sub i8 5, %23
   store i8 %conv.i.i21.i, ptr %mnRemainingSize.i.i, align 1
   br label %if.end11
 
-if.end11:                                         ; preds = %cond.false.i.i25, %cond.true.i.i26, %cond.false.i.i, %cond.true.i.i, %if.then, %if.else
+if.end11:                                         ; preds = %cond.false.i.i26, %cond.true.i.i27, %cond.false.i.i, %cond.true.i.i, %if.then, %if.else
   ret void
 }
 
@@ -11947,25 +11947,25 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   %11 = phi i8 [ %.pre.i, %if.then.i.i ], [ %9, %if.then9 ]
   %tobool.i.i13.i = icmp slt i8 %11, 0
   %12 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i22 = getelementptr inbounds i16, ptr %12, i64 %10
+  %add.ptr.i.i.i23 = getelementptr inbounds i16, ptr %12, i64 %10
   %conv.i.i.i15.i = zext nneg i8 %11 to i64
   %sub.i.i.i16.i = sub nsw i64 11, %conv.i.i.i15.i
-  %add.ptr.i1.i.i23 = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i16.i
-  %cond.i17.i = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i22, ptr %add.ptr.i1.i.i23
+  %add.ptr.i1.i.i24 = getelementptr inbounds i16, ptr %this, i64 %sub.i.i.i16.i
+  %cond.i17.i = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i23, ptr %add.ptr.i1.i.i24
   %add.ptr.idx.i.i = shl nsw i64 %sub, 1
-  %add.ptr.i.i24 = getelementptr inbounds i8, ptr %cond.i17.i, i64 %add.ptr.idx.i.i
+  %add.ptr.i.i25 = getelementptr inbounds i8, ptr %cond.i17.i, i64 %add.ptr.idx.i.i
   %cmp5.i.i = icmp sgt i64 %sub, 0
   br i1 %cmp5.i.i, label %while.body.i.i.preheader, label %_ZN5eastl28CharStringUninitializedFillNIDsEEPT_S2_mS1_.exit.i
 
 while.body.i.i.preheader:                         ; preds = %if.end.i
-  %cond.i17.i27 = ptrtoint ptr %cond.i17.i to i64
+  %cond.i17.i28 = ptrtoint ptr %cond.i17.i to i64
   %13 = shl i64 %n, 1
-  %14 = add i64 %13, %cond.i17.i27
+  %14 = add i64 %13, %cond.i17.i28
   %15 = shl i64 %cond.i, 1
   %16 = sub i64 %14, %15
-  %17 = add i64 %cond.i17.i27, 2
+  %17 = add i64 %cond.i17.i28, 2
   %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 %17)
-  %18 = xor i64 %cond.i17.i27, -1
+  %18 = xor i64 %cond.i17.i28, -1
   %19 = add i64 %umax, %18
   %20 = and i64 %19, -2
   %21 = add i64 %20, 2
@@ -11973,22 +11973,22 @@ while.body.i.i.preheader:                         ; preds = %if.end.i
   br label %_ZN5eastl28CharStringUninitializedFillNIDsEEPT_S2_mS1_.exit.i
 
 _ZN5eastl28CharStringUninitializedFillNIDsEEPT_S2_mS1_.exit.i: ; preds = %while.body.i.i.preheader, %if.end.i
-  store i16 0, ptr %add.ptr.i.i24, align 2
+  store i16 0, ptr %add.ptr.i.i25, align 2
   %22 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i20.i = icmp slt i8 %22, 0
-  br i1 %tobool.i.i20.i, label %cond.true.i.i26, label %cond.false.i.i25
+  br i1 %tobool.i.i20.i, label %cond.true.i.i27, label %cond.false.i.i26
 
-cond.true.i.i26:                                  ; preds = %_ZN5eastl28CharStringUninitializedFillNIDsEEPT_S2_mS1_.exit.i
+cond.true.i.i27:                                  ; preds = %_ZN5eastl28CharStringUninitializedFillNIDsEEPT_S2_mS1_.exit.i
   store i64 %n, ptr %mnSize.i.i, align 8
   br label %if.end11
 
-cond.false.i.i25:                                 ; preds = %_ZN5eastl28CharStringUninitializedFillNIDsEEPT_S2_mS1_.exit.i
+cond.false.i.i26:                                 ; preds = %_ZN5eastl28CharStringUninitializedFillNIDsEEPT_S2_mS1_.exit.i
   %23 = trunc i64 %n to i8
   %conv.i.i21.i = sub i8 11, %23
   store i8 %conv.i.i21.i, ptr %mnRemainingSize.i.i, align 1
   br label %if.end11
 
-if.end11:                                         ; preds = %cond.false.i.i25, %cond.true.i.i26, %cond.false.i.i, %cond.true.i.i, %if.then, %if.else
+if.end11:                                         ; preds = %cond.false.i.i26, %cond.true.i.i27, %cond.false.i.i, %cond.true.i.i, %if.then, %if.else
   ret void
 }
 
@@ -13359,25 +13359,25 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   %11 = phi i8 [ %.pre.i, %if.then.i.i ], [ %9, %if.then9 ]
   %tobool.i.i13.i = icmp slt i8 %11, 0
   %12 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i22 = getelementptr inbounds i32, ptr %12, i64 %10
+  %add.ptr.i.i.i23 = getelementptr inbounds i32, ptr %12, i64 %10
   %conv.i.i.i15.i = zext nneg i8 %11 to i64
   %sub.i.i.i16.i = sub nsw i64 5, %conv.i.i.i15.i
-  %add.ptr.i1.i.i23 = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i16.i
-  %cond.i17.i = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i22, ptr %add.ptr.i1.i.i23
+  %add.ptr.i1.i.i24 = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i16.i
+  %cond.i17.i = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i23, ptr %add.ptr.i1.i.i24
   %add.ptr.idx.i.i = shl nsw i64 %sub, 2
-  %add.ptr.i.i24 = getelementptr inbounds i8, ptr %cond.i17.i, i64 %add.ptr.idx.i.i
+  %add.ptr.i.i25 = getelementptr inbounds i8, ptr %cond.i17.i, i64 %add.ptr.idx.i.i
   %cmp5.i.i = icmp sgt i64 %sub, 0
   br i1 %cmp5.i.i, label %while.body.i.i.preheader, label %_ZN5eastl28CharStringUninitializedFillNIDiEEPT_S2_mS1_.exit.i
 
 while.body.i.i.preheader:                         ; preds = %if.end.i
-  %cond.i17.i27 = ptrtoint ptr %cond.i17.i to i64
+  %cond.i17.i28 = ptrtoint ptr %cond.i17.i to i64
   %13 = shl i64 %n, 2
-  %14 = add i64 %13, %cond.i17.i27
+  %14 = add i64 %13, %cond.i17.i28
   %15 = shl i64 %cond.i, 2
   %16 = sub i64 %14, %15
-  %17 = add i64 %cond.i17.i27, 4
+  %17 = add i64 %cond.i17.i28, 4
   %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 %17)
-  %18 = xor i64 %cond.i17.i27, -1
+  %18 = xor i64 %cond.i17.i28, -1
   %19 = add i64 %umax, %18
   %20 = and i64 %19, -4
   %21 = add i64 %20, 4
@@ -13385,22 +13385,22 @@ while.body.i.i.preheader:                         ; preds = %if.end.i
   br label %_ZN5eastl28CharStringUninitializedFillNIDiEEPT_S2_mS1_.exit.i
 
 _ZN5eastl28CharStringUninitializedFillNIDiEEPT_S2_mS1_.exit.i: ; preds = %while.body.i.i.preheader, %if.end.i
-  store i32 0, ptr %add.ptr.i.i24, align 4
+  store i32 0, ptr %add.ptr.i.i25, align 4
   %22 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i20.i = icmp slt i8 %22, 0
-  br i1 %tobool.i.i20.i, label %cond.true.i.i26, label %cond.false.i.i25
+  br i1 %tobool.i.i20.i, label %cond.true.i.i27, label %cond.false.i.i26
 
-cond.true.i.i26:                                  ; preds = %_ZN5eastl28CharStringUninitializedFillNIDiEEPT_S2_mS1_.exit.i
+cond.true.i.i27:                                  ; preds = %_ZN5eastl28CharStringUninitializedFillNIDiEEPT_S2_mS1_.exit.i
   store i64 %n, ptr %mnSize.i.i, align 8
   br label %if.end11
 
-cond.false.i.i25:                                 ; preds = %_ZN5eastl28CharStringUninitializedFillNIDiEEPT_S2_mS1_.exit.i
+cond.false.i.i26:                                 ; preds = %_ZN5eastl28CharStringUninitializedFillNIDiEEPT_S2_mS1_.exit.i
   %23 = trunc i64 %n to i8
   %conv.i.i21.i = sub i8 5, %23
   store i8 %conv.i.i21.i, ptr %mnRemainingSize.i.i, align 1
   br label %if.end11
 
-if.end11:                                         ; preds = %cond.false.i.i25, %cond.true.i.i26, %cond.false.i.i, %cond.true.i.i, %if.then, %if.else
+if.end11:                                         ; preds = %cond.false.i.i26, %cond.true.i.i27, %cond.false.i.i, %cond.true.i.i, %if.then, %if.else
   ret void
 }
 
@@ -33432,25 +33432,25 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   %11 = phi i8 [ %.pre.i, %if.then.i.i ], [ %9, %if.then9 ]
   %tobool.i.i13.i = icmp slt i8 %11, 0
   %12 = load ptr, ptr %this, align 8
-  %add.ptr.i.i.i22 = getelementptr inbounds i32, ptr %12, i64 %10
+  %add.ptr.i.i.i23 = getelementptr inbounds i32, ptr %12, i64 %10
   %conv.i.i.i15.i = zext nneg i8 %11 to i64
   %sub.i.i.i16.i = sub nsw i64 5, %conv.i.i.i15.i
-  %add.ptr.i1.i.i23 = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i16.i
-  %cond.i17.i = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i22, ptr %add.ptr.i1.i.i23
+  %add.ptr.i1.i.i24 = getelementptr inbounds i32, ptr %this, i64 %sub.i.i.i16.i
+  %cond.i17.i = select i1 %tobool.i.i13.i, ptr %add.ptr.i.i.i23, ptr %add.ptr.i1.i.i24
   %add.ptr.idx.i.i = shl nsw i64 %sub, 2
-  %add.ptr.i.i24 = getelementptr inbounds i8, ptr %cond.i17.i, i64 %add.ptr.idx.i.i
+  %add.ptr.i.i25 = getelementptr inbounds i8, ptr %cond.i17.i, i64 %add.ptr.idx.i.i
   %cmp5.i.i = icmp sgt i64 %sub, 0
   br i1 %cmp5.i.i, label %while.body.i.i.preheader, label %_ZN5eastl28CharStringUninitializedFillNIwEEPT_S2_mS1_.exit.i
 
 while.body.i.i.preheader:                         ; preds = %if.end.i
-  %cond.i17.i27 = ptrtoint ptr %cond.i17.i to i64
+  %cond.i17.i28 = ptrtoint ptr %cond.i17.i to i64
   %13 = shl i64 %n, 2
-  %14 = add i64 %13, %cond.i17.i27
+  %14 = add i64 %13, %cond.i17.i28
   %15 = shl i64 %cond.i, 2
   %16 = sub i64 %14, %15
-  %17 = add i64 %cond.i17.i27, 4
+  %17 = add i64 %cond.i17.i28, 4
   %umax = tail call i64 @llvm.umax.i64(i64 %16, i64 %17)
-  %18 = xor i64 %cond.i17.i27, -1
+  %18 = xor i64 %cond.i17.i28, -1
   %19 = add i64 %umax, %18
   %20 = and i64 %19, -4
   %21 = add i64 %20, 4
@@ -33458,22 +33458,22 @@ while.body.i.i.preheader:                         ; preds = %if.end.i
   br label %_ZN5eastl28CharStringUninitializedFillNIwEEPT_S2_mS1_.exit.i
 
 _ZN5eastl28CharStringUninitializedFillNIwEEPT_S2_mS1_.exit.i: ; preds = %while.body.i.i.preheader, %if.end.i
-  store i32 0, ptr %add.ptr.i.i24, align 4
+  store i32 0, ptr %add.ptr.i.i25, align 4
   %22 = load i8, ptr %mnRemainingSize.i.i, align 1
   %tobool.i.i20.i = icmp slt i8 %22, 0
-  br i1 %tobool.i.i20.i, label %cond.true.i.i26, label %cond.false.i.i25
+  br i1 %tobool.i.i20.i, label %cond.true.i.i27, label %cond.false.i.i26
 
-cond.true.i.i26:                                  ; preds = %_ZN5eastl28CharStringUninitializedFillNIwEEPT_S2_mS1_.exit.i
+cond.true.i.i27:                                  ; preds = %_ZN5eastl28CharStringUninitializedFillNIwEEPT_S2_mS1_.exit.i
   store i64 %n, ptr %mnSize.i.i, align 8
   br label %if.end11
 
-cond.false.i.i25:                                 ; preds = %_ZN5eastl28CharStringUninitializedFillNIwEEPT_S2_mS1_.exit.i
+cond.false.i.i26:                                 ; preds = %_ZN5eastl28CharStringUninitializedFillNIwEEPT_S2_mS1_.exit.i
   %23 = trunc i64 %n to i8
   %conv.i.i21.i = sub i8 5, %23
   store i8 %conv.i.i21.i, ptr %mnRemainingSize.i.i, align 1
   br label %if.end11
 
-if.end11:                                         ; preds = %cond.false.i.i25, %cond.true.i.i26, %cond.false.i.i, %cond.true.i.i, %if.then, %if.else
+if.end11:                                         ; preds = %cond.false.i.i26, %cond.true.i.i27, %cond.false.i.i, %cond.true.i.i, %if.then, %if.else
   ret void
 }
 

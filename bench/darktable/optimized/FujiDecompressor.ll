@@ -1621,25 +1621,25 @@ _ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequen
   br label %_ZN8rawspeed8OptionalINS_14BitStreamerMSBEEaSIS1_Qsr3stdE7same_asITL0__T_EEERS2_OS5_.exit.i.i
 
 _ZN8rawspeed8OptionalINS_14BitStreamerMSBEEaSIS1_Qsr3stdE7same_asITL0__T_EEERS2_OS5_.exit.i.i: ; preds = %239, %_ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequentialReplenisherIS0_EEEEENS_10Array1DRefIKSt4byteEE.exit.i.i
-  %240 = getelementptr i8, ptr %170, i64 16
-  %.val.val100.i.i.i = load i16, ptr %240, align 4, !tbaa !154
+  %240 = getelementptr inbounds nuw i8, ptr %208, i64 64
+  %241 = load i16, ptr %240, align 8, !tbaa !166
+  %242 = zext i16 %241 to i64
+  %243 = shl nuw nsw i64 %242, 2
+  %244 = add nuw nsw i64 %243, 8
+  %245 = getelementptr i8, ptr %170, i64 16
+  %.val.val100.i.i.i = load i16, ptr %245, align 4, !tbaa !154
   %.not104.i.i.i = icmp eq i16 %.val.val100.i.i.i, 0
   br i1 %.not104.i.i.i, label %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_stripERKNS0_9FujiStripE.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN8rawspeed8OptionalINS_14BitStreamerMSBEEaSIS1_Qsr3stdE7same_asITL0__T_EEERS2_OS5_.exit.i.i
-  %241 = getelementptr inbounds nuw i8, ptr %208, i64 64
-  %242 = load i16, ptr %241, align 8, !tbaa !166
-  %243 = zext i16 %242 to i64
-  %244 = shl nuw nsw i64 %243, 2
-  %245 = add nuw nsw i64 %indvars.iv.i.i9, 1
-  %246 = add nuw nsw i32 %indvars133.i.i, 1
-  %247 = getelementptr inbounds nuw i8, ptr %170, i64 12
-  %248 = getelementptr inbounds nuw i8, ptr %170, i64 10
-  %249 = add nuw nsw i64 %244, 8
+  %246 = add nuw nsw i64 %indvars.iv.i.i9, 1
+  %247 = add nuw nsw i32 %indvars133.i.i, 1
+  %248 = getelementptr inbounds nuw i8, ptr %170, i64 12
+  %249 = getelementptr inbounds nuw i8, ptr %170, i64 10
   br label %252
 
 .loopexit.i.i.i:                                  ; preds = %1526
-  %.val.val.i.i.i = load i16, ptr %240, align 4, !tbaa !154
+  %.val.val.i.i.i = load i16, ptr %245, align 4, !tbaa !154
   %250 = zext i16 %.val.val.i.i.i to i64
   %251 = icmp samesign ult i64 %indvars.iv.next.i21.i.i, %250
   br i1 %251, label %252, label %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_stripERKNS0_9FujiStripE.exit.i.i, !llvm.loop !226
@@ -3653,14 +3653,14 @@ _ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block23fuji_bayer_decode_blockEi.exi
 _ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.exit.i.i.i.i.i: ; preds = %1344
   %1352 = load i8, ptr %169, align 2, !tbaa !153
   %1353 = zext i8 %1352 to i64
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %245, %1353
-  %1354 = load i16, ptr %247, align 4, !tbaa !152
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %246, %1353
+  %1354 = load i16, ptr %248, align 4, !tbaa !152
   %1355 = zext i16 %1354 to i32
   br i1 %.not.i.i.i.i.i.i.i, label %1356, label %_ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i.i.i.i
 
 1356:                                             ; preds = %_ZN8rawspeed14getAsCFAColorsENS_8iPoint2DE.exit.i.i.i.i.i
-  %1357 = mul nuw nsw i32 %246, %1355
-  %1358 = load i16, ptr %248, align 2, !tbaa !150
+  %1357 = mul nuw nsw i32 %247, %1355
+  %1358 = load i16, ptr %249, align 2, !tbaa !150
   %1359 = zext i16 %1358 to i32
   %1360 = icmp samesign uge i32 %1357, %1359
   call void @llvm.assume(i1 %1360)
@@ -3696,12 +3696,12 @@ _ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i.i.i.i: ; pr
 .preheader59.i.i.i.i.i:                           ; preds = %1399, %.preheader59.lr.ph.i.i.i.i.i
   %indvars.iv72.i.i.i.i.i = phi i64 [ 0, %.preheader59.lr.ph.i.i.i.i.i ], [ %indvars.iv.next73.i.i.i.i.i, %1399 ]
   %1372 = mul nuw nsw i64 %indvars.iv72.i.i.i.i.i, 6
-  %.val.val.i.i.i.i.i = load i16, ptr %247, align 4, !tbaa !152
+  %.val.val.i.i.i.i.i = load i16, ptr %248, align 4, !tbaa !152
   %1373 = zext i16 %.val.val.i.i.i.i.i to i32
   %1374 = mul nuw nsw i32 %1373, %indvars133.i.i
   %1375 = trunc nuw nsw i64 %1372 to i32
   %1376 = add nsw i32 %1374, %1375
-  %.val32.val.i.i.i.i.i = load i16, ptr %240, align 4, !tbaa !154
+  %.val32.val.i.i.i.i.i = load i16, ptr %245, align 4, !tbaa !154
   %1377 = zext i16 %.val32.val.i.i.i.i.i to i64
   %1378 = icmp samesign ult i64 %indvars.iv.i20.i.i, %1377
   call void @llvm.assume(i1 %1378)
@@ -3809,14 +3809,14 @@ _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block19copy_line_to_xtransERKNS0_9F
   store i8 2, ptr %164, align 1
   %1429 = load i8, ptr %169, align 2, !tbaa !153
   %1430 = zext i8 %1429 to i64
-  %.not.i.i.i.i146.i.i.i = icmp eq i64 %245, %1430
-  %1431 = load i16, ptr %247, align 4, !tbaa !152
+  %.not.i.i.i.i146.i.i.i = icmp eq i64 %246, %1430
+  %1431 = load i16, ptr %248, align 4, !tbaa !152
   %1432 = zext i16 %1431 to i32
   br i1 %.not.i.i.i.i146.i.i.i, label %1433, label %_ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i147.i.i.i
 
 1433:                                             ; preds = %.preheader.i.i.i.i144.i.i.i
-  %1434 = mul nuw nsw i32 %246, %1432
-  %1435 = load i16, ptr %248, align 2, !tbaa !150
+  %1434 = mul nuw nsw i32 %247, %1432
+  %1435 = load i16, ptr %249, align 2, !tbaa !150
   %1436 = zext i16 %1435 to i32
   %1437 = icmp samesign uge i32 %1434, %1436
   call void @llvm.assume(i1 %1437)
@@ -3861,11 +3861,11 @@ _ZNK8rawspeed12_GLOBAL__N_19FujiStrip7numMCUsENS_8iPoint2DE.exit.i.i147.i.i.i: ;
 1452:                                             ; preds = %1482, %.preheader57.i.i.i.i.i
   %indvars.iv67.i.i.i.i.i = phi i64 [ 0, %.preheader57.i.i.i.i.i ], [ %indvars.iv.next68.i.i.i.i.i, %1482 ]
   %indvars69.i.i.i.i.i = trunc nuw nsw i64 %indvars.iv67.i.i.i.i.i to i32
-  %.val.val.i.i149.i.i.i = load i16, ptr %247, align 4, !tbaa !152
+  %.val.val.i.i149.i.i.i = load i16, ptr %248, align 4, !tbaa !152
   %1453 = zext i16 %.val.val.i.i149.i.i.i to i32
   %1454 = mul nuw nsw i32 %1453, %indvars133.i.i
   %1455 = add nsw i32 %1454, %1451
-  %.val33.val.i.i.i.i.i = load i16, ptr %240, align 4, !tbaa !154
+  %.val33.val.i.i.i.i.i = load i16, ptr %245, align 4, !tbaa !154
   %1456 = zext i16 %.val33.val.i.i.i.i.i to i64
   %1457 = icmp samesign ult i64 %indvars.iv.i20.i.i, %1456
   call void @llvm.assume(i1 %1457)
@@ -3960,7 +3960,7 @@ _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block18copy_line_to_bayerERKNS0_9Fu
 
 1499:                                             ; preds = %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block18copy_line_to_bayerERKNS0_9FujiStripEi.exit.i.i.i, %_ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block19copy_line_to_xtransERKNS0_9FujiStripEi.exit.i.i.i
   %indvars.iv.next.i21.i.i = add nuw nsw i64 %indvars.iv.i20.i.i, 1
-  %.val41.val.i.i.i = load i16, ptr %240, align 4, !tbaa !154
+  %.val41.val.i.i.i = load i16, ptr %245, align 4, !tbaa !154
   %1500 = zext i16 %.val41.val.i.i.i to i64
   %1501 = icmp eq i64 %indvars.iv.next.i21.i.i, %1500
   br i1 %1501, label %_ZN8rawspeed12_GLOBAL__N_121fuji_compressed_block17fuji_decode_stripERKNS0_9FujiStripE.exit.i.i, label %.preheader73.i.i.i
@@ -4014,7 +4014,7 @@ _ZNK8rawspeed12_GLOBAL__N_121fuji_compressed_block18copy_line_to_bayerERKNS0_9Fu
   %1523 = mul nuw nsw i32 %1511, %1521
   %1524 = zext nneg i32 %1523 to i64
   %1525 = getelementptr inbounds nuw i16, ptr %1508, i64 %1524
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %1519, ptr noundef nonnull align 2 dereferenceable(1) %1525, i64 %249, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %1519, ptr noundef nonnull align 2 dereferenceable(1) %1525, i64 %244, i1 false)
   %.028.add.i.i.i = add nuw nsw i64 %.028.idx96.i.i.i, 8
   %.not.i22.i.i = icmp eq i64 %.028.add.i.i.i, 24
   br i1 %.not.i22.i.i, label %.preheader72.i.i.i, label %.preheader73.i.i.i

@@ -5344,9 +5344,9 @@ order_update.exit84.i.i:                          ; preds = %225, %217, %211
   %283 = load i64, ptr %282, align 8, !tbaa !25
   %284 = and i64 %283, -281474976710656
   %285 = icmp ugt i64 %283, 56294995342131199
-  %286 = and i64 %283, 281474976710655
-  %287 = add i64 %284, -56294995342131200
-  %288 = or disjoint i64 %287, %286
+  %286 = add i64 %284, -56294995342131200
+  %287 = and i64 %283, 281474976710655
+  %288 = or disjoint i64 %286, %287
   %.0.i.i96.i.i = select i1 %285, i64 %288, i64 140737488355328
   store i64 %.0.i.i96.i.i, ptr %282, align 8, !tbaa !25
   %indvars.iv.next.i97.i.i = add nuw nsw i64 %indvars.iv.i95.i.i, 1
@@ -5357,9 +5357,9 @@ act_var_rescale.exit113.i.i:                      ; preds = %.lr.ph.i94.i.i, %27
   %289 = load i64, ptr %31, align 8, !tbaa !27
   %290 = and i64 %289, -281474976710656
   %291 = icmp ugt i64 %289, 56294995342131199
-  %292 = and i64 %289, 281474976710655
-  %293 = add i64 %290, -56294995342131200
-  %294 = or disjoint i64 %293, %292
+  %292 = add i64 %290, -56294995342131200
+  %293 = and i64 %289, 281474976710655
+  %294 = or disjoint i64 %292, %293
   %.0.i32.i91.i.i = select i1 %291, i64 %294, i64 140737488355328
   store i64 %.0.i32.i91.i.i, ptr %31, align 8, !tbaa !27
   br label %295
@@ -5704,9 +5704,9 @@ order_update.exit81.i.i:                          ; preds = %412, %404, %398
   %460 = load i64, ptr %459, align 8, !tbaa !25
   %461 = and i64 %460, -281474976710656
   %462 = icmp ugt i64 %460, 56294995342131199
-  %463 = and i64 %460, 281474976710655
-  %464 = add i64 %461, -56294995342131200
-  %465 = or disjoint i64 %464, %463
+  %463 = add i64 %461, -56294995342131200
+  %464 = and i64 %460, 281474976710655
+  %465 = or disjoint i64 %463, %464
   %.0.i.i93.i.i = select i1 %462, i64 %465, i64 140737488355328
   store i64 %.0.i.i93.i.i, ptr %459, align 8, !tbaa !25
   %indvars.iv.next.i94.i.i = add nuw nsw i64 %indvars.iv.i92.i.i, 1
@@ -5717,9 +5717,9 @@ act_var_rescale.exit110.i.i:                      ; preds = %.lr.ph.i91.i.i, %45
   %466 = load i64, ptr %31, align 8, !tbaa !27
   %467 = and i64 %466, -281474976710656
   %468 = icmp ugt i64 %466, 56294995342131199
-  %469 = and i64 %466, 281474976710655
-  %470 = add i64 %467, -56294995342131200
-  %471 = or disjoint i64 %470, %469
+  %469 = add i64 %467, -56294995342131200
+  %470 = and i64 %466, 281474976710655
+  %471 = or disjoint i64 %469, %470
   %.0.i32.i88.i.i = select i1 %468, i64 %471, i64 140737488355328
   store i64 %.0.i32.i88.i.i, ptr %31, align 8, !tbaa !27
   br label %472
@@ -12883,9 +12883,9 @@ order_update.exit75:                              ; preds = %83, %91, %76
   %121 = load i64, ptr %120, align 8, !tbaa !25
   %122 = and i64 %121, -281474976710656
   %123 = icmp ugt i64 %121, 56294995342131199
-  %124 = and i64 %121, 281474976710655
-  %125 = add i64 %122, -56294995342131200
-  %126 = or disjoint i64 %125, %124
+  %124 = add i64 %122, -56294995342131200
+  %125 = and i64 %121, 281474976710655
+  %126 = or disjoint i64 %124, %125
   %.0.i.i83 = select i1 %123, i64 %126, i64 140737488355328
   store i64 %.0.i.i83, ptr %120, align 8, !tbaa !25
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i82, 1
@@ -12896,9 +12896,9 @@ act_var_rescale.exit100:                          ; preds = %.lr.ph.i81, %117
   %127 = load i64, ptr %104, align 8, !tbaa !27
   %128 = and i64 %127, -281474976710656
   %129 = icmp ugt i64 %127, 56294995342131199
-  %130 = and i64 %127, 281474976710655
-  %131 = add i64 %128, -56294995342131200
-  %132 = or disjoint i64 %131, %130
+  %130 = add i64 %128, -56294995342131200
+  %131 = and i64 %127, 281474976710655
+  %132 = or disjoint i64 %130, %131
   %.0.i32.i78 = select i1 %129, i64 %132, i64 140737488355328
   store i64 %.0.i32.i78, ptr %104, align 8, !tbaa !27
   br label %133

@@ -42,29 +42,29 @@ define void @_ZN6LibRaw11fuji_rotateEv(ptr noundef nonnull align 8 dereferenceab
   %24 = fptoui double %23 to i16
   %25 = zext i16 %16 to i64
   %26 = zext i16 %24 to i64
-  %27 = shl nuw nsw i64 %25, 3
-  %28 = mul nuw nsw i64 %27, %26
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 5468
-  %30 = load i32, ptr %29, align 4, !tbaa !73
-  %31 = zext i32 %30 to i64
-  %32 = shl nuw nsw i64 %31, 20
-  %33 = icmp samesign ugt i64 %28, %32
-  br i1 %33, label %34, label %36
+  %27 = mul nuw nsw i64 %26, %25
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 5468
+  %29 = load i32, ptr %28, align 4, !tbaa !73
+  %30 = zext i32 %29 to i64
+  %31 = shl nuw nsw i64 %30, 17
+  %32 = icmp samesign ugt i64 %27, %31
+  br i1 %32, label %33, label %35
 
-34:                                               ; preds = %4
-  %35 = tail call ptr @__cxa_allocate_exception(i64 4) #4
-  store i32 10, ptr %35, align 16, !tbaa !74
-  tail call void @__cxa_throw(ptr nonnull %35, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #5
+33:                                               ; preds = %4
+  %34 = tail call ptr @__cxa_allocate_exception(i64 4) #4
+  store i32 10, ptr %34, align 16, !tbaa !74
+  tail call void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #5
   unreachable
 
-36:                                               ; preds = %4
-  %37 = tail call noundef ptr @_ZN6LibRaw6callocEmm(ptr noundef nonnull align 8 dereferenceable(767680) %0, i64 noundef %26, i64 noundef %27)
+35:                                               ; preds = %4
+  %36 = shl nuw nsw i64 %25, 3
+  %37 = tail call noundef ptr @_ZN6LibRaw6callocEmm(ptr noundef nonnull align 8 dereferenceable(767680) %0, i64 noundef %26, i64 noundef %36)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 767448
   %39 = load ptr, ptr %38, align 8, !tbaa !76
   %.not60 = icmp eq ptr %39, null
   br i1 %.not60, label %46, label %40
 
-40:                                               ; preds = %36
+40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 767456
   %42 = load ptr, ptr %41, align 8, !tbaa !77
   %43 = tail call noundef i32 %39(ptr noundef %42, i32 noundef 32768, i32 noundef 0, i32 noundef 2)
@@ -77,7 +77,7 @@ define void @_ZN6LibRaw11fuji_rotateEv(ptr noundef nonnull align 8 dereferenceab
   tail call void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #5
   unreachable
 
-46:                                               ; preds = %40, %36
+46:                                               ; preds = %40, %35
   %.not73 = icmp eq i16 %24, 0
   br i1 %.not73, label %._crit_edge69, label %.preheader.lr.ph
 
