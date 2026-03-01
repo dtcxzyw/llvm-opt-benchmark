@@ -6784,7 +6784,7 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %select.unfold.
   %164 = add i64 %162, %160
   %165 = add i64 %163, %160
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %166 = and i64 %164, 4294967295
+  %165 = and i64 %164, 4294967295
   %167 = and i64 %165, -4294967296
   %168 = or disjoint i64 %167, %166
   store i64 %168, ptr %22, align 8

@@ -131,7 +131,7 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
 49:                                               ; preds = %46, %44
   %50 = phi ptr [ %48, %46 ], [ null, %44 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %50, i32 noundef 2, ptr noundef nonnull @.str) #8
-  br label %344
+  br label %347
 
 51:                                               ; preds = %33, %25, %1
   %52 = icmp ne i32 %20, 1
@@ -287,7 +287,7 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   %152 = sub nuw nsw i16 8192, %151
   br label %153
 
-153:                                              ; preds = %150, %148, %142, %138
+153:; preds = %150, %148, %142, %138
   %154 = phi i16 [ %152, %150 ], [ %147, %142 ], [ 2048, %138 ], [ 6144, %148 ]
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 4790
   store i16 %154, ptr %155, align 2
@@ -297,14 +297,14 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 4784
   store i16 %158, ptr %159, align 2
   %160 = add i8 %93, -13
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 4868
-  store i8 %160, ptr %161, align 2
-  %162 = add i8 %93, -4
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 4869
-  store i8 %162, ptr %163, align 1
-  %164 = add i8 %93, -5
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 4782
-  store i8 %164, ptr %165, align 2
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 4868
+  store i8 %160, ptr %162, align 2
+  %163 = add i8 %93, -4
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 4869
+  store i8 %163, ptr %164, align 1
+  %165 = add i8 %93, -5
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 4782
+  store i8 %165, ptr %166, align 2
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 4781
   store i8 %164, ptr %166, align 1
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 4820
@@ -312,13 +312,13 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   %169 = add nsw i32 %90, -12
   br i1 %122, label %259, label %170
 
-170:                                              ; preds = %153
+170:; preds = %153
   %171 = add nsw i32 %90, -8
   %172 = icmp ult i16 %.fr10, 144
   %173 = icmp ult i16 %.fr10, 272
   br i1 %172, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %170, %.split.us
+.split.us:; preds = %170, %.split.us
   %174 = phi i64 [ %191, %.split.us ], [ 0, %170 ]
   %175 = load i8, ptr %84, align 1
   %176 = zext i8 %175 to i32
@@ -344,26 +344,26 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   %192 = icmp eq i64 %191, 15
   br i1 %192, label %.loopexit, label %.split.us, !llvm.loop !7
 
-.split:                                           ; preds = %170
+.split:; preds = %170
   %193 = icmp ult i16 %.fr10, 176
   br i1 %193, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %.split.split.us
-  %194 = phi i64 [ %221, %.split.split.us ], [ 0, %.split ]
-  %195 = load i8, ptr %84, align 1
-  %196 = zext i8 %195 to i32
-  %197 = load i8, ptr %78, align 1, !range !5, !noundef !6
-  %198 = icmp ne i8 %197, 0
-  %199 = trunc i64 %194 to i32
-  %200 = tail call zeroext i8 @intel_lookup_range_min_qp(i32 noundef %196, i32 noundef %199, i32 noundef %171, i1 noundef zeroext %198) #8
-  %201 = getelementptr %struct.drm_dsc_rc_range_parameters, ptr %167, i64 %194
-  store i8 %200, ptr %201, align 1
-  %202 = load i8, ptr %78, align 1, !range !5, !noundef !6
-  %203 = icmp ne i8 %202, 0
-  %204 = tail call zeroext i8 @intel_lookup_range_max_qp(i32 noundef %196, i32 noundef %199, i32 noundef %171, i1 noundef zeroext %203) #8
-  %205 = getelementptr inbounds nuw i8, ptr %201, i64 1
-  store i8 %204, ptr %205, align 1
-  %206 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %194
+  %197 = phi i64 [ %221, %.split.split.us ], [ 0, %.split ]
+  %198 = load i8, ptr %84, align 1
+  %199 = zext i8 %198 to i32
+  %200 = load i8, ptr %78, align 1, !range !5, !noundef !6
+  %201 = icmp ne i8 %200, 0
+  %202 = trunc i64 %197 to i32
+  %203 = tail call zeroext i8 @intel_lookup_range_min_qp(i32 noundef %199, i32 noundef %202, i32 noundef %171, i1 noundef zeroext %201) #8
+  %204 = getelementptr %struct.drm_dsc_rc_range_parameters, ptr %167, i64 %197
+  store i8 %203, ptr %204, align 1
+  %205 = load i8, ptr %78, align 1, !range !5, !noundef !6
+  %206 = icmp ne i8 %205, 0
+  %207 = tail call zeroext i8 @intel_lookup_range_max_qp(i32 noundef %199, i32 noundef %202, i32 noundef %171, i1 noundef zeroext %206) #8
+  %208 = getelementptr inbounds nuw i8, ptr %204, i64 1
+  store i8 %207, ptr %208, align 1
+  %209 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %197
   %207 = load i8, ptr %206, align 1
   %208 = sext i8 %207 to i32
   %209 = getelementptr i8, ptr @calculate_rc_params.ofs_und4, i64 %194
@@ -384,7 +384,7 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   %222 = icmp eq i64 %221, 15
   br i1 %222, label %.loopexit, label %.split.split.us, !llvm.loop !7
 
-.split.split:                                     ; preds = %.split, %252
+.split.split:; preds = %.split, %252
   %223 = phi i64 [ %257, %252 ], [ 0, %.split ]
   %224 = load i8, ptr %84, align 1
   %225 = zext i8 %224 to i32
@@ -401,7 +401,7 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   store i8 %233, ptr %234, align 1
   br i1 %168, label %235, label %238
 
-235:                                              ; preds = %.split.split
+235:; preds = %.split.split
   %236 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %223
   %237 = load i8, ptr %236, align 1
   br label %252
@@ -424,7 +424,7 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   %251 = add i8 %244, %250
   br label %252
 
-252:                                              ; preds = %241, %238, %235
+252:; preds = %241, %238, %235
   %253 = phi i8 [ %240, %238 ], [ %251, %241 ], [ %237, %235 ]
   %254 = and i8 %253, 63
   %.idx = mul nuw nsw i64 %223, 3
@@ -435,14 +435,14 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   %258 = icmp eq i64 %257, 15
   br i1 %258, label %.loopexit, label %.split.split, !llvm.loop !7
 
-259:                                              ; preds = %153
+259:; preds = %153
   %260 = add nsw i32 %90, -6
   %261 = icmp ult i16 %.fr10, 112
   %262 = icmp ult i16 %.fr10, 144
   %263 = icmp ult i16 %.fr10, 256
   br label %264
 
-264:                                              ; preds = %312, %259
+264:; preds = %312, %259
   %265 = phi i64 [ 0, %259 ], [ %317, %312 ]
   %266 = load i8, ptr %84, align 1
   %267 = zext i8 %266 to i32
@@ -454,20 +454,20 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   store i8 %271, ptr %272, align 1
   %273 = load i8, ptr %78, align 1, !range !5, !noundef !6
   %274 = icmp ne i8 %273, 0
-  %275 = tail call zeroext i8 @intel_lookup_range_max_qp(i32 noundef %267, i32 noundef %270, i32 noundef %260, i1 noundef zeroext %274) #8
-  %276 = getelementptr inbounds nuw i8, ptr %272, i64 1
-  store i8 %275, ptr %276, align 1
+  %274 = tail call zeroext i8 @intel_lookup_range_max_qp(i32 noundef %267, i32 noundef %270, i32 noundef %260, i1 noundef zeroext %274) #8
+  %275 = getelementptr inbounds nuw i8, ptr %272, i64 1
+  store i8 %274, ptr %275, align 1
   br i1 %261, label %277, label %280
 
-277:                                              ; preds = %264
-  %278 = getelementptr i8, ptr @calculate_rc_params.ofs_und6.1, i64 %265
-  %279 = load i8, ptr %278, align 1
+277:; preds = %264
+  %279 = getelementptr i8, ptr @calculate_rc_params.ofs_und6.1, i64 %265
+  %279 = load i8, ptr %279, align 1
   br label %312
 
 280:                                              ; preds = %264
   br i1 %262, label %281, label %294
 
-281:                                              ; preds = %280
+281:; preds = %280
   %282 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %265
   %283 = load i8, ptr %282, align 1
   %284 = sext i8 %283 to i32
@@ -482,10 +482,10 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   %293 = add i8 %286, %292
   br label %312
 
-294:                                              ; preds = %280
+294:; preds = %280
   br i1 %168, label %295, label %298
 
-295:                                              ; preds = %294
+297:                                              ; preds = %294
   %296 = getelementptr i8, ptr @calculate_rc_params.ofs_und12, i64 %265
   %297 = load i8, ptr %296, align 1
   br label %312
@@ -508,7 +508,7 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   %311 = add i8 %304, %310
   br label %312
 
-312:                                              ; preds = %301, %298, %295, %281, %277
+312:; preds = %301, %298, %295, %281, %277
   %313 = phi i8 [ %279, %277 ], [ %293, %281 ], [ %297, %295 ], [ %311, %301 ], [ %300, %298 ]
   %314 = and i8 %313, 63
   %.idx6 = mul nuw nsw i64 %265, 3
@@ -519,10 +519,10 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
   %318 = icmp eq i64 %317, 15
   br i1 %318, label %.loopexit, label %264, !llvm.loop !10
 
-319:                                              ; preds = %77
+319:; preds = %77
   %320 = and i16 %6, -80
   %321 = icmp eq i16 %320, 128
-  br i1 %321, label %322, label %324
+  br i1 %321, label %322, label %327
 
 322:                                              ; preds = %319
   %323 = load i8, ptr %84, align 1
@@ -532,38 +532,38 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
     i8 12, label %325
   ]
 
-324:                                              ; preds = %322, %319
-  br label %325
+327:                                              ; preds = %322, %319
+  br label %328
 
-325:                                              ; preds = %324, %322, %322, %322
-  %326 = phi i32 [ 0, %324 ], [ 1, %322 ], [ 1, %322 ], [ 1, %322 ]
-  %327 = tail call i32 @drm_dsc_setup_rc_params(ptr noundef nonnull %4, i32 noundef %326) #8
-  %328 = icmp eq i32 %327, 0
-  br i1 %328, label %.loopexit, label %344
+328:                                              ; preds = %327, %322, %322, %322
+  %329 = phi i32 [ 0, %324 ], [ 1, %322 ], [ 1, %322 ], [ 1, %322 ]
+  %330 = tail call i32 @drm_dsc_setup_rc_params(ptr noundef nonnull %4, i32 noundef %329) #8
+  %331 = icmp eq i32 %330, 0
+  br i1 %331, label %.loopexit, label %347
 
-.loopexit:                                        ; preds = %252, %.split.split.us, %.split.us, %312, %325
-  %329 = load i8, ptr %84, align 1
-  %330 = icmp ult i8 %329, 11
-  %331 = getelementptr inbounds nuw i8, ptr %0, i64 4883
-  %332 = select i1 %330, i8 48, i8 64
-  store i8 %332, ptr %331, align 1
-  %333 = getelementptr inbounds nuw i8, ptr %0, i64 4866
-  %334 = load i16, ptr %333, align 2
-  %335 = zext i16 %334 to i32
-  %336 = shl nuw nsw i32 %335, 3
-  %337 = getelementptr inbounds nuw i8, ptr %0, i64 4790
-  %338 = load i16, ptr %337, align 2
-  %339 = zext i16 %338 to i32
-  %340 = sub nsw i32 %335, %339
-  %341 = sdiv i32 %336, %340
-  %342 = trunc i32 %341 to i8
-  %343 = getelementptr inbounds nuw i8, ptr %0, i64 4870
-  store i8 %342, ptr %343, align 2
-  br label %344
+.loopexit:                                        ; preds = %252, %.split.split.us, %.split.us, %312, %328
+  %332 = load i8, ptr %84, align 1
+  %333 = icmp ult i8 %332, 11
+  %334 = getelementptr inbounds nuw i8, ptr %0, i64 4883
+  %335 = select i1 %333, i8 48, i8 64
+  store i8 %335, ptr %334, align 1
+  %336 = getelementptr inbounds nuw i8, ptr %0, i64 4866
+  %337 = load i16, ptr %336, align 2
+  %338 = zext i16 %337 to i32
+  %339 = shl nuw nsw i32 %338, 3
+  %340 = getelementptr inbounds nuw i8, ptr %0, i64 4790
+  %341 = load i16, ptr %340, align 2
+  %342 = zext i16 %341 to i32
+  %343 = sub nsw i32 %338, %342
+  %344 = sdiv i32 %339, %343
+  %345 = trunc i32 %344 to i8
+  %346 = getelementptr inbounds nuw i8, ptr %0, i64 4870
+  store i8 %345, ptr %346, align 2
+  br label %347
 
-344:                                              ; preds = %.loopexit, %325, %49
-  %345 = phi i32 [ -22, %49 ], [ 0, %.loopexit ], [ %327, %325 ]
-  ret i32 %345
+347:                                              ; preds = %.loopexit, %328, %49
+  %348 = phi i32 [ -22, %49 ], [ 0, %.loopexit ], [ %330, %325 ]
+  ret i32 %348
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -2327,7 +2327,7 @@ define internal fastcc noundef zeroext i1 @paranoid_xstate_size_valid(i32 nounde
   %7 = phi i1 [ false, %5 ], [ true, %3 ], [ true, %3 ]
   br label %8
 
-8:                                                ; preds = %6, %._crit_edge
+8:                                                ; preds = %6, %31
   %9 = phi i64 [ 2, %6 ], [ %30, %._crit_edge ]
   %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @fpu_kernel_cfg, i64 8), align 8
   %11 = shl nsw i64 -1, %9
@@ -2355,7 +2355,7 @@ define internal fastcc noundef zeroext i1 @paranoid_xstate_size_valid(i32 nounde
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 1
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %._crit_edge, label %27
+  br i1 %26, label %31, label %27
 
 27:                                               ; preds = %22
   %28 = load i1, ptr @paranoid_xstate_size_valid.__already_done, align 1
@@ -2369,45 +2369,45 @@ define internal fastcc noundef zeroext i1 @paranoid_xstate_size_valid(i32 nounde
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 596, i32 2313, i64 12) #16, !srcloc !109
   tail call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #16, !srcloc !110
   tail call void asm sideeffect "572: nop\0A\09.pushsection .discard.instr_end\0A\09.long 572b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 572) #16, !srcloc !111
-  br label %39
+  br label %42
 
-._crit_edge:                                      ; preds = %21, %22
-  %30 = add nuw nsw i64 %.pre7, 1
+31:                                               ; preds = %21, %22
+  %32 = add nuw nsw i64 %.pre7, 1
   %31 = icmp eq i64 %.pre7, 63
   br i1 %31, label %..thread_crit_edge, label %8, !prof !41, !llvm.loop !112
 
-..thread_crit_edge:                               ; preds = %._crit_edge
+..thread_crit_edge:                               ; preds = %31
   %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @fpu_kernel_cfg, i64 8), align 8
   br label %.thread, !llvm.loop !112
 
 .thread:                                          ; preds = %8, %14, %..thread_crit_edge
-  %32 = phi i64 [ %.pre, %..thread_crit_edge ], [ %10, %14 ], [ %10, %8 ]
-  %33 = tail call fastcc i32 @xstate_calculate_size(i64 noundef %32, i1 noundef zeroext %4)
-  %34 = icmp eq i32 %33, %0
-  %35 = load i1, ptr @paranoid_xstate_size_valid.__already_done.28, align 1
-  %36 = select i1 %34, i1 true, i1 %35
-  br i1 %36, label %38, label %37, !prof !6
+  %35 = phi i64 [ %.pre, %..thread_crit_edge ], [ %10, %14 ], [ %10, %8 ]
+  %36 = tail call fastcc i32 @xstate_calculate_size(i64 noundef %35, i1 noundef zeroext %4)
+  %37 = icmp eq i32 %36, %0
+  %38 = load i1, ptr @paranoid_xstate_size_valid.__already_done.28, align 1
+  %39 = select i1 %37, i1 true, i1 %38
+  br i1 %39, label %41, label %40, !prof !6
 
-37:                                               ; preds = %.thread
+40:                                               ; preds = %.thread
   store i1 true, ptr @paranoid_xstate_size_valid.__already_done.28, align 1
   tail call void asm sideeffect "573: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 573b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 573) #16, !srcloc !113
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.29, i32 noundef %33, i32 noundef %0) #16
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.29, i32 noundef %36, i32 noundef %0) #16
   tail call void asm sideeffect "574: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 574b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 574) #16, !srcloc !114
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 602, i32 2313, i64 12) #16, !srcloc !115
   tail call void asm sideeffect "575: nop\0A\09.pushsection .discard.instr_end\0A\09.long 575b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 575) #16, !srcloc !116
   tail call void asm sideeffect "576: nop\0A\09.pushsection .discard.instr_end\0A\09.long 576b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 576) #16, !srcloc !117
-  br label %38
+  br label %41
 
-38:                                               ; preds = %37, %.thread
-  br i1 %34, label %.loopexit, label %39
+41:                                               ; preds = %40, %.thread
+  br i1 %37, label %.loopexit, label %42
 
-39:                                               ; preds = %38, %29, %27
+42:                                               ; preds = %41, %29, %27
   tail call fastcc void @__xstate_dump_leaves() #18
   br label %.loopexit
 
-.loopexit:                                        ; preds = %19, %39, %38
-  %40 = phi i1 [ true, %38 ], [ false, %39 ], [ false, %19 ]
-  ret i1 %40
+.loopexit:                                        ; preds = %19, %42, %41
+  %43 = phi i1 [ true, %38 ], [ false, %39 ], [ false, %19 ]
+  ret i1 %43
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

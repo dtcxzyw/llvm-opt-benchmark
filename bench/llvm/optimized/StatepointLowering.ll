@@ -7108,46 +7108,46 @@ _ZNK4llvm8CallBase16getOperandBundleEj.exit:      ; preds = %117, %_ZNK4llvm8Cal
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %.sroa.0.0.copyload.i30 = load ptr, ptr %87, align 8, !tbaa !602
   call void @_ZN4llvm34parseStatepointDirectivesFromAttrsENS_13AttributeListE(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::StatepointDirectives") align 8 %12, ptr %.sroa.0.0.copyload.i30) #20
-  %138 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %139 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %140 = load i8, ptr %139, align 8, !tbaa !733, !range !50, !noundef !51
-  %141 = trunc nuw i8 %140 to i1
-  %142 = load i64, ptr %138, align 8
-  %.0.i = select i1 %141, i64 %142, i64 2882400015
+  %139 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %141 = load i8, ptr %140, align 8, !tbaa !733, !range !50, !noundef !51
+  %142 = trunc nuw i8 %141 to i1
+  %143 = load i64, ptr %139, align 8
+  %.0.i = select i1 %142, i64 %143, i64 2882400015
   store i64 %.0.i, ptr %27, align 8, !tbaa !512
-  %143 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %144 = load i8, ptr %143, align 4, !tbaa !735, !range !50, !noundef !51
-  %145 = trunc nuw i8 %144 to i1
+  %144 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %145 = load i8, ptr %144, align 4, !tbaa !735, !range !50, !noundef !51
+  %146 = trunc nuw i8 %145 to i1
   %.val.i = load i32, ptr %12, align 8
-  %.0.i31 = select i1 %145, i32 %.val.i, i32 0
+  %.0.i31 = select i1 %146, i32 %.val.i, i32 0
   store i32 %.0.i31, ptr %63, align 8, !tbaa !516
   store ptr %.sroa.034.0, ptr %61, align 8, !tbaa !637
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 4880
   store i64 %.sroa.435.0, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !55
   store i64 0, ptr %62, align 8, !tbaa !360
   store ptr %4, ptr %64, align 8, !tbaa !497
-  %146 = call { ptr, i32 } @_ZN4llvm19SelectionDAGBuilder17LowerAsSTATEPOINTERNS0_22StatepointLoweringInfoE(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef nonnull align 8 dereferenceable(4912) %9)
-  %.fca.0.extract7 = extractvalue { ptr, i32 } %146, 0
+  %147 = call { ptr, i32 } @_ZN4llvm19SelectionDAGBuilder17LowerAsSTATEPOINTERNS0_22StatepointLoweringInfoE(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef nonnull align 8 dereferenceable(4912) %9)
+  %.fca.0.extract7 = extractvalue { ptr, i32 } %147, 0
   %.not = icmp eq ptr %.fca.0.extract7, null
-  br i1 %.not, label %152, label %147
+  br i1 %.not, label %153, label %148
 
-147:                                              ; preds = %_ZNK4llvm8CallBase16getOperandBundleEj.exit
-  %.fca.1.extract8 = extractvalue { ptr, i32 } %146, 1
-  %148 = load ptr, ptr %13, align 8, !tbaa !137
-  %149 = call { ptr, i32 } @_ZN4llvm19SelectionDAGBuilder22lowerRangeToAssertZExtERNS_12SelectionDAGERKNS_11InstructionENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef nonnull align 8 dereferenceable(952) %148, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr nonnull %.fca.0.extract7, i32 %.fca.1.extract8) #20
-  %.fca.0.extract = extractvalue { ptr, i32 } %149, 0
-  %.fca.1.extract = extractvalue { ptr, i32 } %149, 1
+148:                                              ; preds = %_ZNK4llvm8CallBase16getOperandBundleEj.exit
+  %.fca.1.extract8 = extractvalue { ptr, i32 } %147, 1
+  %149 = load ptr, ptr %13, align 8, !tbaa !137
+  %150 = call { ptr, i32 } @_ZN4llvm19SelectionDAGBuilder22lowerRangeToAssertZExtERNS_12SelectionDAGERKNS_11InstructionENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(984) %0, ptr noundef nonnull align 8 dereferenceable(952) %149, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr nonnull %.fca.0.extract7, i32 %.fca.1.extract8) #20
+  %.fca.0.extract = extractvalue { ptr, i32 } %150, 0
+  %.fca.1.extract = extractvalue { ptr, i32 } %150, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %1, ptr %8, align 8, !tbaa !426
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %151 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueENS_7SDValueENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %150, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  store ptr %.fca.0.extract, ptr %151, align 8, !tbaa !75
-  %.sroa.2.0..0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %151, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %152 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueENS_7SDValueENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %151, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  store ptr %.fca.0.extract, ptr %152, align 8, !tbaa !75
+  %.sroa.2.0..0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %152, i64 8
   store i32 %.fca.1.extract, ptr %.sroa.2.0..0..sroa_idx.i, align 8, !tbaa !66
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %152
+  br label %153
 
-152:                                              ; preds = %147, %_ZNK4llvm8CallBase16getOperandBundleEj.exit
+153:                                              ; preds = %148, %_ZNK4llvm8CallBase16getOperandBundleEj.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @_ZN4llvm19SelectionDAGBuilder22StatepointLoweringInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(4912) %9) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

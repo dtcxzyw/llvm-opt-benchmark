@@ -362,162 +362,162 @@ define range(i64 0, 4294967296) i64 @CRYPTO_128_unwrap_pad(ptr noundef %0, ptr n
   %10 = and i64 %4, -8
   %11 = add i64 %10, -8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %12 = icmp ult i64 %4, 16
-  %13 = and i64 %4, -2147483641
-  %14 = icmp ne i64 %13, 0
-  %or.cond3 = or i1 %12, %14
-  br i1 %or.cond3, label %92, label %15
+  %11 = icmp ult i64 %4, 16
+  %12 = and i64 %4, -2147483641
+  %13 = icmp ne i64 %12, 0
+  %or.cond3 = or i1 %11, %13
+  br i1 %or.cond3, label %92, label %14
 
-15:                                               ; preds = %6
-  %16 = icmp eq i64 %4, 16
-  br i1 %16, label %17, label %21
+14:                                               ; preds = %6
+  %15 = icmp eq i64 %4, 16
+  br i1 %15, label %16, label %20
 
-17:                                               ; preds = %15
+16:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void %5(ptr noundef %3, ptr noundef nonnull %9, ptr noundef %0) #6
-  %18 = load i64, ptr %9, align 16
-  store i64 %18, ptr %8, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %20 = load i64, ptr %19, align 8
-  store i64 %20, ptr %2, align 1
+  %17 = load i64, ptr %9, align 16
+  store i64 %17, ptr %8, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %19 = load i64, ptr %18, align 8
+  store i64 %19, ptr %2, align 1
   call void @OPENSSL_cleanse(ptr noundef nonnull %9, i64 noundef 16) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %60
+  br label %59
 
-21:                                               ; preds = %15
-  %22 = add nsw i64 %4, -8
+20:                                               ; preds = %14
+  %21 = add nsw i64 %4, -8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %23 = icmp samesign ult i64 %4, 24
-  br i1 %23, label %59, label %.lr.ph.us.preheader.i
+  %22 = icmp samesign ult i64 %4, 24
+  br i1 %22, label %58, label %.lr.ph.us.preheader.i
 
-.lr.ph.us.preheader.i:                            ; preds = %21
-  %24 = load i64, ptr %3, align 1
-  store i64 %24, ptr %7, align 16
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %2, ptr nonnull readonly align 1 %25, i64 %22, i1 false)
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 %22
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 7
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 6
-  %29 = getelementptr inbounds nuw i8, ptr %7, i64 5
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %32 = lshr exact i64 %22, 3
-  %33 = mul nuw nsw i64 %32, 6
+.lr.ph.us.preheader.i:                            ; preds = %20
+  %23 = load i64, ptr %3, align 1
+  store i64 %23, ptr %7, align 16
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %2, ptr nonnull readonly align 1 %24, i64 %21, i1 false)
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 %21
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 7
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 6
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 5
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %31 = lshr exact i64 %21, 3
+  %32 = mul nuw nsw i64 %31, 6
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
-  %.048.us.i = phi i64 [ %56, %._crit_edge.us.i ], [ %33, %.lr.ph.us.preheader.i ]
-  %.03847.us.i = phi i64 [ %58, %._crit_edge.us.i ], [ 0, %.lr.ph.us.preheader.i ]
-  br label %34
+  %.048.us.i = phi i64 [ %55, %._crit_edge.us.i ], [ %32, %.lr.ph.us.preheader.i ]
+  %.03847.us.i = phi i64 [ %57, %._crit_edge.us.i ], [ 0, %.lr.ph.us.preheader.i ]
+  br label %33
 
-34:                                               ; preds = %52, %.lr.ph.us.i
-  %.pn.i = phi ptr [ %26, %.lr.ph.us.i ], [ %.04046.us.i, %52 ]
-  %.145.us.i = phi i64 [ %.048.us.i, %.lr.ph.us.i ], [ %56, %52 ]
-  %.03944.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %55, %52 ]
+33:                                               ; preds = %51, %.lr.ph.us.i
+  %.pn.i = phi ptr [ %25, %.lr.ph.us.i ], [ %.04046.us.i, %52 ]
+  %.145.us.i = phi i64 [ %.048.us.i, %.lr.ph.us.i ], [ %55, %52 ]
+  %.03944.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %54, %52 ]
   %.04046.us.i = getelementptr inbounds i8, ptr %.pn.i, i64 -8
-  %35 = trunc i64 %.145.us.i to i8
-  %36 = load i8, ptr %27, align 1, !tbaa !3
-  %37 = xor i8 %36, %35
-  store i8 %37, ptr %27, align 1, !tbaa !3
-  %38 = icmp ugt i64 %.145.us.i, 255
-  br i1 %38, label %39, label %52
+  %34 = trunc i64 %.145.us.i to i8
+  %35 = load i8, ptr %26, align 1, !tbaa !3
+  %36 = xor i8 %35, %34
+  store i8 %36, ptr %26, align 1, !tbaa !3
+  %37 = icmp ugt i64 %.145.us.i, 255
+  br i1 %37, label %38, label %51
 
-39:                                               ; preds = %34
-  %40 = load i8, ptr %28, align 2, !tbaa !3
-  %41 = lshr i64 %.145.us.i, 8
-  %42 = trunc i64 %41 to i8
-  %43 = xor i8 %40, %42
-  store i8 %43, ptr %28, align 2, !tbaa !3
-  %44 = load i8, ptr %29, align 1, !tbaa !3
-  %45 = lshr i64 %.145.us.i, 16
-  %46 = trunc i64 %45 to i8
-  %47 = xor i8 %44, %46
-  store i8 %47, ptr %29, align 1, !tbaa !3
-  %48 = load i8, ptr %30, align 4, !tbaa !3
-  %49 = lshr i64 %.145.us.i, 24
-  %50 = trunc i64 %49 to i8
-  %51 = xor i8 %48, %50
-  store i8 %51, ptr %30, align 4, !tbaa !3
-  br label %52
+38:                                               ; preds = %33
+  %39 = load i8, ptr %27, align 2, !tbaa !3
+  %40 = lshr i64 %.145.us.i, 8
+  %41 = trunc i64 %40 to i8
+  %42 = xor i8 %39, %41
+  store i8 %42, ptr %27, align 2, !tbaa !3
+  %43 = load i8, ptr %28, align 1, !tbaa !3
+  %44 = lshr i64 %.145.us.i, 16
+  %45 = trunc i64 %44 to i8
+  %46 = xor i8 %43, %45
+  store i8 %46, ptr %28, align 1, !tbaa !3
+  %47 = load i8, ptr %29, align 4, !tbaa !3
+  %48 = lshr i64 %.145.us.i, 24
+  %49 = trunc i64 %48 to i8
+  %50 = xor i8 %47, %49
+  store i8 %50, ptr %29, align 4, !tbaa !3
+  br label %51
 
-52:                                               ; preds = %39, %34
-  %53 = load i64, ptr %.04046.us.i, align 1
-  store i64 %53, ptr %31, align 8
+51:                                               ; preds = %38, %33
+  %52 = load i64, ptr %.04046.us.i, align 1
+  store i64 %52, ptr %30, align 8
   call void %5(ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef %0) #6
-  %54 = load i64, ptr %31, align 8
-  store i64 %54, ptr %.04046.us.i, align 1
-  %55 = add nuw nsw i64 %.03944.us.i, 8
-  %56 = add i64 %.145.us.i, -1
-  %57 = icmp ult i64 %55, %22
-  br i1 %57, label %34, label %._crit_edge.us.i, !llvm.loop !9
+  %53 = load i64, ptr %30, align 8
+  store i64 %53, ptr %.04046.us.i, align 1
+  %54 = add nuw nsw i64 %.03944.us.i, 8
+  %55 = add i64 %.145.us.i, -1
+  %56 = icmp ult i64 %54, %21
+  br i1 %56, label %33, label %._crit_edge.us.i, !llvm.loop !9
 
-._crit_edge.us.i:                                 ; preds = %52
-  %58 = add nuw nsw i64 %.03847.us.i, 1
-  %exitcond.not.i = icmp eq i64 %58, 6
+._crit_edge.us.i:                                 ; preds = %51
+  %57 = add nuw nsw i64 %.03847.us.i, 1
+  %exitcond.not.i = icmp eq i64 %57, 6
   br i1 %exitcond.not.i, label %crypto_128_unwrap_raw.exit.thread, label %.lr.ph.us.i, !llvm.loop !10
 
 crypto_128_unwrap_raw.exit.thread:                ; preds = %._crit_edge.us.i
   %.pre.i = load i64, ptr %7, align 16
   store i64 %.pre.i, ptr %8, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %60
+  br label %59
 
-59:                                               ; preds = %21
+58:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   tail call void @OPENSSL_cleanse(ptr noundef %2, i64 noundef %4) #6
   br label %92
 
-60:                                               ; preds = %crypto_128_unwrap_raw.exit.thread, %17
-  %.042 = phi i64 [ 8, %17 ], [ %22, %crypto_128_unwrap_raw.exit.thread ]
+59:                                               ; preds = %crypto_128_unwrap_raw.exit.thread, %16
+  %.042 = phi i64 [ 8, %17 ], [ %21, %crypto_128_unwrap_raw.exit.thread ]
   %.not47 = icmp eq ptr %1, null
-  br i1 %.not47, label %61, label %.critedge
+  br i1 %.not47, label %60, label %.critedge
 
-61:                                               ; preds = %60
-  %62 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %8, ptr noundef nonnull @default_aiv, i64 noundef 4) #6
-  %.not48 = icmp eq i32 %62, 0
-  br i1 %.not48, label %65, label %64
+60:                                               ; preds = %59
+  %61 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %8, ptr noundef nonnull @default_aiv, i64 noundef 4) #6
+  %.not48 = icmp eq i32 %61, 0
+  br i1 %.not48, label %64, label %63
 
-.critedge:                                        ; preds = %60
-  %63 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %8, ptr noundef nonnull %1, i64 noundef 4) #6
-  %.not49 = icmp eq i32 %63, 0
-  br i1 %.not49, label %65, label %64
+.critedge:                                        ; preds = %59
+  %62 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %8, ptr noundef nonnull %1, i64 noundef 4) #6
+  %.not49 = icmp eq i32 %62, 0
+  br i1 %.not49, label %64, label %63
 
-64:                                               ; preds = %.critedge, %61
+63:                                               ; preds = %.critedge, %60
   call void @OPENSSL_cleanse(ptr noundef %2, i64 noundef %4) #6
   br label %92
 
-65:                                               ; preds = %61, %.critedge
-  %66 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %67 = load i8, ptr %66, align 4, !tbaa !3
-  %68 = zext i8 %67 to i64
-  %69 = shl nuw nsw i64 %68, 24
-  %70 = getelementptr inbounds nuw i8, ptr %8, i64 5
-  %71 = load i8, ptr %70, align 1, !tbaa !3
-  %72 = zext i8 %71 to i64
-  %73 = shl nuw nsw i64 %72, 16
-  %74 = or disjoint i64 %73, %69
-  %75 = getelementptr inbounds nuw i8, ptr %8, i64 6
-  %76 = load i8, ptr %75, align 2, !tbaa !3
-  %77 = zext i8 %76 to i64
-  %78 = shl nuw nsw i64 %77, 8
-  %79 = or disjoint i64 %74, %78
-  %80 = getelementptr inbounds nuw i8, ptr %8, i64 7
-  %81 = load i8, ptr %80, align 1, !tbaa !3
-  %82 = zext i8 %81 to i64
-  %83 = or disjoint i64 %79, %82
-  %84 = add nsw i64 %4, -16
-  %.not50 = icmp uge i64 %84, %83
+64:                                               ; preds = %60, %.critedge
+  %65 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %66 = load i8, ptr %65, align 4, !tbaa !3
+  %67 = zext i8 %66 to i64
+  %68 = shl nuw nsw i64 %67, 24
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 5
+  %70 = load i8, ptr %69, align 1, !tbaa !3
+  %71 = zext i8 %70 to i64
+  %72 = shl nuw nsw i64 %71, 16
+  %73 = or disjoint i64 %72, %68
+  %74 = getelementptr inbounds nuw i8, ptr %8, i64 6
+  %75 = load i8, ptr %74, align 2, !tbaa !3
+  %76 = zext i8 %75 to i64
+  %77 = shl nuw nsw i64 %76, 8
+  %78 = or disjoint i64 %73, %77
+  %79 = getelementptr inbounds nuw i8, ptr %8, i64 7
+  %80 = load i8, ptr %79, align 1, !tbaa !3
+  %81 = zext i8 %80 to i64
+  %82 = or disjoint i64 %78, %81
+  %83 = add nsw i64 %4, -16
+  %.not50 = icmp uge i64 %83, %82
   %85 = icmp ugt i64 %83, %11
   %or.cond = or i1 %.not50, %85
   br i1 %or.cond, label %86, label %87
 
-86:                                               ; preds = %65
+86:                                               ; preds = %64
   call void @OPENSSL_cleanse(ptr noundef %2, i64 noundef %4) #6
   br label %92
 
-87:                                               ; preds = %65
-  %88 = sub nsw i64 %.042, %83
-  %89 = getelementptr inbounds nuw i8, ptr %2, i64 %83
+87:                                               ; preds = %64
+  %88 = sub nsw i64 %.042, %82
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 %82
   %90 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %89, ptr noundef nonnull @CRYPTO_128_unwrap_pad.zeros, i64 noundef %88) #6
   %.not51 = icmp eq i32 %90, 0
   br i1 %.not51, label %92, label %91
@@ -526,8 +526,8 @@ crypto_128_unwrap_raw.exit.thread:                ; preds = %._crit_edge.us.i
   call void @OPENSSL_cleanse(ptr noundef nonnull %2, i64 noundef %4) #6
   br label %92
 
-92:                                               ; preds = %87, %6, %91, %86, %64, %59
-  %.0 = phi i64 [ 0, %59 ], [ 0, %64 ], [ 0, %86 ], [ 0, %91 ], [ 0, %6 ], [ %83, %87 ]
+92:                                               ; preds = %87, %6, %91, %86, %63, %58
+  %.0 = phi i64 [ 0, %59 ], [ 0, %64 ], [ 0, %86 ], [ 0, %91 ], [ 0, %6 ], [ %82, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.0
 }

@@ -732,29 +732,29 @@ _ZN2cv4gapi3ownL8saturateIhivEET_T0_.exit33:      ; preds = %_ZN2cv4gapi3ownL8sa
   %53 = icmp slt i32 %52, 0
   %spec.select36 = tail call i32 @llvm.umin.i32(i32 %52, i32 255)
   %spec.select = trunc nuw i32 %spec.select36 to i8
-  %54 = select i1 %53, i8 0, i8 %spec.select
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 %25
-  store i8 %54, ptr %55, align 1, !tbaa !11
-  %56 = add nsw i32 %45, %29
-  %57 = add nsw i32 %56, %46
-  %58 = ashr i32 %57, 16
-  %59 = add nsw i32 %58, 4
-  %60 = ashr i32 %59, 3
-  %61 = icmp slt i32 %60, 0
-  %spec.select3437 = tail call i32 @llvm.umin.i32(i32 %60, i32 255)
+  %53 = select i1 %53, i8 0, i8 %spec.select
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 %25
+  store i8 %53, ptr %54, align 1, !tbaa !11
+  %55 = add nsw i32 %45, %29
+  %56 = add nsw i32 %55, %46
+  %57 = ashr i32 %56, 16
+  %58 = add nsw i32 %57, 4
+  %59 = ashr i32 %58, 3
+  %60 = icmp slt i32 %59, 0
+  %spec.select3437 = tail call i32 @llvm.umin.i32(i32 %59, i32 255)
   %spec.select34 = trunc nuw i32 %spec.select3437 to i8
-  %62 = select i1 %61, i8 0, i8 %spec.select34
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 %30
-  store i8 %62, ptr %63, align 1, !tbaa !11
+  %61 = select i1 %60, i8 0, i8 %spec.select34
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 %30
+  store i8 %61, ptr %62, align 1, !tbaa !11
   %64 = ashr i32 %48, 16
   %65 = add nsw i32 %64, 4
   %66 = ashr i32 %65, 3
   %67 = icmp slt i32 %66, 0
   %spec.select3538 = tail call i32 @llvm.umin.i32(i32 %66, i32 255)
   %spec.select35 = trunc nuw i32 %spec.select3538 to i8
-  %68 = select i1 %67, i8 0, i8 %spec.select35
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 %36
-  store i8 %68, ptr %69, align 1, !tbaa !11
+  %67 = select i1 %67, i8 0, i8 %spec.select35
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 %36
+  store i8 %67, ptr %68, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %_ZN2cv4gapi3ownL8saturateIhivEET_T0_.exit33, !llvm.loop !25

@@ -1462,9 +1462,9 @@ define internal void @init_default_clut() #3 {
   store i32 %81, ptr %82, align 4, !tbaa !106
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next92, 256
-  br i1 %exitcond94.not, label %83, label %21, !llvm.loop !126
+  br i1 %exitcond94.not, label %85, label %21, !llvm.loop !126
 
-83:                                               ; preds = %78
+85:                                               ; preds = %78
   ret void
 }
 

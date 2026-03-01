@@ -35481,12 +35481,12 @@ GC_wait_marker.exit:                              ; preds = %GC_wait_marker.exit
   br label %71
 
 71:                                               ; preds = %66, %70
-  br i1 %.not33, label %72, label %152
+  br i1 %.not33, label %72, label %151
 
 72:                                               ; preds = %71
   %73 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull @mark_cv) #47
   %.not.i36 = icmp eq i32 %73, 0
-  br i1 %.not.i36, label %152, label %74
+  br i1 %.not.i36, label %151, label %74
 
 74:                                               ; preds = %72
   %75 = load ptr, ptr @GC_on_abort, align 8, !tbaa !12
@@ -35684,7 +35684,7 @@ has_inactive_helpers.exit.i:                      ; preds = %GC_acquire_mark_loc
   %151 = getelementptr inbounds %struct.GC_ms_entry, ptr %.1.i43.ph, i64 %150
   br label %.outer.backedge
 
-152:                                              ; preds = %72, %71
+151:                                              ; preds = %72, %71
   ret void
 }
 
