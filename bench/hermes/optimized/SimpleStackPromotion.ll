@@ -368,10 +368,9 @@ if.then.i.i.i.i46.i.i:                            ; preds = %for.end.i.i44.i.i
   br label %_ZN6hermes12_GLOBAL__N_114tryCopyToStackEPNS_8VariableE.exit.i.i
 
 _ZN6hermes12_GLOBAL__N_114tryCopyToStackEPNS_8VariableE.exit.i.i: ; preds = %if.then.i.i.i.i46.i.i, %for.end.i.i44.i.i, %for.end.i27.i.i, %if.end.i.i
-  %hasStoreInInnerFunction.0.lcssa44.i.i.i = phi i1 [ false, %for.end.i27.i.i ], [ true, %if.then.i.i.i.i46.i.i ], [ true, %for.end.i.i44.i.i ], [ false, %if.end.i.i ]
+  %hasStoreInInnerFunction.0.lcssa44.i.i.i = phi i1 [ %changed.04.i.i, %for.end.i27.i.i ], [ true, %if.then.i.i.i.i46.i.i ], [ true, %for.end.i.i44.i.i ], [ %changed.04.i.i, %if.end.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %builder.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %destroyer.i18.i.i)
-  %or15.i.i = or i1 %changed.04.i.i, %hasStoreInInnerFunction.0.lcssa44.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %destroyer.i54.i.i)
   %call.i55.i.i = call noundef zeroext i1 @_ZNK6hermes5Value8hasUsersEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #10
   br i1 %call.i55.i.i, label %if.end.i.i.i, label %_ZN6hermes12_GLOBAL__N_126tryDeleteStoreOnlyVariableEPNS_8VariableE.exit.i.i
@@ -473,13 +472,12 @@ if.then.i.i.i.i89.i.i:                            ; preds = %for.end.i.i87.i.i
   br label %_ZN6hermes12_GLOBAL__N_126tryDeleteStoreOnlyVariableEPNS_8VariableE.exit.i.i
 
 _ZN6hermes12_GLOBAL__N_126tryDeleteStoreOnlyVariableEPNS_8VariableE.exit.i.i: ; preds = %for.body.i59.i.i, %if.then.i.i.i.i89.i.i, %for.end.i.i87.i.i, %_ZN6hermes12_GLOBAL__N_114tryCopyToStackEPNS_8VariableE.exit.i.i
-  %retval.0.i56.i.i = phi i1 [ false, %_ZN6hermes12_GLOBAL__N_114tryCopyToStackEPNS_8VariableE.exit.i.i ], [ true, %if.then.i.i.i.i89.i.i ], [ true, %for.end.i.i87.i.i ], [ false, %for.body.i59.i.i ]
+  %retval.0.i56.i.i = phi i1 [ %hasStoreInInnerFunction.0.lcssa44.i.i.i, %_ZN6hermes12_GLOBAL__N_114tryCopyToStackEPNS_8VariableE.exit.i.i ], [ true, %if.then.i.i.i.i89.i.i ], [ true, %for.end.i.i87.i.i ], [ %hasStoreInInnerFunction.0.lcssa44.i.i.i, %for.body.i59.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %destroyer.i54.i.i)
-  %or1216.i.i = or i1 %or15.i.i, %retval.0.i56.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %_ZN6hermes12_GLOBAL__N_126tryDeleteStoreOnlyVariableEPNS_8VariableE.exit.i.i, %_ZN6hermes12_GLOBAL__N_123tryPromoteConstVariableEPNS_8VariableE.exit.thread.i.i
-  %changed.1.i.i = phi i1 [ %or1216.i.i, %_ZN6hermes12_GLOBAL__N_126tryDeleteStoreOnlyVariableEPNS_8VariableE.exit.i.i ], [ true, %_ZN6hermes12_GLOBAL__N_123tryPromoteConstVariableEPNS_8VariableE.exit.thread.i.i ]
+  %changed.1.i.i = phi i1 [ %retval.0.i56.i.i, %_ZN6hermes12_GLOBAL__N_126tryDeleteStoreOnlyVariableEPNS_8VariableE.exit.i.i ], [ true, %_ZN6hermes12_GLOBAL__N_123tryPromoteConstVariableEPNS_8VariableE.exit.thread.i.i ]
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin2.03.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i40.i.i
   br i1 %cmp.not.i.i, label %for.end.i.i, label %for.body.i.i

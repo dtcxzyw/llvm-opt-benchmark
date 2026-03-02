@@ -1179,13 +1179,15 @@ define hidden void @_ZN3ue221mmbBuildInitRangePlanEjjjPNS_16scatter_plan_rawE(i3
 21:                                               ; preds = %16
   %22 = sub nuw nsw i64 %10, %indvars.iv
   %23 = icmp samesign ult i64 %22, 64
+  br i1 %23, label %24, label %_ZL14get_flat_masksjjj.exit
+
+24:                                               ; preds = %21
   %notmask204 = shl nsw i64 -1, %22
-  %24 = select i1 %23, i64 %notmask204, i64 0
-  %25 = and i64 %20, %24
+  %25 = and i64 %20, %notmask204
   br label %_ZL14get_flat_masksjjj.exit
 
-_ZL14get_flat_masksjjj.exit:                      ; preds = %15, %16, %21
-  %.0.i = phi i64 [ 0, %15 ], [ %25, %21 ], [ %20, %16 ]
+_ZL14get_flat_masksjjj.exit:                      ; preds = %15, %16, %21, %24
+  %.0.i = phi i64 [ 0, %15 ], [ %20, %16 ], [ %25, %24 ], [ 0, %21 ]
   %26 = load ptr, ptr %8, align 8
   %27 = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %26, %27
@@ -1279,14 +1281,16 @@ _ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit: ; pred
 63:                                               ; preds = %57
   %64 = sub nuw i32 %1, %.0110.lcssa
   %65 = icmp ult i32 %64, 64
-  %66 = zext nneg i32 %64 to i64
-  %notmask202 = shl nsw i64 -1, %66
-  %67 = select i1 %65, i64 %notmask202, i64 0
-  %68 = and i64 %62, %67
+  br i1 %65, label %66, label %_ZL14get_flat_masksjjj.exit132
+
+66:; preds = %63
+  %67 = zext nneg i32 %64 to i64
+  %notmask202 = shl nsw i64 -1, %67
+  %68 = and i64 %62, %notmask202
   br label %_ZL14get_flat_masksjjj.exit132
 
-_ZL14get_flat_masksjjj.exit132:                   ; preds = %._crit_edge218, %57, %63
-  %.0.i130 = phi i64 [ 0, %._crit_edge218 ], [ %68, %63 ], [ %62, %57 ]
+_ZL14get_flat_masksjjj.exit132:                   ; preds = %._crit_edge218, %57, %63, %66
+  %.0.i130 = phi i64 [ 0, %._crit_edge218 ], [ %62, %57 ], [ %68, %66 ], [ 0, %63 ]
   %69 = icmp samesign ult i32 %.0109.lcssa, 9
   br i1 %69, label %70, label %103
 

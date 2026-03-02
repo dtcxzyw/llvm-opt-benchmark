@@ -1851,8 +1851,8 @@ _ZL11buttonLogicjb.exit:                          ; preds = %80, %84
   br label %105
 
 105:                                              ; preds = %.thread, %89, %90
-  %.not108 = phi i1 [ false, %89 ], [ true, %90 ], [ false, %.thread ]
   %.064.ph = phi i32 [ %51, %89 ], [ %104, %90 ], [ %51, %.thread ]
+  %.063.ph = phi i1 [ %.0.i, %89 ], [ true, %90 ], [ %.0.i, %.thread ]
   %106 = icmp ugt i32 %41, 4999
   br i1 %106, label %_ZL20addGfxCmdRoundedRectfffffj.exit69, label %107
 
@@ -1872,7 +1872,7 @@ _ZL11buttonLogicjb.exit:                          ; preds = %80, %84
 _ZL20addGfxCmdRoundedRectfffffj.exit69.sink.split: ; preds = %107, %111
   %.sink125 = phi i32 [ %112, %111 ], [ %108, %107 ]
   %spec.select85.sink = phi i32 [ %spec.select85, %111 ], [ -1, %107 ]
-  %.06383.ph = phi i1 [ false, %111 ], [ %.not108, %107 ]
+  %.06383.ph = phi i1 [ %.0.i, %111 ], [ %.063.ph, %107 ]
   %113 = sitofp i32 %.sink125 to float
   %114 = add nuw nsw i32 %41, 1
   store i32 %114, ptr @_ZL17g_gfxCmdQueueSize, align 4
@@ -1900,7 +1900,7 @@ _ZL20addGfxCmdRoundedRectfffffj.exit69.sink.split: ; preds = %107, %111
   br label %_ZL20addGfxCmdRoundedRectfffffj.exit69
 
 _ZL20addGfxCmdRoundedRectfffffj.exit69:           ; preds = %_ZL20addGfxCmdRoundedRectfffffj.exit69.sink.split, %109, %105
-  %.06383 = phi i1 [ false, %109 ], [ %.not108, %105 ], [ %.06383.ph, %_ZL20addGfxCmdRoundedRectfffffj.exit69.sink.split ]
+  %.06383 = phi i1 [ %.0.i, %109 ], [ %.063.ph, %105 ], [ %.06383.ph, %_ZL20addGfxCmdRoundedRectfffffj.exit69.sink.split ]
   %128 = tail call float @log10f(float noundef %4) #15
   %129 = tail call float @llvm.ceil.f32(float %128)
   %130 = fptosi float %129 to i32
@@ -2088,8 +2088,7 @@ _ZL13addGfxCmdTextiiiPKcj.exit73.sink.split:      ; preds = %_ZL13addGfxCmdTexti
   br label %_ZL13addGfxCmdTextiiiPKcj.exit73
 
 _ZL13addGfxCmdTextiiiPKcj.exit73:                 ; preds = %_ZL13addGfxCmdTextiiiPKcj.exit73.sink.split, %137, %186, %_ZL13addGfxCmdTextiiiPKcj.exit76, %_ZL13addGfxCmdTextiiiPKcj.exit
-  %236 = or i1 %.0.i, %.06383
-  ret i1 %236
+  ret i1 %.06383
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)

@@ -6239,7 +6239,7 @@ cleanup.done:                                     ; preds = %cond.false, %cond.e
   %call47 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %sslError) #43
   br i1 %call47, label %if.else, label %if.end100
 
-lpad:                                             ; preds = %if.end358, %invoke.cont329, %if.then317, %invoke.cont308, %if.then299, %invoke.cont292, %if.then282, %if.then274, %cleanup.done247, %cond.false230, %cond.true220, %cond.false193, %cond.true183, %if.then171, %invoke.cont163, %if.end157, %if.then155, %cond.false120, %cond.true110, %land.lhs.true103, %cond.false65, %cond.true55, %if.else, %cond.false7, %cond.true
+lpad:                                             ; preds = %if.end358, %invoke.cont329, %if.then317.thread, %invoke.cont308, %if.then299, %invoke.cont292, %if.then282, %if.then274, %cleanup.done247, %cond.false230, %cond.true220, %cond.false193, %cond.true183, %if.then171, %invoke.cont163, %if.end157, %if.then155, %cond.false120, %cond.true110, %land.lhs.true103, %cond.false65, %cond.true55, %if.else, %cond.false7, %cond.true
   %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup360
@@ -6581,7 +6581,7 @@ if.else257:                                       ; preds = %invoke.cont167, %in
 if.then262:                                       ; preds = %if.else257
   %bf.set266 = or disjoint i8 %bf.load258, 4
   store i8 %bf.set266, ptr %writesDraining_, align 4
-  br i1 %shutdownReads, label %land.lhs.true271, label %if.then317
+  br i1 %shutdownReads, label %land.lhs.true271, label %if.then317.thread
 
 if.end269:                                        ; preds = %cleanup.done247, %if.else257, %land.lhs.true143, %if.end141
   %error.addr.063 = phi i32 [ %error.addr.064, %land.lhs.true143 ], [ %error.addr.064, %if.else257 ], [ %error.addr.064, %cleanup.done247 ], [ %error.addr.0, %if.end141 ]
@@ -6659,20 +6659,19 @@ invoke.cont308:                                   ; preds = %if.then282, %if.the
 if.end313:                                        ; preds = %land.lhs.true271, %if.end269
   %notifyEgressShutdown.077 = phi i1 [ %notifyEgressShutdown.078, %land.lhs.true271 ], [ %notifyEgressShutdown.0, %if.end269 ]
   %error.addr.06375 = phi i32 [ %error.addr.06376, %land.lhs.true271 ], [ %error.addr.063, %if.end269 ]
-  br i1 %notifyEgressShutdown.077, label %if.then317, label %if.end351
+  br i1 %notifyEgressShutdown.077, label %if.then317.thread, label %if.end351
 
-if.then317:                                       ; preds = %if.then262, %invoke.cont308, %if.end313
-  %notifyIngressShutdown.085 = phi i1 [ false, %if.end313 ], [ false, %if.then262 ], [ true, %invoke.cont308 ]
-  %error.addr.0637584 = phi i32 [ %error.addr.06375, %if.end313 ], [ %error.addr.064, %if.then262 ], [ %error.addr.06376, %invoke.cont308 ]
-  %notifyEgressShutdown.07783 = phi i1 [ true, %if.end313 ], [ true, %if.then262 ], [ %notifyEgressShutdown.078, %invoke.cont308 ]
-  %or.cond3 = and i1 %notifyIngressShutdown.085, %notifyEgressShutdown.07783
-  %not.notifyIngressShutdown.0 = xor i1 %notifyIngressShutdown.085, true
-  %cond324 = zext i1 %not.notifyIngressShutdown.0 to i32
-  %cond326 = select i1 %or.cond3, i32 2, i32 %cond324
-  %call330 = invoke noundef ptr @_ZN8proxygen14getErrorStringENS_13ProxygenErrorE(i32 noundef %error.addr.0637584)
+if.then317:                                       ; preds = %invoke.cont308
+  %spec.select104 = select i1 %notifyEgressShutdown.078, i32 2, i32 0
+  br label %if.then317.thread
+
+if.then317.thread:; preds = %if.then317, %if.then262, %if.end313
+  %error.addr.0637584103 = phi i32 [ %error.addr.06375, %if.end313 ], [ %error.addr.06376, %if.then317 ], [ %error.addr.064, %if.then262 ]
+  %48 = phi i32 [ 1, %if.end313 ], [ %spec.select104, %if.then317 ], [ 1, %if.then262 ]
+  %call330 = invoke noundef ptr @_ZN8proxygen14getErrorStringENS_13ProxygenErrorE(i32 noundef %error.addr.0637584103)
           to label %invoke.cont329 unwind label %lpad
 
-invoke.cont329:                                   ; preds = %if.then317
+invoke.cont329:                                   ; preds = %if.then317.thread
   store ptr %call330, ptr %ref.tmp328, align 8
   %call332 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %errorMsg) #43
   %cond333 = select i1 %call332, ptr @.str.11, ptr @.str.43
@@ -6680,7 +6679,7 @@ invoke.cont329:                                   ; preds = %if.then317
   %vtable335 = load ptr, ptr %this, align 8
   %vfn336 = getelementptr inbounds nuw i8, ptr %vtable335, i64 48
   %48 = load ptr, ptr %vfn336, align 8
-  %call337 = call noundef nonnull align 8 dereferenceable(27) ptr %48(ptr noundef nonnull align 8 dereferenceable(2504) %this) #43
+  %call337 = call noundef nonnull align 8 dereferenceable(27) ptr %49(ptr noundef nonnull align 8 dereferenceable(2504) %this) #43
   invoke void @_ZNK5folly13SocketAddress8describeB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp334, ptr noundef nonnull align 8 dereferenceable(27) %call337)
           to label %invoke.cont338 unwind label %lpad
 
@@ -6698,14 +6697,14 @@ lpad.i:                                           ; preds = %invoke.cont338
 
 invoke.cont340:                                   ; preds = %invoke.cont338
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
-  invoke void @_ZN8proxygen13HTTPExceptionC1ENS0_9DirectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %ex, i32 noundef %cond326, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp327)
+  invoke void @_ZN8proxygen13HTTPExceptionC1ENS0_9DirectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %ex, i32 noundef %48, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp327)
           to label %invoke.cont342 unwind label %lpad341
 
 invoke.cont342:                                   ; preds = %invoke.cont340
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp327) #43
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp334) #43
   %proxygenError_.i = getelementptr inbounds nuw i8, ptr %ex, i64 44
-  store i32 %error.addr.0637584, ptr %proxygenError_.i, align 4
+  store i32 %error.addr.0637584103, ptr %proxygenError_.i, align 4
   %call_.i = getelementptr inbounds nuw i8, ptr %agg.tmp345, i64 48
   %exec_.i = getelementptr inbounds nuw i8, ptr %agg.tmp345, i64 56
   store ptr %ex, ptr %agg.tmp345, align 16
@@ -6720,7 +6719,7 @@ invoke.cont348:                                   ; preds = %invoke.cont342
   br i1 %tobool.not.i.i, label %_ZN5folly8FunctionIFvPN8proxygen15HTTPTransactionEEED2Ev.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %invoke.cont348
-  %call.i.i = call noundef i64 %50(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %agg.tmp345, ptr noundef null) #43
+  %call.i.i = call noundef i64 %51(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %agg.tmp345, ptr noundef null) #43
   br label %_ZN5folly8FunctionIFvPN8proxygen15HTTPTransactionEEED2Ev.exit
 
 _ZN5folly8FunctionIFvPN8proxygen15HTTPTransactionEEED2Ev.exit: ; preds = %invoke.cont348, %if.end.i.i
@@ -6774,7 +6773,7 @@ lpad347:                                          ; preds = %invoke.cont342
   br i1 %tobool.not.i.i45, label %_ZN5folly8FunctionIFvPN8proxygen15HTTPTransactionEEED2Ev.exit48, label %if.end.i.i46
 
 if.end.i.i46:                                     ; preds = %lpad347
-  %call.i.i47 = call noundef i64 %55(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %agg.tmp345, ptr noundef null) #43
+  %call.i.i47 = call noundef i64 %56(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %agg.tmp345, ptr noundef null) #43
   br label %_ZN5folly8FunctionIFvPN8proxygen15HTTPTransactionEEED2Ev.exit48
 
 _ZN5folly8FunctionIFvPN8proxygen15HTTPTransactionEEED2Ev.exit48: ; preds = %lpad347, %if.end.i.i46
@@ -6802,7 +6801,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPSession25ShutdownTransportCallbackEEclEPS
   %vtable.i.i.i = load ptr, ptr %58, align 8
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %59 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %59(ptr noundef nonnull align 8 dereferenceable(56) %58) #43
+  call void %60(ptr noundef nonnull align 8 dereferenceable(56) %58) #43
   br label %if.end358
 
 if.end358:                                        ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPSession25ShutdownTransportCallbackEEclEPS2_.exit.i.i, %if.then357, %if.end351
@@ -6821,7 +6820,7 @@ if.then6.i:                                       ; preds = %if.then.i55
   %vtable.i = load ptr, ptr %add.ptr, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %61 = load ptr, ptr %vfn.i, align 8
-  invoke void %61(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
+  invoke void %62(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr, i1 noundef zeroext true)
           to label %_ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then6.i

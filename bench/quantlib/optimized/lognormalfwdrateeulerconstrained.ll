@@ -4126,7 +4126,7 @@ for.cond71.preheader:                             ; preds = %for.body62, %if.the
   %numberOfFactors_ = getelementptr inbounds nuw i8, ptr %this, i64 240
   %43 = load i64, ptr %numberOfFactors_, align 8, !tbaa !43
   %cmp7285.not = icmp eq i64 %43, 0
-  br i1 %cmp7285.not, label %for.cond.cleanup73, label %for.body74.lr.ph
+  br i1 %cmp7285.not, label %if.end89, label %for.body74.lr.ph
 
 for.body74.lr.ph:                                 ; preds = %for.cond71.preheader
   %44 = load ptr, ptr %call23, align 8, !tbaa !17
@@ -4149,9 +4149,8 @@ for.body62:                                       ; preds = %for.body62.lr.ph, %
   %exitcond91.not = icmp eq i64 %inc69, %16
   br i1 %exitcond91.not, label %for.cond71.preheader, label %for.body62, !llvm.loop !116
 
-for.cond.cleanup73:                               ; preds = %_ZNK8QuantLib28CumulativeNormalDistribution10derivativeEd.exit71, %for.cond71.preheader
-  %weightsEffect.0.lcssa = phi double [ 1.000000e+00, %for.cond71.preheader ], [ %mul84, %_ZNK8QuantLib28CumulativeNormalDistribution10derivativeEd.exit71 ]
-  %mul88 = fmul double %call18, %weightsEffect.0.lcssa
+for.cond.cleanup73:                               ; preds = %_ZNK8QuantLib28CumulativeNormalDistribution10derivativeEd.exit71
+  %50 = fmul double %call18, %mul84
   br label %if.end89
 
 for.body74:                                       ; preds = %for.body74.lr.ph, %_ZNK8QuantLib28CumulativeNormalDistribution10derivativeEd.exit71
@@ -4195,8 +4194,8 @@ _ZNK8QuantLib28CumulativeNormalDistribution10derivativeEd.exit71: ; preds = %_ZN
   %exitcond92.not = icmp eq i64 %inc86, %43
   br i1 %exitcond92.not, label %for.cond.cleanup73, label %for.body74, !llvm.loop !117
 
-if.end89:                                         ; preds = %for.cond.cleanup73, %for.cond.cleanup
-  %weight.0 = phi double [ %mul88, %for.cond.cleanup73 ], [ %call18, %for.cond.cleanup ]
+if.end89:                                         ; preds = %for.cond71.preheader, %for.cond.cleanup73, %for.cond.cleanup
+  %weight.0 = phi double [ %call18, %for.cond.cleanup ], [ %call18, %for.cond71.preheader ], [ %50, %for.cond.cleanup73.loopexit ]
   br i1 %cmp2881, label %for.body95.lr.ph, label %for.cond.cleanup94
 
 for.body95.lr.ph:                                 ; preds = %if.end89

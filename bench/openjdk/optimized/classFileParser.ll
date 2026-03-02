@@ -15123,21 +15123,14 @@ switch.early.test:                                ; preds = %26
   br label %.loopexit73
 
 48:                                               ; preds = %44, %35, %26, %30, %switch.early.test, %switch.early.test
-  %49 = phi i1 [ false, %30 ], [ false, %26 ], [ false, %switch.early.test ], [ false, %switch.early.test ], [ true, %35 ], [ false, %44 ]
+  %49 = phi ptr [ %27, %30 ], [ %27, %26 ], [ %27, %switch.early.test ], [ %27, %switch.early.test ], [ null, %35 ], [ %37, %44 ]
   %.159 = phi i8 [ 0, %30 ], [ 0, %26 ], [ 0, %switch.early.test ], [ 0, %switch.early.test ], [ 1, %35 ], [ 0, %44 ]
   %.157 = phi ptr [ %27, %30 ], [ %27, %26 ], [ %27, %switch.early.test ], [ %27, %switch.early.test ], [ %27, %35 ], [ %37, %44 ]
   %.not = icmp eq ptr %.157, %9
   br i1 %.not, label %._crit_edge, label %19, !llvm.loop !65
 
-._crit_edge:                                      ; preds = %48, %3
-  %.058.lcssa = phi i1 [ false, %3 ], [ %49, %48 ]
-  %.056.lcssa = phi ptr [ %0, %3 ], [ %.157, %48 ]
-  %or.cond22 = or i1 %.not89, %.058.lcssa
-  %50 = select i1 %or.cond22, ptr null, ptr %.056.lcssa
-  br label %.loopexit73
-
-.loopexit73:                                      ; preds = %35, %.thread67, %._crit_edge, %.loopexit
-  %.2 = phi ptr [ %50, %._crit_edge ], [ %47, %.loopexit ], [ null, %.thread67 ], [ null, %35 ]
+._crit_edge:                                      ; preds = %35, %48, %3, %.thread67, %.loopexit
+  %.058.lcssa = phi ptr [ null, %3 ], [ %47, %.loopexit ], [ null, %.thread67 ], [ null, %35 ], [ %49, %48 ]
   ret ptr %.2
 }
 

@@ -8137,7 +8137,7 @@ define internal void @drm_dp_mst_up_req_work(ptr noundef %0) #2 align 16 {
 16:                                               ; preds = %229, %11
   %17 = phi ptr [ %8, %11 ], [ %234, %229 ]
   %18 = phi ptr [ %6, %11 ], [ %232, %229 ]
-  %19 = phi i1 [ false, %11 ], [ %231, %229 ]
+  %19 = phi i1 [ false, %11 ], [ %230, %229 ]
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %18, align 8
@@ -8516,8 +8516,7 @@ define internal void @drm_dp_mst_up_req_work(ptr noundef %0) #2 align 16 {
   br label %229
 
 229:                                              ; preds = %.thread25, %228, %225, %222, %82
-  %230 = phi i1 [ false, %82 ], [ false, %228 ], [ true, %225 ], [ true, %222 ], [ true, %.thread25 ]
-  %231 = or i1 %19, %230
+  %230 = phi i1 [ %19, %82 ], [ %19, %228 ], [ true, %225 ], [ true, %222 ], [ true, %.thread25 ]
   tail call void @kfree(ptr noundef nonnull %17) #21
   tail call void @mutex_lock(ptr noundef %4) #21
   %232 = load volatile ptr, ptr %5, align 8
@@ -8530,7 +8529,7 @@ define internal void @drm_dp_mst_up_req_work(ptr noundef %0) #2 align 16 {
 237:                                              ; preds = %229
   tail call void @mutex_unlock(ptr noundef %4) #21
   tail call void @mutex_unlock(ptr noundef %3) #21
-  br i1 %231, label %238, label %241
+  br i1 %230, label %238, label %241
 
 238:                                              ; preds = %237
   %239 = load ptr, ptr %15, align 8

@@ -58204,18 +58204,15 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   br label %1023
 
 1023:                                             ; preds = %.thread662, %_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EE4findERKS5_.exit
-  %.0151 = phi i1 [ false, %_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EE4findERKS5_.exit ], [ %1014, %.thread662 ]
+  %.0151 = phi i1 [ %1004, %_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EE4findERKS5_.exit ], [ %1014, %.thread662 ]
   %1024 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %1025 = load i64, ptr %1024, align 8, !tbaa !19
   %1026 = icmp eq i64 %1025, 0
-  %brmerge.not = and i1 %6, %1026
-  br i1 %brmerge.not, label %1027, label %.critedge211.thread
+  %brmerge.not = and i1 %1026, %.0151
+  %brmerge.not692 = and i1 %1027, %6
+  br i1 %brmerge.not692, label %1028, label %.critedge211.thread
 
 1027:                                             ; preds = %1023
-  %or.cond11 = or i1 %1004, %.0151
-  br i1 %or.cond11, label %1028, label %.critedge211.thread
-
-1028:                                             ; preds = %1027
   %1029 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %1030 = call fastcc ptr @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7rocksdb12_GLOBAL__N_116BackupEngineImpl8FileInfoEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEE4findERSH_(ptr noundef nonnull align 8 dereferenceable(56) %1029, ptr noundef nonnull align 8 dereferenceable(32) %50)
   %1031 = icmp ne ptr %1030, null
@@ -58328,8 +58325,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %1
   invoke void (i8, ptr, ptr, ...) @_ZN7rocksdb3LogENS_12InfoLogLevelEPNS_6LoggerEPKcz(i8 noundef zeroext 1, ptr noundef %1072, ptr noundef nonnull @.str.193, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.55, i64 93), ptr noundef %1073, ptr noundef %1074, i64 noundef %12)
           to label %.critedge211.thread unwind label %1046
 
-.critedge211.thread:                              ; preds = %1077, %1075, %_ZN7rocksdb6StatusD2Ev.exit380, %1023, %1027
-  %.0159 = phi i1 [ %1026, %1023 ], [ true, %1027 ], [ false, %1077 ], [ false, %1075 ], [ true, %_ZN7rocksdb6StatusD2Ev.exit380 ]
+.critedge211.thread:                              ; preds = %1023, %1077, %1075, %_ZN7rocksdb6StatusD2Ev.exit380
+  %.0159 = phi i1 [ %1026, %1023 ], [ true, %_ZN7rocksdb6StatusD2Ev.exit380 ], [ false, %1077 ], [ false, %1075 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store ptr %2, ptr %34, align 8, !tbaa !773
   %1078 = invoke { ptr, i8 } @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS5_SL_NS7_10_AllocNodeISaINS7_10_Hash_nodeIS5_Lb1EEEEEEEESt4pairINS7_14_Node_iteratorIS5_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull align 8 dereferenceable(8) %34)

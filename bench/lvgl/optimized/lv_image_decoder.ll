@@ -211,7 +211,7 @@ img_width_to_stride.exit:                         ; preds = %55, %57
 
 .thread86:                                        ; preds = %70, %31, %img_width_to_stride.exit, %45
   %.07292 = phi ptr [ %.07293, %45 ], [ %.07293, %img_width_to_stride.exit ], [ null, %31 ], [ null, %70 ]
-  %72 = phi i1 [ true, %45 ], [ true, %img_width_to_stride.exit ], [ false, %31 ], [ false, %70 ]
+  %72 = phi i1 [ %or.cond8184, %45 ], [ %or.cond8184, %img_width_to_stride.exit ], [ false, %31 ], [ false, %70 ]
   br i1 %32, label %73, label %76
 
 73:                                               ; preds = %.thread86
@@ -220,8 +220,7 @@ img_width_to_stride.exit:                         ; preds = %55, %57
   br label %76
 
 76:                                               ; preds = %73, %.thread86
-  %or.cond8 = and i1 %or.cond8184, %72
-  br i1 %or.cond8, label %77, label %87
+  br i1 %or.cond8, label %76, label %86
 
 77:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -251,7 +250,7 @@ img_width_to_stride.exit:                         ; preds = %55, %57
   br label %87
 
 87:                                               ; preds = %76, %85, %.thread88, %21, %28, %10
-  %.2 = phi ptr [ null, %10 ], [ %25, %21 ], [ null, %28 ], [ null, %.thread88 ], [ %.07292, %85 ], [ %.07292, %76 ]
+  %.2 = phi ptr [ null, %10 ], [ %25, %21 ], [ null, %28 ], [ null, %.thread88 ], [ %.07292, %84 ], [ %.07292, %75 ]
   ret ptr %.2
 }
 

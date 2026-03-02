@@ -1800,35 +1800,61 @@ entry:
   %nanos_.i.i12.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %d1, i64 24
   %.pre = load i32, ptr %nanos_.i.i12.i.phi.trans.insert, align 8
   %cmp2.i = icmp slt i32 %.pre, 0
-  %or.cond = or i1 %cmp.i, %cmp2.i
-  %sub.i = sub nsw i64 0, %1
-  %sub10.i = sub nsw i32 0, %.pre
-  %sub10.i.sink = select i1 %or.cond, i32 %sub10.i, i32 %.pre
-  %mul.i.i.sink.in.in = select i1 %or.cond, i64 %sub.i, i64 %1
+  %or.cond = select i1 %cmp.i, i1 true, i1 %cmp2.i
+  %negative1.0 = zext i1 %or.cond to i8
   %2 = getelementptr inbounds nuw i8, ptr %d2, i64 16
   %3 = load i64, ptr %2, align 8
   %cmp.i2 = icmp slt i64 %3, 0
   %nanos_.i.i12.i19.phi.trans.insert = getelementptr inbounds nuw i8, ptr %d2, i64 24
   %.pre26 = load i32, ptr %nanos_.i.i12.i19.phi.trans.insert, align 8
   %cmp2.i5 = icmp slt i32 %.pre26, 0
-  %or.cond33 = or i1 %cmp.i2, %cmp2.i5
+  %or.cond32 = select i1 %cmp.i2, i1 true, i1 %cmp2.i5
+  br i1 %or.cond32, label %if.then.i14, label %if.else.i6
+
+if.then.i14:                                      ; preds = %entry
   %sub.i15 = sub nsw i64 0, %3
+  %coerce.sroa.0.0.insert.ext.i.i17 = zext i64 %sub.i15 to i128
+  %mul.i.i18 = mul nuw nsw i128 %coerce.sroa.0.0.insert.ext.i.i17, 1000000000
   %sub10.i20 = sub nsw i32 0, %.pre26
-  %sub10.i20.sink = select i1 %or.cond33, i32 %sub10.i20, i32 %.pre26
-  %mul.i.i18.sink.in.in = select i1 %or.cond33, i64 %sub.i15, i64 %3
-  %mul.i.i18.sink.in = zext i64 %mul.i.i18.sink.in.in to i128
-  %mul.i.i18.sink = mul nuw nsw i128 %mul.i.i18.sink.in, 1000000000
+  %coerce2.sroa.0.0.insert.ext.i17.i21 = zext i32 %sub10.i20 to i128
+  %coerce.sroa.0.0.insert.insert.i19.i22 = add nuw nsw i128 %mul.i.i18, %coerce2.sroa.0.0.insert.ext.i17.i21
+  %coerce3.sroa.0.0.extract.trunc.i20.i23 = trunc i128 %coerce.sroa.0.0.insert.insert.i19.i22 to i64
+  %4 = lshr i128 %coerce.sroa.0.0.insert.insert.i19.i22, 64
+  %.tr.i.i24 = trunc nuw nsw i128 %4 to i64
+  %5 = xor i8 %negative1.0, 1
+  br label %_ZN6google8protobuf12_GLOBAL__N_19ToUint128ERKNS0_8DurationEPN4absl12lts_202308027uint128EPb.exit25
+
+if.else.i6:                                       ; preds = %entry
+  %coerce.sroa.0.0.insert.ext.i27.i8 = zext nneg i64 %3 to i128
+  %mul.i33.i9 = mul nuw nsw i128 %coerce.sroa.0.0.insert.ext.i27.i8, 1000000000
+  %coerce2.sroa.0.0.insert.ext.i45.i10 = zext nneg i32 %.pre26 to i128
+  %coerce.sroa.0.0.insert.insert.i47.i11 = add nuw nsw i128 %mul.i33.i9, %coerce2.sroa.0.0.insert.ext.i45.i10
+  %coerce3.sroa.0.0.extract.trunc.i48.i12 = trunc i128 %coerce.sroa.0.0.insert.insert.i47.i11 to i64
+  %6 = lshr i128 %coerce.sroa.0.0.insert.insert.i47.i11, 64
+  %.tr.i49.i13 = trunc nuw nsw i128 %6 to i64
+  br label %_ZN6google8protobuf12_GLOBAL__N_19ToUint128ERKNS0_8DurationEPN4absl12lts_202308027uint128EPb.exit25
+
+_ZN6google8protobuf12_GLOBAL__N_19ToUint128ERKNS0_8DurationEPN4absl12lts_202308027uint128EPb.exit25: ; preds = %if.then.i14, %if.else.i6
+  %negative2.0 = phi i8 [ %5, %if.then.i14 ], [ %negative1.0, %if.else.i6 ]
+  %value2.sroa.5.0 = phi i64 [ %.tr.i.i24, %if.then.i14 ], [ %.tr.i49.i13, %if.else.i6 ]
+  %value2.sroa.0.0 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i20.i23, %if.then.i14 ], [ %coerce3.sroa.0.0.extract.trunc.i48.i12, %if.else.i6 ]
+  %sub.i = sub nsw i64 0, %1
+  %mul.i.i.sink.in.in = select i1 %or.cond, i64 %sub.i, i64 %1
+  %sub10.i = sub nsw i32 0, %.pre
+  %sub10.i.sink = select i1 %or.cond, i32 %sub10.i, i32 %.pre
   %mul.i.i.sink.in = zext i64 %mul.i.i.sink.in.in to i128
   %mul.i.i.sink = mul nuw nsw i128 %mul.i.i.sink.in, 1000000000
   %coerce2.sroa.0.0.insert.ext.i17.i = zext i32 %sub10.i.sink to i128
   %coerce.sroa.0.0.insert.insert.i19.i = add nuw nsw i128 %mul.i.i.sink, %coerce2.sroa.0.0.insert.ext.i17.i
-  %coerce2.sroa.0.0.insert.ext.i17.i21 = zext i32 %sub10.i20.sink to i128
-  %coerce.sroa.0.0.insert.insert.i19.i22 = add nuw nsw i128 %mul.i.i18.sink, %coerce2.sroa.0.0.insert.ext.i17.i21
-  %div.i = udiv i128 %coerce.sroa.0.0.insert.insert.i19.i, %coerce.sroa.0.0.insert.insert.i19.i22
+  %coerce2.sroa.0.0.insert.ext.i17.i21 = zext nneg i64 %value2.sroa.5.0 to i128
+  %coerce2.sroa.2.0.insert.shift.i = shl nuw nsw i128 %coerce2.sroa.0.0.insert.ext.i17.i21, 64
+  %coerce2.sroa.0.0.insert.ext.i = zext i64 %value2.sroa.0.0 to i128
+  %coerce2.sroa.0.0.insert.insert.i = or disjoint i128 %coerce2.sroa.2.0.insert.shift.i, %coerce2.sroa.0.0.insert.ext.i
+  %div.i = udiv i128 %coerce.sroa.0.0.insert.insert.i19.i, %coerce2.sroa.0.0.insert.insert.i
   %coerce3.sroa.0.0.extract.trunc.i = trunc i128 %div.i to i64
-  %4 = xor i1 %or.cond, %or.cond33
+  %cmp.not = icmp eq i8 %negative2.0, 0
   %sub = sub nsw i64 0, %coerce3.sroa.0.0.extract.trunc.i
-  %spec.select = select i1 %4, i64 %sub, i64 %coerce3.sroa.0.0.extract.trunc.i
+  %spec.select = select i1 %cmp.not, i64 %coerce3.sroa.0.0.extract.trunc.i, i64 %sub
   ret i64 %spec.select
 }
 

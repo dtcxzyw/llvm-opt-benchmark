@@ -3983,44 +3983,47 @@ define void @validateQuregAllocation(ptr noundef captures(none) %0, ptr noundef 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !39
   %.not17 = icmp eq ptr %8, null
-  br i1 %.not17, label %12, label %9
+  br i1 %.not17, label %.thread, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !40
   %.not25 = icmp eq ptr %11, null
-  br label %12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %13 = load i32, ptr %12, align 4, !tbaa !41
+  %14 = icmp sgt i32 %13, 1
+  br i1 %14, label %18, label %24
 
-12:                                               ; preds = %9, %6
-  %.not19 = phi i1 [ true, %6 ], [ %.not25, %9 ]
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %14 = load i32, ptr %13, align 4, !tbaa !41
-  %15 = icmp sgt i32 %14, 1
-  br i1 %15, label %16, label %22
+.thread:; preds = %6
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %16 = load i32, ptr %15, align 4, !tbaa !41
+  %17 = icmp sgt i32 %16, 1
+  br i1 %17, label %18, label %.split16
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !42
-  %.not18 = icmp eq ptr %18, null
-  br i1 %.not18, label %.split16, label %19
+18:; preds = %.thread, %9
+  %.not2028 = phi i1 [ true, %.thread ], [ %.not26, %9 ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %20 = load ptr, ptr %19, align 8, !tbaa !42
+  %.not18 = icmp eq ptr %20, null
+  br i1 %.not18, label %.split16, label %21
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %21 = load ptr, ptr %20, align 8, !tbaa !43
-  %.not22 = icmp eq ptr %21, null
-  %or.cond = select i1 %.not22, i1 true, i1 %.not19
+21:; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %23 = load ptr, ptr %22, align 8, !tbaa !43
+  %.not19 = icmp eq ptr %23, null
+  %or.cond = select i1 %.not19, i1 true, i1 %.not2028
   br i1 %or.cond, label %.split16, label %.split
 
-22:                                               ; preds = %12
-  br i1 %.not19, label %.split16, label %.split
+22:                                               ; preds = %9
+  br i1 %.not26, label %.split16, label %.split
 
-.split16:                                         ; preds = %19, %16, %22
+.split16:                                         ; preds = %.thread, %21, %18, %22
   tail call void @destroyQureg(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, ptr noundef nonnull byval(%struct.QuESTEnv) align 8 %1) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   tail call void @invalidQuESTInputError(ptr noundef nonnull @.str.87, ptr noundef %2)
   br label %.split
 
-.split:                                           ; preds = %19, %3, %22, %.split16
+.split:                                           ; preds = %21, %3, %22, %.split16
   ret void
 }
 

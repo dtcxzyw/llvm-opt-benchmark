@@ -15165,16 +15165,16 @@ _m3dstbi__get8.exit.i305.i.i:                     ; preds = %326, %.lr.ph583.i.i
   %333 = getelementptr inbounds nuw i8, ptr %330, i64 1
   store ptr %333, ptr %14, align 8
   %334 = load i8, ptr %330, align 1
+  %335 = mul i8 %297, %334
   br label %_m3dstbi__get16be.exit308.i.i
 
 _m3dstbi__get16be.exit308.i.i:                    ; preds = %332, %_m3dstbi__get8.exit.i305.i.i
   %335 = phi ptr [ %333, %332 ], [ %328, %_m3dstbi__get8.exit.i305.i.i ]
   %336 = phi ptr [ %333, %332 ], [ %329, %_m3dstbi__get8.exit.i305.i.i ]
   %337 = phi ptr [ %333, %332 ], [ %330, %_m3dstbi__get8.exit.i305.i.i ]
-  %.0.i2.i307.i.i = phi i8 [ %334, %332 ], [ 0, %_m3dstbi__get8.exit.i305.i.i ]
-  %338 = mul i8 %297, %.0.i2.i307.i.i
+  %.0.i2.i307.i.i = phi i8 [ %335, %332 ], [ 0, %_m3dstbi__get8.exit.i305.i.i ]
   %339 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv780.i.i
-  store i8 %338, ptr %339, align 1
+  store i8 %.0.i2.i307.i.i, ptr %339, align 1
   %indvars.iv.next781.i.i = add nuw nsw i64 %indvars.iv780.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next781.i.i, %294
   br i1 %exitcond.not.i, label %_m3dstbi__skip.exit.i.i, label %.lr.ph583.i.i
@@ -40880,7 +40880,7 @@ define void @DrawMeshInstanced(ptr noundef readonly byval(%struct.Mesh) align 8 
   br label %512
 
 303:                                              ; preds = %290, %509
-  %304 = phi i1 [ true, %290 ], [ false, %509 ]
+  %304 = phi i1 [ %292, %290 ], [ false, %509 ]
   %.043389 = phi i32 [ 0, %290 ], [ 1, %509 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   br i1 %292, label %370, label %305
@@ -41187,8 +41187,7 @@ define void @DrawMeshInstanced(ptr noundef readonly byval(%struct.Mesh) align 8 
 
 509:                                              ; preds = %508, %507
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %510 = and i1 %292, %304
-  br i1 %510, label %303, label %.preheader
+  br i1 %304, label %303, label %.preheader
 
 511:                                              ; preds = %521
   call void @rlDisableVertexArray() #63
@@ -41202,7 +41201,7 @@ define void @DrawMeshInstanced(ptr noundef readonly byval(%struct.Mesh) align 8 
   ret void
 
 512:                                              ; preds = %.preheader, %521
-  %indvars.iv393 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next394, %521 ]
+  %indvars.iv393 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next394, %520 ]
   %513 = getelementptr inbounds nuw %struct.MaterialMap, ptr %302, i64 %indvars.iv393
   %514 = load i32, ptr %513, align 4
   %.not68 = icmp eq i32 %514, 0

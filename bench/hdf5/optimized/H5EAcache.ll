@@ -2076,7 +2076,7 @@ define internal noundef i32 @H5EA__cache_sblock_get_initial_load_size(ptr nounde
   %6 = trunc nuw i8 %5 to i1
   %7 = xor i1 %6, true
   %8 = select i1 %4, i1 true, i1 %7
-  br i1 %8, label %9, label %36, !prof !9
+  br i1 %8, label %9, label %39, !prof !9
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %0, align 8, !tbaa !99
@@ -2092,30 +2092,31 @@ define internal noundef i32 @H5EA__cache_sblock_get_initial_load_size(ptr nounde
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 448
   %21 = load i64, ptr %20, align 8, !tbaa !107
   %22 = icmp ugt i64 %19, %21
-  br i1 %22, label %23, label %27
+  br i1 %22, label %23, label %29
 
 23:                                               ; preds = %9
   %24 = udiv i64 %19, %21
   %25 = add i64 %24, 7
   %26 = lshr i64 %25, 3
-  br label %27
+  %27 = mul i64 %26, %17
+  %28 = add i64 %27, 10
+  br label %29
 
-27:                                               ; preds = %23, %9
-  %.sroa.15.0 = phi i64 [ %26, %23 ], [ 0, %9 ]
-  %28 = getelementptr inbounds nuw i8, ptr %10, i64 408
-  %29 = load i64, ptr %28, align 8, !tbaa !64
-  %30 = getelementptr inbounds nuw i8, ptr %10, i64 424
-  %31 = load i8, ptr %30, align 8, !tbaa !108
-  %32 = zext i8 %31 to i64
-  %reass.add = add i64 %29, %.sroa.15.0
-  %reass.mul = mul i64 %reass.add, %17
-  %33 = add i64 %29, 10
-  %34 = add i64 %33, %32
-  %35 = add i64 %34, %reass.mul
-  store i64 %35, ptr %1, align 8, !tbaa !15
-  br label %36
+29: ; preds = %23, %9
+  %.sroa.15.0 = phi i64 [ %28, %23 ], [ 10, %9 ]
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 408
+  %31 = load i64, ptr %30, align 8, !tbaa !64
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 424
+  %33 = load i8, ptr %32, align 8, !tbaa !108
+  %34 = zext i8 %33 to i64
+  %35 = mul i64 %31, %17
+  %34 = add i64 %.sroa.15.0, %31
+  %35 = add i64 %34, %35
+  %38 = add i64 %35, %34
+  store i64 %38, ptr %1, align 8, !tbaa !15
+  br label %39
 
-36:                                               ; preds = %27, %2
+39:                                               ; preds = %29, %2
   ret i32 0
 }
 

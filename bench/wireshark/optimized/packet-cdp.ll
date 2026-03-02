@@ -2141,9 +2141,8 @@ define internal fastcc range(i32 -1, 65791) i32 @dissect_address_tlv(ptr noundef
   br label %97
 
 71:                                               ; preds = %58
-  %or.cond16 = and i1 %or.cond, %.0131
   %72 = icmp eq i16 %60, 4
-  %or.cond19 = select i1 %or.cond16, i1 %72, i1 false
+  %or.cond19 = select i1 %.0131, i1 %72, i1 false
   br i1 %or.cond19, label %.thread, label %73
 
 73:                                               ; preds = %71

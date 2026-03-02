@@ -20195,13 +20195,16 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %113 = getelementptr inbounds float, ptr %61, i64 %112
   br label %.preheader.us.us
 
-._crit_edge106.split.us.us:                       ; preds = %._crit_edge.us.us, %.lr.ph109.split.us
-  %.lcssa.us = phi i64 [ 0, %.lr.ph109.split.us ], [ %131, %._crit_edge.us.us ]
-  %114 = mul i64 %106, %.lcssa.us
+._crit_edge106.split.us.us:                       ; preds = %._crit_edge.us.us
+  %114 = mul i64 %106, %131
+  br label %._crit_edge106.split.us.us
+
+._crit_edge106.split.us.us:                       ; preds = %._crit_edge106.split.us.us.loopexit, %.lr.ph109.split.us
+  %.lcssa.us = phi i64 [ 0, %.lr.ph109.split.us ], [ %114, %._crit_edge106.split.us.us.loopexit ]
   %115 = load ptr, ptr %1, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 96
   %117 = load ptr, ptr %116, align 8
-  invoke void %117(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %102, i64 noundef %114)
+  invoke void %117(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %102, i64 noundef %.lcssa.us)
           to label %118 unwind label %.loopexit92.split.us
 
 118:                                              ; preds = %._crit_edge106.split.us.us

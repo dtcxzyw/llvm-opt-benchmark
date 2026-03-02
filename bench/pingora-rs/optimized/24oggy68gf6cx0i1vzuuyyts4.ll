@@ -6499,7 +6499,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17h1d6b33cb0ce96c90E.exit: ; preds 
   %.val203 = load i64, ptr %370, align 8, !noundef !7
   %371 = load i64, ptr %225, align 8, !noundef !7
   %372 = icmp ugt i64 %371, %.val203
-  br i1 %372, label %405, label %374, !prof !6
+  br i1 %372, label %398, label %374, !prof !6
 
 373:                                              ; preds = %363
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h05ef7a11a2121cb4E(i64 noundef %364, i64 noundef %.val149, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a3505235b803b679443fd24dc535e643.102) #27
@@ -6537,11 +6537,21 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17h1d6b33cb0ce96c90E.exit: ; preds 
   %397 = icmp slt i32 %396, 4
   %398 = load i64, ptr %379, align 8
   %399 = load i64, ptr %225, align 8
-  %400 = add i64 %399, %398
+  br i1 %397, label %399, label %403
+
+398:                                              ; preds = %367
+  call void @_ZN4core5slice5index26slice_start_index_len_fail17h05ef7a11a2121cb4E(i64 noundef %371, i64 noundef %.val203, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a3505235b803b679443fd24dc535e643.101) #27
+  unreachable
+
+399:                                              ; preds = %374
+  %400 = add i64 %.pre232, %.pre231
   %401 = icmp ugt i64 %400, 12286
-  %.sroa.043.0 = select i1 %397, i1 %401, i1 false
-  %402 = or i1 %2, %.sroa.043.0
-  %or.cond = or i1 %1, %402
+  %402 = or i1 %2, %401
+  br label %403
+
+403:                                              ; preds = %374, %399
+  %.sroa.043.0 = phi i1 [ %402, %399 ], [ %2, %374 ]
+  %or.cond = or i1 %1, %.sroa.043.0
   %not.or.cond = xor i1 %or.cond, true
   %brmerge4 = select i1 %not.or.cond, i1 %.not139, i1 false
   %403 = icmp ult i64 %398, %387
@@ -6550,16 +6560,12 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17h1d6b33cb0ce96c90E.exit: ; preds 
   %or.cond25 = select i1 %or.cond22, i1 %404, i1 false
   br i1 %or.cond25, label %408, label %406
 
-405:                                              ; preds = %367
-  call void @_ZN4core5slice5index26slice_start_index_len_fail17h05ef7a11a2121cb4E(i64 noundef %371, i64 noundef %.val203, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a3505235b803b679443fd24dc535e643.101) #27
-  unreachable
-
-406:                                              ; preds = %374
+405:                                              ; preds = %403
   %407 = load i64, ptr %353, align 8, !noundef !7
   %.not140 = icmp eq i64 %407, 0
   br i1 %.not140, label %439, label %437
 
-408:                                              ; preds = %374
+408:                                              ; preds = %403
   %409 = load i64, ptr %17, align 8, !alias.scope !443, !noundef !7
   %410 = trunc i64 %409 to i32
   %411 = icmp ugt i64 %409, 3221225471

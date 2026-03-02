@@ -7569,11 +7569,11 @@ define void @_ZN16influxdb3_server4http16validate_db_name17h1ddca540ed810586E(pt
   br label %8
 
 8:                                                ; preds = %.lr.ph, %395
-  %9 = phi i64 [ %2, %.lr.ph ], [ %361, %395 ]
-  %10 = phi ptr [ %1, %.lr.ph ], [ %360, %395 ]
-  %11 = phi i64 [ 0, %.lr.ph ], [ %359, %395 ]
-  %.0201 = phi i1 [ true, %.lr.ph ], [ false, %395 ]
-  %.sroa.8.0200 = phi i64 [ undef, %.lr.ph ], [ %.sroa.8.286, %395 ]
+  %9 = phi i64 [ %2, %.lr.ph ], [ %361, %394 ]
+  %10 = phi ptr [ %1, %.lr.ph ], [ %360, %394 ]
+  %11 = phi i64 [ 0, %.lr.ph ], [ %359, %394 ]
+  %.0201 = phi i1 [ true, %.lr.ph ], [ false, %394 ]
+  %.sroa.8.0200 = phi i64 [ undef, %.lr.ph ], [ %.sroa.8.286, %394 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1301)
   call void @llvm.experimental.noalias.scope.decl(metadata !1304)
   call void @llvm.experimental.noalias.scope.decl(metadata !1307)
@@ -8140,8 +8140,8 @@ _ZN20unicode_segmentation8grapheme10check_pair17h18e440ab0edbb661E.exit.thread11
   br i1 %246, label %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit23.i.i54", label %247
 
 247:                                              ; preds = %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit23.i.i54", %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit21.i.i52"
-  %.sroa.5.2.i = phi ptr [ %253, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit23.i.i54" ], [ %242, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit21.i.i52" ]
-  %.1.i.i53 = phi i32 [ %260, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit23.i.i54" ], [ %245, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit21.i.i52" ]
+  %.sroa.5.2.i = phi ptr [ %253, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit23.i.i57" ], [ %242, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit21.i.i55" ]
+  %.1.i.i53 = phi i32 [ %260, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit23.i.i57" ], [ %245, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit21.i.i55" ]
   %248 = shl nuw nsw i32 %.1.i.i53, 6
   %249 = and i8 %236, 63
   %250 = zext nneg i8 %249 to i32
@@ -8162,8 +8162,8 @@ _ZN20unicode_segmentation8grapheme10check_pair17h18e440ab0edbb661E.exit.thread11
   br label %247
 
 261:                                              ; preds = %247, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit19.i.i47"
-  %.sroa.5.1.i48 = phi ptr [ %.sroa.5.2.i, %247 ], [ %235, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit19.i.i47" ]
-  %.013.i.i49 = phi i32 [ %251, %247 ], [ %238, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit19.i.i47" ]
+  %.sroa.5.1.i48 = phi ptr [ %.sroa.5.2.i, %247 ], [ %235, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit19.i.i50" ]
+  %.013.i.i49 = phi i32 [ %251, %247 ], [ %238, %"_ZN106_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17hb260d72c72e15f94E.exit19.i.i50" ]
   %262 = shl nuw nsw i32 %.013.i.i49, 6
   %263 = and i8 %232, 63
   %264 = zext nneg i8 %263 to i32
@@ -8455,30 +8455,32 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hba4cf259ce07a9
 
 382:                                              ; preds = %377
   %383 = icmp eq i64 %379, 1
-  br i1 %383, label %384, label %391, !prof !1390
+  br i1 %383, label %384, label %390, !prof !1390
 
 384:                                              ; preds = %382
   %385 = load i8, ptr %378, align 1, !noundef !4
-  %386 = add i8 %385, -48
-  %.0.i45 = icmp ult i8 %386, 10
-  %387 = and i8 %385, -33
-  %388 = add i8 %387, -65
-  %389 = icmp ult i8 %388, 26
-  %390 = or i1 %.0.i45, %389
-  br i1 %.0201, label %393, label %392
+  %386 = zext i8 %385 to i32
+  %387 = add nsw i8 %385, -48
+  %.0.i45 = icmp ult i8 %387, 10
+  %388 = icmp ugt i8 %385, 64
+  %389 = icmp ugt i8 %385, 96
+  %spec.select.v.i46 = select i1 %389, i32 123, i32 91
+  %spec.select.i47 = icmp samesign ugt i32 %spec.select.v.i46, %386
+  %.04.i48 = select i1 %388, i1 %spec.select.i47, i1 %.0.i45
+  br i1 %.0204, label %392, label %391
 
-391:                                              ; preds = %382
+390:                                              ; preds = %382
   call void @_ZN4core9panicking18panic_bounds_check17h326a19b32dc06d6dE(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7463256388310ca230f95e7a445731de.242) #20
   unreachable
 
 392:                                              ; preds = %384
-  br i1 %390, label %395, label %394
+  br i1 %.04.i48, label %395, label %394
 
 393:                                              ; preds = %384
-  br i1 %390, label %395, label %398
+  br i1 %.04.i48, label %395, label %398
 
 394:                                              ; preds = %392
-  switch i8 %385, label %398 [
+  switch i8 %385, label %397 [
     i8 95, label %395
     i8 45, label %395
   ]
@@ -8489,7 +8491,7 @@ _ZN20unicode_segmentation8grapheme14GraphemeCursor11is_boundary17hba4cf259ce07a9
   br i1 %397, label %._crit_edge, label %8
 
 398:                                              ; preds = %394, %393, %377
-  %storemerge91 = phi i8 [ 30, %377 ], [ 30, %394 ], [ 29, %393 ]
+  %storemerge91 = phi i8 [ 30, %377 ], [ 30, %393 ], [ 29, %392 ]
   store i8 %storemerge91, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %381

@@ -41140,29 +41140,35 @@ thread-pre-split217.thread:                       ; preds = %201, %thread-pre-sp
   %388 = icmp slt i32 %387, 4
   %389 = load i64, ptr %376, align 8
   %390 = load i64, ptr %225, align 8
-  %391 = add i64 %390, %389
-  %392 = icmp ugt i64 %391, 12286
-  %.sroa.042.0 = select i1 %388, i1 %392, i1 false
-  %393 = or i1 %2, %.sroa.042.0
-  %394 = or i1 %.not134, %393
-  %brmerge4 = or i1 %1, %394
-  %brmerge4.not = xor i1 %brmerge4, true
-  %395 = icmp ult i64 %389, %378
-  %or.cond21 = select i1 %brmerge4.not, i1 %395, i1 false
-  %396 = icmp ult i64 %390, %378
-  %or.cond24 = select i1 %or.cond21, i1 %396, i1 false
-  br i1 %or.cond24, label %400, label %398
+  br i1 %388, label %390, label %394
 
 397:                                              ; preds = %364
   call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %368, i64 noundef %.val198, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5485b7c2156bda08aef21696cf1a6063.760) #20
   unreachable
 
 398:                                              ; preds = %371
+  %391 = add i64 %.pre230, %.pre229
+  %392 = icmp ugt i64 %391, 12286
+  %393 = or i1 %2, %392
+  br label %394
+
+394:                                              ; preds = %371, %390
+  %.sroa.042.0 = phi i1 [ %393, %390 ], [ %2, %371 ]
+  %395 = or i1 %.not134, %.sroa.042.0
+  %brmerge4 = or i1 %1, %395
+  %brmerge4.not = xor i1 %brmerge4, true
+  %396 = icmp ult i64 %.pre229, %378
+  %or.cond21 = select i1 %brmerge4.not, i1 %396, i1 false
+  %397 = icmp ult i64 %.pre230, %378
+  %or.cond24 = select i1 %or.cond21, i1 %397, i1 false
+  br i1 %or.cond24, label %400, label %398
+
+398:                                              ; preds = %394
   %399 = load i64, ptr %350, align 8, !noundef !4
   %.not135 = icmp eq i64 %399, 0
   br i1 %.not135, label %431, label %429
 
-400:                                              ; preds = %371
+400:                                              ; preds = %394
   %401 = load i64, ptr %17, align 8, !alias.scope !2879, !noundef !4
   %402 = trunc i64 %401 to i32
   %403 = icmp ugt i64 %401, 3221225471
@@ -42400,29 +42406,35 @@ thread-pre-split217.thread:                       ; preds = %201, %thread-pre-sp
   %388 = icmp slt i32 %387, 4
   %389 = load i64, ptr %376, align 8
   %390 = load i64, ptr %225, align 8
-  %391 = add i64 %390, %389
-  %392 = icmp ugt i64 %391, 12286
-  %.sroa.042.0 = select i1 %388, i1 %392, i1 false
-  %393 = or i1 %2, %.sroa.042.0
-  %394 = or i1 %.not134, %393
-  %brmerge4 = or i1 %1, %394
-  %brmerge4.not = xor i1 %brmerge4, true
-  %395 = icmp ult i64 %389, %378
-  %or.cond21 = select i1 %brmerge4.not, i1 %395, i1 false
-  %396 = icmp ult i64 %390, %378
-  %or.cond24 = select i1 %or.cond21, i1 %396, i1 false
-  br i1 %or.cond24, label %400, label %398
+  br i1 %388, label %390, label %394
 
 397:                                              ; preds = %364
   call void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef %368, i64 noundef %.val198, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5485b7c2156bda08aef21696cf1a6063.760) #20
   unreachable
 
 398:                                              ; preds = %371
+  %391 = add i64 %.pre230, %.pre229
+  %392 = icmp ugt i64 %391, 12286
+  %393 = or i1 %2, %392
+  br label %394
+
+394:                                              ; preds = %371, %390
+  %.sroa.042.0 = phi i1 [ %393, %390 ], [ %2, %371 ]
+  %395 = or i1 %.not134, %.sroa.042.0
+  %brmerge4 = or i1 %1, %395
+  %brmerge4.not = xor i1 %brmerge4, true
+  %396 = icmp ult i64 %.pre229, %378
+  %or.cond21 = select i1 %brmerge4.not, i1 %396, i1 false
+  %397 = icmp ult i64 %.pre230, %378
+  %or.cond24 = select i1 %or.cond21, i1 %397, i1 false
+  br i1 %or.cond24, label %400, label %398
+
+398:                                              ; preds = %394
   %399 = load i64, ptr %350, align 8, !noundef !4
   %.not135 = icmp eq i64 %399, 0
   br i1 %.not135, label %431, label %429
 
-400:                                              ; preds = %371
+400:                                              ; preds = %394
   %401 = load i64, ptr %17, align 8, !alias.scope !2943, !noundef !4
   %402 = trunc i64 %401 to i32
   %403 = icmp ugt i64 %401, 3221225471

@@ -8166,7 +8166,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A
   %or.cond7.i.i.i = select i1 %or.cond.i.i.i, i1 %37, i1 false
   br i1 %or.cond7.i.i.i, label %42, label %38
 
-38:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit.i.i.i", %52, %._crit_edge.i.i.i, %.thread.i.i.i, %26, %2
+38:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit.i.i.i", %._crit_edge.i.i.i, %.thread.i.i.i, %26, %2
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %40 = load i8, ptr %39, align 8, !range !1313, !alias.scope !1308, !noalias !1311, !noundef !9
   %41 = icmp eq i8 %40, 6
@@ -8175,31 +8175,21 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A
 42:                                               ; preds = %26
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %44 = load i8, ptr %43, align 8, !range !1313, !alias.scope !1308, !noalias !1311, !noundef !9
-  %45 = icmp eq i8 %44, 6
-  br i1 %45, label %.thread.i.i.i, label %46
-
-46:                                               ; preds = %42
   %switch.i.i.i.i.i = icmp samesign ult i8 %44, 3
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %48 = load i8, ptr %47, align 8, !range !1313, !alias.scope !1311, !noalias !1308, !noundef !9
   %49 = icmp eq i8 %48, 6
-  br i1 %49, label %._crit_edge.i.i.i, label %52
+  br i1 %49, label %._crit_edge.i.i.i, label %48
 
 .thread.i.i.i:                                    ; preds = %42
-  %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %51 = load i8, ptr %50, align 8, !range !1313, !alias.scope !1311, !noalias !1308, !noundef !9
-  %switch.i.i3452.i.i.i = icmp samesign ult i8 %51, 3
-  br i1 %switch.i.i3452.i.i.i, label %38, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit.i.i.i"
+  %switch.i.i34.i.i.i = icmp samesign ult i8 %46, 3
+  %49 = xor i1 %switch.i.i.i.i.i, %switch.i.i34.i.i.i
+  br i1 %49, label %38, label %52
 
-._crit_edge.i.i.i:                                ; preds = %46
+._crit_edge.i.i.i:                                ; preds = %42
   br i1 %switch.i.i.i.i.i, label %38, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit.i.i.i"
 
-52:                                               ; preds = %46
-  %switch.i.i34.i.i.i = icmp samesign ult i8 %48, 3
-  %53 = xor i1 %switch.i.i.i.i.i, %switch.i.i34.i.i.i
-  br i1 %53, label %38, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit.i.i.i"
-
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfffacfe60dd02fefE.exit.i.i.i": ; preds = %52, %._crit_edge.i.i.i, %.thread.i.i.i
+52:                                               ; preds = %50, %48
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %19, ptr nonnull readonly align 1 %22, i64 %21), !alias.scope !1314, !noalias !1318
   %54 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %54, label %"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry28_$u7b$$u7b$closure$u7d$$u7d$17he7b9ffd1e242c58fE.exit", label %38
@@ -8275,7 +8265,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A
   br label %_ZN4core4iter6traits8iterator8Iterator5eq_by17h615dcc6fd1cf951aE.exit.i.i.i
 
 _ZN4core4iter6traits8iterator8Iterator5eq_by17h615dcc6fd1cf951aE.exit.i.i.i: ; preds = %76, %67
-  %.sroa.0.0.i.i.i.i.i = phi i8 [ %.sroa.03.0.i.i.i.i.i, %76 ], [ %74, %67 ]
+  %.sroa.0.0.i.i.i.i.i = phi i8 [ %.sroa.03.0.i.i.i.i.i, %73 ], [ %74, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1319
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1319
   %79 = icmp eq i8 %.sroa.0.0.i.i.i.i.i, 0

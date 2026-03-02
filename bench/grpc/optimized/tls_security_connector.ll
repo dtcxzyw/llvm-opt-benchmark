@@ -3350,46 +3350,48 @@ define void @_ZN9grpc_core27TlsChannelSecurityConnector28TlsChannelCertificateWa
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %33 = load i8, ptr %32, align 8, !tbaa !101, !range !113, !noundef !114
   %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %35, label %39
+  br i1 %34, label %35, label %.thread
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 192
   %37 = load i8, ptr %36, align 8, !tbaa !79, !range !113, !noundef !114
   %38 = trunc nuw i8 %37 to i1
-  br label %39
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 96
+  %40 = load i8, ptr %39, align 8, !tbaa !115, !range !113, !noundef !114
+  %41 = trunc nuw i8 %40 to i1
+  br i1 %41, label %45, label %51
 
-39:                                               ; preds = %35, %28
-  %40 = phi i1 [ true, %28 ], [ %38, %35 ]
-  %41 = getelementptr inbounds nuw i8, ptr %31, i64 96
-  %42 = load i8, ptr %41, align 8, !tbaa !115, !range !113, !noundef !114
-  %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %44, label %48
+.thread:; preds = %28
+  %42 = getelementptr inbounds nuw i8, ptr %31, i64 96
+  %43 = load i8, ptr %42, align 8, !tbaa !115, !range !113, !noundef !114
+  %44 = trunc nuw i8 %43 to i1
+  br i1 %44, label %45, label %.thread18
 
-44:                                               ; preds = %39
-  %45 = getelementptr inbounds nuw i8, ptr %29, i64 224
-  %46 = load i8, ptr %45, align 8, !tbaa !80, !range !113, !noundef !114
-  %47 = trunc nuw i8 %46 to i1
-  br label %48
+45:; preds = %.thread, %35
+  %46 = phi i1 [ true, %.thread ], [ %38, %35 ]
+  %47 = getelementptr inbounds nuw i8, ptr %29, i64 224
+  %48 = load i8, ptr %47, align 8, !tbaa !80, !range !113, !noundef !114
+  %49 = trunc nuw i8 %48 to i1
+  %50 = and i1 %46, %49
+  br i1 %50, label %.thread18, label %63
 
-48:                                               ; preds = %44, %39
-  %49 = phi i1 [ true, %39 ], [ %47, %44 ]
-  %or.cond = and i1 %40, %49
-  br i1 %or.cond, label %50, label %62
+51:                                               ; preds = %35
+  br i1 %38, label %.thread18, label %63
 
-50:                                               ; preds = %48
-  %51 = invoke noundef i32 @_ZN9grpc_core27TlsChannelSecurityConnector29UpdateHandshakerFactoryLockedEv(ptr noundef nonnull align 8 dereferenceable(280) %29)
-          to label %52 unwind label %55
+.thread18:; preds = %.thread, %45, %51
+  %52 = invoke noundef i32 @_ZN9grpc_core27TlsChannelSecurityConnector29UpdateHandshakerFactoryLockedEv(ptr noundef nonnull align 8 dereferenceable(280) %29)
+          to label %53 unwind label %56
 
-52:                                               ; preds = %50
-  %.not10 = icmp eq i32 %51, 0
-  br i1 %.not10, label %62, label %53
+53:                                               ; preds = %.thread18
+  %.not10 = icmp eq i32 %52, 0
+  br i1 %.not10, label %63, label %54
 
-53:                                               ; preds = %52
+52:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str, i32 noundef 449) #28
-          to label %54 unwind label %57
+          to label %55 unwind label %57
 
-54:                                               ; preds = %53
+54:                                               ; preds = %54
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 33, ptr nonnull @.str.11)
           to label %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit unwind label %59
 
@@ -3398,12 +3400,12 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %62
 
-55:                                               ; preds = %50
+55:                                               ; preds = %.thread18
   %56 = landingpad { ptr, i32 }
           cleanup
   br label %66
 
-57:                                               ; preds = %53
+57:                                               ; preds = %54
   %58 = landingpad { ptr, i32 }
           cleanup
   br label %61
@@ -3415,11 +3417,11 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit: ; pr
   br label %61
 
 61:                                               ; preds = %59, %57
-  %.pn = phi { ptr, i32 } [ %60, %59 ], [ %58, %57 ]
+  %.pn = phi { ptr, i32 } [ %60, %60 ], [ %58, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %66
 
-62:                                               ; preds = %52, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit, %48
+62:                                               ; preds = %45, %53, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi34EEERS2_RAT__Kc.exit, %51
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit unwind label %63
 
@@ -3434,7 +3436,7 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %62
   ret void
 
 66:                                               ; preds = %61, %55
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %61 ], [ %56, %55 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %62 ], [ %56, %56 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit13 unwind label %67
 

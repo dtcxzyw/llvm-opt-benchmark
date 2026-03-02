@@ -4644,45 +4644,43 @@ define range(i32 -1, 2) i32 @dt_camctl_camera_get_property_type(ptr noundef read
   %21 = getelementptr inbounds nuw i8, ptr %.019, i64 32784
   %22 = load ptr, ptr %21, align 8, !tbaa !96
   %23 = call i32 @gp_widget_get_child_by_name(ptr noundef %22, ptr noundef %2, ptr noundef nonnull %5) #15
-  %24 = icmp ne i32 %23, 0
-  br i1 %24, label %25, label %29
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %28, label %24
 
 25:                                               ; preds = %18
   %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
   %27 = and i32 %26, 32
   %.not28 = icmp eq i32 %27, 0
-  br i1 %.not28, label %36, label %28
+  br i1 %.not28, label %35, label %28
 
 28:                                               ; preds = %25
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.31, ptr noundef %2, i32 noundef %23) #15
-  br label %36
+  br label %35
 
-29:                                               ; preds = %18
-  %30 = load ptr, ptr %5, align 8, !tbaa !146
-  %31 = call i32 @gp_widget_get_type(ptr noundef %30, ptr noundef %3) #15
-  %.not26 = icmp eq i32 %31, 0
-  br i1 %.not26, label %36, label %32
-
-32:                                               ; preds = %29
-  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
-  %34 = and i32 %33, 32
-  %.not27 = icmp eq i32 %34, 0
-  br i1 %.not27, label %36, label %35
+32:                                               ; preds = %18
+  %33 = load ptr, ptr %5, align 8, !tbaa !146
+  %30 = call i32 @gp_widget_get_type(ptr noundef %33, ptr noundef %3) #15
+  %.not27 = icmp eq i32 %30, 0
+  br i1 %.not27, label %35, label %35
 
 35:                                               ; preds = %32
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.32, ptr noundef %2, i32 noundef %31) #15
-  br label %36
+  %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
+  %33 = and i32 %32, 32
+  %.not27 = icmp eq i32 %33, 0
+  br i1 %.not27, label %35, label %34
 
-36:                                               ; preds = %29, %35, %32, %25, %28
-  %37 = phi i1 [ false, %29 ], [ true, %28 ], [ true, %25 ], [ true, %32 ], [ true, %35 ]
-  %38 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %19) #15
-  %39 = or i1 %24, %37
-  %40 = zext i1 %39 to i32
+34:; preds = %31
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.32, ptr noundef %2, i32 noundef %30) #15
+  br label %35
+
+35:                                               ; preds = %28, %34, %31, %24, %27
+  %36 = phi i32 [ 0, %28 ], [ 1, %27 ], [ 1, %24 ], [ 1, %31 ], [ 1, %34 ]
+  %37 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %19) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %41
 
-41:                                               ; preds = %14, %17, %36
-  %.0 = phi i32 [ %40, %36 ], [ -1, %17 ], [ -1, %14 ]
+41:                                               ; preds = %14, %17, %35
+  %.0 = phi i32 [ %36, %35 ], [ -1, %17 ], [ -1, %14 ]
   ret i32 %.0
 }
 

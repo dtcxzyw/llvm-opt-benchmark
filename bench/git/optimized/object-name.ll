@@ -4081,7 +4081,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_oid_oneline(ptr noundef %0, ptr
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !16
-  switch i8 %11, label %46 [
+  switch i8 %11, label %47 [
     i8 45, label %12
     i8 33, label %14
   ]
@@ -4143,12 +4143,13 @@ define internal fastcc range(i32 -1, 1) i32 @get_oid_oneline(ptr noundef %0, ptr
   %33 = call i32 @regexec(ptr noundef nonnull %6, ptr noundef nonnull %32, i64 noundef 0, ptr noundef null, i32 noundef 0) #20
   %.not46 = icmp eq i32 %33, 0
   %34 = zext i1 %.not46 to i32
-  br label %35
+  %35 = xor i32 %.036, %34
+  br label %36
 
 35:                                               ; preds = %31, %28
-  %36 = phi i32 [ 0, %28 ], [ %34, %31 ]
+  %36 = phi i32 [ %.036, %28 ], [ %35, %31 ]
   call void @repo_unuse_commit_buffer(ptr noundef %0, ptr noundef nonnull %25, ptr noundef nonnull %29) #20
-  %.not47 = icmp eq i32 %.036, %36
+  %.not47 = icmp eq i32 %36, 0
   br i1 %.not47, label %40, label %.thread
 
 .thread:                                          ; preds = %35
@@ -4165,7 +4166,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_oid_oneline(ptr noundef %0, ptr
   br i1 %.not43, label %.lr.ph64.preheader, label %.lr.ph61
 
 .lr.ph64.preheader:                               ; preds = %40, %.thread, %.preheader
-  %.not435475 = phi i32 [ -1, %.preheader ], [ 0, %.thread ], [ -1, %40 ]
+  %.not435475 = phi i32 [ -1, %.preheader ], [ 0, %.thread ], [ -1, %41 ]
   call void @regfree(ptr noundef nonnull %6) #20
   br label %.lr.ph64
 

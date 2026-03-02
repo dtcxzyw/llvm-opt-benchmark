@@ -1531,27 +1531,30 @@ _ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit: 
 
 19:                                               ; preds = %3
   %20 = load ptr, ptr %5, align 8, !tbaa !23
-  %21 = getelementptr inbounds nuw i8, ptr %.01424, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !27
-  %.not.i = icmp eq ptr %22, null
-  br i1 %.not.i, label %_ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit, label %23
+  %21 = ptrtoint ptr %20 to i64
+  %22 = getelementptr inbounds nuw i8, ptr %.01424, i64 16
+  %23 = load ptr, ptr %22, align 8, !tbaa !27
+  %.not.i = icmp eq ptr %23, null
+  br i1 %.not.i, label %_ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit, label %24
 
-23:                                               ; preds = %19
-  %24 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #22
-  %25 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull %22, i64 noundef %24, i64 noundef 3339675911)
-          to label %_ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit unwind label %26
+24:; preds = %19
+  %25 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #22
+  %26 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull %23, i64 noundef %25, i64 noundef 3339675911)
+          to label %_ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.i unwind label %27
 
-26:                                               ; preds = %23
-  %27 = landingpad { ptr, i32 }
+27:; preds = %24
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
+  %28 = extractvalue { ptr, i32 } %28, 0
   tail call void @__clang_call_terminate(ptr %28) #21
   unreachable
 
-_ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit:         ; preds = %19, %23
-  %29 = phi i64 [ 0, %19 ], [ %25, %23 ]
-  %30 = ptrtoint ptr %20 to i64
-  %31 = xor i64 %29, %30
+_ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit:         ; preds = %24
+  %30 = xor i64 %26, %21
+  br label %_ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit
+
+_ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit:         ; preds = %19, %_ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.i
+  %31 = phi i64 [ %30, %_ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.i ], [ %21, %19 ]
   %32 = shl i64 %31, 1
   %33 = xor i64 %32, %.026
   br label %select.unfold

@@ -2418,48 +2418,47 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %.preheader49
 
 .preheader49:                                     ; preds = %.preheader49.lr.ph, %72
-  %indvars.iv61 = phi i64 [ 0, %.preheader49.lr.ph ], [ %indvars.iv.next62, %72 ]
+  %indvars.iv61 = phi i64 [ 0, %.preheader49.lr.ph ], [ %indvars.iv.next62, %71 ]
   %53 = shl nuw nsw i64 %indvars.iv61, 1
   %54 = trunc nuw nsw i64 %indvars.iv61 to i32
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader49, %71
-  %55 = phi i1 [ true, %.preheader49 ], [ false, %71 ]
-  %indvars.iv57.sroa.phi = phi ptr [ %3, %.preheader49 ], [ %indvars.iv57.sroa.gep71, %71 ]
-  %indvars.iv57 = phi i32 [ 0, %.preheader49 ], [ 1, %71 ]
-  %56 = mul nuw nsw i32 %factor.op.mul52, %indvars.iv57
-  %57 = add nsw i32 %56, %14
-  br label %58
+  %55 = phi i1 [ true, %.preheader49 ], [ false, %70 ]
+  %indvars.iv57.sroa.phi = phi ptr [ %3, %.preheader49 ], [ %indvars.iv57.sroa.gep71, %70 ]
+  %indvars.iv57 = phi i32 [ 0, %.preheader49 ], [ %factor.op.mul52, %70 ]
+  %56 = add nsw i32 %indvars.iv57, %14
+  br label %57
 
-58:                                               ; preds = %.preheader, %66
-  %.not = phi i1 [ true, %.preheader ], [ false, %66 ]
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %66 ]
-  %59 = select i1 %.not, ptr @.str.23, ptr @.str.22
-  %60 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %54, ptr noundef nonnull %59)
-  %61 = or disjoint i64 %indvars.iv, %53
-  %62 = trunc nuw i64 %61 to i32
-  %63 = add nsw i32 %57, %62
-  %64 = call i32 @Bmc_FxSolve(ptr noundef %6, i32 noundef %62, i32 noundef %63, ptr noundef nonnull %15, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %2, ptr noundef null)
-  switch i32 %64, label %66 [
+57:                                               ; preds = %.preheader, %65
+  %.not = phi i1 [ true, %.preheader ], [ false, %65 ]
+  %.not = phi i64 [ 0, %.preheader ], [ 1, %65 ]
+  %58 = select i1 %.not, ptr @.str.23, ptr @.str.22
+  %59 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %54, ptr noundef nonnull %58)
+  %60 = or disjoint i64 %.not, %53
+  %61 = trunc nuw i64 %60 to i32
+  %62 = add nsw i32 %56, %61
+  %63 = call i32 @Bmc_FxSolve(ptr noundef %6, i32 noundef %61, i32 noundef %62, ptr noundef nonnull %15, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %2, ptr noundef null)
+  switch i32 %63, label %65 [
     i32 0, label %.sink.split
     i32 -1, label %65
   ]
 
-65:                                               ; preds = %58
+65:                                               ; preds = %57
   br label %.sink.split
 
-.sink.split:                                      ; preds = %58, %65
-  %str.1.sink = phi ptr [ @str.4, %65 ], [ @str.3, %58 ]
+.sink.split:                                      ; preds = %57, %65
+  %str.1.sink = phi ptr [ @str.4, %64 ], [ @str.3, %57 ]
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %str.1.sink)
   br label %66
 
-66:                                               ; preds = %.sink.split, %58
+66:                                               ; preds = %.sink.split, %57
   %67 = load i32, ptr %2, align 4, !tbaa !11
   %68 = getelementptr inbounds nuw i32, ptr %indvars.iv57.sroa.phi, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4, !tbaa !11
   %70 = add nsw i32 %69, %67
   store i32 %70, ptr %68, align 4, !tbaa !11
-  br i1 %.not, label %58, label %71, !llvm.loop !93
+  br i1 %.not, label %57, label %71, !llvm.loop !93
 
 71:                                               ; preds = %66
   br i1 %55, label %.preheader, label %72, !llvm.loop !94

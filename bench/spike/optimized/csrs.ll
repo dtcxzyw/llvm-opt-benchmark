@@ -3279,7 +3279,7 @@ _ZN12_GLOBAL__N_111xlen_to_uxlEi.exit.i:          ; preds = %65
   br label %67
 
 67:                                               ; preds = %_ZN12_GLOBAL__N_111xlen_to_uxlEi.exit.i, %65, %_ZN17base_status_csr_tC2EP11processor_tm.exit
-  %68 = phi i64 [ 8589934592, %_ZN12_GLOBAL__N_111xlen_to_uxlEi.exit.i ], [ 0, %65 ], [ 0, %_ZN17base_status_csr_tC2EP11processor_tm.exit ]
+  %68 = phi i64 [ 8589934592, %_ZN12_GLOBAL__N_111xlen_to_uxlEi.exit.i ], [ 0, %65 ], [ 6144, %_ZN17base_status_csr_tC2EP11processor_tm.exit ]
   br i1 %.not.i, label %_ZNK13mstatus_csr_t29compute_mstatus_initial_valueEv.exit, label %69
 
 69:                                               ; preds = %67
@@ -3293,19 +3293,17 @@ _ZN12_GLOBAL__N_111xlen_to_uxlEi.exit.i:          ; preds = %65
   unreachable
 
 _ZN12_GLOBAL__N_111xlen_to_uxlEi.exit3.i:         ; preds = %69
+  %71 = or disjoint i64 %68, 34359738368
   br label %_ZNK13mstatus_csr_t29compute_mstatus_initial_valueEv.exit
 
 _ZNK13mstatus_csr_t29compute_mstatus_initial_valueEv.exit: ; preds = %67, %69, %_ZN12_GLOBAL__N_111xlen_to_uxlEi.exit3.i
-  %71 = phi i64 [ 34359738368, %_ZN12_GLOBAL__N_111xlen_to_uxlEi.exit3.i ], [ 0, %69 ], [ 0, %67 ]
+  %71 = phi i64 [ %71, %_ZN12_GLOBAL__N_111xlen_to_uxlEi.exit3.i ], [ %68, %69 ], [ %68, %67 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %73 = load i64, ptr %42, align 8, !tbaa !152
-  %74 = select i1 %.not.i2, i64 6144, i64 0
-  %75 = or disjoint i64 %68, %74
-  %76 = or disjoint i64 %75, %71
-  %77 = shl i64 %73, 7
-  %78 = and i64 %77, 4398046511104
-  %79 = or disjoint i64 %76, %78
-  store i64 %79, ptr %72, align 8, !tbaa !194
+  %75 = shl i64 %74, 7
+  %76 = and i64 %75, 4398046511104
+  %76 = or i64 %76, %71
+  store i64 %77, ptr %73, align 8, !tbaa !194
   ret void
 }
 
@@ -3339,7 +3337,7 @@ _ZN12_GLOBAL__N_111xlen_to_uxlEi.exit:            ; preds = %10
   br label %14
 
 14:                                               ; preds = %10, %_ZN12_GLOBAL__N_111xlen_to_uxlEi.exit, %1
-  %15 = phi i64 [ 8589934592, %_ZN12_GLOBAL__N_111xlen_to_uxlEi.exit ], [ 0, %10 ], [ 0, %1 ]
+  %15 = phi i64 [ 8589934592, %_ZN12_GLOBAL__N_111xlen_to_uxlEi.exit ], [ 0, %10 ], [ 6144, %1 ]
   br i1 %.not6, label %20, label %16
 
 16:                                               ; preds = %14
@@ -3355,19 +3353,17 @@ _ZN12_GLOBAL__N_111xlen_to_uxlEi.exit:            ; preds = %10
   unreachable
 
 _ZN12_GLOBAL__N_111xlen_to_uxlEi.exit3:           ; preds = %16
-  br label %20
+  %20 = or disjoint i64 %15, 34359738368
+  br label %21
 
 20:                                               ; preds = %16, %_ZN12_GLOBAL__N_111xlen_to_uxlEi.exit3, %14
-  %21 = phi i64 [ 34359738368, %_ZN12_GLOBAL__N_111xlen_to_uxlEi.exit3 ], [ 0, %16 ], [ 0, %14 ]
+  %21 = phi i64 [ %20, %_ZN12_GLOBAL__N_111xlen_to_uxlEi.exit3 ], [ %15, %16 ], [ %15, %14 ]
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 4320
   %23 = load i64, ptr %22, align 8, !tbaa !152
-  %24 = select i1 %.not, i64 6144, i64 0
-  %25 = or disjoint i64 %15, %24
-  %26 = or disjoint i64 %25, %21
-  %27 = shl i64 %23, 7
-  %28 = and i64 %27, 4398046511104
-  %29 = or disjoint i64 %26, %28
-  ret i64 %29
+  %25 = shl i64 %24, 7
+  %26 = and i64 %25, 4398046511104
+  %26 = or i64 %26, %21
+  ret i64 %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6922,7 +6918,7 @@ _ZNK14base_atp_csr_t10satp_validEm.exit:          ; preds = %14
   br i1 %.not40, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread
 
 _ZNK14base_atp_csr_t10satp_validEm.exit13.thread: ; preds = %.thread25, %.thread26, %.thread46, %.thread, %31, %33, %35
-  %37 = phi i64 [ %30, %31 ], [ %16, %.thread26 ], [ %30, %35 ], [ %30, %33 ], [ %30, %.thread ], [ %27, %.thread46 ], [ %26, %.thread25 ]
+  %37 = phi i64 [ %30, %31 ], [ %26, %.thread45 ], [ %30, %35 ], [ %30, %33 ], [ %30, %.thread ], [ %26, %.thread25 ], [ %16, %.thread26 ]
   br label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30
 
 _ZNK14base_atp_csr_t10satp_validEm.exit13.thread30: ; preds = %28, %.thread, %31, %33, %35, %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread

@@ -6353,9 +6353,13 @@ _ZL6onHulliiiPi.exit40:                           ; preds = %_ZL6onHulliiiPi.exi
   %exitcond.not.i52 = icmp eq i64 %indvars.iv.next.i51, %wide.trip.count.i
   br i1 %exitcond.not.i52, label %_ZL6onHulliiiPi.exit53, label %.lr.ph.i48, !llvm.loop !59
 
-_ZL6onHulliiiPi.exit53:                           ; preds = %67, %63, %_ZL6onHulliiiPi.exit40
-  %69 = phi i32 [ 0, %_ZL6onHulliiiPi.exit40 ], [ 0, %67 ], [ 16, %63 ]
+_ZL6onHulliiiPi.exit53:                           ; preds = %63, %67
+  %69 = phi i32 [ 16, %63 ], [ 0, %67 ]
   %70 = or disjoint i32 %58, %69
+  br label %_ZL6onHulliiiPi.exit53
+
+_ZL6onHulliiiPi.exit53:                           ; preds = %_ZL6onHulliiiPi.exit53.loopexit, %_ZL6onHulliiiPi.exit40
+  %70 = phi i32 [ %58, %_ZL6onHulliiiPi.exit40 ], [ %69, %_ZL6onHulliiiPi.exit53.loopexit ]
   %71 = or disjoint i64 %indvars.iv, 3
   %72 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
   %73 = icmp eq ptr %72, null

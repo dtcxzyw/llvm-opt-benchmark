@@ -1954,7 +1954,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3ue217isSingletonRegionINS_8NG
   br i1 %.not, label %._crit_edge, label %10
 
 10:                                               ; preds = %.lr.ph153, %.loopexit136
-  %.sroa.0112.0152 = phi ptr [ %.sroa.0112.0150, %.lr.ph153 ], [ %.sroa.0112.0, %.loopexit136 ]
+  %.sroa.0112.0152 = phi ptr [ %.sroa.0112.0150, %.lr.ph152 ], [ %.sroa.0112.0, %.loopexit ]
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0112.0152, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not129 = icmp eq ptr %12, %1
@@ -1964,7 +1964,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3ue217isSingletonRegionINS_8NG
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %15 = load i64, ptr %14, align 8
   %16 = tail call noundef zeroext i1 @_ZN3ue212inSameRegionINS_8NGHolderEEEbRKT_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESB_RKSt13unordered_mapISB_jSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %1, i64 %2, ptr nonnull %12, i64 %15, ptr noundef nonnull align 8 dereferenceable(56) %3)
-  br i1 %16, label %.loopexit139, label %17
+  br i1 %16, label %.loopexit138, label %17
 
 17:                                               ; preds = %13, %10
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 136
@@ -2134,7 +2134,7 @@ _ZN3ue212inSameRegionINS_8NGHolderEEEbRKT_NS_12graph_detail17vertex_descriptorIN
   %89 = load i64, ptr %88, align 8
   %90 = icmp ugt i64 %89, 3
   %91 = xor i1 %87, %90
-  br i1 %91, label %.loopexit139, label %.critedge
+  br i1 %91, label %.loopexit138, label %.critedge
 
 .critedge:                                        ; preds = %_ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEjSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_jEEE2atERSE_.exit21.i, %_ZN3ue212inSameRegionINS_8NGHolderEEEbRKT_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESB_RKSt13unordered_mapISB_jSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEE.exit, %22
   %.sroa.0104.0 = load ptr, ptr %.sroa.0104.0149, align 8
@@ -2183,13 +2183,8 @@ _ZN3ue212inSameRegionINS_8NGHolderEEEbRKT_NS_12graph_detail17vertex_descriptorIN
   %.not127 = icmp eq ptr %.sroa.090.0, %102
   br i1 %.not127, label %.loopexit, label %.lr.ph159
 
-.loopexit:                                        ; preds = %105, %.critedge70, %101, %97, %._crit_edge
-  %.7 = phi i1 [ false, %._crit_edge ], [ false, %97 ], [ true, %101 ], [ false, %105 ], [ true, %.critedge70 ]
-  %spec.select73 = or i1 %.not125, %.7
-  br label %.loopexit139
-
-.loopexit139:                                     ; preds = %13, %_ZN3ue212inSameRegionINS_8NGHolderEEEbRKT_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESB_RKSt13unordered_mapISB_jSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEE.exit, %.loopexit
-  %.6 = phi i1 [ %spec.select73, %.loopexit ], [ false, %_ZN3ue212inSameRegionINS_8NGHolderEEEbRKT_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESB_RKSt13unordered_mapISB_jSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEE.exit ], [ false, %13 ]
+.loopexit:                                        ; preds = %13, %_ZN3ue212inSameRegionINS_8NGHolderEEEbRKT_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESB_RKSt13unordered_mapISB_jSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEE.exit, %105, %.critedge70, %101, %._crit_edge, %97
+  %.7 = phi i1 [ false, %97 ], [ false, %105 ], [ true, %._crit_edge ], [ false, %_ZN3ue212inSameRegionINS_8NGHolderEEEbRKT_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESB_RKSt13unordered_mapISB_jSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEE.exit ], [ true, %101 ], [ true, %.critedge70 ], [ false, %13 ]
   ret i1 %.6
 }
 

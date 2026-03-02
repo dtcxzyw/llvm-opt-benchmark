@@ -3108,12 +3108,15 @@ _ZN4enki13TaskScheduler9HaveTasksEj.exit:         ; preds = %_ZN4enki13TaskSched
   %.not52 = or i1 %92, %.5
   br i1 %.not52, label %.loopexit, label %.lr.ph80, !llvm.loop !134
 
-.loopexit:                                        ; preds = %62, %62, %62, %_ZN4enki13TaskScheduler9HaveTasksEj.exit, %78, %.lr.ph.i61, %_ZN12_GLOBAL__N_18SpinWaitEj.exit, %.preheader
-  %.3 = phi i1 [ false, %_ZN12_GLOBAL__N_18SpinWaitEj.exit ], [ false, %.preheader ], [ %.5, %_ZN4enki13TaskScheduler9HaveTasksEj.exit ], [ true, %.lr.ph.i61 ], [ true, %78 ], [ true, %62 ], [ true, %62 ], [ true, %62 ]
-  %93 = load atomic i8, ptr %12 acquire, align 8
-  %94 = trunc i8 %93 to i1
-  %95 = or i1 %22, %.3
-  %or.cond57 = and i1 %95, %94
+.loopexit:                                        ; preds = %_ZN4enki13TaskScheduler9HaveTasksEj.exit
+  %93 = or i1 %22, %.5
+  br label %.loopexit
+
+.loopexit:; preds = %62, %62, %62, %78, %.loopexit, %.lr.ph.i61, %_ZN12_GLOBAL__N_18SpinWaitEj.exit, %.preheader
+  %.3 = phi i1 [ %22, %_ZN12_GLOBAL__N_18SpinWaitEj.exit ], [ %22, %.preheader ], [ true, %78 ], [ true, %.lr.ph.i61 ], [ %93, %.loopexit.loopexit.loopexit113 ], [ true, %62 ], [ true, %62 ], [ true, %62 ]
+  %94 = load atomic i8, ptr %12 acquire, align 8
+  %95 = trunc i8 %94 to i1
+  %or.cond57 = and i1 %.3, %95
   br i1 %or.cond57, label %.preheader76, label %.critedge, !llvm.loop !135
 
 .critedge:                                        ; preds = %.loopexit, %1

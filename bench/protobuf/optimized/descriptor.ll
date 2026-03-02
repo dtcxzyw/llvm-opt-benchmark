@@ -29026,7 +29026,8 @@ if.then:                                          ; preds = %land.lhs.true
 if.then.invoke.cont11_crit_edge:                  ; preds = %if.then
   %.pre = load i8, ptr %call9, align 1
   %8 = icmp eq i8 %.pre, 0
-  br label %invoke.cont11
+  %9 = and i1 %build_it, %8
+  br i1 %9, label %land.lhs.true14, label %if.end29
 
 lpad:                                             ; preds = %if.then19, %land.lhs.true14, %if.then, %_ZN4absl12lts_2023080214MutexLockMaybeC2EPNS0_5MutexE.exit
   %9 = landingpad { ptr, i32 }
@@ -29034,13 +29035,11 @@ lpad:                                             ; preds = %if.then19, %land.lh
   call void @_ZN4absl12lts_2023080214MutexLockMaybeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %lock) #38
   resume { ptr, i32 } %9
 
-invoke.cont11:                                    ; preds = %if.then.invoke.cont11_crit_edge, %land.lhs.true
-  %cmp.i10 = phi i1 [ true, %land.lhs.true ], [ %8, %if.then.invoke.cont11_crit_edge ]
-  %retval.sroa.0.0 = phi ptr [ %call3, %land.lhs.true ], [ %call9, %if.then.invoke.cont11_crit_edge ]
-  %or.cond = and i1 %build_it, %cmp.i10
-  br i1 %or.cond, label %land.lhs.true14, label %if.end29
+invoke.cont11:                                    ; preds = %land.lhs.true
+  br i1 %build_it, label %land.lhs.true14, label %if.end29
 
-land.lhs.true14:                                  ; preds = %invoke.cont11
+land.lhs.true14:                                  ; preds = %if.then.invoke.cont11_crit_edge, %invoke.cont11
+  %retval.sroa.0.022 = phi ptr [ %call9, %if.then.invoke.cont11_crit_edge ], [ %call3, %invoke.cont11 ]
   %call16 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #38
   %10 = extractvalue { i64, ptr } %call16, 0
   %11 = extractvalue { i64, ptr } %call16, 1
@@ -29058,8 +29057,8 @@ if.then19:                                        ; preds = %invoke.cont17
   %call26 = invoke ptr @_ZNK6google8protobuf14DescriptorPool6Tables10FindSymbolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(416) %12, i64 %13, ptr %14)
           to label %if.end29 unwind label %lpad
 
-if.end29:                                         ; preds = %invoke.cont4, %if.then19, %invoke.cont17, %invoke.cont11
-  %retval.sroa.0.1 = phi ptr [ %retval.sroa.0.0, %invoke.cont11 ], [ %retval.sroa.0.0, %invoke.cont17 ], [ %call26, %if.then19 ], [ %call3, %invoke.cont4 ]
+if.end29:                                         ; preds = %invoke.cont4, %if.then.invoke.cont11_crit_edge, %if.then19, %invoke.cont17, %invoke.cont11
+  %retval.sroa.0.1 = phi ptr [ %call3, %invoke.cont11 ], [ %retval.sroa.0.022, %invoke.cont17 ], [ %call26, %if.then19 ], [ %call9, %if.then.invoke.cont11_crit_edge ], [ %call3, %invoke.cont4 ]
   %cmp.not.i11 = icmp eq ptr %2, null
   br i1 %cmp.not.i11, label %_ZN4absl12lts_2023080214MutexLockMaybeD2Ev.exit, label %if.then.i12
 

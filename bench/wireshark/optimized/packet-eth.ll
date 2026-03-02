@@ -1646,10 +1646,11 @@ define internal fastcc zeroext i1 @check_is_802_2(ptr noundef %0, i32 noundef %1
 54:                                               ; preds = %51
   %55 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef 112, i32 noundef 3)
   %.not63 = icmp eq i8 %55, 0
+  %spec.select70 = select i1 %.not63, i1 %.054, i1 false
   br label %56
 
 56:                                               ; preds = %54, %51
-  %.053 = phi i1 [ true, %51 ], [ %.not63, %54 ]
+  %.053 = phi i1 [ %.054, %51 ], [ %spec.select70, %54 ]
   %57 = load i8, ptr @ccsds_heuristic_header, align 1, !range !8, !noundef !9
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %59, label %61
@@ -1657,10 +1658,11 @@ define internal fastcc zeroext i1 @check_is_802_2(ptr noundef %0, i32 noundef %1
 59:                                               ; preds = %56
   %60 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef 116, i32 noundef 1)
   %.not64 = icmp eq i8 %60, 1
+  %spec.select71 = select i1 %.not64, i1 %.053, i1 false
   br label %61
 
 61:                                               ; preds = %59, %56
-  %.052 = phi i1 [ true, %56 ], [ %.not64, %59 ]
+  %.052 = phi i1 [ %.053, %56 ], [ %spec.select71, %59 ]
   %62 = load i8, ptr @ccsds_heuristic_bit, align 1, !range !8, !noundef !9
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %64, label %66
@@ -1668,20 +1670,17 @@ define internal fastcc zeroext i1 @check_is_802_2(ptr noundef %0, i32 noundef %1
 64:                                               ; preds = %61
   %65 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef 208, i32 noundef 1)
   %.not65 = icmp eq i8 %65, 0
-  br label %66
+  %spec.select72 = select i1 %.not65, i1 %.052, i1 false
+  br i1 %spec.select72, label %.sink.split, label %67
 
-66:                                               ; preds = %64, %61
-  %.0 = phi i1 [ true, %61 ], [ %.not65, %64 ]
-  %or.cond7 = and i1 %.054, %.053
-  %or.cond9 = and i1 %or.cond7, %.052
-  %or.cond11 = and i1 %or.cond9, %.0
-  br i1 %or.cond11, label %.sink.split, label %67
+66:                                               ; preds = %61
+  br i1 %.052, label %.sink.split, label %67
 
-.sink.split:                                      ; preds = %66, %20
+.sink.split:                                      ; preds = %66, %64, %20
   store volatile i8 0, ptr %3, align 1
   br label %67
 
-67:                                               ; preds = %.sink.split, %66, %23, %18, %15
+67:                                               ; preds = %.sink.split, %64, %66, %23, %18, %15
   %.0..0..0..0.18 = load volatile i32, ptr %6, align 4
   %68 = icmp eq i32 %.0..0..0..0.18, 0
   br i1 %68, label %69, label %92

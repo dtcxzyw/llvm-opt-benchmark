@@ -115680,14 +115680,13 @@ _ZN5boost10filesystem15is_regular_fileERKNS0_4pathERNS_6system10error_codeE.exit
 51:                                               ; preds = %49
   %52 = load i32, ptr %7, align 8, !tbaa !2059
   %53 = icmp eq i32 %52, 0
-  br label %_ZNK5boost6system10error_codecvbEv.exit
+  %54 = and i1 %46, %53
+  br i1 %54, label %55, label %_ZNK5boost6system10error_codecvbEv.exit.thread
 
-_ZNK5boost6system10error_codecvbEv.exit:          ; preds = %_ZN5boost10filesystem15is_regular_fileERKNS0_4pathERNS_6system10error_codeE.exit, %51
-  %.0.i.i = phi i1 [ %53, %51 ], [ true, %_ZN5boost10filesystem15is_regular_fileERKNS0_4pathERNS_6system10error_codeE.exit ]
-  %or.cond = and i1 %46, %.0.i.i
-  br i1 %or.cond, label %54, label %_ZNK5boost6system10error_codecvbEv.exit.thread
+_ZNK5boost6system10error_codecvbEv.exit:          ; preds = %_ZN5boost10filesystem15is_regular_fileERKNS0_4pathERNS_6system10error_codeE.exit
+  br i1 %46, label %55, label %_ZNK5boost6system10error_codecvbEv.exit.thread
 
-54:                                               ; preds = %_ZNK5boost6system10error_codecvbEv.exit
+54:                                               ; preds = %51, %_ZNK5boost6system10error_codecvbEv.exit
   %55 = load ptr, ptr %0, align 8, !tbaa !4
   %56 = call i32 @access(ptr noundef %55, i32 noundef 1) #56
   %57 = icmp eq i32 %56, 0
@@ -115709,7 +115708,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZN5boost10filesystem4pathD2Ev.exit16:            ; preds = %58, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i14
   resume { ptr, i32 } %59
 
-_ZNK5boost6system10error_codecvbEv.exit.thread:   ; preds = %49, %54, %_ZNK5boost6system10error_codecvbEv.exit
+_ZNK5boost6system10error_codecvbEv.exit.thread:   ; preds = %51, %49, %54, %_ZNK5boost6system10error_codecvbEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %64 = load ptr, ptr %0, align 8, !tbaa !4
   %65 = icmp eq ptr %64, %14

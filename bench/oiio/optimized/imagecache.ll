@@ -14936,7 +14936,7 @@ _ZNK11OpenImageIO6v3_1_07ustring5emptyEv.exit:    ; preds = %107
   %150 = sub i64 %148, %149
   %151 = sdiv exact i64 %150, 120
   %152 = trunc i64 %151 to i32
-  %153 = icmp eq i32 %143, %152
+  %153 = icmp ne i32 %143, %152
   %154 = load ptr, ptr %138, align 8, !tbaa !433
   %155 = load ptr, ptr %147, align 8, !tbaa !433
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 20
@@ -14967,9 +14967,9 @@ _ZNK11OpenImageIO6v3_1_07ustring5emptyEv.exit:    ; preds = %107
   %175 = load i32, ptr %174, align 4, !tbaa !177
   %176 = getelementptr inbounds nuw i8, ptr %155, i64 68
   %177 = load i32, ptr %176, align 4, !tbaa !177
-  %178 = icmp eq i32 %175, %177
-  %brmerge.not = select i1 %178, i1 %153, i1 false
-  br i1 %brmerge.not, label %179, label %.critedge
+  %178 = icmp ne i32 %175, %177
+  %brmerge.not = select i1 %178, i1 true, i1 %153
+  br i1 %brmerge.not, label %.critedge, label %179
 
 179:                                              ; preds = %173
   %180 = getelementptr inbounds nuw i8, ptr %138, i64 8
@@ -15035,17 +15035,16 @@ _ZNK11OpenImageIO6v3_1_07ustring5emptyEv.exit:    ; preds = %107
   %228 = getelementptr inbounds nuw i8, ptr %132, i64 117
   %229 = load i8, ptr %228, align 1, !tbaa !491, !range !172, !noundef !173
   %230 = icmp eq i8 %227, %229
-  %231 = and i1 %153, %230
-  %232 = icmp sgt i32 %143, 0
-  %233 = and i1 %231, %232
-  br i1 %233, label %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.preheader, label %._crit_edge
+  %231 = icmp sgt i32 %143, 0
+  %232 = select i1 %230, i1 %231, i1 false
+  br i1 %232, label %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.preheader, label %._crit_edge
 
 _ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.preheader: ; preds = %225
   %234 = and i64 %142, 2147483647
   br label %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit
 
 ._crit_edge:                                      ; preds = %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit, %225
-  %.076.in.lcssa = phi i1 [ %231, %225 ], [ %248, %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit ]
+  %.076.in.lcssa = phi i1 [ %230, %225 ], [ %248, %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit ]
   br i1 %.076.in.lcssa, label %251, label %.critedge
 
 235:                                              ; preds = %44
@@ -15100,18 +15099,18 @@ _ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit:   ; preds = %_ZNK11OpenImageIO6v
   br label %258
 
 254:                                              ; preds = %239, %237
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %238, %237 ], [ %240, %239 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %238, %236 ], [ %240, %238 ]
   %255 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %42) #8
   br label %256
 
 256:                                              ; preds = %254, %235
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %254 ], [ %236, %235 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %253 ], [ %236, %234 ]
   call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %257
 
 257:                                              ; preds = %256, %31
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %256 ], [ %32, %31 ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %255 ], [ %32, %31 ]
   call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
@@ -15129,7 +15128,7 @@ _ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit:   ; preds = %_ZNK11OpenImageIO6v
   br label %263
 
 263:                                              ; preds = %258, %259, %13, %4
-  %.0 = phi ptr [ null, %4 ], [ %1, %13 ], [ %1, %258 ], [ %spec.select, %259 ]
+  %.0 = phi ptr [ null, %4 ], [ %1, %13 ], [ %1, %257 ], [ %spec.select, %258 ]
   ret ptr %.0
 }
 
@@ -58036,12 +58035,12 @@ _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i:
 
 _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i: ; preds = %248, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i
   %255 = phi i64 [ %254, %248 ], [ %.03561.i, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i ]
-  %256 = icmp samesign ugt i64 %246, %255
+  %256 = icmp ugt i64 %246, %255
   br i1 %256, label %.thread518, label %257
 
 257:                                              ; preds = %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i
   %258 = sub nuw nsw i64 %255, %246
-  %259 = icmp samesign ugt i64 %258, 1
+  %259 = icmp ugt i64 %258, 1
   br i1 %259, label %_ZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_.exit, label %260
 
 260:                                              ; preds = %257
@@ -58161,12 +58160,12 @@ _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i2
 
 _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i205: ; preds = %305, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i202
   %312 = phi i64 [ %311, %305 ], [ %.03561.i195, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i202 ]
-  %313 = icmp samesign ugt i64 %303, %312
+  %313 = icmp ugt i64 %303, %312
   br i1 %313, label %.thread.sink.split, label %314
 
 314:                                              ; preds = %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i205
   %315 = sub nuw nsw i64 %312, %303
-  %316 = icmp samesign ugt i64 %315, 1
+  %316 = icmp ugt i64 %315, 1
   br i1 %316, label %.thread, label %317
 
 317:                                              ; preds = %314
@@ -58520,7 +58519,7 @@ _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i2
 
 _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i277: ; preds = %455, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i274
   %462 = phi i64 [ %461, %455 ], [ %.03561.i267, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i274 ]
-  %463 = icmp samesign ugt i64 %453, %462
+  %463 = icmp ugt i64 %453, %462
   br i1 %463, label %_ZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_.exit280, label %464
 
 464:                                              ; preds = %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i277
@@ -58740,12 +58739,12 @@ _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i3
 
 _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i316: ; preds = %556, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i313
   %563 = phi i64 [ %562, %556 ], [ %.03561.i306, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i313 ]
-  %564 = icmp samesign ugt i64 %554, %563
+  %564 = icmp ugt i64 %554, %563
   br i1 %564, label %_ZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_.exit319, label %565
 
 565:                                              ; preds = %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i316
   %566 = sub nuw nsw i64 %563, %554
-  %567 = icmp samesign ugt i64 %566, 1
+  %567 = icmp ugt i64 %566, 1
   br i1 %567, label %.thread359, label %568
 
 568:                                              ; preds = %565

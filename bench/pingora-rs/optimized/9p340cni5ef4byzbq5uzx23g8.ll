@@ -6901,34 +6901,31 @@ define hidden void @"_ZN84_$LT$h2..client..Connection$LT$T$C$B$GT$$u20$as$u20$co
 
 14:                                               ; preds = %3
   store i8 6, ptr %10, align 8
-  br label %17
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  br i1 %12, label %19, label %18
+
+.thread:                                          ; preds = %3
+  store i8 5, ptr %10, align 8
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  br label %18
 
 15:                                               ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false)
   call void @"_ZN87_$LT$h2..error..Error$u20$as$u20$core..convert..From$LT$h2..proto..error..Error$GT$$GT$4from17h285c07f1d8aefaaaE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %5)
   %.pre = load i8, ptr %10, align 8, !range !408
   %16 = icmp eq i8 %.pre, 6
-  br label %17
-
-.thread:                                          ; preds = %3
-  store i8 5, ptr %10, align 8
+  %17 = and i1 %12, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %19
+  br i1 %17, label %19, label %18
 
-17:                                               ; preds = %15, %14
-  %18 = phi i1 [ true, %14 ], [ %16, %15 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %brmerge.not = and i1 %12, %18
-  br i1 %brmerge.not, label %20, label %19
-
-19:                                               ; preds = %25, %.thread, %17, %20
+17:                                               ; preds = %24, %14, %.thread, %15, %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 
-20:                                               ; preds = %17
+20:                                               ; preds = %14, %15
   %21 = tail call noundef zeroext i1 @"_ZN2h25proto7streams7streams20Streams$LT$B$C$P$GT$31has_streams_or_other_references17h1373d5a533195fa1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11)
-  br i1 %21, label %19, label %22
+  br i1 %21, label %18, label %22
 
 22:                                               ; preds = %20
   %23 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17h9e420ea5df983dc6E monotonic, align 8
@@ -6942,12 +6939,12 @@ define hidden void @"_ZN84_$LT$h2..client..Connection$LT$T$C$B$GT$$u20$as$u20$co
   %29 = load ptr, ptr %28, align 8, !nonnull !20, !noundef !20
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %31 = load ptr, ptr %30, align 8, !noundef !20
-  call void %29(ptr noundef %31)
-  br label %19
+  call void %28(ptr noundef %31)
+  br label %18
 
 32:                                               ; preds = %22
   %33 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @"_ZN84_$LT$h2..client..Connection$LT$T$C$B$GT$$u20$as$u20$core..future..future..Future$GT$4poll10__CALLSITE17h48e4482d010bd229E", i64 16) monotonic, align 8
-  switch i8 %33, label %34 [
+  switch i8 %33, label %33 [
     i8 0, label %25
     i8 1, label %37
     i8 2, label %37
@@ -6959,7 +6956,7 @@ define hidden void @"_ZN84_$LT$h2..client..Connection$LT$T$C$B$GT$$u20$as$u20$co
   br i1 %36, label %25, label %37
 
 37:                                               ; preds = %32, %32, %34
-  %.sroa.02.0 = phi i8 [ %35, %34 ], [ %33, %32 ], [ %33, %32 ]
+  %.sroa.02.0 = phi i8 [ %35, %33 ], [ %33, %31 ], [ %33, %31 ]
   %38 = load ptr, ptr @"_ZN84_$LT$h2..client..Connection$LT$T$C$B$GT$$u20$as$u20$core..future..future..Future$GT$4poll10__CALLSITE17h48e4482d010bd229E", align 8, !nonnull !20, !align !51, !noundef !20
   %39 = tail call noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h6553982323c8745eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %38, i8 noundef %.sroa.02.0)
   br i1 %39, label %40, label %25

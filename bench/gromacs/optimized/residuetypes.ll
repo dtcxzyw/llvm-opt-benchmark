@@ -1474,8 +1474,8 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #11
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_Z19namedResidueHasTypeRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4hashIS5_EN3gmx20EqualCaseInsensitiveESaISt4pairIKS5_S5_EEERSB_SH_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #9 {
   %4 = tail call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stEN3gmx20EqualCaseInsensitiveESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %.not = icmp ne ptr %4, null
-  br i1 %.not, label %5, label %8
+  %.not = icmp eq ptr %4, null
+  br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -1483,9 +1483,8 @@ define noundef zeroext i1 @_Z19namedResidueHasTypeRKSt13unordered_mapINSt7__cxx1
   br label %8
 
 8:                                                ; preds = %3, %5
-  %.05 = phi i1 [ %7, %5 ], [ undef, %3 ]
-  %spec.select = and i1 %.not, %.05
-  ret i1 %spec.select
+  %.05 = phi i1 [ %7, %5 ], [ false, %3 ]
+  ret i1 %.05
 }
 
 ; Function Attrs: mustprogress uwtable

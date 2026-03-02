@@ -187897,22 +187897,21 @@ _ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit: ; preds = %_ZNSt3mapIN5boost
   %.sroa.speculated.i.i.i.i56 = select i1 %134, double 1.000000e+00, double %129
   %135 = fmul nnan double %.sroa.speculated.i.i.i.i56, 0x3CB0000000000000
   %136 = fcmp ugt double %129, %135
-  br label %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57
+  %137 = and i1 %.0.i.i54, %136
+  br i1 %137, label %138, label %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread
 
-_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57: ; preds = %131, %133
-  %.0.i.i55 = phi i1 [ %136, %133 ], [ true, %131 ]
-  %or.cond = and i1 %.0.i.i54, %.0.i.i55
-  br i1 %or.cond, label %137, label %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread
+_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57: ; preds = %131
+  br i1 %.0.i.i54, label %138, label %139
 
-137:                                              ; preds = %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57
+137:                                              ; preds = %133, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57
   %138 = getelementptr inbounds nuw i8, ptr %.sroa.094.0111, i64 113
   store i8 1, ptr %138, align 1, !tbaa !3625
   br label %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread
 
-_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread: ; preds = %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit, %137, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57
+_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread: ; preds = %133, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit, %138
   br i1 %.0.i.i54, label %143, label %139
 
-139:                                              ; preds = %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread
+139:                                              ; preds = %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread
   %140 = getelementptr inbounds nuw i8, ptr %.sroa.094.0111, i64 113
   %141 = load i8, ptr %140, align 1, !tbaa !3625, !range !17, !noundef !18
   %142 = trunc nuw i8 %141 to i1

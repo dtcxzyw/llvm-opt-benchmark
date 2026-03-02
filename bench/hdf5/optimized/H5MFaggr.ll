@@ -1151,8 +1151,14 @@ define range(i32 -1, 2) i32 @H5MF__aggrs_try_shrink_eoa(ptr noundef %0) local_un
   %98 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__aggrs_try_shrink_eoa, i32 noundef 907, i64 noundef %96, i64 noundef %97, ptr noundef nonnull @.str.9) #6
   br label %.thread35
 
-.thread35:                                        ; preds = %.thread, %61, %64, %90, %75, %20, %44, %68, %92, %1
-  %.0 = phi i32 [ -1, %20 ], [ -1, %44 ], [ -1, %68 ], [ -1, %92 ], [ -1, %1 ], [ 1, %75 ], [ %.0.i.ph30, %64 ], [ %.0.i.ph30, %.thread ], [ %.0.i.ph30, %61 ], [ 1, %90 ]
+.thread35:                                        ; preds = %75, %90, %64, %61, %.thread
+  %.0.i20.ph38 = phi i32 [ 1, %75 ], [ %.0.i.ph30, %64 ], [ %.0.i.ph30, %.thread ], [ %.0.i.ph30, %61 ], [ 1, %90 ]
+  %99 = icmp ne i32 %.0.i20.ph38, 0
+  %100 = zext i1 %99 to i32
+  br label %101
+
+.thread35:                                        ; preds = %20, %44, %68, %92, %.thread35, %1
+  %.0 = phi i32 [ -1, %20 ], [ -1, %44 ], [ -1, %68 ], [ -1, %92 ], [ %100, %.thread35 ], [ -1, %1 ]
   ret i32 %.0
 }
 

@@ -626,8 +626,8 @@ define dso_local void @expireSlaveKeys() local_unnamed_addr #0 {
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !56
   %25 = getelementptr inbounds nuw %struct.redisDb, ptr %24, i64 %indvars.iv
   %26 = tail call ptr @dbFindExpires(ptr noundef %25, ptr noundef %15) #10
-  %.not38 = icmp ne ptr %26, null
-  br i1 %.not38, label %27, label %activeExpireCycleTryExpire.exit
+  %.not38 = icmp eq ptr %26, null
+  br i1 %.not38, label %58, label %27
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !56
@@ -686,23 +686,24 @@ sdslen.exit.i:                                    ; preds = %52, %48, %44, %40, 
   tail call void @decrRefCount(ptr noundef %55) #10
   tail call void @exitExecutionUnit() #10
   tail call void @postExecutionUnitOperations() #10
-  br label %activeExpireCycleTryExpire.exit
+  br label %58
 
-activeExpireCycleTryExpire.exit:                  ; preds = %sdslen.exit.i, %27, %23
-  %.not46 = phi i1 [ true, %23 ], [ true, %27 ], [ false, %sdslen.exit.i ]
-  %or.cond.not = and i1 %.not38, %.not46
+activeExpireCycleTryExpire.exit:                  ; preds = %27
   %56 = shl nuw i64 1, %indvars.iv
-  %57 = select i1 %or.cond.not, i64 %56, i64 0
-  %.234 = or i64 %57, %.03240
-  %58 = zext i1 %or.cond.not to i32
-  %.3 = add nsw i32 %.143, %58
-  %.pre48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6376), align 8
+  %57 = or i64 %56, %.03240
+  br label %58
+
+58:; preds = %sdslen.exit.i, %23, %activeExpireCycleTryExpire.exit
+  %not.or.cond = phi i32 [ 1, %activeExpireCycleTryExpire.exit ], [ 0, %23 ], [ 0, %sdslen.exit.i ]
+  %.234 = phi i64 [ %57, %activeExpireCycleTryExpire.exit ], [ %.03240, %23 ], [ %.03240, %sdslen.exit.i ]
+  %.3 = add nsw i32 %.143, %not.or.cond
+  %.pre47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6376), align 8
   br label %59
 
-59:                                               ; preds = %activeExpireCycleTryExpire.exit, %.lr.ph
-  %60 = phi i32 [ %.pre48, %activeExpireCycleTryExpire.exit ], [ %21, %.lr.ph ]
-  %.133 = phi i64 [ %.234, %activeExpireCycleTryExpire.exit ], [ %.03240, %.lr.ph ]
-  %.2 = phi i32 [ %.3, %activeExpireCycleTryExpire.exit ], [ %.143, %.lr.ph ]
+59:                                               ; preds = %58, %.lr.ph
+  %60 = phi i32 [ %.pre47, %58 ], [ %21, %.lr.ph ]
+  %.133 = phi i64 [ %.234, %58 ], [ %.03240, %.lr.ph ]
+  %.2 = phi i32 [ %.3, %58 ], [ %.143, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = lshr i64 %.03042, 1
   %62 = icmp ne i64 %61, 0

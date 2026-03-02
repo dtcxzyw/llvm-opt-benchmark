@@ -2953,9 +2953,9 @@ define internal i32 @compare_ref_name(ptr noundef readonly captures(none) %0, pt
   br label %5
 
 5:                                                ; preds = %.lr.ph.i._crit_edge, %2
-  %6 = phi i8 [ %.pre.i, %2 ], [ %.lcssa12, %.lr.ph.i._crit_edge ]
-  %.025.i = phi ptr [ %3, %2 ], [ %.22781.i.lcssa, %.lr.ph.i._crit_edge ]
-  %.023.i = phi ptr [ %4, %2 ], [ %.282.i.lcssa, %.lr.ph.i._crit_edge ]
+  %6 = phi i8 [ %.pre.i, %2 ], [ %37, %.lr.ph.i._crit_edge ]
+  %.025.i = phi ptr [ %3, %2 ], [ %35, %.lr.ph.i._crit_edge ]
+  %.023.i = phi ptr [ %4, %2 ], [ %36, %.lr.ph.i._crit_edge ]
   %7 = add i8 %6, -48
   %8 = icmp ult i8 %7, 10
   br i1 %8, label %.lr.ph.i.i, label %find_digit_prefix.exit.i
@@ -3010,7 +3010,7 @@ find_digit_prefix.exit45.i:                       ; preds = %.lr.ph.i42.i, %find
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
   %.not37.i30 = icmp eq i8 %18, 0
-  br i1 %.not37.i30, label %.lr.ph.i._crit_edge, label %.lr.ph
+  br i1 %.not37.i30, label %version_cmp.exit, label %.lr.ph
 
 32:                                               ; preds = %find_digit_prefix.exit45.i
   %33 = sub nsw i32 %.08.lcssa.i.i, %.08.lcssa.i40.i
@@ -3044,17 +3044,13 @@ find_digit_prefix.exit45.i:                       ; preds = %.lr.ph.i42.i, %find
   %.not36.i = icmp eq i8 %narrow.i, %narrow35.i
   br i1 %.not36.i, label %.lr.ph.i, label %.thread.i
 
-.lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i, %.lr.ph.i.preheader
-  %.lcssa14 = phi i8 [ 0, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
-  %.lcssa12 = phi i8 [ 0, %.lr.ph.i.preheader ], [ %37, %.lr.ph.i ]
-  %.282.i.lcssa = phi ptr [ %.0.lcssa.i41.i, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
-  %.22781.i.lcssa = phi ptr [ %.0.lcssa.i.i, %.lr.ph.i.preheader ], [ %35, %.lr.ph.i ]
-  %41 = or i8 %.lcssa12, %.lcssa14
-  %or.cond133.i = icmp eq i8 %41, 0
-  br i1 %or.cond133.i, label %version_cmp.exit, label %5
+.lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i
+  %41 = or i8 %37, %38
+  %42 = icmp eq i8 %41, 0
+  br i1 %42, label %version_cmp.exit, label %5
 
-version_cmp.exit:                                 ; preds = %.lr.ph.i._crit_edge, %32, %.thread.i
-  %.130.ph.i = phi i32 [ %33, %32 ], [ %34, %.thread.i ], [ 0, %.lr.ph.i._crit_edge ]
+version_cmp.exit:; preds = %.lr.ph.i.preheader, %.lr.ph.i._crit_edge, %32, %.thread.i
+  %.130.ph.i = phi i32 [ %33, %32 ], [ %34, %.thread.i ], [ 0, %.lr.ph.i._crit_edge ], [ 0, %.lr.ph.i.preheader ]
   ret i32 %.130.ph.i
 }
 

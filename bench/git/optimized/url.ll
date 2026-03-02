@@ -59,51 +59,55 @@ is_urlschemechar.exit:                            ; preds = %2
   br i1 %.not16, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %is_urlschemechar.exit, %is_urlschemechar.exit15
-  %.pn = phi ptr [ %.0, %is_urlschemechar.exit15 ], [ %0, %is_urlschemechar.exit ]
+  %.pn = phi ptr [ %.0, %.preheader.backedge ], [ %0, %is_urlschemechar.exit ]
   %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %9 = load i8, ptr %.0, align 1, !tbaa !4
   %10 = sext i8 %9 to i64
   switch i8 %9, label %11 [
-    i8 58, label %21
+    i8 58, label %19
     i8 0, label %.critedge
   ]
 
 11:                                               ; preds = %.preheader
   %12 = icmp sgt i8 %9, 0
-  br i1 %12, label %13, label %is_urlschemechar.exit15
+  br i1 %12, label %13, label %17
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %10
   %15 = load i8, ptr %14, align 1, !tbaa !4
   %16 = and i8 %15, 6
-  %17 = icmp ne i8 %16, 0
-  br label %is_urlschemechar.exit15
+  %17 = icmp eq i8 %16, 0
+  br label %17
 
-is_urlschemechar.exit15:                          ; preds = %13, %11
-  %18 = phi i1 [ false, %11 ], [ %17, %13 ]
-  %19 = icmp ult i8 %9, 47
-  %switch.cast = zext nneg i8 %9 to i47
-  %switch.downshift = lshr i47 -26388279066624, %switch.cast
-  %switch.masked = trunc i47 %switch.downshift to i1
-  %20 = select i1 %19, i1 %switch.masked, i1 false
-  %narrow.i = or i1 %18, %20
-  br i1 %narrow.i, label %.preheader, label %.critedge, !llvm.loop !7
+17:                                               ; preds = %13, %11
+  %18 = phi i1 [ true, %11 ], [ %.not17, %13 ]
+  switch i8 %9, label %is_urlschemechar.exit15 [
+    i8 45, label %.preheader.backedge
+    i8 43, label %.preheader.backedge
+    i8 46, label %.preheader.backedge
+  ]
 
-21:                                               ; preds = %.preheader
-  %22 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
-  %23 = load i8, ptr %22, align 1, !tbaa !4
-  %24 = icmp eq i8 %23, 47
-  br i1 %24, label %25, label %.critedge
+is_urlschemechar.exit15:                          ; preds = %17, %17, %17, %is_urlschemechar.exit15
+  br label %.preheader, !llvm.loop !7
 
-25:                                               ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %.pn, i64 3
-  %27 = load i8, ptr %26, align 1, !tbaa !4
-  %28 = icmp eq i8 %27, 47
-  %29 = zext i1 %28 to i32
+is_urlschemechar.exit15:; preds = %17
+  br i1 %18, label %.critedge, label %.preheader.backedge
+
+19:; preds = %.preheader
+  %20 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
+  %21 = load i8, ptr %20, align 1, !tbaa !4
+  %22 = icmp eq i8 %21, 47
+  br i1 %22, label %23, label %.critedge
+
+23:; preds = %19
+  %24 = getelementptr inbounds nuw i8, ptr %.pn, i64 3
+  %25 = load i8, ptr %24, align 1, !tbaa !4
+  %26 = icmp eq i8 %25, 47
+  %27 = zext i1 %26 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.preheader, %is_urlschemechar.exit15, %2, %21, %25, %1, %is_urlschemechar.exit
-  %.08 = phi i32 [ 0, %1 ], [ %29, %25 ], [ 0, %is_urlschemechar.exit ], [ 0, %21 ], [ 0, %2 ], [ 0, %is_urlschemechar.exit15 ], [ 0, %.preheader ]
+.critedge:                                        ; preds = %.preheader, %is_urlschemechar.exit15, %2, %19, %23, %1, %is_urlschemechar.exit
+  %.08 = phi i32 [ 0, %1 ], [ %27, %23 ], [ 0, %is_urlschemechar.exit ], [ 0, %19 ], [ 0, %2 ], [ 0, %is_urlschemechar.exit15 ], [ 0, %.preheader ]
   ret i32 %.08
 }
 

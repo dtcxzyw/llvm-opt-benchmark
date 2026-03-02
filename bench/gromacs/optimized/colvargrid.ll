@@ -24360,10 +24360,13 @@ define noundef double @_ZNK18colvar_grid_scalar8integralEv(ptr noundef nonnull r
   %exitcond.not = icmp eq i64 %18, %3
   br i1 %exitcond.not, label %.preheader, label %14, !llvm.loop !506
 
-._crit_edge:                                      ; preds = %.lr.ph17, %.preheader
-  %.010.lcssa = phi double [ 1.000000e+00, %.preheader ], [ %22, %.lr.ph17 ]
-  %19 = fmul double %.012.lcssa, %.010.lcssa
-  ret double %19
+._crit_edge:                                      ; preds = %.lr.ph17
+  %19 = fmul double %.012.lcssa, %22
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
+  %.010.lcssa = phi double [ %.012.lcssa, %.preheader ], [ %19, %._crit_edge.loopexit ]
+  ret double %.010.lcssa
 
 .lr.ph17:                                         ; preds = %.lr.ph17.preheader, %.lr.ph17
   %.016 = phi i64 [ %23, %.lr.ph17 ], [ 0, %.lr.ph17.preheader ]
@@ -24424,10 +24427,13 @@ define noundef double @_ZNK18colvar_grid_scalar7entropyEv(ptr noundef nonnull re
   %exitcond.not = icmp eq i64 %23, %3
   br i1 %exitcond.not, label %.preheader, label %14, !llvm.loop !508
 
-._crit_edge:                                      ; preds = %.lr.ph19, %.preheader
-  %.012.lcssa = phi double [ 1.000000e+00, %.preheader ], [ %27, %.lr.ph19 ]
-  %24 = fmul double %.014.lcssa, %.012.lcssa
-  ret double %24
+._crit_edge:                                      ; preds = %.lr.ph19
+  %24 = fmul double %.014.lcssa, %27
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
+  %.012.lcssa = phi double [ %.014.lcssa, %.preheader ], [ %24, %._crit_edge.loopexit ]
+  ret double %.012.lcssa
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %.018 = phi i64 [ %28, %.lr.ph19 ], [ 0, %.lr.ph19.preheader ]

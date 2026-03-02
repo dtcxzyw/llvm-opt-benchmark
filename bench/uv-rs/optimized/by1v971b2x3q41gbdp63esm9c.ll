@@ -1048,13 +1048,15 @@ define hidden noundef zeroext i1 @"_ZN9uv_pep4407version6Parser13parse_pattern28
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @"_ZN9uv_pep4407version6Parser11parse_local28_$u7b$$u7b$closure$u7d$$u7d$17hc2a27d8886e3185eE.llvm.4561438521817157030"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, i8 noundef %1) unnamed_addr #5 {
-  %3 = add i8 %1, -48
-  %.sroa.0.0 = icmp ult i8 %3, 10
-  %4 = and i8 %1, -33
-  %5 = add i8 %4, -65
-  %6 = icmp ult i8 %5, 26
-  %7 = or i1 %.sroa.0.0, %6
-  ret i1 %7
+.thread:
+  %2 = add nsw i8 %1, -48
+  %.sroa.0.0 = icmp ult i8 %2, 10
+  %3 = icmp ugt i8 %1, 64
+  %6 = icmp ugt i8 %1, 96
+  %spec.select.v = select i1 %4, i8 123, i8 91
+  %spec.select = icmp ult i8 %1, %spec.select.v
+  %.sroa.02.0 = select i1 %3, i1 %spec.select, i1 %.sroa.0.0
+  ret i1 %.sroa.02.0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -1236,26 +1238,27 @@ define hidden { ptr, i64 } @_ZN9uv_pep4407version6Parser10bump_while17hfc51538fc
   %7 = load ptr, ptr %6, align 8
   br i1 %.not3, label %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit, label %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge.thread
 
-_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit: ; preds = %1, %16
-  %8 = phi i64 [ %17, %16 ], [ %3, %1 ]
+_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit: ; preds = %1, %14
+  %8 = phi i64 [ %15, %14 ], [ %3, %1 ]
   %9 = getelementptr inbounds i8, ptr %7, i64 %8
   %10 = load i8, ptr %9, align 1, !noalias !94, !noundef !4
-  %11 = add i8 %10, -48
+  %11 = add nsw i8 %10, -48
   %.sroa.0.0.i = icmp ult i8 %11, 10
-  %12 = and i8 %10, -33
-  %13 = add i8 %12, -65
-  %14 = icmp ult i8 %13, 26
-  %15 = or i1 %.sroa.0.0.i, %14
-  br i1 %15, label %16, label %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge
+  %12 = icmp ugt i8 %10, 64
+  %13 = icmp ugt i8 %10, 96
+  %spec.select.v.i = select i1 %13, i8 123, i8 91
+  %spec.select.i = icmp ult i8 %10, %spec.select.v.i
+  %.sroa.02.0.i = select i1 %12, i1 %spec.select.i, i1 %.sroa.0.0.i
+  br i1 %.sroa.02.0.i, label %14, label %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge
 
-16:                                               ; preds = %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit
-  %17 = add i64 %8, 1
-  store i64 %17, ptr %2, align 8
-  %exitcond.not = icmp eq i64 %17, %5
+14:; preds = %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit
+  %15 = add i64 %8, 1
+  store i64 %15, ptr %2, align 8
+  %exitcond.not = icmp eq i64 %15, %5
   br i1 %exitcond.not, label %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge, label %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit
 
-_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge: ; preds = %16, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit
-  %.lcssa2 = phi i64 [ %8, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit ], [ %5, %16 ]
+_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge: ; preds = %14, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit
+  %.lcssa2 = phi i64 [ %8, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit ], [ %5, %14 ]
   %18 = icmp ult i64 %.lcssa2, %3
   br i1 %18, label %20, label %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge.thread, !prof !69
 

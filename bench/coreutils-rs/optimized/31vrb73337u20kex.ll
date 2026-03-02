@@ -1734,21 +1734,22 @@ define internal fastcc { ptr, i64 } @_ZN6uucore8features11version_cmp18remove_fi
   br i1 %61, label %71, label %64
 
 62:                                               ; preds = %71, %64, %57
-  %.1 = phi i8 [ 1, %57 ], [ 0, %64 ], [ 0, %71 ]
-  %.sroa.9.3 = phi i64 [ %spec.select29, %57 ], [ %spec.select31, %64 ], [ %spec.select33, %71 ]
-  %.sroa.08.3 = phi i64 [ %spec.select30, %57 ], [ %spec.select32, %64 ], [ %spec.select34, %71 ]
+  %.1 = phi i8 [ 1, %57 ], [ 0, %64 ], [ 0, %69 ]
+  %.sroa.9.3 = phi i64 [ %spec.select29, %57 ], [ %spec.select31, %64 ], [ %spec.select33, %69 ]
+  %.sroa.08.3 = phi i64 [ %spec.select30, %57 ], [ %spec.select32, %64 ], [ %spec.select34, %69 ]
   %63 = icmp eq ptr %.sink, %3
   br i1 %63, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbf461ba4ba35c2afE.exit.thread", label %.lr.ph
 
 64:                                               ; preds = %60
   %65 = add nsw i32 %.sroa.4.0.i.ph9.i47, -48
   %.0.i = icmp ult i32 %65, 10
-  %66 = and i32 %.sroa.4.0.i.ph9.i47, -33
-  %67 = add nsw i32 %66, -65
-  %68 = icmp ult i32 %67, 26
-  %69 = or i1 %.0.i, %68
-  %70 = icmp eq i32 %.sroa.4.0.i.ph9.i47, 126
-  %or.cond5 = or i1 %70, %69
+  %66 = icmp samesign ugt i32 %.sroa.4.0.i.ph9.i47, 64
+  %67 = icmp samesign ugt i32 %.sroa.4.0.i.ph9.i47, 96
+  %spec.select.v.i = select i1 %67, i32 123, i32 91
+  %spec.select.i = icmp samesign ult i32 %.sroa.4.0.i.ph9.i47, %spec.select.v.i
+  %.04.i = select i1 %66, i1 %spec.select.i, i1 %.0.i
+  %68 = icmp eq i32 %.sroa.4.0.i.ph9.i47, 126
+  %or.cond5 = or i1 %68, %.04.i
   %spec.select31 = select i1 %or.cond5, i64 %.sroa.9.057, i64 undef
   %spec.select32 = select i1 %or.cond5, i64 %.sroa.08.059, i64 0
   br label %62

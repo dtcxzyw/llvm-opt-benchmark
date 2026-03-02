@@ -3307,7 +3307,7 @@ define i32 @Abc_NtkFindPathTimeR_rec(ptr noundef readonly captures(none) %0, ptr
   %4 = and i32 %.val37, 15
   %5 = add nsw i32 %4, -5
   %narrow.i = icmp ult i32 %5, -2
-  br i1 %narrow.i, label %6, label %66
+  br i1 %narrow.i, label %6, label %63
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3345,7 +3345,7 @@ define i32 @Abc_NtkFindPathTimeR_rec(ptr noundef readonly captures(none) %0, ptr
 24:                                               ; preds = %20, %21
   %25 = phi i32 [ %23, %21 ], [ 0, %20 ]
   %26 = add nsw i32 %25, %14
-  br label %66
+  br label %63
 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
@@ -3411,16 +3411,12 @@ define i32 @Abc_NtkFindPathTimeR_rec(ptr noundef readonly captures(none) %0, ptr
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %60 = load i32, ptr %59, align 4, !tbaa !115
   %61 = sitofp i32 %60 to float
-  br label %62
+  %62 = fadd float %.0.lcssa, %61
+  %.pre48 = fptosi float %62 to i32
+  br label %63
 
-62:                                               ; preds = %.critedge, %58
-  %63 = phi float [ %61, %58 ], [ 0.000000e+00, %.critedge ]
-  %64 = fadd float %.0.lcssa, %63
-  %65 = fptosi float %64 to i32
-  br label %66
-
-66:                                               ; preds = %2, %62, %24
-  %.029 = phi i32 [ %65, %62 ], [ %26, %24 ], [ 0, %2 ]
+62:                                               ; preds = %58, %.critedge, %2, %24
+  %63 = phi i32 [ 0, %2 ], [ %26, %24 ], [ %55, %.critedge ], [ %.pre48, %58 ]
   ret i32 %.029
 }
 

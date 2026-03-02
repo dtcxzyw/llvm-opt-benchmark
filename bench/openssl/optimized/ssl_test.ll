@@ -974,27 +974,26 @@ check_cipher.exit:                                ; preds = %check_session_id.ex
 
 check_session_ticket_app_data.exit:               ; preds = %182, %183
   %.010.i = phi i32 [ %..i109, %183 ], [ 1, %182 ]
-  %185 = and i32 %.010.i, %173
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %187 = load i32, ptr %186, align 8, !tbaa !59
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %189 = load i32, ptr %188, align 4, !tbaa !60
-  %190 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 217, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.93, i32 noundef %187, i32 noundef %189) #4
-  %.not.i110 = icmp eq i32 %190, 0
-  br i1 %.not.i110, label %check_resumption.exit, label %191
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %186 = load i32, ptr %185, align 8, !tbaa !59
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %188 = load i32, ptr %187, align 4, !tbaa !60
+  %189 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 217, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.93, i32 noundef %186, i32 noundef %188) #4
+  %.not.i110 = icmp eq i32 %189, 0
+  br i1 %.not.i110, label %check_resumption.exit, label %190
 
-191:                                              ; preds = %check_session_ticket_app_data.exit
-  %192 = load i32, ptr %186, align 8, !tbaa !59
+190:                                              ; preds = %check_session_ticket_app_data.exit
+  %191 = and i32 %.010.i, %173
+  %192 = load i32, ptr %185, align 8, !tbaa !59
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %194 = load i32, ptr %193, align 8, !tbaa !61
   %195 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 219, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.94, i32 noundef %192, i32 noundef %194) #4
-  %.not4.i111 = icmp ne i32 %195, 0
-  %..i112 = zext i1 %.not4.i111 to i32
+  %.not4.i111 = icmp eq i32 %195, 0
+  %196 = select i1 %.not4.i111, i32 0, i32 %191
   br label %check_resumption.exit
 
-check_resumption.exit:                            ; preds = %check_session_ticket_app_data.exit, %191
-  %.0.i113 = phi i32 [ 0, %check_session_ticket_app_data.exit ], [ %..i112, %191 ]
-  %196 = and i32 %185, %.0.i113
+check_resumption.exit:                            ; preds = %check_session_ticket_app_data.exit, %190
+  %.0.i113 = phi i32 [ 0, %check_session_ticket_app_data.exit ], [ %196, %190 ]
   %197 = getelementptr i8, ptr %0, i64 96
   %.val68 = load i32, ptr %197, align 8, !tbaa !62
   %198 = getelementptr i8, ptr %1, i64 476
@@ -1020,7 +1019,7 @@ check_resumption.exit:                            ; preds = %check_session_ticke
 
 check_tmp_key.exit:                               ; preds = %check_resumption.exit, %206
   %.0.i.i = phi i32 [ 0, %206 ], [ 1, %check_resumption.exit ]
-  %208 = and i32 %196, %.0.i.i
+  %208 = and i32 %.0.i.i, %.0.i113
   %209 = getelementptr i8, ptr %0, i64 100
   %.val70 = load i32, ptr %209, align 4, !tbaa !64
   %210 = getelementptr i8, ptr %1, i64 480

@@ -655,14 +655,13 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   tail call void %260(ptr noundef nonnull align 8 dereferenceable(224) %251, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @.str.5) #14
   %.pre433 = load i32, ptr %246, align 8
   %261 = icmp ne i32 %.pre433, 0
-  br label %262
+  %262 = or i1 %.1170350, %261
+  br i1 %262, label %.thread473, label %264
 
-262:                                              ; preds = %257, %249
-  %263 = phi i1 [ %261, %257 ], [ false, %249 ]
-  %or.cond18 = or i1 %.1170350, %263
-  br i1 %or.cond18, label %.thread473, label %264
+262:                                              ; preds = %249
+  br i1 %.1170350, label %.thread473, label %264
 
-264:                                              ; preds = %262
+264:                                              ; preds = %257, %262
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %266 = load ptr, ptr %265, align 8
   %267 = load ptr, ptr %266, align 8
@@ -671,7 +670,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   tail call void (ptr, ptr, ptr, ptr, ptr, ...) %269(ptr noundef nonnull align 8 dereferenceable(1280) %266, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2) #14
   br label %.thread473
 
-.thread473:                                       ; preds = %245, %264, %262
+.thread473:                                       ; preds = %245, %257, %264, %262
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %271 = load ptr, ptr %270, align 8
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 56
@@ -768,14 +767,13 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   tail call void %331(ptr noundef nonnull align 8 dereferenceable(224) %322, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @.str.7, i1 noundef zeroext false) #14
   %.pre432 = load i32, ptr %317, align 8
   %332 = icmp ne i32 %.pre432, 0
-  br label %333
+  %333 = or i1 %.1170350, %332
+  br i1 %333, label %.thread475, label %335
 
-333:                                              ; preds = %328, %320
-  %334 = phi i1 [ %332, %328 ], [ false, %320 ]
-  %or.cond27 = or i1 %.1170350, %334
-  br i1 %or.cond27, label %.thread475, label %335
+333:                                              ; preds = %320
+  br i1 %.1170350, label %.thread475, label %335
 
-335:                                              ; preds = %333
+335:                                              ; preds = %328, %334
   %336 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %337 = load ptr, ptr %336, align 8
   %338 = load ptr, ptr %337, align 8
@@ -784,7 +782,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   tail call void (ptr, ptr, ptr, ptr, ptr, ...) %340(ptr noundef nonnull align 8 dereferenceable(1280) %337, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2) #14
   br label %.thread475
 
-.thread475:                                       ; preds = %316, %335, %333
+.thread475:                                       ; preds = %316, %328, %335, %333
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %342 = load ptr, ptr %341, align 8
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 56
@@ -883,14 +881,13 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   tail call void @_ZN7glslang14TParseVersions15profileRequiresERKNS_10TSourceLocEiiPKcS5_(ptr noundef nonnull align 8 dereferenceable(224) %396, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef -9, i32 noundef 120, ptr noundef null, ptr noundef nonnull @.str.8) #14
   %.pre = load i32, ptr %388, align 8
   %401 = icmp ne i32 %.pre, 0
-  br label %.thread358
+  %402 = or i1 %.1170350, %401
+  br i1 %402, label %.thread358.thread, label %403
 
-.thread358:                                       ; preds = %400, %395
-  %402 = phi i1 [ false, %395 ], [ %401, %400 ]
-  %or.cond36 = or i1 %.1170350, %402
-  br i1 %or.cond36, label %.thread358.thread, label %403
+.thread358:                                       ; preds = %395
+  br i1 %.1170350, label %.thread358.thread, label %403
 
-403:                                              ; preds = %.thread358
+403:                                              ; preds = %400, %.thread358
   %404 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %405 = load ptr, ptr %404, align 8
   %406 = load ptr, ptr %405, align 8
@@ -899,7 +896,7 @@ define noundef range(i32 158, 161) i32 @_ZN7glslang10TPpContext11lFloatConstEiiP
   tail call void (ptr, ptr, ptr, ptr, ptr, ...) %408(ptr noundef nonnull align 8 dereferenceable(1280) %405, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.2) #14
   br label %.thread358.thread
 
-.thread358.thread:                                ; preds = %391, %387, %403, %.thread358
+.thread358.thread:                                ; preds = %391, %387, %400, %403, %.thread358
   %409 = icmp slt i32 %.3335348, 1025
   br i1 %409, label %410, label %"_ZZN7glslang10TPpContext11lFloatConstEiiPNS_8TPpTokenEENK3$_0clEi.exit256.thread"
 

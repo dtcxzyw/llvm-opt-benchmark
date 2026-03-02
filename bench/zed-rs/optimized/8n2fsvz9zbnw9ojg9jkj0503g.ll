@@ -154551,11 +154551,12 @@ define noundef zeroext i1 @_ZN4gpui11text_system13font_features20is_valid_featur
   %37 = phi i32 [ %36, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit.i" ], [ %18, %17 ], [ %26, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h58fe6d19d541bc8dE.exit14.i.i.i" ], [ %15, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h58fe6d19d541bc8dE.exit12.i.i.i" ]
   %38 = add nsw i32 %37, -48
   %.sroa.0.0.i.i.i = icmp ult i32 %38, 10
-  %39 = and i32 %37, -33
-  %40 = add nsw i32 %39, -65
-  %41 = icmp ult i32 %40, 26
-  %.not1.i.not.i = or i1 %.sroa.0.0.i.i.i, %41
-  br i1 %.not1.i.not.i, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h15972d94ece6ca5bE.exit
+  %39 = icmp samesign ugt i32 %37, 64
+  %40 = icmp samesign ugt i32 %37, 96
+  %spec.select.v.i.i.i = select i1 %40, i32 123, i32 91
+  %spec.select.i.i.i = icmp samesign ult i32 %37, %spec.select.v.i.i.i
+  %.sroa.02.0.i.i.i = select i1 %39, i1 %spec.select.i.i.i, i1 %.sroa.0.0.i.i.i
+  br i1 %.sroa.02.0.i.i.i, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h15972d94ece6ca5bE.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h15972d94ece6ca5bE.exit: ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit.thread.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit.i", %.preheader, %2
   %.sroa.0.0 = phi i1 [ false, %2 ], [ true, %.preheader ], [ true, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit.i" ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit.thread.i" ]
@@ -155791,22 +155792,24 @@ select.unfold133:                                 ; preds = %335, %331, %325
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN4gpui11text_system12line_wrapper11LineWrapper12is_word_char17h23049845d41e64cdE(i32 noundef %0) unnamed_addr #11 {
-  %2 = add i32 %0, -48
-  %.sroa.04.0 = icmp ult i32 %2, 10
-  %3 = and i32 %0, -33
-  %4 = add i32 %3, -65
-  %5 = icmp ult i32 %4, 26
-  %6 = or i1 %.sroa.04.0, %5
-  %7 = add i32 %0, -192
-  %8 = icmp ult i32 %7, 400
-  %or.cond9 = or i1 %8, %6
-  %9 = and i32 %0, -256
-  %or.cond3 = icmp eq i32 %9, 1024
+.thread:
+  %1 = add nsw i32 %0, -411
+  %.sroa.04.0 = icmp ult i32 %1, 10
+  %2 = icmp ugt i32 %0, 64
+  %5 = icmp ugt i32 %0, 96
+  %spec.select.v = select i1 %3, i32 123, i32 91
+  %spec.select = icmp ult i32 %0, %spec.select.v
+  %.sroa.06.0 = select i1 %2, i1 %spec.select, i1 %.sroa.04.0
+  %4 = add i32 %0, -192
+  %5 = icmp ult i32 %4, 400
+  %or.cond9 = or i1 %5, %.sroa.06.0
+  %6 = and i32 %0, -256
+  %or.cond3 = icmp eq i32 %6, 1024
   %or.cond10 = or i1 %or.cond3, %or.cond9
   br i1 %or.cond10, label %switch.edge, label %10
 
-10:                                               ; preds = %1
-  switch i32 %0, label %11 [
+10:                                               ; preds = %.thread
+  switch i32 %0, label %8 [
     i32 45, label %switch.edge
     i32 95, label %switch.edge
     i32 46, label %switch.edge
@@ -155829,8 +155832,8 @@ define noundef zeroext i1 @_ZN4gpui11text_system12line_wrapper11LineWrapper12is_
 11:                                               ; preds = %10
   br label %switch.edge
 
-switch.edge:                                      ; preds = %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %1, %11
-  %.sroa.0.0 = phi i1 [ false, %11 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %10 ], [ true, %1 ], [ true, %10 ]
+switch.edge:                                      ; preds = %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %.thread, %11
+  %.sroa.0.0 = phi i1 [ false, %8 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %.thread ], [ true, %7 ]
   ret i1 %.sroa.0.0
 }
 

@@ -6299,7 +6299,7 @@ define hidden noundef float @_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.
 define hidden noundef float @_ZN5image8imageops6sample7lanczos17hef6b306bb60e6c19E.llvm.15109044229312055141(float noundef %0, float noundef %1) unnamed_addr #6 {
   %3 = tail call float @llvm.fabs.f32(float %0)
   %4 = fcmp olt float %3, %1
-  br i1 %4, label %5, label %18
+  br i1 %4, label %5, label %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit4
 
 5:                                                ; preds = %2
   %6 = fcmp oeq float %0, 0.000000e+00
@@ -6321,15 +6321,11 @@ _ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exi
   %14 = fmul float %11, 0x400921FB60000000
   %15 = tail call float @llvm.sin.f32(float %14)
   %16 = fdiv float %15, %14
+  %17 = fmul float %16, %.0.i
   br label %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit4
 
-_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit4: ; preds = %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit, %13
-  %.0.i3 = phi float [ %16, %13 ], [ 1.000000e+00, %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit ]
-  %17 = fmul float %.0.i, %.0.i3
-  br label %18
-
-18:                                               ; preds = %2, %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit4
-  %.0 = phi float [ %17, %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit4 ], [ 0.000000e+00, %2 ]
+_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit4: ; preds = %13, %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit, %2
+  %.0.i3 = phi float [ 0.000000e+00, %2 ], [ %17, %13 ], [ %.0.i, %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit ]
   ret float %.0
 }
 
@@ -6424,21 +6420,17 @@ _ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exi
   %.0.i.i = phi float [ %9, %6 ], [ 1.000000e+00, %4 ]
   %10 = fdiv float %0, 3.000000e+00
   %11 = fcmp oeq float %10, 0.000000e+00
-  br i1 %11, label %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit4.i, label %12
+  br i1 %11, label %_ZN5image8imageops6sample7lanczos17hef6b306bb60e6c19E.llvm.15109044229312055141.exit, label %12
 
 12:                                               ; preds = %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit.i
   %13 = fmul nnan float %10, 0x400921FB60000000
   %14 = tail call float @llvm.sin.f32(float %13)
   %15 = fdiv float %14, %13
-  br label %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit4.i
-
-_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit4.i: ; preds = %12, %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit.i
-  %.0.i3.i = phi float [ %15, %12 ], [ 1.000000e+00, %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit.i ]
-  %16 = fmul float %.0.i.i, %.0.i3.i
+  %16 = fmul float %15, %.0.i.i
   br label %_ZN5image8imageops6sample7lanczos17hef6b306bb60e6c19E.llvm.15109044229312055141.exit
 
-_ZN5image8imageops6sample7lanczos17hef6b306bb60e6c19E.llvm.15109044229312055141.exit: ; preds = %1, %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit4.i
-  %.0.i = phi float [ %16, %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit4.i ], [ 0.000000e+00, %1 ]
+_ZN5image8imageops6sample7lanczos17hef6b306bb60e6c19E.llvm.15109044229312055141.exit: ; preds = %1, %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit.i, %12
+  %.0.i = phi float [ 0.000000e+00, %1 ], [ %16, %12 ], [ %.0.i.i, %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit.i ]
   ret float %.0.i
 }
 

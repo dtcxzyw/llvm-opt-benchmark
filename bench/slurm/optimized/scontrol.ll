@@ -4800,17 +4800,15 @@ define internal fastcc void @_print_daemons() unnamed_addr #7 {
   br label %39
 
 39:                                               ; preds = %.sink.split, %37
-  %40 = phi i1 [ false, %37 ], [ true, %.sink.split ]
-  %or.cond = and i1 %.121, %33
-  br i1 %or.cond, label %41, label %42
+  %40 = phi i1 [ false, %36 ], [ %.121, %.sink.split ]
+  br i1 %or.cond, label %41, label %40
 
 41:                                               ; preds = %39
   call void @_xstrcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.211) #18
   br label %42
 
 42:                                               ; preds = %41, %39
-  %or.cond3 = and i1 %.121, %40
-  br i1 %or.cond3, label %43, label %44
+  br i1 %or.cond3, label %41, label %42
 
 43:                                               ; preds = %42
   call void @_xstrcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.203) #18

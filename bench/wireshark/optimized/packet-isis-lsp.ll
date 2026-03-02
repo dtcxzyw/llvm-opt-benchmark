@@ -1586,13 +1586,12 @@ define internal fastcc void @dissect_isis_lsp(ptr noundef %0, ptr noundef %1, pt
 thread-pre-split:                                 ; preds = %29, %21
   %ei_isis_lsp_short_pdu.sink = phi ptr [ @ei_isis_lsp_short_pdu, %21 ], [ @ei_isis_lsp_long_pdu, %29 ]
   %35 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %25, ptr noundef nonnull %ei_isis_lsp_short_pdu.sink)
-  %.0144.ph = xor i1 %28, true
   %.pr = load i8, ptr %4, align 8
   br label %36
 
 36:                                               ; preds = %thread-pre-split, %29
   %37 = phi i8 [ %.pr, %thread-pre-split ], [ %31, %29 ]
-  %.0144 = phi i1 [ %.0144.ph, %thread-pre-split ], [ false, %29 ]
+  %.0144 = phi i1 [ true, %thread-pre-split ], [ false, %29 ]
   %38 = icmp ult i8 %37, 12
   br i1 %38, label %39, label %45
 
@@ -1698,8 +1697,7 @@ thread-pre-split:                                 ; preds = %29, %21
   br label %134
 
 115:                                              ; preds = %109
-  %or.cond = or i1 %28, %.0144
-  br i1 %or.cond, label %116, label %120
+  br i1 %.0144, label %116, label %120
 
 116:                                              ; preds = %115
   %117 = load i32, ptr @hf_isis_lsp_checksum, align 4

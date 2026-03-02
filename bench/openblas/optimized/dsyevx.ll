@@ -380,14 +380,13 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %195 = load i32, ptr %9, align 4, !tbaa !3
   %196 = load i32, ptr %3, align 4, !tbaa !3
   %197 = icmp eq i32 %195, %196
-  br label %198
+  %198 = or i1 %55, %197
+  br i1 %198, label %200, label %225
 
-198:                                              ; preds = %194, %191, %176
-  %199 = phi i1 [ false, %176 ], [ %197, %194 ], [ false, %191 ]
-  %or.cond9 = or i1 %55, %199
-  br i1 %or.cond9, label %200, label %225
+198:                                              ; preds = %191, %176
+  br i1 %55, label %200, label %225
 
-200:                                              ; preds = %198
+200:                                              ; preds = %194, %198
   %201 = load double, ptr %10, align 8, !tbaa !7
   %202 = fcmp ugt double %201, 0.000000e+00
   br i1 %202, label %225, label %203
@@ -448,7 +447,7 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 0, ptr %19, align 4, !tbaa !3
   br label %225
 
-225:                                              ; preds = %198, %.thread422, %200
+225:                                              ; preds = %194, %198, %.thread422, %200
   %.406 = select i1 %.not, i8 66, i8 69
   store i8 %.406, ptr %28, align 1, !tbaa !12
   %226 = load i32, ptr %3, align 4, !tbaa !3

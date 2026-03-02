@@ -508,8 +508,8 @@ define linkonce_odr hidden noundef i32 @_ZN2qe11bool_plugin10get_weightER12conta
 .lr.ph.i.i:                                       ; preds = %3, %30
   %.035.i.i = phi ptr [ %31, %30 ], [ %19, %3 ]
   %22 = load ptr, ptr %.035.i.i, align 8, !tbaa !124
-  %.not.i.not.not = icmp uge ptr %22, inttoptr (i64 2 to ptr)
-  br i1 %.not.i.not.not, label %23, label %28
+  %.not.i.not.not = icmp ult ptr %22, inttoptr (i64 2 to ptr)
+  br i1 %.not.i.not.not, label %28, label %23
 
 23:                                               ; preds = %.lr.ph.i.i
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 12
@@ -559,7 +559,7 @@ define linkonce_odr hidden noundef i32 @_ZN2qe11bool_plugin10get_weightER12conta
   br label %.lr.ph38.i.i, !llvm.loop !128
 
 _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %23, %28, %34, %39, %42, %.preheader.i.i
-  %.026.i.i = phi i1 [ false, %.preheader.i.i ], [ true, %34 ], [ false, %39 ], [ false, %42 ], [ %.not.i.not.not, %28 ], [ %.not.i.not.not, %23 ]
+  %.026.i.i = phi i32 [ 0, %.preheader.i.i ], [ 3, %34 ], [ 0, %39 ], [ 0, %42 ], [ 0, %28 ], [ 3, %23 ]
   %43 = load ptr, ptr %5, align 8, !tbaa !118
   %44 = load ptr, ptr %43, align 8, !tbaa !3
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
@@ -586,8 +586,8 @@ _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8cont
 .lr.ph.i.i7:                                      ; preds = %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, %66
   %.035.i.i8 = phi ptr [ %67, %66 ], [ %55, %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit ]
   %58 = load ptr, ptr %.035.i.i8, align 8, !tbaa !124
-  %.not.i9.not.not = icmp uge ptr %58, inttoptr (i64 2 to ptr)
-  br i1 %.not.i9.not.not, label %59, label %64
+  %.not.i9.not.not = icmp ult ptr %58, inttoptr (i64 2 to ptr)
+  br i1 %.not.i9.not.not, label %64, label %59
 
 59:                                               ; preds = %.lr.ph.i.i7
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 12
@@ -636,11 +636,9 @@ _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8cont
   %.137.i.i15.be = phi ptr [ %77, %75 ], [ %.old.i.i17, %78 ]
   br label %.lr.ph38.i.i14, !llvm.loop !128
 
-_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit24: ; preds = %59, %64, %70, %75, %78, %.preheader.i.i12
-  %.026.i.i21 = phi i1 [ false, %.preheader.i.i12 ], [ true, %70 ], [ false, %75 ], [ false, %78 ], [ %.not.i9.not.not, %64 ], [ %.not.i9.not.not, %59 ]
-  %or.cond = and i1 %.026.i.i, %.026.i.i21
-  %. = select i1 %or.cond, i32 3, i32 0
-  ret i32 %.
+_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit24: ; preds = %64, %59, %75, %78, %70, %.preheader.i.i12
+  %.026.i.i21 = phi i32 [ 0, %.preheader.i.i12 ], [ 0, %75 ], [ 0, %78 ], [ %.026.i.i, %70 ], [ 0, %64 ], [ %.026.i.i, %59 ]
+  ret i32 %.026.i.i21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

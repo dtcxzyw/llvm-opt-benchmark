@@ -114,7 +114,6 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @.str.37 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 @.str.38 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_screen.cpp, ptr null }]
-@switch.table._ZL30glnvg__blendCompositeOperation26NVGcompositeOperationState = private unnamed_addr constant [11 x i64] [i64 0, i64 4294967296, i64 3298534883328, i64 3302829850624, i64 3324304687104, i64 3328599654400, i64 3307124817920, i64 3311419785216, i64 3315714752512, i64 3320009719808, i64 3332894621696], align 8
 
 @_ZN7nanogui6ScreenC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN7nanogui6ScreenC2Ev
 @_ZN7nanogui6ScreenC1ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjj = hidden unnamed_addr alias void (ptr, ptr, ptr, i1, i1, i1, i1, i1, i32, i32), ptr @_ZN7nanogui6ScreenC2ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbbbbjj
@@ -6719,27 +6718,30 @@ _ZL28glnvg_convertBlendFuncFactori.exit:          ; preds = %.split.i, %6, %7, %
   br label %_ZL28glnvg_convertBlendFuncFactori.exit15
 
 _ZL28glnvg_convertBlendFuncFactori.exit15:        ; preds = %.split.i14, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31
-  %32 = phi i1 [ true, %31 ], [ false, %21 ], [ false, %22 ], [ false, %23 ], [ false, %24 ], [ false, %25 ], [ false, %26 ], [ false, %27 ], [ false, %28 ], [ false, %29 ], [ false, %30 ], [ false, %.split.i14 ]
+  %32 = phi i1 [ true, %31 ], [ %17, %21 ], [ %17, %22 ], [ %17, %23 ], [ %17, %24 ], [ %17, %25 ], [ %17, %26 ], [ %17, %27 ], [ %17, %28 ], [ %17, %29 ], [ %17, %30 ], [ %17, %.split.i14 ]
   %.0.i13 = phi i64 [ 5497558138880, %31 ], [ 4294967296, %21 ], [ 3298534883328, %22 ], [ 3302829850624, %23 ], [ 3324304687104, %24 ], [ 3328599654400, %25 ], [ 3307124817920, %26 ], [ 3311419785216, %27 ], [ 3315714752512, %28 ], [ 3320009719808, %29 ], [ 3332894621696, %30 ], [ 0, %.split.i14 ]
   %33 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.sroa.3.8.extract.trunc)
   %34 = icmp eq i32 %33, 1
-  br i1 %34, label %.split.i17, label %46
+  br i1 %34, label %.split.i17, label %45
 
 .split.i17:                                       ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit15
   %35 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.3.8.extract.trunc, i1 true)
-  switch i32 %35, label %46 [
+  switch i32 %35, label %45 [
     i32 0, label %_ZL28glnvg_convertBlendFuncFactori.exit18
-    i32 1, label %36
-    i32 2, label %37
-    i32 3, label %38
-    i32 4, label %39
-    i32 5, label %40
-    i32 6, label %41
-    i32 7, label %42
-    i32 8, label %43
-    i32 9, label %44
-    i32 10, label %45
+    i32 1, label %35
+    i32 2, label %36
+    i32 3, label %37
+    i32 4, label %38
+    i32 5, label %39
+    i32 6, label %40
+    i32 7, label %41
+    i32 8, label %42
+    i32 9, label %43
+    i32 10, label %44
   ]
+
+35:                                               ; preds = %.split.i17
+  br label %_ZL28glnvg_convertBlendFuncFactori.exit18
 
 36:                                               ; preds = %.split.i17
   br label %_ZL28glnvg_convertBlendFuncFactori.exit18
@@ -6768,45 +6770,77 @@ _ZL28glnvg_convertBlendFuncFactori.exit15:        ; preds = %.split.i14, %21, %2
 44:                                               ; preds = %.split.i17
   br label %_ZL28glnvg_convertBlendFuncFactori.exit18
 
-45:                                               ; preds = %.split.i17
+45:                                               ; preds = %.split.i17, %_ZL28glnvg_convertBlendFuncFactori.exit15
   br label %_ZL28glnvg_convertBlendFuncFactori.exit18
 
-46:                                               ; preds = %.split.i17, %_ZL28glnvg_convertBlendFuncFactori.exit15
-  br label %_ZL28glnvg_convertBlendFuncFactori.exit18
-
-_ZL28glnvg_convertBlendFuncFactori.exit18:        ; preds = %.split.i17, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45, %46
-  %47 = phi i1 [ true, %46 ], [ false, %36 ], [ false, %37 ], [ false, %38 ], [ false, %39 ], [ false, %40 ], [ false, %41 ], [ false, %42 ], [ false, %43 ], [ false, %44 ], [ false, %45 ], [ false, %.split.i17 ]
-  %.0.i16 = phi i64 [ 1280, %46 ], [ 1, %36 ], [ 768, %37 ], [ 769, %38 ], [ 774, %39 ], [ 775, %40 ], [ 770, %41 ], [ 771, %42 ], [ 772, %43 ], [ 773, %44 ], [ 776, %45 ], [ 0, %.split.i17 ]
-  %48 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.sroa.5.8.extract.trunc)
-  %49 = icmp eq i32 %48, 1
-  br i1 %49, label %.split.i20, label %_ZL28glnvg_convertBlendFuncFactori.exit21.thread
+46:                                               ; preds = %.split.i17, %35, %36, %37, %38, %39, %40, %41, %42, %43, %44, %45
+  %or.cond5 = phi i1 [ true, %45 ], [ %32, %35 ], [ %32, %36 ], [ %32, %37 ], [ %32, %38 ], [ %32, %39 ], [ %32, %40 ], [ %32, %41 ], [ %32, %42 ], [ %32, %43 ], [ %32, %44 ], [ %or.cond, %.split.i17 ]
+  %.0.i16 = phi i64 [ 1280, %45 ], [ 1, %35 ], [ 768, %36 ], [ 769, %37 ], [ 774, %38 ], [ 775, %39 ], [ 770, %40 ], [ 771, %41 ], [ 772, %42 ], [ 773, %43 ], [ 776, %44 ], [ 0, %.split.i17 ]
+  %46 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.sroa.5.8.extract.trunc)
+  %47 = icmp eq i32 %46, 1
+  br i1 %47, label %.split.i20, label %_ZL28glnvg_convertBlendFuncFactori.exit21.thread
 
 .split.i20:                                       ; preds = %_ZL28glnvg_convertBlendFuncFactori.exit18
   %50 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.5.8.extract.trunc, i1 true)
-  %51 = icmp samesign ult i32 %50, 11
-  br i1 %51, label %switch.lookup, label %_ZL28glnvg_convertBlendFuncFactori.exit21.thread
+  switch i32 %50, label %_ZL28glnvg_convertBlendFuncFactori.exit21.thread [
+    i32 0, label %_ZL28glnvg_convertBlendFuncFactori.exit21
+    i32 1, label %49
+    i32 2, label %50
+    i32 3, label %51
+    i32 4, label %52
+    i32 5, label %53
+    i32 6, label %54
+    i32 7, label %55
+    i32 8, label %56
+    i32 9, label %57
+    i32 10, label %58
+  ]
 
-switch.lookup:                                    ; preds = %.split.i20
-  %52 = zext nneg i32 %50 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZL30glnvg__blendCompositeOperation26NVGcompositeOperationState, i64 %52
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %or.cond = or i1 %17, %32
-  %or.cond5 = or i1 %or.cond, %47
-  br i1 %or.cond5, label %_ZL28glnvg_convertBlendFuncFactori.exit21.thread, label %53
+49:                                               ; preds = %.split.i20
+  br i1 %or.cond5, label %_ZL28glnvg_convertBlendFuncFactori.exit21.thread, label %59
 
-_ZL28glnvg_convertBlendFuncFactori.exit21.thread: ; preds = %.split.i20, %_ZL28glnvg_convertBlendFuncFactori.exit18, %switch.lookup
-  br label %53
+50:                                               ; preds = %.split.i20
+  br i1 %or.cond5, label %_ZL28glnvg_convertBlendFuncFactori.exit21.thread, label %59
 
-53:                                               ; preds = %switch.lookup, %_ZL28glnvg_convertBlendFuncFactori.exit21.thread
-  %.sroa.09.0 = phi i64 [ 1, %_ZL28glnvg_convertBlendFuncFactori.exit21.thread ], [ %.0.i, %switch.lookup ]
-  %.sroa.4.0 = phi i64 [ 3311419785216, %_ZL28glnvg_convertBlendFuncFactori.exit21.thread ], [ %.0.i13, %switch.lookup ]
-  %.sroa.7.0 = phi i64 [ 1, %_ZL28glnvg_convertBlendFuncFactori.exit21.thread ], [ %.0.i16, %switch.lookup ]
-  %.sroa.11.0 = phi i64 [ 3311419785216, %_ZL28glnvg_convertBlendFuncFactori.exit21.thread ], [ %switch.load, %switch.lookup ]
+51:                                               ; preds = %.split.i20
+  br i1 %or.cond5, label %_ZL28glnvg_convertBlendFuncFactori.exit21.thread, label %59
+
+52:                                               ; preds = %.split.i20
+  br i1 %or.cond5, label %_ZL28glnvg_convertBlendFuncFactori.exit21.thread, label %59
+
+53:                                               ; preds = %.split.i20
+  br i1 %or.cond5, label %_ZL28glnvg_convertBlendFuncFactori.exit21.thread, label %59
+
+54:                                               ; preds = %.split.i20
+  br i1 %or.cond5, label %_ZL28glnvg_convertBlendFuncFactori.exit21.thread, label %59
+
+55:                                               ; preds = %.split.i20
+  br i1 %or.cond5, label %_ZL28glnvg_convertBlendFuncFactori.exit21.thread, label %59
+
+56:                                               ; preds = %.split.i20
+  br i1 %or.cond5, label %_ZL28glnvg_convertBlendFuncFactori.exit21.thread, label %59
+
+57:                                               ; preds = %.split.i20
+  br i1 %or.cond5, label %_ZL28glnvg_convertBlendFuncFactori.exit21.thread, label %59
+
+58:                                               ; preds = %.split.i20
+  br i1 %or.cond5, label %_ZL28glnvg_convertBlendFuncFactori.exit21.thread, label %59
+
+_ZL28glnvg_convertBlendFuncFactori.exit21:        ; preds = %.split.i20
+  br i1 %or.cond5, label %_ZL28glnvg_convertBlendFuncFactori.exit21.thread, label %59
+
+_ZL28glnvg_convertBlendFuncFactori.exit21.thread: ; preds = %.split.i20, %_ZL28glnvg_convertBlendFuncFactori.exit18, %50, %51, %52, %53, %54, %55, %56, %57, %58, %49, %_ZL28glnvg_convertBlendFuncFactori.exit21
+  br label %59
+
+53:                                               ; preds = %50, %51, %52, %53, %54, %55, %56, %57, %58, %49, %_ZL28glnvg_convertBlendFuncFactori.exit21, %_ZL28glnvg_convertBlendFuncFactori.exit21.thread
+  %.sroa.09.0 = phi i64 [ 1, %_ZL28glnvg_convertBlendFuncFactori.exit21.thread ], [ %.0.i, %_ZL28glnvg_convertBlendFuncFactori.exit21 ], [ %.0.i, %49 ], [ %.0.i, %58 ], [ %.0.i, %57 ], [ %.0.i, %56 ], [ %.0.i, %55 ], [ %.0.i, %54 ], [ %.0.i, %53 ], [ %.0.i, %52 ], [ %.0.i, %51 ], [ %.0.i, %50 ]
+  %.sroa.4.0 = phi i64 [ 3311419785216, %_ZL28glnvg_convertBlendFuncFactori.exit21.thread ], [ %.0.i13, %_ZL28glnvg_convertBlendFuncFactori.exit21 ], [ %.0.i13, %49 ], [ %.0.i13, %58 ], [ %.0.i13, %57 ], [ %.0.i13, %56 ], [ %.0.i13, %55 ], [ %.0.i13, %54 ], [ %.0.i13, %53 ], [ %.0.i13, %52 ], [ %.0.i13, %51 ], [ %.0.i13, %50 ]
+  %.sroa.7.0 = phi i64 [ 1, %_ZL28glnvg_convertBlendFuncFactori.exit21.thread ], [ %.0.i16, %_ZL28glnvg_convertBlendFuncFactori.exit21 ], [ %.0.i16, %49 ], [ %.0.i16, %58 ], [ %.0.i16, %57 ], [ %.0.i16, %56 ], [ %.0.i16, %55 ], [ %.0.i16, %54 ], [ %.0.i16, %53 ], [ %.0.i16, %52 ], [ %.0.i16, %51 ], [ %.0.i16, %50 ]
+  %.sroa.11.0 = phi i64 [ 3311419785216, %_ZL28glnvg_convertBlendFuncFactori.exit21.thread ], [ 0, %_ZL28glnvg_convertBlendFuncFactori.exit21 ], [ 4294967296, %49 ], [ 3332894621696, %58 ], [ 3320009719808, %57 ], [ 3315714752512, %56 ], [ 3311419785216, %55 ], [ 3307124817920, %54 ], [ 3328599654400, %53 ], [ 3324304687104, %52 ], [ 3302829850624, %51 ], [ 3298534883328, %50 ]
   %.sroa.4.0.insert.ext = and i64 %.sroa.4.0, -4294967296
   %.sroa.09.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.ext, %.sroa.09.0
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.09.0.insert.insert, 0
-  %.sroa.11.8.insert.ext = and i64 %.sroa.11.0, -4294967296
-  %.sroa.7.8.insert.insert = or disjoint i64 %.sroa.11.8.insert.ext, %.sroa.7.0
+  %.sroa.7.8.insert.insert = or disjoint i64 %.sroa.11.0, %.sroa.7.0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.7.8.insert.insert, 1
   ret { i64, i64 } %.fca.1.insert
 }

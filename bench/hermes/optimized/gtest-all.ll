@@ -20277,66 +20277,62 @@ _ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit: ; preds =
 if.then:                                          ; preds = %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit
   %call.i = tail call noundef ptr @getenv(ptr noundef nonnull @.str.124) #52
   %cmp.i15 = icmp eq ptr %call.i, null
-  br i1 %cmp.i15, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit
+  br i1 %cmp.i15, label %return, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit: ; preds = %if.then
   %call.i17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(6) @.str.125) #53
   %cmp5.i18 = icmp eq i32 %call.i17, 0
-  br i1 %cmp5.i18, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit25
+  br i1 %cmp5.i18, label %return, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit25
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit25: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit
   %call.i22 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(12) @.str.126) #53
   %cmp5.i23 = icmp eq i32 %call.i22, 0
-  br i1 %cmp5.i23, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit31
+  br i1 %cmp5.i23, label %return, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit31
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit31: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit25
   %call.i28 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(15) @.str.127) #53
   %cmp5.i29 = icmp eq i32 %call.i28, 0
-  br i1 %cmp5.i29, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit37
+  br i1 %cmp5.i29, label %return, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit37
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit37: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit31
   %call.i34 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(7) @.str.128) #53
   %cmp5.i35 = icmp eq i32 %call.i34, 0
-  br i1 %cmp5.i35, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit43
+  br i1 %cmp5.i35, label %return, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit43
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit43: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit37
   %call.i40 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(16) @.str.129) #53
   %cmp5.i41 = icmp eq i32 %call.i40, 0
-  br i1 %cmp5.i41, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit49
+  br i1 %cmp5.i41, label %return, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit49
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit49: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit43
   %call.i46 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(5) @.str.130) #53
   %cmp5.i47 = icmp eq i32 %call.i46, 0
-  br i1 %cmp5.i47, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit55
+  br i1 %cmp5.i47, label %return, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit55
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit55: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit49
   %call.i52 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(14) @.str.131) #53
   %cmp5.i53 = icmp eq i32 %call.i52, 0
-  br i1 %cmp5.i53, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit61
+  br i1 %cmp5.i53, label %return, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit61
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit61: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit55
   %call.i58 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(13) @.str.132) #53
   %cmp5.i59 = icmp eq i32 %call.i58, 0
-  br i1 %cmp5.i59, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit67
+  br i1 %cmp5.i59, label %return, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit67
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit67: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit61
   %call.i64 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(22) @.str.133) #53
   %cmp5.i65 = icmp eq i32 %call.i64, 0
-  br i1 %cmp5.i65, label %lor.end, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit73
+  br i1 %cmp5.i65, label %return, label %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit73
 
 _ZN7testing8internal6String13CStringEqualsEPKcS3_.exit73: ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit67
   %call.i70 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(6) @.str.134) #53
   %cmp5.i71 = icmp eq i32 %call.i70, 0
-  br i1 %cmp5.i71, label %lor.end, label %if.end4.i75
+  br i1 %cmp5.i71, label %return, label %if.end4.i75
 
 if.end4.i75:                                      ; preds = %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit73
   %call.i76 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %call.i, ptr noundef nonnull dereferenceable(7) @.str.135) #53
   %cmp5.i77 = icmp eq i32 %call.i76, 0
-  br label %lor.end
-
-lor.end:                                          ; preds = %if.then, %if.end4.i75, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit73, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit67, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit61, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit55, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit49, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit43, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit37, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit31, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit25, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit
-  %0 = phi i1 [ true, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit73 ], [ true, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit67 ], [ true, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit61 ], [ true, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit55 ], [ true, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit49 ], [ true, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit43 ], [ true, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit37 ], [ true, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit31 ], [ true, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit25 ], [ true, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit ], [ %cmp5.i77, %if.end4.i75 ], [ false, %if.then ]
-  %1 = and i1 %stdout_is_tty, %0
+  %0 = and i1 %stdout_is_tty, %cmp5.i77
   br label %return
 
 _ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit85: ; preds = %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit
@@ -20365,8 +20361,8 @@ sub_1:                                            ; preds = %sub_0
   %5 = icmp eq i8 %4, 0
   br label %return
 
-return:                                           ; preds = %sub_1, %sub_0, %entry, %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit85, %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit91, %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit97, %lor.end
-  %retval.0 = phi i1 [ %1, %lor.end ], [ true, %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit97 ], [ true, %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit91 ], [ true, %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit85 ], [ false, %entry ], [ false, %sub_0 ], [ %5, %sub_1 ]
+return:                                           ; preds = %sub_1, %sub_0, %if.end4.i75, %if.then, %entry, %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit85, %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit91, %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit97, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit25, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit31, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit37, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit43, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit49, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit55, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit61, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit67, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit73
+  %retval.0 = phi i1 [ false, %entry ], [ %stdout_is_tty, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit73 ], [ %stdout_is_tty, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit67 ], [ %stdout_is_tty, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit61 ], [ %stdout_is_tty, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit55 ], [ %stdout_is_tty, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit49 ], [ %stdout_is_tty, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit43 ], [ %stdout_is_tty, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit37 ], [ %stdout_is_tty, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit31 ], [ %stdout_is_tty, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit25 ], [ %stdout_is_tty, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit ], [ true, %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit97 ], [ true, %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit91 ], [ true, %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit85 ], [ false, %if.then ], [ %0, %if.end4.i75 ], [ false, %sub_0 ], [ %4, %sub_1 ]
   ret i1 %retval.0
 }
 
