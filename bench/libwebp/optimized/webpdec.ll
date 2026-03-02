@@ -176,9 +176,9 @@ define hidden range(i32 0, 2) i32 @ReadWebP(ptr noundef %0, i64 noundef %1, ptr 
   %or.cond = or i1 %10, %11
   %12 = icmp eq ptr %2, null
   %or.cond3 = or i1 %or.cond, %12
-  %.sink161.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %.sink161.sroa.gep163 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  br i1 %or.cond3, label %172, label %13
+  %.sink167.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 128
+  %.sink167.sroa.gep170 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  br i1 %or.cond3, label %169, label %13
 
 13:                                               ; preds = %5
   %14 = call i32 @WebPInitDecoderConfigInternal(ptr noundef nonnull %8, i32 noundef 528) #7
@@ -188,7 +188,7 @@ define hidden range(i32 0, 2) i32 @ReadWebP(ptr noundef %0, i64 noundef %1, ptr 
 15:                                               ; preds = %13
   %16 = load ptr, ptr @stderr, align 8, !tbaa !4
   %17 = call i64 @fwrite(ptr nonnull @.str.5, i64 26, i64 1, ptr %16) #8
-  br label %172
+  br label %169
 
 18:                                               ; preds = %13
   %19 = call i32 @WebPGetFeaturesInternal(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %8, i32 noundef 528) #7
@@ -197,7 +197,7 @@ define hidden range(i32 0, 2) i32 @ReadWebP(ptr noundef %0, i64 noundef %1, ptr 
 
 20:                                               ; preds = %18
   call void @PrintWebPError(ptr noundef nonnull @.str.6, i32 noundef %19)
-  br label %172
+  br label %169
 
 21:                                               ; preds = %18
   %22 = icmp ne i32 %3, 0
@@ -235,12 +235,12 @@ define hidden range(i32 0, 2) i32 @ReadWebP(ptr noundef %0, i64 noundef %1, ptr 
   %43 = sext i32 %30 to i64
   %44 = call i32 @ImgIoUtilCheckSizeArgumentsOverflow(i64 noundef %.0104, i64 noundef %43) #7
   %.not118 = icmp eq i32 %44, 0
-  br i1 %.not118, label %.thread126, label %45
+  br i1 %.not118, label %.thread163, label %45
 
 45:                                               ; preds = %42
   %46 = call i32 @WebPPictureAlloc(ptr noundef nonnull %2) #7
   %.not119 = icmp eq i32 %46, 0
-  br i1 %.not119, label %.thread126, label %47
+  br i1 %.not119, label %.thread163, label %47
 
 47:                                               ; preds = %45
   %48 = load i32, ptr %2, align 8, !tbaa !26
@@ -325,10 +325,10 @@ define hidden range(i32 0, 2) i32 @ReadWebP(ptr noundef %0, i64 noundef %1, ptr 
   br label %94
 
 94:                                               ; preds = %75, %50
-  %.sink162 = phi i32 [ %93, %75 ], [ %58, %50 ]
-  %.sink161.sroa.phi = phi ptr [ %.sink161.sroa.gep, %75 ], [ %.sink161.sroa.gep163, %50 ]
-  %95 = sext i32 %.sink162 to i64
-  store i64 %95, ptr %.sink161.sroa.phi, align 8, !tbaa !30
+  %.sink168 = phi i32 [ %93, %75 ], [ %58, %50 ]
+  %.sink167.sroa.phi = phi ptr [ %.sink167.sroa.gep, %75 ], [ %.sink167.sroa.gep170, %50 ]
+  %95 = sext i32 %.sink168 to i64
+  store i64 %95, ptr %.sink167.sroa.phi, align 8, !tbaa !30
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 52
   store i32 1, ptr %96, align 4, !tbaa !39
   %97 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -404,112 +404,107 @@ DecodeWebP.exit:                                  ; preds = %94, %98
   br i1 %129, label %.preheader, label %.loopexit, !llvm.loop !43
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader.lr.ph, %106, %DecodeWebP.exit, %104
-  br i1 %102, label %130, label %.thread126
+  br i1 %102, label %130, label %.thread163
 
-.thread126:                                       ; preds = %42, %45, %.loopexit
+.thread163:                                       ; preds = %42, %45, %.loopexit
   %.0107130 = phi i32 [ %101, %.loopexit ], [ 1, %45 ], [ 1, %42 ]
   call void @PrintWebPError(ptr noundef nonnull @.str.6, i32 noundef %.0107130)
-  br label %130
-
-130:                                              ; preds = %.thread126, %.loopexit
-  %131 = phi i1 [ false, %.thread126 ], [ true, %.loopexit ]
-  %.not125 = phi i1 [ true, %.thread126 ], [ false, %.loopexit ]
   call void @WebPFreeDecBuffer(ptr noundef nonnull %9) #7
-  %132 = icmp ne ptr %4, null
-  %or.cond7 = and i1 %132, %131
-  br i1 %or.cond7, label %133, label %170
+  br label %168
 
-133:                                              ; preds = %130
+130:                                              ; preds = %.loopexit
+  call void @WebPFreeDecBuffer(ptr noundef nonnull %9) #7
+  %.not169 = icmp eq ptr %4, null
+  br i1 %.not169, label %169, label %131
+
+131:                                              ; preds = %130
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !45
-  %134 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %1, ptr %134, align 8, !tbaa !47
-  %135 = call ptr @WebPDemuxInternal(ptr noundef nonnull %6, i32 noundef 0, ptr noundef null, i32 noundef 263) #7
+  %132 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %1, ptr %132, align 8, !tbaa !47
+  %133 = call ptr @WebPDemuxInternal(ptr noundef nonnull %6, i32 noundef 0, ptr noundef null, i32 noundef 263) #7
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %136 = icmp eq ptr %135, null
-  br i1 %136, label %.thread133, label %137
+  %134 = icmp eq ptr %133, null
+  br i1 %134, label %.thread133, label %135
 
-137:                                              ; preds = %133
-  %138 = call i32 @WebPDemuxGetI(ptr noundef nonnull %135, i32 noundef 0) #7
-  %139 = and i32 %138, 32
-  %.not.i = icmp eq i32 %139, 0
-  br i1 %.not.i, label %149, label %140
+135:                                              ; preds = %131
+  %136 = call i32 @WebPDemuxGetI(ptr noundef nonnull %133, i32 noundef 0) #7
+  %137 = and i32 %136, 32
+  %.not.i = icmp eq i32 %137, 0
+  br i1 %.not.i, label %147, label %138
 
-140:                                              ; preds = %137
-  %141 = call i32 @WebPDemuxGetChunk(ptr noundef nonnull %135, ptr noundef nonnull @.str.17, i32 noundef 1, ptr noundef nonnull %7) #7
-  %.not15.i = icmp eq i32 %141, 0
-  br i1 %.not15.i, label %149, label %142
+138:                                              ; preds = %135
+  %139 = call i32 @WebPDemuxGetChunk(ptr noundef nonnull %133, ptr noundef nonnull @.str.17, i32 noundef 1, ptr noundef nonnull %7) #7
+  %.not15.i = icmp eq i32 %139, 0
+  br i1 %.not15.i, label %147, label %140
 
-142:                                              ; preds = %140
-  %143 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %144 = load ptr, ptr %143, align 8, !tbaa !48
-  %145 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %146 = load i64, ptr %145, align 8, !tbaa !50
-  %147 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %148 = call i32 @MetadataCopy(ptr noundef %144, i64 noundef %146, ptr noundef nonnull %147) #7
+140:                                              ; preds = %138
+  %141 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %142 = load ptr, ptr %141, align 8, !tbaa !48
+  %143 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %144 = load i64, ptr %143, align 8, !tbaa !50
+  %145 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %146 = call i32 @MetadataCopy(ptr noundef %142, i64 noundef %144, ptr noundef nonnull %145) #7
   call void @WebPDemuxReleaseChunkIterator(ptr noundef nonnull %7) #7
-  br label %149
+  br label %147
 
-149:                                              ; preds = %142, %140, %137
-  %150 = and i32 %138, 8
-  %.not16.i = icmp eq i32 %150, 0
-  br i1 %.not16.i, label %159, label %151
+147:                                              ; preds = %140, %138, %135
+  %148 = and i32 %136, 8
+  %.not16.i = icmp eq i32 %148, 0
+  br i1 %.not16.i, label %157, label %149
+
+149:                                              ; preds = %147
+  %150 = call i32 @WebPDemuxGetChunk(ptr noundef nonnull %133, ptr noundef nonnull @.str.18, i32 noundef 1, ptr noundef nonnull %7) #7
+  %.not17.i = icmp eq i32 %150, 0
+  br i1 %.not17.i, label %157, label %151
 
 151:                                              ; preds = %149
-  %152 = call i32 @WebPDemuxGetChunk(ptr noundef nonnull %135, ptr noundef nonnull @.str.18, i32 noundef 1, ptr noundef nonnull %7) #7
-  %.not17.i = icmp eq i32 %152, 0
-  br i1 %.not17.i, label %159, label %153
-
-153:                                              ; preds = %151
-  %154 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %155 = load ptr, ptr %154, align 8, !tbaa !48
-  %156 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %157 = load i64, ptr %156, align 8, !tbaa !50
-  %158 = call i32 @MetadataCopy(ptr noundef %155, i64 noundef %157, ptr noundef nonnull %4) #7
+  %152 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %153 = load ptr, ptr %152, align 8, !tbaa !48
+  %154 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %155 = load i64, ptr %154, align 8, !tbaa !50
+  %156 = call i32 @MetadataCopy(ptr noundef %153, i64 noundef %155, ptr noundef nonnull %4) #7
   call void @WebPDemuxReleaseChunkIterator(ptr noundef nonnull %7) #7
-  br label %159
+  br label %157
 
-159:                                              ; preds = %153, %151, %149
-  %160 = and i32 %138, 4
-  %.not18.i = icmp eq i32 %160, 0
-  br i1 %.not18.i, label %.thread137, label %161
+157:                                              ; preds = %151, %149, %147
+  %158 = and i32 %136, 4
+  %.not18.i = icmp eq i32 %158, 0
+  br i1 %.not18.i, label %.thread137, label %159
+
+159:                                              ; preds = %157
+  %160 = call i32 @WebPDemuxGetChunk(ptr noundef nonnull %133, ptr noundef nonnull @.str.19, i32 noundef 1, ptr noundef nonnull %7) #7
+  %.not19.i = icmp eq i32 %160, 0
+  br i1 %.not19.i, label %.thread137, label %161
 
 161:                                              ; preds = %159
-  %162 = call i32 @WebPDemuxGetChunk(ptr noundef nonnull %135, ptr noundef nonnull @.str.19, i32 noundef 1, ptr noundef nonnull %7) #7
-  %.not19.i = icmp eq i32 %162, 0
-  br i1 %.not19.i, label %.thread137, label %163
-
-163:                                              ; preds = %161
-  %164 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %165 = load ptr, ptr %164, align 8, !tbaa !48
-  %166 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %167 = load i64, ptr %166, align 8, !tbaa !50
-  %168 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %169 = call i32 @MetadataCopy(ptr noundef %165, i64 noundef %167, ptr noundef nonnull %168) #7
+  %162 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %163 = load ptr, ptr %162, align 8, !tbaa !48
+  %164 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %165 = load i64, ptr %164, align 8, !tbaa !50
+  %166 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %167 = call i32 @MetadataCopy(ptr noundef %163, i64 noundef %165, ptr noundef nonnull %166) #7
   call void @WebPDemuxReleaseChunkIterator(ptr noundef nonnull %7) #7
   br label %.thread137
 
-.thread137:                                       ; preds = %163, %161, %159
-  call void @WebPDemuxDelete(ptr noundef nonnull %135) #7
+.thread137:                                       ; preds = %161, %159, %157
+  call void @WebPDemuxDelete(ptr noundef nonnull %133) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %172
+  br label %169
 
-.thread133:                                       ; preds = %133
+.thread133:                                       ; preds = %131
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @PrintWebPError(ptr noundef nonnull @.str.7, i32 noundef 3)
-  br label %171
+  br label %168
 
-170:                                              ; preds = %130
-  br i1 %.not125, label %171, label %172
-
-171:                                              ; preds = %.thread133, %170
+168:                                              ; preds = %.thread163, %.thread133
   call void @WebPPictureFree(ptr noundef nonnull %2) #7
-  br label %172
+  br label %169
 
-172:                                              ; preds = %.thread137, %170, %171, %5, %20, %15
-  %.0105 = phi i32 [ 0, %15 ], [ 0, %20 ], [ 0, %5 ], [ 0, %171 ], [ 1, %170 ], [ 1, %.thread137 ]
+169:                                              ; preds = %130, %.thread137, %168, %5, %20, %15
+  %.0105 = phi i32 [ 0, %15 ], [ 0, %20 ], [ 0, %5 ], [ 0, %168 ], [ 1, %.thread137 ], [ 1, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0105
 }

@@ -49363,10 +49363,11 @@ _ZN14regex_automata4util6search5Input8set_span17h1fddcae4ff209eceE.exit54: ; pre
   %63 = load i64, ptr %14, align 8, !range !207, !noundef !3
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %.not40 = icmp eq i64 %63, 0
-  %brmerge.not = and i1 %.not40, %3
-  %.mux = select i1 %.not40, i8 13, i8 8
-  br i1 %brmerge.not, label %68, label %41
+  %.not40 = trunc nuw i64 %63 to i1
+  %.not90 = xor i1 %3, true
+  %brmerge = or i1 %.not40, %.not90
+  %.mux = select i1 %.not40, i8 8, i8 13
+  br i1 %brmerge, label %41, label %68
 
 .critedge:                                        ; preds = %53
   %64 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN9polars_io5utils5other16FLOAT_RE_DECIMAL17h03dbd4dc4581de7aE, i64 32) acquire, align 8

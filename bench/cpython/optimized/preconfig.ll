@@ -2345,7 +2345,7 @@ define hidden void @_PyPreConfig_Read(ptr dead_on_unwind noalias writable writeo
   store i32 %.sroa.19.0.copyload, ptr %.sroa.19.0..sroa_idx62, align 8, !tbaa !4
   %.sroa.20.0..sroa_idx74 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sroa.20.0.copyload, ptr %.sroa.20.0..sroa_idx74, align 4
-  br label %214
+  br label %213
 
 10:                                               ; preds = %3
   %11 = load i32, ptr %1, align 4, !tbaa !55
@@ -2403,7 +2403,7 @@ preconfig_get_global_vars.exit:                   ; preds = %10, %25, %28
   store i32 0, ptr %36, align 8, !tbaa !23
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %37, align 4
-  br label %214
+  br label %213
 
 38:                                               ; preds = %preconfig_get_global_vars.exit
   %39 = call ptr @_PyMem_RawStrdup(ptr noundef nonnull %30) #17
@@ -2422,7 +2422,7 @@ preconfig_get_global_vars.exit:                   ; preds = %10, %25, %28
   store i32 0, ptr %45, align 8, !tbaa !23
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %46, align 4
-  br label %214
+  br label %213
 
 47:                                               ; preds = %38
   %48 = load i32, ptr %1, align 4, !tbaa !55, !noalias !63
@@ -2504,7 +2504,7 @@ preconfig_get_global_vars.exit:                   ; preds = %10, %25, %28
 83:                                               ; preds = %67, %.thread
   %84 = phi i32 [ %.pre183, %67 ], [ %64, %.thread ]
   %85 = phi i32 [ %.pre182, %67 ], [ %61, %.thread ]
-  %86 = phi i32 [ %.pre181, %67 ], [ %212, %.thread ]
+  %86 = phi i32 [ %.pre181, %67 ], [ %211, %.thread ]
   %87 = phi i32 [ %.pre180, %67 ], [ %58, %.thread ]
   %88 = phi i32 [ %.pre179, %67 ], [ %56, %.thread ]
   %89 = phi i32 [ %.pre178, %67 ], [ %54, %.thread ]
@@ -2512,8 +2512,8 @@ preconfig_get_global_vars.exit:                   ; preds = %10, %25, %28
   %91 = phi i32 [ %.pre176, %67 ], [ %50, %.thread ]
   %92 = phi i32 [ %.pre, %67 ], [ %48, %.thread ]
   %93 = phi i1 [ false, %67 ], [ true, %.thread ]
-  %.0104170 = phi i32 [ 0, %67 ], [ %.2, %.thread ]
-  %94 = phi i32 [ %.pr, %67 ], [ %208, %.thread ]
+  %.0104170 = phi i1 [ false, %67 ], [ %.2, %.thread ]
+  %94 = phi i32 [ %.pr, %67 ], [ %207, %.thread ]
   store i32 %92, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10432), align 8, !tbaa !55
   store i32 %91, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10436), align 4, !tbaa !49
   store i32 %90, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10440), align 8, !tbaa !45
@@ -2821,32 +2821,31 @@ _Py_GetEnv.exit.i.i:                              ; preds = %192
 preconfig_read.exit:                              ; preds = %199, %.thread13.i.i, %185
   %201 = load i32, ptr %59, align 4, !tbaa !58
   %202 = icmp eq i32 %201, 0
-  %203 = icmp ne i32 %.0104170, 0
-  %or.cond = select i1 %202, i1 true, i1 %203
-  br i1 %or.cond, label %206, label %204
+  %or.cond = select i1 %202, i1 true, i1 %.0104170
+  br i1 %or.cond, label %205, label %203
 
-204:                                              ; preds = %preconfig_read.exit
-  %205 = call i32 @_Py_CoerceLegacyLocale(i32 noundef 0) #17
-  br label %206
+203:                                              ; preds = %preconfig_read.exit
+  %204 = call i32 @_Py_CoerceLegacyLocale(i32 noundef 0) #17
+  br label %205
 
-206:                                              ; preds = %204, %preconfig_read.exit
-  %.2 = phi i32 [ %.0104170, %preconfig_read.exit ], [ 1, %204 ]
-  %207 = icmp eq i32 %94, -1
-  %208 = load i32, ptr %62, align 4, !tbaa !57
-  br i1 %207, label %209, label %211
+205:                                              ; preds = %203, %preconfig_read.exit
+  %.2 = phi i1 [ %.0104170, %preconfig_read.exit ], [ true, %203 ]
+  %206 = icmp eq i32 %94, -1
+  %207 = load i32, ptr %62, align 4, !tbaa !57
+  br i1 %206, label %208, label %210
 
-209:                                              ; preds = %206
-  %210 = icmp ne i32 %208, 1
-  %or.cond165 = and i1 %or.cond, %210
+208:                                              ; preds = %205
+  %209 = icmp ne i32 %207, 1
+  %or.cond165 = and i1 %or.cond, %209
   br i1 %or.cond165, label %.thread146, label %.thread
 
-211:                                              ; preds = %206
-  %.not116 = icmp eq i32 %208, %94
+210:                                              ; preds = %205
+  %.not116 = icmp eq i32 %207, %94
   %or.cond164 = and i1 %or.cond, %.not116
   br i1 %or.cond164, label %.thread146, label %.thread
 
-.thread:                                          ; preds = %209, %211
-  %212 = load i32, ptr %59, align 4, !tbaa !58
+.thread:                                          ; preds = %208, %210
+  %211 = load i32, ptr %59, align 4, !tbaa !58
   store i32 %48, ptr %1, align 4, !tbaa !55
   store i32 %50, ptr %49, align 4, !tbaa !49
   store i32 %52, ptr %51, align 4, !tbaa !45
@@ -2855,18 +2854,18 @@ preconfig_read.exit:                              ; preds = %199, %.thread13.i.i
   store i32 %58, ptr %57, align 4, !tbaa !48
   store i32 %61, ptr %60, align 4, !tbaa !59
   store i32 %64, ptr %63, align 4, !tbaa !60
-  store i32 %208, ptr %62, align 4, !tbaa !57
-  store i32 %212, ptr %59, align 4, !tbaa !58
+  store i32 %207, ptr %62, align 4, !tbaa !57
+  store i32 %211, ptr %59, align 4, !tbaa !58
   br i1 %93, label %.thread146, label %83
 
-.thread146:                                       ; preds = %209, %211, %167, %_Py_GetEnv.exit.tail.i23.i, %.tail.i.i, %96, %161, %95, %.thread, %200
-  %.sroa.016.1 = phi i32 [ 1, %200 ], [ 0, %211 ], [ 1, %161 ], [ %.sroa.0.0.copyload.i, %96 ], [ 1, %.tail.i.i ], [ 1, %_Py_GetEnv.exit.tail.i23.i ], [ 1, %167 ], [ 1, %.thread ], [ %.sroa.016.0.copyload23, %95 ], [ 0, %209 ]
-  %.sroa.15.1 = phi i32 [ 0, %200 ], [ 0, %211 ], [ 0, %161 ], [ %.sroa.11.sroa.0.0.copyload.i, %96 ], [ 0, %.tail.i.i ], [ 0, %_Py_GetEnv.exit.tail.i23.i ], [ 0, %167 ], [ 0, %.thread ], [ %.sroa.15.0.copyload33, %95 ], [ 0, %209 ]
-  %.sroa.17.1 = phi ptr [ @__func__.preconfig_init_allocator, %200 ], [ null, %211 ], [ @__func__.preconfig_init_utf8_mode, %161 ], [ %.sroa.11.sroa.8.0.copyload.i, %96 ], [ @__func__.preconfig_init_utf8_mode, %.tail.i.i ], [ @__func__.preconfig_init_utf8_mode, %_Py_GetEnv.exit.tail.i23.i ], [ @__func__.preconfig_init_utf8_mode, %167 ], [ @__func__._PyPreConfig_Read, %.thread ], [ %.sroa.17.0.copyload45, %95 ], [ null, %209 ]
-  %.sroa.18.1 = phi ptr [ @.str.32, %200 ], [ null, %211 ], [ @.str.25, %161 ], [ %.sroa.11.sroa.10.0.copyload.i, %96 ], [ @.str.28, %.tail.i.i ], [ @.str.28, %_Py_GetEnv.exit.tail.i23.i ], [ @.str.28, %167 ], [ @.str.17, %.thread ], [ %.sroa.18.0.copyload57, %95 ], [ null, %209 ]
-  %.sroa.19.1 = phi i32 [ 0, %200 ], [ 0, %211 ], [ 0, %161 ], [ %.sroa.11.sroa.12.0.copyload.i, %96 ], [ 0, %.tail.i.i ], [ 0, %_Py_GetEnv.exit.tail.i23.i ], [ 0, %167 ], [ 0, %.thread ], [ %.sroa.19.0.copyload69, %95 ], [ 0, %209 ]
-  %.sroa.20.1 = phi i32 [ 0, %200 ], [ 0, %211 ], [ 0, %161 ], [ %.sroa.11.sroa.14.0.copyload.i, %96 ], [ 0, %.tail.i.i ], [ 0, %_Py_GetEnv.exit.tail.i23.i ], [ 0, %167 ], [ 0, %.thread ], [ %.sroa.20.0.copyload81, %95 ], [ 0, %209 ]
-  %213 = call ptr @setlocale(i32 noundef 0, ptr noundef nonnull %39) #17
+.thread146:                                       ; preds = %208, %210, %167, %_Py_GetEnv.exit.tail.i23.i, %.tail.i.i, %96, %161, %95, %.thread, %200
+  %.sroa.016.1 = phi i32 [ 1, %200 ], [ 0, %210 ], [ 1, %161 ], [ %.sroa.0.0.copyload.i, %96 ], [ 1, %.tail.i.i ], [ 1, %_Py_GetEnv.exit.tail.i23.i ], [ 1, %167 ], [ 1, %.thread ], [ %.sroa.016.0.copyload23, %95 ], [ 0, %208 ]
+  %.sroa.15.1 = phi i32 [ 0, %200 ], [ 0, %210 ], [ 0, %161 ], [ %.sroa.11.sroa.0.0.copyload.i, %96 ], [ 0, %.tail.i.i ], [ 0, %_Py_GetEnv.exit.tail.i23.i ], [ 0, %167 ], [ 0, %.thread ], [ %.sroa.15.0.copyload33, %95 ], [ 0, %208 ]
+  %.sroa.17.1 = phi ptr [ @__func__.preconfig_init_allocator, %200 ], [ null, %210 ], [ @__func__.preconfig_init_utf8_mode, %161 ], [ %.sroa.11.sroa.8.0.copyload.i, %96 ], [ @__func__.preconfig_init_utf8_mode, %.tail.i.i ], [ @__func__.preconfig_init_utf8_mode, %_Py_GetEnv.exit.tail.i23.i ], [ @__func__.preconfig_init_utf8_mode, %167 ], [ @__func__._PyPreConfig_Read, %.thread ], [ %.sroa.17.0.copyload45, %95 ], [ null, %208 ]
+  %.sroa.18.1 = phi ptr [ @.str.32, %200 ], [ null, %210 ], [ @.str.25, %161 ], [ %.sroa.11.sroa.10.0.copyload.i, %96 ], [ @.str.28, %.tail.i.i ], [ @.str.28, %_Py_GetEnv.exit.tail.i23.i ], [ @.str.28, %167 ], [ @.str.17, %.thread ], [ %.sroa.18.0.copyload57, %95 ], [ null, %208 ]
+  %.sroa.19.1 = phi i32 [ 0, %200 ], [ 0, %210 ], [ 0, %161 ], [ %.sroa.11.sroa.12.0.copyload.i, %96 ], [ 0, %.tail.i.i ], [ 0, %_Py_GetEnv.exit.tail.i23.i ], [ 0, %167 ], [ 0, %.thread ], [ %.sroa.19.0.copyload69, %95 ], [ 0, %208 ]
+  %.sroa.20.1 = phi i32 [ 0, %200 ], [ 0, %210 ], [ 0, %161 ], [ %.sroa.11.sroa.14.0.copyload.i, %96 ], [ 0, %.tail.i.i ], [ 0, %_Py_GetEnv.exit.tail.i23.i ], [ 0, %167 ], [ 0, %.thread ], [ %.sroa.20.0.copyload81, %95 ], [ 0, %208 ]
+  %212 = call ptr @setlocale(i32 noundef 0, ptr noundef nonnull %39) #17
   call void @PyMem_RawFree(ptr noundef nonnull %39) #17
   store i32 %68, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10432), align 8, !tbaa !55
   store i32 %69, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10436), align 4, !tbaa !49
@@ -2892,9 +2891,9 @@ preconfig_read.exit:                              ; preds = %199, %.thread13.i.i
   %.sroa.20.0..sroa_idx84 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sroa.20.1, ptr %.sroa.20.0..sroa_idx84, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %214
+  br label %213
 
-214:                                              ; preds = %32, %.thread146, %41, %9
+213:                                              ; preds = %32, %.thread146, %41, %9
   ret void
 }
 

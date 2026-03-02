@@ -6167,8 +6167,8 @@ for.body:                                         ; preds = %if.end22, %for.inc
   %runningSquare.val28.val41 = load ptr, ptr %26, align 8
   %runningSquare.val28.val41.val = load i32, ptr %runningSquare.val28.val41, align 4
   %call30 = call noundef i32 @_ZN6hermes6bigint8multiplyENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %agg.tmp24.sroa.0.0.copyload, ptr %agg.tmp24.sroa.2.0.copyload, ptr %runningSquare.val28.val, i32 %runningSquare.val28.val41.val, ptr %runningSquare.val28.val, i32 %runningSquare.val28.val41.val)
-  %cmp.i.not = icmp eq i32 %call30, 0
-  br i1 %cmp.i.not, label %if.end35, label %cleanup
+  %cmp33.not = icmp eq i32 %call30, 0
+  br i1 %cmp33.not, label %if.end35, label %cleanup.loopexit.split.loop.exit
 
 if.end35:                                         ; preds = %for.body
   %27 = and i32 %exponent.addr.0.in216, 2
@@ -6331,7 +6331,7 @@ if.else49:                                        ; preds = %_ZN6hermes6bigint7c
   %runningSquare.val33.val36 = load ptr, ptr %25, align 8
   %runningSquare.val33.val36.val = load i32, ptr %runningSquare.val33.val36, align 4
   %call56 = call noundef i32 @_ZN6hermes6bigint8multiplyENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefES2_(ptr %agg.tmp50.sroa.0.0.copyload, ptr %agg.tmp50.sroa.2.0.copyload, ptr %result.val32.val, i32 %result.val32.val37.val, ptr %runningSquare.val33.val, i32 %runningSquare.val33.val36.val)
-  %cmp.i152 = icmp ne i32 %call56, 0
+  %cmp.i152 = trunc nuw i32 %call56 to i1
   %cmp1.i153 = icmp ugt i32 %nextResult.sroa.8.0212, 1023
   %or.cond.i154 = and i1 %cmp1.i153, %cmp.i152
   br i1 %or.cond.i154, label %cleanup, label %if.end59
@@ -6397,8 +6397,12 @@ _ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntR
   call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i167, i8 %cond.i.i, i64 %conv8.i, i1 false)
   br label %cleanup
 
-cleanup:                                          ; preds = %if.else49, %if.end59, %for.body, %if.end22, %_ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i, %if.then67, %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit90, %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit, %for.end
-  %retval.0 = phi i32 [ 1, %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit ], [ 1, %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit90 ], [ 0, %for.end ], [ 0, %_ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i ], [ 1, %if.then67 ], [ 0, %if.end22 ], [ 1, %if.end59 ], [ 2, %for.body ], [ 2, %if.else49 ]
+cleanup.loopexit.split.loop.exit:                 ; preds = %for.body
+  %.status.i.le = shl nuw nsw i32 %call30, 1
+  br label %cleanup
+
+cleanup:                                          ; preds = %if.end59, %if.else49, %cleanup.loopexit.split.loop.exit, %if.end22, %_ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i, %if.then67, %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit90, %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit, %for.end
+  %retval.0 = phi i32 [ 1, %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit ], [ 1, %_ZN6hermes6bigint12_GLOBAL__N_114initWithDigitsENS0_16MutableBigIntRefENS0_18ImmutableBigIntRefE.exit90 ], [ 0, %for.end ], [ 0, %_ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i ], [ 1, %if.then67 ], [ 0, %if.end22 ], [ %.status.i.le, %cleanup.loopexit.split.loop.exit ], [ 1, %if.end59 ], [ 2, %if.else49 ]
   %64 = load ptr, ptr %tmpBuffers, align 8
   %cmp.i.i.i.i168 = icmp eq ptr %64, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i168, label %_ZN6hermes6bigint10TmpStorageD2Ev.exit, label %if.then.i.i.i

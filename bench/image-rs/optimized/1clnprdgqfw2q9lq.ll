@@ -3854,15 +3854,14 @@ define internal fastcc void @_ZN3exr2io4Data8read_vec17h19e3e6d15ff5f7a0E(ptr no
   tail call void @llvm.experimental.noalias.scope.decl(metadata !798)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %18 = icmp ne i64 %4, 0
+  %18 = trunc nuw i64 %4 to i1
   %19 = icmp ugt i64 %2, %5
   %or.cond.i = select i1 %18, i1 %19, i1 false
   br i1 %or.cond.i, label %42, label %20
 
 20:                                               ; preds = %8
-  %trunc.i = trunc nuw i64 %4 to i1
   %21 = tail call i64 @llvm.umin.i64(i64 %5, i64 %3)
-  %.0.sroa.speculated.i.i = select i1 %trunc.i, i64 %21, i64 %3
+  %.0.sroa.speculated.i.i = select i1 %18, i64 %21, i64 %3
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %.loopexit28, label %.lr.ph.i
 
@@ -4353,15 +4352,14 @@ define internal fastcc void @_ZN3exr2io4Data8read_vec17hedeceae0006abddeE(ptr no
   tail call void @llvm.experimental.noalias.scope.decl(metadata !862)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %18 = icmp ne i64 %4, 0
+  %18 = trunc nuw i64 %4 to i1
   %19 = icmp ugt i64 %2, %5
   %or.cond.i = select i1 %18, i1 %19, i1 false
   br i1 %or.cond.i, label %42, label %20
 
 20:                                               ; preds = %8
-  %trunc.i = trunc nuw i64 %4 to i1
   %21 = tail call i64 @llvm.umin.i64(i64 %5, i64 %3)
-  %.0.sroa.speculated.i.i = select i1 %trunc.i, i64 %21, i64 %3
+  %.0.sroa.speculated.i.i = select i1 %18, i64 %21, i64 %3
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %.loopexit28, label %.lr.ph.i
 
@@ -14164,7 +14162,7 @@ default.unreachable:                              ; preds = %"_ZN37_$LT$i32$u20$
   unreachable
 
 194:                                              ; preds = %183
-  %195 = icmp ne i64 %181, 0
+  %195 = trunc nuw i64 %181 to i1
   call void @llvm.assume(i1 %195)
   %196 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %197 = load ptr, ptr %196, align 8, !alias.scope !2699, !noalias !2704, !nonnull !4, !noundef !4
@@ -21743,7 +21741,7 @@ _ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %45
 
 65:                                               ; preds = %56
   %66 = inttoptr i64 %.sroa.719.i.sroa.6.0.copyload82.i to ptr
-  %67 = icmp ne i64 %51, 0
+  %67 = trunc nuw i64 %51 to i1
   call void @llvm.assume(i1 %67)
   br label %71
 
@@ -22211,7 +22209,7 @@ _ZN3exr4meta12Requirements8validate17h8724cd3e22c90bddE.exit.i.i: ; preds = %44
 
 64:                                               ; preds = %55
   %65 = inttoptr i64 %.sroa.719.i.sroa.6.0.copyload82.i to ptr
-  %66 = icmp ne i64 %50, 0
+  %66 = trunc nuw i64 %50 to i1
   call void @llvm.assume(i1 %66)
   br label %70
 

@@ -11170,11 +11170,11 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17h7cf9c9fed8a94db4E"(p
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 304
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
   %6 = load i64, ptr %4, align 8, !range !2515, !noundef !11
-  %7 = icmp eq i64 %6, -9223372036854775807
+  %7 = icmp ne i64 %6, -9223372036854775807
   %8 = load i32, ptr %5, align 8, !range !57
-  %9 = icmp eq i32 %8, 0
-  %or.cond.not = select i1 %7, i1 true, i1 %9
-  br i1 %or.cond.not, label %14, label %.thread
+  %9 = trunc nuw i32 %8 to i1
+  %or.cond = select i1 %7, i1 %9, i1 false
+  br i1 %or.cond, label %.thread, label %14
 
 .thread:                                          ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 308
@@ -11190,44 +11190,45 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$3zip17h7cf9c9fed8a94db4E"(p
 
 14:                                               ; preds = %3
   store i64 -9223372036854775807, ptr %0, align 8
-  br i1 %7, label %"_ZN4core3ptr108drop_in_place$LT$ide..navigation_target..UpmappingResult$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h6c72f0290016fdf4E.exit", label %15
+  %15 = icmp eq i64 %6, -9223372036854775807
+  br i1 %15, label %"_ZN4core3ptr108drop_in_place$LT$ide..navigation_target..UpmappingResult$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h6c72f0290016fdf4E.exit", label %16
 
-15:                                               ; preds = %14
+16:                                               ; preds = %14
   invoke void @"_ZN4core3ptr61drop_in_place$LT$ide..navigation_target..NavigationTarget$GT$17hda59d1c46c64f954E"(ptr noalias noundef nonnull align 8 dereferenceable(304) %4)
-          to label %22 unwind label %16
+          to label %23 unwind label %17
 
-16:                                               ; preds = %15
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %16
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 152
-  %19 = load i64, ptr %18, align 8, !range !2515, !alias.scope !2516, !noundef !11
-  %20 = icmp eq i64 %19, -9223372036854775807
-  br i1 %20, label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h01f0293412e62b18E.llvm.273501356006530532.exit.i", label %21
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 152
+  %20 = load i64, ptr %19, align 8, !range !2515, !alias.scope !2516, !noundef !11
+  %21 = icmp eq i64 %20, -9223372036854775807
+  br i1 %21, label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h01f0293412e62b18E.llvm.273501356006530532.exit.i", label %22
 
-21:                                               ; preds = %16
-  invoke void @"_ZN4core3ptr61drop_in_place$LT$ide..navigation_target..NavigationTarget$GT$17hda59d1c46c64f954E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %18)
-          to label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h01f0293412e62b18E.llvm.273501356006530532.exit.i" unwind label %27
+22:                                               ; preds = %17
+  invoke void @"_ZN4core3ptr61drop_in_place$LT$ide..navigation_target..NavigationTarget$GT$17hda59d1c46c64f954E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %19)
+          to label %"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h01f0293412e62b18E.llvm.273501356006530532.exit.i" unwind label %28
 
-22:                                               ; preds = %15
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 152
-  %24 = load i64, ptr %23, align 8, !range !2515, !alias.scope !2521, !noundef !11
-  %25 = icmp eq i64 %24, -9223372036854775807
-  br i1 %25, label %"_ZN4core3ptr108drop_in_place$LT$ide..navigation_target..UpmappingResult$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h6c72f0290016fdf4E.exit", label %26
+23:                                               ; preds = %16
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 152
+  %25 = load i64, ptr %24, align 8, !range !2515, !alias.scope !2521, !noundef !11
+  %26 = icmp eq i64 %25, -9223372036854775807
+  br i1 %26, label %"_ZN4core3ptr108drop_in_place$LT$ide..navigation_target..UpmappingResult$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h6c72f0290016fdf4E.exit", label %27
 
-26:                                               ; preds = %22
-  call void @"_ZN4core3ptr61drop_in_place$LT$ide..navigation_target..NavigationTarget$GT$17hda59d1c46c64f954E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %23)
+27:                                               ; preds = %23
+  call void @"_ZN4core3ptr61drop_in_place$LT$ide..navigation_target..NavigationTarget$GT$17hda59d1c46c64f954E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %24)
   br label %"_ZN4core3ptr108drop_in_place$LT$ide..navigation_target..UpmappingResult$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h6c72f0290016fdf4E.exit"
 
-27:                                               ; preds = %21
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %22
+  %29 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #62
   unreachable
 
-"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h01f0293412e62b18E.llvm.273501356006530532.exit.i": ; preds = %21, %16
-  resume { ptr, i32 } %17
+"_ZN4core3ptr89drop_in_place$LT$core..option..Option$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h01f0293412e62b18E.llvm.273501356006530532.exit.i": ; preds = %22, %17
+  resume { ptr, i32 } %18
 
-"_ZN4core3ptr108drop_in_place$LT$ide..navigation_target..UpmappingResult$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h6c72f0290016fdf4E.exit": ; preds = %26, %22, %.thread, %14
+"_ZN4core3ptr108drop_in_place$LT$ide..navigation_target..UpmappingResult$LT$ide..navigation_target..NavigationTarget$GT$$GT$17h6c72f0290016fdf4E.exit": ; preds = %27, %23, %.thread, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

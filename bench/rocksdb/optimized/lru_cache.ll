@@ -6179,13 +6179,13 @@ define linkonce_odr void @_ZN7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShard
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br i1 %.not, label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit17, label %.lr.ph.us
 
-.lr.ph.us:                                        ; preds = %3, %20
-  %indvars.iv = phi i64 [ %indvars.iv.next.mux, %20 ], [ 0, %3 ]
-  %.028.us = phi i1 [ %.1.us.mux, %20 ], [ false, %3 ]
+.lr.ph.us:                                        ; preds = %3, %.lr.ph.us.backedge
+  %indvars.iv = phi i64 [ %indvars.iv.be, %.lr.ph.us.backedge ], [ 0, %3 ]
+  %.028.us = phi i8 [ %.028.us.be, %.lr.ph.us.backedge ], [ 0, %3 ]
   %11 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
   %12 = load i64, ptr %11, align 8, !tbaa !95
   %.not.us = icmp eq i64 %12, -1
-  br i1 %.not.us, label %20, label %13
+  br i1 %.not.us, label %22, label %13
 
 13:                                               ; preds = %.lr.ph.us
   %14 = load ptr, ptr %10, align 8, !tbaa !154
@@ -6196,25 +6196,33 @@ define linkonce_odr void @_ZN7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShard
 16:                                               ; preds = %13
   %17 = load i64, ptr %11, align 8, !tbaa !95
   %18 = icmp ne i64 %17, -1
-  %19 = or i1 %.028.us, %18
-  br label %20
+  %19 = trunc nuw i8 %.028.us to i1
+  %20 = or i1 %18, %19
+  %21 = zext i1 %20 to i8
+  br label %22
 
-20:                                               ; preds = %16, %.lr.ph.us
-  %.1.us = phi i1 [ %19, %16 ], [ %.028.us, %.lr.ph.us ]
+22:                                               ; preds = %16, %.lr.ph.us
+  %.1.us = phi i8 [ %21, %16 ], [ %.028.us, %.lr.ph.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp ne i64 %indvars.iv.next, %5
-  %brmerge = select i1 %exitcond.not, i1 true, i1 %.1.us
-  %indvars.iv.next.mux = select i1 %exitcond.not, i64 %indvars.iv.next, i64 0
-  %.1.us.mux = select i1 %exitcond.not, i1 %.1.us, i1 false
-  br i1 %brmerge, label %.lr.ph.us, label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit17, !llvm.loop !229
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %5
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us.backedge
+
+.lr.ph.us.backedge:                               ; preds = %22, %._crit_edge.us
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %22 ], [ 0, %._crit_edge.us ]
+  %.028.us.be = phi i8 [ %.1.us, %22 ], [ 0, %._crit_edge.us ]
+  br label %.lr.ph.us, !llvm.loop !229
+
+._crit_edge.us:                                   ; preds = %22
+  %23 = trunc nuw i8 %.1.us to i1
+  br i1 %23, label %.lr.ph.us.backedge, label %_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit17
 
 _ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit.split.us: ; preds = %13
-  %21 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdaPv(ptr noundef nonnull %7) #31
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %24
 
-_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit17: ; preds = %20, %3
+_ZNSt10unique_ptrIA_mSt14default_deleteIS0_EED2Ev.exit17: ; preds = %._crit_edge.us, %3
   tail call void @_ZdaPv(ptr noundef nonnull %7) #31
   ret void
 }

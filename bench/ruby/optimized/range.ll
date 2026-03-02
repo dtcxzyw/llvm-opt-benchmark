@@ -4702,42 +4702,56 @@ r_less.exit12.i.i:                                ; preds = %66
   br label %range_include_internal.exit.thread
 
 74:                                               ; preds = %range_integer_edge_p.exit.i
-  %75 = tail call fastcc zeroext i1 @range_string_range_p(i64 noundef %6, i64 noundef %13)
-  br i1 %75, label %76, label %85
+  br i1 %22, label %range_string_range_p.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit3.i.i
 
-76:                                               ; preds = %74
-  %77 = load i64, ptr %4, align 8, !tbaa !11
-  %78 = and i64 %77, 1040384
-  %.not.i.i.i30.i = icmp eq i64 %78, 0
-  br i1 %.not.i.i.i30.i, label %79, label %RANGE_EXCL.exit.i
+rbimpl_RB_TYPE_P_fastpath.exit3.i.i:              ; preds = %74
+  %75 = inttoptr i64 %6 to ptr
+  %76 = load i64, ptr %75, align 8, !tbaa !11
+  %77 = and i64 %76, 31
+  %78 = icmp ne i64 %77, 5
+  %brmerge.i = or i1 %39, %78
+  br i1 %brmerge.i, label %range_string_range_p.exit.thread.i, label %range_string_range_p.exit.i
 
-79:                                               ; preds = %76
-  %80 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %81 = load ptr, ptr %80, align 8, !tbaa !13
+range_string_range_p.exit.i:                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit3.i.i
+  %79 = inttoptr i64 %13 to ptr
+  %80 = load i64, ptr %79, align 8, !tbaa !11
+  %81 = and i64 %80, 31
+  %82 = icmp eq i64 %81, 5
+  br i1 %82, label %83, label %range_string_range_p.exit.thread.i
+
+83:                                               ; preds = %range_string_range_p.exit.i
+  %84 = load i64, ptr %4, align 8, !tbaa !11
+  %85 = and i64 %84, 1040384
+  %.not.i.i.i30.i = icmp eq i64 %85, 0
+  br i1 %.not.i.i.i30.i, label %86, label %RANGE_EXCL.exit.i
+
+86:                                               ; preds = %83
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %88 = load ptr, ptr %87, align 8, !tbaa !13
   br label %RANGE_EXCL.exit.i
 
-RANGE_EXCL.exit.i:                                ; preds = %79, %76
-  %.0.i.i.i31.i = phi ptr [ %81, %79 ], [ %5, %76 ]
-  %82 = getelementptr i8, ptr %.0.i.i.i31.i, i64 16
-  %83 = load i64, ptr %82, align 8, !tbaa !7
-  %84 = tail call i64 @rb_str_include_range_p(i64 noundef %6, i64 noundef %13, i64 noundef %1, i64 noundef %83) #12
+RANGE_EXCL.exit.i:                                ; preds = %86, %83
+  %.0.i.i.i31.i = phi ptr [ %88, %86 ], [ %5, %83 ]
+  %89 = getelementptr i8, ptr %.0.i.i.i31.i, i64 16
+  %90 = load i64, ptr %89, align 8, !tbaa !7
+  %91 = tail call i64 @rb_str_include_range_p(i64 noundef %6, i64 noundef %13, i64 noundef %1, i64 noundef %90) #12
   br label %range_include_internal.exit
 
-85:                                               ; preds = %74
-  %86 = tail call fastcc i64 @range_include_fallback(i64 noundef %6, i64 noundef %13, i64 noundef %1)
+range_string_range_p.exit.thread.i:               ; preds = %range_string_range_p.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit3.i.i, %74
+  %92 = tail call fastcc i64 @range_include_fallback(i64 noundef %6, i64 noundef %13, i64 noundef %1)
   br label %range_include_internal.exit
 
-range_include_internal.exit:                      ; preds = %RANGE_EXCL.exit.i, %85
-  %.0.i = phi i64 [ %86, %85 ], [ %84, %RANGE_EXCL.exit.i ]
-  %87 = icmp eq i64 %.0.i, 36
-  br i1 %87, label %88, label %range_include_internal.exit.thread
+range_include_internal.exit:                      ; preds = %RANGE_EXCL.exit.i, %range_string_range_p.exit.thread.i
+  %.0.i = phi i64 [ %92, %range_string_range_p.exit.thread.i ], [ %91, %RANGE_EXCL.exit.i ]
+  %93 = icmp eq i64 %.0.i, 36
+  br i1 %93, label %94, label %range_include_internal.exit.thread
 
-88:                                               ; preds = %range_include_internal.exit
-  %89 = call i64 @rb_call_super(i32 noundef 1, ptr noundef nonnull %3) #12
+94:                                               ; preds = %range_include_internal.exit
+  %95 = call i64 @rb_call_super(i32 noundef 1, ptr noundef nonnull %3) #12
   br label %range_include_internal.exit.thread
 
-range_include_internal.exit.thread:               ; preds = %66, %54, %r_less.exit.i.i, %r_less.exit12.i.i, %.thread.i.i, %range_include_internal.exit, %88
-  %.0 = phi i64 [ %89, %88 ], [ %.0.i, %range_include_internal.exit ], [ 0, %66 ], [ 0, %54 ], [ 0, %r_less.exit.i.i ], [ 0, %r_less.exit12.i.i ], [ 20, %.thread.i.i ]
+range_include_internal.exit.thread:               ; preds = %66, %54, %r_less.exit.i.i, %r_less.exit12.i.i, %.thread.i.i, %range_include_internal.exit, %94
+  %.0 = phi i64 [ %95, %94 ], [ %.0.i, %range_include_internal.exit ], [ 0, %66 ], [ 0, %54 ], [ 0, %r_less.exit.i.i ], [ 0, %r_less.exit12.i.i ], [ 20, %.thread.i.i ]
   ret i64 %.0
 }
 
@@ -6408,40 +6422,6 @@ declare i64 @rb_str_new_cstr(ptr noundef) local_unnamed_addr #1
 declare i64 @rb_inspect(i64 noundef) local_unnamed_addr #1
 
 declare i64 @rb_str_new_static(ptr noundef, i64 noundef) local_unnamed_addr #1
-
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define internal fastcc zeroext i1 @range_string_range_p(i64 noundef %0, i64 noundef %1) unnamed_addr #4 {
-  %3 = icmp eq i64 %0, 0
-  %4 = and i64 %0, 7
-  %5 = icmp ne i64 %4, 0
-  %6 = or i1 %3, %5
-  br i1 %6, label %rbimpl_RB_TYPE_P_fastpath.exit, label %rbimpl_RB_TYPE_P_fastpath.exit3
-
-rbimpl_RB_TYPE_P_fastpath.exit3:                  ; preds = %2
-  %7 = inttoptr i64 %0 to ptr
-  %8 = load i64, ptr %7, align 8, !tbaa !11
-  %9 = and i64 %8, 31
-  %10 = icmp eq i64 %9, 5
-  br i1 %10, label %11, label %rbimpl_RB_TYPE_P_fastpath.exit
-
-11:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit3
-  %12 = icmp eq i64 %1, 0
-  %13 = and i64 %1, 7
-  %14 = icmp ne i64 %13, 0
-  %15 = or i1 %12, %14
-  br i1 %15, label %rbimpl_RB_TYPE_P_fastpath.exit, label %16
-
-16:                                               ; preds = %11
-  %17 = inttoptr i64 %1 to ptr
-  %18 = load i64, ptr %17, align 8, !tbaa !11
-  %19 = and i64 %18, 31
-  %20 = icmp eq i64 %19, 5
-  br label %rbimpl_RB_TYPE_P_fastpath.exit
-
-rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %2, %16, %11, %rbimpl_RB_TYPE_P_fastpath.exit3
-  %21 = phi i1 [ false, %11 ], [ false, %rbimpl_RB_TYPE_P_fastpath.exit3 ], [ %20, %16 ], [ false, %2 ]
-  ret i1 %21
-}
 
 declare i64 @rb_str_include_range_p(i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 

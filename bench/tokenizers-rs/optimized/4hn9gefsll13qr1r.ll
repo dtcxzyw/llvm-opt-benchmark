@@ -885,26 +885,27 @@ define hidden { i64, i64 } @"_ZN106_$LT$rayon..iter..fold..FoldFolder$LT$C$C$ID$
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %.sroa.01.0.copyload, 0
-  %.not = icmp eq i64 %3, 0
-  br i1 %6, label %7, label %8
+  br i1 %6, label %7, label %9
 
 7:                                                ; preds = %1
-  %spec.select10.i.i = select i1 %.not, i64 undef, i64 %5
+  %8 = trunc nuw i64 %3 to i1
+  %spec.select10.i.i = select i1 %8, i64 %5, i64 undef
   br label %"_ZN105_$LT$rayon..iter..reduce..ReduceFolder$LT$R$C$T$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$7consume17hebe3a221b15dad88E.llvm.14172520758739148588.exit"
 
-8:                                                ; preds = %1
-  br i1 %.not, label %"_ZN105_$LT$rayon..iter..reduce..ReduceFolder$LT$R$C$T$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$7consume17hebe3a221b15dad88E.llvm.14172520758739148588.exit", label %9
+9:                                                ; preds = %1
+  %10 = icmp eq i64 %3, 0
+  br i1 %10, label %"_ZN105_$LT$rayon..iter..reduce..ReduceFolder$LT$R$C$T$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$7consume17hebe3a221b15dad88E.llvm.14172520758739148588.exit", label %11
 
-9:                                                ; preds = %8
-  %10 = tail call noundef i64 @_ZN4core3cmp6max_by17h791dab76a2f35e5dE.llvm.838311727041459786(i64 noundef %.sroa.42.0.copyload, i64 noundef %5), !noalias !279
+11:                                               ; preds = %9
+  %12 = tail call noundef i64 @_ZN4core3cmp6max_by17h791dab76a2f35e5dE.llvm.838311727041459786(i64 noundef %.sroa.42.0.copyload, i64 noundef %5), !noalias !279
   br label %"_ZN105_$LT$rayon..iter..reduce..ReduceFolder$LT$R$C$T$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$7consume17hebe3a221b15dad88E.llvm.14172520758739148588.exit"
 
-"_ZN105_$LT$rayon..iter..reduce..ReduceFolder$LT$R$C$T$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$7consume17hebe3a221b15dad88E.llvm.14172520758739148588.exit": ; preds = %7, %8, %9
-  %.sroa.05.0.i.i = phi i64 [ 1, %9 ], [ %3, %7 ], [ 1, %8 ]
-  %.sroa.4.0.i.i = phi i64 [ %10, %9 ], [ %spec.select10.i.i, %7 ], [ %.sroa.42.0.copyload, %8 ]
-  %11 = insertvalue { i64, i64 } poison, i64 %.sroa.05.0.i.i, 0
-  %12 = insertvalue { i64, i64 } %11, i64 %.sroa.4.0.i.i, 1
-  ret { i64, i64 } %12
+"_ZN105_$LT$rayon..iter..reduce..ReduceFolder$LT$R$C$T$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$7consume17hebe3a221b15dad88E.llvm.14172520758739148588.exit": ; preds = %7, %9, %11
+  %.sroa.05.0.i.i = phi i64 [ 1, %11 ], [ %3, %7 ], [ 1, %9 ]
+  %.sroa.4.0.i.i = phi i64 [ %12, %11 ], [ %spec.select10.i.i, %7 ], [ %.sroa.42.0.copyload, %9 ]
+  %13 = insertvalue { i64, i64 } poison, i64 %.sroa.05.0.i.i, 0
+  %14 = insertvalue { i64, i64 } %13, i64 %.sroa.4.0.i.i, 1
+  ret { i64, i64 } %14
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

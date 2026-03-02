@@ -9266,10 +9266,8 @@ define linkonce_odr dso_local void @_ZN25RemovePlaceholdersVisitor5visitEP7AstNo
   %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(152) %1)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i8, ptr %7, align 8, !tbaa !89, !range !57, !noundef !58
-  %9 = icmp ne i8 %8, 0
-  %10 = and i1 %6, %9
-  %11 = zext i1 %10 to i8
-  store i8 %11, ptr %7, align 8, !tbaa !89
+  %9 = select i1 %6, i8 %8, i8 0
+  store i8 %9, ptr %7, align 8, !tbaa !89
   tail call void @_ZN7AstNode15iterateChildrenER9VNVisitor(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
   ret void
 }

@@ -919,7 +919,7 @@ define internal fastcc i32 @ieee80211_start_roc_work(ptr noundef %0, ptr noundef
 143:                                              ; preds = %132
   %144 = getelementptr inbounds nuw i8, ptr %126, i64 34
   %145 = load i8, ptr %144, align 2, !range !6, !noundef !7
-  %146 = icmp ne i8 %145, 0
+  %146 = trunc nuw i8 %145 to i1
   %147 = icmp slt i64 %139, 1
   %148 = select i1 %146, i1 true, i1 %147
   br i1 %148, label %149, label %150
@@ -1244,7 +1244,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr noundef readnone captures(none) %0, 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 2707
   %32 = load i8, ptr %31, align 1, !range !6, !noundef !7
-  %33 = icmp ne i8 %32, 0
+  %33 = trunc nuw i8 %32 to i1
   br label %34
 
 34:                                               ; preds = %30, %26
@@ -1338,17 +1338,17 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr noundef readnone captures(none) %0, 
   %92 = zext i16 %91 to i32
   %93 = or i32 %86, %92
   %94 = icmp eq i32 %93, 0
-  br i1 %94, label %95, label %.thread55
+  br i1 %94, label %95, label %.thread57
 
 95:                                               ; preds = %81
   %96 = tail call ptr @sta_info_get_bss(ptr noundef %5, ptr noundef nonnull %83) #13
   %97 = icmp eq ptr %96, null
-  br i1 %97, label %.thread55, label %98
+  br i1 %97, label %.thread57, label %98
 
 98:                                               ; preds = %95
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 2707
   %100 = load i8, ptr %99, align 1, !range !6, !noundef !7
-  %101 = icmp ne i8 %100, 0
+  %101 = trunc nuw i8 %100 to i1
   br label %.thread14
 
 102:                                              ; preds = %44, %48, %34, %39, %39, %39
@@ -1363,7 +1363,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr noundef readnone captures(none) %0, 
   %106 = icmp eq ptr %105, null
   br i1 %106, label %299, label %.thread22
 
-.thread55:                                        ; preds = %81, %95
+.thread57:                                        ; preds = %81, %95
   tail call void @__rcu_read_lock() #13
   %107 = getelementptr inbounds nuw i8, ptr %9, i64 10
   %108 = getelementptr i8, ptr %9, i64 14
@@ -1372,9 +1372,10 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr noundef readnone captures(none) %0, 
 .thread14:                                        ; preds = %98, %102
   %109 = phi i1 [ %35, %102 ], [ %101, %98 ]
   %110 = phi i32 [ %103, %102 ], [ -1, %98 ]
+  %.fr = freeze i1 %109
   %111 = load ptr, ptr %2, align 8
   %112 = icmp eq ptr %111, null
-  %113 = and i1 %109, %112
+  %113 = and i1 %.fr, %112
   br i1 %113, label %.thread21, label %114
 
 114:                                              ; preds = %.thread14
@@ -1384,12 +1385,12 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr noundef readnone captures(none) %0, 
   %117 = getelementptr inbounds nuw i8, ptr %9, i64 10
   %118 = getelementptr i8, ptr %1, i64 5050
   %119 = getelementptr i8, ptr %9, i64 14
-  br i1 %109, label %.split.us, label %.split.preheader
+  br i1 %.fr, label %.split.us, label %.split.preheader
 
-.split.preheader:                                 ; preds = %.thread55, %114
-  %120 = phi ptr [ %108, %.thread55 ], [ %119, %114 ]
-  %121 = phi ptr [ %107, %.thread55 ], [ %117, %114 ]
-  %122 = phi i32 [ -1, %.thread55 ], [ %110, %114 ]
+.split.preheader:                                 ; preds = %.thread57, %114
+  %120 = phi ptr [ %108, %.thread57 ], [ %119, %114 ]
+  %121 = phi ptr [ %107, %.thread57 ], [ %117, %114 ]
+  %122 = phi i32 [ -1, %.thread57 ], [ %110, %114 ]
   %123 = getelementptr i8, ptr %1, i64 4920
   br label %.split
 
@@ -1812,7 +1813,7 @@ define internal void @ieee80211_hw_roc_done(ptr readnone captures(none) %0, ptr 
   %23 = add i64 %22, %17
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 34
   %25 = load i8, ptr %24, align 2, !range !6, !noundef !7
-  %26 = icmp ne i8 %25, 0
+  %26 = trunc nuw i8 %25 to i1
   %27 = icmp slt i64 %23, 1
   %28 = select i1 %26, i1 true, i1 %27
   br i1 %28, label %29, label %30
@@ -2232,7 +2233,7 @@ define internal fastcc void @__ieee80211_roc_work(ptr noundef %0) unnamed_addr #
 44:                                               ; preds = %33
   %45 = getelementptr inbounds nuw i8, ptr %27, i64 34
   %46 = load i8, ptr %45, align 2, !range !6, !noundef !7
-  %47 = icmp ne i8 %46, 0
+  %47 = trunc nuw i8 %46 to i1
   %48 = icmp slt i64 %40, 1
   %49 = select i1 %47, i1 true, i1 %48
   br i1 %49, label %50, label %51

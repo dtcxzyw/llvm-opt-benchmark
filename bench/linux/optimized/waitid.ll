@@ -196,11 +196,11 @@ define dso_local zeroext i1 @io_waitid_remove_all(ptr noundef readonly captures(
   %7 = getelementptr i8, ptr %5, i64 -160
   %8 = icmp eq ptr %7, null
   %9 = or i1 %6, %8
-  br i1 %9, label %25, label %.preheader
+  br i1 %9, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3, %17
   %10 = phi ptr [ %20, %17 ], [ %7, %3 ]
-  %11 = phi i8 [ %18, %17 ], [ 0, %3 ]
+  %11 = phi i1 [ %18, %17 ], [ false, %3 ]
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 160
   %13 = load ptr, ptr %12, align 8
   %14 = tail call zeroext i1 @io_match_task_safe(ptr noundef nonnull %10, ptr noundef %1, i1 noundef zeroext %2) #7
@@ -211,20 +211,16 @@ define dso_local zeroext i1 @io_waitid_remove_all(ptr noundef readonly captures(
   br label %17
 
 17:                                               ; preds = %15, %.preheader
-  %18 = phi i8 [ 1, %15 ], [ %11, %.preheader ]
+  %18 = phi i1 [ true, %15 ], [ %11, %.preheader ]
   %19 = icmp eq ptr %13, null
   %20 = getelementptr i8, ptr %13, i64 -160
   %21 = icmp eq ptr %20, null
   %22 = or i1 %19, %21
-  br i1 %22, label %23, label %.preheader, !llvm.loop !14
+  br i1 %22, label %.loopexit, label %.preheader, !llvm.loop !14
 
-23:                                               ; preds = %17
-  %24 = icmp ne i8 %18, 0
-  br label %25
-
-25:                                               ; preds = %23, %3
-  %26 = phi i1 [ false, %3 ], [ %24, %23 ]
-  ret i1 %26
+.loopexit:                                        ; preds = %17, %3
+  %23 = phi i1 [ false, %3 ], [ %18, %17 ]
+  ret i1 %23
 }
 
 ; Function Attrs: null_pointer_is_valid

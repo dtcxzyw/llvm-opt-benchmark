@@ -909,7 +909,7 @@ define internal fastcc void @_ZL16setCommonICUDataP11UDataMemoryaP10UErrorCode(p
   %4 = tail call ptr @UDataMemory_createNewInstance_77(ptr noundef nonnull %2)
   %5 = load i32, ptr %2, align 4, !tbaa !13
   %6 = icmp slt i32 %5, 1
-  br i1 %6, label %7, label %28
+  br i1 %6, label %7, label %24
 
 7:                                                ; preds = %3
   tail call void @UDatamemory_assign_77(ptr noundef %4, ptr noundef nonnull %0)
@@ -917,59 +917,50 @@ define internal fastcc void @_ZL16setCommonICUDataP11UDataMemoryaP10UErrorCode(p
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %9
 
-9:                                                ; preds = %7, %20
-  %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %20 ]
+9:                                                ; preds = %7, %18
+  %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %18 ]
   %10 = getelementptr inbounds nuw ptr, ptr @_ZL19gCommonICUDataArray, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !30
-  %.not = icmp eq ptr %11, null
-  br i1 %.not, label %12, label %15
+  %12 = icmp eq ptr %11, null
+  br i1 %12, label %22, label %13
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw ptr, ptr @_ZL19gCommonICUDataArray, i64 %indvars.iv
-  %14 = trunc nuw nsw i64 %indvars.iv to i32
-  store ptr %4, ptr %13, align 8, !tbaa !30
-  br label %.loopexit
+13:                                               ; preds = %9
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !32
+  %16 = load ptr, ptr %8, align 8, !tbaa !32
+  %17 = icmp eq ptr %15, %16
+  br i1 %17, label %.thread32, label %18
 
-15:                                               ; preds = %9
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !32
-  %18 = load ptr, ptr %8, align 8, !tbaa !32
-  %19 = icmp eq ptr %17, %18
-  br i1 %19, label %.loopexit.loopexit.split.loop.exit36, label %20
+.thread32:                                        ; preds = %13
+  tail call void @umtx_unlock_77(ptr noundef null)
+  br label %.thread28
 
-20:                                               ; preds = %15
+18:                                               ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !34
+  br i1 %exitcond.not, label %19, label %9, !llvm.loop !34
 
-.loopexit.loopexit.split.loop.exit36:             ; preds = %15
-  %21 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %20, %.loopexit.loopexit.split.loop.exit36, %12
-  %.01823 = phi i32 [ %14, %12 ], [ %21, %.loopexit.loopexit.split.loop.exit36 ], [ 10, %20 ]
+19:                                               ; preds = %18
   tail call void @umtx_unlock_77(ptr noundef null)
-  %22 = icmp eq i32 %.01823, 10
-  %23 = icmp ne i8 %1, 0
-  %or.cond = and i1 %23, %22
-  br i1 %or.cond, label %24, label %25
+  %20 = trunc nuw i8 %1 to i1
+  br i1 %20, label %21, label %.thread28
 
-24:                                               ; preds = %.loopexit
+21:                                               ; preds = %19
   store i32 -127, ptr %2, align 4, !tbaa !13
-  br label %25
+  br label %.thread28
 
-25:                                               ; preds = %24, %.loopexit
-  br i1 %.not, label %26, label %27
-
-26:                                               ; preds = %25
+22:                                               ; preds = %9
+  %23 = getelementptr inbounds nuw ptr, ptr @_ZL19gCommonICUDataArray, i64 %indvars.iv
+  store ptr %4, ptr %23, align 8, !tbaa !30
+  tail call void @umtx_unlock_77(ptr noundef null)
   tail call void @ucln_common_registerCleanup_77(i32 noundef 23, ptr noundef nonnull @_ZL13udata_cleanupv)
-  br label %28
+  br label %24
 
-27:                                               ; preds = %25
+.thread28:                                        ; preds = %19, %21, %.thread32
   tail call void @uprv_free_77(ptr noundef %4)
-  br label %28
+  br label %24
 
-28:                                               ; preds = %26, %27, %3
+24:                                               ; preds = %22, %.thread28, %3
   ret void
 }
 

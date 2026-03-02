@@ -1162,7 +1162,7 @@ _ZNK5clang6interp7Pointer13getElemRecordEv.exit:  ; preds = %_ZNK5clang6interp7P
   br i1 %.not37, label %.loopexit, label %.lr.ph, !llvm.loop !181
 
 70:                                               ; preds = %.lr.ph65, %103
-  %.464 = phi i8 [ 1, %.lr.ph65 ], [ %.5, %103 ]
+  %.464 = phi i1 [ true, %.lr.ph65 ], [ %.5, %103 ]
   %.03263 = phi i64 [ 0, %.lr.ph65 ], [ %104, %103 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZNK5clang6interp7Pointer7atIndexEm(ptr dead_on_unwind nonnull writable sret(%"class.clang::interp::Pointer") align 8 %9, ptr noundef nonnull align 8 dereferenceable(52) %2, i64 noundef %.03263)
@@ -1248,17 +1248,13 @@ _ZN5clang6interpL30DiagnoseUninitializedSubobjectERNS0_11InterpStateENS_14Source
   br label %103
 
 103:                                              ; preds = %70, %_ZN5clang6interpL30DiagnoseUninitializedSubobjectERNS0_11InterpStateENS_14SourceLocationEPKNS_9FieldDeclE.exit
-  %.5 = phi i8 [ 0, %_ZN5clang6interpL30DiagnoseUninitializedSubobjectERNS0_11InterpStateENS_14SourceLocationEPKNS_9FieldDeclE.exit ], [ %.464, %70 ]
+  %.5 = phi i1 [ false, %_ZN5clang6interpL30DiagnoseUninitializedSubobjectERNS0_11InterpStateENS_14SourceLocationEPKNS_9FieldDeclE.exit ], [ %.464, %70 ]
   %104 = add nuw i64 %.03263, 1
   %.not36 = icmp eq i64 %104, %20
-  br i1 %.not36, label %.loopexit.loopexit72, label %70, !llvm.loop !182
+  br i1 %.not36, label %.loopexit, label %70, !llvm.loop !182
 
-.loopexit.loopexit72:                             ; preds = %103
-  %105 = trunc nuw i8 %.5 to i1
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph70, %.loopexit.loopexit72, %.preheader57, %.preheader, %_ZNK5clang6interp7Pointer13getElemRecordEv.exit
-  %.1 = phi i1 [ %59, %.lr.ph70 ], [ %105, %.loopexit.loopexit72 ], [ true, %_ZNK5clang6interp7Pointer13getElemRecordEv.exit ], [ true, %.preheader ], [ true, %.preheader57 ], [ %68, %.lr.ph ]
+.loopexit:                                        ; preds = %103, %.lr.ph, %.lr.ph70, %.preheader57, %.preheader, %_ZNK5clang6interp7Pointer13getElemRecordEv.exit
+  %.1 = phi i1 [ %59, %.lr.ph70 ], [ %68, %.lr.ph ], [ true, %_ZNK5clang6interp7Pointer13getElemRecordEv.exit ], [ true, %.preheader ], [ true, %.preheader57 ], [ %.5, %103 ]
   ret i1 %.1
 }
 

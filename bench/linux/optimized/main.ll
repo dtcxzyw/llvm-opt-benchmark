@@ -2433,7 +2433,7 @@ define internal fastcc zeroext i1 @obsolete_checksetup(ptr noundef %0) unnamed_a
 
 2:                                                ; preds = %28, %1
   %3 = phi ptr [ @__setup_start, %1 ], [ %30, %28 ]
-  %4 = phi i8 [ 0, %1 ], [ %29, %28 ]
+  %4 = phi i1 [ false, %1 ], [ %29, %28 ]
   %5 = load ptr, ptr %3, align 8
   %6 = tail call i64 @strlen(ptr noundef %5) #26
   %7 = shl i64 %6, 32
@@ -2475,18 +2475,14 @@ define internal fastcc zeroext i1 @obsolete_checksetup(ptr noundef %0) unnamed_a
   br i1 %27, label %28, label %.critedge
 
 28:                                               ; preds = %24, %17, %14, %2
-  %29 = phi i8 [ 1, %17 ], [ %4, %24 ], [ %4, %2 ], [ %4, %14 ]
+  %29 = phi i1 [ true, %17 ], [ %4, %24 ], [ %4, %2 ], [ %4, %14 ]
   %30 = getelementptr i8, ptr %3, i64 24
   %31 = icmp ult ptr %30, @__setup_end
-  br i1 %31, label %2, label %32, !llvm.loop !75
+  br i1 %31, label %2, label %.critedge, !llvm.loop !75
 
-32:                                               ; preds = %28
-  %33 = icmp ne i8 %29, 0
-  br label %.critedge
-
-.critedge:                                        ; preds = %24, %22, %32
-  %34 = phi i1 [ %33, %32 ], [ true, %22 ], [ true, %24 ]
-  ret i1 %34
+.critedge:                                        ; preds = %28, %24, %22
+  %32 = phi i1 [ true, %22 ], [ %29, %28 ], [ true, %24 ]
+  ret i1 %32
 }
 
 ; Function Attrs: null_pointer_is_valid

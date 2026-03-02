@@ -19380,9 +19380,9 @@ define internal fastcc i32 @fConfirmedAuditNotificationRequest(ptr noundef nonnu
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %8
 
-8:                                                ; preds = %25, %4
-  %.024 = phi i32 [ %3, %4 ], [ %26, %25 ]
-  %.0 = phi i32 [ 1, %4 ], [ %.1, %25 ]
+8:                                                ; preds = %24, %4
+  %.024 = phi i32 [ %3, %4 ], [ %25, %24 ]
+  %.0 = phi i1 [ true, %4 ], [ %.1, %24 ]
   %9 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %0, i32 noundef %.024)
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %.loopexit
@@ -19401,24 +19401,23 @@ define internal fastcc i32 @fConfirmedAuditNotificationRequest(ptr noundef nonnu
 
 19:                                               ; preds = %11
   %20 = icmp eq i8 %14, 6
-  %21 = icmp ne i32 %.0, 0
-  %or.cond = select i1 %20, i1 %21, i1 false
-  br i1 %or.cond, label %22, label %25
+  %or.cond = select i1 %20, i1 %.0, i1 false
+  br i1 %or.cond, label %21, label %24
 
-22:                                               ; preds = %19
-  %23 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.024, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %24 = add i32 %23, %.024
-  br label %25
+21:                                               ; preds = %19
+  %22 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.024, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %23 = add i32 %22, %.024
+  br label %24
 
-25:                                               ; preds = %22, %19
-  %.2 = phi i32 [ %24, %22 ], [ %.024, %19 ]
-  %.1 = phi i32 [ 0, %22 ], [ %.0, %19 ]
-  %26 = tail call fastcc i32 @fAuditNotificationInfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.2)
-  %.not = icmp ugt i32 %26, %.024
+24:                                               ; preds = %21, %19
+  %.2 = phi i32 [ %23, %21 ], [ %.024, %19 ]
+  %.1 = phi i1 [ false, %21 ], [ %.0, %19 ]
+  %25 = tail call fastcc i32 @fAuditNotificationInfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %.2)
+  %.not = icmp ugt i32 %25, %.024
   br i1 %.not, label %8, label %.loopexit, !llvm.loop !167
 
-.loopexit:                                        ; preds = %25, %8, %16
-  %.125 = phi i32 [ %18, %16 ], [ %.024, %8 ], [ %26, %25 ]
+.loopexit:                                        ; preds = %24, %8, %16
+  %.125 = phi i32 [ %18, %16 ], [ %.024, %8 ], [ %25, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

@@ -27435,7 +27435,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost9unit_test9framework5sta
   %10 = phi i32 [ %2, %8 ], [ %6, %3 ]
   %11 = load i32, ptr %4, align 8, !tbaa !188
   %12 = icmp eq i32 %11, 16
-  br i1 %12, label %13, label %27
+  br i1 %12, label %13, label %26
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 280
@@ -27446,30 +27446,29 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost9unit_test9framework5sta
   br i1 %18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %.lr.ph
-  %.243 = phi i8 [ %23, %.lr.ph ], [ 0, %13 ]
-  %.sroa.037.042 = phi ptr [ %24, %.lr.ph ], [ %15, %13 ]
+  %.243 = phi i1 [ %22, %.lr.ph ], [ false, %13 ]
+  %.sroa.037.042 = phi ptr [ %23, %.lr.ph ], [ %15, %13 ]
   %19 = load i64, ptr %.sroa.037.042, align 8, !tbaa !93
   %20 = load i32, ptr %5, align 8, !tbaa !189
   %21 = tail call noundef zeroext i1 @_ZN5boost9unit_test9framework5state27finalize_default_run_statusEmNS0_9test_unit10run_statusE(ptr noundef nonnull align 8 dereferenceable(360) %0, i64 noundef %19, i32 noundef %20)
-  %22 = zext i1 %21 to i8
-  %23 = or i8 %.243, %22
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.037.042, i64 8
-  %25 = icmp eq ptr %24, %17
-  br i1 %25, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !663
+  %22 = or i1 %.243, %21
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.037.042, i64 8
+  %24 = icmp eq ptr %23, %17
+  br i1 %24, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !663
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %26 = zext nneg i8 %23 to i32
+  %25 = zext i1 %22 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %13
-  %.2.lcssa = phi i32 [ 0, %13 ], [ %26, %._crit_edge.loopexit ]
+  %.2.lcssa = phi i32 [ 0, %13 ], [ %25, %._crit_edge.loopexit ]
   store i32 %.2.lcssa, ptr %5, align 8, !tbaa !289
-  br label %27
+  br label %26
 
-27:                                               ; preds = %._crit_edge, %9
-  %28 = phi i32 [ %.2.lcssa, %._crit_edge ], [ %10, %9 ]
-  %29 = icmp eq i32 %28, 1
-  ret i1 %29
+26:                                               ; preds = %._crit_edge, %9
+  %27 = phi i32 [ %.2.lcssa, %._crit_edge ], [ %10, %9 ]
+  %28 = icmp eq i32 %27, 1
+  ret i1 %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -81398,7 +81397,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost9unit_test9framework5sta
 ._crit_edge39:                                    ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 220
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !189
-  br label %20
+  br label %19
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 280
@@ -81409,30 +81408,29 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost9unit_test9framework5sta
   br i1 %11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
-  %.238 = phi i8 [ %15, %.lr.ph ], [ 0, %6 ]
-  %.sroa.033.037 = phi ptr [ %16, %.lr.ph ], [ %8, %6 ]
+  %.238 = phi i1 [ %14, %.lr.ph ], [ false, %6 ]
+  %.sroa.033.037 = phi ptr [ %15, %.lr.ph ], [ %8, %6 ]
   %12 = load i64, ptr %.sroa.033.037, align 8, !tbaa !93
   %13 = tail call noundef zeroext i1 @_ZN5boost9unit_test9framework5state19finalize_run_statusEm(ptr noundef nonnull align 8 dereferenceable(360) %0, i64 noundef %12)
-  %14 = zext i1 %13 to i8
-  %15 = or i8 %.238, %14
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.033.037, i64 8
-  %17 = icmp eq ptr %16, %10
-  br i1 %17, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !1620
+  %14 = or i1 %.238, %13
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.033.037, i64 8
+  %16 = icmp eq ptr %15, %10
+  br i1 %16, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !1620
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %18 = zext nneg i8 %15 to i32
+  %17 = zext i1 %14 to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
-  %.2.lcssa = phi i32 [ 0, %6 ], [ %18, %._crit_edge.loopexit ]
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 220
-  store i32 %.2.lcssa, ptr %19, align 4, !tbaa !289
-  br label %20
+  %.2.lcssa = phi i32 [ 0, %6 ], [ %17, %._crit_edge.loopexit ]
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 220
+  store i32 %.2.lcssa, ptr %18, align 4, !tbaa !289
+  br label %19
 
-20:                                               ; preds = %._crit_edge39, %._crit_edge
-  %21 = phi i32 [ %.pre, %._crit_edge39 ], [ %.2.lcssa, %._crit_edge ]
-  %22 = icmp eq i32 %21, 1
-  ret i1 %22
+19:                                               ; preds = %._crit_edge39, %._crit_edge
+  %20 = phi i32 [ %.pre, %._crit_edge39 ], [ %.2.lcssa, %._crit_edge ]
+  %21 = icmp eq i32 %20, 1
+  ret i1 %21
 }
 
 ; Function Attrs: mustprogress uwtable

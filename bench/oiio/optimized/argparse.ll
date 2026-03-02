@@ -20545,21 +20545,21 @@ define linkonce_odr hidden i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13e
   %12 = or disjoint i32 %8, %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i8, ptr %13, align 4, !tbaa !295
-  switch i8 %14, label %47 [
-    i8 0, label %51
+  switch i8 %14, label %45 [
+    i8 0, label %49
     i8 14, label %15
-    i8 13, label %51
+    i8 13, label %49
     i8 10, label %17
     i8 9, label %19
-    i8 12, label %30
-    i8 11, label %32
-    i8 8, label %43
-    i8 7, label %45
+    i8 12, label %29
+    i8 11, label %31
+    i8 8, label %41
+    i8 7, label %43
   ]
 
 15:                                               ; preds = %2
   %16 = or disjoint i32 %12, 65536
-  br label %51
+  br label %49
 
 17:                                               ; preds = %2
   %18 = or disjoint i32 %12, 65536
@@ -20570,64 +20570,62 @@ define linkonce_odr hidden i64 @_ZN3fmt2v86detail21parse_float_type_specINS1_13e
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !294
   %22 = icmp ne i32 %21, 0
-  %23 = zext i1 %22 to i16
-  %24 = or i16 %.lobit, %23
-  %25 = zext nneg i16 %24 to i32
-  %26 = shl nuw nsw i32 %25, 20
-  %27 = and i32 %.sroa.2.1, -1048578
-  %28 = or disjoint i32 %26, %27
-  %29 = or disjoint i32 %28, 1
-  br label %51
+  %23 = trunc i16 %6 to i1
+  %24 = or i1 %22, %23
+  %25 = select i1 %24, i32 1048576, i32 0
+  %26 = and i32 %.sroa.2.1, -1048578
+  %27 = or disjoint i32 %26, %25
+  %28 = or disjoint i32 %27, 1
+  br label %49
 
-30:                                               ; preds = %2
-  %31 = or disjoint i32 %12, 65536
-  br label %32
+29:                                               ; preds = %2
+  %30 = or disjoint i32 %12, 65536
+  br label %31
 
-32:                                               ; preds = %30, %2
-  %.sroa.2.2 = phi i32 [ %31, %30 ], [ %12, %2 ]
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !294
-  %35 = icmp ne i32 %34, 0
-  %36 = zext i1 %35 to i16
-  %37 = or i16 %.lobit, %36
-  %38 = zext nneg i16 %37 to i32
-  %39 = shl nuw nsw i32 %38, 20
-  %40 = and i32 %.sroa.2.2, -1048579
-  %41 = or disjoint i32 %39, %40
-  %42 = or disjoint i32 %41, 2
-  br label %51
+31:                                               ; preds = %29, %2
+  %.sroa.2.2 = phi i32 [ %30, %29 ], [ %12, %2 ]
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %33 = load i32, ptr %32, align 4, !tbaa !294
+  %34 = icmp ne i32 %33, 0
+  %35 = trunc i16 %6 to i1
+  %36 = or i1 %34, %35
+  %37 = select i1 %36, i32 1048576, i32 0
+  %38 = and i32 %.sroa.2.2, -1048579
+  %39 = or disjoint i32 %38, %37
+  %40 = or disjoint i32 %39, 2
+  br label %49
 
-43:                                               ; preds = %2
-  %44 = or disjoint i32 %12, 65536
-  br label %45
+41:                                               ; preds = %2
+  %42 = or disjoint i32 %12, 65536
+  br label %43
 
-45:                                               ; preds = %43, %2
-  %.sroa.2.3 = phi i32 [ %44, %43 ], [ %12, %2 ]
-  %46 = or i32 %.sroa.2.3, 3
-  br label %51
+43:                                               ; preds = %41, %2
+  %.sroa.2.3 = phi i32 [ %42, %41 ], [ %12, %2 ]
+  %44 = or i32 %.sroa.2.3, 3
+  br label %49
 
-47:                                               ; preds = %2
+45:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.48)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt2v812format_errorE, i64 16), ptr %3, align 8, !tbaa !51
-  %48 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #37
-  invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %48)
-          to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit unwind label %49
+  %46 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #37
+  invoke void @_ZN11OpenImageIO6v3_1_03pvt13log_fmt_errorEPKc(ptr noundef %46)
+          to label %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit unwind label %47
 
-49:                                               ; preds = %47
-  %50 = landingpad { ptr, i32 }
+47:                                               ; preds = %45
+  %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #37
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %50
+  resume { ptr, i32 } %48
 
-_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit: ; preds = %47
+_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit: ; preds = %45
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #37
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %51
+  br label %49
 
-51:                                               ; preds = %2, %15, %2, %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit, %45, %32, %19
-  %.sroa.2.4 = phi i32 [ %12, %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit ], [ %46, %45 ], [ %12, %2 ], [ %29, %19 ], [ %42, %32 ], [ %16, %15 ], [ %12, %2 ]
+49:                                               ; preds = %2, %15, %2, %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit, %43, %31, %19
+  %.sroa.2.4 = phi i32 [ %12, %_ZN3fmt2v86detail13error_handler8on_errorEPKc.exit ], [ %44, %43 ], [ %12, %2 ], [ %28, %19 ], [ %40, %31 ], [ %16, %15 ], [ %12, %2 ]
   %.sroa.2.0.insert.ext = zext nneg i32 %.sroa.2.4 to i64
   %.sroa.2.0.insert.shift = shl nuw nsw i64 %.sroa.2.0.insert.ext, 32
   ret i64 %.sroa.2.0.insert.shift

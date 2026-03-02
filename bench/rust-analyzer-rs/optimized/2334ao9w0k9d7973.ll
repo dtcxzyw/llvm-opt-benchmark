@@ -3971,7 +3971,7 @@ define hidden noundef zeroext i1 @"_ZN57_$LT$$RF$T$u20$as$u20$fst..inner_automat
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN57_$LT$$RF$T$u20$as$u20$fst..inner_automaton..Automaton$GT$9can_match17h1d27d21d93f951e0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #18 {
   %3 = load i64, ptr %1, align 8, !range !54, !alias.scope !1492, !noundef !17
-  %4 = icmp ne i64 %3, 0
+  %4 = trunc nuw i64 %3 to i1
   ret i1 %4
 }
 
@@ -3983,8 +3983,10 @@ define hidden noundef zeroext i1 @"_ZN57_$LT$$RF$T$u20$as$u20$fst..inner_automat
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN57_$LT$$RF$T$u20$as$u20$fst..inner_automaton..Automaton$GT$9can_match17h9fe29689d7c6780bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #18 {
   %3 = load i64, ptr %1, align 8, !range !372, !alias.scope !1495, !noundef !17
-  %4 = icmp ne i64 %3, 0
-  ret i1 %4
+  %4 = icmp eq i64 %3, 2
+  %5 = trunc nuw i64 %3 to i1
+  %spec.select.i = select i1 %4, i1 true, i1 %5
+  ret i1 %spec.select.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -4177,7 +4179,7 @@ define hidden noundef zeroext i1 @"_ZN77_$LT$fst..inner_automaton..Str$u20$as$u2
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN77_$LT$fst..inner_automaton..Str$u20$as$u20$fst..inner_automaton..Automaton$GT$9can_match17h109440daad24a9cfE.llvm.3734958187512397983"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #22 {
   %3 = load i64, ptr %1, align 8, !range !54, !noundef !17
-  %4 = icmp ne i64 %3, 0
+  %4 = trunc nuw i64 %3 to i1
   ret i1 %4
 }
 
@@ -9948,8 +9950,10 @@ define hidden noundef zeroext i1 @"_ZN93_$LT$fst..inner_automaton..StartsWith$LT
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN93_$LT$fst..inner_automaton..StartsWith$LT$A$GT$$u20$as$u20$fst..inner_automaton..Automaton$GT$9can_match17h8e5daa9854930d22E.llvm.3734958187512397983"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #18 {
   %3 = load i64, ptr %1, align 8, !range !372, !noundef !17
-  %4 = icmp ne i64 %3, 0
-  ret i1 %4
+  %4 = icmp eq i64 %3, 2
+  %5 = trunc nuw i64 %3 to i1
+  %spec.select = select i1 %4, i1 true, i1 %5
+  ret i1 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

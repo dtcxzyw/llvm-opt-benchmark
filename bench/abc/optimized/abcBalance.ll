@@ -617,7 +617,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br label %common.ret41
 
 common.ret41:                                     ; preds = %Vec_PtrPush.exit, %10, %48
-  %common.ret41.op = phi i32 [ %78, %48 ], [ 0, %Vec_PtrPush.exit ], [ 1, %10 ]
+  %common.ret41.op = phi i32 [ %76, %48 ], [ 0, %Vec_PtrPush.exit ], [ 1, %10 ]
   ret i32 %common.ret41.op
 
 48:                                               ; preds = %14, %._crit_edge
@@ -667,10 +667,8 @@ common.ret41:                                     ; preds = %Vec_PtrPush.exit, %
   %72 = getelementptr inbounds ptr, ptr %.val31.val.val, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !27
   %74 = tail call i32 @Abc_NodeBalanceConeExor_rec(ptr noundef %73, ptr noundef nonnull %1, i32 noundef 0)
-  %75 = icmp ne i32 %61, 0
-  %76 = icmp ne i32 %74, 0
-  %77 = select i1 %75, i1 true, i1 %76
-  %78 = zext i1 %77 to i32
+  %75 = trunc nuw i32 %61 to i1
+  %76 = select i1 %75, i32 1, i32 %74
   br label %common.ret41
 }
 

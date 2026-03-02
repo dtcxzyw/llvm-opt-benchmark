@@ -741,19 +741,19 @@ define noundef ptr @_ZN6icu_7710UXMLParser9parseFileEPKcR10UErrorCode(ptr nounde
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %14 = load i32, ptr %2, align 4, !tbaa !15
   %15 = icmp slt i32 %14, 1
-  br i1 %15, label %16, label %249
+  br i1 %15, label %16, label %247
 
 .loopexit:                                        ; preds = %195, %206, %215
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %239
+.loopexit.split-lp.loopexit:                      ; preds = %237
   %lpad.loopexit126 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %247, %243, %.loopexit125, %189, %187, %76, %73, %65, %55, %45, %40, %35, %33, %27, %25, %21, %16
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %245, %241, %.loopexit125, %189, %187, %76, %73, %65, %55, %45, %40, %35, %33, %27, %25, %21, %16
   %lpad.loopexit.split-lp127 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -768,7 +768,7 @@ define noundef ptr @_ZN6icu_7710UXMLParser9parseFileEPKcR10UErrorCode(ptr nounde
 
 20:                                               ; preds = %18
   store i32 4, ptr %2, align 4, !tbaa !15
-  br label %249
+  br label %247
 
 21:                                               ; preds = %18
   %22 = invoke i32 @T_FileStream_read(ptr noundef nonnull %17, ptr noundef nonnull %4, i32 noundef 4096)
@@ -1150,10 +1150,10 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %.noexc121, %134
   %191 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %192
 
-192:                                              ; preds = %.preheader, %241
-  %.086 = phi i32 [ %240, %241 ], [ %22, %.preheader ]
-  %.084 = phi i32 [ %.185, %241 ], [ %.087, %.preheader ]
-  %.082 = phi i8 [ %spec.select, %241 ], [ 0, %.preheader ]
+192:                                              ; preds = %.preheader, %239
+  %.086 = phi i32 [ %238, %239 ], [ %22, %.preheader ]
+  %.084 = phi i32 [ %.185, %239 ], [ %.087, %.preheader ]
+  %.082 = phi i1 [ %240, %239 ], [ false, %.preheader ]
   store ptr %4, ptr %6, align 8, !tbaa !19
   %193 = sext i32 %.086 to i64
   %194 = getelementptr inbounds i8, ptr %4, i64 %193
@@ -1225,40 +1225,37 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %.noexc121, %134
 
 235:                                              ; preds = %225
   %236 = icmp sgt i32 %226, 0
-  %237 = zext i1 %236 to i8
-  %238 = or i8 %.082, %237
-  %or.cond3.not = icmp eq i8 %238, 0
-  br i1 %or.cond3.not, label %239, label %.loopexit125
+  %or.cond3 = or i1 %.082, %236
+  br i1 %or.cond3, label %.loopexit125, label %237
 
-239:                                              ; preds = %235
-  %240 = invoke i32 @T_FileStream_read(ptr noundef nonnull %17, ptr noundef nonnull %4, i32 noundef 4096)
-          to label %241 unwind label %.loopexit.split-lp.loopexit
+237:                                              ; preds = %235
+  %238 = invoke i32 @T_FileStream_read(ptr noundef nonnull %17, ptr noundef nonnull %4, i32 noundef 4096)
+          to label %239 unwind label %.loopexit.split-lp.loopexit
 
-241:                                              ; preds = %239
-  %242 = icmp eq i32 %240, 0
-  %spec.select = zext i1 %242 to i8
+239:                                              ; preds = %237
+  %240 = icmp eq i32 %238, 0
   br label %192, !llvm.loop !28
 
 .loopexit125:                                     ; preds = %235, %69, %184, %37, %205, %44
   %.189 = phi ptr [ %.088, %184 ], [ %.088, %205 ], [ null, %69 ], [ %36, %37 ], [ %36, %44 ], [ %.088, %235 ]
   invoke void @ucnv_close_77(ptr noundef %.189)
-          to label %243 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %241 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-243:                                              ; preds = %.loopexit125
+241:                                              ; preds = %.loopexit125
   invoke void @T_FileStream_close(ptr noundef nonnull %17)
-          to label %244 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %242 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-244:                                              ; preds = %243
-  %245 = load i32, ptr %2, align 4, !tbaa !15
-  %246 = icmp sgt i32 %245, 0
-  br i1 %246, label %249, label %247
+242:                                              ; preds = %241
+  %243 = load i32, ptr %2, align 4, !tbaa !15
+  %244 = icmp sgt i32 %243, 0
+  br i1 %244, label %247, label %245
 
-247:                                              ; preds = %244
-  %248 = invoke noundef ptr @_ZN6icu_7710UXMLParser5parseERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(4576) %0, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 4 dereferenceable(4) %2)
-          to label %249 unwind label %.loopexit.split-lp.loopexit.split-lp
+245:                                              ; preds = %242
+  %246 = invoke noundef ptr @_ZN6icu_7710UXMLParser5parseERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(4576) %0, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 4 dereferenceable(4) %2)
+          to label %247 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-249:                                              ; preds = %244, %247, %3, %20
-  %.071 = phi ptr [ %248, %247 ], [ null, %20 ], [ null, %3 ], [ null, %244 ]
+247:                                              ; preds = %242, %245, %3, %20
+  %.071 = phi ptr [ %246, %245 ], [ null, %20 ], [ null, %3 ], [ null, %242 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

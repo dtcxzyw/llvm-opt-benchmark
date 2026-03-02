@@ -94,9 +94,9 @@ get0_trustedStore_vpm.exit:                       ; preds = %17, %20
   %27 = select i1 %25, ptr @.str.12, ptr @.str.21
   br label %28
 
-28:                                               ; preds = %ossl_X509_check.exit.i, %.lr.ph.i
-  %.02.i = phi i1 [ true, %.lr.ph.i ], [ %47, %ossl_X509_check.exit.i ]
-  %.0101.i = phi i32 [ 0, %.lr.ph.i ], [ %48, %ossl_X509_check.exit.i ]
+28:                                               ; preds = %46, %.lr.ph.i
+  %.02.i = phi i32 [ 1, %.lr.ph.i ], [ %47, %46 ]
+  %.0101.i = phi i32 [ 0, %.lr.ph.i ], [ %48, %46 ]
   %29 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %15, i32 noundef %.0101.i) #5
   %30 = call i32 @X509_get_extension_flags(ptr noundef %29) #5
   %31 = call ptr @X509_get0_notBefore(ptr noundef %29) #5
@@ -117,25 +117,29 @@ get0_trustedStore_vpm.exit:                       ; preds = %17, %20
 41:                                               ; preds = %35, %28
   %42 = and i32 %30, 80
   %or.cond.i.i = icmp eq i32 %42, 0
-  br i1 %or.cond.i.i, label %43, label %ossl_X509_check.exit.i
+  br i1 %or.cond.i.i, label %ossl_X509_check.exit.thread.i, label %ossl_X509_check.exit.i
 
-43:                                               ; preds = %41
-  %44 = call ptr @X509_get_subject_name(ptr noundef %29) #5
-  %45 = call ptr @X509_NAME_oneline(ptr noundef %44, ptr noundef null, i32 noundef 0) #5
-  %46 = call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef range(i32 3, 5) %26, ptr noundef %0, ptr noundef nonnull @__func__.ossl_X509_check, ptr noundef nonnull @.str, i32 noundef 52, ptr noundef nonnull %27, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.2, ptr noundef %45, ptr noundef nonnull @.str.20) #5
-  call void @CRYPTO_free(ptr noundef %45, ptr noundef nonnull @.str, i32 noundef 31) #5
-  br label %ossl_X509_check.exit.i
+ossl_X509_check.exit.thread.i:                    ; preds = %41
+  %43 = call ptr @X509_get_subject_name(ptr noundef %29) #5
+  %44 = call ptr @X509_NAME_oneline(ptr noundef %43, ptr noundef null, i32 noundef 0) #5
+  %45 = call i32 (i32, ptr, ptr, ptr, i32, ptr, ptr, ...) @ossl_cmp_print_log(i32 noundef range(i32 3, 5) %26, ptr noundef %0, ptr noundef nonnull @__func__.ossl_X509_check, ptr noundef nonnull @.str, i32 noundef 52, ptr noundef nonnull %27, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.2, ptr noundef %44, ptr noundef nonnull @.str.20) #5
+  call void @CRYPTO_free(ptr noundef %44, ptr noundef nonnull @.str, i32 noundef 31) #5
+  br label %46
 
-ossl_X509_check.exit.i:                           ; preds = %43, %41
-  %.0.i.i = phi i1 [ %34, %41 ], [ false, %43 ]
-  %47 = select i1 %.0.i.i, i1 %.02.i, i1 false
+ossl_X509_check.exit.i:                           ; preds = %41
+  %spec.select.i = select i1 %34, i32 %.02.i, i32 0
+  br label %46
+
+46:                                               ; preds = %ossl_X509_check.exit.i, %ossl_X509_check.exit.thread.i
+  %47 = phi i32 [ 0, %ossl_X509_check.exit.thread.i ], [ %spec.select.i, %ossl_X509_check.exit.i ]
   %48 = add nuw nsw i32 %.0101.i, 1
   %49 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %15) #5
   %50 = icmp slt i32 %48, %49
   br i1 %50, label %28, label %ossl_X509_check_all.exit, !llvm.loop !8
 
-ossl_X509_check_all.exit:                         ; preds = %ossl_X509_check.exit.i
-  br i1 %47, label %ossl_X509_check_all.exit.thread, label %58
+ossl_X509_check_all.exit:                         ; preds = %46
+  %.not18 = icmp eq i32 %47, 0
+  br i1 %.not18, label %58, label %ossl_X509_check_all.exit.thread
 
 ossl_X509_check_all.exit.thread:                  ; preds = %get0_trustedStore_vpm.exit, %ossl_X509_check_all.exit
   %51 = load ptr, ptr %3, align 8, !tbaa !3

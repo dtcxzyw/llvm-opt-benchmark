@@ -547,15 +547,13 @@ define dso_local void @_ZN5vcpkg32create_dependency_graph_snapshotERKNS_17VcpkgC
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 1480
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 1352
   %65 = load i8, ptr %64, align 8, !tbaa !4, !range !9, !noundef !10
-  %66 = trunc nuw i8 %65 to i1
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 1360
-  %68 = and i8 %57, %54
-  %or.cond = icmp ne i8 %68, 0
-  %69 = and i8 %62, %60
-  %70 = icmp ne i8 %69, 0
-  %or.cond8 = and i1 %or.cond, %70
-  %or.cond10 = and i1 %or.cond8, %66
-  br i1 %or.cond10, label %71, label %618
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 1360
+  %67 = and i8 %57, %54
+  %68 = and i8 %67, %60
+  %69 = and i8 %68, %62
+  %70 = and i8 %69, %65
+  %or.cond10.not = icmp eq i8 %70, 0
+  br i1 %or.cond10.not, label %618, label %71
 
 71:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
@@ -565,7 +563,7 @@ define dso_local void @_ZN5vcpkg32create_dependency_graph_snapshotERKNS_17VcpkgC
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !11
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !11
-  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(32) %67) #22, !noalias !11
+  call void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(32) %66) #22, !noalias !11
   invoke void @_ZNK5vcpkg10StringView9to_stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %22, ptr noundef nonnull align 8 dereferenceable(16) %23)
           to label %72 unwind label %78, !noalias !11
 
@@ -609,7 +607,7 @@ _ZN5vcpkg4Json5Value6stringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   %86 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 %84, ptr %86, align 8, !alias.scope !25
   %87 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %88 = load ptr, ptr %67, align 8, !tbaa !14
+  %88 = load ptr, ptr %66, align 8, !tbaa !14
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 1368
   %90 = load i64, ptr %89, align 8, !tbaa !24
   %91 = ptrtoint ptr %88 to i64
@@ -3624,11 +3622,10 @@ _ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNS
   %120 = load i8, ptr %119, align 8, !tbaa !4, !range !9, !noundef !10
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %122 = load i8, ptr %121, align 8, !tbaa !4, !range !9, !noundef !10
-  %123 = trunc nuw i8 %122 to i1
-  %124 = and i8 %120, %118
-  %or.cond = icmp ne i8 %124, 0
-  %or.cond3 = and i1 %or.cond, %123
-  br i1 %or.cond3, label %125, label %140
+  %123 = and i8 %120, %118
+  %124 = and i8 %123, %122
+  %or.cond3.not = icmp eq i8 %124, 0
+  br i1 %or.cond3.not, label %140, label %125
 
 125:                                              ; preds = %117
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 944

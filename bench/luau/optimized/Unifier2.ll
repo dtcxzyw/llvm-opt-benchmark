@@ -2928,33 +2928,27 @@ define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_9UnionTypeEPKN
   %.not12 = icmp eq ptr %4, %6
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %15
-  %7 = trunc nuw i8 %.1 to i1
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.0.lcssa = phi i1 [ true, %3 ], [ %7, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %12, %3
+  %.0.lcssa = phi i1 [ true, %3 ], [ %.1, %12 ]
   ret i1 %.0.lcssa
 
-.lr.ph:                                           ; preds = %3, %15
-  %.014 = phi i8 [ %.1, %15 ], [ 1, %3 ]
-  %.sroa.09.013 = phi ptr [ %16, %15 ], [ %4, %3 ]
-  %8 = load ptr, ptr %.sroa.09.013, align 8, !tbaa !77
-  %9 = tail call fastcc noundef zeroext i1 @_ZN4LuauL13areCompatibleEPKNS_4TypeES2_(ptr noundef %8, ptr noundef %2)
-  br i1 %9, label %10, label %15
+.lr.ph:                                           ; preds = %3, %12
+  %.014 = phi i1 [ %.1, %12 ], [ true, %3 ]
+  %.sroa.09.013 = phi ptr [ %13, %12 ], [ %4, %3 ]
+  %7 = load ptr, ptr %.sroa.09.013, align 8, !tbaa !77
+  %8 = tail call fastcc noundef zeroext i1 @_ZN4LuauL13areCompatibleEPKNS_4TypeES2_(ptr noundef %7, ptr noundef %2)
+  br i1 %8, label %9, label %12
 
-10:                                               ; preds = %.lr.ph
-  %11 = tail call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %8, ptr noundef %2)
-  %12 = icmp ne i8 %.014, 0
-  %13 = select i1 %11, i1 %12, i1 false
-  %14 = zext i1 %13 to i8
-  br label %15
+9:                                                ; preds = %.lr.ph
+  %10 = tail call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %7, ptr noundef %2)
+  %11 = select i1 %10, i1 %.014, i1 false
+  br label %12
 
-15:                                               ; preds = %10, %.lr.ph
-  %.1 = phi i8 [ %14, %10 ], [ %.014, %.lr.ph ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 8
-  %.not = icmp eq ptr %16, %6
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
+12:                                               ; preds = %9, %.lr.ph
+  %.1 = phi i1 [ %11, %9 ], [ %.014, %.lr.ph ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 8
+  %.not = icmp eq ptr %13, %6
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2965,33 +2959,27 @@ define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeEPKNS_9Un
   %.not12 = icmp eq ptr %4, %6
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %15
-  %7 = trunc nuw i8 %.1 to i1
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.0.lcssa = phi i1 [ true, %3 ], [ %7, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %12, %3
+  %.0.lcssa = phi i1 [ true, %3 ], [ %.1, %12 ]
   ret i1 %.0.lcssa
 
-.lr.ph:                                           ; preds = %3, %15
-  %.014 = phi i8 [ %.1, %15 ], [ 1, %3 ]
-  %.sroa.09.013 = phi ptr [ %16, %15 ], [ %4, %3 ]
-  %8 = load ptr, ptr %.sroa.09.013, align 8, !tbaa !77
-  %9 = tail call fastcc noundef zeroext i1 @_ZN4LuauL13areCompatibleEPKNS_4TypeES2_(ptr noundef %1, ptr noundef %8)
-  br i1 %9, label %10, label %15
+.lr.ph:                                           ; preds = %3, %12
+  %.014 = phi i1 [ %.1, %12 ], [ true, %3 ]
+  %.sroa.09.013 = phi ptr [ %13, %12 ], [ %4, %3 ]
+  %7 = load ptr, ptr %.sroa.09.013, align 8, !tbaa !77
+  %8 = tail call fastcc noundef zeroext i1 @_ZN4LuauL13areCompatibleEPKNS_4TypeES2_(ptr noundef %1, ptr noundef %7)
+  br i1 %8, label %9, label %12
 
-10:                                               ; preds = %.lr.ph
-  %11 = tail call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1, ptr noundef %8)
-  %12 = icmp ne i8 %.014, 0
-  %13 = select i1 %11, i1 %12, i1 false
-  %14 = zext i1 %13 to i8
-  br label %15
+9:                                                ; preds = %.lr.ph
+  %10 = tail call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1, ptr noundef %7)
+  %11 = select i1 %10, i1 %.014, i1 false
+  br label %12
 
-15:                                               ; preds = %10, %.lr.ph
-  %.1 = phi i8 [ %14, %10 ], [ %.014, %.lr.ph ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 8
-  %.not = icmp eq ptr %16, %6
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
+12:                                               ; preds = %9, %.lr.ph
+  %.1 = phi i1 [ %11, %9 ], [ %.014, %.lr.ph ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 8
+  %.not = icmp eq ptr %13, %6
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress uwtable

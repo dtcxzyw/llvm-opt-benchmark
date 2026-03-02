@@ -98437,9 +98437,9 @@ define hidden void @"_ZN159_$LT$polars_arrow..array..boolean..BooleanArray$u20$a
 
 .noexc18:                                         ; preds = %65
   %67 = load i64, ptr %3, align 8, !range !125, !noalias !7838, !noundef !3
+  %68 = trunc nuw nsw i64 %67 to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !7838
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !7838
-  %68 = trunc nuw nsw i64 %67 to i8
   br label %71
 
 69:                                               ; preds = %.noexc
@@ -99099,9 +99099,9 @@ _ZN14regex_automata4util6search5Input8set_span17h7231e78cdc8ee6d8E.exit.i.i.i: ;
 
 .noexc20:                                         ; preds = %_ZN14regex_automata4util6search5Input8set_span17h7231e78cdc8ee6d8E.exit.i.i.i
   %195 = load i64, ptr %5, align 8, !range !125, !noalias !7929, !noundef !3
+  %196 = trunc nuw nsw i64 %195 to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !7929
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !7929
-  %196 = trunc nuw nsw i64 %195 to i8
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb93c9907b9cb9e93E.exit"
 
 .thread236:                                       ; preds = %213, %237, %.thread269, %194, %_ZN14regex_automata4util6search5Input8set_span17h7231e78cdc8ee6d8E.exit.i.i.i, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i", %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i33"
@@ -99576,9 +99576,9 @@ _ZN14regex_automata4util6search5Input8set_span17h7231e78cdc8ee6d8E.exit.i.i.i.i:
 
 .noexc21:                                         ; preds = %_ZN14regex_automata4util6search5Input8set_span17h7231e78cdc8ee6d8E.exit.i.i.i.i
   %119 = load i64, ptr %4, align 8, !range !125, !noalias !7990, !noundef !3
+  %120 = trunc nuw nsw i64 %119 to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !7990
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !7990
-  %120 = trunc nuw nsw i64 %119 to i8
   br label %122
 
 .thread130:                                       ; preds = %138, %162, %112, %118, %_ZN14regex_automata4util6search5Input8set_span17h7231e78cdc8ee6d8E.exit.i.i.i.i, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i"
@@ -100059,9 +100059,9 @@ _ZN14regex_automata4util6search5Input8set_span17h7231e78cdc8ee6d8E.exit.i.i.i.i:
 
 .noexc21:                                         ; preds = %_ZN14regex_automata4util6search5Input8set_span17h7231e78cdc8ee6d8E.exit.i.i.i.i
   %122 = load i64, ptr %4, align 8, !range !125, !noalias !8051, !noundef !3
+  %123 = trunc nuw nsw i64 %122 to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !8051
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !8051
-  %123 = trunc nuw nsw i64 %122 to i8
   br label %125
 
 .thread130:                                       ; preds = %141, %165, %116, %121, %_ZN14regex_automata4util6search5Input8set_span17h7231e78cdc8ee6d8E.exit.i.i.i.i, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i"
@@ -101108,9 +101108,9 @@ _ZN14regex_automata4util6search5Input8set_span17h7231e78cdc8ee6d8E.exit.i.i.i.i:
 
 .noexc19:                                         ; preds = %_ZN14regex_automata4util6search5Input8set_span17h7231e78cdc8ee6d8E.exit.i.i.i.i
   %69 = load i64, ptr %3, align 8, !range !125, !noalias !8153, !noundef !3
+  %70 = trunc nuw nsw i64 %69 to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !8153
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !8153
-  %70 = trunc nuw nsw i64 %69 to i8
   br label %72
 
 .thread51:                                        ; preds = %88, %112, %64, %68, %_ZN14regex_automata4util6search5Input8set_span17h7231e78cdc8ee6d8E.exit.i.i.i.i
@@ -102343,9 +102343,9 @@ _ZN14regex_automata4util6search5Input8set_span17h7231e78cdc8ee6d8E.exit.i.i.i.i:
 
 .noexc42:                                         ; preds = %_ZN14regex_automata4util6search5Input8set_span17h7231e78cdc8ee6d8E.exit.i.i.i.i
   %120 = load i64, ptr %5, align 8, !range !125, !noalias !8294, !noundef !3
+  %121 = trunc nuw nsw i64 %120 to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !8294
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !8294
-  %121 = trunc nuw nsw i64 %120 to i8
   br label %.thread160
 
 .thread173:                                       ; preds = %142, %166, %114, %119, %_ZN14regex_automata4util6search5Input8set_span17h7231e78cdc8ee6d8E.exit.i.i.i.i, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i"
@@ -103043,9 +103043,9 @@ _ZN14regex_automata4util6search5Input8set_span17h7231e78cdc8ee6d8E.exit.i.i.i: ;
 
 .noexc41:                                         ; preds = %_ZN14regex_automata4util6search5Input8set_span17h7231e78cdc8ee6d8E.exit.i.i.i
   %197 = load i64, ptr %6, align 8, !range !125, !noalias !8390, !noundef !3
+  %198 = trunc nuw nsw i64 %197 to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !8390
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !8390
-  %198 = trunc nuw nsw i64 %197 to i8
   br label %.thread273
 
 .thread286:                                       ; preds = %219, %243, %193, %196, %_ZN14regex_automata4util6search5Input8set_span17h7231e78cdc8ee6d8E.exit.i.i.i, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i", %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i54"
@@ -103558,9 +103558,9 @@ _ZN14regex_automata4util6search5Input8set_span17h7231e78cdc8ee6d8E.exit.i.i.i.i:
 
 .noexc43:                                         ; preds = %_ZN14regex_automata4util6search5Input8set_span17h7231e78cdc8ee6d8E.exit.i.i.i.i
   %121 = load i64, ptr %4, align 8, !range !125, !noalias !8457, !noundef !3
+  %122 = trunc nuw nsw i64 %121 to i8
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !8457
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !8457
-  %122 = trunc nuw nsw i64 %121 to i8
   br label %.thread100
 
 .thread113:                                       ; preds = %143, %167, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i", %117, %120, %_ZN14regex_automata4util6search5Input8set_span17h7231e78cdc8ee6d8E.exit.i.i.i.i
@@ -111573,23 +111573,22 @@ define hidden { i64, double } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core.
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %5, align 8, !nonnull !3, !align !16, !noundef !3
   %6 = load i64, ptr %.val, align 8, !range !125, !noundef !3
-  %7 = trunc nuw i64 %6 to i1
-  %8 = icmp ne i64 %1, 0
-  %or.cond.not = and i1 %8, %7
-  br i1 %or.cond.not, label %9, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hb0a36ecb5c4be7c4E.exit"
+  %7 = and i64 %6, %1
+  %or.cond.not.not = icmp eq i64 %7, 0
+  br i1 %or.cond.not.not, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hb0a36ecb5c4be7c4E.exit", label %8
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %11 = load double, ptr %10, align 8, !alias.scope !8815, !noundef !3
-  %12 = tail call noundef double @atan2(double noundef %11, double noundef %2) #39
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %10 = load double, ptr %9, align 8, !alias.scope !8815, !noundef !3
+  %11 = tail call noundef double @atan2(double noundef %10, double noundef %2) #39
   br label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hb0a36ecb5c4be7c4E.exit"
 
-"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hb0a36ecb5c4be7c4E.exit": ; preds = %3, %9
-  %.sroa.03.1.i.i = phi i64 [ 1, %9 ], [ 0, %3 ]
-  %.sroa.4.0.i.i = phi double [ %12, %9 ], [ undef, %3 ]
-  %13 = insertvalue { i64, double } poison, i64 %.sroa.03.1.i.i, 0
-  %14 = insertvalue { i64, double } %13, double %.sroa.4.0.i.i, 1
-  ret { i64, double } %14
+"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hb0a36ecb5c4be7c4E.exit": ; preds = %3, %8
+  %.sroa.03.1.i.i = phi i64 [ 1, %8 ], [ 0, %3 ]
+  %.sroa.4.0.i.i = phi double [ %11, %8 ], [ undef, %3 ]
+  %12 = insertvalue { i64, double } poison, i64 %.sroa.03.1.i.i, 0
+  %13 = insertvalue { i64, double } %12, double %.sroa.4.0.i.i, 1
+  ret { i64, double } %13
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -111775,23 +111774,22 @@ define hidden { i64, double } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core.
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %5, align 8, !nonnull !3, !align !16, !noundef !3
   %6 = load i64, ptr %.val, align 8, !range !125, !noundef !3
-  %7 = trunc nuw i64 %6 to i1
-  %8 = icmp ne i64 %1, 0
-  %or.cond.not.i = and i1 %8, %7
-  br i1 %or.cond.not.i, label %9, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h1a5de1f1e1fe9688E.exit"
+  %7 = and i64 %6, %1
+  %or.cond.not.not.i = icmp eq i64 %7, 0
+  br i1 %or.cond.not.not.i, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h1a5de1f1e1fe9688E.exit", label %8
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %11 = load double, ptr %10, align 8, !alias.scope !8840, !noundef !3
-  %12 = tail call noundef double @atan2(double noundef %2, double noundef %11) #39
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %10 = load double, ptr %9, align 8, !alias.scope !8840, !noundef !3
+  %11 = tail call noundef double @atan2(double noundef %2, double noundef %10) #39
   br label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h1a5de1f1e1fe9688E.exit"
 
-"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h1a5de1f1e1fe9688E.exit": ; preds = %3, %9
-  %.sroa.03.1.i.i = phi i64 [ 1, %9 ], [ 0, %3 ]
-  %.sroa.4.0.i.i = phi double [ %12, %9 ], [ undef, %3 ]
-  %13 = insertvalue { i64, double } poison, i64 %.sroa.03.1.i.i, 0
-  %14 = insertvalue { i64, double } %13, double %.sroa.4.0.i.i, 1
-  ret { i64, double } %14
+"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h1a5de1f1e1fe9688E.exit": ; preds = %3, %8
+  %.sroa.03.1.i.i = phi i64 [ 1, %8 ], [ 0, %3 ]
+  %.sroa.4.0.i.i = phi double [ %11, %8 ], [ undef, %3 ]
+  %12 = insertvalue { i64, double } poison, i64 %.sroa.03.1.i.i, 0
+  %13 = insertvalue { i64, double } %12, double %.sroa.4.0.i.i, 1
+  ret { i64, double } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -111948,15 +111946,17 @@ define hidden { i32, float } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %10 = load float, ptr %9, align 4, !alias.scope !8867, !noundef !3
-  %11 = tail call float @llvm.pow.f32(float %10, float %2)
   br label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hfb7a31ce9d4bcba5E.exit"
 
 "_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hfb7a31ce9d4bcba5E.exit": ; preds = %3, %8
-  %.sroa.01.04.i = phi i32 [ 0, %3 ], [ %1, %8 ]
-  %12 = phi float [ undef, %3 ], [ %11, %8 ]
-  %13 = insertvalue { i32, float } poison, i32 %.sroa.01.04.i, 0
-  %14 = insertvalue { i32, float } %13, float %12, 1
-  ret { i32, float } %14
+  %.sroa.01.0.i = phi i32 [ %1, %8 ], [ 0, %3 ]
+  %.sroa.5.0.i = phi float [ %10, %8 ], [ undef, %3 ]
+  %or.cond.not.i.i = trunc nuw i32 %.sroa.01.0.i to i1
+  %11 = tail call float @llvm.pow.f32(float %.sroa.5.0.i, float %2)
+  %.sroa.4.0.i.i = select i1 %or.cond.not.i.i, float %11, float undef
+  %12 = insertvalue { i32, float } poison, i32 %.sroa.01.0.i, 0
+  %13 = insertvalue { i32, float } %12, float %.sroa.4.0.i.i, 1
+  ret { i32, float } %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -111971,15 +111971,17 @@ define hidden { i64, double } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core.
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %10 = load double, ptr %9, align 8, !alias.scope !8870, !noundef !3
-  %11 = tail call double @llvm.pow.f64(double %10, double %2)
   br label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hdc051d816bda4901E.exit"
 
 "_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hdc051d816bda4901E.exit": ; preds = %3, %8
-  %.sroa.01.04.i = phi i64 [ 0, %3 ], [ %1, %8 ]
-  %12 = phi double [ undef, %3 ], [ %11, %8 ]
-  %13 = insertvalue { i64, double } poison, i64 %.sroa.01.04.i, 0
-  %14 = insertvalue { i64, double } %13, double %12, 1
-  ret { i64, double } %14
+  %.sroa.01.0.i = phi i64 [ %1, %8 ], [ 0, %3 ]
+  %.sroa.5.0.i = phi double [ %10, %8 ], [ undef, %3 ]
+  %or.cond.not.i.i = trunc nuw i64 %.sroa.01.0.i to i1
+  %11 = tail call double @llvm.pow.f64(double %.sroa.5.0.i, double %2)
+  %.sroa.4.0.i.i = select i1 %or.cond.not.i.i, double %11, double undef
+  %12 = insertvalue { i64, double } poison, i64 %.sroa.01.0.i, 0
+  %13 = insertvalue { i64, double } %12, double %.sroa.4.0.i.i, 1
+  ret { i64, double } %13
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable
@@ -112046,15 +112048,17 @@ define hidden { i32, float } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %10 = load float, ptr %9, align 4, !alias.scope !8882, !noundef !3
-  %11 = tail call float @llvm.pow.f32(float %2, float %10)
   br label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h4f237e6cc32326bdE.exit"
 
 "_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h4f237e6cc32326bdE.exit": ; preds = %3, %8
-  %.sroa.01.04.i = phi i32 [ 0, %3 ], [ %1, %8 ]
-  %12 = phi float [ undef, %3 ], [ %11, %8 ]
-  %13 = insertvalue { i32, float } poison, i32 %.sroa.01.04.i, 0
-  %14 = insertvalue { i32, float } %13, float %12, 1
-  ret { i32, float } %14
+  %.sroa.01.0.i = phi i32 [ %1, %8 ], [ 0, %3 ]
+  %.sroa.5.0.i = phi float [ %10, %8 ], [ undef, %3 ]
+  %or.cond.not.i.i = trunc nuw i32 %.sroa.01.0.i to i1
+  %11 = tail call float @llvm.pow.f32(float %2, float %.sroa.5.0.i)
+  %.sroa.4.0.i.i = select i1 %or.cond.not.i.i, float %11, float undef
+  %12 = insertvalue { i32, float } poison, i32 %.sroa.01.0.i, 0
+  %13 = insertvalue { i32, float } %12, float %.sroa.4.0.i.i, 1
+  ret { i32, float } %13
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -112270,15 +112274,17 @@ define hidden { i64, double } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core.
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %10 = load double, ptr %9, align 8, !alias.scope !8931, !noundef !3
-  %11 = tail call double @llvm.pow.f64(double %2, double %10)
   br label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h59b29d09ca163be5E.exit"
 
 "_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h59b29d09ca163be5E.exit": ; preds = %3, %8
-  %.sroa.01.04.i = phi i64 [ 0, %3 ], [ %1, %8 ]
-  %12 = phi double [ undef, %3 ], [ %11, %8 ]
-  %13 = insertvalue { i64, double } poison, i64 %.sroa.01.04.i, 0
-  %14 = insertvalue { i64, double } %13, double %12, 1
-  ret { i64, double } %14
+  %.sroa.01.0.i = phi i64 [ %1, %8 ], [ 0, %3 ]
+  %.sroa.5.0.i = phi double [ %10, %8 ], [ undef, %3 ]
+  %or.cond.not.i.i = trunc nuw i64 %.sroa.01.0.i to i1
+  %11 = tail call double @llvm.pow.f64(double %2, double %.sroa.5.0.i)
+  %.sroa.4.0.i.i = select i1 %or.cond.not.i.i, double %11, double undef
+  %12 = insertvalue { i64, double } poison, i64 %.sroa.01.0.i, 0
+  %13 = insertvalue { i64, double } %12, double %.sroa.4.0.i.i, 1
+  ret { i64, double } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -112629,23 +112635,22 @@ define hidden { i32, float } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %5, align 8, !nonnull !3, !align !899, !noundef !3
   %6 = load i32, ptr %.val, align 4, !range !6261, !noundef !3
-  %7 = trunc nuw i32 %6 to i1
-  %8 = icmp ne i32 %1, 0
-  %or.cond.not.i = and i1 %8, %7
-  br i1 %or.cond.not.i, label %9, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hce0017b0632fba5bE.exit"
+  %7 = and i32 %6, %1
+  %or.cond.not.not.i = icmp eq i32 %7, 0
+  br i1 %or.cond.not.not.i, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hce0017b0632fba5bE.exit", label %8
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 4
-  %11 = load float, ptr %10, align 4, !alias.scope !9032, !noundef !3
-  %12 = tail call noundef float @atan2f(float noundef %2, float noundef %11) #39
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 4
+  %10 = load float, ptr %9, align 4, !alias.scope !9032, !noundef !3
+  %11 = tail call noundef float @atan2f(float noundef %2, float noundef %10) #39
   br label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hce0017b0632fba5bE.exit"
 
-"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hce0017b0632fba5bE.exit": ; preds = %3, %9
-  %.sroa.03.1.i.i = phi i32 [ 1, %9 ], [ 0, %3 ]
-  %.sroa.4.0.i.i = phi float [ %12, %9 ], [ undef, %3 ]
-  %13 = insertvalue { i32, float } poison, i32 %.sroa.03.1.i.i, 0
-  %14 = insertvalue { i32, float } %13, float %.sroa.4.0.i.i, 1
-  ret { i32, float } %14
+"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hce0017b0632fba5bE.exit": ; preds = %3, %8
+  %.sroa.03.1.i.i = phi i32 [ 1, %8 ], [ 0, %3 ]
+  %.sroa.4.0.i.i = phi float [ %11, %8 ], [ undef, %3 ]
+  %12 = insertvalue { i32, float } poison, i32 %.sroa.03.1.i.i, 0
+  %13 = insertvalue { i32, float } %12, float %.sroa.4.0.i.i, 1
+  ret { i32, float } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -112775,23 +112780,22 @@ define hidden { i32, float } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..
   %5 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %5, align 8, !nonnull !3, !align !899, !noundef !3
   %6 = load i32, ptr %.val, align 4, !range !6261, !noundef !3
-  %7 = trunc nuw i32 %6 to i1
-  %8 = icmp ne i32 %1, 0
-  %or.cond.not = and i1 %8, %7
-  br i1 %or.cond.not, label %9, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h62ff8100c25f526bE.exit"
+  %7 = and i32 %6, %1
+  %or.cond.not.not = icmp eq i32 %7, 0
+  br i1 %or.cond.not.not, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h62ff8100c25f526bE.exit", label %8
 
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 4
-  %11 = load float, ptr %10, align 4, !alias.scope !9075, !noundef !3
-  %12 = tail call noundef float @atan2f(float noundef %11, float noundef %2) #39
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 4
+  %10 = load float, ptr %9, align 4, !alias.scope !9075, !noundef !3
+  %11 = tail call noundef float @atan2f(float noundef %10, float noundef %2) #39
   br label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h62ff8100c25f526bE.exit"
 
-"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h62ff8100c25f526bE.exit": ; preds = %3, %9
-  %.sroa.03.1.i.i = phi i32 [ 1, %9 ], [ 0, %3 ]
-  %.sroa.4.0.i.i = phi float [ %12, %9 ], [ undef, %3 ]
-  %13 = insertvalue { i32, float } poison, i32 %.sroa.03.1.i.i, 0
-  %14 = insertvalue { i32, float } %13, float %.sroa.4.0.i.i, 1
-  ret { i32, float } %14
+"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h62ff8100c25f526bE.exit": ; preds = %3, %8
+  %.sroa.03.1.i.i = phi i32 [ 1, %8 ], [ 0, %3 ]
+  %.sroa.4.0.i.i = phi float [ %11, %8 ], [ undef, %3 ]
+  %12 = insertvalue { i32, float } poison, i32 %.sroa.03.1.i.i, 0
+  %13 = insertvalue { i32, float } %12, float %.sroa.4.0.i.i, 1
+  ret { i32, float } %13
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

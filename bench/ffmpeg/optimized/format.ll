@@ -629,7 +629,6 @@ define noundef zeroext i1 @ff_infer_colors(ptr noundef captures(none) %0, ptr no
 
 infer_prim_ref.exit:                              ; preds = %2, %.sink.split.i
   %.pre36 = phi i32 [ %3, %2 ], [ %.pre36.pre, %.sink.split.i ]
-  %.0.i = phi i32 [ 0, %2 ], [ 1, %.sink.split.i ]
   %12 = load i32, ptr %0, align 4, !tbaa !38
   %.not.i19 = icmp eq i32 %12, 2
   br i1 %.not.i19, label %13, label %infer_prim_ref.exit23.thread
@@ -674,7 +673,6 @@ infer_prim_ref.exit23.infer_prim_ref.exit23.thread_crit_edge: ; preds = %infer_p
 
 infer_prim_ref.exit23.thread:                     ; preds = %infer_prim_ref.exit23.infer_prim_ref.exit23.thread_crit_edge, %infer_prim_ref.exit
   %21 = phi i32 [ %.pre, %infer_prim_ref.exit23.infer_prim_ref.exit23.thread_crit_edge ], [ %.pre36, %infer_prim_ref.exit ]
-  %.0.i2031 = phi i32 [ 1, %infer_prim_ref.exit23.infer_prim_ref.exit23.thread_crit_edge ], [ %.0.i, %infer_prim_ref.exit ]
   %.not16 = icmp eq i32 %21, 2
   br i1 %.not16, label %22, label %23
 
@@ -718,8 +716,7 @@ infer_prim_ref.exit23.thread:                     ; preds = %infer_prim_ref.exit
   br label %infer_trc_ref.exit
 
 infer_trc_ref.exit:                               ; preds = %23, %30, %32
-  %38 = phi i32 [ %25, %23 ], [ %28, %32 ], [ 1, %30 ]
-  %.0.i25 = phi i32 [ 0, %23 ], [ 1, %32 ], [ 1, %30 ]
+  %38 = phi i32 [ %25, %23 ], [ 1, %30 ], [ %28, %32 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !40
   %.not.i26 = icmp eq i32 %40, 2
@@ -752,7 +749,6 @@ infer_trc_ref.exit28:                             ; preds = %41
   br label %infer_trc_ref.exit28.thread
 
 infer_trc_ref.exit28.thread:                      ; preds = %infer_trc_ref.exit28, %43, %infer_trc_ref.exit
-  %.0.i2735 = phi i32 [ 1, %infer_trc_ref.exit28 ], [ 1, %43 ], [ 0, %infer_trc_ref.exit ]
   %50 = load i32, ptr %24, align 4, !tbaa !40
   %.not18 = icmp eq i32 %50, 2
   br i1 %.not18, label %51, label %52
@@ -763,9 +759,9 @@ infer_trc_ref.exit28.thread:                      ; preds = %infer_trc_ref.exit2
   unreachable
 
 52:                                               ; preds = %infer_trc_ref.exit28.thread
-  %53 = or i32 %.0.i2031, %.0.i25
-  %54 = or i32 %53, %.0.i2735
-  %55 = icmp ne i32 %54, 0
+  %53 = or i1 %.not.i, %.not.i19
+  %54 = or i1 %53, %.not.i24
+  %55 = or i1 %54, %.not.i26
   ret i1 %55
 }
 
