@@ -61,13 +61,15 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h2c83d87f31
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = and i64 %3, -8
   %5 = inttoptr i64 %4 to ptr
-  %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i64, ptr %7, align 8, !noundef !4
+  %6 = icmp ne i64 %4, 0
+  tail call void @llvm.assume(i1 %6)
+  %8 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %9 = load i64, ptr %8, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  store ptr %6, ptr %2, align 8
+  store ptr %7, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %8, ptr %9, align 8
+  store i64 %9, ptr %9, align 8
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h14fcd6ddb83fe083E.llvm.9679142966780209040"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
           to label %"_ZN15crossbeam_epoch5guard5Guard15defer_unchecked28_$u7b$$u7b$closure$u7d$$u7d$17h389c90f79e7d37dcE.exit" unwind label %10
 
@@ -90,11 +92,13 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h94c2fe8421
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = and i64 %4, -8
   %6 = inttoptr i64 %5 to ptr
-  %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load i64, ptr %8, align 8, !noundef !4
+  %7 = icmp ne i64 %5, 0
+  tail call void @llvm.assume(i1 %8)
+  %9 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %10 = load i64, ptr %9, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  store ptr %7, ptr %2, align 8
+  store ptr %8, ptr %2, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %9, ptr %10, align 8
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h14fcd6ddb83fe083E.llvm.9679142966780209040"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
@@ -702,13 +706,15 @@ define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e50
   %8 = icmp sgt i64 %7, -1
   tail call void @llvm.assume(i1 %8)
   %9 = inttoptr i64 %1 to ptr
-  br label %11
+  %9 = icmp ne i64 %1, 0
+  tail call void @llvm.assume(i1 %10)
+  br label %12
 
 10:                                               ; preds = %4
   br i1 %3, label %19, label %14
 
 11:                                               ; preds = %14, %19, %6
-  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %22, %19 ], [ %18, %14 ]
+  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %22, %20 ], [ %18, %15 ]
   %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
   %13 = insertvalue { ptr, i64 } %12, i64 %2, 1
   ret { ptr, i64 } %13

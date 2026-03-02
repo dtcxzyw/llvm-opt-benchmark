@@ -392,8 +392,10 @@ _ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_O
   %111 = fmul float %110, 6.553500e+04
   %112 = fdiv float %111, %103
   %113 = fptosi float %112 to i32
-  %114 = getelementptr inbounds nuw i32, ptr %.ptr238.ptr.ptr, i64 %indvars.iv227
-  store i32 %113, ptr %114, align 4, !tbaa !106
+  %114 = icmp samesign ult i64 %indvars.iv227, 4
+  tail call void @llvm.assume(i1 %114)
+  %115 = getelementptr inbounds nuw i32, ptr %.ptr238.ptr.ptr, i64 %indvars.iv227
+  store i32 %113, ptr %115, align 4, !tbaa !106
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %exitcond230.not = icmp eq i64 %indvars.iv.next228, 4
   br i1 %exitcond230.not, label %104, label %108, !llvm.loop !113
@@ -414,7 +416,7 @@ _ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_O
   br i1 %.not75, label %.lr.ph205, label %.lr.ph201
 
 119:                                              ; preds = %.lr.ph205, %119
-  %.063204.idx = phi i64 [ 100, %.lr.ph205 ], [ %.063204.add, %119 ]
+  %.063204.idx = phi i64 [ 100, %.lr.ph205 ], [ %.063204.add, %120 ]
   %.063204.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.063204.idx
   store i32 %116, ptr %.063204.ptr, align 4, !tbaa !106
   %.063204.add = add nuw nsw i64 %.063204.idx, 4

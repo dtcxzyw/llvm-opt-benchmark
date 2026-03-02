@@ -1476,7 +1476,7 @@ _ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i.i.i: ; preds = %133, 
 
 136:                                              ; preds = %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i.i.i
   invoke void @_ZN3std3sys4sync5mutex5futex5Mutex4wake17h8c60655997115495E(ptr noundef nonnull align 4 %109)
-          to label %164 unwind label %162
+          to label %165 unwind label %162
 
 137:                                              ; preds = %153, %.body.i.i
   %138 = landingpad { ptr, i32 }
@@ -1554,6 +1554,8 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mute
 155:                                              ; preds = %154
   %156 = landingpad { ptr, i32 }
           cleanup
+  %157 = icmp ne ptr %.sroa.46.0.copyload.i, null
+  call void @llvm.assume(i1 %157)
   br label %.body.thread.sink.split.i
 
 .noexc5.i:                                        ; preds = %154
@@ -1599,9 +1601,9 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mute
   br label %.body
 
 .body:                                            ; preds = %.body.i.i, %153, %.body.thread.sink.split.i, %159, %162
-  %eh.lpad-body = phi { ptr, i32 } [ %163, %162 ], [ %lpad.phi.i.i, %153 ], [ %lpad.thr_comm.split-lp.i, %159 ], [ %118, %.body.i.i ], [ %eh.lpad-body17.ph.i, %.body.thread.sink.split.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %163, %163 ], [ %lpad.phi.i.i, %153 ], [ %lpad.thr_comm.split-lp.i, %160 ], [ %118, %.body.i.i ], [ %eh.lpad-body17.ph.i, %.body.thread.sink.split.i ]
   invoke void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsgrIngBG6lgl_14regex_automata4util8captures8CapturesECseG2FYMysgNb_3wax(ptr noalias noundef nonnull align 8 dereferenceable(40) %10) #28
-          to label %183 unwind label %181
+          to label %184 unwind label %181
 
 164:                                              ; preds = %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc5boxed3BoxNtNtNtCsgrIngBG6lgl_14regex_automata4meta5regex5CacheEECseG2FYMysgNb_3wax.exit.i.i, %_ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i.i.i, %.noexc5.i, %.noexc7.i, %136
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !352
@@ -1635,8 +1637,8 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtCsapf13pIxsjn_3std4sync5mute
   br label %179
 
 179:                                              ; preds = %169, %175
-  %.sroa.01.0 = phi i64 [ 1, %175 ], [ 0, %169 ]
-  %.sroa.3.0 = phi i64 [ %178, %175 ], [ undef, %169 ]
+  %.sroa.01.0 = phi i64 [ 1, %176 ], [ 0, %170 ]
+  %.sroa.3.0 = phi i64 [ %178, %176 ], [ undef, %170 ]
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
   store i64 %.sroa.01.0, ptr %0, align 8

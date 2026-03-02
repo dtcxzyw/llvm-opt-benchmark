@@ -2194,6 +2194,8 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h7f8ad9a506dfcf28E.exit.i: ; preds 
 "_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$9wait_next17h38317ca9d6f764e2E.exit": ; preds = %_ZN15crossbeam_utils7backoff7Backoff6snooze17h7f8ad9a506dfcf28E.exit.i, %31
   %42 = load atomic i64, ptr %32 acquire, align 8
   %.0.i34 = inttoptr i64 %42 to ptr
+  %43 = icmp ne ptr %.156, null
+  tail call void @llvm.assume(i1 %43)
   tail call void @__rust_dealloc(ptr noundef nonnull %.156, i64 noundef 1992, i64 noundef 8) #19
   br label %"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$influxdb3_write..SequenceNumber$C$influxdb3_write..wal..Error$GT$$GT$17hfa682e00d977d133E.llvm.13054344295739906232.exit"
 
@@ -2206,7 +2208,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h7f8ad9a506dfcf28E.exit.i: ; preds 
   br i1 %48, label %.lr.ph.i35, label %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17hebb54eb813f11eb0E.exit"
 
 .lr.ph.i35:                                       ; preds = %43, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h7f8ad9a506dfcf28E.exit.i38
-  %.02.i36 = phi i32 [ %.1.i39, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h7f8ad9a506dfcf28E.exit.i38 ], [ 0, %43 ]
+  %.02.i36 = phi i32 [ %.1.i39, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h7f8ad9a506dfcf28E.exit.i38 ], [ 0, %44 ]
   %49 = icmp ult i32 %.02.i36, 7
   br i1 %49, label %.preheader.i.i41, label %.thread.i.i37
 
@@ -2395,6 +2397,8 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h7f8ad9a506dfcf28E.exit.i: ; preds 
 "_ZN17crossbeam_channel7flavors4list14Block$LT$T$GT$9wait_next17h0ec2e02e9b39b23aE.exit": ; preds = %_ZN15crossbeam_utils7backoff7Backoff6snooze17h7f8ad9a506dfcf28E.exit.i, %31
   %42 = load atomic i64, ptr %32 acquire, align 8
   %.0.i34 = inttoptr i64 %42 to ptr
+  %43 = icmp ne ptr %.156, null
+  tail call void @llvm.assume(i1 %43)
   tail call void @__rust_dealloc(ptr noundef nonnull %.156, i64 noundef 1000, i64 noundef 8) #19
   br label %57
 
@@ -2407,7 +2411,7 @@ _ZN15crossbeam_utils7backoff7Backoff6snooze17h7f8ad9a506dfcf28E.exit.i: ; preds 
   br i1 %48, label %.lr.ph.i35, label %"_ZN17crossbeam_channel7flavors4list13Slot$LT$T$GT$10wait_write17h78482d249d0e1f72E.exit"
 
 .lr.ph.i35:                                       ; preds = %43, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h7f8ad9a506dfcf28E.exit.i38
-  %.02.i36 = phi i32 [ %.1.i39, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h7f8ad9a506dfcf28E.exit.i38 ], [ 0, %43 ]
+  %.02.i36 = phi i32 [ %.1.i39, %_ZN15crossbeam_utils7backoff7Backoff6snooze17h7f8ad9a506dfcf28E.exit.i38 ], [ 0, %44 ]
   %49 = icmp ult i32 %.02.i36, 7
   br i1 %49, label %.preheader.i.i41, label %.thread.i.i37
 

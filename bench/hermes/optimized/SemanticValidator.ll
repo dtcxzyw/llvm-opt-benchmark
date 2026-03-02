@@ -5368,7 +5368,9 @@ if.then8:                                         ; preds = %_ZN4llvh12DenseMapB
 
 if.end24.i:                                       ; preds = %if.then8
   %cmp.i.i.i.i.i.i.i23.i = icmp eq i32 %10, 26
+  %tobool2629.i = icmp ne ptr %9, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i23.i)
+  tail call void @llvm.assume(i1 %tobool2629.i)
   br label %_ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit
 
 _ZN6hermes3sem17SemanticValidator22getLabelDecorationBaseEPNS_6ESTree13StatementNodeE.exit: ; preds = %if.then8, %if.end24.i
@@ -5473,7 +5475,9 @@ entry:
 
 if.end24:                                         ; preds = %entry
   %cmp.i.i.i.i.i.i.i23 = icmp eq i32 %0, 26
+  %tobool2629 = icmp ne ptr %node, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i23)
+  tail call void @llvm.assume(i1 %tobool2629)
   br label %return
 
 return:                                           ; preds = %entry, %if.end24

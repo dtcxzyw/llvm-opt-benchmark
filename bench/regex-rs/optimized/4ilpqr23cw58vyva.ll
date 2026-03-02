@@ -175,6 +175,8 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$alloc..b
 .body.i.i:                                        ; preds = %.lr.ph.i.i
   %9 = landingpad { ptr, i32 }
           cleanup
+  %10 = icmp ne ptr %.val7.i.i, null
+  tail call void @llvm.assume(i1 %10)
   tail call void @__rust_dealloc(ptr noundef nonnull %.val7.i.i, i64 noundef 1400, i64 noundef 8) #12, !noalias !113
   br label %11
 
@@ -184,7 +186,7 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$alloc..b
   br i1 %10, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbee15b05b555a99E.llvm.13084666244534616040.exit", label %.lr.ph.i.i
 
 11:                                               ; preds = %13, %.body.i.i
-  %.1.i.i = phi i64 [ %8, %.body.i.i ], [ %15, %13 ]
+  %.1.i.i = phi i64 [ %8, %.body.i.i ], [ %15, %14 ]
   %12 = icmp eq i64 %.1.i.i, %5
   br i1 %12, label %.body, label %13
 
@@ -193,7 +195,7 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$alloc..b
   %15 = add i64 %.1.i.i, 1
   %.val.i.i = load ptr, ptr %14, align 8, !alias.scope !110, !noalias !107, !noundef !4
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17hae213ac566abb52fE"(ptr %.val.i.i) #13
-          to label %11 unwind label %16, !noalias !113
+          to label %12 unwind label %16, !noalias !113
 
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
@@ -7813,6 +7815,8 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 .body.i:                                          ; preds = %.lr.ph.i
   %9 = landingpad { ptr, i32 }
           cleanup
+  %10 = icmp ne ptr %.val7.i, null
+  tail call void @llvm.assume(i1 %10)
   tail call void @__rust_dealloc(ptr noundef nonnull %.val7.i, i64 noundef 1400, i64 noundef 8) #12, !noalias !3160
   br label %11
 
@@ -7822,7 +7826,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br i1 %10, label %"_ZN4core3ptr90drop_in_place$LT$$u5b$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$u5d$$GT$17h5f521015cafd55e9E.exit", label %.lr.ph.i
 
 11:                                               ; preds = %13, %.body.i
-  %.1.i = phi i64 [ %8, %.body.i ], [ %15, %13 ]
+  %.1.i = phi i64 [ %8, %.body.i ], [ %15, %14 ]
   %12 = icmp eq i64 %.1.i, %5
   br i1 %12, label %16, label %13
 
@@ -7831,7 +7835,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   %15 = add i64 %.1.i, 1
   %.val.i = load ptr, ptr %14, align 8, !alias.scope !3160, !noundef !4
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$regex_automata..meta..regex..Cache$GT$$GT$17hae213ac566abb52fE"(ptr %.val.i) #13
-          to label %11 unwind label %17, !noalias !3160
+          to label %12 unwind label %17, !noalias !3160
 
 16:                                               ; preds = %11
   resume { ptr, i32 } %9

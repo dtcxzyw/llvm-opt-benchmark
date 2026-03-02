@@ -2985,9 +2985,11 @@ define linkonce_odr void @_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArra
   %37 = shl nuw nsw i32 %12, 2
   %38 = and i32 %16, -4
   store ptr %7, ptr %0, align 8, !tbaa !266
-  %39 = icmp samesign uge i32 %38, %37
+  %39 = icmp ne i32 %38, 0
   tail call void @llvm.assume(i1 %39)
-  br label %40
+  %40 = icmp samesign uge i32 %38, %37
+  tail call void @llvm.assume(i1 %40)
+  br label %41
 
 40:                                               ; preds = %29, %19
   %.sink30 = phi i32 [ %38, %29 ], [ %28, %19 ]

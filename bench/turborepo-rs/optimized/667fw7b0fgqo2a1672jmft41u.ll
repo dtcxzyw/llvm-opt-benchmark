@@ -1283,6 +1283,8 @@ _ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i.i.i: ; preds = %135, 
 145:                                              ; preds = %144
   %146 = landingpad { ptr, i32 }
           cleanup
+  %147 = icmp ne ptr %.sroa.46.0.copyload.i, null
+  call void @llvm.assume(i1 %147)
   br label %.body.thread.sink.split.i
 
 .noexc4.i:                                        ; preds = %144
@@ -1315,7 +1317,7 @@ _ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i.i.i: ; preds = %135, 
   br label %.body.thread.i
 
 .body.thread.i:                                   ; preds = %151, %.body.thread.sink.split.i, %143, %.body.i.i
-  %eh.lpad-body17.i = phi { ptr, i32 } [ %lpad.phi.i.i, %143 ], [ %lpad.thr_comm.split-lp.i, %151 ], [ %121, %.body.i.i ], [ %eh.lpad-body17.ph.i, %.body.thread.sink.split.i ]
+  %eh.lpad-body17.i = phi { ptr, i32 } [ %lpad.phi.i.i, %143 ], [ %lpad.thr_comm.split-lp.i, %152 ], [ %121, %.body.i.i ], [ %eh.lpad-body17.ph.i, %.body.thread.sink.split.i ]
   resume { ptr, i32 } %eh.lpad-body17.i
 
 151:                                              ; preds = %_RNvMs2_NtNtNtCsgrIngBG6lgl_14regex_automata4util4pool5innerINtB5_4PoolNtNtNtBb_4meta5regex5CacheINtNtCs68wO5nsWeTG_5alloc5boxed3BoxDINtNtNtCs1LoaDTb72WA_4core3ops8function2FnuEp6OutputB16_NtNtNtB2d_5panic11unwind_safe13RefUnwindSafeNtNtB2d_6marker4SyncNtB32_10UnwindSafeNtB3K_4SendEL_EE3getCseG2FYMysgNb_3wax.exit.i
@@ -1331,7 +1333,7 @@ _ZN3std4sync6poison4Flag4done17he5a058c907639c42E.exit.i.i.i.i: ; preds = %135, 
   unreachable
 
 _RNvMs0_NtNtCsgrIngBG6lgl_14regex_automata4meta5regexNtB5_5Regex11search_half.exit: ; preds = %15, %_RNvMs4_NtNtCsgrIngBG6lgl_14regex_automata4meta5regexNtB5_9RegexInfo13is_impossible.exit.i, %149
-  %trunc = phi i1 [ %150, %149 ], [ false, %_RNvMs4_NtNtCsgrIngBG6lgl_14regex_automata4meta5regexNtB5_9RegexInfo13is_impossible.exit.i ], [ false, %15 ]
+  %trunc = phi i1 [ %150, %150 ], [ false, %_RNvMs4_NtNtCsgrIngBG6lgl_14regex_automata4meta5regexNtB5_9RegexInfo13is_impossible.exit.i ], [ false, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %trunc

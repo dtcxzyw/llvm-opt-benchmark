@@ -59415,8 +59415,10 @@ _ZN4absl12log_internal10LogMessagelsILi20EEERS1_RAT__Kc.exit: ; preds = %14
 26:                                               ; preds = %17, %23
   %27 = phi i8 [ %.pre, %23 ], [ %21, %17 ]
   %.0.i23 = phi ptr [ %25, %23 ], [ %19, %17 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 8
-  %29 = atomicrmw add ptr %28, i32 2 monotonic, align 4
+  %28 = icmp ne ptr %.0.i23, null
+  tail call void @llvm.assume(i1 %28)
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 8
+  %30 = atomicrmw add ptr %29, i32 2 monotonic, align 4
   %or.cond.i = icmp ult i8 %27, 5
   br i1 %or.cond.i, label %30, label %31, !prof !858
 
@@ -59429,7 +59431,7 @@ _ZN4absl12log_internal10LogMessagelsILi20EEERS1_RAT__Kc.exit: ; preds = %14
 
 31:                                               ; preds = %26
   %32 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #42
-          to label %33 unwind label %46
+          to label %34 unwind label %46
 
 33:                                               ; preds = %31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %32, i8 0, i64 16, i1 false)

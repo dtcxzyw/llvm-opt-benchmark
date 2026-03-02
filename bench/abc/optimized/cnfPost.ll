@@ -18,6 +18,7 @@ define void @Cnf_ManPostprocess_old(ptr noundef readonly captures(none) %0) loca
 .lr.ph:                                           ; preds = %1
   %7 = getelementptr i8, ptr %4, i64 8
   %.val38 = load ptr, ptr %7, align 8, !tbaa !27
+  %.not.i = icmp ne ptr %4, null
   %wide.trip.count61 = zext nneg i32 %.val to i64
   br label %8
 
@@ -50,6 +51,7 @@ define void @Cnf_ManPostprocess_old(ptr noundef readonly captures(none) %0) loca
   br i1 %.not, label %.critedge2, label %Aig_ManObj.exit.lr.ph
 
 Aig_ManObj.exit.lr.ph:                            ; preds = %.preheader
+  tail call void @llvm.assume(i1 %.not.i)
   %21 = lshr i32 %.fr, 15
   %22 = and i32 %21, 4094
   %.not37 = icmp eq i32 %22, 0
@@ -459,12 +461,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #4
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #5
+
 attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind }
+attributes #5 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -2124,6 +2124,8 @@ define dso_local void @tcg_gen_extract2_i32(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %29, label %30, label %57
 
 30:                                               ; preds = %28
+  %or.cond.i = icmp samesign ult i32 %3, 32
+  tail call void @llvm.assume(i1 %or.cond.i)
   %31 = icmp eq i32 %3, 0
   br i1 %31, label %32, label %tcg_gen_rotli_i32.exit.i
 
@@ -5566,6 +5568,8 @@ define dso_local void @tcg_gen_extract2_i64(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %31, label %32, label %61
 
 32:                                               ; preds = %30
+  %or.cond.i = icmp samesign ult i32 %3, 64
+  tail call void @llvm.assume(i1 %or.cond.i)
   %33 = icmp eq i32 %3, 0
   br i1 %33, label %34, label %tcg_gen_rotli_i64.exit.i
 
@@ -5586,9 +5590,9 @@ define dso_local void @tcg_gen_extract2_i64(ptr noundef %0, ptr noundef %1, ptr 
   br label %tcg_gen_mov_i64.exit
 
 tcg_gen_rotli_i64.exit.i:                         ; preds = %32
-  %46 = zext nneg i32 %3 to i64
-  %47 = sub nuw nsw i64 64, %46
-  %48 = tail call ptr @tcg_constant_i64(i64 noundef %47) #6
+  %narrow = sub nuw nsw i32 64, %3
+  %46 = zext nneg i32 %narrow to i64
+  %48 = tail call ptr @tcg_constant_i64(i64 noundef %46) #6
   %49 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %50 = load ptr, ptr %49, align 8
   %51 = ptrtoint ptr %0 to i64

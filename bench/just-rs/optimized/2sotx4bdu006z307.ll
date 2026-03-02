@@ -9823,6 +9823,8 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1798434116971987782.exit.
 148:                                              ; preds = %147
   %149 = landingpad { ptr, i32 }
           cleanup
+  %150 = icmp ne i64 %.sroa.0.sroa.4.0.copyload.i, 0
+  call void @llvm.assume(i1 %150)
   br label %.body.thread.sink.split.i
 
 .noexc3.i:                                        ; preds = %147
@@ -9855,7 +9857,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1798434116971987782.exit.
   br label %.body.thread.i
 
 .body.thread.i:                                   ; preds = %153, %.body.thread.sink.split.i, %.body.i.i, %.thread.i.i
-  %eh.lpad-body15.i = phi { ptr, i32 } [ %115, %.body.i.i ], [ %lpad.thr_comm.split-lp.i, %153 ], [ %lpad.phi.i.i, %.thread.i.i ], [ %eh.lpad-body15.ph.i, %.body.thread.sink.split.i ]
+  %eh.lpad-body15.i = phi { ptr, i32 } [ %115, %.body.i.i ], [ %lpad.thr_comm.split-lp.i, %154 ], [ %lpad.phi.i.i, %.thread.i.i ], [ %eh.lpad-body15.ph.i, %.body.thread.sink.split.i ]
   resume { ptr, i32 } %eh.lpad-body15.i
 
 153:                                              ; preds = %"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$3get17h8779890000955411E.exit.i"

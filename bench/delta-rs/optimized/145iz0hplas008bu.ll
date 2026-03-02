@@ -1061,13 +1061,15 @@ define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821
   %8 = icmp sgt i64 %7, -1
   tail call void @llvm.assume(i1 %8)
   %9 = inttoptr i64 %1 to ptr
-  br label %11
+  %10 = icmp ne i64 %1, 0
+  tail call void @llvm.assume(i1 %10)
+  br label %12
 
 10:                                               ; preds = %4
   br i1 %3, label %19, label %14
 
 11:                                               ; preds = %14, %19, %6
-  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %22, %19 ], [ %18, %14 ]
+  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %22, %20 ], [ %18, %15 ]
   %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
   %13 = insertvalue { ptr, i64 } %12, i64 %2, 1
   ret { ptr, i64 } %13

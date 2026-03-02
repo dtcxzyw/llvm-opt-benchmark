@@ -1133,7 +1133,7 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.139.i = phi i32 [ %.046.i, %.lr.ph.preheader.i ], [ %41, %.lr.ph.i ]
+  %.139.i = phi i32 [ %.046.i, %.lr.ph.preheader.i ], [ %42, %.lr.ph.i ]
   %31 = sext i32 %.139.i to i64
   %32 = getelementptr i8, ptr %7, i64 %31
   %33 = sub i32 2048, %.139.i
@@ -1141,18 +1141,20 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
   %35 = sub nsw i64 2048, %31
   %36 = icmp ugt i32 %.139.i, 2048
   %37 = select i1 %36, i64 0, i64 %35
-  %38 = getelementptr i32, ptr %6, i64 %indvars.iv.i
-  %39 = load i32, ptr %38, align 4
-  %40 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %32, i64 noundef %34, i32 noundef 2, i64 noundef %37, ptr noundef nonnull @.str.183, i32 noundef %39)
-  %41 = add i32 %40, %.139.i
+  %38 = icmp ne i64 %37, -1
+  call void @llvm.assume(i1 %38)
+  %39 = getelementptr i32, ptr %6, i64 %indvars.iv.i
+  %40 = load i32, ptr %39, align 4
+  %41 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %32, i64 noundef %34, i32 noundef 2, i64 noundef %37, ptr noundef nonnull @.str.183, i32 noundef %40)
+  %42 = add i32 %41, %.139.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %42 = icmp samesign ult i64 %indvars.iv.next.i, %30
-  %43 = icmp slt i32 %41, 2048
+  %43 = icmp slt i32 %42, 2048
   %44 = select i1 %42, i1 %43, i1 false
   br i1 %44, label %.lr.ph.i, label %convert_oid_to_str.exit, !llvm.loop !16
 
 convert_oid_to_str.exit:                          ; preds = %.lr.ph.i
-  %.not = icmp eq i32 %41, 0
+  %.not = icmp eq i32 %42, 0
   br i1 %.not, label %convert_oid_to_str.exit.thread, label %convert_oid_to_str.exit.thread58
 
 convert_oid_to_str.exit.thread:                   ; preds = %5, %convert_oid_to_str.exit
@@ -1166,7 +1168,7 @@ convert_oid_to_str.exit.thread58:                 ; preds = %26, %convert_oid_to
 46:                                               ; preds = %convert_oid_to_str.exit.thread58
   %.not54 = icmp eq i8 %12, 0
   %47 = select i1 %.not54, ptr @.str.178, ptr @.str.177
-  switch i32 %4, label %49 [
+  switch i32 %4, label %50 [
     i32 0, label %50
     i32 1, label %48
   ]
@@ -1178,8 +1180,8 @@ convert_oid_to_str.exit.thread58:                 ; preds = %26, %convert_oid_to
   br label %50
 
 50:                                               ; preds = %46, %49, %48
-  %.048 = phi ptr [ @.str.176, %49 ], [ @.str.180, %48 ], [ @.str.179, %46 ]
-  %.0 = phi ptr [ @.str.176, %49 ], [ %47, %48 ], [ %47, %46 ]
+  %.048 = phi ptr [ @.str.176, %50 ], [ @.str.180, %49 ], [ @.str.179, %47 ]
+  %.0 = phi ptr [ @.str.176, %50 ], [ %47, %49 ], [ %48, %47 ]
   %51 = shl nuw nsw i32 %15, 2
   %52 = add nuw nsw i32 %51, 4
   %53 = load i32, ptr @ett_obj_ident, align 4
@@ -1198,7 +1200,7 @@ convert_oid_to_str.exit.thread58:                 ; preds = %26, %convert_oid_to
   br label %66
 
 66:                                               ; preds = %convert_oid_to_str.exit.thread58, %50
-  %.050 = phi i32 [ %52, %50 ], [ %2, %convert_oid_to_str.exit.thread58 ]
+  %.050 = phi i32 [ %52, %51 ], [ %2, %convert_oid_to_str.exit.thread58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.050
@@ -1337,13 +1339,17 @@ declare i32 @llvm.umin.i32(i32, i32) #4
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #6
+
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nounwind }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

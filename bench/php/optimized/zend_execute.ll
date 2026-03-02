@@ -166590,9 +166590,11 @@ zend_string_equals.exit.thread82:                 ; preds = %63, %zend_string_eq
 
 80:                                               ; preds = %zend_string_equals.exit.thread82, %zend_string_equals.exit.thread82, %zend_string_equals.exit79.thread81, %zend_string_equals.exit79.thread81, %71, %40, %49, %53
   %.073 = phi ptr [ %54, %53 ], [ %23, %49 ], [ @executor_globals, %zend_string_equals.exit79.thread81 ], [ @executor_globals, %zend_string_equals.exit79.thread81 ], [ @executor_globals, %zend_string_equals.exit.thread82 ], [ @executor_globals, %40 ], [ @executor_globals, %zend_string_equals.exit.thread82 ], [ @executor_globals, %71 ]
-  switch i32 %0, label %107 [
-    i32 3, label %81
-    i32 0, label %81
+  %81 = icmp ne ptr %.073, null
+  tail call void @llvm.assume(i1 %81)
+  switch i32 %0, label %108 [
+    i32 3, label %82
+    i32 0, label %82
   ]
 
 81:                                               ; preds = %80, %80
@@ -166617,8 +166619,8 @@ zend_string_equals.exit.thread82:                 ; preds = %63, %zend_string_eq
   br i1 %.not78, label %98, label %.sink.split
 
 .sink.split:                                      ; preds = %85, %88
-  %.sink3 = phi i32 [ %92, %88 ], [ %83, %85 ]
-  %.sink.in = phi ptr [ %90, %88 ], [ %.073, %85 ]
+  %.sink3 = phi i32 [ %92, %89 ], [ %83, %86 ]
+  %.sink.in = phi ptr [ %90, %89 ], [ %.073, %86 ]
   %94 = and i32 %.sink3, 65280
   %95 = icmp ne i32 %94, 0
   tail call void @llvm.assume(i1 %95)
@@ -166629,7 +166631,7 @@ zend_string_equals.exit.thread82:                 ; preds = %63, %zend_string_eq
   br label %98
 
 98:                                               ; preds = %.sink.split, %81, %88
-  %.074 = phi ptr [ %.073, %81 ], [ %90, %88 ], [ %.sink.in, %.sink.split ]
+  %.074 = phi ptr [ %.073, %82 ], [ %90, %89 ], [ %.sink.in, %.sink.split ]
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %100 = load i32, ptr %99, align 8, !tbaa !55
   %101 = sext i32 %100 to i64

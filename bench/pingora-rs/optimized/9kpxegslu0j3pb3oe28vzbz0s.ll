@@ -587,8 +587,8 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hcdeca8dcb9fdacd7E
   br label %"_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit27"
 
 "_ZN4core3ptr207drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17h220d51b62f69fc4eE.exit27": ; preds = %85, %81, %132, %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34"
-  %.val19.pn = phi ptr [ %45, %132 ], [ %.val21, %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34" ], [ %.val23, %81 ], [ %.val23, %85 ]
-  %.val20.pn = phi ptr [ %46, %132 ], [ %.val22, %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34" ], [ %.val24, %81 ], [ %.val24, %85 ]
+  %.val19.pn = phi ptr [ %45, %133 ], [ %.val21, %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34" ], [ %.val23, %81 ], [ %.val23, %85 ]
+  %.val20.pn = phi ptr [ %46, %133 ], [ %.val22, %"_ZN4core3ptr208drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$alloc..collections..btree..map..BTreeMap$LT$pingora_timeout..timer..Time$C$pingora_timeout..timer..Timer$GT$$GT$$GT$17he4ffe40ce8495caeE.exit34" ], [ %.val24, %81 ], [ %.val24, %85 ]
   %.pn = insertvalue { ptr, ptr } poison, ptr %.val19.pn, 0
   %.merged = insertvalue { ptr, ptr } %.pn, ptr %.val20.pn, 1
   ret { ptr, ptr } %.merged
@@ -708,9 +708,11 @@ _ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit: ; preds = %43
   br i1 %126, label %130, label %127
 
 127:                                              ; preds = %_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit
-  %128 = atomicrmw add ptr %46, i64 1 monotonic, align 8
-  %129 = icmp slt i64 %128, 0
-  br i1 %129, label %131, label %132
+  %128 = icmp ne ptr %46, null
+  tail call void @llvm.assume(i1 %128)
+  %129 = atomicrmw add ptr %46, i64 1 monotonic, align 8
+  %130 = icmp slt i64 %129, 0
+  br i1 %130, label %132, label %133
 
 130:                                              ; preds = %_ZN15pingora_timeout5timer5Timer4fire17hd07adee1b4af4e89E.exit
   tail call void @llvm.trap()

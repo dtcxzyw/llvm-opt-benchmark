@@ -11874,6 +11874,8 @@ default.unreachable:                              ; preds = %570
 
 .thread:                                          ; preds = %"_ZN5hyper5proto2h18dispatch32Dispatcher$LT$D$C$Bs$C$I$C$T$GT$10poll_inner17h2e53b7966fd472cbE.exit.thread184", %610, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hyper..upgrade..Pending$GT$$GT$17h7ac20e489142b26cE.exit.i", %"_ZN5hyper5proto2h18dispatch32Dispatcher$LT$D$C$Bs$C$I$C$T$GT$10poll_inner17h2e53b7966fd472cbE.exit.thread7.thread23"
   %.sroa.14.31017 = phi ptr [ %641, %"_ZN5hyper5proto2h18dispatch32Dispatcher$LT$D$C$Bs$C$I$C$T$GT$10poll_inner17h2e53b7966fd472cbE.exit.thread7.thread23" ], [ %661, %"_ZN5hyper5proto2h18dispatch32Dispatcher$LT$D$C$Bs$C$I$C$T$GT$10poll_inner17h2e53b7966fd472cbE.exit.thread184" ], [ %.sroa.6.0.i.ph.ph.i, %610 ], [ %652, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$hyper..upgrade..Pending$GT$$GT$17h7ac20e489142b26cE.exit.i" ]
+  %664 = icmp ne ptr %.sroa.14.31017, null
+  call void @llvm.assume(i1 %664)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %.sroa.14.31017, ptr %7, align 8, !noalias !430
   %.sroa.4.0..sroa_idx.i1 = getelementptr inbounds nuw i8, ptr %1, i64 528
@@ -11892,7 +11894,7 @@ default.unreachable:                              ; preds = %570
   %.sroa.5.0..sroa_idx3.i = getelementptr inbounds nuw i8, ptr %6, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx3.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.5.0..sroa_idx.i, i64 7, i1 false), !noalias !430
   %666 = invoke noundef nonnull align 8 ptr @_ZN5hyper5error5Error8new_body17he651352ae74bd830E(ptr noalias noundef nonnull readonly align 1 @anon.b34713dfcbdcf2a8bb4377ca3df15ef5.124, i64 noundef 16)
-          to label %669 unwind label %667, !noalias !434
+          to label %670 unwind label %667, !noalias !434
 
 667:                                              ; preds = %669, %664
   %668 = landingpad { ptr, i32 }
@@ -11902,11 +11904,11 @@ default.unreachable:                              ; preds = %570
 
 669:                                              ; preds = %664
   invoke void @_ZN5hyper4body4body6Sender10send_error17h453918a8a746d91dE(ptr noalias noundef nonnull align 8 dereferenceable(40) %6, ptr noalias noundef nonnull align 8 %666)
-          to label %670 unwind label %667, !noalias !434
+          to label %671 unwind label %667, !noalias !434
 
 670:                                              ; preds = %669
   invoke void @"_ZN4core3ptr46drop_in_place$LT$hyper..body..body..Sender$GT$17h2676c14a10e89bb8E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %6)
-          to label %672 unwind label %.thread8.i, !noalias !434
+          to label %673 unwind label %.thread8.i, !noalias !434
 
 .thread8.i:                                       ; preds = %670
   %671 = landingpad { ptr, i32 }
@@ -11938,7 +11940,7 @@ default.unreachable:                              ; preds = %570
   unreachable
 
 .thread.i:                                        ; preds = %.thread8.i, %667
-  %.pn7.i = phi { ptr, i32 } [ %671, %.thread8.i ], [ %668, %667 ]
+  %.pn7.i = phi { ptr, i32 } [ %671, %.thread8.i ], [ %668, %668 ]
   invoke void @"_ZN4core3ptr40drop_in_place$LT$hyper..error..Error$GT$17hbeade3f06316e71fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7) #23
           to label %common.resume unwind label %676, !noalias !434
 

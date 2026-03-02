@@ -886,8 +886,10 @@ san_large_extent_decide_guard.exit:               ; preds = %sz_size2index.exit,
 82:                                               ; preds = %75
   %83 = add nuw nsw i64 %3, 63
   %84 = and i64 %83, 8128
-  %85 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 0, -2305843009213693952) %84, i1 true)
-  %86 = xor i64 %85, 63
+  %85 = icmp ne i64 %84, 0
+  call void @llvm.assume(i1 %85)
+  %86 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 0, -2305843009213693952) %84, i1 true)
+  %87 = xor i64 %86, 63
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %87 = icmp eq ptr %0, null
   br i1 %87, label %93, label %88
@@ -907,10 +909,10 @@ san_large_extent_decide_guard.exit:               ; preds = %sz_size2index.exit,
   br label %97
 
 97:                                               ; preds = %93, %88
-  %.sink.i26 = phi i64 [ %96, %93 ], [ %92, %88 ]
-  %98 = sub nuw nsw i64 115, %85
+  %.sink.i26 = phi i64 [ %96, %94 ], [ %92, %89 ]
+  %98 = sub nuw nsw i64 115, %86
   %99 = lshr i64 %.sink.i26, %98
-  %100 = shl nuw nsw i64 %99, %86
+  %100 = shl nuw nsw i64 %99, %87
   %101 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %102 = load ptr, ptr %101, align 8, !tbaa !143
   %103 = ptrtoint ptr %102 to i64

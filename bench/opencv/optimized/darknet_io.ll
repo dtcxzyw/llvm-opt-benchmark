@@ -18960,9 +18960,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit325: ; preds = %46
   %483 = ptrtoint ptr %.sroa.28.0612 to i64
   %484 = sub i64 %483, %476
   %485 = ashr exact i64 %484, 2
-  %486 = xor i64 %479, 2305843009213693951
-  %487 = icmp ule i64 %485, %486
-  call void @llvm.assume(i1 %487)
+  %486 = icmp samesign ult i64 %479, 2305843009213693952
+  call void @llvm.assume(i1 %486)
+  %487 = xor i64 %479, 2305843009213693951
+  %488 = icmp ule i64 %485, %487
+  call void @llvm.assume(i1 %488)
   %.not28.i = icmp ult i64 %485, %482
   br i1 %.not28.i, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i
 
@@ -18994,9 +18996,9 @@ _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit33.i: ; preds = %_ZN
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %495, %493, %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit33.i, %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322
-  %.sroa.28.1 = phi ptr [ %.sroa.28.0612, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322 ], [ %.sroa.28.0612, %493 ], [ %.sroa.28.0612, %495 ], [ %492, %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit33.i ], [ %.sroa.28.0612, %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i ]
-  %.sroa.20.1 = phi ptr [ %.sroa.20.0613, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322 ], [ %.sroa.20.0613, %493 ], [ %spec.select374, %495 ], [ %491, %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit33.i ], [ %488, %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i ]
-  %.sroa.0360.2 = phi ptr [ %.sroa.0360.0614, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322 ], [ %.sroa.0360.0614, %493 ], [ %.sroa.0360.0614, %495 ], [ %489, %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit33.i ], [ %.sroa.0360.0614, %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i ]
+  %.sroa.28.1 = phi ptr [ %.sroa.28.0612, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322 ], [ %.sroa.28.0612, %494 ], [ %.sroa.28.0612, %496 ], [ %492, %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit33.i ], [ %.sroa.28.0612, %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i ]
+  %.sroa.20.1 = phi ptr [ %.sroa.20.0613, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322 ], [ %.sroa.20.0613, %494 ], [ %spec.select374, %496 ], [ %491, %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit33.i ], [ %488, %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i ]
+  %.sroa.0360.2 = phi ptr [ %.sroa.0360.0614, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit322 ], [ %.sroa.0360.0614, %494 ], [ %.sroa.0360.0614, %496 ], [ %489, %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit33.i ], [ %.sroa.0360.0614, %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i ]
   %497 = load ptr, ptr %141, align 8, !tbaa !99
   %498 = getelementptr inbounds nuw i32, ptr %497, i64 %indvars.iv.next
   %499 = load i32, ptr %498, align 4, !tbaa !16
@@ -19047,7 +19049,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i33
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341: ; preds = %505, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i339, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193
-  %.pn144.pn.pn = phi { ptr, i32 } [ %209, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193 ], [ %.pn144.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i339 ], [ %.pn144.pn, %505 ]
+  %.pn144.pn.pn = phi { ptr, i32 } [ %209, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193 ], [ %.pn144.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i339 ], [ %.pn144.pn, %506 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @_ZN2cv3dnn7darknet15setLayersParamsD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %12) #25
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit343

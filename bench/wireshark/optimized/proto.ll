@@ -35468,17 +35468,19 @@ proto_item_set_generated.exit153:                 ; preds = %106, %103, %101, %.
   br i1 %.not131, label %proto_item_set_generated.exit141, label %131
 
 .lr.ph:                                           ; preds = %115, %.lr.ph
-  %.0158 = phi i64 [ %130, %.lr.ph ], [ 0, %115 ]
+  %.0158 = phi i64 [ %131, %.lr.ph ], [ 0, %115 ]
   %122 = shl i64 %.0158, 1
   %123 = getelementptr i8, ptr %121, i64 %122
   %124 = sub i64 %117, %122
   %125 = tail call i64 @llvm.usub.sat.i64(i64 %120, i64 %122)
-  %126 = getelementptr i8, ptr %7, i64 %.0158
-  %127 = load i8, ptr %126, align 1
-  %128 = zext i8 %127 to i32
-  %129 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %123, i64 noundef %124, i32 noundef 2, i64 noundef %125, ptr noundef nonnull @.str.198, i32 noundef %128)
-  %130 = add nuw i64 %.0158, 1
-  %exitcond.not = icmp eq i64 %130, %8
+  %126 = icmp ne i64 %125, -1
+  tail call void @llvm.assume(i1 %126)
+  %127 = getelementptr i8, ptr %7, i64 %.0158
+  %128 = load i8, ptr %127, align 1
+  %129 = zext i8 %128 to i32
+  %130 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %123, i64 noundef %124, i32 noundef 2, i64 noundef %125, ptr noundef nonnull @.str.198, i32 noundef %129)
+  %131 = add nuw i64 %.0158, 1
+  %exitcond.not = icmp eq i64 %131, %8
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
 
 131:                                              ; preds = %._crit_edge
@@ -35510,7 +35512,7 @@ proto_item_set_generated.exit153:                 ; preds = %106, %103, %101, %.
   br label %proto_item_set_generated.exit141
 
 proto_item_set_generated.exit141:                 ; preds = %140, %137, %135, %97, %94, %92, %85, %82, %80, %63, %60, %57, %51, %48, %46, %134, %111, %112, %91, %79, %131, %._crit_edge, %proto_item_set_generated.exit
-  %.0111 = phi ptr [ %38, %proto_item_set_generated.exit ], [ %73, %._crit_edge ], [ %38, %51 ], [ %73, %112 ], [ %73, %111 ], [ %59, %63 ], [ %73, %134 ], [ %73, %97 ], [ %73, %91 ], [ %73, %85 ], [ %73, %79 ], [ %73, %131 ], [ %38, %46 ], [ %38, %48 ], [ null, %57 ], [ %59, %60 ], [ %73, %80 ], [ %73, %82 ], [ %73, %92 ], [ %73, %94 ], [ %73, %135 ], [ %73, %137 ], [ %73, %140 ]
+  %.0111 = phi ptr [ %38, %proto_item_set_generated.exit ], [ %73, %._crit_edge ], [ %38, %51 ], [ %73, %112 ], [ %73, %111 ], [ %59, %63 ], [ %73, %135 ], [ %73, %97 ], [ %73, %91 ], [ %73, %85 ], [ %73, %79 ], [ %73, %132 ], [ %38, %46 ], [ %38, %48 ], [ null, %57 ], [ %59, %60 ], [ %73, %80 ], [ %73, %82 ], [ %73, %92 ], [ %73, %94 ], [ %73, %136 ], [ %73, %138 ], [ %73, %141 ]
   ret ptr %.0111
 }
 

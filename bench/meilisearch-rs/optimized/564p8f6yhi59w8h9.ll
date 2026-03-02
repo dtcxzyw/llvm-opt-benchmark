@@ -523,6 +523,8 @@ define hidden { ptr, i64 } @"_ZN106_$LT$allocator_api2..stable..alloc..global..G
   %7 = icmp sgt i64 %6, -1
   tail call void @llvm.assume(i1 %7)
   %8 = getelementptr i8, ptr null, i64 %1
+  %9 = icmp ne i64 %1, 0
+  tail call void @llvm.assume(i1 %9)
   br label %_ZN14allocator_api26stable5alloc6global6Global10alloc_impl17h4b4fe1d7a8542cbbE.llvm.10588664184252717122.exit
 
 9:                                                ; preds = %3
@@ -534,7 +536,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$allocator_api2..stable..alloc..global..G
   br label %_ZN14allocator_api26stable5alloc6global6Global10alloc_impl17h4b4fe1d7a8542cbbE.llvm.10588664184252717122.exit
 
 _ZN14allocator_api26stable5alloc6global6Global10alloc_impl17h4b4fe1d7a8542cbbE.llvm.10588664184252717122.exit: ; preds = %5, %9
-  %.sroa.0.0.i = phi ptr [ %8, %5 ], [ %13, %9 ]
+  %.sroa.0.0.i = phi ptr [ %8, %5 ], [ %13, %10 ]
   %14 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
   %15 = insertvalue { ptr, i64 } %14, i64 %2, 1
   ret { ptr, i64 } %15
@@ -558,13 +560,15 @@ define hidden { ptr, i64 } @_ZN14allocator_api26stable5alloc6global6Global10allo
   %8 = icmp sgt i64 %7, -1
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr i8, ptr null, i64 %1
-  br label %11
+  %10 = icmp ne i64 %1, 0
+  tail call void @llvm.assume(i1 %10)
+  br label %12
 
 10:                                               ; preds = %4
   br i1 %3, label %19, label %14
 
 11:                                               ; preds = %14, %19, %6
-  %.sroa.0.0 = phi ptr [ %9, %6 ], [ %22, %19 ], [ %18, %14 ]
+  %.sroa.0.0 = phi ptr [ %9, %6 ], [ %22, %20 ], [ %18, %14 ]
   %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %13 = insertvalue { ptr, i64 } %12, i64 %2, 1
   ret { ptr, i64 } %13
@@ -2466,6 +2470,8 @@ define hidden noalias noundef ptr @_ZN9hashbrown3raw5inner5alloc5inner8do_alloc1
   %7 = icmp sgt i64 %6, -1
   tail call void @llvm.assume(i1 %7)
   %8 = getelementptr i8, ptr null, i64 %1
+  %9 = icmp ne i64 %1, 0
+  tail call void @llvm.assume(i1 %9)
   br label %_ZN14allocator_api26stable5alloc6global6Global10alloc_impl17h4b4fe1d7a8542cbbE.llvm.10588664184252717122.exit
 
 9:                                                ; preds = %3
@@ -2477,7 +2483,7 @@ define hidden noalias noundef ptr @_ZN9hashbrown3raw5inner5alloc5inner8do_alloc1
   br label %_ZN14allocator_api26stable5alloc6global6Global10alloc_impl17h4b4fe1d7a8542cbbE.llvm.10588664184252717122.exit
 
 _ZN14allocator_api26stable5alloc6global6Global10alloc_impl17h4b4fe1d7a8542cbbE.llvm.10588664184252717122.exit: ; preds = %5, %9
-  %.sroa.0.0.i = phi ptr [ %8, %5 ], [ %13, %9 ]
+  %.sroa.0.0.i = phi ptr [ %8, %5 ], [ %13, %10 ]
   ret ptr %.sroa.0.0.i
 }
 

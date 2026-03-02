@@ -75,6 +75,8 @@ define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$uu_nl..NumberingSty
 
 16:                                               ; preds = %14, %3
   %eh.lpad-body.i = phi { ptr, i32 } [ %15, %14 ], [ %4, %3 ]
+  %17 = icmp ne ptr %.8.val, null
+  tail call void @llvm.assume(i1 %17)
   tail call void @__rust_dealloc(ptr noundef nonnull %.8.val, i64 noundef 32, i64 noundef 8) #12
   resume { ptr, i32 } %eh.lpad-body.i
 

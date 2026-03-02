@@ -299,8 +299,10 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$validator..types..Validation
   tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
   %38 = mul i64 %37, 49
   %39 = add nsw i64 %38, 65
-  %40 = icmp eq i64 %39, 0
-  br i1 %40, label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$validator..types..ValidationErrors$GT$$GT$17h8f696a6bffc8bef3E.llvm.17854369902771195939.exit", label %41
+  %40 = icmp slt i64 %38, 9223372036854775728
+  tail call void @llvm.assume(i1 %39)
+  %41 = icmp eq i64 %39, 0
+  br i1 %41, label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$validator..types..ValidationErrors$GT$$GT$17h8f696a6bffc8bef3E.llvm.17854369902771195939.exit", label %42
 
 41:                                               ; preds = %.noexc
   %.neg = mul i64 %37, -48
@@ -410,8 +412,10 @@ _ZN9hashbrown3raw13RawTableInner13drop_elements17he78dd81bb3a33870E.llvm.1785436
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
   %31 = mul i64 %4, 49
   %32 = add nsw i64 %31, 65
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %"_ZN4core3ptr55drop_in_place$LT$validator..types..ValidationErrors$GT$17hccb70c6bbd2a815cE.exit", label %34
+  %33 = icmp slt i64 %31, 9223372036854775728
+  tail call void @llvm.assume(i1 %33)
+  %34 = icmp eq i64 %32, 0
+  br i1 %34, label %"_ZN4core3ptr55drop_in_place$LT$validator..types..ValidationErrors$GT$17hccb70c6bbd2a815cE.exit", label %35
 
 34:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17he78dd81bb3a33870E.llvm.17854369902771195939.exit.i.i
   %.neg.i.i = mul i64 %4, -48
@@ -1556,15 +1560,15 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17h219538e3b4492417E.exit.threa
   br label %168
 
 ._crit_edge.i.i10:                                ; preds = %168
-  %spec.select.i = tail call i64 @llvm.umax.i64(i64 %22, i64 16)
-  %spec.select31.i = tail call i64 @llvm.umin.i64(i64 %22, i64 16)
-  %154 = getelementptr inbounds i8, ptr %.val16.i, i64 %spec.select.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %154, ptr nonnull align 1 %.val16.i, i64 %spec.select31.i, i1 false), !noalias !308
+  %154 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %..i = tail call i64 @llvm.umax.i64(i64 %22, i64 16)
+  %.30.i = tail call i64 @llvm.umin.i64(i64 %22, i64 16)
+  %156 = getelementptr inbounds i8, ptr %.val16.i, i64 %..i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %156, ptr nonnull align 1 %.val16.i, i64 %.30.i, i1 false), !noalias !308
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !308
-  %155 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @"_ZN4core3ptr85drop_in_place$LT$$LP$alloc..borrow..Cow$LT$str$GT$$C$serde_json..value..Value$RP$$GT$17hc5f4d9c7a396909eE.llvm.17854369902771195939", ptr %155, align 8, !noalias !308
-  %156 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 56, ptr %156, align 8, !noalias !308
+  store ptr @"_ZN4core3ptr85drop_in_place$LT$$LP$alloc..borrow..Cow$LT$str$GT$$C$serde_json..value..Value$RP$$GT$17hc5f4d9c7a396909eE.llvm.17854369902771195939", ptr %154, align 8, !noalias !308
+  store i64 56, ptr %155, align 8, !noalias !308
   store ptr %0, ptr %8, align 8, !noalias !308
   %.sroa.0.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.0.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16

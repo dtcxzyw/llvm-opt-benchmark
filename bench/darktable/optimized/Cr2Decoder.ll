@@ -2462,12 +2462,14 @@ _ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_O
 
 70:                                               ; preds = %_ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_OS6_.exit, %70
   %indvars.iv = phi i64 [ 0, %_ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_OS6_.exit ], [ %indvars.iv.next, %70 ]
-  %71 = add nuw i64 %indvars.iv, %.sroa.046.0.i.ph
+  %71 = add nuw nsw i64 %indvars.iv, %.sroa.046.0.i.ph
   %72 = trunc i64 %71 to i32
   %73 = tail call noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef %72)
   %74 = zext i16 %73 to i32
-  %75 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
-  store i32 %74, ptr %75, align 4, !tbaa !113
+  %75 = icmp samesign ult i64 %indvars.iv, 4
+  tail call void @llvm.assume(i1 %75)
+  %76 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
+  store i32 %74, ptr %76, align 4, !tbaa !113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not32 = icmp eq i64 %indvars.iv.next, 4
   br i1 %.not32, label %66, label %70, !llvm.loop !232
@@ -2481,11 +2483,13 @@ _ZN8rawspeed8OptionalINS_10Array2DRefIiEEEaSIS2_Qsr3stdE7same_asITL0__T_EEERS3_O
   br i1 %80, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %76, %.preheader
-  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.preheader ], [ 0, %76 ]
-  %81 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv116
-  %82 = load i32, ptr %81, align 4, !tbaa !113
-  %83 = ashr i32 %82, %77
-  store i32 %83, ptr %81, align 4, !tbaa !113
+  %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.preheader ], [ 0, %77 ]
+  %82 = icmp samesign ult i64 %indvars.iv116, 4
+  tail call void @llvm.assume(i1 %82)
+  %83 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv116
+  %84 = load i32, ptr %83, align 4, !tbaa !113
+  %85 = ashr i32 %84, %78
+  store i32 %85, ptr %83, align 4, !tbaa !113
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %.not33 = icmp eq i64 %indvars.iv.next117, 4
   br i1 %.not33, label %.loopexit, label %.preheader, !llvm.loop !233

@@ -7441,13 +7441,18 @@ define internal ptr @row_dim_read(ptr noundef readonly captures(none) %0, ptr no
   store i32 %29, ptr %23, align 4, !tbaa !38
   br label %zval_try_get_string.exit.thread
 
+zval_try_get_string.exit.thread:                  ; preds = %22, %27
+  %30 = icmp ne ptr %23, null
+  tail call void @llvm.assume(i1 %30)
+  br label %32
+
 zval_try_get_string.exit:                         ; preds = %6
   %30 = tail call ptr @zval_try_get_string_func(ptr noundef nonnull %1) #17
   %.not23 = icmp eq ptr %30, null
   br i1 %.not23, label %zend_string_release_ex.exit, label %zval_try_get_string.exit.thread
 
-zval_try_get_string.exit.thread:                  ; preds = %27, %22, %zval_try_get_string.exit
-  %.0.i26 = phi ptr [ %30, %zval_try_get_string.exit ], [ %23, %22 ], [ %23, %27 ]
+zval_try_get_string.exit.thread:                  ; preds = %zval_try_get_string.exit.thread, %zval_try_get_string.exit
+  %.0.i26 = phi ptr [ %23, %zval_try_get_string.exit.thread ], [ %30, %zval_try_get_string.exit ]
   %31 = tail call ptr @row_prop_read(ptr noundef %0, ptr noundef nonnull %.0.i26, i32 noundef %2, ptr noundef null, ptr noundef %3)
   %32 = getelementptr inbounds nuw i8, ptr %.0.i26, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !37
@@ -7469,7 +7474,7 @@ zval_try_get_string.exit.thread:                  ; preds = %27, %22, %zval_try_
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %40, %35, %zval_try_get_string.exit.thread, %zval_try_get_string.exit, %9, %15, %20, %5
-  %.0 = phi ptr [ null, %5 ], [ %3, %9 ], [ %3, %20 ], [ %3, %15 ], [ null, %zval_try_get_string.exit ], [ %31, %zval_try_get_string.exit.thread ], [ %31, %35 ], [ %31, %40 ]
+  %.0 = phi ptr [ null, %5 ], [ %3, %9 ], [ %3, %20 ], [ %3, %15 ], [ null, %zval_try_get_string.exit ], [ %31, %32 ], [ %31, %37 ], [ %31, %42 ]
   ret ptr %.0
 }
 
@@ -7655,13 +7660,18 @@ row_read_column_number.exit.thread:               ; preds = %19, %21, %zval_ptr_
   store i32 %83, ptr %77, align 4, !tbaa !38
   br label %zval_try_get_string.exit.thread
 
+zval_try_get_string.exit.thread:                  ; preds = %76, %81
+  %84 = icmp ne ptr %77, null
+  tail call void @llvm.assume(i1 %84)
+  br label %86
+
 zval_try_get_string.exit:                         ; preds = %3
   %84 = tail call ptr @zval_try_get_string_func(ptr noundef nonnull %1) #17
   %.not = icmp eq ptr %84, null
   br i1 %.not, label %zend_string_release_ex.exit, label %zval_try_get_string.exit.thread
 
-zval_try_get_string.exit.thread:                  ; preds = %81, %76, %zval_try_get_string.exit
-  %.0.i3040 = phi ptr [ %84, %zval_try_get_string.exit ], [ %77, %76 ], [ %77, %81 ]
+zval_try_get_string.exit.thread:                  ; preds = %zval_try_get_string.exit.thread, %zval_try_get_string.exit
+  %.0.i3040 = phi ptr [ %77, %zval_try_get_string.exit.thread ], [ %84, %zval_try_get_string.exit ]
   %85 = tail call i32 @row_prop_exists(ptr noundef %0, ptr noundef nonnull %.0.i3040, i32 noundef %2, ptr poison)
   %86 = getelementptr inbounds nuw i8, ptr %.0.i3040, i64 4
   %87 = load i32, ptr %86, align 4, !tbaa !37
@@ -7683,7 +7693,7 @@ zval_try_get_string.exit.thread:                  ; preds = %81, %76, %zval_try_
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %94, %89, %zval_try_get_string.exit.thread, %zval_try_get_string.exit, %row_read_column_number.exit.thread, %13, %11
-  %.2 = phi i32 [ %18, %13 ], [ %.1, %row_read_column_number.exit.thread ], [ 0, %11 ], [ 0, %zval_try_get_string.exit ], [ %85, %zval_try_get_string.exit.thread ], [ %85, %89 ], [ %85, %94 ]
+  %.2 = phi i32 [ %18, %13 ], [ %.1, %row_read_column_number.exit.thread ], [ 0, %11 ], [ 0, %zval_try_get_string.exit ], [ %85, %86 ], [ %87, %91 ], [ %85, %96 ]
   ret i32 %.2
 }
 

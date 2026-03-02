@@ -1092,9 +1092,9 @@ define hidden noundef nonnull ptr @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$10find_
   br label %13
 
 13:                                               ; preds = %.lr.ph, %47
-  %14 = phi ptr [ %5, %.lr.ph ], [ %48, %47 ]
-  %.01116 = phi i1 [ %11, %.lr.ph ], [ %.1, %47 ]
-  %.01215 = phi ptr [ %.0.i, %.lr.ph ], [ %.0, %47 ]
+  %14 = phi ptr [ %5, %.lr.ph ], [ %48, %48 ]
+  %.01116 = phi i1 [ %11, %.lr.ph ], [ %.1, %48 ]
+  %.01215 = phi ptr [ %.0.i, %.lr.ph ], [ %.0, %48 ]
   %15 = getelementptr inbounds nuw i8, ptr %.01215, i64 6920
   %16 = load atomic i64, ptr %15 acquire, align 8
   %.0.i.i = inttoptr i64 %16 to ptr
@@ -1102,7 +1102,9 @@ define hidden noundef nonnull ptr @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$10find_
   br i1 %17, label %18, label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4grow17h421a22e867859a35E.exit"
 
 ._crit_edge:                                      ; preds = %47, %2
-  %.012.lcssa = phi ptr [ %.0.i, %2 ], [ %.0, %47 ]
+  %.012.lcssa = phi ptr [ %.0.i, %2 ], [ %.0, %48 ]
+  %18 = icmp ne ptr %.012.lcssa, null
+  tail call void @llvm.assume(i1 %18)
   ret ptr %.012.lcssa
 
 18:                                               ; preds = %13
@@ -1163,7 +1165,7 @@ define hidden noundef nonnull ptr @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$10find_
   br i1 %46, label %51, label %47
 
 47:                                               ; preds = %51, %55, %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4grow17h421a22e867859a35E.exit"
-  %.1 = phi i1 [ true, %55 ], [ false, %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4grow17h421a22e867859a35E.exit" ], [ false, %51 ]
+  %.1 = phi i1 [ true, %56 ], [ false, %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4grow17h421a22e867859a35E.exit" ], [ false, %52 ]
   tail call void @llvm.x86.sse2.pause() #20
   %48 = getelementptr inbounds nuw i8, ptr %.0, i64 6912
   %49 = load i64, ptr %48, align 8, !noundef !10

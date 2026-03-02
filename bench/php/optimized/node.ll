@@ -6626,24 +6626,28 @@ instanceof_function.exit:                         ; preds = %14
 131:                                              ; preds = %.loopexit
   %132 = icmp ne ptr %.3, %.3188
   tail call void @llvm.assume(i1 %132)
-  br label %133
+  %133 = icmp ne ptr %.3, null
+  tail call void @llvm.assume(i1 %133)
+  %134 = icmp ne ptr %.3188, null
+  tail call void @llvm.assume(i1 %134)
+  br label %135
 
-133:                                              ; preds = %139, %131
-  %.4 = phi ptr [ %.3, %131 ], [ %135, %139 ]
-  %134 = getelementptr inbounds nuw i8, ptr %.4, i64 48
-  %135 = load ptr, ptr %134, align 8, !tbaa !45
-  %136 = icmp eq ptr %135, %.3188
-  br i1 %136, label %137, label %139
+135:   ; preds = %139, %131
+  %.4 = phi ptr [ %.3, %131 ], [ %137, %141 ]
+  %136 = getelementptr inbounds nuw i8, ptr %.4, i64 48
+  %137 = load ptr, ptr %136, align 8, !tbaa !45
+  %138 = icmp eq ptr %137, %.3188
+  br i1 %138, label %139, label %141
 
-137:                                              ; preds = %133
+139:                                              ; preds = %135
   store i64 2, ptr %1, align 8, !tbaa !9
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %138, align 8, !tbaa !9
   br label %151
 
-139:                                              ; preds = %133
-  %.not212 = icmp eq ptr %135, null
-  br i1 %.not212, label %140, label %133
+139:                                              ; preds = %135
+  %.not212 = icmp eq ptr %137, null
+  br i1 %.not212, label %140, label %135
 
 140:                                              ; preds = %139
   store i64 4, ptr %1, align 8, !tbaa !9
@@ -6665,14 +6669,14 @@ instanceof_function.exit:                         ; preds = %14
   br label %148
 
 148:                                              ; preds = %146, %144
-  %.sink = phi i1 [ %147, %146 ], [ %145, %144 ]
+  %.sink = phi i1 [ %147, %148 ], [ %145, %146 ]
   %149 = select i1 %.sink, i64 35, i64 37
   store i64 %149, ptr %1, align 8, !tbaa !9
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %150, align 8, !tbaa !9
   br label %151
 
-151:                                              ; preds = %74, %78, %24, %101, %107, %110, %113, %137, %140, %148, %50, %41, %29
+151:                                              ; preds = %74, %78, %24, %101, %107, %110, %113, %139, %140, %148, %50, %41, %29
   ret void
 }
 

@@ -31342,6 +31342,8 @@ define { i32, i32 } @_ZN4fish3fds13wopen_cloexec17hce368140301abc68E(ptr noalias
 18:                                               ; preds = %15, %9
   %19 = landingpad { ptr, i32 }
           cleanup
+  %20 = icmp ne ptr %6, null
+  tail call void @llvm.assume(i1 %20)
   store i8 0, ptr %6, align 1
   %20 = icmp eq i64 %7, 0
   br i1 %20, label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit", label %21
@@ -31430,6 +31432,8 @@ define { i32, i32 } @_ZN4fish3fds9wopen_dir17hde3f8548a82b06b7E(ptr noalias noun
 16:                                               ; preds = %13, %8
   %17 = landingpad { ptr, i32 }
           cleanup
+  %18 = icmp ne ptr %5, null
+  tail call void @llvm.assume(i1 %18)
   store i8 0, ptr %5, align 1
   %18 = icmp eq i64 %6, 0
   br i1 %18, label %"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h5d16417567c270b7E.exit", label %19

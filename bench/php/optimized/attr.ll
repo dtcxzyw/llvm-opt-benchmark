@@ -261,12 +261,14 @@ define hidden range(i32 -1, 1) i32 @dom_attr_value_write(ptr noundef %0, ptr nou
 dom_attr_value_will_change.exit:                  ; preds = %14, %17
   %25 = load ptr, ptr %1, align 8, !tbaa !9
   tail call void @dom_remove_all_children(ptr noundef nonnull %3) #9
-  %26 = load ptr, ptr %15, align 8, !tbaa !11
-  %.not.i = icmp eq ptr %26, null
+  %26 = icmp ne ptr %0, null
+  tail call void @llvm.assume(i1 %26)
+  %27 = load ptr, ptr %15, align 8, !tbaa !11
+  %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %php_dom_follow_spec_doc_ref.exit.thread, label %php_dom_follow_spec_doc_ref.exit
 
 php_dom_follow_spec_doc_ref.exit:                 ; preds = %dom_attr_value_will_change.exit
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 44
+  %27 = getelementptr inbounds nuw i8, ptr %27, i64 44
   %28 = load i16, ptr %27, align 4
   %29 = and i16 %28, 255
   %30 = icmp eq i16 %29, 2
@@ -292,7 +294,7 @@ php_dom_follow_spec_doc_ref.exit.thread:          ; preds = %dom_attr_value_will
   br label %44
 
 44:                                               ; preds = %31, %php_dom_follow_spec_doc_ref.exit.thread, %5
-  %.0 = phi i32 [ -1, %5 ], [ 0, %php_dom_follow_spec_doc_ref.exit.thread ], [ 0, %31 ]
+  %.0 = phi i32 [ -1, %5 ], [ 0, %php_dom_follow_spec_doc_ref.exit.thread ], [ 0, %32 ]
   ret i32 %.0
 }
 

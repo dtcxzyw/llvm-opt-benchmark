@@ -185,7 +185,7 @@ define void @_ZN10tikv_alloc5trace2Id4name17h811b6edf24c96a6dE(ptr dead_on_unwin
 18:                                               ; preds = %14
   %19 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h02d583d60c45268eE() #16, !noalias !18
+  call void @_ZN4core9panicking16panic_in_cleanup17h02d583d60c45268eE() #17, !noalias !18
   unreachable
 
 20:                                               ; preds = %14
@@ -210,7 +210,7 @@ define void @_ZN10tikv_alloc5trace2Id4name17h811b6edf24c96a6dE(ptr dead_on_unwin
 
 28:                                               ; preds = %21
   %29 = load i64, ptr %27, align 8, !noalias !21
-  tail call void @_ZN5alloc7raw_vec12handle_error17h988b9e2e52726708E(i64 noundef %26, i64 %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6061f5929ed42ce63391d20b5e0ca064.36) #15, !noalias !29
+  tail call void @_ZN5alloc7raw_vec12handle_error17h988b9e2e52726708E(i64 noundef %26, i64 %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6061f5929ed42ce63391d20b5e0ca064.36) #16, !noalias !29
   unreachable
 
 "_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h06f30b3e3b668bb1E.exit": ; preds = %21
@@ -283,7 +283,7 @@ define void @_ZN10tikv_alloc5trace2Id13readable_name17hf03bbfd8bde0a0b5E(ptr dea
 21:                                               ; preds = %17
   %22 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h02d583d60c45268eE() #16, !noalias !35
+  call void @_ZN4core9panicking16panic_in_cleanup17h02d583d60c45268eE() #17, !noalias !35
   unreachable
 
 23:                                               ; preds = %17
@@ -420,8 +420,8 @@ define { i64, i64 } @"_ZN72_$LT$tikv_alloc..trace..TraceEvent$u20$as$u20$core..d
   ret { i64, i64 } zeroinitializer
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define { i64, i64 } @"_ZN71_$LT$tikv_alloc..trace..TraceEvent$u20$as$u20$core..ops..arith..Add$GT$3add17h23c6974c7b988cbbE"(i64 noundef range(i64 0, 3) %0, i64 noundef %1, i64 noundef range(i64 0, 3) %2, i64 noundef %3) unnamed_addr #2 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
+define { i64, i64 } @"_ZN71_$LT$tikv_alloc..trace..TraceEvent$u20$as$u20$core..ops..arith..Add$GT$3add17h23c6974c7b988cbbE"(i64 noundef range(i64 0, 3) %0, i64 noundef %1, i64 noundef range(i64 0, 3) %2, i64 noundef %3) unnamed_addr #3 {
   switch i64 %0, label %default.unreachable24 [
     i64 0, label %5
     i64 1, label %6
@@ -447,8 +447,8 @@ default.unreachable24:                            ; preds = %7, %6, %5, %4
 
 7:                                                ; preds = %4
   switch i64 %2, label %default.unreachable24 [
-    i64 0, label %21
-    i64 1, label %23
+    i64 0, label %23
+    i64 1, label %25
     i64 2, label %10
   ]
 
@@ -456,9 +456,14 @@ default.unreachable24:                            ; preds = %7, %6, %5, %4
   %9 = add i64 %3, %1
   br label %10
 
-10:                                               ; preds = %5, %6, %7, %17, %19, %23, %21, %15, %8
-  %.sroa.017.0 = phi i64 [ 0, %8 ], [ 0, %19 ], [ 1, %17 ], [ 2, %23 ], [ 1, %15 ], [ 2, %21 ], [ %2, %7 ], [ %2, %6 ], [ %2, %5 ]
-  %.sroa.8.0 = phi i64 [ %9, %8 ], [ %20, %19 ], [ %18, %17 ], [ %24, %23 ], [ %16, %15 ], [ %22, %21 ], [ %3, %7 ], [ %3, %6 ], [ %3, %5 ]
+10:                                               ; preds = %7, %6, %5
+  %11 = icmp eq i64 %2, 2
+  tail call void @llvm.assume(i1 %11)
+  br label %12
+
+10:                                               ; preds = %19, %21, %25, %23, %17, %10, %8
+  %.sroa.017.0 = phi i64 [ 0, %8 ], [ 0, %21 ], [ 1, %19 ], [ 2, %10 ], [ 1, %17 ], [ 2, %23 ], [ 2, %25 ]
+  %.sroa.8.0 = phi i64 [ %9, %8 ], [ %22, %21 ], [ %20, %19 ], [ %3, %10 ], [ %18, %17 ], [ %24, %23 ], [ %26, %25 ]
   %11 = insertvalue { i64, i64 } poison, i64 %.sroa.017.0, 0
   %12 = insertvalue { i64, i64 } %11, i64 %.sroa.8.0, 1
   ret { i64, i64 } %12
@@ -467,7 +472,7 @@ default.unreachable24:                            ; preds = %7, %6, %5, %4
   %.sroa.018.0 = phi i64 [ %3, %5 ], [ %1, %6 ]
   %.sroa.021.0 = phi i64 [ %1, %5 ], [ %3, %6 ]
   %14 = icmp ugt i64 %.sroa.021.0, %.sroa.018.0
-  br i1 %14, label %19, label %17
+  br i1 %14, label %21, label %17
 
 15:                                               ; preds = %6
   %16 = add i64 %3, %1
@@ -477,21 +482,21 @@ default.unreachable24:                            ; preds = %7, %6, %5, %4
   %18 = sub nuw i64 %.sroa.018.0, %.sroa.021.0
   br label %10
 
-19:                                               ; preds = %13
-  %20 = sub nuw i64 %.sroa.021.0, %.sroa.018.0
-  br label %10
-
-21:                                               ; preds = %7
-  %22 = add i64 %3, %1
+21:                                               ; preds = %15
+  %22 = sub nuw i64 %.sroa.021.0, %.sroa.018.0
   br label %10
 
 23:                                               ; preds = %7
-  %24 = sub i64 %1, %3
+  %24 = add i64 %3, %1
   br label %10
+
+25:                                               ; preds = %7
+  %26 = sub i64 %1, %3
+  br label %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10tikv_alloc5trace11MemoryTrace5trace17h627b6f333ed64ec8E(ptr noundef nonnull align 8 captures(none) %0, i64 noundef range(i64 0, 3) %1, i64 noundef %2) unnamed_addr #3 {
+define void @_ZN10tikv_alloc5trace11MemoryTrace5trace17h627b6f333ed64ec8E(ptr noundef nonnull align 8 captures(none) %0, i64 noundef range(i64 0, 3) %1, i64 noundef %2) unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   switch i64 %1, label %default.unreachable6 [
     i64 0, label %5
@@ -850,20 +855,21 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #3 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #4 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { cold minsize noreturn nounwind nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #9 = { cold minsize noreturn nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { cold noreturn nounwind memory(inaccessiblemem: write) }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #4 = { mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #5 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { cold minsize noreturn nounwind nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #9 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #10 = { cold minsize noreturn nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write) }
 attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #14 = { cold }
-attributes #15 = { noreturn }
-attributes #16 = { cold noreturn nounwind }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #15 = { cold }
+attributes #16 = { noreturn }
+attributes #17 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}
