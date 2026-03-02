@@ -39582,57 +39582,44 @@ define internal fastcc void @"_ZN4fish12input_common16InputEventQueuer9parse_csi
   %7 = load i32, ptr %6, align 4, !noundef !4
   %8 = tail call i32 @llvm.usub.sat.i32(i32 %7, i32 1)
   %9 = tail call i40 @_ZN4fish12input_common10parse_mask17hd6c02a0213625b25E(i32 noundef %8)
-  %.sroa.3.0.extract.shift21 = lshr i40 %9, 8
   %.sroa.414.0.extract.shift22 = lshr i40 %9, 16
   %.sroa.414.0.extract.trunc = trunc i40 %.sroa.414.0.extract.shift22 to i8
-  %.sroa.6.0.extract.shift23 = lshr i40 %9, 24
-  %10 = and i40 %9, 4294967297
-  %or.cond6 = icmp ne i40 %10, 4294967296
-  %11 = trunc i40 %.sroa.414.0.extract.shift22 to i1
-  %12 = or i40 %.sroa.6.0.extract.shift23, %.sroa.3.0.extract.shift21
-  %13 = trunc i40 %12 to i1
-  %14 = or i1 %or.cond6, %13
-  %15 = xor i1 %14, true
-  %or.cond26 = and i1 %11, %15
-  br i1 %or.cond26, label %17, label %16
+  %10 = trunc i40 %.sroa.414.0.extract.shift22 to i1
+  %11 = and i40 %9, 4311744769
+  %.not = icmp eq i40 %11, 4294967296
+  %or.cond26 = and i1 %.not, %10
+  br i1 %or.cond26, label %15, label %12
 
-16:                                               ; preds = %17, %3
-  %.sroa.414.0 = phi i8 [ %.sroa.414.0.extract.trunc, %3 ], [ %.sroa.414.0.extract.trunc., %17 ]
-  %.sroa.6.0.extract.trunc = trunc nuw nsw i40 %.sroa.6.0.extract.shift23 to i32
-  %.sroa.3.0.extract.trunc = trunc nuw i40 %.sroa.3.0.extract.shift21 to i32
-  %.sroa.013.0.extract.trunc = trunc i40 %9 to i32
-  %.sroa.620.0.insert.ext = shl i32 %.sroa.6.0.extract.trunc, 24
+12:                                               ; preds = %15, %3
+  %.sroa.414.0 = phi i8 [ %.sroa.414.0.extract.trunc, %3 ], [ %.sroa.414.0.extract.trunc., %15 ]
+  %13 = trunc i40 %9 to i32
   %.sroa.519.0.insert.ext = zext i8 %.sroa.414.0 to i32
   %.sroa.519.0.insert.shift = shl nuw nsw i32 %.sroa.519.0.insert.ext, 16
-  %.sroa.519.0.insert.insert = or disjoint i32 %.sroa.519.0.insert.shift, %.sroa.620.0.insert.ext
-  %.sroa.418.0.insert.ext = shl i32 %.sroa.3.0.extract.trunc, 8
-  %.sroa.418.0.insert.shift = and i32 %.sroa.418.0.insert.ext, 65280
-  %.sroa.418.0.insert.insert = or disjoint i32 %.sroa.519.0.insert.insert, %.sroa.418.0.insert.shift
-  %.sroa.017.0.insert.ext = and i32 %.sroa.013.0.extract.trunc, 255
-  %.sroa.017.0.insert.insert = or disjoint i32 %.sroa.418.0.insert.insert, %.sroa.017.0.insert.ext
+  %14 = and i32 %13, -16711681
+  %.sroa.017.0.insert.insert = or disjoint i32 %.sroa.519.0.insert.shift, %14
   tail call void @_ZN4fish12input_common8KeyEvent22with_shifted_codepoint17hf3b2e7f6f0ef9970E(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %0, i32 %.sroa.017.0.insert.insert, i32 noundef %1, i32 noundef %2)
   ret void
 
-17:                                               ; preds = %3
+15:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4core7unicode12unicode_data11conversions8to_upper17hd8784791250a8793E(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %4, i32 noundef %1)
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %19 = load i32, ptr %18, align 8, !range !238, !noundef !4
-  %20 = icmp eq i32 %19, 0
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %22 = load i32, ptr %21, align 4, !range !238
-  %23 = icmp eq i32 %22, 0
-  %spec.select.i = select i1 %23, i64 1, i64 2
-  %.sroa.4.0.i = select i1 %20, i64 %spec.select.i, i64 3
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %17 = load i32, ptr %16, align 8, !range !238, !noundef !4
+  %18 = icmp eq i32 %17, 0
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %20 = load i32, ptr %19, align 4, !range !238
+  %21 = icmp eq i32 %20, 0
+  %spec.select.i = select i1 %21, i64 1, i64 2
+  %.sroa.4.0.i = select i1 %18, i64 %spec.select.i, i64 3
   store i64 0, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  %24 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17h322f3fede2d1f748E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5, i32 noundef %1)
+  %22 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17h322f3fede2d1f748E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5, i32 noundef %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.sroa.414.0.extract.trunc. = select i1 %24, i8 %.sroa.414.0.extract.trunc, i8 0
-  br label %16
+  %.sroa.414.0.extract.trunc. = select i1 %22, i8 %.sroa.414.0.extract.trunc, i8 0
+  br label %12
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -39644,57 +39631,44 @@ define internal fastcc void @"_ZN4fish12input_common16InputEventQueuer9parse_csi
   %7 = load i32, ptr %6, align 4, !noundef !4
   %8 = tail call i32 @llvm.usub.sat.i32(i32 %7, i32 1)
   %9 = tail call i40 @_ZN4fish12input_common10parse_mask17hd6c02a0213625b25E(i32 noundef %8)
-  %.sroa.3.0.extract.shift21 = lshr i40 %9, 8
   %.sroa.414.0.extract.shift22 = lshr i40 %9, 16
   %.sroa.414.0.extract.trunc = trunc i40 %.sroa.414.0.extract.shift22 to i8
-  %.sroa.6.0.extract.shift23 = lshr i40 %9, 24
-  %10 = and i40 %9, 4294967297
-  %or.cond6 = icmp ne i40 %10, 4294967296
-  %11 = trunc i40 %.sroa.414.0.extract.shift22 to i1
-  %12 = or i40 %.sroa.6.0.extract.shift23, %.sroa.3.0.extract.shift21
-  %13 = trunc i40 %12 to i1
-  %14 = or i1 %or.cond6, %13
-  %15 = xor i1 %14, true
-  %or.cond26 = and i1 %11, %15
-  br i1 %or.cond26, label %17, label %16
+  %10 = trunc i40 %.sroa.414.0.extract.shift22 to i1
+  %11 = and i40 %9, 4311744769
+  %.not = icmp eq i40 %11, 4294967296
+  %or.cond26 = and i1 %.not, %10
+  br i1 %or.cond26, label %15, label %12
 
-16:                                               ; preds = %17, %3
-  %.sroa.414.0 = phi i8 [ %.sroa.414.0.extract.trunc, %3 ], [ %.sroa.414.0.extract.trunc., %17 ]
-  %.sroa.6.0.extract.trunc = trunc nuw nsw i40 %.sroa.6.0.extract.shift23 to i32
-  %.sroa.3.0.extract.trunc = trunc nuw i40 %.sroa.3.0.extract.shift21 to i32
-  %.sroa.013.0.extract.trunc = trunc i40 %9 to i32
-  %.sroa.620.0.insert.ext = shl i32 %.sroa.6.0.extract.trunc, 24
+12:                                               ; preds = %15, %3
+  %.sroa.414.0 = phi i8 [ %.sroa.414.0.extract.trunc, %3 ], [ %.sroa.414.0.extract.trunc., %15 ]
+  %13 = trunc i40 %9 to i32
   %.sroa.519.0.insert.ext = zext i8 %.sroa.414.0 to i32
   %.sroa.519.0.insert.shift = shl nuw nsw i32 %.sroa.519.0.insert.ext, 16
-  %.sroa.519.0.insert.insert = or disjoint i32 %.sroa.519.0.insert.shift, %.sroa.620.0.insert.ext
-  %.sroa.418.0.insert.ext = shl i32 %.sroa.3.0.extract.trunc, 8
-  %.sroa.418.0.insert.shift = and i32 %.sroa.418.0.insert.ext, 65280
-  %.sroa.418.0.insert.insert = or disjoint i32 %.sroa.519.0.insert.insert, %.sroa.418.0.insert.shift
-  %.sroa.017.0.insert.ext = and i32 %.sroa.013.0.extract.trunc, 255
-  %.sroa.017.0.insert.insert = or disjoint i32 %.sroa.418.0.insert.insert, %.sroa.017.0.insert.ext
+  %14 = and i32 %13, -16711681
+  %.sroa.017.0.insert.insert = or disjoint i32 %.sroa.519.0.insert.shift, %14
   tail call void @_ZN4fish12input_common8KeyEvent22with_shifted_codepoint17hf3b2e7f6f0ef9970E(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %0, i32 %.sroa.017.0.insert.insert, i32 noundef %1, i32 noundef %2)
   ret void
 
-17:                                               ; preds = %3
+15:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4core7unicode12unicode_data11conversions8to_upper17hd8784791250a8793E(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %4, i32 noundef %1)
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %19 = load i32, ptr %18, align 8, !range !238, !noundef !4
-  %20 = icmp eq i32 %19, 0
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %22 = load i32, ptr %21, align 4, !range !238
-  %23 = icmp eq i32 %22, 0
-  %spec.select.i = select i1 %23, i64 1, i64 2
-  %.sroa.4.0.i = select i1 %20, i64 %spec.select.i, i64 3
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %17 = load i32, ptr %16, align 8, !range !238, !noundef !4
+  %18 = icmp eq i32 %17, 0
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %20 = load i32, ptr %19, align 4, !range !238
+  %21 = icmp eq i32 %20, 0
+  %spec.select.i = select i1 %21, i64 1, i64 2
+  %.sroa.4.0.i = select i1 %18, i64 %spec.select.i, i64 3
   store i64 0, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  %24 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17h322f3fede2d1f748E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5, i32 noundef %1)
+  %22 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17h322f3fede2d1f748E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5, i32 noundef %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.sroa.414.0.extract.trunc. = select i1 %24, i8 %.sroa.414.0.extract.trunc, i8 0
-  br label %16
+  %.sroa.414.0.extract.trunc. = select i1 %22, i8 %.sroa.414.0.extract.trunc, i8 0
+  br label %12
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
