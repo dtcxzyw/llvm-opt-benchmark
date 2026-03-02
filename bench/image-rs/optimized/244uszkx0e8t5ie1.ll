@@ -6325,7 +6325,7 @@ _ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exi
   br label %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit4
 
 _ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit4: ; preds = %13, %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit, %2
-  %.0 = phi float [ 0.000000e+00, %2 ], [ %17, %13 ], [ %.0.i, %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit ]
+  %.0.i3 = phi float [ 0.000000e+00, %2 ], [ %17, %13 ], [ %.0.i, %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit ]
   ret float %.0
 }
 

@@ -164186,19 +164186,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc.exit.thread: ; 
   %.not90178 = icmp ult i64 %66, 10
   br i1 %.not90178, label %.lr.ph181, label %._crit_edge
 
-188:                                              ; preds = %.lr.ph181
+.lr.ph181:                                        ; preds = %.lr.ph181
   %189 = add nuw nsw i64 %.062179, 1
   %exitcond196.not = icmp eq i64 %189, 10
   br i1 %exitcond196.not, label %._crit_edge, label %.lr.ph181, !llvm.loop !3763
 
-.lr.ph181:                                        ; preds = %.preheader171, %188
+.lr.ph181:; preds = %.preheader171, %188
   %.062179 = phi i64 [ %189, %188 ], [ %.sroa.speculated, %.preheader171 ]
   %190 = getelementptr inbounds nuw i32, ptr %1, i64 %.062179
   %191 = load i32, ptr %190, align 4, !tbaa !263
   %.not89 = icmp eq i32 %191, 0
-  br i1 %.not89, label %188, label %._crit_edge
+  br i1 %.not89, label %.lr.ph181, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph181, %188, %.preheader171, %180, %.critedge105, %170
+._crit_edge:; preds = %.lr.ph181, %188, %.preheader171, %180, %.critedge105, %170
   %.065 = phi i1 [ %176, %170 ], [ %176, %180 ], [ %176, %.critedge105 ], [ false, %.preheader171 ], [ %176, %.lr.ph181 ], [ false, %188 ]
   %192 = load i64, ptr %28, align 8, !tbaa !11
   %193 = icmp ugt i64 %.1169, %192

@@ -1724,13 +1724,13 @@ define hidden noundef zeroext i1 @_ZN3sat10xor_finder11extract_xorEbRNS_6clauseE
   %26 = zext i1 %25 to i8
   %27 = getelementptr inbounds nuw i8, ptr %.04170, i64 4
   %.not = icmp eq ptr %27, %9
-  br i1 %.not, label %._crit_edge.loopexit, label %15
+  br i1 %.not, label %._crit_edge, label %15
 
-._crit_edge.loopexit:                             ; preds = %22
+._crit_edge:                                      ; preds = %22
   %28 = xor i1 %1, %25
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
+._crit_edge:; preds = %._crit_edge, %4
   %.037.lcssa = phi i1 [ %1, %4 ], [ %28, %._crit_edge.loopexit ]
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !38

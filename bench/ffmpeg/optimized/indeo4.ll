@@ -2198,22 +2198,22 @@ define internal void @switch_buffers(ptr noundef captures(none) %0) #4 {
   %switch = icmp ult i32 %3, 3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4664
   %5 = load i32, ptr %4, align 8, !tbaa !55
-  %switch22 = icmp ult i32 %5, 3
-  br i1 %switch22, label %6, label %.critedge
+  %switch21 = icmp ult i32 %5, 3
+  br i1 %switch22, label %6, label %12
 
 6:                                                ; preds = %1
-  br i1 %switch, label %7, label %.critedge21
+  br i1 %switch, label %7, label %19
 
-7:                                                ; preds = %6
+7: ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4776
   %9 = load i32, ptr %8, align 8, !tbaa !48
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4772
   %11 = load i32, ptr %10, align 4, !tbaa !47
   store i32 %11, ptr %8, align 8, !tbaa !48
   store i32 %9, ptr %10, align 4, !tbaa !47
-  br label %.critedge21
+  br label %19
 
-.critedge:                                        ; preds = %1
+12:                                               ; preds = %1
   br i1 %switch, label %12, label %.critedge21
 
 12:                                               ; preds = %.critedge
@@ -2226,9 +2226,9 @@ define internal void @switch_buffers(ptr noundef captures(none) %0) #4 {
   %18 = load i32, ptr %17, align 4, !tbaa !47
   store i32 %18, ptr %15, align 8, !tbaa !48
   store i32 %14, ptr %17, align 4, !tbaa !47
-  br label %.critedge21
+  br label %19
 
-.critedge21:                                      ; preds = %6, %.critedge, %12, %7
+19:                                               ; preds = %6, %12, %12, %7
   ret void
 }
 

@@ -863,7 +863,7 @@ define hidden i64 @_ZN13XBarrierSetC115resolve_addressER9LIRAccessb(ptr noundef 
   %6 = tail call noundef zeroext i1 @_ZN11XBarrierSet14barrier_neededEm9BasicType(i64 noundef %.val, i8 noundef zeroext %.val5) #9
   br i1 %6, label %7, label %12
 
-7:                                                ; preds = %3
+7:; preds = %3
   %8 = load i64, ptr %4, align 8
   %9 = and i64 %8, 2147483648
   %10 = icmp ne i64 %9, 0

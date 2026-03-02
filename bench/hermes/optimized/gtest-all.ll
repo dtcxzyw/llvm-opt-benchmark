@@ -20351,14 +20351,14 @@ _ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit97: ; preds
   br i1 %cmp5.i95, label %return, label %sub_0
 
 sub_0:                                            ; preds = %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit97
-  %1 = load i8, ptr %call, align 1
-  %.not = icmp eq i8 %1, 49
+  %2 = load i8, ptr %call, align 1
+  %.not = icmp eq i8 %2, 49
   br i1 %.not, label %sub_1, label %return
 
 sub_1:                                            ; preds = %sub_0
-  %2 = getelementptr inbounds nuw i8, ptr %call, i64 1
-  %3 = load i8, ptr %2, align 1
-  %4 = icmp eq i8 %3, 0
+  %3 = getelementptr inbounds nuw i8, ptr %call, i64 1
+  %4 = load i8, ptr %3, align 1
+  %5 = icmp eq i8 %4, 0
   br label %return
 
 return:                                           ; preds = %sub_1, %sub_0, %if.end4.i75, %if.then, %entry, %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit85, %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit91, %_ZN7testing8internal6String28CaseInsensitiveCStringEqualsEPKcS3_.exit97, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit25, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit31, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit37, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit43, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit49, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit55, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit61, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit67, %_ZN7testing8internal6String13CStringEqualsEPKcS3_.exit73

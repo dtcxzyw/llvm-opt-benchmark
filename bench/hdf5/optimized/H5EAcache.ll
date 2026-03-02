@@ -2102,7 +2102,7 @@ define internal noundef i32 @H5EA__cache_sblock_get_initial_load_size(ptr nounde
   %28 = add i64 %27, 10
   br label %29
 
-29:                                               ; preds = %23, %9
+29: ; preds = %23, %9
   %.sroa.15.0 = phi i64 [ %28, %23 ], [ 10, %9 ]
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %31 = load i64, ptr %30, align 8, !tbaa !64
@@ -2110,9 +2110,9 @@ define internal noundef i32 @H5EA__cache_sblock_get_initial_load_size(ptr nounde
   %33 = load i8, ptr %32, align 8, !tbaa !108
   %34 = zext i8 %33 to i64
   %35 = mul i64 %31, %17
-  %36 = add i64 %.sroa.15.0, %31
-  %37 = add i64 %36, %35
-  %38 = add i64 %37, %34
+  %34 = add i64 %.sroa.15.0, %31
+  %35 = add i64 %34, %35
+  %38 = add i64 %35, %34
   store i64 %38, ptr %1, align 8, !tbaa !15
   br label %39
 

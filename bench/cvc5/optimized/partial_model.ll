@@ -2868,28 +2868,28 @@ _ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit: ; preds = %16, %12, %_ZN4cvc58
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load ptr, ptr %21, align 8, !tbaa !161
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit20, label %24
+  br i1 %23, label %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit21, label %24
 
 24:                                               ; preds = %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = tail call noundef i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %25) #32
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit20
+  br i1 %27, label %28, label %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit21
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %31 = tail call noundef i32 @__gmpq_cmp(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %30) #32
-  br label %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit20
+  br label %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit21
 
-_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit20: ; preds = %28, %24, %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit
+_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit21: ; preds = %28, %24, %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit
   %32 = phi i32 [ 1, %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit ], [ %31, %28 ], [ %26, %24 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %34 = load i32, ptr %33, align 8, !tbaa !132
   %.not = icmp eq i32 %32, %34
-  br i1 %.not, label %.thread34, label %35
+  br i1 %.not, label %38, label %35
 
-35:                                               ; preds = %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit20
+35:                                               ; preds = %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit21
   %36 = icmp eq i32 %32, 0
   %37 = icmp eq i32 %34, 0
   %spec.select = or i1 %36, %37
@@ -2898,13 +2898,13 @@ _ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit20: ; preds = %28, %24, %_ZNK4cv
   %.not18 = icmp eq i32 %20, %39
   br i1 %.not18, label %49, label %42
 
-.thread34:                                        ; preds = %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit20
+38:                                               ; preds = %_ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit21
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %41 = load i32, ptr %40, align 4, !tbaa !133
-  %.not1835 = icmp eq i32 %20, %41
-  br i1 %.not1835, label %.thread36, label %42
+  %.not18 = icmp eq i32 %20, %41
+  br i1 %.not18, label %50, label %42
 
-42:                                               ; preds = %.thread34, %35
+42:                                               ; preds = %38, %35
   %43 = phi i32 [ %41, %.thread34 ], [ %39, %35 ]
   %44 = phi ptr [ %40, %.thread34 ], [ %38, %35 ]
   %45 = phi i1 [ false, %.thread34 ], [ %spec.select, %35 ]
@@ -2912,12 +2912,12 @@ _ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit20: ; preds = %28, %24, %_ZNK4cv
   %47 = icmp eq i32 %43, 0
   %48 = or i1 %46, %47
   %or.cond = or i1 %45, %48
-  br i1 %or.cond, label %.thread, label %.thread36
+  br i1 %or.cond, label %.thread, label %50
 
 49:                                               ; preds = %35
-  br i1 %spec.select, label %.thread, label %.thread36
+  br i1 %spec.select, label %.thread, label %50
 
-.thread:                                          ; preds = %42, %49
+.thread:; preds = %42, %49
   %50 = phi i32 [ %43, %42 ], [ %39, %49 ]
   %51 = phi ptr [ %44, %42 ], [ %38, %49 ]
   %52 = icmp eq i32 %34, 0
@@ -2932,9 +2932,9 @@ _ZNK4cvc58internal13DeltaRational3cmpERKS1_.exit20: ; preds = %28, %24, %_ZNK4cv
   store i64 %.sroa.0.0.insert.insert.i.i, ptr %2, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %.sroa.0.0.insert.insert.i4.i, ptr %.sroa.4.0..sroa_idx, align 4
-  br label %.thread36
+  br label %50
 
-.thread36:                                        ; preds = %.thread34, %42, %49, %.thread
+50:                                               ; preds = %38, %42, %49, %.thread
   %54 = phi ptr [ %38, %49 ], [ %51, %.thread ], [ %44, %42 ], [ %40, %.thread34 ]
   %or.cond22 = phi i1 [ false, %49 ], [ true, %.thread ], [ false, %42 ], [ false, %.thread34 ]
   store i32 %20, ptr %54, align 4, !tbaa !133

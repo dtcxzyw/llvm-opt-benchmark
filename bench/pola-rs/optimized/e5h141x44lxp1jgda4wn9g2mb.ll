@@ -24330,10 +24330,10 @@ define hidden void @"_ZN150_$LT$polars_arrow..array..fixed_size_list..builder..F
   %32 = sub i64 %3, %.sroa.0.020
   br label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph, %42
-  %.sroa.07.0.lcssa.ph = phi i64 [ %32, %42 ], [ %.sroa.07.015, %.lr.ph ]
-  %.lcssa.ph = phi i64 [ %3, %42 ], [ %36, %.lr.ph ]
-  %33 = mul i64 %12, %.sroa.07.0.lcssa.ph
+._crit_edge:                                      ; preds = %.lr.ph, %42
+  %.sroa.07.0.lcssa = phi i64 [ %32, %42 ], [ %.sroa.07.015, %.lr.ph ]
+  %.lcssa = phi i64 [ %3, %42 ], [ %36, %.lr.ph ]
+  %33 = mul i64 %12, %.sroa.07.0.lcssa
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %26
@@ -24352,13 +24352,13 @@ define hidden void @"_ZN150_$LT$polars_arrow..array..fixed_size_list..builder..F
   %39 = zext i32 %38 to i64
   %40 = add i64 %.sroa.07.015, %29
   %41 = icmp eq i64 %40, %39
-  br i1 %41, label %42, label %._crit_edge.loopexit
+  br i1 %41, label %42, label %._crit_edge
 
 42:                                               ; preds = %.lr.ph
   %43 = add i64 %.sroa.07.015, 1
   %44 = add i64 %43, %.sroa.0.020
   %exitcond.not = icmp eq i64 %43, %32
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -1283,7 +1283,7 @@ _ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit: ; pred
   %65 = icmp ult i32 %64, 64
   br i1 %65, label %66, label %_ZL14get_flat_masksjjj.exit132
 
-66:                                               ; preds = %63
+66:; preds = %63
   %67 = zext nneg i32 %64 to i64
   %notmask202 = shl nsw i64 -1, %67
   %68 = and i64 %62, %notmask202
@@ -2055,13 +2055,13 @@ _ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i195, %395, %301, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i171
-  %.sink289 = phi ptr [ %321, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i171 ], [ %303, %301 ], [ %397, %395 ], [ %415, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i195 ]
-  %.sink286 = phi i32 [ %286, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i171 ], [ %286, %301 ], [ %.2115.lcssa, %395 ], [ %.2115.lcssa, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i195 ]
+  %.sink287 = phi ptr [ %321, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i171 ], [ %303, %301 ], [ %397, %395 ], [ %415, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i195 ]
+  %.sink284 = phi i32 [ %286, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i171 ], [ %286, %301 ], [ %.2115.lcssa, %395 ], [ %.2115.lcssa, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i195 ]
   %.sink = phi i64 [ %298, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i171 ], [ %298, %301 ], [ %392, %395 ], [ %392, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i195 ]
-  %418 = getelementptr inbounds i8, ptr %.sink289, i64 -16
+  %418 = getelementptr inbounds i8, ptr %.sink287, i64 -16
   store i64 0, ptr %418, align 8
-  store i32 %.sink286, ptr %418, align 8
-  %419 = getelementptr inbounds i8, ptr %.sink289, i64 -8
+  store i32 %.sink284, ptr %418, align 8
+  %419 = getelementptr inbounds i8, ptr %.sink287, i64 -8
   store i64 %.sink, ptr %419, align 8
   br label %420
 

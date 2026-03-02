@@ -114,9 +114,9 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge:
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = load i32, ptr %28, align 8
   %.neg = mul i32 %14, -2
-  %.neg75 = sub i32 %.neg, %19
-  %30 = add i32 %.neg75, %29
-  %31 = sitofp i32 %30 to float
+  %.neg68 = sub i32 %.neg, %19
+  %38 = add i32 %.neg68, %29
+  %39 = sitofp i32 %38 to float
   %32 = fdiv float %31, %23
   %33 = fptosi float %32 to i32
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %33, i32 0)
@@ -130,11 +130,11 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge:
   %39 = sitofp i32 %19 to float
   %40 = fdiv float %39, %23
   %41 = fcmp uge float %38, %40
-  %42 = tail call noundef float @llvm.floor.f32(float %24)
-  %43 = fsub float %24, %42
+  %.sroa.speculated.i = tail call noundef float @llvm.floor.f32(float %24)
+  %43 = fsub float %24, %.sroa.speculated.i
   %44 = fcmp uge float %43, %40
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %46 = load ptr, ptr %45, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %45 = load ptr, ptr %44, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %49 = load ptr, ptr %48, align 8
@@ -157,12 +157,12 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge:
   %or.cond63 = select i1 %62, i1 true, i1 %41
   br i1 %or.cond63, label %.critedge, label %63
 
-63:                                               ; preds = %36
+63:; preds = %36
   %64 = mul nuw nsw i32 %34, %27
   %65 = add nuw nsw i32 %64, %26
   br label %.critedge
 
-.critedge:                                        ; preds = %36, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge, %63
+.critedge:; preds = %36, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge, %63
   %66 = phi i32 [ %65, %63 ], [ -1, %36 ], [ -1, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge ]
   ret i32 %66
 }

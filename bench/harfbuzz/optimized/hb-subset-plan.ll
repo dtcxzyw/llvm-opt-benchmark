@@ -24182,7 +24182,7 @@ define internal noundef zeroext i1 @_ZN2OT4cmap13accelerator_t21get_glyph_from_s
   br label %10
 
 10:                                               ; preds = %7, %5, %3
-  %.0 = phi i1 [ true, %3 ], [ %9, %7 ], [ false, %5 ]
+  %.1 = phi i1 [ true, %3 ], [ %9, %7 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -24193,8 +24193,8 @@ define internal noundef zeroext i1 @_ZN2OT4cmap13accelerator_t21get_glyph_from_s
 
 5:                                                ; preds = %3
   %6 = tail call fastcc noundef i64 @_ZL23_hb_arabic_pua_simp_mapj(i32 noundef %1)
-  %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %10, label %7
+  %.not = icmp eq i64 %6, 0
+  br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %5
   %8 = trunc nuw nsw i64 %6 to i32
@@ -24202,7 +24202,7 @@ define internal noundef zeroext i1 @_ZN2OT4cmap13accelerator_t21get_glyph_from_s
   br label %10
 
 10:                                               ; preds = %7, %5, %3
-  %.0 = phi i1 [ true, %3 ], [ %9, %7 ], [ false, %5 ]
+  %.1 = phi i1 [ true, %3 ], [ %9, %7 ], [ false, %5 ]
   ret i1 %.0
 }
 
@@ -24213,8 +24213,8 @@ define internal noundef zeroext i1 @_ZN2OT4cmap13accelerator_t21get_glyph_from_s
 
 5:                                                ; preds = %3
   %6 = tail call fastcc noundef i64 @_ZL23_hb_arabic_pua_trad_mapj(i32 noundef %1)
-  %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %10, label %7
+  %.not = icmp eq i64 %6, 0
+  br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %5
   %8 = trunc nuw nsw i64 %6 to i32
@@ -24222,7 +24222,7 @@ define internal noundef zeroext i1 @_ZN2OT4cmap13accelerator_t21get_glyph_from_s
   br label %10
 
 10:                                               ; preds = %7, %5, %3
-  %.0 = phi i1 [ true, %3 ], [ %9, %7 ], [ false, %5 ]
+  %.1 = phi i1 [ true, %3 ], [ %9, %7 ], [ false, %5 ]
   ret i1 %.0
 }
 

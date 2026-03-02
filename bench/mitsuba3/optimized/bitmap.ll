@@ -20195,7 +20195,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %113 = getelementptr inbounds float, ptr %61, i64 %112
   br label %.preheader.us.us
 
-._crit_edge106.split.us.us.loopexit:              ; preds = %._crit_edge.us.us
+._crit_edge106.split.us.us:                       ; preds = %._crit_edge.us.us
   %114 = mul i64 %106, %131
   br label %._crit_edge106.split.us.us
 
@@ -20238,7 +20238,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %130 = load i32, ptr %55, align 8
   %131 = zext i32 %130 to i64
   %132 = icmp samesign ult i64 %129, %131
-  br i1 %132, label %.preheader.us.us, label %._crit_edge106.split.us.us.loopexit, !llvm.loop !254
+  br i1 %132, label %.preheader.us.us, label %._crit_edge106.split.us.us, !llvm.loop !254
 
 .loopexit92.split.us:                             ; preds = %._crit_edge106.split.us.us
   %lpad.loopexit.us = landingpad { ptr, i32 }

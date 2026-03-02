@@ -807,7 +807,7 @@ define hidden noundef zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$
   %2 = add nsw i32 %1, -48
   %.0 = icmp ult i32 %2, 10
   %3 = icmp samesign ugt i32 %1, 64
-  %4 = icmp samesign ugt i32 %1, 96
+  %6 = icmp samesign ugt i32 %1, 96
   %spec.select.v = select i1 %4, i32 103, i32 71
   %spec.select = icmp samesign ult i32 %1, %spec.select.v
   %.04 = select i1 %3, i1 %spec.select, i1 %.0
@@ -821,7 +821,7 @@ define hidden noundef zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$
   %2 = add nsw i32 %1, -48
   %.0 = icmp ult i32 %2, 10
   %3 = icmp samesign ugt i32 %1, 64
-  %4 = icmp samesign ugt i32 %1, 96
+  %6 = icmp samesign ugt i32 %1, 96
   %spec.select.v = select i1 %4, i32 123, i32 91
   %spec.select = icmp samesign ult i32 %1, %spec.select.v
   %.04 = select i1 %3, i1 %spec.select, i1 %.0

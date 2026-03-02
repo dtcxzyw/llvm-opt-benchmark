@@ -12661,7 +12661,7 @@ _ZN20btAlignedObjectArrayIPKN10btSoftBody4NodeEE6resizeEiRKS3_.exit.i: ; preds =
   %250 = fcmp oge float %.sroa.speculated, 0.000000e+00
   %251 = fcmp oge float %.061241, 0.000000e+00
   %or.cond = select i1 %250, i1 %251, i1 false
-  br i1 %or.cond, label %256, label %261
+  br i1 %or.cond, label %256, label %260
 
 252:                                              ; preds = %147, %252
   %indvars.iv = phi i64 [ 1, %147 ], [ %indvars.iv.next, %252 ]
@@ -12681,10 +12681,10 @@ _ZN20btAlignedObjectArrayIPKN10btSoftBody4NodeEE6resizeEiRKS3_.exit.i: ; preds =
   %260 = or i1 %259, %249
   br i1 %260, label %262, label %317
 
-261:                                              ; preds = %246
+260:                                              ; preds = %246
   br i1 %249, label %262, label %317
 
-262:                                              ; preds = %256, %261
+262:                                              ; preds = %256, %260
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %90, align 8, !tbaa !407
   store ptr null, ptr %91, align 8, !tbaa !410
@@ -12882,7 +12882,7 @@ _ZN20btAlignedObjectArrayIPKN10btSoftBody4NodeEED2Ev.exit172: ; preds = %_ZN20bt
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %334
 
-317:                                              ; preds = %256, %261, %_ZN20btAlignedObjectArrayIPKN10btSoftBody4NodeEED2Ev.exit172
+317:                                              ; preds = %256, %260, %_ZN20btAlignedObjectArrayIPKN10btSoftBody4NodeEED2Ev.exit172
   %.162 = phi float [ %.sroa.speculated, %_ZN20btAlignedObjectArrayIPKN10btSoftBody4NodeEED2Ev.exit172 ], [ %.061241, %261 ], [ %.061241, %256 ]
   %.160 = phi float [ %204, %_ZN20btAlignedObjectArrayIPKN10btSoftBody4NodeEED2Ev.exit172 ], [ %.059242, %261 ], [ %.059242, %256 ]
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1

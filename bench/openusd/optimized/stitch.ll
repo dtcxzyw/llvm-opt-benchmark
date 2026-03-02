@@ -2392,7 +2392,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue4SwapERS0_.exit: ; preds = %_ZN32px
   %138 = and i1 %4, %7
   br label %139
 
-139:                                              ; preds = %94, %137, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue4SwapERS0_.exit
+143:                                              ; preds = %94, %137, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue4SwapERS0_.exit
   %.not.not = phi i1 [ %138, %137 ], [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue4SwapERS0_.exit ], [ false, %94 ]
   %.0 = phi i1 [ %4, %137 ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue4SwapERS0_.exit ], [ false, %94 ]
   %140 = load ptr, ptr %88, align 8
@@ -2411,11 +2411,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue4SwapERS0_.exit: ; preds = %_ZN32px
   invoke void %148(ptr noundef nonnull align 8 dereferenceable(16) %36)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit176 unwind label %149
 
-149:                                              ; preds = %144
-  %150 = landingpad { ptr, i32 }
+148:                                              ; preds = %144
+  %149 = landingpad { ptr, i32 }
           catch ptr null
-  %151 = extractvalue { ptr, i32 } %150, 0
-  call void @__clang_call_terminate(ptr %151) #19
+  %150 = extractvalue { ptr, i32 } %149, 0
+  call void @__clang_call_terminate(ptr %150) #19
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit176: ; preds = %139, %144

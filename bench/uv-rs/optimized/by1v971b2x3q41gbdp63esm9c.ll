@@ -1052,7 +1052,7 @@ define hidden noundef zeroext i1 @"_ZN9uv_pep4407version6Parser11parse_local28_$
   %2 = add nsw i8 %1, -48
   %.sroa.0.0 = icmp ult i8 %2, 10
   %3 = icmp ugt i8 %1, 64
-  %4 = icmp ugt i8 %1, 96
+  %6 = icmp ugt i8 %1, 96
   %spec.select.v = select i1 %4, i8 123, i8 91
   %spec.select = icmp ult i8 %1, %spec.select.v
   %.sroa.02.0 = select i1 %3, i1 %spec.select, i1 %.sroa.0.0
@@ -1251,7 +1251,7 @@ _ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit: ; preds = %1, %14
   %.sroa.02.0.i = select i1 %12, i1 %spec.select.i, i1 %.sroa.0.0.i
   br i1 %.sroa.02.0.i, label %14, label %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge
 
-14:                                               ; preds = %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit
+14:; preds = %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit
   %15 = add i64 %8, 1
   store i64 %15, ptr %2, align 8
   %exitcond.not = icmp eq i64 %15, %5
@@ -1259,28 +1259,28 @@ _ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit: ; preds = %1, %14
 
 _ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge: ; preds = %14, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit
   %.lcssa2 = phi i64 [ %8, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit ], [ %5, %14 ]
-  %16 = icmp ult i64 %.lcssa2, %3
-  br i1 %16, label %18, label %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge.thread, !prof !69
+  %18 = icmp ult i64 %.lcssa2, %3
+  br i1 %18, label %20, label %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge.thread, !prof !69
 
 _ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge.thread: ; preds = %1, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge
   %.lcssa211 = phi i64 [ %.lcssa2, %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge ], [ %3, %1 ]
-  %17 = icmp ugt i64 %.lcssa211, %5
-  br i1 %17, label %19, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha75a68bac5e4c4c9E.llvm.4561438521817157030.exit", !prof !3
+  %19 = icmp ugt i64 %.lcssa211, %5
+  br i1 %19, label %21, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha75a68bac5e4c4c9E.llvm.4561438521817157030.exit", !prof !3
 
-18:                                               ; preds = %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge
+20:                                               ; preds = %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge
   tail call void @_ZN4core5slice5index22slice_index_order_fail17h030c5c5524516f49E(i64 noundef %3, i64 noundef %.lcssa2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca8c64f2dd1a6b774647c5b831c608be.7.llvm.4561438521817157030) #24, !noalias !97
   unreachable
 
-19:                                               ; preds = %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge.thread
+21:                                               ; preds = %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge.thread
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h2903cb26d3368388E(i64 noundef %.lcssa211, i64 noundef %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ca8c64f2dd1a6b774647c5b831c608be.7.llvm.4561438521817157030) #24, !noalias !97
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17ha75a68bac5e4c4c9E.llvm.4561438521817157030.exit": ; preds = %_ZN9uv_pep4407version6Parser4byte17hecfd9269bb08d51fE.exit._crit_edge.thread
-  %20 = sub nuw i64 %.lcssa211, %3
-  %21 = getelementptr inbounds i8, ptr %7, i64 %3
-  %22 = insertvalue { ptr, i64 } poison, ptr %21, 0
-  %23 = insertvalue { ptr, i64 } %22, i64 %20, 1
-  ret { ptr, i64 } %23
+  %22 = sub nuw i64 %.lcssa211, %3
+  %23 = getelementptr inbounds i8, ptr %7, i64 %3
+  %24 = insertvalue { ptr, i64 } poison, ptr %23, 0
+  %25 = insertvalue { ptr, i64 } %24, i64 %22, 1
+  ret { ptr, i64 } %25
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable

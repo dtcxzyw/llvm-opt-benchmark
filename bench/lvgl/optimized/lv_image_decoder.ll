@@ -86,7 +86,7 @@ define internal fastcc ptr @image_decoder_get_info(ptr noundef %0, ptr noundef %
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !42
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %86, label %.thread
+  br i1 %.not, label %87, label %.thread
 
 .thread:                                          ; preds = %10
   %13 = tail call zeroext i1 @lv_image_header_cache_is_enabled() #6
@@ -121,7 +121,7 @@ define internal fastcc ptr @image_decoder_get_info(ptr noundef %0, ptr noundef %
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 528), align 8, !tbaa !30
   call void @lv_cache_release(ptr noundef %26, ptr noundef nonnull %20, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %86
+  br label %87
 
 27:                                               ; preds = %14
   br i1 %16, label %28, label %31
@@ -130,7 +130,7 @@ define internal fastcc ptr @image_decoder_get_info(ptr noundef %0, ptr noundef %
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = call i32 @lv_fs_open(ptr noundef nonnull %29, ptr noundef %6, i32 noundef 2) #6
   %.not76 = icmp eq i32 %30, 0
-  br i1 %.not76, label %31, label %86
+  br i1 %.not76, label %31, label %87
 
 31:                                               ; preds = %.thread, %28, %27
   %32 = phi i1 [ true, %28 ], [ false, %27 ], [ false, %.thread ]
@@ -211,45 +211,45 @@ img_width_to_stride.exit:                         ; preds = %55, %57
 
 .thread86:                                        ; preds = %70, %31, %img_width_to_stride.exit, %45
   %.07292 = phi ptr [ %.07293, %45 ], [ %.07293, %img_width_to_stride.exit ], [ null, %31 ], [ null, %70 ]
-  %or.cond8 = phi i1 [ %or.cond8184, %45 ], [ %or.cond8184, %img_width_to_stride.exit ], [ false, %31 ], [ false, %70 ]
-  br i1 %32, label %72, label %75
+  %72 = phi i1 [ %or.cond8184, %45 ], [ %or.cond8184, %img_width_to_stride.exit ], [ false, %31 ], [ false, %70 ]
+  br i1 %32, label %73, label %76
 
-72:                                               ; preds = %.thread86
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %74 = call i32 @lv_fs_close(ptr noundef nonnull %73) #6
-  br label %75
+73:                                               ; preds = %.thread86
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %75 = call i32 @lv_fs_close(ptr noundef nonnull %74) #6
+  br label %76
 
-75:                                               ; preds = %72, %.thread86
+76:                                               ; preds = %73, %.thread86
   br i1 %or.cond8, label %76, label %86
 
-76:                                               ; preds = %75
+77:                                               ; preds = %76
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 1, ptr %77, align 8, !tbaa !44
-  %78 = call ptr @lv_strdup(ptr noundef %6) #6
-  store ptr %78, ptr %4, align 8, !tbaa !46
-  %79 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %.07292, ptr %79, align 8, !tbaa !49
-  %80 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %80, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false), !tbaa.struct !47
-  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 528), align 8, !tbaa !30
-  %82 = call ptr @lv_cache_add(ptr noundef %81, ptr noundef nonnull %4, ptr noundef null) #6
-  %.not79 = icmp eq ptr %82, null
-  br i1 %.not79, label %.thread88, label %84
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 1, ptr %78, align 8, !tbaa !44
+  %79 = call ptr @lv_strdup(ptr noundef %6) #6
+  store ptr %79, ptr %4, align 8, !tbaa !46
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %.07292, ptr %80, align 8, !tbaa !49
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %81, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false), !tbaa.struct !47
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 528), align 8, !tbaa !30
+  %83 = call ptr @lv_cache_add(ptr noundef %82, ptr noundef nonnull %4, ptr noundef null) #6
+  %.not79 = icmp eq ptr %83, null
+  br i1 %.not79, label %.thread88, label %85
 
-.thread88:                                        ; preds = %76
-  %83 = load ptr, ptr %4, align 8, !tbaa !46
-  call void @lv_free(ptr noundef %83) #6
+.thread88:                                        ; preds = %77
+  %84 = load ptr, ptr %4, align 8, !tbaa !46
+  call void @lv_free(ptr noundef %84) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %86
+  br label %87
 
-84:                                               ; preds = %76
-  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 528), align 8, !tbaa !30
-  call void @lv_cache_release(ptr noundef %85, ptr noundef nonnull %82, ptr noundef null) #6
+85:                                               ; preds = %77
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 528), align 8, !tbaa !30
+  call void @lv_cache_release(ptr noundef %86, ptr noundef nonnull %83, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %86
+  br label %87
 
-86:                                               ; preds = %75, %84, %.thread88, %21, %28, %10
+87:                                               ; preds = %76, %85, %.thread88, %21, %28, %10
   %.2 = phi ptr [ null, %10 ], [ %25, %21 ], [ null, %28 ], [ null, %.thread88 ], [ %.07292, %84 ], [ %.07292, %75 ]
   ret ptr %.2
 }

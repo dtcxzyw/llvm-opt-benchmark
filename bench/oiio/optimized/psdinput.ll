@@ -3402,7 +3402,7 @@ _ZN11OpenImageIO6v3_1_08PSDInput9read_bigeIssEEbRT0_.exit: ; preds = %_ZN11OpenI
   call void @_ZNSt6vectorIN11OpenImageIO6v3_1_08PSDInput5LayerESaIS3_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %56, i64 noundef %57)
   %58 = load i16, ptr %46, align 8, !tbaa !202
   %.not4764 = icmp sgt i16 %58, 0
-  br i1 %.not4764, label %.lr.ph, label %.loopexit61
+  br i1 %.not4764, label %.lr.ph, label %_ZN11OpenImageIO6v3_1_08PSDInput19load_layer_channelsERNS1_5LayerE.exit
 
 59:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3413,7 +3413,7 @@ _ZN11OpenImageIO6v3_1_08PSDInput9read_bigeIssEEbRT0_.exit: ; preds = %_ZN11OpenI
 
 .critedge.preheader:                              ; preds = %59
   %.not4866 = icmp slt i16 %60, 1
-  br i1 %.not4866, label %.loopexit61, label %.lr.ph69
+  br i1 %.not4866, label %_ZN11OpenImageIO6v3_1_08PSDInput19load_layer_channelsERNS1_5LayerE.exit, label %.lr.ph69
 
 .lr.ph:                                           ; preds = %54, %59
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %54 ]
@@ -3448,7 +3448,7 @@ _ZN11OpenImageIO6v3_1_08PSDInput9read_bigeIssEEbRT0_.exit: ; preds = %_ZN11OpenI
   %76 = load ptr, ptr %71, align 8, !tbaa !116
   %77 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::PSDInput::ChannelInfo", ptr %76, i64 %indvars.iv.i
   %78 = call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08PSDInput18load_layer_channelERNS1_5LayerERNS1_11ChannelInfoE(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull readonly align 8 dereferenceable(192) %67, ptr noundef nonnull align 8 dereferenceable(112) %77)
-  br i1 %78, label %72, label %.loopexit61
+  br i1 %78, label %72, label %_ZN11OpenImageIO6v3_1_08PSDInput19load_layer_channelsERNS1_5LayerE.exit
 
 .critedge.loopexit:                               ; preds = %72
   %.pre = load i16, ptr %46, align 8, !tbaa !202
@@ -3459,10 +3459,10 @@ _ZN11OpenImageIO6v3_1_08PSDInput9read_bigeIssEEbRT0_.exit: ; preds = %_ZN11OpenI
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %80 = sext i16 %79 to i64
   %.not48.not = icmp slt i64 %indvars.iv.next73, %80
-  br i1 %.not48.not, label %.lr.ph69, label %.loopexit61, !llvm.loop !216
+  br i1 %.not48.not, label %.lr.ph69, label %_ZN11OpenImageIO6v3_1_08PSDInput19load_layer_channelsERNS1_5LayerE.exit, !llvm.loop !216
 
-.loopexit61:                                      ; preds = %.lr.ph, %.critedge, %75, %54, %.critedge.preheader, %38, %44, %26, %19
-  %.0 = phi i1 [ true, %26 ], [ false, %19 ], [ true, %44 ], [ %47, %.critedge ], [ false, %38 ], [ false, %75 ], [ %47, %.critedge.preheader ], [ %47, %54 ], [ false, %.lr.ph ]
+_ZN11OpenImageIO6v3_1_08PSDInput19load_layer_channelsERNS1_5LayerE.exit: ; preds = %.lr.ph, %.critedge, %75, %54, %.critedge.preheader, %38, %44, %26, %19
+  %.not4863 = phi i1 [ true, %26 ], [ false, %19 ], [ true, %44 ], [ %47, %.critedge ], [ false, %38 ], [ false, %75 ], [ %47, %.critedge.preheader ], [ %47, %54 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 

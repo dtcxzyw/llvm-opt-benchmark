@@ -16017,8 +16017,8 @@ define hidden void @_ZN4core5slice4sort7recurse17h877166454c81207fE.llvm.1600691
   %exitcond.not.i.i.i = icmp eq i64 %55, %50
   br i1 %exitcond.not.i.i.i, label %_ZN4core5slice4sort12choose_pivot17h0ecf08fdf6a55853E.exit, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h38d54993d0ae63c0E.exit10.i.i.i"
 
-56:                                               ; preds = %39
-  %57 = load i64, ptr %18, align 8, !noalias !2236, !noundef !14
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h20e91c510693c1aaE.exit.i": ; preds = %39
+  %56 = load i64, ptr %18, align 8, !noalias !2236, !noundef !14
   %58 = icmp eq i64 %40, 0
   %59 = and i1 %or.cond, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !2236
@@ -16027,7 +16027,7 @@ define hidden void @_ZN4core5slice4sort7recurse17h877166454c81207fE.llvm.1600691
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !2236
   br i1 %59, label %64, label %63
 
-_ZN4core5slice4sort12choose_pivot17h0ecf08fdf6a55853E.exit: ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h38d54993d0ae63c0E.exit10.i.i.i"
+59:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h38d54993d0ae63c0E.exit10.i.i.i"
   %60 = load i64, ptr %18, align 8, !noalias !2236, !noundef !14
   %61 = xor i64 %60, -1
   %62 = add i64 %.sroa.14.0125, %61
@@ -17770,8 +17770,8 @@ define hidden void @_ZN4core5slice4sort7recurse17ha00efb77eecabd10E.llvm.1600691
   %exitcond.not.i.i.i = icmp eq i64 %55, %50
   br i1 %exitcond.not.i.i.i, label %_ZN4core5slice4sort12choose_pivot17h2b1deace48959ac2E.exit, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf1a5dc1f9d804efaE.exit10.i.i.i"
 
-56:                                               ; preds = %39
-  %57 = load i64, ptr %18, align 8, !noalias !2492, !noundef !14
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h22522c73edd21719E.exit.i": ; preds = %39
+  %56 = load i64, ptr %18, align 8, !noalias !2492, !noundef !14
   %58 = icmp eq i64 %40, 0
   %59 = and i1 %or.cond, %58
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !2492
@@ -17780,7 +17780,7 @@ define hidden void @_ZN4core5slice4sort7recurse17ha00efb77eecabd10E.llvm.1600691
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !2492
   br i1 %59, label %64, label %63
 
-_ZN4core5slice4sort12choose_pivot17h2b1deace48959ac2E.exit: ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf1a5dc1f9d804efaE.exit10.i.i.i"
+59:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf1a5dc1f9d804efaE.exit10.i.i.i"
   %60 = load i64, ptr %18, align 8, !noalias !2492, !noundef !14
   %61 = xor i64 %60, -1
   %62 = add i64 %.sroa.14.0125, %61

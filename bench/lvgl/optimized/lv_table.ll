@@ -167,8 +167,8 @@ define internal void @lv_table_event(ptr readnone captures(none) %0, ptr noundef
   %10 = tail call ptr @lv_event_get_param(ptr noundef %1) #9
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %12 = load i32, ptr %11, align 8, !tbaa !3
-  %.not176 = icmp eq i32 %12, 0
-  br i1 %.not176, label %.preheader, label %.lr.ph
+  %.not175 = icmp eq i32 %12, 0
+  br i1 %.not175, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 88
@@ -184,10 +184,10 @@ define internal void @lv_table_event(ptr readnone captures(none) %0, ptr noundef
   %.0115.lcssa = phi i32 [ -1, %9 ], [ %15, %.preheader.loopexit ]
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 68
   %17 = load i32, ptr %16, align 4, !tbaa !18
-  %.not177 = icmp eq i32 %17, 0
-  br i1 %.not177, label %._crit_edge, label %.lr.ph164
+  %.not176 = icmp eq i32 %17, 0
+  br i1 %.not176, label %._crit_edge, label %.lr.ph159
 
-.lr.ph164:                                        ; preds = %.preheader
+.lr.ph159:                                        ; preds = %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %19 = load ptr, ptr %18, align 8, !tbaa !20
   %wide.trip.count186 = zext i32 %17 to i64
@@ -195,20 +195,20 @@ define internal void @lv_table_event(ptr readnone captures(none) %0, ptr noundef
 
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %.0115160 = phi i32 [ 0, %.lr.ph ], [ %23, %20 ]
+  %.0115155 = phi i32 [ 0, %.lr.ph ], [ %23, %20 ]
   %21 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !21
-  %23 = add nsw i32 %22, %.0115160
+  %23 = add nsw i32 %22, %.0115155
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader.loopexit, label %20, !llvm.loop !31
 
-24:                                               ; preds = %.lr.ph164, %24
+24:                                               ; preds = %.lr.ph159, %24
   %indvars.iv183 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next184, %24 ]
-  %.0116162 = phi i32 [ 0, %.lr.ph164 ], [ %27, %24 ]
+  %.0116157 = phi i32 [ 0, %.lr.ph164 ], [ %27, %24 ]
   %25 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv183
   %26 = load i32, ptr %25, align 4, !tbaa !21
-  %27 = add nsw i32 %26, %.0116162
+  %27 = add nsw i32 %26, %.0116157
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count186
   br i1 %exitcond187.not, label %._crit_edge.loopexit, label %24, !llvm.loop !32
@@ -278,21 +278,21 @@ define internal void @lv_table_event(ptr readnone captures(none) %0, ptr noundef
   %59 = load ptr, ptr %58, align 8, !tbaa !19
   %60 = load i32, ptr %59, align 4, !tbaa !21
   %61 = icmp slt i32 %55, %60
-  br i1 %61, label %._crit_edge.i, label %.lr.ph167
+  br i1 %61, label %._crit_edge.i, label %.lr.ph162
 
-.lr.ph167:                                        ; preds = %.lr.ph.i
+.lr.ph162:                                        ; preds = %.lr.ph.i
   %62 = zext i32 %57 to i64
   %63 = add nsw i64 %62, -1
   br label %64
 
-64:                                               ; preds = %.lr.ph167, %66
+64:                                               ; preds = %.lr.ph162, %66
   %65 = phi i32 [ %60, %.lr.ph167 ], [ %69, %66 ]
-  %indvars.iv.i166 = phi i64 [ 0, %.lr.ph167 ], [ %indvars.iv.next.i, %66 ]
-  %exitcond188.not = icmp eq i64 %indvars.iv.i166, %63
+  %indvars.iv.i161 = phi i64 [ 0, %.lr.ph167 ], [ %indvars.iv.next.i, %66 ]
+  %exitcond188.not = icmp eq i64 %indvars.iv.i161, %63
   br i1 %exitcond188.not, label %.._crit_edge.i.loopexit_crit_edge, label %66, !llvm.loop !38
 
 66:                                               ; preds = %64
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i166, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i161, 1
   %67 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv.next.i
   %68 = load i32, ptr %67, align 4, !tbaa !21
   %69 = add nsw i32 %68, %65
@@ -308,7 +308,7 @@ define internal void @lv_table_event(ptr readnone captures(none) %0, ptr noundef
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %.lr.ph.i, %.._crit_edge.i.loopexit_crit_edge, %51
   %.1146 = phi i32 [ 0, %51 ], [ %57, %.._crit_edge.i.loopexit_crit_edge ], [ 0, %.lr.ph.i ], [ %71, %._crit_edge.i.loopexit ]
-  %.not134 = phi i1 [ true, %51 ], [ true, %.._crit_edge.i.loopexit_crit_edge ], [ false, %.lr.ph.i ], [ false, %._crit_edge.i.loopexit ]
+  %.lcssa72.i = phi i1 [ true, %51 ], [ true, %.._crit_edge.i.loopexit_crit_edge ], [ false, %.lr.ph.i ], [ false, %._crit_edge.i.loopexit ]
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %73 = load i32, ptr %72, align 4, !tbaa !35
   %74 = call i32 @lv_obj_get_scroll_y(ptr noundef nonnull %7) #9
@@ -317,9 +317,9 @@ define internal void @lv_table_event(ptr readnone captures(none) %0, ptr noundef
   %77 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %7, i32 noundef 0, i8 noundef zeroext 16) #9
   %78 = ptrtoint ptr %77 to i64
   %.sroa.0.0.extract.trunc.i66.i = trunc i64 %78 to i32
-  %.neg158 = add i32 %74, %73
+  %.neg154 = add i32 %74, %73
   %79 = add i32 %76, %.sroa.0.0.extract.trunc.i66.i
-  %80 = sub i32 %.neg158, %79
+  %80 = sub i32 %.neg154, %79
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 68
   %82 = load i32, ptr %81, align 4, !tbaa !18
   %.not85.i = icmp eq i32 %82, 0
@@ -330,28 +330,28 @@ define internal void @lv_table_event(ptr readnone captures(none) %0, ptr noundef
   %84 = load ptr, ptr %83, align 8, !tbaa !20
   %85 = load i32, ptr %84, align 4, !tbaa !21
   %86 = icmp slt i32 %80, %85
-  br i1 %86, label %get_pressed_cell.exit, label %.lr.ph174
+  br i1 %86, label %get_pressed_cell.exit, label %.lr.ph169
 
-.lr.ph174:                                        ; preds = %.lr.ph80.i
+.lr.ph169:                                        ; preds = %.lr.ph80.i
   %87 = zext i32 %82 to i64
   %88 = add nsw i64 %87, -1
   br label %89
 
-89:                                               ; preds = %.lr.ph174, %91
+89:                                               ; preds = %.lr.ph169, %91
   %90 = phi i32 [ %85, %.lr.ph174 ], [ %94, %91 ]
-  %indvars.iv87.i173 = phi i64 [ 0, %.lr.ph174 ], [ %indvars.iv.next88.i, %91 ]
-  %exitcond189.not = icmp eq i64 %indvars.iv87.i173, %88
-  br i1 %exitcond189.not, label %get_pressed_cell.exit.thread152, label %91, !llvm.loop !40
+  %indvars.iv87.i168 = phi i64 [ 0, %.lr.ph174 ], [ %indvars.iv.next88.i, %91 ]
+  %exitcond189.not = icmp eq i64 %indvars.iv87.i168, %88
+  br i1 %exitcond189.not, label %.get_pressed_cell.exit.loopexit_crit_edge172, label %91, !llvm.loop !40
 
 91:                                               ; preds = %89
-  %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i173, 1
+  %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i168, 1
   %92 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv.next88.i
   %93 = load i32, ptr %92, align 4, !tbaa !21
   %94 = add nsw i32 %93, %90
   %95 = icmp slt i32 %80, %94
   br i1 %95, label %get_pressed_cell.exit.loopexit, label %89, !llvm.loop !40
 
-get_pressed_cell.exit.thread152:                  ; preds = %89, %._crit_edge.i
+.get_pressed_cell.exit.loopexit_crit_edge172:     ; preds = %89, %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
@@ -360,7 +360,7 @@ get_pressed_cell.exit.loopexit:                   ; preds = %91
   br label %get_pressed_cell.exit
 
 get_pressed_cell.exit:                            ; preds = %get_pressed_cell.exit.loopexit, %.lr.ph80.i
-  %.0142.lcssa = phi i32 [ 0, %.lr.ph80.i ], [ %96, %get_pressed_cell.exit.loopexit ]
+  %.1143 = phi i32 [ 0, %.lr.ph80.i ], [ %96, %get_pressed_cell.exit.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not134, label %.critedge, label %97
 
@@ -373,13 +373,13 @@ get_pressed_cell.exit:                            ; preds = %get_pressed_cell.ex
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 100
   %102 = load i32, ptr %101, align 4, !tbaa !25
-  %.not136 = icmp eq i32 %102, %.0142.lcssa
+  %.not136 = icmp eq i32 %102, %.1143
   br i1 %.not136, label %.critedge, label %103
 
 103:                                              ; preds = %100, %97
   store i32 %.1146, ptr %98, align 8, !tbaa !26
   %104 = getelementptr inbounds nuw i8, ptr %7, i64 100
-  store i32 %.0142.lcssa, ptr %104, align 4, !tbaa !25
+  store i32 %.1143, ptr %104, align 4, !tbaa !25
   call void @lv_obj_invalidate(ptr noundef nonnull %7) #9
   br label %.critedge
 
@@ -524,8 +524,8 @@ get_pressed_cell.exit:                            ; preds = %get_pressed_cell.ex
   %.2 = select i1 %.not128, i32 %spec.store.select9, i32 %165
   %.not129 = icmp eq i32 %130, %.1110
   %.not130 = icmp eq i32 %132, %.2
-  %or.cond156 = select i1 %.not129, i1 %.not130, i1 false
-  br i1 %or.cond156, label %.critedge, label %166
+  %or.cond152 = select i1 %.not129, i1 %.not130, i1 false
+  br i1 %or.cond152, label %.critedge, label %166
 
 166:                                              ; preds = %164
   store i32 %.1110, ptr %129, align 8, !tbaa !26

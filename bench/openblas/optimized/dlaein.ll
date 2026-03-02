@@ -1392,13 +1392,13 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %648 = icmp sge i32 %645, %647
   %649 = icmp sle i32 %645, %647
   %.in = select i1 %646, i1 %648, i1 %649
-  br i1 %.in, label %.lr.ph973, label %._crit_edge974.loopexit, !llvm.loop !33
+  br i1 %.in, label %.lr.ph973, label %._crit_edge974, !llvm.loop !33
 
-._crit_edge974.loopexit:                          ; preds = %642
+._crit_edge974:                                   ; preds = %642
   %650 = fmul double %41, %643
   br label %._crit_edge974
 
-._crit_edge974:                                   ; preds = %._crit_edge974.loopexit, %520
+._crit_edge974:; preds = %._crit_edge974, %520
   %651 = phi double [ %650, %._crit_edge974.loopexit ], [ %41, %520 ]
   %652 = call double @dasum_(ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull @c__1) #7
   %653 = call double @dasum_(ptr noundef nonnull %2, ptr noundef %8, ptr noundef nonnull @c__1) #7

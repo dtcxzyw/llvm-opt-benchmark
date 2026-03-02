@@ -19052,9 +19052,9 @@ _ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit178:    ; preds = %.lr.ph.i173, %._cri
   %277 = fadd double %.111.i184, %276
   %278 = add nuw nsw i64 %.0610.i185, 1
   %exitcond.not.i187 = icmp eq i64 %278, %199
-  br i1 %exitcond.not.i187, label %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit188.loopexit, label %.lr.ph.i183, !llvm.loop !439
+  br i1 %exitcond.not.i187, label %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit188, label %.lr.ph.i183, !llvm.loop !439
 
-_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit188.loopexit: ; preds = %.lr.ph.i183
+_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit188:    ; preds = %.lr.ph.i183
   %279 = fadd double %.0.i172, %277
   br label %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit188
 

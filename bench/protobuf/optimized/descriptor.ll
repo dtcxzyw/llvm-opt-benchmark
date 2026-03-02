@@ -29030,10 +29030,10 @@ if.then.invoke.cont11_crit_edge:                  ; preds = %if.then
   br i1 %9, label %land.lhs.true14, label %if.end29
 
 lpad:                                             ; preds = %if.then19, %land.lhs.true14, %if.then, %_ZN4absl12lts_2023080214MutexLockMaybeC2EPNS0_5MutexE.exit
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2023080214MutexLockMaybeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %lock) #38
-  resume { ptr, i32 } %10
+  resume { ptr, i32 } %9
 
 invoke.cont11:                                    ; preds = %land.lhs.true
   br i1 %build_it, label %land.lhs.true14, label %if.end29
@@ -29041,20 +29041,20 @@ invoke.cont11:                                    ; preds = %land.lhs.true
 land.lhs.true14:                                  ; preds = %if.then.invoke.cont11_crit_edge, %invoke.cont11
   %retval.sroa.0.022 = phi ptr [ %call9, %if.then.invoke.cont11_crit_edge ], [ %call3, %invoke.cont11 ]
   %call16 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #38
-  %11 = extractvalue { i64, ptr } %call16, 0
-  %12 = extractvalue { i64, ptr } %call16, 1
-  %call18 = invoke noundef zeroext i1 @_ZNK6google8protobuf14DescriptorPool31TryFindSymbolInFallbackDatabaseESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(96) %pool, i64 %11, ptr %12)
+  %10 = extractvalue { i64, ptr } %call16, 0
+  %11 = extractvalue { i64, ptr } %call16, 1
+  %call18 = invoke noundef zeroext i1 @_ZNK6google8protobuf14DescriptorPool31TryFindSymbolInFallbackDatabaseESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(96) %pool, i64 %10, ptr %11)
           to label %invoke.cont17 unwind label %lpad
 
 invoke.cont17:                                    ; preds = %land.lhs.true14
   br i1 %call18, label %if.then19, label %if.end29
 
 if.then19:                                        ; preds = %invoke.cont17
-  %13 = load ptr, ptr %tables_, align 8
+  %12 = load ptr, ptr %tables_, align 8
   %call24 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #38
-  %14 = extractvalue { i64, ptr } %call24, 0
-  %15 = extractvalue { i64, ptr } %call24, 1
-  %call26 = invoke ptr @_ZNK6google8protobuf14DescriptorPool6Tables10FindSymbolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(416) %13, i64 %14, ptr %15)
+  %13 = extractvalue { i64, ptr } %call24, 0
+  %14 = extractvalue { i64, ptr } %call24, 1
+  %call26 = invoke ptr @_ZNK6google8protobuf14DescriptorPool6Tables10FindSymbolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(416) %12, i64 %13, ptr %14)
           to label %if.end29 unwind label %lpad
 
 if.end29:                                         ; preds = %invoke.cont4, %if.then.invoke.cont11_crit_edge, %if.then19, %invoke.cont17, %invoke.cont11
@@ -29067,10 +29067,10 @@ if.then.i12:                                      ; preds = %if.end29
           to label %_ZN4absl12lts_2023080214MutexLockMaybeD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i12
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #40
+  %16 = extractvalue { ptr, i32 } %15, 0
+  tail call void @__clang_call_terminate(ptr %16) #40
   unreachable
 
 _ZN4absl12lts_2023080214MutexLockMaybeD2Ev.exit:  ; preds = %if.end29, %if.then.i12

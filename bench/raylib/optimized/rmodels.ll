@@ -15142,9 +15142,9 @@ _m3dstbi__get16be.exit.i.i:                       ; preds = %313, %_m3dstbi__get
   br i1 %exitcond438.not.i, label %_m3dstbi__skip.exit.i.i, label %299
 
 .lr.ph583.i.i:                                    ; preds = %_m3dstbi__get16be.exit308.i.i, %.lr.ph583.preheader.i.i
-  %322 = phi ptr [ %98, %.lr.ph583.preheader.i.i ], [ %336, %_m3dstbi__get16be.exit308.i.i ]
-  %323 = phi ptr [ %99, %.lr.ph583.preheader.i.i ], [ %337, %_m3dstbi__get16be.exit308.i.i ]
-  %324 = phi ptr [ %99, %.lr.ph583.preheader.i.i ], [ %338, %_m3dstbi__get16be.exit308.i.i ]
+  %322 = phi ptr [ %98, %.lr.ph583.preheader.i.i ], [ %335, %_m3dstbi__get16be.exit308.i.i ]
+  %323 = phi ptr [ %99, %.lr.ph583.preheader.i.i ], [ %336, %_m3dstbi__get16be.exit308.i.i ]
+  %324 = phi ptr [ %99, %.lr.ph583.preheader.i.i ], [ %337, %_m3dstbi__get16be.exit308.i.i ]
   %indvars.iv780.i.i = phi i64 [ 0, %.lr.ph583.preheader.i.i ], [ %indvars.iv.next781.i.i, %_m3dstbi__get16be.exit308.i.i ]
   %325 = icmp ult ptr %324, %34
   br i1 %325, label %326, label %_m3dstbi__get8.exit.i305.i.i
@@ -15169,9 +15169,9 @@ _m3dstbi__get8.exit.i305.i.i:                     ; preds = %326, %.lr.ph583.i.i
   br label %_m3dstbi__get16be.exit308.i.i
 
 _m3dstbi__get16be.exit308.i.i:                    ; preds = %332, %_m3dstbi__get8.exit.i305.i.i
-  %336 = phi ptr [ %333, %332 ], [ %328, %_m3dstbi__get8.exit.i305.i.i ]
-  %337 = phi ptr [ %333, %332 ], [ %329, %_m3dstbi__get8.exit.i305.i.i ]
-  %338 = phi ptr [ %333, %332 ], [ %330, %_m3dstbi__get8.exit.i305.i.i ]
+  %335 = phi ptr [ %333, %332 ], [ %328, %_m3dstbi__get8.exit.i305.i.i ]
+  %336 = phi ptr [ %333, %332 ], [ %329, %_m3dstbi__get8.exit.i305.i.i ]
+  %337 = phi ptr [ %333, %332 ], [ %330, %_m3dstbi__get8.exit.i305.i.i ]
   %.0.i2.i307.i.i = phi i8 [ %335, %332 ], [ 0, %_m3dstbi__get8.exit.i305.i.i ]
   %339 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv780.i.i
   store i8 %.0.i2.i307.i.i, ptr %339, align 1
@@ -15726,11 +15726,11 @@ _m3dstbi__expand_png_palette.exit.i.i:            ; preds = %.lr.ph.i332.i.i, %.
 
 _m3dstbi__skip.exit.i.i:                          ; preds = %_m3dstbi__get8.exit302.i.i, %_m3dstbi__get16be.exit308.i.i, %_m3dstbi__get16be.exit.i.i, %_m3dstbi__get8.exit300.i.i, %590, %589, %_m3dstbi__getn.exit.i.i, %.preheader395.i.i, %.preheader397.i.i, %.preheader399.i.i, %.preheader.i.i, %230, %222, %107, %106
   %593 = phi ptr [ %30, %230 ], [ %.pre793.i.i, %_m3dstbi__getn.exit.i.i ], [ %30, %107 ], [ %30, %590 ], [ %30, %.preheader395.i.i ], [ %30, %.preheader397.i.i ], [ %30, %.preheader.i.i ], [ %30, %106 ], [ %30, %222 ], [ %30, %589 ], [ %30, %.preheader399.i.i ], [ %30, %_m3dstbi__get16be.exit308.i.i ], [ %30, %_m3dstbi__get8.exit300.i.i ], [ %30, %_m3dstbi__get16be.exit.i.i ], [ %30, %_m3dstbi__get8.exit302.i.i ]
-  %594 = phi ptr [ %219, %230 ], [ %368, %_m3dstbi__getn.exit.i.i ], [ %109, %107 ], [ %592, %590 ], [ %98, %.preheader395.i.i ], [ %98, %.preheader397.i.i ], [ %98, %.preheader.i.i ], [ %34, %106 ], [ %219, %222 ], [ %34, %589 ], [ %98, %.preheader399.i.i ], [ %336, %_m3dstbi__get16be.exit308.i.i ], [ %264, %_m3dstbi__get8.exit300.i.i ], [ %318, %_m3dstbi__get16be.exit.i.i ], [ %282, %_m3dstbi__get8.exit302.i.i ]
+  %594 = phi ptr [ %219, %230 ], [ %368, %_m3dstbi__getn.exit.i.i ], [ %109, %107 ], [ %592, %590 ], [ %98, %.preheader395.i.i ], [ %98, %.preheader397.i.i ], [ %98, %.preheader.i.i ], [ %34, %106 ], [ %219, %222 ], [ %34, %589 ], [ %98, %.preheader399.i.i ], [ %335, %_m3dstbi__get16be.exit308.i.i ], [ %264, %_m3dstbi__get8.exit300.i.i ], [ %318, %_m3dstbi__get16be.exit.i.i ], [ %282, %_m3dstbi__get8.exit302.i.i ]
   %595 = phi i32 [ %189, %230 ], [ %32, %_m3dstbi__getn.exit.i.i ], [ %32, %107 ], [ %32, %590 ], [ 16, %.preheader395.i.i ], [ %32, %.preheader397.i.i ], [ %32, %.preheader.i.i ], [ %32, %106 ], [ %189, %222 ], [ %32, %589 ], [ %32, %.preheader399.i.i ], [ %32, %_m3dstbi__get16be.exit308.i.i ], [ %32, %_m3dstbi__get8.exit300.i.i ], [ 16, %_m3dstbi__get16be.exit.i.i ], [ %32, %_m3dstbi__get8.exit302.i.i ]
   %596 = phi ptr [ %33, %230 ], [ %360, %_m3dstbi__getn.exit.i.i ], [ %33, %107 ], [ %33, %590 ], [ null, %.preheader395.i.i ], [ null, %.preheader397.i.i ], [ %33, %.preheader.i.i ], [ %33, %106 ], [ %33, %222 ], [ %33, %589 ], [ null, %.preheader399.i.i ], [ null, %_m3dstbi__get16be.exit308.i.i ], [ %33, %_m3dstbi__get8.exit300.i.i ], [ null, %_m3dstbi__get16be.exit.i.i ], [ null, %_m3dstbi__get8.exit302.i.i ]
   %597 = phi ptr [ %30, %230 ], [ %.pre793.i.i, %_m3dstbi__getn.exit.i.i ], [ %34, %107 ], [ %34, %590 ], [ %34, %.preheader395.i.i ], [ %34, %.preheader397.i.i ], [ %34, %.preheader.i.i ], [ %34, %106 ], [ %30, %222 ], [ %34, %589 ], [ %34, %.preheader399.i.i ], [ %34, %_m3dstbi__get16be.exit308.i.i ], [ %34, %_m3dstbi__get8.exit300.i.i ], [ %34, %_m3dstbi__get16be.exit.i.i ], [ %34, %_m3dstbi__get8.exit302.i.i ]
-  %598 = phi ptr [ %219, %230 ], [ %368, %_m3dstbi__getn.exit.i.i ], [ %109, %107 ], [ %592, %590 ], [ %99, %.preheader395.i.i ], [ %99, %.preheader397.i.i ], [ %99, %.preheader.i.i ], [ %34, %106 ], [ %219, %222 ], [ %34, %589 ], [ %99, %.preheader399.i.i ], [ %337, %_m3dstbi__get16be.exit308.i.i ], [ %265, %_m3dstbi__get8.exit300.i.i ], [ %319, %_m3dstbi__get16be.exit.i.i ], [ %283, %_m3dstbi__get8.exit302.i.i ]
+  %598 = phi ptr [ %219, %230 ], [ %368, %_m3dstbi__getn.exit.i.i ], [ %109, %107 ], [ %592, %590 ], [ %99, %.preheader395.i.i ], [ %99, %.preheader397.i.i ], [ %99, %.preheader.i.i ], [ %34, %106 ], [ %219, %222 ], [ %34, %589 ], [ %99, %.preheader399.i.i ], [ %336, %_m3dstbi__get16be.exit308.i.i ], [ %265, %_m3dstbi__get8.exit300.i.i ], [ %319, %_m3dstbi__get16be.exit.i.i ], [ %283, %_m3dstbi__get8.exit302.i.i ]
   %.1226.i.i = phi i32 [ %220, %230 ], [ %.0225.i.i, %_m3dstbi__getn.exit.i.i ], [ %.0225.i.i, %107 ], [ %.0225.i.i, %590 ], [ %.0225.i.i, %.preheader395.i.i ], [ %.0225.i.i, %.preheader397.i.i ], [ %.0225.i.i, %.preheader.i.i ], [ %.0225.i.i, %106 ], [ %220, %222 ], [ %.0225.i.i, %589 ], [ %.0225.i.i, %.preheader399.i.i ], [ %.0225.i.i, %_m3dstbi__get16be.exit308.i.i ], [ %.0225.i.i, %_m3dstbi__get8.exit300.i.i ], [ %.0225.i.i, %_m3dstbi__get16be.exit.i.i ], [ %.0225.i.i, %_m3dstbi__get8.exit302.i.i ]
   %.1222.i.i = phi i32 [ %205, %230 ], [ %.0221.i.i, %_m3dstbi__getn.exit.i.i ], [ %.0221.i.i, %107 ], [ %.0221.i.i, %590 ], [ %.0221.i.i, %.preheader395.i.i ], [ %.0221.i.i, %.preheader397.i.i ], [ %.0221.i.i, %.preheader.i.i ], [ %.0221.i.i, %106 ], [ %205, %222 ], [ %.0221.i.i, %589 ], [ %.0221.i.i, %.preheader399.i.i ], [ %.0221.i.i, %_m3dstbi__get16be.exit308.i.i ], [ %.0221.i.i, %_m3dstbi__get8.exit300.i.i ], [ %.0221.i.i, %_m3dstbi__get16be.exit.i.i ], [ %.0221.i.i, %_m3dstbi__get8.exit302.i.i ]
   %.1218.i.i = phi i32 [ 0, %230 ], [ 0, %_m3dstbi__getn.exit.i.i ], [ %.0217.i.i, %107 ], [ 0, %590 ], [ 0, %.preheader395.i.i ], [ 0, %.preheader397.i.i ], [ 0, %.preheader.i.i ], [ %.0217.i.i, %106 ], [ 0, %222 ], [ 0, %589 ], [ 0, %.preheader399.i.i ], [ 0, %_m3dstbi__get16be.exit308.i.i ], [ 0, %_m3dstbi__get8.exit300.i.i ], [ 0, %_m3dstbi__get16be.exit.i.i ], [ 0, %_m3dstbi__get8.exit302.i.i ]
@@ -40877,7 +40877,7 @@ define void @DrawMeshInstanced(ptr noundef readonly byval(%struct.Mesh) align 8 
 
 .preheader:                                       ; preds = %509
   %302 = load ptr, ptr %192, align 8
-  br label %511
+  br label %512
 
 303:                                              ; preds = %290, %509
   %304 = phi i1 [ %292, %290 ], [ false, %509 ]
@@ -41189,7 +41189,7 @@ define void @DrawMeshInstanced(ptr noundef readonly byval(%struct.Mesh) align 8 
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %304, label %303, label %.preheader
 
-510:                                              ; preds = %520
+511:                                              ; preds = %521
   call void @rlDisableVertexArray() #63
   call void @rlDisableVertexBuffer() #63
   call void @rlDisableVertexBufferElement() #63
@@ -41200,34 +41200,34 @@ define void @DrawMeshInstanced(ptr noundef readonly byval(%struct.Mesh) align 8 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
-511:                                              ; preds = %.preheader, %520
+512:                                              ; preds = %.preheader, %521
   %indvars.iv393 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next394, %520 ]
-  %512 = getelementptr inbounds nuw %struct.MaterialMap, ptr %302, i64 %indvars.iv393
-  %513 = load i32, ptr %512, align 4
-  %.not68 = icmp eq i32 %513, 0
-  br i1 %.not68, label %520, label %514
+  %513 = getelementptr inbounds nuw %struct.MaterialMap, ptr %302, i64 %indvars.iv393
+  %514 = load i32, ptr %513, align 4
+  %.not68 = icmp eq i32 %514, 0
+  br i1 %.not68, label %521, label %515
 
-514:                                              ; preds = %511
-  %515 = trunc nuw nsw i64 %indvars.iv393 to i32
-  call void @rlActiveTextureSlot(i32 noundef %515) #63
-  %516 = and i32 %515, 14
-  %or.cond8 = icmp eq i32 %516, 8
-  %517 = icmp eq i64 %indvars.iv393, 7
-  %or.cond10 = or i1 %517, %or.cond8
-  br i1 %or.cond10, label %518, label %519
+515:                                              ; preds = %512
+  %516 = trunc nuw nsw i64 %indvars.iv393 to i32
+  call void @rlActiveTextureSlot(i32 noundef %516) #63
+  %517 = and i32 %516, 14
+  %or.cond8 = icmp eq i32 %517, 8
+  %518 = icmp eq i64 %indvars.iv393, 7
+  %or.cond10 = or i1 %518, %or.cond8
+  br i1 %or.cond10, label %519, label %520
 
-518:                                              ; preds = %514
+519:                                              ; preds = %515
   call void @rlDisableTextureCubemap() #63
-  br label %520
+  br label %521
 
-519:                                              ; preds = %514
+520:                                              ; preds = %515
   call void @rlDisableTexture() #63
-  br label %520
+  br label %521
 
-520:                                              ; preds = %511, %519, %518
+521:                                              ; preds = %512, %520, %519
   %indvars.iv.next394 = add nuw nsw i64 %indvars.iv393, 1
   %exitcond396.not = icmp eq i64 %indvars.iv.next394, 12
-  br i1 %exitcond396.not, label %510, label %511
+  br i1 %exitcond396.not, label %511, label %512
 }
 
 declare void @rlSetVertexAttributeDivisor(i32 noundef, i32 noundef) local_unnamed_addr #37

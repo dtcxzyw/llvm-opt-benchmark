@@ -63940,13 +63940,13 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %.val6 = load i8, ptr %12, align 1, !noundef !4
   %13 = add i8 %.val, -65
   %14 = icmp ult i8 %13, 26
-  %15 = select i1 %14, i8 32, i8 0
+  %.0.i.i.i = select i1 %14, i8 32, i8 0
   %.0.i.i.i = or i8 %15, %.val
   %16 = add i8 %.val6, -65
   %17 = icmp ult i8 %16, 26
   %18 = select i1 %17, i8 32, i8 0
-  %.02.i.i.i = or i8 %18, %.val6
-  %.not = icmp eq i8 %.0.i.i.i, %.02.i.i.i
+  %18 = or i8 %18, %.val6
+  %.not = icmp eq i8 %.0.i.i.i, %18
   br i1 %.not, label %6, label %19
 
 19:                                               ; preds = %6, %9
@@ -64606,13 +64606,13 @@ define hidden noundef zeroext i1 @"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u
   %.val6.i = load i8, ptr %10, align 1, !noalias !10879, !noundef !4
   %11 = add i8 %.val.i, -65
   %12 = icmp ult i8 %11, 26
-  %13 = select i1 %12, i8 32, i8 0
+  %.0.i.i.i.i = select i1 %12, i8 32, i8 0
   %.0.i.i.i.i = or i8 %13, %.val.i
   %14 = add i8 %.val6.i, -65
-  %15 = icmp ult i8 %14, 26
-  %16 = select i1 %15, i8 32, i8 0
-  %.02.i.i.i.i = or i8 %16, %.val6.i
-  %.not.i = icmp eq i8 %.0.i.i.i.i, %.02.i.i.i.i
+  %.0.i.i.i = icmp ult i8 %14, 26
+  %16 = select i1 %.0.i.i.i, i8 32, i8 0
+  %16 = or i8 %.0.i.i.i.i.i6, %.val6.i
+  %.not.i = icmp eq i8 %.0.i.i.i.i, %16
   br i1 %.not.i, label %.preheader, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h36ef5bdf22c7b0a3E.llvm.10148583022391705530.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h36ef5bdf22c7b0a3E.llvm.10148583022391705530.exit: ; preds = %7, %.preheader, %4
@@ -129276,9 +129276,9 @@ define noundef zeroext i1 @_ZN14deltalake_core7storage13str_is_truthy17h18bba8c5
   %.val.i.i = load i8, ptr %0, align 1, !alias.scope !20672, !noalias !20675, !noundef !4
   %5 = add i8 %.val.i.i, -65
   %6 = icmp ult i8 %5, 26
-  %7 = select i1 %6, i8 32, i8 0
-  %.0.i.i.i.i.i = or i8 %7, %.val.i.i
-  %.not.i.i = icmp eq i8 %.0.i.i.i.i.i, 49
+  %.0.i.i.i.i.i = select i1 %6, i8 32, i8 0
+  %7 = or i8 %.0.i.i.i.i.i, %.val.i.i
+  %.not.i.i = icmp eq i8 %7, 49
   br i1 %.not.i.i, label %.preheader.i, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.llvm.10148583022391705530.exit"
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.llvm.10148583022391705530.exit": ; preds = %.preheader.i, %4, %2
@@ -129301,13 +129301,13 @@ define noundef zeroext i1 @_ZN14deltalake_core7storage13str_is_truthy17h18bba8c5
   %.val6.i.i5 = load i8, ptr %13, align 1, !alias.scope !20682, !noalias !20687, !noundef !4
   %14 = add i8 %.val.i.i4, -65
   %15 = icmp ult i8 %14, 26
-  %16 = select i1 %15, i8 32, i8 0
+  %.0.i.i.i.i.i6 = select i1 %15, i8 32, i8 0
   %.0.i.i.i.i.i6 = or i8 %16, %.val.i.i4
   %17 = add i8 %.val6.i.i5, -65
   %18 = icmp ult i8 %17, 26
   %19 = select i1 %18, i8 32, i8 0
-  %.02.i.i.i.i.i7 = or i8 %19, %.val6.i.i5
-  %.not.i.i8 = icmp eq i8 %.0.i.i.i.i.i6, %.02.i.i.i.i.i7
+  %19 = or i8 %19, %.val6.i.i5
+  %.not.i.i8 = icmp eq i8 %.0.i.i.i.i.i6, %19
   br i1 %.not.i.i8, label %.preheader.i2, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.llvm.10148583022391705530.exit9"
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.llvm.10148583022391705530.exit9": ; preds = %.preheader.i2, %10, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.llvm.10148583022391705530.exit"
@@ -129330,13 +129330,13 @@ define noundef zeroext i1 @_ZN14deltalake_core7storage13str_is_truthy17h18bba8c5
   %.val6.i.i14 = load i8, ptr %25, align 1, !alias.scope !20691, !noalias !20696, !noundef !4
   %26 = add i8 %.val.i.i13, -65
   %27 = icmp ult i8 %26, 26
-  %28 = select i1 %27, i8 32, i8 0
+  %.0.i.i.i.i.i15 = select i1 %27, i8 32, i8 0
   %.0.i.i.i.i.i15 = or i8 %28, %.val.i.i13
   %29 = add i8 %.val6.i.i14, -65
   %30 = icmp ult i8 %29, 26
   %31 = select i1 %30, i8 32, i8 0
-  %.02.i.i.i.i.i16 = or i8 %31, %.val6.i.i14
-  %.not.i.i17 = icmp eq i8 %.0.i.i.i.i.i15, %.02.i.i.i.i.i16
+  %31 = or i8 %31, %.val6.i.i14
+  %.not.i.i17 = icmp eq i8 %.0.i.i.i.i.i15, %31
   br i1 %.not.i.i17, label %.preheader.i11, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.llvm.10148583022391705530.exit18"
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.llvm.10148583022391705530.exit18": ; preds = %.preheader.i11, %22, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.llvm.10148583022391705530.exit9"
@@ -129359,13 +129359,13 @@ define noundef zeroext i1 @_ZN14deltalake_core7storage13str_is_truthy17h18bba8c5
   %.val6.i.i23 = load i8, ptr %37, align 1, !alias.scope !20700, !noalias !20705, !noundef !4
   %38 = add i8 %.val.i.i22, -65
   %39 = icmp ult i8 %38, 26
-  %40 = select i1 %39, i8 32, i8 0
+  %.0.i.i.i.i.i24 = select i1 %39, i8 32, i8 0
   %.0.i.i.i.i.i24 = or i8 %40, %.val.i.i22
   %41 = add i8 %.val6.i.i23, -65
   %42 = icmp ult i8 %41, 26
   %43 = select i1 %42, i8 32, i8 0
   %.02.i.i.i.i.i25 = or i8 %43, %.val6.i.i23
-  %.not.i.i26 = icmp eq i8 %.0.i.i.i.i.i24, %.02.i.i.i.i.i25
+  %.not.i.i26 = icmp eq i8 %.0.i.i.i.i.i24, %43
   br i1 %.not.i.i26, label %.preheader.i20, label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.llvm.10148583022391705530.exit27"
 
 "_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.llvm.10148583022391705530.exit27": ; preds = %.preheader.i20, %34, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.llvm.10148583022391705530.exit18"
@@ -129374,15 +129374,15 @@ define noundef zeroext i1 @_ZN14deltalake_core7storage13str_is_truthy17h18bba8c5
 
 .preheader.i29:                                   ; preds = %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.llvm.10148583022391705530.exit27"
   %.val.i.i31 = load i8, ptr %0, align 1, !alias.scope !20706, !noalias !20709, !noundef !4
-  %44 = add i8 %.val.i.i31, -65
-  %45 = icmp ult i8 %44, 26
-  %46 = select i1 %45, i8 32, i8 0
-  %.0.i.i.i.i.i33 = or i8 %46, %.val.i.i31
-  %.not.i.i35 = icmp eq i8 %.0.i.i.i.i.i33, 121
+  %45 = add i8 %.val.i.i31, -65
+  %46 = icmp ult i8 %45, 26
+  %.0.i.i.i.i.i33 = select i1 %46, i8 32, i8 0
+  %47 = or i8 %.0.i.i.i.i.i33, %.val.i.i31
+  %.not.i.i35 = icmp eq i8 %47, 121
   %spec.select = or i1 %.not.i.i35, %.0.i19
   br label %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.llvm.10148583022391705530.exit36"
 
-"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.llvm.10148583022391705530.exit36": ; preds = %.preheader.i29, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.llvm.10148583022391705530.exit27"
+"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.llvm.10148583022391705530.exit36":; preds = %.preheader.i29, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.llvm.10148583022391705530.exit27"
   %.0.i28 = phi i1 [ %.0.i19, %"_ZN4core5slice5ascii30_$LT$impl$u20$$u5b$u8$u5d$$GT$20eq_ignore_ascii_case17hcaa853dd8193a8e7E.llvm.10148583022391705530.exit27" ], [ %spec.select, %.preheader.i29 ]
   ret i1 %.0.i28
 }

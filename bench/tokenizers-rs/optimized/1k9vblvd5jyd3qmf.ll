@@ -6071,12 +6071,12 @@ define hidden noundef zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$
   %4 = icmp samesign ugt i32 %2, 57
   br i1 %4, label %5, label %.thread12
 
-5:                                                ; preds = %1
+5:; preds = %1
   %6 = icmp samesign ult i32 %2, 65
-  %7 = icmp samesign ugt i32 %2, 90
-  br i1 %7, label %8, label %.thread12
+  %.06 = icmp samesign ugt i32 %2, 90
+  br i1 %.06, label %8, label %.thread12
 
-8:                                                ; preds = %5
+8:; preds = %5
   %9 = icmp samesign ugt i32 %2, 122
   %spec.select.v = select i1 %9, i32 127, i32 97
   %spec.select = icmp samesign ult i32 %2, %spec.select.v
@@ -21276,7 +21276,7 @@ define hidden noundef zeroext i1 @_ZN10tokenizers14pre_tokenizers11punctuation7i
   %3 = icmp samesign ugt i32 %0, 57
   br i1 %3, label %4, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17hd1c6461aca1a7cc9E.llvm.787574339177529159.exit"
 
-4:                                                ; preds = %1
+3:                                                ; preds = %1
   %5 = icmp samesign ult i32 %0, 65
   %6 = icmp samesign ugt i32 %0, 90
   br i1 %6, label %7, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17hd1c6461aca1a7cc9E.llvm.787574339177529159.exit"
@@ -21295,7 +21295,7 @@ define hidden noundef zeroext i1 @_ZN10tokenizers14pre_tokenizers11punctuation7i
   %10 = tail call noundef zeroext i1 @_ZN18unicode_categories17UnicodeCategories14is_punctuation17he7d2a917fef1699eE.llvm.787574339177529159(i32 noundef %0)
   br label %11
 
-11:                                               ; preds = %7, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17hd1c6461aca1a7cc9E.llvm.787574339177529159.exit", %9
+5:                                                ; preds = %7, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17hd1c6461aca1a7cc9E.llvm.787574339177529159.exit", %9
   %.0 = phi i1 [ %10, %9 ], [ true, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$20is_ascii_punctuation17hd1c6461aca1a7cc9E.llvm.787574339177529159.exit" ], [ true, %7 ]
   ret i1 %.0
 }

@@ -5699,8 +5699,8 @@ for.body:                                         ; preds = %if.then8, %for.inc
   br i1 %cmp.i.i.i28, label %if.end13, label %_ZNK10StringView10startsWithEc.exit.i29
 
 _ZNK10StringView10startsWithEc.exit.i29:          ; preds = %for.body
-  %34 = load i8, ptr %add.ptr.i.i324344, align 1
-  %cmp.i.i30 = icmp eq i8 %34, 64
+  %35 = load i8, ptr %add.ptr.i.i324344, align 1
+  %cmp.i.i30 = icmp eq i8 %35, 64
   br i1 %cmp.i.i30, label %for.inc, label %if.end13
 
 if.end13:                                         ; preds = %_ZNK10StringView10startsWithEc.exit.i29, %for.body

@@ -114,7 +114,7 @@ define internal i32 @query_formats(ptr noundef %0) #1 {
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !20
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.lr.ph, label %.thread168
+  br i1 %11, label %.lr.ph, label %.thread172
 
 .lr.ph:                                           ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -207,7 +207,7 @@ define internal i32 @query_formats(ptr noundef %0) #1 {
   br label %57
 
 57:                                               ; preds = %53, %46, %44
-  %.192 = phi i64 [ %.091112, %44 ], [ %56, %53 ], [ %.091112, %46 ]
+  %58 = phi i64 [ %.091112, %44 ], [ %56, %53 ], [ %.091112, %46 ]
   %.186 = phi i32 [ %45, %44 ], [ %spec.select, %53 ], [ %spec.select, %46 ]
   %58 = load ptr, ptr %13, align 8, !tbaa !23
   %59 = getelementptr inbounds nuw %struct.amerge_input, ptr %58, i64 %indvars.iv
@@ -229,7 +229,7 @@ define internal i32 @query_formats(ptr noundef %0) #1 {
 
 67:                                               ; preds = %._crit_edge
   %68 = icmp eq i32 %.186, 0
-  br i1 %68, label %.thread168, label %69
+  br i1 %68, label %.thread172, label %69
 
 69:                                               ; preds = %67
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.16) #7
@@ -271,23 +271,23 @@ define internal i32 @query_formats(ptr noundef %0) #1 {
   %86 = call i32 @av_channel_layout_from_mask(ptr noundef nonnull %3, i64 noundef %85) #7
   br label %119
 
-.thread168:                                       ; preds = %1, %67
-  %.091.lcssa165172 = phi i64 [ %.192, %67 ], [ 0, %1 ]
+.thread172:                                       ; preds = %1, %67
+  %.091.lcssa169176 = phi i64 [ %.192, %67 ], [ 0, %1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %87 = call i32 @av_channel_layout_from_mask(ptr noundef nonnull %3, i64 noundef %.091.lcssa165172) #7
+  %87 = call i32 @av_channel_layout_from_mask(ptr noundef nonnull %3, i64 noundef %.091.lcssa169176) #7
   %88 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store ptr %88, ptr %6, align 16, !tbaa !56
   %89 = load i32, ptr %9, align 8, !tbaa !20
   %90 = icmp sgt i32 %89, 1
   br i1 %90, label %.lr.ph124, label %.preheader106
 
-.lr.ph124:                                        ; preds = %.thread168
+.lr.ph124:                                        ; preds = %.thread172
   %91 = getelementptr inbounds nuw i8, ptr %8, i64 272
   %92 = load ptr, ptr %91, align 8, !tbaa !23
   %wide.trip.count144 = zext nneg i32 %89 to i64
   br label %94
 
-.preheader106:                                    ; preds = %.thread168
+.preheader106:                                    ; preds = %.thread172
   %93 = icmp eq i32 %89, 1
   br i1 %93, label %.preheader105.preheader, label %.split.us
 

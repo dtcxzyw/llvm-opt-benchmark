@@ -8151,13 +8151,13 @@ cvAltSum.exit28.i.i:                              ; preds = %.preheader.i21.i.i
   store double %314, ptr %315, align 8, !tbaa !49
   %indvars.iv.next.i31.i.i = add nuw nsw i64 %indvars.iv.i30.i.i, 1
   %exitcond.not.i32.i.i = icmp eq i64 %indvars.iv.next.i31.i.i, %wide.trip.count.i29.i.i
-  br i1 %exitcond.not.i32.i.i, label %._crit_edge.i.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !288
+  br i1 %exitcond.not.i32.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !288
 
-._crit_edge.i.loopexit.i.i:                       ; preds = %.lr.ph.i.i.i
+._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
   %316 = fmul double %306, %304
   br label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %._crit_edge.i.loopexit.i.i, %cvAltSum.exit28.thread.i.i
+._crit_edge.i.i.i:; preds = %._crit_edge.i.i.i, %cvAltSum.exit28.thread.i.i
   %.034.lcssa.i57.i.i = phi double [ %252, %cvAltSum.exit28.thread.i.i ], [ %287, %._crit_edge.i.loopexit.i.i ]
   %317 = phi double [ 0x7FF0000000000000, %cvAltSum.exit28.thread.i.i ], [ %306, %._crit_edge.i.loopexit.i.i ]
   %.014.i2747.i.i = phi double [ 0x7FF8000000000000, %cvAltSum.exit28.thread.i.i ], [ %316, %._crit_edge.i.loopexit.i.i ]

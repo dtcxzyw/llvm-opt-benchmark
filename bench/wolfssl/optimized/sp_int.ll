@@ -12708,7 +12708,7 @@ define range(i32 -98, 1) i32 @sp_prime_is_prime(ptr noundef readonly captures(ad
 
 .thread64:                                        ; preds = %25
   store i32 1, ptr %2, align 4, !tbaa !124
-  br label %47
+  br label %48
 
 sp_cmp_d.exit.thread.i:                           ; preds = %25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -12778,12 +12778,12 @@ sp_cmp_primes.exit.thread:                        ; preds = %7, %14, %20, %8, %9
   %.2 = phi i32 [ %.1.i, %sp_div_primes.exit ], [ -98, %7 ], [ -98, %14 ], [ 0, %20 ], [ -98, %8 ], [ -98, %9 ]
   br i1 %.245, label %45, label %47
 
-45:                                               ; preds = %sp_cmp_primes.exit.thread
-  %46 = call fastcc i32 @_sp_prime_trials(ptr noundef %0, i32 noundef %1, ptr noundef %2)
-  br label %47
+46:                                               ; preds = %sp_cmp_primes.exit.thread
+  %47 = call fastcc i32 @_sp_prime_trials(ptr noundef %0, i32 noundef %1, ptr noundef %2)
+  br label %48
 
-47:                                               ; preds = %.thread64, %sp_cmp_primes.exit.thread, %45
-  %.3 = phi i32 [ %.2, %sp_cmp_primes.exit.thread ], [ %46, %45 ], [ 0, %.thread64 ]
+48:                                               ; preds = %.thread64, %sp_cmp_primes.exit.thread, %46
+  %.3 = phi i32 [ %.2, %sp_cmp_primes.exit.thread ], [ %47, %45 ], [ 0, %.thread64 ]
   ret i32 %.3
 }
 

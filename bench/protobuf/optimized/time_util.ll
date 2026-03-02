@@ -1846,8 +1846,8 @@ _ZN6google8protobuf12_GLOBAL__N_19ToUint128ERKNS0_8DurationEPN4absl12lts_2023080
   %mul.i.i.sink = mul nuw nsw i128 %mul.i.i.sink.in, 1000000000
   %coerce2.sroa.0.0.insert.ext.i17.i = zext i32 %sub10.i.sink to i128
   %coerce.sroa.0.0.insert.insert.i19.i = add nuw nsw i128 %mul.i.i.sink, %coerce2.sroa.0.0.insert.ext.i17.i
-  %coerce2.sroa.2.0.insert.ext.i = zext nneg i64 %value2.sroa.5.0 to i128
-  %coerce2.sroa.2.0.insert.shift.i = shl nuw nsw i128 %coerce2.sroa.2.0.insert.ext.i, 64
+  %coerce2.sroa.0.0.insert.ext.i17.i21 = zext nneg i64 %value2.sroa.5.0 to i128
+  %coerce2.sroa.2.0.insert.shift.i = shl nuw nsw i128 %coerce2.sroa.0.0.insert.ext.i17.i21, 64
   %coerce2.sroa.0.0.insert.ext.i = zext i64 %value2.sroa.0.0 to i128
   %coerce2.sroa.0.0.insert.insert.i = or disjoint i128 %coerce2.sroa.2.0.insert.shift.i, %coerce2.sroa.0.0.insert.ext.i
   %div.i = udiv i128 %coerce.sroa.0.0.insert.insert.i19.i, %coerce2.sroa.0.0.insert.insert.i

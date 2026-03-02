@@ -18820,7 +18820,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   %0 = add nsw i32 %k, -2
   br label %for.body
 
-for.cond.cleanup.loopexit:                        ; preds = %for.body
+for.cond.cleanup:                                 ; preds = %for.body
   %1 = fmul x86_fp80 %div, %add14
   br label %cleanup
 
@@ -18838,9 +18838,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add14 = fadd x86_fp80 %sum.019, %mul13
   %inc = add nuw nsw i32 %i.021, 1
   %exitcond.not = icmp eq i32 %i.021, %0
-  br i1 %exitcond.not, label %for.cond.cleanup.loopexit, label %for.body, !llvm.loop !193
+  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !193
 
-cleanup:                                          ; preds = %for.cond.cleanup.loopexit, %if.end
+cleanup:                                          ; preds = %for.cond.cleanup, %if.end
   %retval.0 = phi x86_fp80 [ %div, %if.end ], [ %1, %for.cond.cleanup.loopexit ]
   ret x86_fp80 %retval.0
 }
@@ -22349,7 +22349,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   %0 = add nsw i32 %k, -2
   br label %for.body
 
-for.cond.cleanup.loopexit:                        ; preds = %for.body
+for.cond.cleanup:                                 ; preds = %for.body
   %1 = fmul x86_fp80 %div, %add14
   br label %cleanup
 
@@ -22367,9 +22367,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add14 = fadd x86_fp80 %sum.019, %mul13
   %inc = add nuw nsw i32 %i.021, 1
   %exitcond.not = icmp eq i32 %i.021, %0
-  br i1 %exitcond.not, label %for.cond.cleanup.loopexit, label %for.body, !llvm.loop !240
+  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !240
 
-cleanup:                                          ; preds = %for.cond.cleanup.loopexit, %if.end
+cleanup:                                          ; preds = %for.cond.cleanup, %if.end
   %retval.0 = phi x86_fp80 [ %div, %if.end ], [ %1, %for.cond.cleanup.loopexit ]
   ret x86_fp80 %retval.0
 }

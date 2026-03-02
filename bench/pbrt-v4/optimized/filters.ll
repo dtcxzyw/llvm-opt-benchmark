@@ -1062,8 +1062,8 @@ _ZN4pbrt4SincEf.exit.i1.i:                        ; preds = %80, %75
   br label %_ZNK4pbrt17LanczosSincFilter8EvaluateENS_6Point2IfEE.exit
 
 _ZNK4pbrt17LanczosSincFilter8EvaluateENS_6Point2IfEE.exit: ; preds = %_ZN4pbrt12WindowedSincEfff.exit.i, %_ZN4pbrt4SincEf.exit.i1.i, %88
-  %.0.i3.i = phi float [ 0.000000e+00, %_ZN4pbrt12WindowedSincEfff.exit.i ], [ %91, %88 ], [ %.0.i.i.i2.i, %_ZN4pbrt4SincEf.exit.i1.i ]
-  %92 = fmul float %.0.i.i, %.0.i3.i
+  %.0.i5.i = phi float [ 0.000000e+00, %_ZN4pbrt12WindowedSincEfff.exit.i ], [ %91, %88 ], [ %.0.i.i.i2.i, %_ZN4pbrt4SincEf.exit.i1.i ]
+  %92 = fmul float %.0.i.i, %.0.i5.i
   %93 = fadd float %.126, %92
   %94 = add nuw nsw i32 %.01625, 1
   %exitcond.not = icmp eq i32 %94, 64
@@ -2010,8 +2010,8 @@ _ZN4pbrt4SincEf.exit.i1.i.i.i:                    ; preds = %314, %309
   br label %_ZZNK4pbrt6Filter8EvaluateENS_6Point2IfEEENKUlT_E_clIPKNS_17LanczosSincFilterEEEDaS3_.exit.i
 
 _ZZNK4pbrt6Filter8EvaluateENS_6Point2IfEEENKUlT_E_clIPKNS_17LanczosSincFilterEEEDaS3_.exit.i: ; preds = %322, %_ZN4pbrt4SincEf.exit.i1.i.i.i, %_ZN4pbrt12WindowedSincEfff.exit.i.i.i
-  %.0.i3.i.i.i = phi float [ 0.000000e+00, %_ZN4pbrt12WindowedSincEfff.exit.i.i.i ], [ %325, %322 ], [ %.0.i.i.i2.i.i.i, %_ZN4pbrt4SincEf.exit.i1.i.i.i ]
-  %326 = fmul float %.0.i.i.i.i, %.0.i3.i.i.i
+  %.0.i5.i.i.i = phi float [ 0.000000e+00, %_ZN4pbrt12WindowedSincEfff.exit.i.i.i ], [ %325, %322 ], [ %.0.i.i.i2.i.i.i, %_ZN4pbrt4SincEf.exit.i1.i.i.i ]
+  %326 = fmul float %.0.i.i.i.i, %.0.i5.i.i.i
   br label %337
 
 327:                                              ; preds = %83

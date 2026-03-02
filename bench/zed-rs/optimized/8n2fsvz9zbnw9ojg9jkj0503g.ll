@@ -155793,10 +155793,10 @@ select.unfold133:                                 ; preds = %335, %331, %325
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN4gpui11text_system12line_wrapper11LineWrapper12is_word_char17h23049845d41e64cdE(i32 noundef %0) unnamed_addr #11 {
 .thread:
-  %1 = add nsw i32 %0, -48
+  %1 = add nsw i32 %0, -411
   %.sroa.04.0 = icmp ult i32 %1, 10
   %2 = icmp ugt i32 %0, 64
-  %3 = icmp ugt i32 %0, 96
+  %5 = icmp ugt i32 %0, 96
   %spec.select.v = select i1 %3, i32 123, i32 91
   %spec.select = icmp ult i32 %0, %spec.select.v
   %.sroa.06.0 = select i1 %2, i1 %spec.select, i1 %.sroa.04.0
@@ -155806,9 +155806,9 @@ define noundef zeroext i1 @_ZN4gpui11text_system12line_wrapper11LineWrapper12is_
   %6 = and i32 %0, -256
   %or.cond3 = icmp eq i32 %6, 1024
   %or.cond10 = or i1 %or.cond3, %or.cond9
-  br i1 %or.cond10, label %switch.edge, label %7
+  br i1 %or.cond10, label %switch.edge, label %10
 
-7:                                                ; preds = %.thread
+10:                                               ; preds = %.thread
   switch i32 %0, label %8 [
     i32 45, label %switch.edge
     i32 95, label %switch.edge
@@ -155829,10 +155829,10 @@ define noundef zeroext i1 @_ZN4gpui11text_system12line_wrapper11LineWrapper12is_
     i32 8943, label %switch.edge
   ]
 
-8:                                                ; preds = %7
+11:                                               ; preds = %10
   br label %switch.edge
 
-switch.edge:                                      ; preds = %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %7, %.thread, %8
+switch.edge:                                      ; preds = %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %10, %.thread, %11
   %.sroa.0.0 = phi i1 [ false, %8 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %7 ], [ true, %.thread ], [ true, %7 ]
   ret i1 %.sroa.0.0
 }

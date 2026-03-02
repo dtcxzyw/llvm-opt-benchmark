@@ -5910,8 +5910,8 @@ _ZN4core3mem4swap17h0b4dcbf1a5c8f883E.exit.i.i.i: ; preds = %54
   %exitcond.not.i.i.i = icmp eq i64 %60, %48
   br i1 %exitcond.not.i.i.i, label %_ZN4core5slice4sort12choose_pivot17he156a7edb75c1365E.exit, label %50
 
-61:                                               ; preds = %37
-  %62 = load i64, ptr %18, align 8, !noalias !783, !noundef !4
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc76504f96f3f456dE.exit.i": ; preds = %37
+  %61 = load i64, ptr %18, align 8, !noalias !783, !noundef !4
   %63 = icmp eq i64 %38, 0
   %64 = and i1 %or.cond, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !783
@@ -5920,7 +5920,7 @@ _ZN4core3mem4swap17h0b4dcbf1a5c8f883E.exit.i.i.i: ; preds = %54
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !783
   br i1 %64, label %69, label %68
 
-_ZN4core5slice4sort12choose_pivot17he156a7edb75c1365E.exit: ; preds = %_ZN4core3mem4swap17h0b4dcbf1a5c8f883E.exit.i.i.i
+64:                                               ; preds = %_ZN4core3mem4swap17h0b4dcbf1a5c8f883E.exit.i.i.i
   %65 = load i64, ptr %18, align 8, !noalias !783, !noundef !4
   %66 = xor i64 %65, -1
   %67 = add i64 %.sroa.14.0124, %66

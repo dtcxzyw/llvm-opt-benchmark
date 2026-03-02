@@ -3600,7 +3600,7 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit: ; preds = %_ZN10open_spiel2go
   br label %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_0clEt.exit7.i"
 
 "_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_0clEt.exit7.i": ; preds = %57, %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_0clEt.exit.i"
-  %72 = phi i1 [ %50, %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_0clEt.exit.i" ], [ %71, %57 ]
+  %71 = phi i1 [ %50, %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_0clEt.exit.i" ], [ %71, %57 ]
   %73 = add i16 %1, -1
   %74 = zext i16 %73 to i64
   %75 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %74
@@ -3627,7 +3627,7 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit: ; preds = %_ZN10open_spiel2go
   br label %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_0clEt.exit8.i"
 
 "_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_0clEt.exit8.i": ; preds = %79, %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_0clEt.exit7.i"
-  %94 = phi i1 [ %72, %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_0clEt.exit7.i" ], [ %93, %79 ]
+  %93 = phi i1 [ %72, %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_0clEt.exit7.i" ], [ %93, %79 ]
   %95 = add i16 %1, -21
   %96 = zext i16 %95 to i64
   %97 = getelementptr inbounds nuw %"struct.open_spiel::go::GoBoard::Vertex", ptr %0, i64 %96
@@ -3656,23 +3656,23 @@ _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit: ; preds = %_ZN10open_spiel2go
 "_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0_7GoBoard11IsLegalMoveEtNS0_7GoColorEE3$_0EEvtRKT_.exit": ; preds = %"_ZZNK10open_spiel2go7GoBoard11IsLegalMoveEtNS0_7GoColorEENK3$_0clEt.exit8.i"
   br i1 %94, label %_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit.thread, label %116
 
-116:                                              ; preds = %101, %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0_7GoBoard11IsLegalMoveEtNS0_7GoColorEE3$_0EEvtRKT_.exit"
+117:                                              ; preds = %101, %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0_7GoBoard11IsLegalMoveEtNS0_7GoColorEE3$_0EEvtRKT_.exit"
   store i8 0, ptr %4, align 1
   store ptr %0, ptr %5, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i8 %2, ptr %117, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %4, ptr %118, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i8 %2, ptr %118, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %4, ptr %119, align 8
   call fastcc void @"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0_7GoBoard11IsLegalMoveEtNS0_7GoColorEE3$_1EEvtRKT_"(i16 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  %119 = load i8, ptr %4, align 1
-  %120 = trunc i8 %119 to i1
+  %120 = load i8, ptr %4, align 1
+  %121 = trunc i8 %120 to i1
   br label %_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit.thread
 
 _ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit.thread.fold.split: ; preds = %3
   br label %_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit.thread
 
-_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit.thread: ; preds = %101, %3, %_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit.thread.fold.split, %_ZN10open_spiel2go21VirtualPointTo2DPointEt.exit.i, %116, %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0_7GoBoard11IsLegalMoveEtNS0_7GoColorEE3$_0EEvtRKT_.exit", %22, %13, %_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit
-  %.0 = phi i1 [ true, %3 ], [ false, %_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit ], [ false, %13 ], [ true, %22 ], [ %120, %116 ], [ true, %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0_7GoBoard11IsLegalMoveEtNS0_7GoColorEE3$_0EEvtRKT_.exit" ], [ false, %_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit.thread.fold.split ], [ false, %_ZN10open_spiel2go21VirtualPointTo2DPointEt.exit.i ], [ true, %101 ]
+_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit.thread: ; preds = %101, %3, %_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit.thread.fold.split, %_ZN10open_spiel2go21VirtualPointTo2DPointEt.exit.i, %117, %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0_7GoBoard11IsLegalMoveEtNS0_7GoColorEE3$_0EEvtRKT_.exit", %22, %13, %_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit
+  %.0 = phi i1 [ true, %3 ], [ false, %_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit ], [ false, %13 ], [ true, %22 ], [ %121, %116 ], [ true, %"_ZN10open_spiel2go12_GLOBAL__N_110NeighboursIZNKS0_7GoBoard11IsLegalMoveEtNS0_7GoColorEE3$_0EEvtRKT_.exit" ], [ false, %_ZNK10open_spiel2go7GoBoard13IsInBoardAreaEt.exit.thread.fold.split ], [ false, %_ZN10open_spiel2go21VirtualPointTo2DPointEt.exit.i ], [ true, %101 ]
   ret i1 %.0
 }
 

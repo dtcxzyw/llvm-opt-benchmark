@@ -58,7 +58,7 @@ is_urlschemechar.exit:                            ; preds = %2
   %.not16 = icmp eq i8 %8, 0
   br i1 %.not16, label %.critedge, label %.preheader
 
-.preheader:                                       ; preds = %is_urlschemechar.exit, %.preheader.backedge
+.preheader:                                       ; preds = %is_urlschemechar.exit, %is_urlschemechar.exit15
   %.pn = phi ptr [ %.0, %.preheader.backedge ], [ %0, %is_urlschemechar.exit ]
   %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %9 = load i8, ptr %.0, align 1, !tbaa !4
@@ -76,7 +76,7 @@ is_urlschemechar.exit:                            ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %10
   %15 = load i8, ptr %14, align 1, !tbaa !4
   %16 = and i8 %15, 6
-  %.not17 = icmp eq i8 %16, 0
+  %17 = icmp eq i8 %16, 0
   br label %17
 
 17:                                               ; preds = %13, %11
@@ -87,19 +87,19 @@ is_urlschemechar.exit:                            ; preds = %2
     i8 46, label %.preheader.backedge
   ]
 
-.preheader.backedge:                              ; preds = %17, %17, %17, %is_urlschemechar.exit15
+is_urlschemechar.exit15:                          ; preds = %17, %17, %17, %is_urlschemechar.exit15
   br label %.preheader, !llvm.loop !7
 
-is_urlschemechar.exit15:                          ; preds = %17
+is_urlschemechar.exit15:; preds = %17
   br i1 %18, label %.critedge, label %.preheader.backedge
 
-19:                                               ; preds = %.preheader
+19:; preds = %.preheader
   %20 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
   %21 = load i8, ptr %20, align 1, !tbaa !4
   %22 = icmp eq i8 %21, 47
   br i1 %22, label %23, label %.critedge
 
-23:                                               ; preds = %19
+23:; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %.pn, i64 3
   %25 = load i8, ptr %24, align 1, !tbaa !4
   %26 = icmp eq i8 %25, 47

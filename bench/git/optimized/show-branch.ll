@@ -3049,7 +3049,7 @@ find_digit_prefix.exit45.i:                       ; preds = %.lr.ph.i42.i, %find
   %42 = icmp eq i8 %41, 0
   br i1 %42, label %version_cmp.exit, label %5
 
-version_cmp.exit:                                 ; preds = %.lr.ph.i.preheader, %.lr.ph.i._crit_edge, %32, %.thread.i
+version_cmp.exit:; preds = %.lr.ph.i.preheader, %.lr.ph.i._crit_edge, %32, %.thread.i
   %.130.ph.i = phi i32 [ %33, %32 ], [ %34, %.thread.i ], [ 0, %.lr.ph.i._crit_edge ], [ 0, %.lr.ph.i.preheader ]
   ret i32 %.130.ph.i
 }

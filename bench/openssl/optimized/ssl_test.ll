@@ -988,8 +988,8 @@ check_session_ticket_app_data.exit:               ; preds = %182, %183
   %193 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %194 = load i32, ptr %193, align 8, !tbaa !61
   %195 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 219, ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.94, i32 noundef %192, i32 noundef %194) #4
-  %.not4.i111.not = icmp eq i32 %195, 0
-  %196 = select i1 %.not4.i111.not, i32 0, i32 %191
+  %.not4.i111 = icmp eq i32 %195, 0
+  %196 = select i1 %.not4.i111, i32 0, i32 %191
   br label %check_resumption.exit
 
 check_resumption.exit:                            ; preds = %check_session_ticket_app_data.exit, %190

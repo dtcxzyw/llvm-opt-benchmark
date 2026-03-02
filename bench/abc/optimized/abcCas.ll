@@ -3405,7 +3405,7 @@ define i32 @Abc_NtkFindPathTimeR_rec(ptr noundef readonly captures(none) %0, ptr
   %.val34 = load i32, ptr %3, align 4
   %57 = and i32 %.val34, 15
   %.not = icmp eq i32 %57, 7
-  br i1 %.not, label %58, label %63
+  br i1 %.not, label %58, label %62
 
 58:                                               ; preds = %.critedge
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -3415,8 +3415,8 @@ define i32 @Abc_NtkFindPathTimeR_rec(ptr noundef readonly captures(none) %0, ptr
   %.pre48 = fptosi float %62 to i32
   br label %63
 
-63:                                               ; preds = %58, %.critedge, %2, %24
-  %.029 = phi i32 [ 0, %2 ], [ %26, %24 ], [ %55, %.critedge ], [ %.pre48, %58 ]
+62:                                               ; preds = %58, %.critedge, %2, %24
+  %63 = phi i32 [ 0, %2 ], [ %26, %24 ], [ %55, %.critedge ], [ %.pre48, %58 ]
   ret i32 %.029
 }
 

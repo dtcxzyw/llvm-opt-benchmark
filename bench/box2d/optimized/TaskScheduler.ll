@@ -3106,13 +3106,13 @@ _ZN4enki13TaskScheduler9HaveTasksEj.exit:         ; preds = %_ZN4enki13TaskSched
   %91 = zext i32 %90 to i64
   %92 = icmp samesign uge i64 %indvars.iv.next87, %91
   %.not52 = or i1 %92, %.5
-  br i1 %.not52, label %.loopexit.loopexit.loopexit113, label %.lr.ph80, !llvm.loop !134
+  br i1 %.not52, label %.loopexit, label %.lr.ph80, !llvm.loop !134
 
-.loopexit.loopexit.loopexit113:                   ; preds = %_ZN4enki13TaskScheduler9HaveTasksEj.exit
+.loopexit:                                        ; preds = %_ZN4enki13TaskScheduler9HaveTasksEj.exit
   %93 = or i1 %22, %.5
   br label %.loopexit
 
-.loopexit:                                        ; preds = %62, %62, %62, %78, %.loopexit.loopexit.loopexit113, %.lr.ph.i61, %_ZN12_GLOBAL__N_18SpinWaitEj.exit, %.preheader
+.loopexit:; preds = %62, %62, %62, %78, %.loopexit, %.lr.ph.i61, %_ZN12_GLOBAL__N_18SpinWaitEj.exit, %.preheader
   %.3 = phi i1 [ %22, %_ZN12_GLOBAL__N_18SpinWaitEj.exit ], [ %22, %.preheader ], [ true, %78 ], [ true, %.lr.ph.i61 ], [ %93, %.loopexit.loopexit.loopexit113 ], [ true, %62 ], [ true, %62 ], [ true, %62 ]
   %94 = load atomic i8, ptr %12 acquire, align 8
   %95 = trunc i8 %94 to i1

@@ -187901,23 +187901,23 @@ _ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit: ; preds = %_ZNSt3mapIN5boost
   br i1 %137, label %138, label %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread
 
 _ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57: ; preds = %131
-  br i1 %.0.i.i54, label %138, label %.critedge
+  br i1 %.0.i.i54, label %138, label %139
 
-138:                                              ; preds = %133, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57
-  %139 = getelementptr inbounds nuw i8, ptr %.sroa.094.0111, i64 113
-  store i8 1, ptr %139, align 1, !tbaa !3625
+137:                                              ; preds = %133, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57
+  %138 = getelementptr inbounds nuw i8, ptr %.sroa.094.0111, i64 113
+  store i8 1, ptr %138, align 1, !tbaa !3625
   br label %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread
 
 _ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread: ; preds = %133, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit, %138
-  br i1 %.0.i.i54, label %143, label %.critedge
+  br i1 %.0.i.i54, label %143, label %139
 
-.critedge:                                        ; preds = %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread
+139:                                              ; preds = %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread
   %140 = getelementptr inbounds nuw i8, ptr %.sroa.094.0111, i64 113
   %141 = load i8, ptr %140, align 1, !tbaa !3625, !range !17, !noundef !18
   %142 = trunc nuw i8 %141 to i1
   br i1 %142, label %143, label %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit.thread105
 
-143:                                              ; preds = %.critedge, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread
+143:                                              ; preds = %139, %_ZN5boost8geometry4math6largerIdiEEbRKT_RKT0_.exit57.thread
   store i64 -1, ptr %81, align 8, !tbaa !3651
   br label %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit.thread105
 
@@ -187940,7 +187940,7 @@ _ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit.thread: ; preds = %146, %_ZN
   store i8 1, ptr %66, align 8, !tbaa !3619
   br label %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit.thread105
 
-_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit.thread105: ; preds = %144, %.critedge, %143, %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit.thread, %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread
+_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit.thread105: ; preds = %144, %139, %143, %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit.thread, %_ZN5boost8geometry4math7smallerIdiEEbRKT_RKT0_.exit, %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread
   %151 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.094.0111) #65
   %.not = icmp eq ptr %151, %32
   br i1 %.not, label %._crit_edge.loopexit, label %65

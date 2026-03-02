@@ -21593,28 +21593,28 @@ define noundef zeroext range(i8 0, 3) i8 @_ZN6duckdb11StringStats12CheckZonemapE
   %.not.i = icmp eq i64 %12, 0
   br i1 %.not.i, label %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %6, %18
-  %.01218.i = phi i64 [ %20, %18 ], [ 0, %6 ]
+.lr.ph.i:                                         ; preds = %6, %17
+  %.01218.i = phi i64 [ %19, %18 ], [ 0, %6 ]
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.01218.i
   %14 = load i8, ptr %13, align 1, !tbaa !40
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.01218.i
   %16 = load i8, ptr %15, align 1, !tbaa !40
-  %17 = icmp ult i8 %14, %16
-  br i1 %17, label %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit.loopexit, label %18
+  %.not.not = icmp ult i8 %14, %16
+  br i1 %.not.not, label %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit, label %18
 
-18:                                               ; preds = %.lr.ph.i
-  %19 = icmp ugt i8 %14, %16
-  %20 = add nuw i64 %.01218.i, 1
-  %exitcond.not.i = icmp eq i64 %20, %12
-  %or.cond39 = select i1 %19, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond39, label %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit.loopexit, label %.lr.ph.i, !llvm.loop !54
+17:                                               ; preds = %.lr.ph.i
+  %18 = icmp ugt i8 %14, %16
+  %19 = add nuw i64 %.01218.i, 1
+  %exitcond.not.i = icmp eq i64 %19, %12
+  %or.cond39 = select i1 %18, i1 true, i1 %exitcond.not.i
+  br i1 %or.cond39, label %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit, label %.lr.ph.i, !llvm.loop !54
 
-_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit.loopexit: ; preds = %18, %.lr.ph.i
-  %.29.ph = phi i8 [ 0, %18 ], [ 2, %.lr.ph.i ]
+_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit:  ; preds = %18, %.lr.ph.i
+  %.29 = phi i8 [ 0, %18 ], [ 2, %.lr.ph.i ]
   %.ph41 = xor i1 %17, true
   br label %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit
 
-_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit:  ; preds = %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit.loopexit, %6
+_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit:; preds = %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit, %6
   %.29 = phi i8 [ 0, %6 ], [ %.29.ph, %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit.loopexit ]
   %21 = phi i1 [ false, %6 ], [ %17, %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit.loopexit ]
   %22 = phi i1 [ true, %6 ], [ %.ph41, %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit.loopexit ]
@@ -21622,28 +21622,28 @@ _ZN6duckdbL21StringValueComparisonEPKhmS1_.exit:  ; preds = %_ZN6duckdbL21String
   %.not.i30 = icmp eq i64 %23, 0
   br i1 %.not.i30, label %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit34, label %.lr.ph.i31
 
-24:                                               ; preds = %31
-  %25 = add nuw i64 %.01218.i32, 1
-  %exitcond.not.i33 = icmp eq i64 %25, %23
+23:                                               ; preds = %30
+  %24 = add nuw i64 %.01218.i32, 1
+  %exitcond.not.i33 = icmp eq i64 %24, %23
   br i1 %exitcond.not.i33, label %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit34, label %.lr.ph.i31, !llvm.loop !54
 
-.lr.ph.i31:                                       ; preds = %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit, %24
-  %.01218.i32 = phi i64 [ %25, %24 ], [ 0, %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit ]
-  %26 = getelementptr inbounds nuw i8, ptr %9, i64 %.01218.i32
-  %27 = load i8, ptr %26, align 1, !tbaa !40
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 %.01218.i32
-  %29 = load i8, ptr %28, align 1, !tbaa !40
-  %30 = icmp ult i8 %27, %29
-  br i1 %30, label %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit34, label %31
+.lr.ph.i31:                                       ; preds = %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit, %23
+  %.01218.i32 = phi i64 [ %24, %24 ], [ 0, %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit ]
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %.01218.i32
+  %26 = load i8, ptr %25, align 1, !tbaa !40
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 %.01218.i32
+  %28 = load i8, ptr %27, align 1, !tbaa !40
+  %29 = icmp ult i8 %26, %28
+  br i1 %29, label %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit34, label %30
 
-31:                                               ; preds = %.lr.ph.i31
-  %32 = icmp ugt i8 %27, %29
-  br i1 %32, label %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit34, label %24
+30:                                               ; preds = %.lr.ph.i31
+  %31 = icmp ugt i8 %26, %28
+  br i1 %31, label %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit34, label %23
 
-_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit34: ; preds = %24, %.lr.ph.i31, %31, %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit
+_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit34: ; preds = %23, %.lr.ph.i31, %30, %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit
   %.28 = phi i8 [ 0, %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit ], [ 0, %24 ], [ 2, %31 ], [ 0, %.lr.ph.i31 ]
   %or.cond3 = phi i1 [ %21, %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit ], [ %21, %24 ], [ true, %31 ], [ %21, %.lr.ph.i31 ]
-  %or.cond = phi i1 [ %22, %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit ], [ %22, %24 ], [ false, %31 ], [ %22, %.lr.ph.i31 ]
+  %32 = phi i1 [ %22, %_ZN6duckdbL21StringValueComparisonEPKhmS1_.exit ], [ %22, %24 ], [ false, %31 ], [ %22, %.lr.ph.i31 ]
   switch i8 %4, label %36 [
     i8 25, label %33
     i8 26, label %34

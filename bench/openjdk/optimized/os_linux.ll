@@ -10269,8 +10269,8 @@ define hidden noundef zeroext i1 @_ZN2os16trim_native_heapEPNS_13size_change_tE(
   %8 = call noundef zeroext i1 @_ZN2os5Linux25query_process_memory_infoEPNS0_9meminfo_tE(ptr noundef nonnull %3)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert29 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.pre30 = load i64, ptr %.phi.trans.insert29, align 8
+  %.phi.trans.insert27 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.pre28 = load i64, ptr %.phi.trans.insert27, align 8
   br label %11
 
 9:                                                ; preds = %1
@@ -10278,9 +10278,9 @@ define hidden noundef zeroext i1 @_ZN2os16trim_native_heapEPNS_13size_change_tE(
   br label %29
 
 11:                                               ; preds = %7, %4
-  %12 = phi i64 [ undef, %4 ], [ %.pre30, %7 ]
+  %12 = phi i64 [ undef, %4 ], [ %.pre28, %7 ]
   %13 = phi i64 [ undef, %4 ], [ %.pre, %7 ]
-  %or.cond3.ph = phi i1 [ false, %4 ], [ %8, %7 ]
+  %.ph = phi i1 [ false, %4 ], [ %8, %7 ]
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = icmp ne i64 %15, -1

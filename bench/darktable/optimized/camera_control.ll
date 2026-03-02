@@ -4630,11 +4630,11 @@ define range(i32 -1, 2) i32 @dt_camctl_camera_get_property_type(ptr noundef read
   %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
   %16 = and i32 %15, 32
   %.not25 = icmp eq i32 %16, 0
-  br i1 %.not25, label %38, label %17
+  br i1 %.not25, label %41, label %17
 
 17:                                               ; preds = %14
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.30) #15
-  br label %38
+  br label %41
 
 18:                                               ; preds = %10, %6, %4
   %.019 = phi ptr [ %1, %4 ], [ %12, %10 ], [ %8, %6 ]
@@ -4644,32 +4644,32 @@ define range(i32 -1, 2) i32 @dt_camctl_camera_get_property_type(ptr noundef read
   %21 = getelementptr inbounds nuw i8, ptr %.019, i64 32784
   %22 = load ptr, ptr %21, align 8, !tbaa !96
   %23 = call i32 @gp_widget_get_child_by_name(ptr noundef %22, ptr noundef %2, ptr noundef nonnull %5) #15
-  %.not29 = icmp eq i32 %23, 0
-  br i1 %.not29, label %28, label %24
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %28, label %24
 
-24:                                               ; preds = %18
-  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
-  %26 = and i32 %25, 32
-  %.not28 = icmp eq i32 %26, 0
-  br i1 %.not28, label %35, label %27
+25:                                               ; preds = %18
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
+  %27 = and i32 %26, 32
+  %.not28 = icmp eq i32 %27, 0
+  br i1 %.not28, label %35, label %28
 
-27:                                               ; preds = %24
+28:                                               ; preds = %25
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.31, ptr noundef %2, i32 noundef %23) #15
   br label %35
 
-28:                                               ; preds = %18
-  %29 = load ptr, ptr %5, align 8, !tbaa !146
-  %30 = call i32 @gp_widget_get_type(ptr noundef %29, ptr noundef %3) #15
-  %.not26 = icmp eq i32 %30, 0
-  br i1 %.not26, label %35, label %31
+32:                                               ; preds = %18
+  %33 = load ptr, ptr %5, align 8, !tbaa !146
+  %30 = call i32 @gp_widget_get_type(ptr noundef %33, ptr noundef %3) #15
+  %.not27 = icmp eq i32 %30, 0
+  br i1 %.not27, label %35, label %35
 
-31:                                               ; preds = %28
+35:                                               ; preds = %32
   %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !19
   %33 = and i32 %32, 32
   %.not27 = icmp eq i32 %33, 0
   br i1 %.not27, label %35, label %34
 
-34:                                               ; preds = %31
+34:; preds = %31
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.32, ptr noundef %2, i32 noundef %30) #15
   br label %35
 
@@ -4677,9 +4677,9 @@ define range(i32 -1, 2) i32 @dt_camctl_camera_get_property_type(ptr noundef read
   %36 = phi i32 [ 0, %28 ], [ 1, %27 ], [ 1, %24 ], [ 1, %31 ], [ 1, %34 ]
   %37 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %19) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %38
+  br label %41
 
-38:                                               ; preds = %14, %17, %35
+41:                                               ; preds = %14, %17, %35
   %.0 = phi i32 [ %36, %35 ], [ -1, %17 ], [ -1, %14 ]
   ret i32 %.0
 }

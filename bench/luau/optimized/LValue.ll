@@ -1537,19 +1537,19 @@ _ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit: 
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %_ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit, label %24
 
-24:                                               ; preds = %19
+24:; preds = %19
   %25 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #22
   %26 = invoke noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef nonnull %23, i64 noundef %25, i64 noundef 3339675911)
           to label %_ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.i unwind label %27
 
-27:                                               ; preds = %24
+27:; preds = %24
   %28 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  tail call void @__clang_call_terminate(ptr %29) #21
+  %28 = extractvalue { ptr, i32 } %28, 0
+  tail call void @__clang_call_terminate(ptr %28) #21
   unreachable
 
-_ZNKSt4hashISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_.exit.i: ; preds = %24
+_ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit:         ; preds = %24
   %30 = xor i64 %26, %21
   br label %_ZNKSt4hashIN4Luau6SymbolEEclERKS1_.exit
 
