@@ -1392,15 +1392,18 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %648 = icmp sge i32 %645, %647
   %649 = icmp sle i32 %645, %647
   %.in = select i1 %646, i1 %648, i1 %649
-  br i1 %.in, label %.lr.ph973, label %._crit_edge974, !llvm.loop !33
+  br i1 %.in, label %.lr.ph973, label %._crit_edge974.loopexit, !llvm.loop !33
 
-._crit_edge974:                                   ; preds = %642, %520
-  %650 = phi double [ 1.000000e+00, %520 ], [ %643, %642 ]
-  %651 = call double @dasum_(ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull @c__1) #7
-  %652 = call double @dasum_(ptr noundef nonnull %2, ptr noundef %8, ptr noundef nonnull @c__1) #7
-  %653 = fadd double %651, %652
-  %654 = fmul double %41, %650
-  %655 = fcmp ult double %653, %654
+._crit_edge974.loopexit:                          ; preds = %642
+  %650 = fmul double %41, %643
+  br label %._crit_edge974
+
+._crit_edge974:                                   ; preds = %._crit_edge974.loopexit, %520
+  %651 = phi double [ %650, %._crit_edge974.loopexit ], [ %41, %520 ]
+  %652 = call double @dasum_(ptr noundef nonnull %2, ptr noundef %7, ptr noundef nonnull @c__1) #7
+  %653 = call double @dasum_(ptr noundef nonnull %2, ptr noundef %8, ptr noundef nonnull @c__1) #7
+  %654 = fadd double %652, %653
+  %655 = fcmp ult double %654, %651
   br i1 %655, label %656, label %.loopexit897
 
 656:                                              ; preds = %._crit_edge974

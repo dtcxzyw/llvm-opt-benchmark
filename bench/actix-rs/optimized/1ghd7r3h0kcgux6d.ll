@@ -7215,8 +7215,8 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
   br label %355
 
 372:                                              ; preds = %355, %375
-  %.pre-phi309 = phi i64 [ %348, %355 ], [ %.pre308, %375 ]
-  %.pre-phi = phi i64 [ %349, %355 ], [ %.pre307, %375 ]
+  %.pre-phi311 = phi i64 [ %348, %355 ], [ %.pre310, %375 ]
+  %.pre-phi = phi i64 [ %349, %355 ], [ %.pre309, %375 ]
   %.val209 = load ptr, ptr %26, align 8, !nonnull !12, !align !50, !noundef !12
   %.val210 = load i64, ptr %308, align 8, !noundef !12
   %373 = load i64, ptr %309, align 8, !noundef !12
@@ -7227,8 +7227,8 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
   call fastcc void @_ZN6brotli3enc6encode17ExtendLastCommand17hb108d9f32eda5941E(ptr noalias noundef align 8 dereferenceable(5576) %0, ptr noalias noundef align 4 dereferenceable(4) %19, ptr noalias noundef align 4 dereferenceable(4) %17)
   %.pre = load i32, ptr %19, align 4
   %.pre306 = load i32, ptr %17, align 4
-  %.pre307 = zext i32 %.pre to i64
-  %.pre308 = zext i32 %.pre306 to i64
+  %.pre309 = zext i32 %.pre to i64
+  %.pre310 = zext i32 %.pre306 to i64
   br label %372
 
 376:                                              ; preds = %372
@@ -7238,7 +7238,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
   %.val264 = load i64, ptr %379, align 8, !noundef !12
   %380 = load i64, ptr %219, align 8, !noundef !12
   %381 = icmp ugt i64 %380, %.val264
-  br i1 %381, label %414, label %383
+  br i1 %381, label %407, label %383
 
 382:                                              ; preds = %372
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %373, i64 noundef %.val210, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.84) #23
@@ -7251,7 +7251,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
   %386 = sub nuw i64 %.val264, %380
   %387 = getelementptr inbounds { i32, i32, i32, i16, i16 }, ptr %.val263, i64 %380
   %388 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  call void @_ZN6brotli3enc19backward_references30BrotliCreateBackwardReferences17hdcd3c2a2cbdd0d5cE(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef readonly align 8 dereferenceable(24) @_ZN6brotli3enc11static_dict20kBrotliEncDictionary17hed15bff50f586cdaE, i64 noundef %.pre-phi, i64 noundef %.pre-phi309, ptr noalias noundef nonnull readonly align 1 %384, i64 noundef %385, i64 noundef %347, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %68, ptr noalias noundef nonnull align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 4 %377, i64 noundef 16, ptr noalias noundef nonnull align 8 dereferenceable(8) %362, ptr noalias noundef nonnull align 4 %387, i64 noundef %386, ptr noalias noundef nonnull align 8 dereferenceable(8) %219, ptr noalias noundef nonnull align 8 dereferenceable(8) %388)
+  call void @_ZN6brotli3enc19backward_references30BrotliCreateBackwardReferences17hdcd3c2a2cbdd0d5cE(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef readonly align 8 dereferenceable(24) @_ZN6brotli3enc11static_dict20kBrotliEncDictionary17hed15bff50f586cdaE, i64 noundef %.pre-phi, i64 noundef %.pre-phi311, ptr noalias noundef nonnull readonly align 1 %384, i64 noundef %385, i64 noundef %347, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %68, ptr noalias noundef nonnull align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 4 %377, i64 noundef 16, ptr noalias noundef nonnull align 8 dereferenceable(8) %362, ptr noalias noundef nonnull align 4 %387, i64 noundef %386, ptr noalias noundef nonnull align 8 dereferenceable(8) %219, ptr noalias noundef nonnull align 8 dereferenceable(8) %388)
   %389 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %390 = load i32, ptr %389, align 4, !noundef !12
   %391 = load i32, ptr %34, align 8, !noundef !12
@@ -7274,31 +7274,37 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
   %.not200 = icmp ule i64 %404, %395
   %405 = load i32, ptr %179, align 8, !noundef !12
   %406 = icmp slt i32 %405, 4
-  %407 = load i64, ptr %388, align 8
-  %408 = load i64, ptr %219, align 8
-  %409 = add i64 %408, %407
-  %410 = icmp ugt i64 %409, 12286
-  %.0110 = select i1 %406, i1 %410, i1 false
-  %411 = or i1 %2, %.0110
-  %or.cond6 = or i1 %1, %411
-  %not.or.cond6 = xor i1 %or.cond6, true
-  %brmerge8 = select i1 %not.or.cond6, i1 %.not200, i1 false
-  %412 = icmp ult i64 %407, %396
-  %or.cond22 = select i1 %brmerge8, i1 %412, i1 false
-  %413 = icmp ult i64 %408, %396
-  %or.cond25 = select i1 %or.cond22, i1 %413, i1 false
-  br i1 %or.cond25, label %417, label %415
+  %.pre307 = load i64, ptr %388, align 8
+  %.pre308 = load i64, ptr %219, align 8
+  br i1 %406, label %408, label %412
 
-414:                                              ; preds = %376
+407:                                              ; preds = %376
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %380, i64 noundef %.val264, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.83) #23
   unreachable
 
-415:                                              ; preds = %383
+408:                                              ; preds = %383
+  %409 = add i64 %.pre308, %.pre307
+  %410 = icmp ugt i64 %409, 12286
+  %411 = or i1 %2, %410
+  br label %412
+
+412:                                              ; preds = %383, %408
+  %.0110 = phi i1 [ %411, %408 ], [ %2, %383 ]
+  %or.cond6 = or i1 %1, %.0110
+  %not.or.cond6 = xor i1 %or.cond6, true
+  %brmerge8 = select i1 %not.or.cond6, i1 %.not200, i1 false
+  %413 = icmp ult i64 %.pre307, %396
+  %or.cond22 = select i1 %brmerge8, i1 %413, i1 false
+  %414 = icmp ult i64 %.pre308, %396
+  %or.cond25 = select i1 %or.cond22, i1 %414, i1 false
+  br i1 %or.cond25, label %417, label %415
+
+415:                                              ; preds = %412
   %416 = load i64, ptr %362, align 8, !noundef !12
   %.not201 = icmp eq i64 %416, 0
   br i1 %.not201, label %448, label %446
 
-417:                                              ; preds = %383
+417:                                              ; preds = %412
   %418 = load i64, ptr %22, align 8, !alias.scope !598, !noundef !12
   %419 = trunc i64 %418 to i32
   %420 = icmp ugt i64 %418, 3221225471
@@ -7353,17 +7359,17 @@ switch.lookup:                                    ; preds = %_ZN6brotli3enc6enco
 
 446:                                              ; preds = %415
   %.val262 = load i64, ptr %379, align 8, !noundef !12
-  %447 = icmp ult i64 %408, %.val262
+  %447 = icmp ult i64 %.pre308, %.val262
   br i1 %447, label %451, label %458, !prof !278
 
 448:                                              ; preds = %415, %451
-  %449 = phi i64 [ %408, %415 ], [ %454, %451 ]
-  %450 = phi i64 [ %407, %415 ], [ %457, %451 ]
+  %449 = phi i64 [ %.pre308, %415 ], [ %454, %451 ]
+  %450 = phi i64 [ %.pre307, %415 ], [ %457, %451 ]
   br i1 %1, label %thread-pre-split301, label %459
 
 451:                                              ; preds = %446
   %.val261 = load ptr, ptr %378, align 8, !nonnull !12, !align !268, !noundef !12
-  %452 = getelementptr inbounds { i32, i32, i32, i16, i16 }, ptr %.val261, i64 %408
+  %452 = getelementptr inbounds { i32, i32, i32, i16, i16 }, ptr %.val261, i64 %.pre308
   call void @_ZN6brotli3enc6encode17InitInsertCommand17h19a94d9a4c7967ffE(ptr noalias noundef nonnull align 4 dereferenceable(16) %452, i64 noundef %416)
   %453 = load i64, ptr %219, align 8, !noundef !12
   %454 = add i64 %453, 1
@@ -7376,7 +7382,7 @@ switch.lookup:                                    ; preds = %_ZN6brotli3enc6enco
   br label %448
 
 458:                                              ; preds = %446
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %408, i64 noundef %.val262, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.74) #23
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.pre308, i64 noundef %.val262, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.74) #23
   unreachable
 
 459:                                              ; preds = %448
@@ -8597,8 +8603,8 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
   br label %355
 
 372:                                              ; preds = %355, %375
-  %.pre-phi309 = phi i64 [ %348, %355 ], [ %.pre308, %375 ]
-  %.pre-phi = phi i64 [ %349, %355 ], [ %.pre307, %375 ]
+  %.pre-phi311 = phi i64 [ %348, %355 ], [ %.pre310, %375 ]
+  %.pre-phi = phi i64 [ %349, %355 ], [ %.pre309, %375 ]
   %.val209 = load ptr, ptr %26, align 8, !nonnull !12, !align !50, !noundef !12
   %.val210 = load i64, ptr %308, align 8, !noundef !12
   %373 = load i64, ptr %309, align 8, !noundef !12
@@ -8609,8 +8615,8 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
   call fastcc void @_ZN6brotli3enc6encode17ExtendLastCommand17hb108d9f32eda5941E(ptr noalias noundef align 8 dereferenceable(5576) %0, ptr noalias noundef align 4 dereferenceable(4) %19, ptr noalias noundef align 4 dereferenceable(4) %17)
   %.pre = load i32, ptr %19, align 4
   %.pre306 = load i32, ptr %17, align 4
-  %.pre307 = zext i32 %.pre to i64
-  %.pre308 = zext i32 %.pre306 to i64
+  %.pre309 = zext i32 %.pre to i64
+  %.pre310 = zext i32 %.pre306 to i64
   br label %372
 
 376:                                              ; preds = %372
@@ -8620,7 +8626,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
   %.val264 = load i64, ptr %379, align 8, !noundef !12
   %380 = load i64, ptr %219, align 8, !noundef !12
   %381 = icmp ugt i64 %380, %.val264
-  br i1 %381, label %414, label %383
+  br i1 %381, label %407, label %383
 
 382:                                              ; preds = %372
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %373, i64 noundef %.val210, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.84) #23
@@ -8633,7 +8639,7 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
   %386 = sub nuw i64 %.val264, %380
   %387 = getelementptr inbounds { i32, i32, i32, i16, i16 }, ptr %.val263, i64 %380
   %388 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  call void @_ZN6brotli3enc19backward_references30BrotliCreateBackwardReferences17hdcd3c2a2cbdd0d5cE(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef readonly align 8 dereferenceable(24) @_ZN6brotli3enc11static_dict20kBrotliEncDictionary17hed15bff50f586cdaE, i64 noundef %.pre-phi, i64 noundef %.pre-phi309, ptr noalias noundef nonnull readonly align 1 %384, i64 noundef %385, i64 noundef %347, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %68, ptr noalias noundef nonnull align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 4 %377, i64 noundef 16, ptr noalias noundef nonnull align 8 dereferenceable(8) %362, ptr noalias noundef nonnull align 4 %387, i64 noundef %386, ptr noalias noundef nonnull align 8 dereferenceable(8) %219, ptr noalias noundef nonnull align 8 dereferenceable(8) %388)
+  call void @_ZN6brotli3enc19backward_references30BrotliCreateBackwardReferences17hdcd3c2a2cbdd0d5cE(ptr noalias noundef nonnull align 1 %42, ptr noalias noundef readonly align 8 dereferenceable(24) @_ZN6brotli3enc11static_dict20kBrotliEncDictionary17hed15bff50f586cdaE, i64 noundef %.pre-phi, i64 noundef %.pre-phi311, ptr noalias noundef nonnull readonly align 1 %384, i64 noundef %385, i64 noundef %347, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %68, ptr noalias noundef nonnull align 8 dereferenceable(120) %0, ptr noalias noundef nonnull align 4 %377, i64 noundef 16, ptr noalias noundef nonnull align 8 dereferenceable(8) %362, ptr noalias noundef nonnull align 4 %387, i64 noundef %386, ptr noalias noundef nonnull align 8 dereferenceable(8) %219, ptr noalias noundef nonnull align 8 dereferenceable(8) %388)
   %389 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %390 = load i32, ptr %389, align 4, !noundef !12
   %391 = load i32, ptr %34, align 8, !noundef !12
@@ -8656,31 +8662,37 @@ _ZN6brotli3enc6encode22UpdateLastProcessedPos17hf24ae1d9062712c6E.exit: ; preds 
   %.not200 = icmp ule i64 %404, %395
   %405 = load i32, ptr %179, align 8, !noundef !12
   %406 = icmp slt i32 %405, 4
-  %407 = load i64, ptr %388, align 8
-  %408 = load i64, ptr %219, align 8
-  %409 = add i64 %408, %407
-  %410 = icmp ugt i64 %409, 12286
-  %.0110 = select i1 %406, i1 %410, i1 false
-  %411 = or i1 %2, %.0110
-  %or.cond6 = or i1 %1, %411
-  %not.or.cond6 = xor i1 %or.cond6, true
-  %brmerge8 = select i1 %not.or.cond6, i1 %.not200, i1 false
-  %412 = icmp ult i64 %407, %396
-  %or.cond22 = select i1 %brmerge8, i1 %412, i1 false
-  %413 = icmp ult i64 %408, %396
-  %or.cond25 = select i1 %or.cond22, i1 %413, i1 false
-  br i1 %or.cond25, label %417, label %415
+  %.pre307 = load i64, ptr %388, align 8
+  %.pre308 = load i64, ptr %219, align 8
+  br i1 %406, label %408, label %412
 
-414:                                              ; preds = %376
+407:                                              ; preds = %376
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef %380, i64 noundef %.val264, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.83) #23
   unreachable
 
-415:                                              ; preds = %383
+408:                                              ; preds = %383
+  %409 = add i64 %.pre308, %.pre307
+  %410 = icmp ugt i64 %409, 12286
+  %411 = or i1 %2, %410
+  br label %412
+
+412:                                              ; preds = %383, %408
+  %.0110 = phi i1 [ %411, %408 ], [ %2, %383 ]
+  %or.cond6 = or i1 %1, %.0110
+  %not.or.cond6 = xor i1 %or.cond6, true
+  %brmerge8 = select i1 %not.or.cond6, i1 %.not200, i1 false
+  %413 = icmp ult i64 %.pre307, %396
+  %or.cond22 = select i1 %brmerge8, i1 %413, i1 false
+  %414 = icmp ult i64 %.pre308, %396
+  %or.cond25 = select i1 %or.cond22, i1 %414, i1 false
+  br i1 %or.cond25, label %417, label %415
+
+415:                                              ; preds = %412
   %416 = load i64, ptr %362, align 8, !noundef !12
   %.not201 = icmp eq i64 %416, 0
   br i1 %.not201, label %448, label %446
 
-417:                                              ; preds = %383
+417:                                              ; preds = %412
   %418 = load i64, ptr %22, align 8, !alias.scope !729, !noundef !12
   %419 = trunc i64 %418 to i32
   %420 = icmp ugt i64 %418, 3221225471
@@ -8735,17 +8747,17 @@ switch.lookup:                                    ; preds = %_ZN6brotli3enc6enco
 
 446:                                              ; preds = %415
   %.val262 = load i64, ptr %379, align 8, !noundef !12
-  %447 = icmp ult i64 %408, %.val262
+  %447 = icmp ult i64 %.pre308, %.val262
   br i1 %447, label %451, label %458, !prof !278
 
 448:                                              ; preds = %415, %451
-  %449 = phi i64 [ %408, %415 ], [ %454, %451 ]
-  %450 = phi i64 [ %407, %415 ], [ %457, %451 ]
+  %449 = phi i64 [ %.pre308, %415 ], [ %454, %451 ]
+  %450 = phi i64 [ %.pre307, %415 ], [ %457, %451 ]
   br i1 %1, label %thread-pre-split301, label %459
 
 451:                                              ; preds = %446
   %.val261 = load ptr, ptr %378, align 8, !nonnull !12, !align !268, !noundef !12
-  %452 = getelementptr inbounds { i32, i32, i32, i16, i16 }, ptr %.val261, i64 %408
+  %452 = getelementptr inbounds { i32, i32, i32, i16, i16 }, ptr %.val261, i64 %.pre308
   call void @_ZN6brotli3enc6encode17InitInsertCommand17h19a94d9a4c7967ffE(ptr noalias noundef nonnull align 4 dereferenceable(16) %452, i64 noundef %416)
   %453 = load i64, ptr %219, align 8, !noundef !12
   %454 = add i64 %453, 1
@@ -8758,7 +8770,7 @@ switch.lookup:                                    ; preds = %_ZN6brotli3enc6enco
   br label %448
 
 458:                                              ; preds = %446
-  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %408, i64 noundef %.val262, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.74) #23
+  call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.pre308, i64 noundef %.val262, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.74) #23
   unreachable
 
 459:                                              ; preds = %448
@@ -14560,9 +14572,9 @@ define void @"_ZN91_$LT$actix_http..header..shared..charset..Charset$u20$as$u20$
   %13 = load i8, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1566, !noalias !1563, !noundef !12
   %14 = add i8 %13, -97
   %15 = icmp ult i8 %14, 26
-  %.0.i.i = select i1 %15, i8 32, i8 0
-  %16 = xor i8 %.0.i.i, %13
-  store i8 %16, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1566, !noalias !1563
+  %16 = select i1 %15, i8 32, i8 0
+  %.0.i.i = xor i8 %16, %13
+  store i8 %.0.i.i, ptr %.sroa.0.06.i.i, align 1, !alias.scope !1566, !noalias !1563
   %17 = icmp eq ptr %12, %9
   br i1 %17, label %"_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_uppercase17h641d9fbbd32698cbE.exit", label %.lr.ph.i.i
 

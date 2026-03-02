@@ -19052,13 +19052,16 @@ _ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit178:    ; preds = %.lr.ph.i173, %._cri
   %277 = fadd double %.111.i184, %276
   %278 = add nuw nsw i64 %.0610.i185, 1
   %exitcond.not.i187 = icmp eq i64 %278, %199
-  br i1 %exitcond.not.i187, label %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit188, label %.lr.ph.i183, !llvm.loop !439
+  br i1 %exitcond.not.i187, label %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit188.loopexit, label %.lr.ph.i183, !llvm.loop !439
 
-_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit188:    ; preds = %.lr.ph.i183, %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit178
-  %.0.i182 = phi double [ 0.000000e+00, %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit178 ], [ %277, %.lr.ph.i183 ]
-  %279 = fadd double %.0.i172, %.0.i182
+_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit188.loopexit: ; preds = %.lr.ph.i183
+  %279 = fadd double %.0.i172, %277
+  br label %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit188
+
+_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit188:    ; preds = %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit188.loopexit, %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit178
+  %.0.i182 = phi double [ %.0.i172, %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit178 ], [ %279, %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit188.loopexit ]
   %280 = getelementptr inbounds nuw i8, ptr %1, i64 496
-  store double %279, ptr %280, align 8, !tbaa !472
+  store double %.0.i182, ptr %280, align 8, !tbaa !472
   br i1 %.not20.i133, label %._crit_edge274, label %.lr.ph273
 
 .lr.ph269:                                        ; preds = %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit, %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit198
@@ -19093,13 +19096,13 @@ _ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit198:    ; preds = %.lr.ph.i193, %.lr.p
   br i1 %.not230, label %._crit_edge270, label %.lr.ph269
 
 ._crit_edge274:                                   ; preds = %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit208, %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit188
-  %293 = phi double [ %279, %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit188 ], [ %305, %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit208 ]
+  %293 = phi double [ %.0.i182, %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit188 ], [ %305, %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit208 ]
   %294 = fmul double %.090, %293
   store double %294, ptr %280, align 8, !tbaa !472
   ret void
 
 .lr.ph273:                                        ; preds = %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit188, %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit208
-  %295 = phi double [ %305, %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit208 ], [ %279, %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit188 ]
+  %295 = phi double [ %305, %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit208 ], [ %.0.i182, %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit188 ]
   %.sroa.0209.0272 = phi ptr [ %306, %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit208 ], [ %229, %_ZN6casadi13casadi_norm_1IdEET_xPKS1_.exit188 ]
   %296 = load i64, ptr %.sroa.0209.0272, align 8, !tbaa !375
   %297 = getelementptr inbounds nuw i8, ptr %.sroa.0209.0272, i64 40

@@ -4776,50 +4776,48 @@ define internal fastcc void @_print_daemons() unnamed_addr #7 {
 
 .loopexit:                                        ; preds = %15, %.lr.ph38, %._crit_edge..loopexit.loopexit_crit_edge, %0, %29
   %.121 = phi i1 [ true, %29 ], [ false, %0 ], [ false, %.lr.ph38 ], [ true, %._crit_edge..loopexit.loopexit_crit_edge ], [ true, %15 ]
-  %33 = phi i1 [ true, %29 ], [ false, %0 ], [ false, %.lr.ph38 ], [ false, %._crit_edge..loopexit.loopexit_crit_edge ], [ false, %15 ]
+  %or.cond = phi i1 [ true, %29 ], [ false, %0 ], [ false, %.lr.ph38 ], [ false, %._crit_edge..loopexit.loopexit_crit_edge ], [ false, %15 ]
   call void @slurm_conf_unlock() #18
-  %34 = call ptr @slurm_conf_get_nodename(ptr noundef nonnull %1) #18
-  store ptr %34, ptr %4, align 8
-  %.not29 = icmp eq ptr %34, null
-  br i1 %.not29, label %35, label %.sink.split
+  %33 = call ptr @slurm_conf_get_nodename(ptr noundef nonnull %1) #18
+  store ptr %33, ptr %4, align 8
+  %.not29 = icmp eq ptr %33, null
+  br i1 %.not29, label %34, label %.sink.split
 
-35:                                               ; preds = %.loopexit
-  %36 = call ptr @slurm_conf_get_aliased_nodename() #18
-  store ptr %36, ptr %4, align 8
-  %.not30 = icmp eq ptr %36, null
-  br i1 %.not30, label %37, label %.sink.split
+34:                                               ; preds = %.loopexit
+  %35 = call ptr @slurm_conf_get_aliased_nodename() #18
+  store ptr %35, ptr %4, align 8
+  %.not30 = icmp eq ptr %35, null
+  br i1 %.not30, label %36, label %.sink.split
 
-37:                                               ; preds = %35
-  %38 = call ptr @slurm_conf_get_nodename(ptr noundef nonnull @.str.207) #18
-  store ptr %38, ptr %4, align 8
-  %.not31 = icmp eq ptr %38, null
-  br i1 %.not31, label %39, label %.sink.split
+36:                                               ; preds = %34
+  %37 = call ptr @slurm_conf_get_nodename(ptr noundef nonnull @.str.207) #18
+  store ptr %37, ptr %4, align 8
+  %.not31 = icmp eq ptr %37, null
+  br i1 %.not31, label %38, label %.sink.split
 
-.sink.split:                                      ; preds = %37, %35, %.loopexit
+.sink.split:                                      ; preds = %36, %34, %.loopexit
   call void @slurm_xfree(ptr noundef nonnull %4) #18
-  br label %39
+  br label %38
 
-39:                                               ; preds = %.sink.split, %37
-  %40 = phi i1 [ false, %37 ], [ true, %.sink.split ]
-  %or.cond = and i1 %.121, %33
-  br i1 %or.cond, label %41, label %42
+38:                                               ; preds = %.sink.split, %36
+  %or.cond3 = phi i1 [ false, %36 ], [ %.121, %.sink.split ]
+  br i1 %or.cond, label %39, label %40
 
-41:                                               ; preds = %39
+39:                                               ; preds = %38
   call void @_xstrcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.211) #18
+  br label %40
+
+40:                                               ; preds = %39, %38
+  br i1 %or.cond3, label %41, label %42
+
+41:                                               ; preds = %40
+  call void @_xstrcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.203) #18
   br label %42
 
-42:                                               ; preds = %41, %39
-  %or.cond3 = and i1 %.121, %40
-  br i1 %or.cond3, label %43, label %44
-
-43:                                               ; preds = %42
-  call void @_xstrcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.203) #18
-  br label %44
-
-44:                                               ; preds = %43, %42
-  %45 = load ptr, ptr @stdout, align 8
-  %46 = load ptr, ptr %6, align 8
-  %47 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.76, ptr noundef %46) #18
+42:                                               ; preds = %41, %40
+  %43 = load ptr, ptr @stdout, align 8
+  %44 = load ptr, ptr %6, align 8
+  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.76, ptr noundef %44) #18
   call void @slurm_xfree(ptr noundef nonnull %6) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

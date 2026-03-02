@@ -17043,7 +17043,8 @@ define hidden void @_ZN10serde_json5value2de15visit_array_ref17h00547c963c36d0cb
   %.sroa.567.0.ph.i35 = phi i32 [ %46, %41 ], [ 0, %31 ], [ 0, %20 ], [ 0, %15 ]
   %.sroa.559.0.ph.i202534 = phi i32 [ %26, %41 ], [ %26, %31 ], [ %26, %20 ], [ %.sroa.5.0.ph.i, %15 ]
   %.sroa.563.0.ph.i2633 = phi i32 [ %36, %41 ], [ %36, %31 ], [ 0, %20 ], [ 0, %15 ]
-  %.sroa.5.3.insert.insert = or i32 %.sroa.559.0.ph.i202534, %.sroa.563.0.ph.i2633
+  %.sroa.5.3.insert.mask = and i32 %.sroa.559.0.ph.i202534, -16711681
+  %.sroa.5.3.insert.insert = or i32 %.sroa.563.0.ph.i2633, %.sroa.5.3.insert.mask
   %.sroa.5.4.insert.insert = or i32 %.sroa.5.3.insert.insert, %.sroa.567.0.ph.i35
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i32 %.sroa.5.4.insert.insert, ptr %51, align 1

@@ -14693,19 +14693,19 @@ define hidden noundef ptr @_ZN11OpenImageIO6v3_1_014ImageCacheImpl11verify_fileE
   %11 = alloca %"class.OpenImageIO::v3_1_0::Timer", align 8
   %12 = alloca %"class.std::shared_ptr.39", align 8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %263, label %13
+  br i1 %.not, label %262, label %13
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 118
   %15 = load i16, ptr %14, align 2, !tbaa !234
   %.not121 = icmp eq i16 %15, 0
-  br i1 %.not121, label %16, label %263
+  br i1 %.not121, label %16, label %262
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 193
   %18 = load volatile i8, ptr %17, align 1, !tbaa !222, !range !172, !noundef !173
   %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %258, label %20
+  br i1 %19, label %257, label %20
 
 20:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -14734,7 +14734,7 @@ define hidden noundef ptr @_ZN11OpenImageIO6v3_1_014ImageCacheImpl11verify_fileE
 31:                                               ; preds = %29
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %257
+  br label %256
 
 33:                                               ; preds = %20, %29
   %.075 = phi ptr [ %2, %20 ], [ %30, %29 ]
@@ -14761,7 +14761,7 @@ define hidden noundef ptr @_ZN11OpenImageIO6v3_1_014ImageCacheImpl11verify_fileE
 
 44:                                               ; preds = %33
   invoke void @_ZSt20__throw_system_errori(i32 noundef %43) #50
-          to label %.noexc unwind label %235
+          to label %.noexc unwind label %234
 
 .noexc:                                           ; preds = %44
   unreachable
@@ -14803,7 +14803,7 @@ _ZNSt10lock_guardISt21recursive_timed_mutexEC2ERS0_.exit: ; preds = %33
 
 70:                                               ; preds = %57
   invoke void @_ZN11OpenImageIO6v3_1_014ImageCacheFile4openEPNS0_23ImageCachePerThreadInfoE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.39") align 8 %12, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull %.075)
-          to label %71 unwind label %237
+          to label %71 unwind label %236
 
 71:                                               ; preds = %70
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -14911,7 +14911,7 @@ _ZNK11OpenImageIO6v3_1_07ustring5emptyEv.exit:    ; preds = %107
 
 131:                                              ; preds = %_ZNK11OpenImageIO6v3_1_07ustring5emptyEv.exit
   %132 = invoke noundef ptr @_ZN11OpenImageIO6v3_1_014ImageCacheImpl16find_fingerprintENS0_7ustringEPNS0_14ImageCacheFileE(ptr noundef nonnull align 64 dereferenceable(25240) %0, ptr nonnull %.sroa.0.0.copyload.i, ptr noundef nonnull %1)
-          to label %133 unwind label %239
+          to label %133 unwind label %238
 
 133:                                              ; preds = %131
   %.not90 = icmp eq ptr %132, %1
@@ -14936,7 +14936,7 @@ _ZNK11OpenImageIO6v3_1_07ustring5emptyEv.exit:    ; preds = %107
   %150 = sub i64 %148, %149
   %151 = sdiv exact i64 %150, 120
   %152 = trunc i64 %151 to i32
-  %153 = icmp eq i32 %143, %152
+  %153 = icmp ne i32 %143, %152
   %154 = load ptr, ptr %138, align 8, !tbaa !433
   %155 = load ptr, ptr %147, align 8, !tbaa !433
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 20
@@ -14967,9 +14967,9 @@ _ZNK11OpenImageIO6v3_1_07ustring5emptyEv.exit:    ; preds = %107
   %175 = load i32, ptr %174, align 4, !tbaa !177
   %176 = getelementptr inbounds nuw i8, ptr %155, i64 68
   %177 = load i32, ptr %176, align 4, !tbaa !177
-  %178 = icmp eq i32 %175, %177
-  %brmerge.not = select i1 %178, i1 %153, i1 false
-  br i1 %brmerge.not, label %179, label %.critedge
+  %178 = icmp ne i32 %175, %177
+  %brmerge = select i1 %178, i1 true, i1 %153
+  br i1 %brmerge, label %.critedge, label %179
 
 179:                                              ; preds = %173
   %180 = getelementptr inbounds nuw i8, ptr %138, i64 8
@@ -15035,101 +15035,100 @@ _ZNK11OpenImageIO6v3_1_07ustring5emptyEv.exit:    ; preds = %107
   %228 = getelementptr inbounds nuw i8, ptr %132, i64 117
   %229 = load i8, ptr %228, align 1, !tbaa !491, !range !172, !noundef !173
   %230 = icmp eq i8 %227, %229
-  %231 = and i1 %153, %230
-  %232 = icmp sgt i32 %143, 0
-  %233 = and i1 %231, %232
-  br i1 %233, label %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.preheader, label %._crit_edge
+  %231 = icmp sgt i32 %143, 0
+  %232 = select i1 %230, i1 %231, i1 false
+  br i1 %232, label %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.preheader, label %._crit_edge
 
 _ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.preheader: ; preds = %225
-  %234 = and i64 %142, 2147483647
+  %233 = and i64 %142, 2147483647
   br label %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit
 
 ._crit_edge:                                      ; preds = %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit, %225
-  %.076.in.lcssa = phi i1 [ %231, %225 ], [ %248, %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit ]
-  br i1 %.076.in.lcssa, label %251, label %.critedge
+  %.076.lcssa = phi i1 [ %230, %225 ], [ %247, %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit ]
+  br i1 %.076.lcssa, label %250, label %.critedge
 
-235:                                              ; preds = %44
-  %236 = landingpad { ptr, i32 }
+234:                                              ; preds = %44
+  %235 = landingpad { ptr, i32 }
           cleanup
-  br label %256
+  br label %255
 
-237:                                              ; preds = %70
-  %238 = landingpad { ptr, i32 }
+236:                                              ; preds = %70
+  %237 = landingpad { ptr, i32 }
           cleanup
-  br label %254
+  br label %253
 
-239:                                              ; preds = %131
-  %240 = landingpad { ptr, i32 }
+238:                                              ; preds = %131
+  %239 = landingpad { ptr, i32 }
           cleanup
-  br label %254
+  br label %253
 
 _ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit:   ; preds = %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.preheader, %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit
   %indvars.iv = phi i64 [ 0, %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit.preheader ], [ %indvars.iv.next, %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit ]
-  %241 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::ImageCacheFile::SubimageInfo", ptr %138, i64 %indvars.iv
-  %242 = getelementptr inbounds nuw i8, ptr %241, i64 24
-  %.sroa.0.0.copyload.i103 = load i64, ptr %242, align 8
-  %243 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::ImageCacheFile::SubimageInfo", ptr %147, i64 %indvars.iv
-  %244 = getelementptr inbounds nuw i8, ptr %243, i64 24
-  %.sroa.0.0.copyload.i104 = load i64, ptr %244, align 8
-  %245 = trunc i64 %.sroa.0.0.copyload.i103 to i24
-  %246 = trunc i64 %.sroa.0.0.copyload.i104 to i24
-  %or.cond120 = icmp eq i24 %245, %246
+  %240 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::ImageCacheFile::SubimageInfo", ptr %138, i64 %indvars.iv
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 24
+  %.sroa.0.0.copyload.i103 = load i64, ptr %241, align 8
+  %242 = getelementptr inbounds nuw %"struct.OpenImageIO::v3_1_0::ImageCacheFile::SubimageInfo", ptr %147, i64 %indvars.iv
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 24
+  %.sroa.0.0.copyload.i104 = load i64, ptr %243, align 8
+  %244 = trunc i64 %.sroa.0.0.copyload.i103 to i24
+  %245 = trunc i64 %.sroa.0.0.copyload.i104 to i24
+  %or.cond120 = icmp eq i24 %244, %245
   %.unshifted = xor i64 %.sroa.0.0.copyload.i104, %.sroa.0.0.copyload.i103
-  %247 = icmp ult i64 %.unshifted, 4294967296
-  %248 = and i1 %or.cond120, %247
+  %246 = icmp ult i64 %.unshifted, 4294967296
+  %247 = and i1 %or.cond120, %246
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %249 = icmp samesign ult i64 %indvars.iv.next, %234
-  %250 = select i1 %248, i1 %249, i1 false
-  br i1 %250, label %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit, label %._crit_edge, !llvm.loop !605
+  %248 = icmp samesign ult i64 %indvars.iv.next, %233
+  %249 = select i1 %247, i1 %248, i1 false
+  br i1 %249, label %_ZNK11OpenImageIO6v3_1_08TypeDesceqERKS1_.exit, label %._crit_edge, !llvm.loop !605
 
-251:                                              ; preds = %._crit_edge
-  %252 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  store ptr %132, ptr %252, align 8, !tbaa !603
+250:                                              ; preds = %._crit_edge
+  %251 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  store ptr %132, ptr %251, align 8, !tbaa !603
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   call void @_ZN11OpenImageIO6v3_1_014ImageCacheFile14set_imageinputESt10shared_ptrINS0_10ImageInputEE(ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
-.critedge:                                        ; preds = %219, %213, %207, %201, %195, %179, %173, %167, %161, %134, %107, %_ZNK11OpenImageIO6v3_1_07ustring5emptyEv.exit, %251, %._crit_edge, %133, %57
-  %253 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %42) #8
+.critedge:                                        ; preds = %219, %213, %207, %201, %195, %179, %173, %167, %161, %134, %107, %_ZNK11OpenImageIO6v3_1_07ustring5emptyEv.exit, %250, %._crit_edge, %133, %57
+  %252 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %42) #8
   call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %258
-
-254:                                              ; preds = %239, %237
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %238, %237 ], [ %240, %239 ]
-  %255 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %42) #8
-  br label %256
-
-256:                                              ; preds = %254, %235
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %254 ], [ %236, %235 ]
-  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #8
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %257
 
-257:                                              ; preds = %256, %31
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %256 ], [ %32, %31 ]
+253:                                              ; preds = %238, %236
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %237, %236 ], [ %239, %238 ]
+  %254 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %42) #8
+  br label %255
+
+255:                                              ; preds = %253, %234
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %253 ], [ %235, %234 ]
+  call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #8
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  br label %256
+
+256:                                              ; preds = %255, %31
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %255 ], [ %32, %31 ]
   call void @_ZN11OpenImageIO6v3_1_05TimerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
 
-258:                                              ; preds = %.critedge, %16
-  br i1 %3, label %263, label %259
+257:                                              ; preds = %.critedge, %16
+  br i1 %3, label %262, label %258
 
-259:                                              ; preds = %258
-  %260 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %261 = load ptr, ptr %260, align 8, !tbaa !603
-  %.not98 = icmp eq ptr %261, null
-  %spec.select = select i1 %.not98, ptr %1, ptr %261
-  %262 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
-  store i8 1, ptr %262, align 8, !tbaa !180
-  br label %263
+258:                                              ; preds = %257
+  %259 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %260 = load ptr, ptr %259, align 8, !tbaa !603
+  %.not98 = icmp eq ptr %260, null
+  %spec.select = select i1 %.not98, ptr %1, ptr %260
+  %261 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
+  store i8 1, ptr %261, align 8, !tbaa !180
+  br label %262
 
-263:                                              ; preds = %258, %259, %13, %4
-  %.0 = phi ptr [ null, %4 ], [ %1, %13 ], [ %1, %258 ], [ %spec.select, %259 ]
+262:                                              ; preds = %257, %258, %13, %4
+  %.0 = phi ptr [ null, %4 ], [ %1, %13 ], [ %1, %257 ], [ %spec.select, %258 ]
   ret ptr %.0
 }
 
@@ -58036,12 +58035,12 @@ _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i:
 
 _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i: ; preds = %248, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i
   %255 = phi i64 [ %254, %248 ], [ %.03561.i, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i ]
-  %256 = icmp samesign ugt i64 %246, %255
+  %256 = icmp ugt i64 %246, %255
   br i1 %256, label %.thread518, label %257
 
 257:                                              ; preds = %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i
   %258 = sub nuw nsw i64 %255, %246
-  %259 = icmp samesign ugt i64 %258, 1
+  %259 = icmp ugt i64 %258, 1
   br i1 %259, label %_ZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_.exit, label %260
 
 260:                                              ; preds = %257
@@ -58161,12 +58160,12 @@ _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i2
 
 _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i205: ; preds = %305, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i202
   %312 = phi i64 [ %311, %305 ], [ %.03561.i195, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i202 ]
-  %313 = icmp samesign ugt i64 %303, %312
+  %313 = icmp ugt i64 %303, %312
   br i1 %313, label %.thread.sink.split, label %314
 
 314:                                              ; preds = %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i205
   %315 = sub nuw nsw i64 %312, %303
-  %316 = icmp samesign ugt i64 %315, 1
+  %316 = icmp ugt i64 %315, 1
   br i1 %316, label %.thread, label %317
 
 317:                                              ; preds = %314
@@ -58520,7 +58519,7 @@ _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i2
 
 _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i277: ; preds = %455, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i274
   %462 = phi i64 [ %461, %455 ], [ %.03561.i267, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i274 ]
-  %463 = icmp samesign ugt i64 %453, %462
+  %463 = icmp ugt i64 %453, %462
   br i1 %463, label %_ZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_.exit280, label %464
 
 464:                                              ; preds = %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i277
@@ -58740,12 +58739,12 @@ _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i3
 
 _ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i316: ; preds = %556, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i313
   %563 = phi i64 [ %562, %556 ], [ %.03561.i306, %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i313 ]
-  %564 = icmp samesign ugt i64 %554, %563
+  %564 = icmp ugt i64 %554, %563
   br i1 %564, label %_ZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_.exit319, label %565
 
 565:                                              ; preds = %_ZZN3fmt2v86detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit48.i316
   %566 = sub nuw nsw i64 %563, %554
-  %567 = icmp samesign ugt i64 %566, 1
+  %567 = icmp ugt i64 %566, 1
   br i1 %567, label %.thread359, label %568
 
 568:                                              ; preds = %565

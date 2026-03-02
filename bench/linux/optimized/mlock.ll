@@ -1415,13 +1415,13 @@ define dso_local noundef range(i64 -22, 1) i64 @__x64_sys_mlockall(ptr noundef r
 define internal fastcc noundef range(i64 -22, 1) i64 @__se_sys_mlockall(i64 noundef %0) unnamed_addr #0 align 16 {
   %2 = trunc i64 %0 to i32
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %70, label %4
+  br i1 %3, label %69, label %4
 
 4:                                                ; preds = %1
   %5 = icmp ugt i32 %2, 7
   %6 = icmp eq i32 %2, 4
   %7 = or i1 %5, %6
-  br i1 %7, label %70, label %8
+  br i1 %7, label %69, label %8
 
 8:                                                ; preds = %4
   %9 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !6
@@ -1435,7 +1435,7 @@ define internal fastcc noundef range(i64 -22, 1) i64 @__se_sys_mlockall(i64 noun
 
 16:                                               ; preds = %8
   %17 = tail call zeroext i1 @capable(i32 noundef 14) #10
-  br i1 %17, label %._crit_edge, label %70
+  br i1 %17, label %._crit_edge, label %69
 
 ._crit_edge:                                      ; preds = %16
   %.pre = load ptr, ptr %11, align 8
@@ -1468,7 +1468,7 @@ define internal fastcc noundef range(i64 -22, 1) i64 @__se_sys_mlockall(i64 noun
 
 31:                                               ; preds = %29, %26
   %32 = icmp eq i32 %28, 0
-  br i1 %32, label %33, label %70
+  br i1 %32, label %33, label %69
 
 33:                                               ; preds = %31
   %34 = and i32 %2, 1
@@ -1491,7 +1491,7 @@ define internal fastcc noundef range(i64 -22, 1) i64 @__se_sys_mlockall(i64 noun
   br label %44
 
 44:                                               ; preds = %43, %41
-  %45 = phi i1 [ false, %43 ], [ true, %41 ]
+  %45 = phi i1 [ %35, %43 ], [ true, %41 ]
   %46 = phi i64 [ 0, %43 ], [ -12, %41 ]
   %47 = load ptr, ptr %23, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_mmap_lock_released, i64 8), i32 2) #10
@@ -1509,35 +1509,34 @@ define internal fastcc noundef range(i64 -22, 1) i64 @__se_sys_mlockall(i64 noun
   store volatile i32 %52, ptr %50, align 8
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 176
   tail call void @up_write(ptr noundef nonnull %53) #10
-  %54 = or i1 %35, %45
-  br i1 %54, label %70, label %55
+  br i1 %45, label %69, label %54
 
-55:                                               ; preds = %49
-  %56 = load volatile i64, ptr %10, align 8
-  %57 = and i64 %56, 536870912
-  %58 = icmp eq i64 %57, 0
-  br i1 %58, label %65, label %59
+54:                                               ; preds = %49
+  %55 = load volatile i64, ptr %10, align 8
+  %56 = and i64 %55, 536870912
+  %57 = icmp eq i64 %56, 0
+  br i1 %57, label %64, label %58
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds nuw i8, ptr %10, i64 1240
-  %61 = load i32, ptr %60, align 8
-  %62 = and i32 %61, 134217728
-  %63 = icmp eq i32 %62, 0
-  %64 = select i1 %63, i64 4294959104, i64 3221225472
-  br label %67
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 1240
+  %60 = load i32, ptr %59, align 8
+  %61 = and i32 %60, 134217728
+  %62 = icmp eq i32 %61, 0
+  %63 = select i1 %62, i64 4294959104, i64 3221225472
+  br label %66
 
-65:                                               ; preds = %55
-  %66 = tail call i64 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movq $2,$0\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (16*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09movq $3,$0\0A6651:\0A.popsection\0A", "=r,i,i,i,~{dirflag},~{fpsr},~{flags}"(i32 0, i64 140737488351232, i64 72057594037923840) #10, !srcloc !51
-  br label %67
+64:                                               ; preds = %54
+  %65 = tail call i64 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movq $2,$0\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (16*32+16)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09movq $3,$0\0A6651:\0A.popsection\0A", "=r,i,i,i,~{dirflag},~{fpsr},~{flags}"(i32 0, i64 140737488351232, i64 72057594037923840) #10, !srcloc !51
+  br label %66
 
-67:                                               ; preds = %65, %59
-  %68 = phi i64 [ %64, %59 ], [ %66, %65 ]
-  %69 = tail call i32 @__mm_populate(i64 noundef 0, i64 noundef %68, i32 noundef 1) #10
-  br label %70
+66:                                               ; preds = %64, %58
+  %67 = phi i64 [ %63, %58 ], [ %65, %64 ]
+  %68 = tail call i32 @__mm_populate(i64 noundef 0, i64 noundef %67, i32 noundef 1) #10
+  br label %69
 
-70:                                               ; preds = %67, %49, %31, %16, %4, %1
-  %71 = phi i64 [ -22, %4 ], [ -22, %1 ], [ -1, %16 ], [ -4, %31 ], [ %46, %49 ], [ %46, %67 ]
-  ret i64 %71
+69:                                               ; preds = %66, %49, %31, %16, %4, %1
+  %70 = phi i64 [ -22, %4 ], [ -22, %1 ], [ -1, %16 ], [ -4, %31 ], [ %46, %49 ], [ %46, %66 ]
+  ret i64 %70
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

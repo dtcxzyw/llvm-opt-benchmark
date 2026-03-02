@@ -4081,7 +4081,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_oid_oneline(ptr noundef %0, ptr
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !16
-  switch i8 %11, label %46 [
+  switch i8 %11, label %47 [
     i8 45, label %12
     i8 33, label %14
   ]
@@ -4095,7 +4095,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_oid_oneline(ptr noundef %0, ptr
   %.032 = phi ptr [ %13, %12 ], [ %10, %9 ], [ %1, %4 ]
   %15 = call i32 @regcomp(ptr noundef nonnull %6, ptr noundef nonnull %.032, i32 noundef 1) #20
   %.not41 = icmp eq i32 %15, 0
-  br i1 %.not41, label %.preheader52, label %46
+  br i1 %.not41, label %.preheader52, label %47
 
 .preheader52:                                     ; preds = %14
   %.not4256 = icmp eq ptr %3, null
@@ -4125,66 +4125,67 @@ define internal fastcc range(i32 -1, 1) i32 @get_oid_oneline(ptr noundef %0, ptr
   %.not42 = icmp eq ptr %24, null
   br i1 %.not42, label %.preheader, label %.lr.ph, !llvm.loop !140
 
-.lr.ph61:                                         ; preds = %.preheader, %40
+.lr.ph61:                                         ; preds = %.preheader, %41
   %25 = call ptr @pop_most_recent_commit(ptr noundef nonnull %5, i32 noundef 1048576) #20
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = call ptr @parse_object(ptr noundef %0, ptr noundef nonnull %26) #20
   %.not44 = icmp eq ptr %27, null
-  br i1 %.not44, label %40, label %28, !llvm.loop !141
+  br i1 %.not44, label %41, label %28, !llvm.loop !141
 
 28:                                               ; preds = %.lr.ph61
   %29 = call ptr @repo_get_commit_buffer(ptr noundef %0, ptr noundef nonnull %25, ptr noundef null) #20
   %30 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) @.str.49) #21
   %.not45 = icmp eq ptr %30, null
-  br i1 %.not45, label %35, label %31
+  br i1 %.not45, label %36, label %31
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 2
   %33 = call i32 @regexec(ptr noundef nonnull %6, ptr noundef nonnull %32, i64 noundef 0, ptr noundef null, i32 noundef 0) #20
   %.not46 = icmp eq i32 %33, 0
   %34 = zext i1 %.not46 to i32
-  br label %35
+  %35 = xor i32 %.036, %34
+  br label %36
 
-35:                                               ; preds = %31, %28
-  %36 = phi i32 [ 0, %28 ], [ %34, %31 ]
+36:                                               ; preds = %31, %28
+  %37 = phi i32 [ %.036, %28 ], [ %35, %31 ]
   call void @repo_unuse_commit_buffer(ptr noundef %0, ptr noundef nonnull %25, ptr noundef nonnull %29) #20
-  %.not47 = icmp eq i32 %.036, %36
-  br i1 %.not47, label %40, label %.thread
+  %.not47 = icmp eq i32 %37, 0
+  br i1 %.not47, label %41, label %.thread
 
-.thread:                                          ; preds = %35
+.thread:                                          ; preds = %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %2, ptr noundef nonnull readonly align 4 dereferenceable(32) %26, i64 32, i1 false)
-  %37 = getelementptr inbounds nuw i8, ptr %25, i64 36
-  %38 = load i32, ptr %37, align 4, !tbaa !54
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 %38, ptr %39, align 4, !tbaa !54
+  %38 = getelementptr inbounds nuw i8, ptr %25, i64 36
+  %39 = load i32, ptr %38, align 4, !tbaa !54
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i32 %39, ptr %40, align 4, !tbaa !54
   br label %.lr.ph64.preheader
 
-40:                                               ; preds = %35, %.lr.ph61
-  %41 = load ptr, ptr %5, align 8, !tbaa !83
-  %.not43 = icmp eq ptr %41, null
+41:                                               ; preds = %36, %.lr.ph61
+  %42 = load ptr, ptr %5, align 8, !tbaa !83
+  %.not43 = icmp eq ptr %42, null
   br i1 %.not43, label %.lr.ph64.preheader, label %.lr.ph61
 
-.lr.ph64.preheader:                               ; preds = %40, %.thread, %.preheader
-  %.not435475 = phi i32 [ -1, %.preheader ], [ 0, %.thread ], [ -1, %40 ]
+.lr.ph64.preheader:                               ; preds = %41, %.thread, %.preheader
+  %.not435475 = phi i32 [ -1, %.preheader ], [ 0, %.thread ], [ -1, %41 ]
   call void @regfree(ptr noundef nonnull %6) #20
   br label %.lr.ph64
 
 .lr.ph64:                                         ; preds = %.lr.ph64.preheader, %.lr.ph64
-  %.163 = phi ptr [ %44, %.lr.ph64 ], [ %3, %.lr.ph64.preheader ]
-  %42 = load ptr, ptr %.163, align 8, !tbaa !91
-  call void @clear_commit_marks(ptr noundef %42, i32 noundef 1048576) #20
-  %43 = getelementptr inbounds nuw i8, ptr %.163, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !88
-  %.not48 = icmp eq ptr %44, null
+  %.163 = phi ptr [ %45, %.lr.ph64 ], [ %3, %.lr.ph64.preheader ]
+  %43 = load ptr, ptr %.163, align 8, !tbaa !91
+  call void @clear_commit_marks(ptr noundef %43, i32 noundef 1048576) #20
+  %44 = getelementptr inbounds nuw i8, ptr %.163, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !88
+  %.not48 = icmp eq ptr %45, null
   br i1 %.not48, label %._crit_edge, label %.lr.ph64, !llvm.loop !142
 
 ._crit_edge:                                      ; preds = %.lr.ph64, %.loopexit.thread
   %.not435472 = phi i32 [ -1, %.loopexit.thread ], [ %.not435475, %.lr.ph64 ]
-  %45 = load ptr, ptr %5, align 8, !tbaa !83
-  call void @free_commit_list(ptr noundef %45) #20
-  br label %46
+  %46 = load ptr, ptr %5, align 8, !tbaa !83
+  call void @free_commit_list(ptr noundef %46) #20
+  br label %47
 
-46:                                               ; preds = %14, %9, %._crit_edge
+47:                                               ; preds = %14, %9, %._crit_edge
   %.0 = phi i32 [ -1, %9 ], [ %.not435472, %._crit_edge ], [ -1, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

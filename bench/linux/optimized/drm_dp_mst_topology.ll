@@ -8125,7 +8125,7 @@ define internal void @drm_dp_mst_up_req_work(ptr noundef %0) #2 align 16 {
   %8 = getelementptr i8, ptr %6, i64 -136
   %9 = icmp eq ptr %8, null
   %10 = or i1 %7, %9
-  br i1 %10, label %240, label %11
+  br i1 %10, label %239, label %11
 
 11:                                               ; preds = %1
   %12 = getelementptr i8, ptr %0, i64 -392
@@ -8135,9 +8135,9 @@ define internal void @drm_dp_mst_up_req_work(ptr noundef %0) #2 align 16 {
   br label %16
 
 16:                                               ; preds = %229, %11
-  %17 = phi ptr [ %8, %11 ], [ %234, %229 ]
-  %18 = phi ptr [ %6, %11 ], [ %232, %229 ]
-  %19 = phi i1 [ false, %11 ], [ %231, %229 ]
+  %17 = phi ptr [ %8, %11 ], [ %233, %229 ]
+  %18 = phi ptr [ %6, %11 ], [ %231, %229 ]
+  %19 = phi i1 [ false, %11 ], [ %230, %229 ]
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %18, align 8
@@ -8516,33 +8516,32 @@ define internal void @drm_dp_mst_up_req_work(ptr noundef %0) #2 align 16 {
   br label %229
 
 229:                                              ; preds = %.thread25, %228, %225, %222, %82
-  %230 = phi i1 [ false, %82 ], [ false, %228 ], [ true, %225 ], [ true, %222 ], [ true, %.thread25 ]
-  %231 = or i1 %19, %230
+  %230 = phi i1 [ %19, %82 ], [ %19, %228 ], [ true, %225 ], [ true, %222 ], [ true, %.thread25 ]
   tail call void @kfree(ptr noundef nonnull %17) #21
   tail call void @mutex_lock(ptr noundef %4) #21
-  %232 = load volatile ptr, ptr %5, align 8
-  %233 = icmp eq ptr %232, %5
-  %234 = getelementptr i8, ptr %232, i64 -136
-  %235 = icmp eq ptr %234, null
-  %236 = or i1 %233, %235
-  br i1 %236, label %237, label %16, !llvm.loop !104
+  %231 = load volatile ptr, ptr %5, align 8
+  %232 = icmp eq ptr %231, %5
+  %233 = getelementptr i8, ptr %231, i64 -136
+  %234 = icmp eq ptr %233, null
+  %235 = or i1 %232, %234
+  br i1 %235, label %236, label %16, !llvm.loop !104
 
-237:                                              ; preds = %229
+236:                                              ; preds = %229
   tail call void @mutex_unlock(ptr noundef %4) #21
   tail call void @mutex_unlock(ptr noundef %3) #21
-  br i1 %231, label %238, label %241
+  br i1 %230, label %237, label %240
 
-238:                                              ; preds = %237
-  %239 = load ptr, ptr %15, align 8
-  tail call void @drm_kms_helper_hotplug_event(ptr noundef %239) #21
-  br label %241
+237:                                              ; preds = %236
+  %238 = load ptr, ptr %15, align 8
+  tail call void @drm_kms_helper_hotplug_event(ptr noundef %238) #21
+  br label %240
 
-240:                                              ; preds = %1
+239:                                              ; preds = %1
   tail call void @mutex_unlock(ptr noundef %4) #21
   tail call void @mutex_unlock(ptr noundef %3) #21
-  br label %241
+  br label %240
 
-241:                                              ; preds = %240, %238, %237
+240:                                              ; preds = %239, %237, %236
   ret void
 }
 

@@ -2539,7 +2539,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %47
   br label %.thread275
 
 .thread275:                                       ; preds = %56, %60
-  %62 = phi i1 [ true, %60 ], [ false, %56 ]
+  %62 = phi i1 [ %.3220241, %60 ], [ false, %56 ]
   %storemerge.i200 = phi i64 [ %61, %60 ], [ 0, %56 ]
   store i64 %storemerge.i200, ptr %9, align 8, !tbaa !9
   br label %.critedge
@@ -2558,7 +2558,7 @@ zend_parse_arg_array.exit.thread259:              ; preds = %zend_parse_arg_long
   br label %184
 
 .critedge:                                        ; preds = %zend_parse_arg_long_ex.exit201, %.thread275, %54
-  %.1215 = phi i1 [ %62, %.thread275 ], [ false, %54 ], [ true, %zend_parse_arg_long_ex.exit201 ]
+  %.1215 = phi i1 [ %62, %.thread275 ], [ false, %54 ], [ %.3220241, %zend_parse_arg_long_ex.exit201 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, i8 0, i64 128, i1 false), !tbaa !9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 128, i1 false), !tbaa !9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false), !tbaa !9
@@ -2610,10 +2610,9 @@ zend_parse_arg_array.exit.thread259:              ; preds = %zend_parse_arg_long
   br label %184
 
 81:                                               ; preds = %76
-  %or.cond.not = and i1 %.3220241, %.1215
   %82 = load i64, ptr %9, align 8
   %83 = icmp ne i64 %82, 0
-  %or.cond3 = select i1 %or.cond.not, i1 %83, i1 false
+  %or.cond3 = select i1 %.1215, i1 %83, i1 false
   br i1 %or.cond3, label %84, label %85
 
 84:                                               ; preds = %81

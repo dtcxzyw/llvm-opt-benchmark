@@ -109,65 +109,62 @@ _ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge:
   %23 = sitofp i32 %22 to float
   %24 = fdiv float %16, %23
   %25 = fdiv float %17, %23
-  %26 = sitofp i32 %19 to float
-  %27 = fdiv float %26, %23
-  %28 = tail call noundef float @llvm.floor.f32(float %24)
-  %29 = fsub float %24, %28
-  %30 = fcmp uge float %29, %27
-  %31 = tail call float @llvm.floor.f32(float %25)
-  %32 = fsub float %25, %31
-  %33 = fcmp uge float %32, %27
-  %34 = fptosi float %24 to i32
-  %35 = fptosi float %25 to i32
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %37 = load i32, ptr %36, align 8
+  %26 = fptosi float %24 to i32
+  %27 = fptosi float %25 to i32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %29 = load i32, ptr %28, align 8
   %.neg = mul i32 %14, -2
-  %.neg68 = sub i32 %.neg, %19
-  %38 = add i32 %.neg68, %37
-  %39 = sitofp i32 %38 to float
+  %.neg75 = sub i32 %.neg, %19
+  %30 = add i32 %.neg75, %29
+  %31 = sitofp i32 %30 to float
+  %32 = fdiv float %31, %23
+  %33 = fptosi float %32 to i32
+  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %33, i32 0)
+  %34 = add nuw nsw i32 %.sroa.speculated.i, 1
+  %35 = icmp sgt i32 %26, -1
+  br i1 %35, label %36, label %.critedge
+
+36:                                               ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
+  %37 = tail call float @llvm.floor.f32(float %25)
+  %38 = fsub float %25, %37
+  %39 = sitofp i32 %19 to float
   %40 = fdiv float %39, %23
-  %41 = fptosi float %40 to i32
-  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %41, i32 0)
-  %42 = add nuw nsw i32 %.sroa.speculated.i, 1
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %45 = load ptr, ptr %44, align 8
-  %46 = load ptr, ptr %43, align 8
-  %47 = ptrtoint ptr %45 to i64
-  %48 = ptrtoint ptr %46 to i64
-  %49 = sub i64 %47, %48
-  %50 = sdiv exact i64 %49, 40
-  %51 = trunc i64 %50 to i32
-  %52 = add i32 %.sroa.speculated.i, %51
-  %53 = sdiv i32 %52, %42
-  %54 = icmp sgt i32 %34, -1
-  br i1 %54, label %55, label %.thread
+  %41 = fcmp uge float %38, %40
+  %42 = tail call noundef float @llvm.floor.f32(float %24)
+  %43 = fsub float %24, %42
+  %44 = fcmp uge float %43, %40
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %46 = load ptr, ptr %45, align 8
+  %47 = ptrtoint ptr %46 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %49 = load ptr, ptr %48, align 8
+  %50 = ptrtoint ptr %49 to i64
+  %51 = sub i64 %47, %50
+  %52 = sdiv exact i64 %51, 40
+  %53 = trunc i64 %52 to i32
+  %54 = add i32 %.sroa.speculated.i, %53
+  %55 = sdiv i32 %54, %34
+  %56 = icmp slt i32 %27, 0
+  %57 = fcmp ult float %24, 0.000000e+00
+  %or.cond.not67.not73 = or i1 %56, %57
+  %58 = fcmp ult float %25, 0.000000e+00
+  %or.cond60.not64.not70 = select i1 %or.cond.not67.not73, i1 true, i1 %58
+  %59 = icmp samesign ult i32 %.sroa.speculated.i, %26
+  %or.cond61.not68 = select i1 %or.cond60.not64.not70, i1 true, i1 %59
+  %60 = icmp sle i32 %55, %27
+  %61 = select i1 %or.cond61.not68, i1 true, i1 %60
+  %62 = or i1 %61, %44
+  %or.cond63 = select i1 %62, i1 true, i1 %41
+  br i1 %or.cond63, label %.critedge, label %63
 
-55:                                               ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge
-  %56 = icmp sgt i32 %35, -1
-  %57 = fcmp oge float %24, 0.000000e+00
-  %or.cond.not66 = and i1 %57, %56
-  %58 = fcmp oge float %25, 0.000000e+00
-  %or.cond60.not63 = select i1 %or.cond.not66, i1 %58, i1 false
-  %59 = icmp samesign uge i32 %.sroa.speculated.i, %34
-  %or.cond61 = and i1 %59, %or.cond60.not63
-  br i1 %or.cond61, label %60, label %.thread
+63:                                               ; preds = %36
+  %64 = mul nuw nsw i32 %34, %27
+  %65 = add nuw nsw i32 %64, %26
+  br label %.critedge
 
-60:                                               ; preds = %55
-  %61 = icmp sle i32 %53, %35
-  %62 = select i1 %61, i1 true, i1 %30
-  %63 = select i1 %62, i1 true, i1 %33
-  %64 = mul nuw nsw i32 %42, %35
-  %65 = add nuw nsw i32 %64, %34
-  %cond.fr = freeze i1 %63
-  br i1 %cond.fr, label %.thread, label %66
-
-.thread:                                          ; preds = %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge, %55, %60
-  br label %66
-
-66:                                               ; preds = %60, %.thread
-  %67 = phi i32 [ -1, %.thread ], [ %65, %60 ]
-  ret i32 %67
+.critedge:                                        ; preds = %36, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge, %63
+  %66 = phi i32 [ %65, %63 ], [ -1, %36 ], [ -1, %_ZN7nanoguimiERKNS_5ArrayIiLm2EEES3_.exit.critedge ]
+  ret i32 %66
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

@@ -24330,12 +24330,17 @@ define hidden void @"_ZN150_$LT$polars_arrow..array..fixed_size_list..builder..F
   %32 = sub i64 %3, %.sroa.0.020
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %42, %.lr.ph, %26
-  %.sroa.07.0.lcssa = phi i64 [ 1, %26 ], [ %.sroa.07.015, %.lr.ph ], [ %32, %42 ]
-  %.lcssa = phi i64 [ %30, %26 ], [ %36, %.lr.ph ], [ %3, %42 ]
-  %33 = mul i64 %12, %29
-  %34 = mul i64 %12, %.sroa.07.0.lcssa
-  tail call void %20(ptr noundef nonnull align 1 %14, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %9, i64 noundef %33, i64 noundef %34, i1 noundef zeroext %4), !noalias !1518
+._crit_edge.loopexit:                             ; preds = %.lr.ph, %42
+  %.sroa.07.0.lcssa.ph = phi i64 [ %32, %42 ], [ %.sroa.07.015, %.lr.ph ]
+  %.lcssa.ph = phi i64 [ %3, %42 ], [ %36, %.lr.ph ]
+  %33 = mul i64 %12, %.sroa.07.0.lcssa.ph
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %26
+  %.sroa.07.0.lcssa = phi i64 [ %12, %26 ], [ %33, %._crit_edge.loopexit ]
+  %.lcssa = phi i64 [ %30, %26 ], [ %.lcssa.ph, %._crit_edge.loopexit ]
+  %34 = mul i64 %12, %29
+  tail call void %20(ptr noundef nonnull align 1 %14, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %9, i64 noundef %34, i64 noundef %.sroa.07.0.lcssa, i1 noundef zeroext %4), !noalias !1518
   %35 = icmp ult i64 %.lcssa, %3
   br i1 %35, label %26, label %._crit_edge23
 
@@ -24347,13 +24352,13 @@ define hidden void @"_ZN150_$LT$polars_arrow..array..fixed_size_list..builder..F
   %39 = zext i32 %38 to i64
   %40 = add i64 %.sroa.07.015, %29
   %41 = icmp eq i64 %40, %39
-  br i1 %41, label %42, label %._crit_edge
+  br i1 %41, label %42, label %._crit_edge.loopexit
 
 42:                                               ; preds = %.lr.ph
   %43 = add i64 %.sroa.07.015, 1
   %44 = add i64 %43, %.sroa.0.020
   %exitcond.not = icmp eq i64 %43, %32
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -18810,21 +18810,18 @@ cond.false:                                       ; preds = %if.then
 
 if.end:                                           ; preds = %cond.false, %if.then, %entry
   %div = fdiv x86_fp80 %call, %a
-  %cmp3 = fcmp oeq x86_fp80 %div, 0xK00000000000000000000
-  br i1 %cmp3, label %cleanup, label %for.cond.preheader
-
-for.cond.preheader:                               ; preds = %if.end
+  %cmp3 = fcmp une x86_fp80 %div, 0xK00000000000000000000
   %cmp618 = icmp sgt i32 %k, 1
-  br i1 %cmp618, label %for.body.lr.ph, label %for.cond.cleanup
+  %or.cond = and i1 %cmp3, %cmp618
+  br i1 %or.cond, label %for.body.lr.ph, label %cleanup
 
-for.body.lr.ph:                                   ; preds = %for.cond.preheader
+for.body.lr.ph:                                   ; preds = %if.end
   %add = fadd x86_fp80 %a, %b
   %0 = add nsw i32 %k, -2
   br label %for.body
 
-for.cond.cleanup:                                 ; preds = %for.body, %for.cond.preheader
-  %sum.0.lcssa = phi x86_fp80 [ 0xK3FFF8000000000000000, %for.cond.preheader ], [ %add14, %for.body ]
-  %mul15 = fmul x86_fp80 %div, %sum.0.lcssa
+for.cond.cleanup.loopexit:                        ; preds = %for.body
+  %1 = fmul x86_fp80 %div, %add14
   br label %cleanup
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -18841,10 +18838,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add14 = fadd x86_fp80 %sum.019, %mul13
   %inc = add nuw nsw i32 %i.021, 1
   %exitcond.not = icmp eq i32 %i.021, %0
-  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !193
+  br i1 %exitcond.not, label %for.cond.cleanup.loopexit, label %for.body, !llvm.loop !193
 
-cleanup:                                          ; preds = %if.end, %for.cond.cleanup
-  %retval.0 = phi x86_fp80 [ %mul15, %for.cond.cleanup ], [ %div, %if.end ]
+cleanup:                                          ; preds = %for.cond.cleanup.loopexit, %if.end
+  %retval.0 = phi x86_fp80 [ %div, %if.end ], [ %1, %for.cond.cleanup.loopexit ]
   ret x86_fp80 %retval.0
 }
 
@@ -22342,21 +22339,18 @@ cond.false:                                       ; preds = %if.then
 
 if.end:                                           ; preds = %cond.false, %if.then, %entry
   %div = fdiv x86_fp80 %call, %a
-  %cmp3 = fcmp oeq x86_fp80 %div, 0xK00000000000000000000
-  br i1 %cmp3, label %cleanup, label %for.cond.preheader
-
-for.cond.preheader:                               ; preds = %if.end
+  %cmp3 = fcmp une x86_fp80 %div, 0xK00000000000000000000
   %cmp618 = icmp sgt i32 %k, 1
-  br i1 %cmp618, label %for.body.lr.ph, label %for.cond.cleanup
+  %or.cond = and i1 %cmp3, %cmp618
+  br i1 %or.cond, label %for.body.lr.ph, label %cleanup
 
-for.body.lr.ph:                                   ; preds = %for.cond.preheader
+for.body.lr.ph:                                   ; preds = %if.end
   %add = fadd x86_fp80 %a, %b
   %0 = add nsw i32 %k, -2
   br label %for.body
 
-for.cond.cleanup:                                 ; preds = %for.body, %for.cond.preheader
-  %sum.0.lcssa = phi x86_fp80 [ 0xK3FFF8000000000000000, %for.cond.preheader ], [ %add14, %for.body ]
-  %mul15 = fmul x86_fp80 %div, %sum.0.lcssa
+for.cond.cleanup.loopexit:                        ; preds = %for.body
+  %1 = fmul x86_fp80 %div, %add14
   br label %cleanup
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -22373,10 +22367,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add14 = fadd x86_fp80 %sum.019, %mul13
   %inc = add nuw nsw i32 %i.021, 1
   %exitcond.not = icmp eq i32 %i.021, %0
-  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !240
+  br i1 %exitcond.not, label %for.cond.cleanup.loopexit, label %for.body, !llvm.loop !240
 
-cleanup:                                          ; preds = %if.end, %for.cond.cleanup
-  %retval.0 = phi x86_fp80 [ %mul15, %for.cond.cleanup ], [ %div, %if.end ]
+cleanup:                                          ; preds = %for.cond.cleanup.loopexit, %if.end
+  %retval.0 = phi x86_fp80 [ %div, %if.end ], [ %1, %for.cond.cleanup.loopexit ]
   ret x86_fp80 %retval.0
 }
 

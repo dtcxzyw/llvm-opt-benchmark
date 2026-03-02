@@ -1503,12 +1503,12 @@ _ZNK7AstNode8widthMinEv.exit.i:                   ; preds = %10
 19:                                               ; preds = %_ZNK7AstNode8widthMinEv.exit.i
   %20 = and i32 %18, 31
   %21 = icmp eq i32 %20, 0
+  %22 = or i1 %11, %21
+  %23 = select i1 %22, i64 1, i64 2
   br label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
 
 _ZN12CleanVisitor8setCleanEP7AstNodeb.exit:       ; preds = %10, %_ZNK7AstNode8widthMinEv.exit.i, %_ZNK7AstNode8widthMinEv.exit.i, %19
-  %22 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %21, %19 ], [ true, %10 ]
-  %23 = or i1 %11, %22
-  %.sroa.0.0.insert.ext.i.i.i = select i1 %23, i64 1, i64 2
+  %.sroa.0.0.insert.ext.i.i.i = phi i64 [ 1, %_ZNK7AstNode8widthMinEv.exit.i ], [ 1, %_ZNK7AstNode8widthMinEv.exit.i ], [ %23, %19 ], [ 1, %10 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i64 %.sroa.0.0.insert.ext.i.i.i, ptr %24, align 8, !tbaa !14
   %25 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !16
@@ -2152,12 +2152,12 @@ _ZNK7AstNode8widthMinEv.exit.i:                   ; preds = %2
 14:                                               ; preds = %_ZNK7AstNode8widthMinEv.exit.i
   %15 = and i32 %13, 31
   %16 = icmp eq i32 %15, 0
+  %17 = or i1 %6, %16
+  %18 = select i1 %17, i64 1, i64 2
   br label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
 
 _ZN12CleanVisitor8setCleanEP7AstNodeb.exit:       ; preds = %2, %_ZNK7AstNode8widthMinEv.exit.i, %_ZNK7AstNode8widthMinEv.exit.i, %14
-  %17 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %16, %14 ], [ true, %2 ]
-  %18 = or i1 %6, %17
-  %.sroa.0.0.insert.ext.i.i.i = select i1 %18, i64 1, i64 2
+  %.sroa.0.0.insert.ext.i.i.i = phi i64 [ 1, %_ZNK7AstNode8widthMinEv.exit.i ], [ 1, %_ZNK7AstNode8widthMinEv.exit.i ], [ %18, %14 ], [ 1, %2 ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i64 %.sroa.0.0.insert.ext.i.i.i, ptr %19, align 8, !tbaa !14
   %20 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !16
@@ -2234,12 +2234,12 @@ _ZNK7AstNode8widthMinEv.exit.i:                   ; preds = %14
 23:                                               ; preds = %_ZNK7AstNode8widthMinEv.exit.i
   %24 = and i32 %22, 31
   %25 = icmp eq i32 %24, 0
+  %26 = or i1 %15, %25
+  %27 = select i1 %26, i64 1, i64 2
   br label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
 
 _ZN12CleanVisitor8setCleanEP7AstNodeb.exit:       ; preds = %14, %_ZNK7AstNode8widthMinEv.exit.i, %_ZNK7AstNode8widthMinEv.exit.i, %23
-  %26 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %25, %23 ], [ true, %14 ]
-  %27 = or i1 %15, %26
-  %.sroa.0.0.insert.ext.i.i.i = select i1 %27, i64 1, i64 2
+  %.sroa.0.0.insert.ext.i.i.i = phi i64 [ 1, %_ZNK7AstNode8widthMinEv.exit.i ], [ 1, %_ZNK7AstNode8widthMinEv.exit.i ], [ %27, %23 ], [ 1, %14 ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i64 %.sroa.0.0.insert.ext.i.i.i, ptr %28, align 8, !tbaa !14
   %29 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !16
@@ -2285,12 +2285,12 @@ _ZNK7AstNode8widthMinEv.exit.i:                   ; preds = %2
 14:                                               ; preds = %_ZNK7AstNode8widthMinEv.exit.i
   %15 = and i32 %13, 31
   %16 = icmp eq i32 %15, 0
+  %17 = or i1 %6, %16
+  %18 = select i1 %17, i64 1, i64 2
   br label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
 
 _ZN12CleanVisitor8setCleanEP7AstNodeb.exit:       ; preds = %2, %_ZNK7AstNode8widthMinEv.exit.i, %_ZNK7AstNode8widthMinEv.exit.i, %14
-  %17 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %16, %14 ], [ true, %2 ]
-  %18 = or i1 %6, %17
-  %.sroa.0.0.insert.ext.i.i.i = select i1 %18, i64 1, i64 2
+  %.sroa.0.0.insert.ext.i.i.i = phi i64 [ 1, %_ZNK7AstNode8widthMinEv.exit.i ], [ 1, %_ZNK7AstNode8widthMinEv.exit.i ], [ %18, %14 ], [ 1, %2 ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i64 %.sroa.0.0.insert.ext.i.i.i, ptr %19, align 8, !tbaa !14
   %20 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !16
@@ -2377,12 +2377,12 @@ _ZNK7AstNode8widthMinEv.exit.i:                   ; preds = %2
 14:                                               ; preds = %_ZNK7AstNode8widthMinEv.exit.i
   %15 = and i32 %13, 31
   %16 = icmp eq i32 %15, 0
+  %17 = or i1 %6, %16
+  %18 = select i1 %17, i64 1, i64 2
   br label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
 
 _ZN12CleanVisitor8setCleanEP7AstNodeb.exit:       ; preds = %2, %_ZNK7AstNode8widthMinEv.exit.i, %_ZNK7AstNode8widthMinEv.exit.i, %14
-  %17 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %16, %14 ], [ true, %2 ]
-  %18 = or i1 %6, %17
-  %.sroa.0.0.insert.ext.i.i.i = select i1 %18, i64 1, i64 2
+  %.sroa.0.0.insert.ext.i.i.i = phi i64 [ 1, %_ZNK7AstNode8widthMinEv.exit.i ], [ 1, %_ZNK7AstNode8widthMinEv.exit.i ], [ %18, %14 ], [ 1, %2 ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i64 %.sroa.0.0.insert.ext.i.i.i, ptr %19, align 8, !tbaa !14
   %20 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !16
@@ -2462,12 +2462,12 @@ _ZNK7AstNode8widthMinEv.exit.i:                   ; preds = %_ZN12CleanVisitor11
 23:                                               ; preds = %_ZNK7AstNode8widthMinEv.exit.i
   %24 = and i32 %22, 31
   %25 = icmp eq i32 %24, 0
+  %26 = or i1 %15, %25
+  %27 = select i1 %26, i64 1, i64 2
   br label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
 
 _ZN12CleanVisitor8setCleanEP7AstNodeb.exit:       ; preds = %_ZN12CleanVisitor11ensureCleanEP11AstNodeExpr.exit, %_ZNK7AstNode8widthMinEv.exit.i, %_ZNK7AstNode8widthMinEv.exit.i, %23
-  %26 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %25, %23 ], [ true, %_ZN12CleanVisitor11ensureCleanEP11AstNodeExpr.exit ]
-  %27 = or i1 %15, %26
-  %.sroa.0.0.insert.ext.i.i.i = select i1 %27, i64 1, i64 2
+  %.sroa.0.0.insert.ext.i.i.i = phi i64 [ 1, %_ZNK7AstNode8widthMinEv.exit.i ], [ 1, %_ZNK7AstNode8widthMinEv.exit.i ], [ %27, %23 ], [ 1, %_ZN12CleanVisitor11ensureCleanEP11AstNodeExpr.exit ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i64 %.sroa.0.0.insert.ext.i.i.i, ptr %28, align 8, !tbaa !14
   %29 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !16
@@ -2525,12 +2525,12 @@ _ZNK7AstNode8widthMinEv.exit.i:                   ; preds = %10
 19:                                               ; preds = %_ZNK7AstNode8widthMinEv.exit.i
   %20 = and i32 %18, 31
   %21 = icmp eq i32 %20, 0
+  %22 = or i1 %11, %21
+  %23 = select i1 %22, i64 1, i64 2
   br label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
 
 _ZN12CleanVisitor8setCleanEP7AstNodeb.exit:       ; preds = %10, %_ZNK7AstNode8widthMinEv.exit.i, %_ZNK7AstNode8widthMinEv.exit.i, %19
-  %22 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %21, %19 ], [ true, %10 ]
-  %23 = or i1 %11, %22
-  %.sroa.0.0.insert.ext.i.i.i = select i1 %23, i64 1, i64 2
+  %.sroa.0.0.insert.ext.i.i.i = phi i64 [ 1, %_ZNK7AstNode8widthMinEv.exit.i ], [ 1, %_ZNK7AstNode8widthMinEv.exit.i ], [ %23, %19 ], [ 1, %10 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i64 %.sroa.0.0.insert.ext.i.i.i, ptr %24, align 8, !tbaa !14
   %25 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !16
@@ -2702,7 +2702,7 @@ define linkonce_odr dso_local void @_ZN12CleanVisitor5visitEP6AstSel(ptr noundef
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !87
   %.not.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i, label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit.thread, label %_ZNK7AstNode8widthMinEv.exit.i
+  br i1 %.not.i.i, label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit, label %_ZNK7AstNode8widthMinEv.exit.i
 
 _ZNK7AstNode8widthMinEv.exit.i:                   ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 156
@@ -2711,23 +2711,21 @@ _ZNK7AstNode8widthMinEv.exit.i:                   ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %8 = load i32, ptr %7, align 8
   %9 = select i1 %.not.i.i.i, i32 %8, i32 %6
-  switch i32 %9, label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit [
-    i32 32, label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit.thread
-    i32 64, label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit.thread
+  switch i32 %9, label %10 [
+    i32 32, label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
+    i32 64, label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
   ]
 
-_ZN12CleanVisitor8setCleanEP7AstNodeb.exit:       ; preds = %_ZNK7AstNode8widthMinEv.exit.i
-  %10 = and i32 %9, 31
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit.thread, label %12
+10:                                               ; preds = %_ZNK7AstNode8widthMinEv.exit.i
+  %11 = and i32 %9, 31
+  %12 = icmp eq i32 %11, 0
+  %13 = select i1 %12, i64 1, i64 2
+  br label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
 
-_ZN12CleanVisitor8setCleanEP7AstNodeb.exit.thread: ; preds = %2, %_ZNK7AstNode8widthMinEv.exit.i, %_ZNK7AstNode8widthMinEv.exit.i, %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
-  br label %12
-
-12:                                               ; preds = %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit, %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit.thread
-  %13 = phi i64 [ 1, %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit.thread ], [ 2, %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit ]
+_ZN12CleanVisitor8setCleanEP7AstNodeb.exit:       ; preds = %2, %_ZNK7AstNode8widthMinEv.exit.i, %_ZNK7AstNode8widthMinEv.exit.i, %10
+  %.sroa.0.0.insert.ext.i.i.i = phi i64 [ 1, %_ZNK7AstNode8widthMinEv.exit.i ], [ 1, %_ZNK7AstNode8widthMinEv.exit.i ], [ %13, %10 ], [ 1, %2 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store i64 %13, ptr %14, align 8, !tbaa !14
+  store i64 %.sroa.0.0.insert.ext.i.i.i, ptr %14, align 8, !tbaa !14
   %15 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !16
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i32 %15, ptr %16, align 8, !tbaa !92
@@ -2892,7 +2890,7 @@ define linkonce_odr dso_local void @_ZN12CleanVisitor5visitEP9AstUCFunc(ptr noun
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !87
   %.not.i.i = icmp eq ptr %4, null
-  br i1 %.not.i.i, label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit.thread, label %_ZNK7AstNode8widthMinEv.exit.i
+  br i1 %.not.i.i, label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit, label %_ZNK7AstNode8widthMinEv.exit.i
 
 _ZNK7AstNode8widthMinEv.exit.i:                   ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 156
@@ -2901,23 +2899,21 @@ _ZNK7AstNode8widthMinEv.exit.i:                   ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %8 = load i32, ptr %7, align 8
   %9 = select i1 %.not.i.i.i, i32 %8, i32 %6
-  switch i32 %9, label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit [
-    i32 32, label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit.thread
-    i32 64, label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit.thread
+  switch i32 %9, label %10 [
+    i32 32, label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
+    i32 64, label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
   ]
 
-_ZN12CleanVisitor8setCleanEP7AstNodeb.exit:       ; preds = %_ZNK7AstNode8widthMinEv.exit.i
-  %10 = and i32 %9, 31
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit.thread, label %12
+10:                                               ; preds = %_ZNK7AstNode8widthMinEv.exit.i
+  %11 = and i32 %9, 31
+  %12 = icmp eq i32 %11, 0
+  %13 = select i1 %12, i64 1, i64 2
+  br label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
 
-_ZN12CleanVisitor8setCleanEP7AstNodeb.exit.thread: ; preds = %2, %_ZNK7AstNode8widthMinEv.exit.i, %_ZNK7AstNode8widthMinEv.exit.i, %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
-  br label %12
-
-12:                                               ; preds = %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit, %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit.thread
-  %13 = phi i64 [ 1, %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit.thread ], [ 2, %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit ]
+_ZN12CleanVisitor8setCleanEP7AstNodeb.exit:       ; preds = %2, %_ZNK7AstNode8widthMinEv.exit.i, %_ZNK7AstNode8widthMinEv.exit.i, %10
+  %.sroa.0.0.insert.ext.i.i.i = phi i64 [ 1, %_ZNK7AstNode8widthMinEv.exit.i ], [ 1, %_ZNK7AstNode8widthMinEv.exit.i ], [ %13, %10 ], [ 1, %2 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store i64 %13, ptr %14, align 8, !tbaa !14
+  store i64 %.sroa.0.0.insert.ext.i.i.i, ptr %14, align 8, !tbaa !14
   %15 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !16
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i32 %15, ptr %16, align 8, !tbaa !92
@@ -2926,13 +2922,13 @@ _ZN12CleanVisitor8setCleanEP7AstNodeb.exit.thread: ; preds = %2, %_ZNK7AstNode8w
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %_ZN7AstNode9privateIsI6AstAndPS_EEbPKS_.exit.thread, label %_ZN7AstNode9privateIsI6AstAndPS_EEbPKS_.exit
 
-_ZN7AstNode9privateIsI6AstAndPS_EEbPKS_.exit:     ; preds = %12
+_ZN7AstNode9privateIsI6AstAndPS_EEbPKS_.exit:     ; preds = %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %19, align 8, !tbaa !96
   %20 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 219
   br i1 %20, label %21, label %_ZN7AstNode9privateIsI6AstAndPS_EEbPKS_.exit.thread
 
-_ZN7AstNode9privateIsI6AstAndPS_EEbPKS_.exit.thread: ; preds = %12, %_ZN7AstNode9privateIsI6AstAndPS_EEbPKS_.exit
+_ZN7AstNode9privateIsI6AstAndPS_EEbPKS_.exit.thread: ; preds = %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit, %_ZN7AstNode9privateIsI6AstAndPS_EEbPKS_.exit
   tail call void @_ZN12CleanVisitor11insertCleanEP11AstNodeExpr(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1)
   br label %21
 
@@ -3121,12 +3117,12 @@ _ZNK7AstNode8widthMinEv.exit.i:                   ; preds = %10
 19:                                               ; preds = %_ZNK7AstNode8widthMinEv.exit.i
   %20 = and i32 %18, 31
   %21 = icmp eq i32 %20, 0
+  %22 = or i1 %11, %21
+  %23 = select i1 %22, i64 1, i64 2
   br label %_ZN12CleanVisitor8setCleanEP7AstNodeb.exit
 
 _ZN12CleanVisitor8setCleanEP7AstNodeb.exit:       ; preds = %10, %_ZNK7AstNode8widthMinEv.exit.i, %_ZNK7AstNode8widthMinEv.exit.i, %19
-  %22 = phi i1 [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ true, %_ZNK7AstNode8widthMinEv.exit.i ], [ %21, %19 ], [ true, %10 ]
-  %23 = or i1 %11, %22
-  %.sroa.0.0.insert.ext.i.i.i = select i1 %23, i64 1, i64 2
+  %.sroa.0.0.insert.ext.i.i.i = phi i64 [ 1, %_ZNK7AstNode8widthMinEv.exit.i ], [ 1, %_ZNK7AstNode8widthMinEv.exit.i ], [ %23, %19 ], [ 1, %10 ]
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i64 %.sroa.0.0.insert.ext.i.i.i, ptr %24, align 8, !tbaa !14
   %25 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4, !tbaa !16

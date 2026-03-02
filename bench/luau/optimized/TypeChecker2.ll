@@ -3735,13 +3735,13 @@ define dso_local noundef zeroext i1 @_ZN4Luau12TypeChecker28hasBreakEPNS_7AstSta
 18:                                               ; preds = %.thread
   %19 = load i32, ptr @_ZN4Luau7AstRttiINS_9AstStatIfEE5valueE, align 4, !tbaa !4
   %20 = icmp eq i32 %4, %19
-  br i1 %20, label %21, label %31
+  br i1 %20, label %21, label %.loopexit
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %23 = load ptr, ptr %22, align 8, !tbaa !257
   %24 = tail call noundef zeroext i1 @_ZN4Luau12TypeChecker28hasBreakEPNS_7AstStatE(ptr noundef nonnull align 8 dereferenceable(784) %0, ptr noundef %23)
-  br i1 %24, label %31, label %25
+  br i1 %24, label %.loopexit, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -3751,18 +3751,13 @@ define dso_local noundef zeroext i1 @_ZN4Luau12TypeChecker28hasBreakEPNS_7AstSta
 
 28:                                               ; preds = %25
   %29 = tail call noundef zeroext i1 @_ZN4Luau12TypeChecker28hasBreakEPNS_7AstStatE(ptr noundef nonnull align 8 dereferenceable(784) %0, ptr noundef nonnull %27)
-  br i1 %29, label %31, label %30
+  br i1 %29, label %.loopexit, label %30
 
 30:                                               ; preds = %28, %25
-  br label %31
-
-31:                                               ; preds = %18, %28, %21, %30
-  %.3 = phi i1 [ true, %28 ], [ true, %21 ], [ false, %30 ], [ undef, %18 ]
-  %spec.select27 = and i1 %20, %.3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %.preheader, %31, %.thread
-  %.2 = phi i1 [ %spec.select27, %31 ], [ true, %.thread ], [ false, %.preheader ], [ %14, %11 ]
+.loopexit:                                        ; preds = %11, %.preheader, %30, %21, %28, %18, %.thread
+  %.2 = phi i1 [ false, %30 ], [ true, %.thread ], [ false, %18 ], [ true, %28 ], [ true, %21 ], [ false, %.preheader ], [ %14, %11 ]
   ret i1 %.2
 }
 

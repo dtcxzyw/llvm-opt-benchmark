@@ -495,11 +495,11 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
 
 21:                                               ; preds = %7
   %22 = fcmp ugt double %19, 0.000000e+00
-  br i1 %22, label %.thread44, label %.thread43
+  br i1 %22, label %.thread46, label %.thread45
 
-.thread44:                                        ; preds = %21
+.thread46:                                        ; preds = %21
   %23 = tail call double @sqrt(double noundef %19) #16, !tbaa !15
-  br label %.thread43
+  br label %.thread45
 
 .thread:                                          ; preds = %7
   %sqrt = tail call double @llvm.sqrt.f64(double %15)
@@ -508,41 +508,40 @@ ARKodeSPRKTable_Free.exit19.i:                    ; preds = %4
   br i1 %25, label %..thread37_crit_edge, label %.thread37
 
 ..thread37_crit_edge:                             ; preds = %.thread
-  %26 = fadd double %19, %sqrt
-  %27 = tail call double @sqrt(double noundef %26) #16, !tbaa !15
+  %26 = tail call double @sqrt(double noundef %24) #16, !tbaa !15
   %.pre = tail call double @llvm.sqrt.f64(double %15)
   br label %.thread37
 
 .thread37:                                        ; preds = %..thread37_crit_edge, %.thread
   %sqrt39.pre-phi = phi double [ %.pre, %..thread37_crit_edge ], [ %sqrt, %.thread ]
-  %28 = phi double [ %27, %..thread37_crit_edge ], [ 0.000000e+00, %.thread ]
-  %29 = fmul double %sqrt39.pre-phi, 3.000000e+00
-  br label %.thread43
+  %27 = phi double [ %26, %..thread37_crit_edge ], [ 0.000000e+00, %.thread ]
+  %28 = fmul double %sqrt39.pre-phi, 3.000000e+00
+  br label %.thread45
 
-.thread43:                                        ; preds = %21, %.thread44, %.thread37
-  %30 = phi double [ %28, %.thread37 ], [ %23, %.thread44 ], [ 0.000000e+00, %21 ]
-  %31 = phi double [ %29, %.thread37 ], [ 0.000000e+00, %.thread44 ], [ 0.000000e+00, %21 ]
-  %32 = fdiv double 1.000000e+00, %31
-  %33 = fsub double %30, %32
-  store double %33, ptr %5, align 8, !tbaa !13
-  %34 = fdiv double 2.500000e-01, %33
-  %35 = fmul double %33, 5.000000e-01
-  %36 = fsub double %34, %35
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store double %36, ptr %37, align 8, !tbaa !13
-  %38 = fsub double 1.000000e+00, %33
-  %39 = fsub double %38, %36
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store double %39, ptr %40, align 8, !tbaa !13
-  store double %39, ptr %2, align 8, !tbaa !13
-  %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double %36, ptr %41, align 8, !tbaa !13
-  %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store double %33, ptr %42, align 8, !tbaa !13
+.thread45:                                        ; preds = %21, %.thread46, %.thread37
+  %29 = phi double [ %27, %.thread37 ], [ %23, %.thread46 ], [ 0.000000e+00, %21 ]
+  %30 = phi double [ %28, %.thread37 ], [ 0.000000e+00, %.thread46 ], [ 0.000000e+00, %21 ]
+  %31 = fdiv double 1.000000e+00, %30
+  %32 = fsub double %29, %31
+  store double %32, ptr %5, align 8, !tbaa !13
+  %33 = fdiv double 2.500000e-01, %32
+  %34 = fmul double %32, 5.000000e-01
+  %35 = fsub double %33, %34
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store double %35, ptr %36, align 8, !tbaa !13
+  %37 = fsub double 1.000000e+00, %32
+  %38 = fsub double %37, %35
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store double %38, ptr %39, align 8, !tbaa !13
+  store double %38, ptr %2, align 8, !tbaa !13
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store double %35, ptr %40, align 8, !tbaa !13
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store double %32, ptr %41, align 8, !tbaa !13
   br label %ARKodeSPRKTable_Alloc.exit.thread
 
-ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable_Free.exit.i, %ARKodeSPRKTable_Free.exit19.i, %.thread43
-  %.0 = phi ptr [ %calloc.i, %.thread43 ], [ null, %ARKodeSPRKTable_Free.exit19.i ], [ null, %ARKodeSPRKTable_Free.exit.i ], [ null, %0 ]
+ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable_Free.exit.i, %ARKodeSPRKTable_Free.exit19.i, %.thread45
+  %.0 = phi ptr [ %calloc.i, %.thread45 ], [ null, %ARKodeSPRKTable_Free.exit19.i ], [ null, %ARKodeSPRKTable_Free.exit.i ], [ null, %0 ]
   ret ptr %.0
 }
 

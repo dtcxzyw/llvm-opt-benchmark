@@ -24170,7 +24170,7 @@ _ZNK16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tL
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @_ZN2OT4cmap13accelerator_t21get_glyph_from_symbolINS_12CmapSubtableEXadL_ZNS_L18_hb_symbol_pua_mapEjEEEEbPKvjPj(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #0 align 2 {
   %4 = tail call noundef zeroext i1 @_ZNK2OT12CmapSubtable9get_glyphEjPj(ptr noundef nonnull align 1 dereferenceable(262) %0, i32 noundef %1, ptr noundef %2)
-  br i1 %4, label %11, label %5, !prof !35
+  br i1 %4, label %10, label %5, !prof !35
 
 5:                                                ; preds = %3
   %6 = icmp ult i32 %1, 256
@@ -24181,63 +24181,48 @@ define internal noundef zeroext i1 @_ZN2OT4cmap13accelerator_t21get_glyph_from_s
   %9 = tail call noundef zeroext i1 @_ZNK2OT12CmapSubtable9get_glyphEjPj(ptr noundef nonnull align 1 dereferenceable(262) %0, i32 noundef %8, ptr noundef %2)
   br label %10
 
-10:                                               ; preds = %5, %7
-  %.1 = phi i1 [ %9, %7 ], [ undef, %5 ]
-  %spec.select = and i1 %6, %.1
-  br label %11
-
-11:                                               ; preds = %10, %3
-  %.0 = phi i1 [ %spec.select, %10 ], [ true, %3 ]
+10:                                               ; preds = %7, %5, %3
+  %.0 = phi i1 [ true, %3 ], [ %9, %7 ], [ false, %5 ]
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @_ZN2OT4cmap13accelerator_t21get_glyph_from_symbolINS_12CmapSubtableEXadL_ZL23_hb_arabic_pua_simp_mapjEEEEbPKvjPj(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #0 align 2 {
   %4 = tail call noundef zeroext i1 @_ZNK2OT12CmapSubtable9get_glyphEjPj(ptr noundef nonnull align 1 dereferenceable(262) %0, i32 noundef %1, ptr noundef %2)
-  br i1 %4, label %11, label %5, !prof !35
+  br i1 %4, label %10, label %5, !prof !35
 
 5:                                                ; preds = %3
   %6 = tail call fastcc noundef i64 @_ZL23_hb_arabic_pua_simp_mapj(i32 noundef %1)
-  %.not = icmp ne i64 %6, 0
-  br i1 %.not, label %7, label %10
+  %.not.not = icmp eq i64 %6, 0
+  br i1 %.not.not, label %10, label %7
 
 7:                                                ; preds = %5
   %8 = trunc nuw nsw i64 %6 to i32
   %9 = tail call noundef zeroext i1 @_ZNK2OT12CmapSubtable9get_glyphEjPj(ptr noundef nonnull align 1 dereferenceable(262) %0, i32 noundef %8, ptr noundef %2)
   br label %10
 
-10:                                               ; preds = %5, %7
-  %.1 = phi i1 [ %9, %7 ], [ undef, %5 ]
-  %spec.select = and i1 %.not, %.1
-  br label %11
-
-11:                                               ; preds = %10, %3
-  %.0 = phi i1 [ %spec.select, %10 ], [ true, %3 ]
+10:                                               ; preds = %7, %5, %3
+  %.0 = phi i1 [ true, %3 ], [ %9, %7 ], [ false, %5 ]
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @_ZN2OT4cmap13accelerator_t21get_glyph_from_symbolINS_12CmapSubtableEXadL_ZL23_hb_arabic_pua_trad_mapjEEEEbPKvjPj(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #0 align 2 {
   %4 = tail call noundef zeroext i1 @_ZNK2OT12CmapSubtable9get_glyphEjPj(ptr noundef nonnull align 1 dereferenceable(262) %0, i32 noundef %1, ptr noundef %2)
-  br i1 %4, label %11, label %5, !prof !35
+  br i1 %4, label %10, label %5, !prof !35
 
 5:                                                ; preds = %3
   %6 = tail call fastcc noundef i64 @_ZL23_hb_arabic_pua_trad_mapj(i32 noundef %1)
-  %.not = icmp ne i64 %6, 0
-  br i1 %.not, label %7, label %10
+  %.not.not = icmp eq i64 %6, 0
+  br i1 %.not.not, label %10, label %7
 
 7:                                                ; preds = %5
   %8 = trunc nuw nsw i64 %6 to i32
   %9 = tail call noundef zeroext i1 @_ZNK2OT12CmapSubtable9get_glyphEjPj(ptr noundef nonnull align 1 dereferenceable(262) %0, i32 noundef %8, ptr noundef %2)
   br label %10
 
-10:                                               ; preds = %5, %7
-  %.1 = phi i1 [ %9, %7 ], [ undef, %5 ]
-  %spec.select = and i1 %.not, %.1
-  br label %11
-
-11:                                               ; preds = %10, %3
-  %.0 = phi i1 [ %spec.select, %10 ], [ true, %3 ]
+10:                                               ; preds = %7, %5, %3
+  %.0 = phi i1 [ true, %3 ], [ %9, %7 ], [ false, %5 ]
   ret i1 %.0
 }
 

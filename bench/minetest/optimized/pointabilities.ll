@@ -212,7 +212,7 @@ cond.true:                                        ; preds = %entry
   %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %__begin1.sroa.0.053.i = load ptr, ptr %_M_before_begin.i.i.i.i, align 8, !tbaa !15
   %cmp.i.not54.i = icmp eq ptr %__begin1.sroa.0.053.i, null
-  br i1 %cmp.i.not54.i, label %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit, label %for.body.i
+  br i1 %cmp.i.not54.i, label %cond.end, label %for.body.i
 
 for.body.i:                                       ; preds = %cond.true, %for.inc.i
   %__begin1.sroa.0.057.i = phi ptr [ %__begin1.sroa.0.0.i, %for.inc.i ], [ %__begin1.sroa.0.053.i, %cond.true ]
@@ -233,7 +233,7 @@ if.then.i:                                        ; preds = %_ZL13itemgroup_getR
   %second.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.057.i, i64 40
   %1 = load i8, ptr %second.i, align 8, !tbaa !20
   switch i8 %1, label %sw.default.i [
-    i8 1, label %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit
+    i8 1, label %cond.end
     i8 0, label %for.inc.i
   ]
 
@@ -253,16 +253,7 @@ for.end.i:                                        ; preds = %for.inc.i
   %4 = shl nuw nsw i16 %3, 8
   %5 = shl nuw nsw i8 %not_pointable.2.ph.i, 1
   %6 = xor i8 %5, 2
-  %spec.select.i = zext nneg i8 %6 to i16
   %spec.select62.i = select i1 %2, i16 %4, i16 256
-  br label %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit
-
-_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit: ; preds = %if.then.i, %for.end.i, %cond.true
-  %retval.sroa.0.3.i = phi i16 [ 2, %cond.true ], [ %spec.select.i, %for.end.i ], [ 1, %if.then.i ]
-  %retval.sroa.4.3.i = phi i16 [ 0, %cond.true ], [ %spec.select62.i, %for.end.i ], [ 256, %if.then.i ]
-  %retval.sroa.0.0.insert.insert.i = or disjoint i16 %retval.sroa.4.3.i, %retval.sroa.0.3.i
-  %retval.sroa.0.0.extract.trunc = trunc i16 %retval.sroa.0.0.insert.insert.i to i8
-  %retval.sroa.3.0.extract.shift = and i16 %retval.sroa.4.3.i, -256
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
@@ -270,9 +261,9 @@ cond.false:                                       ; preds = %entry
   %7 = load i8, ptr %second, align 1, !tbaa !23
   br label %cond.end
 
-cond.end:                                         ; preds = %cond.false, %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit
-  %retval.sroa.0.0 = phi i8 [ %retval.sroa.0.0.extract.trunc, %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit ], [ %7, %cond.false ]
-  %retval.sroa.3.0 = phi i16 [ %retval.sroa.3.0.extract.shift, %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit ], [ 256, %cond.false ]
+cond.end:                                         ; preds = %if.then.i, %cond.true, %for.end.i, %cond.false
+  %retval.sroa.0.0 = phi i8 [ %7, %cond.false ], [ 2, %cond.true ], [ %6, %for.end.i ], [ %1, %if.then.i ]
+  %retval.sroa.3.0 = phi i16 [ 256, %cond.false ], [ 0, %cond.true ], [ %spec.select62.i, %for.end.i ], [ 256, %if.then.i ]
   %retval.sroa.0.0.insert.ext = zext i8 %retval.sroa.0.0 to i16
   %retval.sroa.0.0.insert.insert = or disjoint i16 %retval.sroa.3.0, %retval.sroa.0.0.insert.ext
   ret i16 %retval.sroa.0.0.insert.insert
@@ -347,7 +338,7 @@ cond.true:                                        ; preds = %entry
   %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %__begin1.sroa.0.053.i = load ptr, ptr %_M_before_begin.i.i.i.i, align 8, !tbaa !15
   %cmp.i.not54.i = icmp eq ptr %__begin1.sroa.0.053.i, null
-  br i1 %cmp.i.not54.i, label %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit, label %for.body.i
+  br i1 %cmp.i.not54.i, label %cond.end, label %for.body.i
 
 for.body.i:                                       ; preds = %cond.true, %for.inc.i
   %__begin1.sroa.0.057.i = phi ptr [ %__begin1.sroa.0.0.i, %for.inc.i ], [ %__begin1.sroa.0.053.i, %cond.true ]
@@ -368,7 +359,7 @@ if.then.i:                                        ; preds = %_ZL13itemgroup_getR
   %second.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.057.i, i64 40
   %1 = load i8, ptr %second.i, align 8, !tbaa !20
   switch i8 %1, label %sw.default.i [
-    i8 1, label %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit
+    i8 1, label %cond.end
     i8 0, label %for.inc.i
   ]
 
@@ -388,16 +379,7 @@ for.end.i:                                        ; preds = %for.inc.i
   %4 = shl nuw nsw i16 %3, 8
   %5 = shl nuw nsw i8 %not_pointable.2.ph.i, 1
   %6 = xor i8 %5, 2
-  %spec.select.i = zext nneg i8 %6 to i16
   %spec.select62.i = select i1 %2, i16 %4, i16 256
-  br label %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit
-
-_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit: ; preds = %if.then.i, %for.end.i, %cond.true
-  %retval.sroa.0.3.i = phi i16 [ 2, %cond.true ], [ %spec.select.i, %for.end.i ], [ 1, %if.then.i ]
-  %retval.sroa.4.3.i = phi i16 [ 0, %cond.true ], [ %spec.select62.i, %for.end.i ], [ 256, %if.then.i ]
-  %retval.sroa.0.0.insert.insert.i = or disjoint i16 %retval.sroa.4.3.i, %retval.sroa.0.3.i
-  %retval.sroa.0.0.extract.trunc = trunc i16 %retval.sroa.0.0.insert.insert.i to i8
-  %retval.sroa.3.0.extract.shift = and i16 %retval.sroa.4.3.i, -256
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
@@ -405,9 +387,9 @@ cond.false:                                       ; preds = %entry
   %7 = load i8, ptr %second, align 1, !tbaa !23
   br label %cond.end
 
-cond.end:                                         ; preds = %cond.false, %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit
-  %retval.sroa.0.0 = phi i8 [ %retval.sroa.0.0.extract.trunc, %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit ], [ %7, %cond.false ]
-  %retval.sroa.3.0 = phi i16 [ %retval.sroa.3.0.extract.shift, %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit ], [ 256, %cond.false ]
+cond.end:                                         ; preds = %if.then.i, %cond.true, %for.end.i, %cond.false
+  %retval.sroa.0.0 = phi i8 [ %7, %cond.false ], [ 2, %cond.true ], [ %6, %for.end.i ], [ %1, %if.then.i ]
+  %retval.sroa.3.0 = phi i16 [ 256, %cond.false ], [ 0, %cond.true ], [ %spec.select62.i, %for.end.i ], [ 256, %if.then.i ]
   %retval.sroa.0.0.insert.ext = zext i8 %retval.sroa.0.0 to i16
   %retval.sroa.0.0.insert.insert = or disjoint i16 %retval.sroa.3.0, %retval.sroa.0.0.insert.ext
   ret i16 %retval.sroa.0.0.insert.insert

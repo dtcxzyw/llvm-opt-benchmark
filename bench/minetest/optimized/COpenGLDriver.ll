@@ -18604,82 +18604,79 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb1
   %vfn23 = getelementptr inbounds nuw i8, ptr %vtable22, i64 592
   %3 = load ptr, ptr %vfn23, align 8
   %call24 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(1164) %this, i32 noundef %format.addr.0, ptr noundef nonnull align 4 dereferenceable(8) %ScreenSize) #25
-  %tobool25 = icmp ne ptr %call24, null
-  br i1 %tobool25, label %if.end28, label %if.end34
+  %tobool25.not = icmp eq ptr %call24, null
+  br i1 %tobool25.not, label %if.end34, label %if.end28
 
 if.end28:                                         ; preds = %sw.epilog
   %Data.i = getelementptr inbounds nuw i8, ptr %call24, i64 24
   %4 = load ptr, ptr %Data.i, align 8, !tbaa !393
   %tobool29.not = icmp eq ptr %4, null
-  br i1 %tobool29.not, label %if.end34, label %if.then30
+  br i1 %tobool29.not, label %if.end34, label %if.end34.thread
 
-if.then30:                                        ; preds = %if.end28
+if.end34:                                         ; preds = %if.end28, %sw.epilog
+  %5 = load i8, ptr %arrayidx, align 4, !tbaa !166, !range !131, !noundef !132
+  %tobool38.not = icmp eq i8 %5, 0
+  br i1 %tobool38.not, label %if.end61, label %if.then39
+
+if.end34.thread:                                  ; preds = %if.end28
   tail call void @glReadBuffer(i32 noundef 1028) #25
-  %5 = load i32, ptr %ScreenSize, align 8, !tbaa !470
+  %6 = load i32, ptr %ScreenSize, align 8, !tbaa !470
   %Height = getelementptr inbounds nuw i8, ptr %this, i64 324
-  %6 = load i32, ptr %Height, align 4, !tbaa !471
-  tail call void @glReadPixels(i32 noundef 0, i32 noundef 0, i32 noundef %5, i32 noundef %6, i32 noundef %fmt.0, i32 noundef %type.0, ptr noundef nonnull %4) #25
+  %7 = load i32, ptr %Height, align 4, !tbaa !471
+  tail call void @glReadPixels(i32 noundef 0, i32 noundef 0, i32 noundef %6, i32 noundef %7, i32 noundef %fmt.0, i32 noundef %type.0, ptr noundef nonnull %4) #25
   tail call void @glReadBuffer(i32 noundef 1029) #25
-  br label %if.end34
+  %8 = load i8, ptr %arrayidx, align 4, !tbaa !166, !range !131, !noundef !132
+  %tobool38.not4 = icmp eq i8 %8, 0
+  br i1 %tobool38.not4, label %if.then43, label %if.then39
 
-if.end34:                                         ; preds = %if.then30, %if.end28, %sw.epilog
-  %tobool29113 = phi i1 [ true, %if.then30 ], [ false, %if.end28 ], [ false, %sw.epilog ]
-  %pixels.0112 = phi ptr [ %4, %if.then30 ], [ null, %if.end28 ], [ null, %sw.epilog ]
-  %7 = load i8, ptr %arrayidx, align 4, !tbaa !166, !range !131, !noundef !132
-  %tobool38.not = icmp eq i8 %7, 0
-  br i1 %tobool38.not, label %if.else40, label %if.then39
-
-if.then39:                                        ; preds = %if.end34
+if.then39:                                        ; preds = %if.end34.thread, %if.end34
+  %pixels.01127 = phi ptr [ %4, %if.end34.thread ], [ null, %if.end34 ]
   tail call void @glPixelStorei(i32 noundef 34648, i32 noundef 0) #25
   br label %if.end61
 
-if.else40:                                        ; preds = %if.end34
-  %or.cond76 = and i1 %tobool25, %tobool29113
-  br i1 %or.cond76, label %if.then43, label %if.end61
-
-if.then43:                                        ; preds = %if.else40
+if.then43:                                        ; preds = %if.end34.thread
   %Pitch.i = getelementptr inbounds nuw i8, ptr %call24, i64 44
-  %8 = load i32, ptr %Pitch.i, align 4, !tbaa !486
-  %Height46 = getelementptr inbounds nuw i8, ptr %this, i64 324
-  %9 = load i32, ptr %Height46, align 4, !tbaa !471
-  %conv48 = sext i32 %8 to i64
+  %9 = load i32, ptr %Pitch.i, align 4, !tbaa !486
+  %10 = load i32, ptr %Height, align 4, !tbaa !471
+  %conv48 = sext i32 %9 to i64
   %call49 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv48) #29
-  %cmp52115.not = icmp eq i32 %9, 0
+  %cmp52115.not = icmp eq i32 %10, 0
   br i1 %cmp52115.not, label %if.end61.thread, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then43
-  %sub = add i32 %9, -1
-  %mul = mul i32 %sub, %8
+  %sub = add i32 %10, -1
+  %mul = mul i32 %sub, %9
   %idx.ext = zext i32 %mul to i64
-  %add.ptr47 = getelementptr inbounds nuw i8, ptr %pixels.0112, i64 %idx.ext
+  %add.ptr47 = getelementptr inbounds nuw i8, ptr %4, i64 %idx.ext
   %idx.neg = sub nsw i64 0, %conv48
   br label %for.body
 
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
   %i.0118 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %for.body ]
   %p2.0117 = phi ptr [ %add.ptr47, %for.body.lr.ph ], [ %add.ptr59, %for.body ]
-  %pixels.1116 = phi ptr [ %pixels.0112, %for.body.lr.ph ], [ %add.ptr57, %for.body ]
+  %pixels.1116 = phi ptr [ %4, %for.body.lr.ph ], [ %add.ptr57, %for.body ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call49, ptr align 1 %pixels.1116, i64 %conv48, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %pixels.1116, ptr align 1 %p2.0117, i64 %conv48, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %p2.0117, ptr nonnull align 1 %call49, i64 %conv48, i1 false)
   %add.ptr57 = getelementptr inbounds i8, ptr %pixels.1116, i64 %conv48
   %add.ptr59 = getelementptr inbounds i8, ptr %p2.0117, i64 %idx.neg
   %add = add i32 %i.0118, 2
-  %10 = load i32, ptr %Height46, align 4, !tbaa !471
-  %cmp52 = icmp ult i32 %add, %10
+  %11 = load i32, ptr %Height, align 4, !tbaa !471
+  %cmp52 = icmp ult i32 %add, %11
   br i1 %cmp52, label %for.body, label %if.end61.thread, !llvm.loop !487
 
 if.end61.thread:                                  ; preds = %for.body, %if.then43
-  %pixels.1.lcssa = phi ptr [ %pixels.0112, %if.then43 ], [ %add.ptr57, %for.body ]
+  %pixels.1.lcssa = phi ptr [ %4, %if.then43 ], [ %add.ptr57, %for.body ]
   tail call void @_ZdaPv(ptr noundef nonnull %call49) #27
   br label %if.then63
 
-if.end61:                                         ; preds = %if.else40, %if.then39
-  br i1 %tobool25, label %if.then63, label %return
+if.end61:                                         ; preds = %if.end34, %if.then39
+  %pixels.2 = phi ptr [ %pixels.01127, %if.then39 ], [ null, %if.end34 ]
+  br i1 %tobool25.not, label %return, label %if.then63
 
 if.then63:                                        ; preds = %if.end61.thread, %if.end61
-  %pixels.23 = phi ptr [ %pixels.1.lcssa, %if.end61.thread ], [ %pixels.0112, %if.end61 ]
-  %tobool66.not = icmp eq ptr %pixels.23, null
+  %pixels.212 = phi ptr [ %pixels.1.lcssa, %if.end61.thread ], [ %pixels.2, %if.end61 ]
+  %tobool66.not = icmp eq ptr %pixels.212, null
   br i1 %tobool66.not, label %if.then67, label %return
 
 if.then67:                                        ; preds = %if.then63
@@ -18689,8 +18686,8 @@ if.then67:                                        ; preds = %if.then63
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr69 = getelementptr inbounds i8, ptr %call24, i64 %vbase.offset
   %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %add.ptr69, i64 16
-  %11 = load i32, ptr %ReferenceCounter.i, align 8, !tbaa !141
-  %dec.i = add nsw i32 %11, -1
+  %12 = load i32, ptr %ReferenceCounter.i, align 8, !tbaa !141
+  %dec.i = add nsw i32 %12, -1
   store i32 %dec.i, ptr %ReferenceCounter.i, align 8, !tbaa !141
   %tobool.not.i = icmp eq i32 %dec.i, 0
   br i1 %tobool.not.i, label %delete.notnull.i, label %return
@@ -18698,8 +18695,8 @@ if.then67:                                        ; preds = %if.then63
 delete.notnull.i:                                 ; preds = %if.then67
   %vtable.i = load ptr, ptr %add.ptr69, align 8, !tbaa !3
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
-  %12 = load ptr, ptr %vfn.i, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr69) #25
+  %13 = load ptr, ptr %vfn.i, align 8
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr69) #25
   br label %return
 
 return:                                           ; preds = %delete.notnull.i, %if.then67, %if.then63, %if.end61, %lor.lhs.false, %entry

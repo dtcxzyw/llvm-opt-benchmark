@@ -1474,16 +1474,14 @@ while.body.i:                                     ; preds = %land.rhs.i
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit.loopexit: ; preds = %land.rhs.i
   %17 = icmp eq ptr %14, %this.val1012.i
-  br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit
-
-_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit: ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit.loopexit, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit, %lor.lhs.false.i
-  %this.val294 = phi ptr [ %14, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit ], [ %14, %lor.lhs.false.i ], [ %this.val1012.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit.loopexit ]
-  %retval.sroa.0.0.i = phi i1 [ true, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit ], [ true, %lor.lhs.false.i ], [ %17, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit.loopexit ]
-  %18 = and i1 %retval.0.i58, %retval.sroa.0.0.i
+  %18 = and i1 %retval.0.i58, %17
   br i1 %18, label %return, label %if.end31
 
-if.end31:                                         ; preds = %while.body.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit
-  %this.val2 = phi ptr [ %this.val294, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit ], [ %incdec.ptr.i61, %while.body.i ]
+_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit: ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit, %lor.lhs.false.i
+  br i1 %retval.0.i58, label %return, label %if.end31
+
+if.end31:                                         ; preds = %while.body.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit.loopexit, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit
+  %this.val2 = phi ptr [ %this.val1012.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit.loopexit ], [ %14, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit ], [ %incdec.ptr.i61, %while.body.i ]
   %cmp.not.i67.not = icmp eq ptr %12, %this.val2
   br i1 %cmp.not.i67.not, label %if.end42, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit70
 
@@ -1508,8 +1506,8 @@ if.end44:                                         ; preds = %entry, %_ZNK10Strin
   %call45. = select i1 %cmp47.not, ptr %call45, ptr null
   br label %return
 
-return:                                           ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit70, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9DotSuffixEJRPNS0_4NodeE10StringViewEEES8_DpOT0_.exit, %if.end, %lor.lhs.false, %_ZNK10StringView10startsWithES_.exit.i49, %if.end44, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit, %if.then18, %if.then, %if.end42
-  %retval.0 = phi ptr [ %call2, %if.end ], [ null, %if.then ], [ %call45., %if.end44 ], [ null, %lor.lhs.false ], [ null, %if.then18 ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit ], [ %call43, %if.end42 ], [ null, %_ZNK10StringView10startsWithES_.exit.i49 ], [ %add.ptr13.i.i.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9DotSuffixEJRPNS0_4NodeE10StringViewEEES8_DpOT0_.exit ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit70 ]
+return:                                           ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit70, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit.loopexit, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9DotSuffixEJRPNS0_4NodeE10StringViewEEES8_DpOT0_.exit, %if.end, %lor.lhs.false, %_ZNK10StringView10startsWithES_.exit.i49, %if.end44, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit, %if.then18, %if.then, %if.end42
+  %retval.0 = phi ptr [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit.loopexit ], [ null, %if.then ], [ %call45., %if.end44 ], [ null, %lor.lhs.false ], [ null, %if.then18 ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit ], [ %call43, %if.end42 ], [ null, %_ZNK10StringView10startsWithES_.exit.i49 ], [ %add.ptr13.i.i.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9DotSuffixEJRPNS0_4NodeE10StringViewEEES8_DpOT0_.exit ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit ], [ %call2, %if.end ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit70 ]
   ret ptr %retval.0
 }
 

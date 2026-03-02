@@ -508,8 +508,8 @@ define linkonce_odr hidden noundef i32 @_ZN2qe11bool_plugin10get_weightER12conta
 .lr.ph.i.i:                                       ; preds = %3, %30
   %.035.i.i = phi ptr [ %31, %30 ], [ %19, %3 ]
   %22 = load ptr, ptr %.035.i.i, align 8, !tbaa !124
-  %.not.i.not.not = icmp uge ptr %22, inttoptr (i64 2 to ptr)
-  br i1 %.not.i.not.not, label %23, label %28
+  %.not.i.not = icmp ult ptr %22, inttoptr (i64 2 to ptr)
+  br i1 %.not.i.not, label %28, label %23
 
 23:                                               ; preds = %.lr.ph.i.i
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 12
@@ -559,7 +559,7 @@ define linkonce_odr hidden noundef i32 @_ZN2qe11bool_plugin10get_weightER12conta
   br label %.lr.ph38.i.i, !llvm.loop !128
 
 _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit: ; preds = %23, %28, %34, %39, %42, %.preheader.i.i
-  %.026.i.i = phi i1 [ false, %.preheader.i.i ], [ true, %34 ], [ false, %39 ], [ false, %42 ], [ %.not.i.not.not, %28 ], [ %.not.i.not.not, %23 ]
+  %.026.i.i = phi i32 [ 0, %.preheader.i.i ], [ 3, %34 ], [ 0, %39 ], [ 0, %42 ], [ 0, %28 ], [ 3, %23 ]
   %43 = load ptr, ptr %5, align 8, !tbaa !118
   %44 = load ptr, ptr %43, align 8, !tbaa !3
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
@@ -581,13 +581,13 @@ _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8cont
 
 .preheader.i.i12:                                 ; preds = %66, %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit
   %.not2736.i.i13 = icmp eq i32 %52, 0
-  br i1 %.not2736.i.i13, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit24, label %.lr.ph38.i.i14
+  br i1 %.not2736.i.i13, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit24.thread, label %.lr.ph38.i.i14
 
 .lr.ph.i.i7:                                      ; preds = %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit, %66
   %.035.i.i8 = phi ptr [ %67, %66 ], [ %55, %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit ]
   %58 = load ptr, ptr %.035.i.i8, align 8, !tbaa !124
-  %.not.i9.not.not = icmp uge ptr %58, inttoptr (i64 2 to ptr)
-  br i1 %.not.i9.not.not, label %59, label %64
+  %.not.i9 = icmp ult ptr %58, inttoptr (i64 2 to ptr)
+  br i1 %.not.i9, label %64, label %59
 
 59:                                               ; preds = %.lr.ph.i.i7
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 12
@@ -595,11 +595,11 @@ _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8cont
   %62 = icmp eq i32 %61, %48
   %63 = icmp eq ptr %58, %4
   %or.cond.i.i10 = and i1 %63, %62
-  br i1 %or.cond.i.i10, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit24, label %66
+  br i1 %or.cond.i.i10, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit24.thread, label %66
 
 64:                                               ; preds = %.lr.ph.i.i7
   %65 = icmp eq ptr %58, null
-  br i1 %65, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit24, label %66
+  br i1 %65, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit24.thread, label %66
 
 66:                                               ; preds = %64, %59
   %67 = getelementptr inbounds nuw i8, ptr %.035.i.i8, i64 8
@@ -618,29 +618,27 @@ _ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8cont
   %73 = icmp eq i32 %72, %48
   %74 = icmp eq ptr %68, %4
   %or.cond31.i.i16 = and i1 %74, %73
-  br i1 %or.cond31.i.i16, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit24, label %78
+  br i1 %or.cond31.i.i16, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit24.thread, label %78
 
 75:                                               ; preds = %.lr.ph38.i.i14
   %76 = icmp eq ptr %68, null
   %77 = getelementptr inbounds nuw i8, ptr %.137.i.i15, i64 8
   %.not27.i.i22 = icmp eq ptr %77, %55
   %or.cond43.i.i23 = select i1 %76, i1 true, i1 %.not27.i.i22
-  br i1 %or.cond43.i.i23, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit24, label %.lr.ph38.i.i14.backedge
+  br i1 %or.cond43.i.i23, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit24.thread, label %.lr.ph38.i.i14.backedge
 
 78:                                               ; preds = %70
   %.old.i.i17 = getelementptr inbounds nuw i8, ptr %.137.i.i15, i64 8
   %.not27.old.i.i18 = icmp eq ptr %.old.i.i17, %55
-  br i1 %.not27.old.i.i18, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit24, label %.lr.ph38.i.i14.backedge
+  br i1 %.not27.old.i.i18, label %_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit24.thread, label %.lr.ph38.i.i14.backedge
 
 .lr.ph38.i.i14.backedge:                          ; preds = %78, %75
   %.137.i.i15.be = phi ptr [ %77, %75 ], [ %.old.i.i17, %78 ]
   br label %.lr.ph38.i.i14, !llvm.loop !128
 
-_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit24: ; preds = %59, %64, %70, %75, %78, %.preheader.i.i12
-  %.026.i.i21 = phi i1 [ false, %.preheader.i.i12 ], [ true, %70 ], [ false, %75 ], [ false, %78 ], [ %.not.i9.not.not, %64 ], [ %.not.i9.not.not, %59 ]
-  %or.cond = and i1 %.026.i.i, %.026.i.i21
-  %. = select i1 %or.cond, i32 3, i32 0
-  ret i32 %.
+_ZNK14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE8containsERKPS1_.exit24.thread: ; preds = %64, %59, %75, %78, %70, %.preheader.i.i12
+  %79 = phi i32 [ 0, %.preheader.i.i12 ], [ 0, %75 ], [ 0, %78 ], [ %.026.i.i, %70 ], [ 0, %64 ], [ %.026.i.i, %59 ]
+  ret i32 %79
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

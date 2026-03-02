@@ -265,7 +265,7 @@ define void @_ZN9quinn_udp3imp14UdpSocketState3new17h2cace8acde78b975E(ptr dead_
   store i32 %1, ptr %23, align 4
   %24 = call noundef ptr @_ZN7socket26socket6Socket15set_nonblocking17hab70d62cc23a519aE(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i1 noundef zeroext true)
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %25, label %132
+  br i1 %.not, label %25, label %131
 
 25:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -275,7 +275,7 @@ define void @_ZN9quinn_udp3imp14UdpSocketState3new17h2cace8acde78b975E(ptr dead_
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %29 = load ptr, ptr %28, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br i1 %27, label %132, label %30
+  br i1 %27, label %131, label %30
 
 30:                                               ; preds = %25
   %31 = ptrtoint ptr %29 to i64
@@ -298,7 +298,7 @@ define void @_ZN9quinn_udp3imp14UdpSocketState3new17h2cace8acde78b975E(ptr dead_
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %42 = load i8, ptr %41, align 1, !range !8
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br i1 %38, label %132, label %43
+  br i1 %38, label %131, label %43
 
 43:                                               ; preds = %36
   %44 = trunc nuw i8 %42 to i1
@@ -546,7 +546,7 @@ define void @_ZN9quinn_udp3imp14UdpSocketState3new17h2cace8acde78b975E(ptr dead_
   %117 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %118 = load ptr, ptr %117, align 8, !nonnull !5, !noundef !5
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %132
+  br label %131
 
 119:                                              ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17hf7c05e80c761017bE.exit"
   %120 = getelementptr inbounds nuw i8, ptr %7, i64 1
@@ -559,97 +559,87 @@ define void @_ZN9quinn_udp3imp14UdpSocketState3new17h2cace8acde78b975E(ptr dead_
   call void @_ZN9quinn_udp3imp27set_socket_option_supported17hf25646a1e17ea1b3E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i32 noundef 41, i32 noundef 23, i32 noundef 3)
   %123 = load i8, ptr %6, align 8, !range !8, !noundef !5
   %124 = trunc nuw i8 %123 to i1
-  br i1 %124, label %129, label %133
+  br i1 %124, label %128, label %132
 
 125:                                              ; preds = %119
-  %126 = trunc nuw i8 %121 to i1
-  %127 = xor i1 %126, true
-  %128 = call noundef ptr @_ZN9quinn_udp3imp17set_socket_option17h4da8ed5cd3ad0d77E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i32 noundef 0, i32 noundef 8, i32 noundef 1)
-  %.not154 = icmp eq ptr %128, null
-  br i1 %.not154, label %.thread183, label %132
+  %126 = xor i8 %121, 1
+  %127 = call noundef ptr @_ZN9quinn_udp3imp17set_socket_option17h4da8ed5cd3ad0d77E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i32 noundef 0, i32 noundef 8, i32 noundef 1)
+  %.not154 = icmp eq ptr %127, null
+  br i1 %.not154, label %.thread183, label %131
 
-129:                                              ; preds = %122
-  %130 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %131 = load ptr, ptr %130, align 8, !nonnull !5, !noundef !5
+128:                                              ; preds = %122
+  %129 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %130 = load ptr, ptr %129, align 8, !nonnull !5, !noundef !5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %132
+  br label %131
 
-132:                                              ; preds = %36, %25, %2, %149, %133, %125, %154, %129, %116
-  %.sink = phi ptr [ %156, %154 ], [ %138, %133 ], [ %128, %125 ], [ %150, %149 ], [ %131, %129 ], [ %118, %116 ], [ %29, %25 ], [ %24, %2 ], [ %40, %36 ]
+131:                                              ; preds = %36, %25, %2, %149, %147, %132, %125, %128, %116
+  %.sink = phi ptr [ %148, %147 ], [ %137, %132 ], [ %127, %125 ], [ %153, %149 ], [ %130, %128 ], [ %118, %116 ], [ %29, %25 ], [ %24, %2 ], [ %40, %36 ]
   store ptr %.sink, ptr %0, align 8
-  br label %163
+  br label %158
 
-133:                                              ; preds = %122
-  %134 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %135 = load i8, ptr %134, align 1, !range !8, !noundef !5
+132:                                              ; preds = %122
+  %133 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %134 = load i8, ptr %133, align 1, !range !8, !noundef !5
+  %135 = and i8 %134, %121
+  %136 = xor i8 %135, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %136 = and i8 %135, %121
-  %137 = icmp eq i8 %136, 0
-  %138 = call noundef ptr @_ZN9quinn_udp3imp17set_socket_option17h4da8ed5cd3ad0d77E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i32 noundef 41, i32 noundef 49, i32 noundef 1)
-  %.not156 = icmp eq ptr %138, null
-  br i1 %.not156, label %149, label %132
+  %137 = call noundef ptr @_ZN9quinn_udp3imp17set_socket_option17h4da8ed5cd3ad0d77E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i32 noundef 41, i32 noundef 49, i32 noundef 1)
+  %.not156 = icmp eq ptr %137, null
+  br i1 %.not156, label %147, label %131
 
-.thread183:                                       ; preds = %125, %157
-  %.sroa.090.1.in = phi i1 [ %162, %157 ], [ %127, %125 ]
-  %139 = call { i64, i32 } @_ZN3std4time7Instant3now17hd46d520c1ad33f9eE()
-  %140 = extractvalue { i64, i32 } %139, 0
-  %141 = extractvalue { i64, i32 } %139, 1
-  store i64 %140, ptr %4, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %141, ptr %142, align 8
-  %143 = call { i64, i32 } @_ZN3std4time7Instant11checked_sub17h8481916eb82effbcE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, i64 noundef 120, i32 noundef 0)
-  %144 = extractvalue { i64, i32 } %143, 1
-  %.not160 = icmp eq i32 %144, 1000000000
-  %145 = extractvalue { i64, i32 } %143, 0
-  %.sroa.0134.0 = select i1 %.not160, i64 %140, i64 %145
-  %.sroa.3.0 = select i1 %.not160, i32 %141, i32 %144
-  %146 = call noundef i64 @_ZN9quinn_udp3imp3gso16max_gso_segments17h73c40b0f40770412E()
-  %147 = call noundef i64 @_ZN9quinn_udp3imp3gro12gro_segments17hb58c75954bff324dE()
-  %148 = zext i1 %.sroa.090.1.in to i8
+.thread183:                                       ; preds = %149, %125
+  %.sroa.090.1 = phi i8 [ %126, %125 ], [ %157, %149 ]
+  %138 = call { i64, i32 } @_ZN3std4time7Instant3now17hd46d520c1ad33f9eE()
+  %139 = extractvalue { i64, i32 } %138, 0
+  %140 = extractvalue { i64, i32 } %138, 1
+  store i64 %139, ptr %4, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %140, ptr %141, align 8
+  %142 = call { i64, i32 } @_ZN3std4time7Instant11checked_sub17h8481916eb82effbcE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, i64 noundef 120, i32 noundef 0)
+  %143 = extractvalue { i64, i32 } %142, 1
+  %.not160 = icmp eq i32 %143, 1000000000
+  %144 = extractvalue { i64, i32 } %142, 0
+  %.sroa.0134.0 = select i1 %.not160, i64 %139, i64 %144
+  %.sroa.3.0 = select i1 %.not160, i32 %140, i32 %143
+  %145 = call noundef i64 @_ZN9quinn_udp3imp3gso16max_gso_segments17h73c40b0f40770412E()
+  %146 = call noundef i64 @_ZN9quinn_udp3imp3gro12gro_segments17hb58c75954bff324dE()
   store i64 0, ptr %0, align 8
   %.sroa.075.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0134.0, ptr %.sroa.075.sroa.4.0..sroa_idx, align 8
   %.sroa.075.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.3.0, ptr %.sroa.075.sroa.5.0..sroa_idx, align 8
   %.sroa.075.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %146, ptr %.sroa.075.sroa.7.0..sroa_idx, align 8
+  store i64 %145, ptr %.sroa.075.sroa.7.0..sroa_idx, align 8
   %.sroa.576.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %147, ptr %.sroa.576.0..sroa_idx, align 8
+  store i64 %146, ptr %.sroa.576.0..sroa_idx, align 8
   %.sroa.677.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %.sroa.677.0..sroa_idx, align 8
-  br label %163
+  br label %158
 
-149:                                              ; preds = %133
-  %150 = call noundef ptr @_ZN9quinn_udp3imp17set_socket_option17h4da8ed5cd3ad0d77E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i32 noundef 41, i32 noundef 66, i32 noundef 1)
-  %.not158 = icmp eq ptr %150, null
-  br i1 %.not158, label %151, label %132
+147:                                              ; preds = %132
+  %148 = call noundef ptr @_ZN9quinn_udp3imp17set_socket_option17h4da8ed5cd3ad0d77E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i32 noundef 41, i32 noundef 66, i32 noundef 1)
+  %.not158 = icmp eq ptr %148, null
+  br i1 %.not158, label %149, label %131
 
-151:                                              ; preds = %149
+149:                                              ; preds = %147
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN9quinn_udp3imp27set_socket_option_supported17hf25646a1e17ea1b3E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %23, i32 noundef 41, i32 noundef 62, i32 noundef 1)
-  %152 = load i8, ptr %5, align 8, !range !8, !noundef !5
-  %153 = trunc nuw i8 %152 to i1
-  br i1 %153, label %154, label %157
-
-154:                                              ; preds = %151
-  %155 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %156 = load ptr, ptr %155, align 8, !nonnull !5, !noundef !5
+  %150 = load i8, ptr %5, align 8, !range !8, !noundef !5
+  %151 = trunc nuw i8 %150 to i1
+  %152 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %153 = load ptr, ptr %152, align 8, !nonnull !5
+  %154 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %155 = load i8, ptr %154, align 1, !range !8
+  %156 = xor i8 %155, 1
+  %157 = or i8 %156, %136
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %132
+  br i1 %151, label %131, label %.thread183
 
-157:                                              ; preds = %151
-  %158 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %159 = load i8, ptr %158, align 1, !range !8, !noundef !5
-  %160 = trunc nuw i8 %159 to i1
-  %161 = xor i1 %160, true
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %162 = or i1 %137, %161
-  br label %.thread183
-
-163:                                              ; preds = %.thread183, %132
-  %.sink196 = phi i8 [ %148, %.thread183 ], [ 2, %132 ]
+158:                                              ; preds = %.thread183, %131
+  %.sroa.090.1.sink = phi i8 [ %.sroa.090.1, %.thread183 ], [ 2, %131 ]
   %.sroa.778.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 41
-  store i8 %.sink196, ptr %.sroa.778.0..sroa_idx, align 1
+  store i8 %.sroa.090.1.sink, ptr %.sroa.778.0..sroa_idx, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   ret void
 }

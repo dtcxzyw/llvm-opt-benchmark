@@ -1937,25 +1937,25 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN3ue217isSingletonRegionINS_8NGHolderEEEbRKT_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKSt13unordered_mapISB_jSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(56) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %.sroa.0112.0150 = load ptr, ptr %5, align 8
-  %.not151 = icmp eq ptr %.sroa.0112.0150, %5
-  br i1 %.not151, label %._crit_edge, label %.lr.ph153
+  %.sroa.0112.0149 = load ptr, ptr %5, align 8
+  %.not150 = icmp eq ptr %.sroa.0112.0149, %5
+  br i1 %.not150, label %._crit_edge, label %.lr.ph152
 
-.lr.ph153:                                        ; preds = %4
+.lr.ph152:                                        ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
   br label %10
 
-.loopexit136:                                     ; preds = %.critedge, %17
-  %.sroa.0112.0 = load ptr, ptr %.sroa.0112.0152, align 8
+.loopexit:                                        ; preds = %.critedge, %17
+  %.sroa.0112.0 = load ptr, ptr %.sroa.0112.0151, align 8
   %.not = icmp eq ptr %.sroa.0112.0, %5
   br i1 %.not, label %._crit_edge, label %10
 
-10:                                               ; preds = %.lr.ph153, %.loopexit136
-  %.sroa.0112.0152 = phi ptr [ %.sroa.0112.0150, %.lr.ph153 ], [ %.sroa.0112.0, %.loopexit136 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0112.0152, i64 16
+10:                                               ; preds = %.lr.ph152, %.loopexit
+  %.sroa.0112.0151 = phi ptr [ %.sroa.0112.0149, %.lr.ph152 ], [ %.sroa.0112.0, %.loopexit ]
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0112.0151, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not129 = icmp eq ptr %12, %1
   br i1 %.not129, label %17, label %13
@@ -1964,13 +1964,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3ue217isSingletonRegionINS_8NG
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %15 = load i64, ptr %14, align 8
   %16 = tail call noundef zeroext i1 @_ZN3ue212inSameRegionINS_8NGHolderEEEbRKT_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESB_RKSt13unordered_mapISB_jSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %1, i64 %2, ptr nonnull %12, i64 %15, ptr noundef nonnull align 8 dereferenceable(56) %3)
-  br i1 %16, label %.loopexit139, label %17
+  br i1 %16, label %.loopexit138, label %17
 
 17:                                               ; preds = %13, %10
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 136
-  %.sroa.0104.0147 = load ptr, ptr %18, align 8
-  %.not130148 = icmp eq ptr %.sroa.0104.0147, %18
-  br i1 %.not130148, label %.loopexit136, label %.lr.ph
+  %.sroa.0104.0146 = load ptr, ptr %18, align 8
+  %.not130147 = icmp eq ptr %.sroa.0104.0146, %18
+  br i1 %.not130147, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
   %19 = load i64, ptr %6, align 8
@@ -1980,8 +1980,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN3ue217isSingletonRegionINS_8NG
   br label %22
 
 22:                                               ; preds = %.lr.ph, %.critedge
-  %.sroa.0104.0149 = phi ptr [ %.sroa.0104.0147, %.lr.ph ], [ %.sroa.0104.0, %.critedge ]
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0104.0149, i64 40
+  %.sroa.0104.0148 = phi ptr [ %.sroa.0104.0146, %.lr.ph ], [ %.sroa.0104.0, %.critedge ]
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0104.0148, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %26 = load i64, ptr %25, align 8
@@ -2134,18 +2134,18 @@ _ZN3ue212inSameRegionINS_8NGHolderEEEbRKT_NS_12graph_detail17vertex_descriptorIN
   %89 = load i64, ptr %88, align 8
   %90 = icmp ugt i64 %89, 3
   %91 = xor i1 %87, %90
-  br i1 %91, label %.loopexit139, label %.critedge
+  br i1 %91, label %.loopexit138, label %.critedge
 
 .critedge:                                        ; preds = %_ZNKSt13unordered_mapIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEjSt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_jEEE2atERSE_.exit21.i, %_ZN3ue212inSameRegionINS_8NGHolderEEEbRKT_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESB_RKSt13unordered_mapISB_jSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEE.exit, %22
-  %.sroa.0104.0 = load ptr, ptr %.sroa.0104.0149, align 8
+  %.sroa.0104.0 = load ptr, ptr %.sroa.0104.0148, align 8
   %.not130 = icmp eq ptr %.sroa.0104.0, %18
-  br i1 %.not130, label %.loopexit136, label %22
+  br i1 %.not130, label %.loopexit, label %22
 
-._crit_edge:                                      ; preds = %.loopexit136, %4
+._crit_edge:                                      ; preds = %.loopexit, %4
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %93 = load ptr, ptr %92, align 8, !noalias !59
   %.not125 = icmp eq ptr %93, %92
-  br i1 %.not125, label %.loopexit, label %94
+  br i1 %.not125, label %.loopexit138, label %94
 
 94:                                               ; preds = %._crit_edge
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 40
@@ -2157,39 +2157,34 @@ _ZN3ue212inSameRegionINS_8NGHolderEEEbRKT_NS_12graph_detail17vertex_descriptorIN
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 96
   %99 = load i64, ptr %98, align 8
   %100 = tail call noundef zeroext i1 @_ZN3ue212inSameRegionINS_8NGHolderEEEbRKT_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESB_RKSt13unordered_mapISB_jSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nonnull %1, i64 %2, ptr nonnull %96, i64 %99, ptr noundef nonnull align 8 dereferenceable(56) %3)
-  br i1 %100, label %.loopexit, label %101
+  br i1 %100, label %.loopexit138, label %101
 
 101:                                              ; preds = %97, %94
   %102 = getelementptr inbounds nuw i8, ptr %96, i64 112
-  %.sroa.090.0154 = load ptr, ptr %102, align 8
-  %.not127155 = icmp eq ptr %.sroa.090.0154, %102
-  br i1 %.not127155, label %.loopexit, label %.lr.ph159
+  %.sroa.090.0153 = load ptr, ptr %102, align 8
+  %.not127154 = icmp eq ptr %.sroa.090.0153, %102
+  br i1 %.not127154, label %.loopexit138, label %.lr.ph158
 
-.lr.ph159:                                        ; preds = %101, %.critedge70
-  %.sroa.090.0156 = phi ptr [ %.sroa.090.0, %.critedge70 ], [ %.sroa.090.0154, %101 ]
-  %103 = getelementptr inbounds nuw i8, ptr %.sroa.090.0156, i64 16
+.lr.ph158:                                        ; preds = %101, %.critedge70
+  %.sroa.090.0155 = phi ptr [ %.sroa.090.0, %.critedge70 ], [ %.sroa.090.0153, %101 ]
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.090.0155, i64 16
   %104 = load ptr, ptr %103, align 8
   %.not128 = icmp eq ptr %104, %1
   br i1 %.not128, label %.critedge70, label %105
 
-105:                                              ; preds = %.lr.ph159
+105:                                              ; preds = %.lr.ph158
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 96
   %107 = load i64, ptr %106, align 8
   %108 = tail call noundef zeroext i1 @_ZN3ue212inSameRegionINS_8NGHolderEEEbRKT_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESB_RKSt13unordered_mapISB_jSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %1, i64 %2, ptr nonnull %104, i64 %107, ptr noundef nonnull align 8 dereferenceable(56) %3)
-  br i1 %108, label %.loopexit, label %.critedge70
+  br i1 %108, label %.loopexit138, label %.critedge70
 
-.critedge70:                                      ; preds = %105, %.lr.ph159
-  %.sroa.090.0 = load ptr, ptr %.sroa.090.0156, align 8
+.critedge70:                                      ; preds = %105, %.lr.ph158
+  %.sroa.090.0 = load ptr, ptr %.sroa.090.0155, align 8
   %.not127 = icmp eq ptr %.sroa.090.0, %102
-  br i1 %.not127, label %.loopexit, label %.lr.ph159
+  br i1 %.not127, label %.loopexit138, label %.lr.ph158
 
-.loopexit:                                        ; preds = %105, %.critedge70, %101, %97, %._crit_edge
-  %.7 = phi i1 [ false, %._crit_edge ], [ false, %97 ], [ true, %101 ], [ false, %105 ], [ true, %.critedge70 ]
-  %spec.select73 = or i1 %.not125, %.7
-  br label %.loopexit139
-
-.loopexit139:                                     ; preds = %13, %_ZN3ue212inSameRegionINS_8NGHolderEEEbRKT_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESB_RKSt13unordered_mapISB_jSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEE.exit, %.loopexit
-  %.6 = phi i1 [ %spec.select73, %.loopexit ], [ false, %_ZN3ue212inSameRegionINS_8NGHolderEEEbRKT_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESB_RKSt13unordered_mapISB_jSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEE.exit ], [ false, %13 ]
+.loopexit138:                                     ; preds = %13, %_ZN3ue212inSameRegionINS_8NGHolderEEEbRKT_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESB_RKSt13unordered_mapISB_jSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEE.exit, %105, %.critedge70, %101, %._crit_edge, %97
+  %.6 = phi i1 [ false, %97 ], [ false, %105 ], [ true, %._crit_edge ], [ false, %_ZN3ue212inSameRegionINS_8NGHolderEEEbRKT_NS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESB_RKSt13unordered_mapISB_jSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEE.exit ], [ true, %101 ], [ true, %.critedge70 ], [ false, %13 ]
   ret i1 %.6
 }
 

@@ -2555,21 +2555,24 @@ cvAltSum.exit28.i.i.i:                            ; preds = %.preheader.i21.i.i.
   store double %664, ptr %665, align 8, !tbaa !96
   %indvars.iv.next.i31.i.i.i = add nuw nsw i64 %indvars.iv.i30.i.i.i, 1
   %exitcond.not.i32.i.i.i = icmp eq i64 %indvars.iv.next.i31.i.i.i, %wide.trip.count.i29.i.i.i
-  br i1 %exitcond.not.i32.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %exitcond.not.i32.i.i.i, label %._crit_edge.i.loopexit.i.i.i, label %.lr.ph.i.i.i.i
 
-._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %cvAltSum.exit28.thread.i.i.i
-  %.034.lcssa.i57.i.i.i = phi double [ %602, %cvAltSum.exit28.thread.i.i.i ], [ %637, %.lr.ph.i.i.i.i ]
-  %666 = phi double [ 0x7FF0000000000000, %cvAltSum.exit28.thread.i.i.i ], [ %656, %.lr.ph.i.i.i.i ]
-  %.014.i2747.i.i.i = phi double [ 0.000000e+00, %cvAltSum.exit28.thread.i.i.i ], [ %654, %.lr.ph.i.i.i.i ]
-  %667 = fdiv double %.034.lcssa.i57.i.i.i, %602
-  %668 = fdiv double 1.000000e+00, %667
-  %669 = fmul double %666, %.014.i2747.i.i.i
-  %670 = fdiv double %669, %667
+._crit_edge.i.loopexit.i.i.i:                     ; preds = %.lr.ph.i.i.i.i
+  %666 = fmul double %656, %654
+  br label %._crit_edge.i.i.i.i
+
+._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.i.loopexit.i.i.i, %cvAltSum.exit28.thread.i.i.i
+  %.034.lcssa.i57.i.i.i = phi double [ %602, %cvAltSum.exit28.thread.i.i.i ], [ %637, %._crit_edge.i.loopexit.i.i.i ]
+  %667 = phi double [ 0x7FF0000000000000, %cvAltSum.exit28.thread.i.i.i ], [ %656, %._crit_edge.i.loopexit.i.i.i ]
+  %.014.i2747.i.i.i = phi double [ 0x7FF8000000000000, %cvAltSum.exit28.thread.i.i.i ], [ %666, %._crit_edge.i.loopexit.i.i.i ]
+  %668 = fdiv double %.034.lcssa.i57.i.i.i, %602
+  %669 = fdiv double 1.000000e+00, %668
+  %670 = fdiv double %.014.i2747.i.i.i, %668
   store double %670, ptr %375, align 8, !tbaa !96
   %671 = sext i32 %594 to i64
   %672 = getelementptr inbounds double, ptr %372, i64 %671
   %673 = load double, ptr %672, align 8, !tbaa !96
-  %674 = fdiv double %667, %673
+  %674 = fdiv double %668, %673
   store double %674, ptr %376, align 8, !tbaa !96
   %675 = load i32, ptr %361, align 4, !tbaa !85
   %676 = icmp eq i32 %675, 1
@@ -2589,7 +2592,7 @@ cvAltSum.exit28.i.i.i:                            ; preds = %.preheader.i21.i.i.
   %680 = getelementptr i8, ptr %679, i64 -8
   %681 = load double, ptr %680, align 8, !tbaa !96
   %682 = load double, ptr %679, align 8, !tbaa !96
-  %683 = call double @llvm.fmuladd.f64(double %681, double %668, double %682)
+  %683 = call double @llvm.fmuladd.f64(double %681, double %669, double %682)
   store double %683, ptr %679, align 8, !tbaa !96
   %indvars.iv.next48.i42.i.i.i = add nsw i64 %indvars.iv47.i41.i.i.i, -1
   %684 = icmp samesign ugt i64 %indvars.iv47.i41.i.i.i, 1
@@ -2623,7 +2626,7 @@ cvAltSum.exit28.i.i.i:                            ; preds = %.preheader.i21.i.i.
 
 cvAltSum.exit.i.i.i.i:                            ; preds = %.preheader.i.i35.i.i.i, %._crit_edge45.i.i.i.i
   %.014.i.i.i.i.i = phi double [ 0.000000e+00, %._crit_edge45.i.i.i.i ], [ %694, %.preheader.i.i35.i.i.i ]
-  %696 = fmul double %666, %.014.i.i.i.i.i
+  %696 = fmul double %667, %.014.i.i.i.i.i
   %697 = load i32, ptr %360, align 8, !tbaa !84
   %698 = sitofp i32 %697 to double
   %699 = fdiv double %696, %698

@@ -369,25 +369,24 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %190 = getelementptr inbounds double, ptr %42, i64 %189
   call void @dsytrd_(ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %186, ptr noundef nonnull %188, ptr noundef nonnull %15, ptr noundef nonnull %190, ptr noundef nonnull %31, ptr noundef nonnull %27) #6
   %.not393 = icmp eq i32 %49, 0
-  br i1 %.not393, label %198, label %191
+  br i1 %.not393, label %199, label %191
 
 191:                                              ; preds = %176
   %192 = load i32, ptr %8, align 4, !tbaa !3
   %193 = icmp eq i32 %192, 1
-  br i1 %193, label %194, label %198
+  br i1 %193, label %194, label %199
 
 194:                                              ; preds = %191
   %195 = load i32, ptr %9, align 4, !tbaa !3
   %196 = load i32, ptr %3, align 4, !tbaa !3
   %197 = icmp eq i32 %195, %196
-  br label %198
+  %198 = or i1 %55, %197
+  br i1 %198, label %200, label %225
 
-198:                                              ; preds = %194, %191, %176
-  %199 = phi i1 [ false, %176 ], [ %197, %194 ], [ false, %191 ]
-  %or.cond9 = or i1 %55, %199
-  br i1 %or.cond9, label %200, label %225
+199:                                              ; preds = %191, %176
+  br i1 %55, label %200, label %225
 
-200:                                              ; preds = %198
+200:                                              ; preds = %194, %199
   %201 = load double, ptr %10, align 8, !tbaa !7
   %202 = fcmp ugt double %201, 0.000000e+00
   br i1 %202, label %225, label %203
@@ -448,7 +447,7 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 0, ptr %19, align 4, !tbaa !3
   br label %225
 
-225:                                              ; preds = %198, %.thread422, %200
+225:                                              ; preds = %194, %199, %.thread422, %200
   %.406 = select i1 %.not, i8 66, i8 69
   store i8 %.406, ptr %28, align 1, !tbaa !12
   %226 = load i32, ptr %3, align 4, !tbaa !3
