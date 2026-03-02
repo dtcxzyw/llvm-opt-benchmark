@@ -2461,17 +2461,17 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit12: ; preds =
   %32 = icmp eq i16 %31, 256
   br i1 %32, label %37, label %.thread
 
-33:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit12
+33: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit12
   %34 = icmp eq i16 %28, 256
   %35 = and i16 %25, 257
   %36 = icmp eq i16 %35, 257
   %or.cond = select i1 %34, i1 %36, i1 false
   br i1 %or.cond, label %37, label %.thread
 
-.thread:                                          ; preds = %30, %33
+.thread:; preds = %30, %33
   br label %37
 
-37:                                               ; preds = %33, %30, %.thread
+37:; preds = %33, %30, %.thread
   %.sroa.4.0 = phi i16 [ 0, %.thread ], [ 257, %30 ], [ 256, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

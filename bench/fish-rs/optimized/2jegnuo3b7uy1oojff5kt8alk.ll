@@ -39585,12 +39585,12 @@ define internal fastcc void @"_ZN4fish12input_common16InputEventQueuer9parse_csi
   %.sroa.414.0.extract.shift22 = lshr i40 %9, 16
   %.sroa.414.0.extract.trunc = trunc i40 %.sroa.414.0.extract.shift22 to i8
   %10 = trunc i40 %.sroa.414.0.extract.shift22 to i1
-  %11 = and i40 %9, 4311744769
-  %.not = icmp eq i40 %11, 4294967296
+  %10 = and i40 %9, 4311744769
+  %or.cond6 = icmp eq i40 %10, 4294967296
   %or.cond26 = and i1 %.not, %10
   br i1 %or.cond26, label %15, label %12
 
-12:                                               ; preds = %15, %3
+12:; preds = %15, %3
   %.sroa.414.0 = phi i8 [ %.sroa.414.0.extract.trunc, %3 ], [ %.sroa.414.0.extract.trunc., %15 ]
   %13 = trunc i40 %9 to i32
   %.sroa.519.0.insert.ext = zext i8 %.sroa.414.0 to i32
@@ -39600,25 +39600,25 @@ define internal fastcc void @"_ZN4fish12input_common16InputEventQueuer9parse_csi
   tail call void @_ZN4fish12input_common8KeyEvent22with_shifted_codepoint17hf3b2e7f6f0ef9970E(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %0, i32 %.sroa.017.0.insert.insert, i32 noundef %1, i32 noundef %2)
   ret void
 
-15:                                               ; preds = %3
+17:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4core7unicode12unicode_data11conversions8to_upper17hd8784791250a8793E(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %4, i32 noundef %1)
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %17 = load i32, ptr %16, align 8, !range !238, !noundef !4
-  %18 = icmp eq i32 %17, 0
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %20 = load i32, ptr %19, align 4, !range !238
-  %21 = icmp eq i32 %20, 0
-  %spec.select.i = select i1 %21, i64 1, i64 2
-  %.sroa.4.0.i = select i1 %18, i64 %spec.select.i, i64 3
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %19 = load i32, ptr %18, align 8, !range !238, !noundef !4
+  %20 = icmp eq i32 %19, 0
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %22 = load i32, ptr %21, align 4, !range !238
+  %23 = icmp eq i32 %22, 0
+  %spec.select.i = select i1 %23, i64 1, i64 2
+  %.sroa.4.0.i = select i1 %20, i64 %spec.select.i, i64 3
   store i64 0, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  %22 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17h322f3fede2d1f748E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5, i32 noundef %1)
+  %24 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17h322f3fede2d1f748E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5, i32 noundef %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.sroa.414.0.extract.trunc. = select i1 %22, i8 %.sroa.414.0.extract.trunc, i8 0
+  %.sroa.414.0.extract.trunc. = select i1 %24, i8 %.sroa.414.0.extract.trunc, i8 0
   br label %12
 }
 
@@ -39634,12 +39634,12 @@ define internal fastcc void @"_ZN4fish12input_common16InputEventQueuer9parse_csi
   %.sroa.414.0.extract.shift22 = lshr i40 %9, 16
   %.sroa.414.0.extract.trunc = trunc i40 %.sroa.414.0.extract.shift22 to i8
   %10 = trunc i40 %.sroa.414.0.extract.shift22 to i1
-  %11 = and i40 %9, 4311744769
-  %.not = icmp eq i40 %11, 4294967296
+  %10 = and i40 %9, 4311744769
+  %or.cond6 = icmp eq i40 %10, 4294967296
   %or.cond26 = and i1 %.not, %10
   br i1 %or.cond26, label %15, label %12
 
-12:                                               ; preds = %15, %3
+12:; preds = %15, %3
   %.sroa.414.0 = phi i8 [ %.sroa.414.0.extract.trunc, %3 ], [ %.sroa.414.0.extract.trunc., %15 ]
   %13 = trunc i40 %9 to i32
   %.sroa.519.0.insert.ext = zext i8 %.sroa.414.0 to i32
@@ -39649,25 +39649,25 @@ define internal fastcc void @"_ZN4fish12input_common16InputEventQueuer9parse_csi
   tail call void @_ZN4fish12input_common8KeyEvent22with_shifted_codepoint17hf3b2e7f6f0ef9970E(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %0, i32 %.sroa.017.0.insert.insert, i32 noundef %1, i32 noundef %2)
   ret void
 
-15:                                               ; preds = %3
+17:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN4core7unicode12unicode_data11conversions8to_upper17hd8784791250a8793E(ptr noalias noundef nonnull sret([12 x i8]) align 4 captures(none) dereferenceable(12) %4, i32 noundef %1)
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %17 = load i32, ptr %16, align 8, !range !238, !noundef !4
-  %18 = icmp eq i32 %17, 0
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %20 = load i32, ptr %19, align 4, !range !238
-  %21 = icmp eq i32 %20, 0
-  %spec.select.i = select i1 %21, i64 1, i64 2
-  %.sroa.4.0.i = select i1 %18, i64 %spec.select.i, i64 3
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %19 = load i32, ptr %18, align 8, !range !238, !noundef !4
+  %20 = icmp eq i32 %19, 0
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %22 = load i32, ptr %21, align 4, !range !238
+  %23 = icmp eq i32 %22, 0
+  %spec.select.i = select i1 %23, i64 1, i64 2
+  %.sroa.4.0.i = select i1 %20, i64 %spec.select.i, i64 3
   store i64 0, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
-  %22 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17h322f3fede2d1f748E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5, i32 noundef %1)
+  %24 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator5eq_by17h322f3fede2d1f748E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5, i32 noundef %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.sroa.414.0.extract.trunc. = select i1 %22, i8 %.sroa.414.0.extract.trunc, i8 0
+  %.sroa.414.0.extract.trunc. = select i1 %24, i8 %.sroa.414.0.extract.trunc, i8 0
   br label %12
 }
 
