@@ -2361,6 +2361,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit104.i.i:          ; preds = %777, %775, %733, %.
 795:                                              ; preds = %793, %716
   %.sroa.22.3.i.i = phi i8 [ 0, %793 ], [ %.sroa.22.2.i.i, %716 ]
   %.sroa.10.3.i.i = phi i32 [ %794, %793 ], [ %.sroa.10.2.i.i, %716 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0174.0234.i.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0174.0234.i.i, align 8
   %796 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i52.i = icmp eq i64 %796, 0

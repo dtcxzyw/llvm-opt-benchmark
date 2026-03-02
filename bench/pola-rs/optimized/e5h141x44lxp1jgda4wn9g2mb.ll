@@ -29812,6 +29812,7 @@ define hidden noundef zeroext i1 @_ZN12polars_arrow5array5equal7struct_5equal17h
 79:                                               ; preds = %75
   %80 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %77) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h45f9cb42886eaae9E"(ptr nonnull %76, ptr nonnull %77) #32
           to label %.body.i.i.i.i.i.i.i unwind label %120, !noalias !2138
 
@@ -30085,6 +30086,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17ha07a979dfc780f8dE.exit: ; pred
 204:                                              ; preds = %200
   %205 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %202) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h45f9cb42886eaae9E"(ptr nonnull %201, ptr nonnull %202) #32
           to label %.body.i.i.i.i.i.i.i23 unwind label %245, !noalias !2182
 
@@ -30307,6 +30309,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hcbd74855042ad58bE.exit: ; pred
 300:                                              ; preds = %296
   %301 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %298) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h45f9cb42886eaae9E"(ptr nonnull %297, ptr nonnull %298) #32
           to label %.body.i.i.i.i.i.i.i48 unwind label %341, !noalias !2205
 

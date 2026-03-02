@@ -886,41 +886,43 @@ san_large_extent_decide_guard.exit:               ; preds = %sz_size2index.exit,
 82:                                               ; preds = %75
   %83 = add nuw nsw i64 %3, 63
   %84 = and i64 %83, 8128
-  %85 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 0, -2305843009213693952) %84, i1 true)
-  %86 = xor i64 %85, 63
+  %85 = icmp ne i64 %84, 0
+  call void @llvm.assume(i1 %85)
+  %86 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 0, -2305843009213693952) %84, i1 true)
+  %87 = xor i64 %86, 63
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %87 = icmp eq ptr %0, null
-  br i1 %87, label %93, label %88
+  %88 = icmp eq ptr %0, null
+  br i1 %88, label %94, label %89
 
-88:                                               ; preds = %82
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %90 = load i64, ptr %89, align 8, !tbaa !11
-  %91 = mul i64 %90, 6364136223846793005
-  %92 = add i64 %91, 1442695040888963407
-  store i64 %92, ptr %89, align 8, !tbaa !11
-  br label %97
+89:                                               ; preds = %82
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %91 = load i64, ptr %90, align 8, !tbaa !11
+  %92 = mul i64 %91, 6364136223846793005
+  %93 = add i64 %92, 1442695040888963407
+  store i64 %93, ptr %90, align 8, !tbaa !11
+  br label %98
 
-93:                                               ; preds = %82
-  %94 = ptrtoint ptr %6 to i64
-  %95 = mul i64 %94, 6364136223846793005
-  %96 = add i64 %95, 1442695040888963407
-  br label %97
+94:                                               ; preds = %82
+  %95 = ptrtoint ptr %6 to i64
+  %96 = mul i64 %95, 6364136223846793005
+  %97 = add i64 %96, 1442695040888963407
+  br label %98
 
-97:                                               ; preds = %93, %88
-  %.sink.i26 = phi i64 [ %96, %93 ], [ %92, %88 ]
-  %98 = sub nuw nsw i64 115, %85
-  %99 = lshr i64 %.sink.i26, %98
-  %100 = shl nuw nsw i64 %99, %86
-  %101 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %102 = load ptr, ptr %101, align 8, !tbaa !143
-  %103 = ptrtoint ptr %102 to i64
-  %104 = add i64 %100, %103
-  %105 = inttoptr i64 %104 to ptr
-  store ptr %105, ptr %101, align 8, !tbaa !143
+98:                                               ; preds = %94, %89
+  %.sink.i26 = phi i64 [ %97, %94 ], [ %93, %89 ]
+  %99 = sub nuw nsw i64 115, %86
+  %100 = lshr i64 %.sink.i26, %99
+  %101 = shl nuw nsw i64 %100, %87
+  %102 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %103 = load ptr, ptr %102, align 8, !tbaa !143
+  %104 = ptrtoint ptr %103 to i64
+  %105 = add i64 %101, %104
+  %106 = inttoptr i64 %105 to ptr
+  store ptr %106, ptr %102, align 8, !tbaa !143
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %arena_cache_oblivious_randomize.exit
 
-arena_cache_oblivious_randomize.exit:             ; preds = %san_large_extent_decide_guard.exit, %97, %75
+arena_cache_oblivious_randomize.exit:             ; preds = %san_large_extent_decide_guard.exit, %98, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %56
 }

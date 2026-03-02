@@ -15494,52 +15494,56 @@ define hidden void @"_ZN4core3ptr54drop_in_place$LT$regalloc2..checker..CheckerE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7140)
   %9 = load i32, ptr %7, align 8, !range !7143, !alias.scope !7144, !noalias !7136, !noundef !4
   switch i32 %9, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i.i" [
-    i32 10, label %20
-    i32 3, label %17
+    i32 10, label %22
+    i32 3, label %19
   ]
 
-"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i.i": ; preds = %20, %17
-  %.val1.sink10.i.i.i.i = phi i64 [ %.val3.i.i.i.i, %17 ], [ %.val1.i.i.i.i, %20 ]
+"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i.i": ; preds = %22, %19
+  %.val1.sink13.i.i.i.i = phi i64 [ %.val3.i.i.i.i, %19 ], [ %.val1.i.i.i.i, %22 ]
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.val.i.i.i.i = load ptr, ptr %10, align 8, !alias.scope !7144, !noalias !7136, !nonnull !4, !noundef !4
-  %11 = shl i64 %.val1.sink10.i.i.i.i, 2
-  %12 = and i64 %11, -16
-  %13 = add i64 %.val1.sink10.i.i.i.i, 33
-  %14 = add i64 %13, %12
-  %15 = sub nuw nsw i64 -16, %12
-  %16 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %15
-  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %14, i64 noundef range(i64 0, -9223372036854775807) 16) #24, !noalias !7145
+  %11 = icmp slt i64 %.val1.sink13.i.i.i.i, 4611686018427387903
+  tail call void @llvm.assume(i1 %11)
+  %12 = shl i64 %.val1.sink13.i.i.i.i, 2
+  %13 = and i64 %12, -16
+  %14 = add i64 %13, %.val1.sink13.i.i.i.i
+  %15 = add nsw i64 %14, 33
+  %16 = icmp slt i64 %14, 9223372036854775760
+  tail call void @llvm.assume(i1 %16)
+  %17 = sub nuw nsw i64 -16, %13
+  %18 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %17
+  tail call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef %15, i64 noundef range(i64 0, -9223372036854775807) 16) #24, !noalias !7145
   br label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i.i"
 
-17:                                               ; preds = %.lr.ph.i.i.i
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.val3.i.i.i.i = load i64, ptr %18, align 8, !alias.scope !7144, !noalias !7136, !noundef !4
-  %19 = icmp eq i64 %.val3.i.i.i.i, 0
-  br i1 %19, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i.i", label %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i.i"
+19:                                               ; preds = %.lr.ph.i.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.val3.i.i.i.i = load i64, ptr %20, align 8, !alias.scope !7144, !noalias !7136, !noundef !4
+  %21 = icmp eq i64 %.val3.i.i.i.i, 0
+  br i1 %21, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i.i", label %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i.i"
 
-20:                                               ; preds = %.lr.ph.i.i.i
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.val1.i.i.i.i = load i64, ptr %21, align 8, !alias.scope !7144, !noalias !7136, !noundef !4
-  %22 = icmp eq i64 %.val1.i.i.i.i, 0
-  br i1 %22, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i.i", label %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i.i"
+22:                                               ; preds = %.lr.ph.i.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.val1.i.i.i.i = load i64, ptr %23, align 8, !alias.scope !7144, !noalias !7136, !noundef !4
+  %24 = icmp eq i64 %.val1.i.i.i.i, 0
+  br i1 %24, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i.i", label %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i.i"
 
-"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i.i": ; preds = %20, %17, %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i.i", %.lr.ph.i.i.i
-  %23 = icmp eq i64 %8, %5
-  br i1 %23, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1407bbd905edda8E.llvm.3191862155771161713.exit.i", label %.lr.ph.i.i.i
+"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i.i": ; preds = %22, %19, %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i.i", %.lr.ph.i.i.i
+  %25 = icmp eq i64 %8, %5
+  br i1 %25, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1407bbd905edda8E.llvm.3191862155771161713.exit.i", label %.lr.ph.i.i.i
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1407bbd905edda8E.llvm.3191862155771161713.exit.i": ; preds = %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i.i", %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7146)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7149)
-  %24 = load i64, ptr %0, align 8, !alias.scope !7152, !noalias !7155, !noundef !4
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$regalloc2..checker..CheckerError$GT$$GT$17h2655431b622cc92eE.llvm.3191862155771161713.exit", label %26
+  %26 = load i64, ptr %0, align 8, !alias.scope !7152, !noalias !7155, !noundef !4
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$regalloc2..checker..CheckerError$GT$$GT$17h2655431b622cc92eE.llvm.3191862155771161713.exit", label %28
 
-26:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1407bbd905edda8E.llvm.3191862155771161713.exit.i"
-  %27 = mul nuw i64 %24, 48
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %27, i64 noundef 8) #24, !noalias !7157
+28:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1407bbd905edda8E.llvm.3191862155771161713.exit.i"
+  %29 = mul nuw i64 %26, 48
+  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %29, i64 noundef 8) #24, !noalias !7157
   br label %"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$regalloc2..checker..CheckerError$GT$$GT$17h2655431b622cc92eE.llvm.3191862155771161713.exit"
 
-"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$regalloc2..checker..CheckerError$GT$$GT$17h2655431b622cc92eE.llvm.3191862155771161713.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1407bbd905edda8E.llvm.3191862155771161713.exit.i", %26
+"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$regalloc2..checker..CheckerError$GT$$GT$17h2655431b622cc92eE.llvm.3191862155771161713.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1407bbd905edda8E.llvm.3191862155771161713.exit.i", %28
   ret void
 }
 
@@ -17627,7 +17631,7 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$cranelift_codegen..result..C
     i8 3, label %23
   ]
 
-"_ZN4core3ptr64drop_in_place$LT$cranelift_codegen..verifier..VerifierErrors$GT$17hf8de398123494db9E.exit": ; preds = %55, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1407bbd905edda8E.llvm.3191862155771161713.exit.i.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3191862155771161713.exit.i.i1.i.i", %23, %21, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd34b23c2b950bd71E.llvm.3191862155771161713.exit.i.i", %1
+"_ZN4core3ptr64drop_in_place$LT$cranelift_codegen..verifier..VerifierErrors$GT$17hf8de398123494db9E.exit": ; preds = %57, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1407bbd905edda8E.llvm.3191862155771161713.exit.i.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3191862155771161713.exit.i.i1.i.i", %23, %21, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd34b23c2b950bd71E.llvm.3191862155771161713.exit.i.i", %1
   ret void
 
 3:                                                ; preds = %1
@@ -17726,49 +17730,53 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$cranelift_codegen..result..C
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8104)
   %38 = load i32, ptr %36, align 8, !range !7143, !alias.scope !8107, !noalias !8100, !noundef !4
   switch i32 %38, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i.i.i" [
-    i32 10, label %49
-    i32 3, label %46
+    i32 10, label %51
+    i32 3, label %48
   ]
 
-"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i.i.i": ; preds = %49, %46
-  %.val1.sink10.i.i.i.i.i = phi i64 [ %.val3.i.i.i.i.i, %46 ], [ %.val1.i.i.i.i.i4, %49 ]
+"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i.i.i": ; preds = %51, %48
+  %.val1.sink13.i.i.i.i.i = phi i64 [ %.val3.i.i.i.i.i, %48 ], [ %.val1.i.i.i.i.i4, %51 ]
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %.val.i.i.i.i.i3 = load ptr, ptr %39, align 8, !alias.scope !8107, !noalias !8100, !nonnull !4, !noundef !4
-  %40 = shl i64 %.val1.sink10.i.i.i.i.i, 2
-  %41 = and i64 %40, -16
-  %42 = add i64 %.val1.sink10.i.i.i.i.i, 33
-  %43 = add i64 %42, %41
-  %44 = sub nuw nsw i64 -16, %41
-  %45 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i3, i64 %44
-  tail call void @__rust_dealloc(ptr noundef nonnull %45, i64 noundef %43, i64 noundef range(i64 0, -9223372036854775807) 16) #24, !noalias !8108
+  %40 = icmp slt i64 %.val1.sink13.i.i.i.i.i, 4611686018427387903
+  tail call void @llvm.assume(i1 %40)
+  %41 = shl i64 %.val1.sink13.i.i.i.i.i, 2
+  %42 = and i64 %41, -16
+  %43 = add i64 %42, %.val1.sink13.i.i.i.i.i
+  %44 = add nsw i64 %43, 33
+  %45 = icmp slt i64 %43, 9223372036854775760
+  tail call void @llvm.assume(i1 %45)
+  %46 = sub nuw nsw i64 -16, %42
+  %47 = getelementptr inbounds i8, ptr %.val.i.i.i.i.i3, i64 %46
+  tail call void @__rust_dealloc(ptr noundef nonnull %47, i64 noundef %44, i64 noundef range(i64 0, -9223372036854775807) 16) #24, !noalias !8108
   br label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i.i.i"
 
-46:                                               ; preds = %.lr.ph.i.i.i.i1
-  %47 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %.val3.i.i.i.i.i = load i64, ptr %47, align 8, !alias.scope !8107, !noalias !8100, !noundef !4
-  %48 = icmp eq i64 %.val3.i.i.i.i.i, 0
-  br i1 %48, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i.i.i", label %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i.i.i"
+48:                                               ; preds = %.lr.ph.i.i.i.i1
+  %49 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %.val3.i.i.i.i.i = load i64, ptr %49, align 8, !alias.scope !8107, !noalias !8100, !noundef !4
+  %50 = icmp eq i64 %.val3.i.i.i.i.i, 0
+  br i1 %50, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i.i.i", label %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i.i.i"
 
-49:                                               ; preds = %.lr.ph.i.i.i.i1
-  %50 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %.val1.i.i.i.i.i4 = load i64, ptr %50, align 8, !alias.scope !8107, !noalias !8100, !noundef !4
-  %51 = icmp eq i64 %.val1.i.i.i.i.i4, 0
-  br i1 %51, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i.i.i", label %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i.i.i"
+51:                                               ; preds = %.lr.ph.i.i.i.i1
+  %52 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %.val1.i.i.i.i.i4 = load i64, ptr %52, align 8, !alias.scope !8107, !noalias !8100, !noundef !4
+  %53 = icmp eq i64 %.val1.i.i.i.i.i4, 0
+  br i1 %53, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i.i.i", label %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i.i.i"
 
-"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i.i.i": ; preds = %49, %46, %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i.i.i", %.lr.ph.i.i.i.i1
-  %52 = icmp eq i64 %37, %34
-  br i1 %52, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1407bbd905edda8E.llvm.3191862155771161713.exit.i.i", label %.lr.ph.i.i.i.i1
+"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i.i.i": ; preds = %51, %48, %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i.i.i", %.lr.ph.i.i.i.i1
+  %54 = icmp eq i64 %37, %34
+  br i1 %54, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1407bbd905edda8E.llvm.3191862155771161713.exit.i.i", label %.lr.ph.i.i.i.i1
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1407bbd905edda8E.llvm.3191862155771161713.exit.i.i": ; preds = %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i.i.i", %29
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8109)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8112)
-  %53 = load i64, ptr %30, align 8, !alias.scope !8115, !noalias !8118, !noundef !4
-  %54 = icmp eq i64 %53, 0
-  br i1 %54, label %"_ZN4core3ptr64drop_in_place$LT$cranelift_codegen..verifier..VerifierErrors$GT$17hf8de398123494db9E.exit", label %55
+  %55 = load i64, ptr %30, align 8, !alias.scope !8115, !noalias !8118, !noundef !4
+  %56 = icmp eq i64 %55, 0
+  br i1 %56, label %"_ZN4core3ptr64drop_in_place$LT$cranelift_codegen..verifier..VerifierErrors$GT$17hf8de398123494db9E.exit", label %57
 
-55:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1407bbd905edda8E.llvm.3191862155771161713.exit.i.i"
-  %56 = mul nuw i64 %53, 48
-  tail call void @__rust_dealloc(ptr noundef nonnull %32, i64 noundef %56, i64 noundef 8) #24, !noalias !8120
+57:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1407bbd905edda8E.llvm.3191862155771161713.exit.i.i"
+  %58 = mul nuw i64 %55, 48
+  tail call void @__rust_dealloc(ptr noundef nonnull %32, i64 noundef %58, i64 noundef 8) #24, !noalias !8120
   br label %"_ZN4core3ptr64drop_in_place$LT$cranelift_codegen..verifier..VerifierErrors$GT$17hf8de398123494db9E.exit"
 }
 
@@ -18737,38 +18745,42 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$$u5b$regalloc2..checker..Che
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8643)
   %6 = load i32, ptr %4, align 8, !range !7143, !alias.scope !8643, !noundef !4
   switch i32 %6, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit" [
-    i32 10, label %17
-    i32 3, label %14
+    i32 10, label %19
+    i32 3, label %16
   ]
 
-"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i": ; preds = %17, %14
-  %.val1.sink10.i = phi i64 [ %.val3.i, %14 ], [ %.val1.i, %17 ]
+"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i": ; preds = %19, %16
+  %.val1.sink13.i = phi i64 [ %.val3.i, %16 ], [ %.val1.i, %19 ]
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.val.i = load ptr, ptr %7, align 8, !alias.scope !8643, !nonnull !4, !noundef !4
-  %8 = shl i64 %.val1.sink10.i, 2
-  %9 = and i64 %8, -16
-  %10 = add i64 %.val1.sink10.i, 33
-  %11 = add i64 %10, %9
-  %12 = sub nuw nsw i64 -16, %9
-  %13 = getelementptr inbounds i8, ptr %.val.i, i64 %12
-  tail call void @__rust_dealloc(ptr noundef nonnull %13, i64 noundef %11, i64 noundef range(i64 0, -9223372036854775807) 16) #24, !noalias !8643
+  %8 = icmp slt i64 %.val1.sink13.i, 4611686018427387903
+  tail call void @llvm.assume(i1 %8)
+  %9 = shl i64 %.val1.sink13.i, 2
+  %10 = and i64 %9, -16
+  %11 = add i64 %10, %.val1.sink13.i
+  %12 = add nsw i64 %11, 33
+  %13 = icmp slt i64 %11, 9223372036854775760
+  tail call void @llvm.assume(i1 %13)
+  %14 = sub nuw nsw i64 -16, %10
+  %15 = getelementptr inbounds i8, ptr %.val.i, i64 %14
+  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %12, i64 noundef range(i64 0, -9223372036854775807) 16) #24, !noalias !8643
   br label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit"
 
-14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.val3.i = load i64, ptr %15, align 8, !alias.scope !8643, !noundef !4
-  %16 = icmp eq i64 %.val3.i, 0
-  br i1 %16, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit", label %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i"
+16:                                               ; preds = %.lr.ph
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.val3.i = load i64, ptr %17, align 8, !alias.scope !8643, !noundef !4
+  %18 = icmp eq i64 %.val3.i, 0
+  br i1 %18, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit", label %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i"
 
-17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.val1.i = load i64, ptr %18, align 8, !alias.scope !8643, !noundef !4
-  %19 = icmp eq i64 %.val1.i, 0
-  br i1 %19, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit", label %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i"
+19:                                               ; preds = %.lr.ph
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.val1.i = load i64, ptr %20, align 8, !alias.scope !8643, !noundef !4
+  %21 = icmp eq i64 %.val1.i, 0
+  br i1 %21, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit", label %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i"
 
-"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit": ; preds = %.lr.ph, %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i", %14, %17
-  %20 = icmp eq i64 %5, %1
-  br i1 %20, label %._crit_edge, label %.lr.ph
+"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit": ; preds = %.lr.ph, %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i", %16, %19
+  %22 = icmp eq i64 %5, %1
+  br i1 %22, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit", %2
   ret void
@@ -23381,52 +23393,56 @@ define hidden void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$regalloc2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11012)
   %9 = load i32, ptr %7, align 8, !range !7143, !alias.scope !11015, !noalias !11006, !noundef !4
   switch i32 %9, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i" [
-    i32 10, label %20
-    i32 3, label %17
+    i32 10, label %22
+    i32 3, label %19
   ]
 
-"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i": ; preds = %20, %17
-  %.val1.sink10.i.i.i = phi i64 [ %.val3.i.i.i, %17 ], [ %.val1.i.i.i, %20 ]
+"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i": ; preds = %22, %19
+  %.val1.sink13.i.i.i = phi i64 [ %.val3.i.i.i, %19 ], [ %.val1.i.i.i, %22 ]
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.val.i.i.i = load ptr, ptr %10, align 8, !alias.scope !11015, !noalias !11006, !nonnull !4, !noundef !4
-  %11 = shl i64 %.val1.sink10.i.i.i, 2
-  %12 = and i64 %11, -16
-  %13 = add i64 %.val1.sink10.i.i.i, 33
-  %14 = add i64 %13, %12
-  %15 = sub nuw nsw i64 -16, %12
-  %16 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %15
-  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %14, i64 noundef range(i64 0, -9223372036854775807) 16) #24, !noalias !11016
+  %11 = icmp slt i64 %.val1.sink13.i.i.i, 4611686018427387903
+  tail call void @llvm.assume(i1 %11)
+  %12 = shl i64 %.val1.sink13.i.i.i, 2
+  %13 = and i64 %12, -16
+  %14 = add i64 %13, %.val1.sink13.i.i.i
+  %15 = add nsw i64 %14, 33
+  %16 = icmp slt i64 %14, 9223372036854775760
+  tail call void @llvm.assume(i1 %16)
+  %17 = sub nuw nsw i64 -16, %13
+  %18 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %17
+  tail call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef %15, i64 noundef range(i64 0, -9223372036854775807) 16) #24, !noalias !11016
   br label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i"
 
-17:                                               ; preds = %.lr.ph.i.i
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.val3.i.i.i = load i64, ptr %18, align 8, !alias.scope !11015, !noalias !11006, !noundef !4
-  %19 = icmp eq i64 %.val3.i.i.i, 0
-  br i1 %19, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i", label %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i"
+19:                                               ; preds = %.lr.ph.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.val3.i.i.i = load i64, ptr %20, align 8, !alias.scope !11015, !noalias !11006, !noundef !4
+  %21 = icmp eq i64 %.val3.i.i.i, 0
+  br i1 %21, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i", label %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i"
 
-20:                                               ; preds = %.lr.ph.i.i
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.val1.i.i.i = load i64, ptr %21, align 8, !alias.scope !11015, !noalias !11006, !noundef !4
-  %22 = icmp eq i64 %.val1.i.i.i, 0
-  br i1 %22, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i", label %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i"
+22:                                               ; preds = %.lr.ph.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.val1.i.i.i = load i64, ptr %23, align 8, !alias.scope !11015, !noalias !11006, !noundef !4
+  %24 = icmp eq i64 %.val1.i.i.i, 0
+  br i1 %24, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i", label %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i"
 
-"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i": ; preds = %20, %17, %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i", %.lr.ph.i.i
-  %23 = icmp eq i64 %8, %5
-  br i1 %23, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1407bbd905edda8E.llvm.3191862155771161713.exit", label %.lr.ph.i.i
+"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i": ; preds = %22, %19, %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i.i", %.lr.ph.i.i
+  %25 = icmp eq i64 %8, %5
+  br i1 %25, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1407bbd905edda8E.llvm.3191862155771161713.exit", label %.lr.ph.i.i
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1407bbd905edda8E.llvm.3191862155771161713.exit": ; preds = %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i.i", %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11017)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11020)
-  %24 = load i64, ptr %0, align 8, !alias.scope !11023, !noalias !11026, !noundef !4
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %"_ZN4core3ptr83drop_in_place$LT$alloc..raw_vec..RawVec$LT$regalloc2..checker..CheckerError$GT$$GT$17h39bb13ab6e2eb5daE.llvm.3191862155771161713.exit1", label %26
+  %26 = load i64, ptr %0, align 8, !alias.scope !11023, !noalias !11026, !noundef !4
+  %27 = icmp eq i64 %26, 0
+  br i1 %27, label %"_ZN4core3ptr83drop_in_place$LT$alloc..raw_vec..RawVec$LT$regalloc2..checker..CheckerError$GT$$GT$17h39bb13ab6e2eb5daE.llvm.3191862155771161713.exit1", label %28
 
-26:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1407bbd905edda8E.llvm.3191862155771161713.exit"
-  %27 = mul nuw i64 %24, 48
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %27, i64 noundef 8) #24, !noalias !11028
+28:                                               ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1407bbd905edda8E.llvm.3191862155771161713.exit"
+  %29 = mul nuw i64 %26, 48
+  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %29, i64 noundef 8) #24, !noalias !11028
   br label %"_ZN4core3ptr83drop_in_place$LT$alloc..raw_vec..RawVec$LT$regalloc2..checker..CheckerError$GT$$GT$17h39bb13ab6e2eb5daE.llvm.3191862155771161713.exit1"
 
-"_ZN4core3ptr83drop_in_place$LT$alloc..raw_vec..RawVec$LT$regalloc2..checker..CheckerError$GT$$GT$17h39bb13ab6e2eb5daE.llvm.3191862155771161713.exit1": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1407bbd905edda8E.llvm.3191862155771161713.exit", %26
+"_ZN4core3ptr83drop_in_place$LT$alloc..raw_vec..RawVec$LT$regalloc2..checker..CheckerError$GT$$GT$17h39bb13ab6e2eb5daE.llvm.3191862155771161713.exit1": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha1407bbd905edda8E.llvm.3191862155771161713.exit", %28
   ret void
 }
 
@@ -33815,38 +33831,42 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14496)
   %9 = load i32, ptr %7, align 8, !range !7143, !alias.scope !14499, !noundef !4
   switch i32 %9, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i" [
-    i32 10, label %20
-    i32 3, label %17
+    i32 10, label %22
+    i32 3, label %19
   ]
 
-"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i": ; preds = %20, %17
-  %.val1.sink10.i.i = phi i64 [ %.val3.i.i, %17 ], [ %.val1.i.i, %20 ]
+"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i": ; preds = %22, %19
+  %.val1.sink13.i.i = phi i64 [ %.val3.i.i, %19 ], [ %.val1.i.i, %22 ]
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.val.i.i = load ptr, ptr %10, align 8, !alias.scope !14499, !nonnull !4, !noundef !4
-  %11 = shl i64 %.val1.sink10.i.i, 2
-  %12 = and i64 %11, -16
-  %13 = add i64 %.val1.sink10.i.i, 33
-  %14 = add i64 %13, %12
-  %15 = sub nuw nsw i64 -16, %12
-  %16 = getelementptr inbounds i8, ptr %.val.i.i, i64 %15
-  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %14, i64 noundef range(i64 0, -9223372036854775807) 16) #24, !noalias !14499
+  %11 = icmp slt i64 %.val1.sink13.i.i, 4611686018427387903
+  tail call void @llvm.assume(i1 %11)
+  %12 = shl i64 %.val1.sink13.i.i, 2
+  %13 = and i64 %12, -16
+  %14 = add i64 %13, %.val1.sink13.i.i
+  %15 = add nsw i64 %14, 33
+  %16 = icmp slt i64 %14, 9223372036854775760
+  tail call void @llvm.assume(i1 %16)
+  %17 = sub nuw nsw i64 -16, %13
+  %18 = getelementptr inbounds i8, ptr %.val.i.i, i64 %17
+  tail call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef %15, i64 noundef range(i64 0, -9223372036854775807) 16) #24, !noalias !14499
   br label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i"
 
-17:                                               ; preds = %.lr.ph.i
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.val3.i.i = load i64, ptr %18, align 8, !alias.scope !14499, !noundef !4
-  %19 = icmp eq i64 %.val3.i.i, 0
-  br i1 %19, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i", label %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i"
+19:                                               ; preds = %.lr.ph.i
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.val3.i.i = load i64, ptr %20, align 8, !alias.scope !14499, !noundef !4
+  %21 = icmp eq i64 %.val3.i.i, 0
+  br i1 %21, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i", label %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i"
 
-20:                                               ; preds = %.lr.ph.i
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.val1.i.i = load i64, ptr %21, align 8, !alias.scope !14499, !noundef !4
-  %22 = icmp eq i64 %.val1.i.i, 0
-  br i1 %22, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i", label %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i"
+22:                                               ; preds = %.lr.ph.i
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.val1.i.i = load i64, ptr %23, align 8, !alias.scope !14499, !noundef !4
+  %24 = icmp eq i64 %.val1.i.i, 0
+  br i1 %24, label %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i", label %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i"
 
-"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i": ; preds = %20, %17, %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i", %.lr.ph.i
-  %23 = icmp eq i64 %8, %5
-  br i1 %23, label %"_ZN4core3ptr63drop_in_place$LT$$u5b$regalloc2..checker..CheckerError$u5d$$GT$17hb98c00655e55941eE.llvm.3191862155771161713.exit", label %.lr.ph.i
+"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i": ; preds = %22, %19, %"_ZN4core3ptr128drop_in_place$LT$hashbrown..set..HashSet$LT$regalloc2..VReg$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h0e16cb8f6c4e36afE.exit.sink.split.i.i", %.lr.ph.i
+  %25 = icmp eq i64 %8, %5
+  br i1 %25, label %"_ZN4core3ptr63drop_in_place$LT$$u5b$regalloc2..checker..CheckerError$u5d$$GT$17hb98c00655e55941eE.llvm.3191862155771161713.exit", label %.lr.ph.i
 
 "_ZN4core3ptr63drop_in_place$LT$$u5b$regalloc2..checker..CheckerError$u5d$$GT$17hb98c00655e55941eE.llvm.3191862155771161713.exit": ; preds = %"_ZN4core3ptr53drop_in_place$LT$regalloc2..checker..CheckerError$GT$17hea44433de32fee2cE.exit.i", %1
   ret void
@@ -39321,10 +39341,14 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hde28f6fe7035b411E.l
   %13 = sub nuw i64 -9223372036854775808, %2
   %14 = icmp ule i64 %12, %13
   tail call void @llvm.assume(i1 %14)
-  %15 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %16 = sub nsw i64 0, %10
-  %17 = getelementptr inbounds i8, ptr %15, i64 %16
-  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %12, i64 noundef %2) #24
+  %15 = icmp ult i64 %2, -9223372036854775807
+  tail call void @llvm.assume(i1 %15)
+  %16 = icmp ne i64 %2, 0
+  tail call void @llvm.assume(i1 %16)
+  %17 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %18 = sub nsw i64 0, %10
+  %19 = getelementptr inbounds i8, ptr %17, i64 %18
+  tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %12, i64 noundef %2) #24
   ret void
 }
 

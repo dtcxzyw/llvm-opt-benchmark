@@ -34920,6 +34920,7 @@ _ZN12polars_arrow2io3ipc5write9serialize22write_buffer_from_iter17h592676ba05507
 114:                                              ; preds = %102
   %115 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %113) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h45f9cb42886eaae9E"(ptr nonnull %112, ptr nonnull %113) #32
           to label %common.resume unwind label %134
 
@@ -35272,6 +35273,7 @@ _ZN12polars_arrow2io3ipc5write9serialize22write_buffer_from_iter17hb36bf886ece73
 112:                                              ; preds = %101
   %113 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %111) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h45f9cb42886eaae9E"(ptr nonnull %110, ptr nonnull %111) #32
           to label %common.resume unwind label %132
 

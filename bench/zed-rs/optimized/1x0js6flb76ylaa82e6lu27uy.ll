@@ -8740,6 +8740,7 @@ common.resume:                                    ; preds = %.body, %.body43, %1
   br i1 %.sroa.0.0.i.i, label %95, label %87
 
 87:                                               ; preds = %82
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %70) ]
   %88 = invoke fastcc noundef nonnull ptr @"_ZN4gpui6window13WindowContext18with_element_state28_$u7b$$u7b$closure$u7d$$u7d$17h6253488e383f983fE"(ptr noundef nonnull align 1 %69, ptr noalias noundef readonly align 8 dereferenceable(32) %70)
           to label %89 unwind label %80
 
@@ -9058,6 +9059,7 @@ common.resume:                                    ; preds = %210, %.body64, %.bo
   br i1 %.sroa.0.0.i.i, label %108, label %100
 
 100:                                              ; preds = %95
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %82) ]
   %101 = invoke fastcc noundef nonnull ptr @"_ZN4gpui6window13WindowContext18with_element_state28_$u7b$$u7b$closure$u7d$$u7d$17h2b01f57f36fc8f99E"(ptr noundef nonnull align 1 %81, ptr noalias noundef readonly align 8 dereferenceable(32) %82)
           to label %102 unwind label %93
 

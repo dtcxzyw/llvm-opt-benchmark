@@ -33162,17 +33162,17 @@ define void @_ZN3hir9semantics14SemanticsScope17process_all_names17h6f3736c5be81
   %26 = add i64 %.sroa.5.0.copyload.i, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hdfdfbd0c19a5dc35E.llvm.7838501011795166955(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %7, i64 noundef 8, i64 noundef 16, i64 noundef %26), !noalias !8720
   %27 = load i64, ptr %7, align 8, !range !755, !noalias !8720, !noundef !17
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %29 = load i64, ptr %28, align 8, !noalias !8720, !noundef !17
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %31 = load i64, ptr %30, align 8, !noalias !8720, !noundef !17
+  %28 = icmp ne i64 %27, 0
+  tail call void @llvm.assume(i1 %28)
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %30 = load i64, ptr %29, align 8, !noalias !8720, !noundef !17
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %32 = load i64, ptr %31, align 8, !noalias !8720, !noundef !17
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !8720
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload.i) ]
-  %32 = sub nsw i64 0, %31
-  %33 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %32
-  %34 = icmp ne i64 %27, 0
-  tail call void @llvm.assume(i1 %34)
-  tail call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef %29, i64 noundef %27) #34, !noalias !8720
+  %33 = sub nsw i64 0, %32
+  %34 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i, i64 %33
+  tail call void @__rust_dealloc(ptr noundef nonnull %34, i64 noundef %30, i64 noundef %27) #34, !noalias !8720
   br label %"_ZN78_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$indexmap..Entries$GT$12into_entries17h95d8a426717de442E.exit"
 
 "_ZN78_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u20$indexmap..Entries$GT$12into_entries17h95d8a426717de442E.exit": ; preds = %3, %25

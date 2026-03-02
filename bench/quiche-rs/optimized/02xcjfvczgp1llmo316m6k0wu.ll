@@ -4749,7 +4749,7 @@ define hidden void @_ZN6quiche8recovery10congestion5pacer5Pacer4send17h98d709835
   %or.cond = select i1 %27, i1 %30, i1 false
   br i1 %or.cond, label %43, label %32
 
-31:                                               ; preds = %127, %131, %select.unfold49, %11
+31:                                               ; preds = %128, %132, %select.unfold49, %11
   ret void
 
 32:                                               ; preds = %24
@@ -4820,7 +4820,7 @@ define hidden void @_ZN6quiche8recovery10congestion5pacer5Pacer4send17h98d709835
 
 75:                                               ; preds = %59
   %76 = icmp samesign ult i16 %54, 1087
-  br i1 %76, label %95, label %188
+  br i1 %76, label %95, label %189
 
 77:                                               ; preds = %59
   %78 = sub nuw nsw i16 1075, %54
@@ -4864,170 +4864,172 @@ select.unfold:                                    ; preds = %77, %61, %95, %43
   %103 = call { i64, i32 } @_ZN3std4time7Instant25saturating_duration_since17h3f4637b4614d25b1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, i64 noundef %100, i32 noundef %102)
   %104 = extractvalue { i64, i32 } %103, 0
   %105 = icmp eq i64 %104, %.sroa.0.0.ph
-  br i1 %105, label %106, label %110
+  br i1 %105, label %106, label %111
 
 106:                                              ; preds = %select.unfold
   %107 = extractvalue { i64, i32 } %103, 1
   %108 = icmp ult i32 %107, 1000000000
   call void @llvm.assume(i1 %108)
-  %109 = icmp samesign ugt i32 %107, %.sroa.03.0.sink.i.ph
-  br i1 %109, label %118, label %112
+  %109 = icmp samesign ult i32 %.sroa.03.0.sink.i.ph, 1000000000
+  call void @llvm.assume(i1 %109)
+  %110 = icmp samesign ugt i32 %107, %.sroa.03.0.sink.i.ph
+  br i1 %110, label %119, label %113
 
-110:                                              ; preds = %select.unfold
-  %111 = icmp ugt i64 %104, %.sroa.0.0.ph
-  br i1 %111, label %118, label %112
+111:                                              ; preds = %select.unfold
+  %112 = icmp ugt i64 %104, %.sroa.0.0.ph
+  br i1 %112, label %119, label %113
 
-112:                                              ; preds = %106, %118, %110
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %114 = load i64, ptr %113, align 8, !noundef !3
-  %115 = add i64 %114, %1
-  store i64 %115, ptr %113, align 8
-  %116 = load i64, ptr %0, align 8, !range !12, !noundef !3
-  %117 = trunc nuw i64 %116 to i1
-  br i1 %117, label %127, label %131
+113:                                              ; preds = %106, %119, %111
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %115 = load i64, ptr %114, align 8, !noundef !3
+  %116 = add i64 %115, %1
+  store i64 %116, ptr %114, align 8
+  %117 = load i64, ptr %0, align 8, !range !12, !noundef !3
+  %118 = trunc nuw i64 %117 to i1
+  br i1 %118, label %128, label %132
 
-118:                                              ; preds = %106, %110
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 0, ptr %119, align 8, !alias.scope !453
+119:                                              ; preds = %106, %111
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i64 0, ptr %120, align 8, !alias.scope !453
   store i64 %2, ptr %99, align 8, !alias.scope !453
   store i32 %3, ptr %101, align 8, !alias.scope !453
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %121 = load i64, ptr %120, align 8, !alias.scope !453, !noundef !3
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %123 = load i32, ptr %122, align 8, !range !13, !alias.scope !453, !noundef !3
-  %124 = icmp eq i64 %2, %121
-  %125 = icmp samesign ult i32 %3, %123
-  %126 = icmp slt i64 %2, %121
-  %.sroa.0.0.i.i.i.i.i19 = select i1 %124, i1 %125, i1 %126
-  %.sroa.3.0.i.i20 = select i1 %.sroa.0.0.i.i.i.i.i19, i32 %123, i32 %3
-  %.sroa.0.0.sroa.speculated.i.i21 = select i1 %.sroa.0.0.i.i.i.i.i19, i64 %121, i64 %2
-  store i64 %.sroa.0.0.sroa.speculated.i.i21, ptr %120, align 8, !alias.scope !453
-  store i32 %.sroa.3.0.i.i20, ptr %122, align 8, !alias.scope !453
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %122 = load i64, ptr %121, align 8, !alias.scope !453, !noundef !3
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %124 = load i32, ptr %123, align 8, !range !13, !alias.scope !453, !noundef !3
+  %125 = icmp eq i64 %2, %122
+  %126 = icmp samesign ult i32 %3, %124
+  %127 = icmp slt i64 %2, %122
+  %.sroa.0.0.i.i.i.i.i19 = select i1 %125, i1 %126, i1 %127
+  %.sroa.3.0.i.i20 = select i1 %.sroa.0.0.i.i.i.i.i19, i32 %124, i32 %3
+  %.sroa.0.0.sroa.speculated.i.i21 = select i1 %.sroa.0.0.i.i.i.i.i19, i64 %122, i64 %2
+  store i64 %.sroa.0.0.sroa.speculated.i.i21, ptr %121, align 8, !alias.scope !453
+  store i32 %.sroa.3.0.i.i20, ptr %123, align 8, !alias.scope !453
   store i64 0, ptr %0, align 8, !alias.scope !453
   store i64 0, ptr %25, align 8, !alias.scope !453
   store i32 0, ptr %28, align 8, !alias.scope !453
-  br label %112
+  br label %113
 
-127:                                              ; preds = %112
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %129 = load i64, ptr %128, align 8, !noundef !3
+128:                                              ; preds = %113
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %130 = load i64, ptr %129, align 8, !noundef !3
   store i64 1, ptr %0, align 8
-  store i64 %1, ptr %128, align 8
-  %.not13 = icmp ult i64 %115, %45
-  %130 = icmp eq i64 %129, %1
-  %or.cond16 = and i1 %.not13, %130
-  br i1 %or.cond16, label %31, label %133
+  store i64 %1, ptr %129, align 8
+  %.not13 = icmp ult i64 %116, %45
+  %131 = icmp eq i64 %130, %1
+  %or.cond16 = and i1 %.not13, %131
+  br i1 %or.cond16, label %31, label %134
 
-131:                                              ; preds = %112
+132:                                              ; preds = %113
   store i64 1, ptr %0, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %132, align 8
-  %.not = icmp ult i64 %115, %45
-  br i1 %.not, label %31, label %133
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %1, ptr %133, align 8
+  %.not = icmp ult i64 %116, %45
+  br i1 %.not, label %31, label %134
 
-133:                                              ; preds = %127, %131
-  %134 = uitofp i64 %115 to double
-  %135 = fdiv double %134, %47
-  %136 = bitcast double %135 to i64
-  %137 = and i64 %136, 4503599627370495
-  %138 = or disjoint i64 %137, 4503599627370496
-  %139 = lshr i64 %136, 52
-  %140 = trunc nuw nsw i64 %139 to i16
-  %141 = and i16 %140, 2047
-  %142 = add nsw i16 %141, -1023
-  %143 = icmp samesign ult i16 %141, 992
-  br i1 %143, label %select.unfold49, label %144
+134:                                              ; preds = %128, %132
+  %135 = uitofp i64 %116 to double
+  %136 = fdiv double %135, %47
+  %137 = bitcast double %136 to i64
+  %138 = and i64 %137, 4503599627370495
+  %139 = or disjoint i64 %138, 4503599627370496
+  %140 = lshr i64 %137, 52
+  %141 = trunc nuw nsw i64 %140 to i16
+  %142 = and i16 %141, 2047
+  %143 = add nsw i16 %142, -1023
+  %144 = icmp samesign ult i16 %142, 992
+  br i1 %144, label %select.unfold49, label %145
 
-144:                                              ; preds = %133
-  %145 = icmp samesign ult i16 %141, 1023
-  br i1 %145, label %148, label %146
+145:                                              ; preds = %134
+  %146 = icmp samesign ult i16 %142, 1023
+  br i1 %146, label %149, label %147
 
-146:                                              ; preds = %144
-  %147 = icmp samesign ult i16 %141, 1075
-  br i1 %147, label %164, label %162
+147:                                              ; preds = %145
+  %148 = icmp samesign ult i16 %142, 1075
+  br i1 %148, label %165, label %163
 
-148:                                              ; preds = %144
-  %149 = zext nneg i64 %138 to i128
-  %150 = add nsw i16 %141, -979
-  %151 = zext nneg i16 %150 to i128
-  %152 = shl nuw nsw i128 %149, %151
-  %153 = mul nuw nsw i128 %152, 1000000000
-  %154 = lshr i128 %153, 96
-  %155 = trunc nuw nsw i128 %154 to i32
-  %156 = and i128 %153, 79228162514264337593543949824
-  %157 = icmp ne i128 %156, 39614081257132168796771975168
-  %158 = and i128 %153, 39614081257132168796771975168
-  %159 = icmp ne i128 %158, 0
-  %160 = trunc i128 %154 to i1
-  %narrow18.i32 = or i1 %157, %160
-  %narrow19.i33 = select i1 %159, i1 %narrow18.i32, i1 false
+149:                                              ; preds = %145
+  %150 = zext nneg i64 %139 to i128
+  %151 = add nsw i16 %142, -979
+  %152 = zext nneg i16 %151 to i128
+  %153 = shl nuw nsw i128 %150, %152
+  %154 = mul nuw nsw i128 %153, 1000000000
+  %155 = lshr i128 %154, 96
+  %156 = trunc nuw nsw i128 %155 to i32
+  %157 = and i128 %154, 79228162514264337593543949824
+  %158 = icmp ne i128 %157, 39614081257132168796771975168
+  %159 = and i128 %154, 39614081257132168796771975168
+  %160 = icmp ne i128 %159, 0
+  %161 = trunc i128 %155 to i1
+  %narrow18.i32 = or i1 %158, %161
+  %narrow19.i33 = select i1 %160, i1 %narrow18.i32, i1 false
   %.sroa.0.0.i34 = zext i1 %narrow19.i33 to i32
-  %161 = add nuw nsw i32 %.sroa.0.0.i34, %155
-  %.not7.i35 = icmp eq i32 %161, 1000000000
+  %162 = add nuw nsw i32 %.sroa.0.0.i34, %156
+  %.not7.i35 = icmp eq i32 %162, 1000000000
   %spec.select57 = zext i1 %.not7.i35 to i64
-  %spec.select58 = select i1 %.not7.i35, i32 0, i32 %161
+  %spec.select58 = select i1 %.not7.i35, i32 0, i32 %162
   br label %select.unfold49
 
-162:                                              ; preds = %146
-  %163 = icmp samesign ult i16 %141, 1087
-  br i1 %163, label %182, label %186
+163:                                              ; preds = %147
+  %164 = icmp samesign ult i16 %142, 1087
+  br i1 %164, label %183, label %187
 
-164:                                              ; preds = %146
-  %165 = sub nuw nsw i16 1075, %141
-  %166 = zext nneg i16 %165 to i64
-  %167 = lshr i64 %138, %166
-  %168 = zext nneg i16 %142 to i64
-  %169 = shl i64 %136, %168
-  %170 = and i64 %169, 4503599627370495
-  %171 = zext nneg i64 %170 to i128
-  %172 = mul nuw nsw i128 %171, 1000000000
-  %173 = lshr i128 %172, 52
-  %174 = trunc nuw nsw i128 %173 to i32
-  %175 = and i128 %172, 4503599627369984
-  %176 = icmp ne i128 %175, 2251799813685248
-  %177 = and i128 %172, 2251799813685248
-  %178 = icmp ne i128 %177, 0
-  %179 = trunc i128 %173 to i1
-  %narrow.i26 = or i1 %176, %179
-  %narrow17.i27 = select i1 %178, i1 %narrow.i26, i1 false
+165:                                              ; preds = %147
+  %166 = sub nuw nsw i16 1075, %142
+  %167 = zext nneg i16 %166 to i64
+  %168 = lshr i64 %139, %167
+  %169 = zext nneg i16 %143 to i64
+  %170 = shl i64 %137, %169
+  %171 = and i64 %170, 4503599627370495
+  %172 = zext nneg i64 %171 to i128
+  %173 = mul nuw nsw i128 %172, 1000000000
+  %174 = lshr i128 %173, 52
+  %175 = trunc nuw nsw i128 %174 to i32
+  %176 = and i128 %173, 4503599627369984
+  %177 = icmp ne i128 %176, 2251799813685248
+  %178 = and i128 %173, 2251799813685248
+  %179 = icmp ne i128 %178, 0
+  %180 = trunc i128 %174 to i1
+  %narrow.i26 = or i1 %177, %180
+  %narrow17.i27 = select i1 %179, i1 %narrow.i26, i1 false
   %.sroa.01.0.i28 = zext i1 %narrow17.i27 to i32
-  %180 = add nuw nsw i32 %.sroa.01.0.i28, %174
-  %.not.i29 = icmp eq i32 %180, 1000000000
-  %181 = zext i1 %.not.i29 to i64
-  %spec.select16.i31 = add nuw nsw i64 %167, %181
-  %spec.select59 = select i1 %.not.i29, i32 0, i32 %180
+  %181 = add nuw nsw i32 %.sroa.01.0.i28, %175
+  %.not.i29 = icmp eq i32 %181, 1000000000
+  %182 = zext i1 %.not.i29 to i64
+  %spec.select16.i31 = add nuw nsw i64 %168, %182
+  %spec.select59 = select i1 %.not.i29, i32 0, i32 %181
   br label %select.unfold49
 
-182:                                              ; preds = %162
-  %183 = add nsw i16 %141, -1075
-  %184 = zext nneg i16 %183 to i64
-  %185 = shl nuw i64 %138, %184
+183:                                              ; preds = %163
+  %184 = add nsw i16 %142, -1075
+  %185 = zext nneg i16 %184 to i64
+  %186 = shl nuw i64 %139, %185
   br label %select.unfold49
 
-select.unfold49:                                  ; preds = %164, %148, %182, %133
-  %.sroa.040.0.ph = phi i64 [ %spec.select16.i31, %164 ], [ %185, %182 ], [ 0, %133 ], [ %spec.select57, %148 ]
-  %.sroa.03.0.sink.i22.ph = phi i32 [ %spec.select59, %164 ], [ 0, %182 ], [ 0, %133 ], [ %spec.select58, %148 ]
+select.unfold49:                                  ; preds = %165, %149, %183, %134
+  %.sroa.040.0.ph = phi i64 [ %spec.select16.i31, %165 ], [ %186, %183 ], [ 0, %134 ], [ %spec.select57, %149 ]
+  %.sroa.03.0.sink.i22.ph = phi i32 [ %spec.select59, %165 ], [ 0, %183 ], [ 0, %134 ], [ %spec.select58, %149 ]
   store i64 %.sroa.040.0.ph, ptr %25, align 8
   store i32 %.sroa.03.0.sink.i22.ph, ptr %28, align 8
-  store i64 0, ptr %113, align 8
+  store i64 0, ptr %114, align 8
   store i64 %2, ptr %99, align 8
   store i32 %3, ptr %101, align 8
   store i64 0, ptr %0, align 8
   br label %31
 
-186:                                              ; preds = %162
+187:                                              ; preds = %163
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr @anon.352f663bf95db305e1f66bb6f9924f8d.24, ptr %5, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 72, ptr %187, align 8
+  %188 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 72, ptr %188, align 8
   call void @_ZN4core4time8Duration13from_secs_f6418panic_cold_display17h256c91e5943cf325E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.352f663bf95db305e1f66bb6f9924f8d.26) #17
   unreachable
 
-188:                                              ; preds = %75
+189:                                              ; preds = %75
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @anon.352f663bf95db305e1f66bb6f9924f8d.24, ptr %6, align 8
-  %189 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 72, ptr %189, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 72, ptr %190, align 8
   call void @_ZN4core4time8Duration13from_secs_f6418panic_cold_display17h256c91e5943cf325E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.352f663bf95db305e1f66bb6f9924f8d.26) #17
   unreachable
 }
@@ -8785,13 +8787,13 @@ define hidden void @_ZN6quiche8recovery3rtt8RttStats10update_rtt17h9ca2c75d62d2b
 
 _ZN4core4time8Duration11checked_div17h374d5e2d370f745fE.exit86: ; preds = %151
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %184 = load i64, ptr %182, align 8, !noundef !3
-  %185 = zext i64 %184 to i128
-  %186 = mul nuw nsw i128 %185, 1000000000
-  %187 = load i32, ptr %183, align 8, !range !13, !noundef !3
-  %188 = zext nneg i32 %187 to i128
-  %189 = add nuw nsw i128 %186, %188
+  %183 = load i64, ptr %182, align 8, !noundef !3
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %185 = load i32, ptr %184, align 8, !range !13, !noundef !3
+  %186 = zext i64 %183 to i128
+  %187 = mul nuw nsw i128 %186, 1000000000
+  %188 = zext nneg i32 %185 to i128
+  %189 = add nuw nsw i128 %187, %188
   %190 = zext i64 %.sroa.0.0 to i128
   %191 = mul nuw nsw i128 %190, 1000000000
   %192 = zext nneg i32 %.sroa.13.0 to i128
@@ -8821,11 +8823,11 @@ _ZN4core4time8Duration11checked_div17h374d5e2d370f745fE.exit86: ; preds = %151
   %.sroa.0.0.i88.ph = add nuw nsw i64 %208, %212
   store i64 %.sroa.0.0.i88.ph, ptr %152, align 8
   store i32 %.sroa.4.0.i87.ph, ptr %154, align 8
-  %213 = zext nneg i32 %187 to i64
+  %213 = zext nneg i32 %185 to i64
   %214 = mul nuw nsw i64 %213, 7
   %215 = udiv i64 %214, 1000000000
   %216 = urem i64 %214, 1000000000
-  %217 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %184, i64 7)
+  %217 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %183, i64 7)
   %218 = extractvalue { i64, i1 } %217, 0
   %219 = extractvalue { i64, i1 } %217, 1
   %220 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %218, i64 %215)
@@ -8859,7 +8861,7 @@ _ZN4core4time8Duration11checked_div17h374d5e2d370f745fE.exit94: ; preds = %_ZN4c
   %239 = zext i1 %237 to i64
   %.sroa.0.0.i99.ph = add nuw nsw i64 %234, %239
   store i64 %.sroa.0.0.i99.ph, ptr %182, align 8
-  store i32 %.sroa.4.0.i98.ph, ptr %183, align 8
+  store i32 %.sroa.4.0.i98.ph, ptr %184, align 8
   br label %123
 
 240:                                              ; preds = %_ZN4core4time8Duration11checked_div17h374d5e2d370f745fE.exit86

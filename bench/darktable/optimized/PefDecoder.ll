@@ -1012,8 +1012,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %.bo
   %indvars.iv = phi i64 [ 0, %_ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit ], [ %indvars.iv.next, %60 ]
   %61 = trunc nuw nsw i64 %indvars.iv to i32
   %62 = call noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr noundef nonnull align 8 dereferenceable(48) %37, i32 noundef %61)
-  %63 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
-  store i32 %62, ptr %63, align 4, !tbaa !24
+  %63 = icmp samesign ult i64 %indvars.iv, 4
+  call void @llvm.assume(i1 %63)
+  %64 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
+  store i32 %62, ptr %64, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.loopexit.loopexit, label %60, !llvm.loop !137
@@ -1023,36 +1025,36 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %.bo
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %38, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %64 = phi ptr [ %.pre52, %.loopexit.loopexit ], [ %36, %38 ], [ %36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %65 = call noundef ptr @_ZNK8rawspeed7TiffIFD17getEntryRecursiveENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104) %64, i16 noundef zeroext 513) #23
-  %.not49 = icmp eq ptr %65, null
-  br i1 %.not49, label %83, label %66
+  %65 = phi ptr [ %.pre52, %.loopexit.loopexit ], [ %36, %38 ], [ %36, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %66 = call noundef ptr @_ZNK8rawspeed7TiffIFD17getEntryRecursiveENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104) %65, i16 noundef zeroext 513) #23
+  %.not49 = icmp eq ptr %66, null
+  br i1 %.not49, label %84, label %67
 
-66:                                               ; preds = %.loopexit
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 44
-  %68 = load i32, ptr %67, align 4, !tbaa !101
-  %69 = icmp eq i32 %68, 4
-  br i1 %69, label %70, label %83
+67:                                               ; preds = %.loopexit
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 44
+  %69 = load i32, ptr %68, align 4, !tbaa !101
+  %70 = icmp eq i32 %69, 4
+  br i1 %70, label %71, label %84
 
-70:                                               ; preds = %66
-  %71 = call noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr noundef nonnull align 8 dereferenceable(48) %65, i32 noundef 0)
-  %72 = uitofp i32 %71 to float
-  %73 = load ptr, ptr %5, align 8, !tbaa !18
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 256
-  store float %72, ptr %74, align 4, !tbaa !138
-  %75 = call noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr noundef nonnull align 8 dereferenceable(48) %65, i32 noundef 1)
-  %76 = uitofp i32 %75 to float
-  %77 = load ptr, ptr %5, align 8, !tbaa !18
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 260
-  store float %76, ptr %78, align 4, !tbaa !138
-  %79 = call noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr noundef nonnull align 8 dereferenceable(48) %65, i32 noundef 3)
-  %80 = uitofp i32 %79 to float
-  %81 = load ptr, ptr %5, align 8, !tbaa !18
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 264
-  store float %80, ptr %82, align 4, !tbaa !138
-  br label %83
+71:                                               ; preds = %67
+  %72 = call noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr noundef nonnull align 8 dereferenceable(48) %66, i32 noundef 0)
+  %73 = uitofp i32 %72 to float
+  %74 = load ptr, ptr %5, align 8, !tbaa !18
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 256
+  store float %73, ptr %75, align 4, !tbaa !138
+  %76 = call noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr noundef nonnull align 8 dereferenceable(48) %66, i32 noundef 1)
+  %77 = uitofp i32 %76 to float
+  %78 = load ptr, ptr %5, align 8, !tbaa !18
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 260
+  store float %77, ptr %79, align 4, !tbaa !138
+  %80 = call noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr noundef nonnull align 8 dereferenceable(48) %66, i32 noundef 3)
+  %81 = uitofp i32 %80 to float
+  %82 = load ptr, ptr %5, align 8, !tbaa !18
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 264
+  store float %81, ptr %83, align 4, !tbaa !138
+  br label %84
 
-83:                                               ; preds = %66, %70, %.loopexit
+84:                                               ; preds = %67, %71, %.loopexit
   ret void
 }
 

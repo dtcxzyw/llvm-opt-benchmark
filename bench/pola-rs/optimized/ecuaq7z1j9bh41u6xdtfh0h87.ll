@@ -26907,7 +26907,7 @@ define hidden noundef nonnull ptr @_ZN4pyo35types5tuple16array_into_tuple17h28a2
 
 5:                                                ; preds = %1
   invoke void @_ZN4pyo33err17panic_after_error17h7dee6a99836651baE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8a3a3f038c6b1baba8418046c4c953cd.164) #27
-          to label %6 unwind label %17
+          to label %6 unwind label %18
 
 .lr.ph.preheader:                                 ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -26916,7 +26916,6 @@ define hidden noundef nonnull ptr @_ZN4pyo35types5tuple16array_into_tuple17h28a2
   %.sroa.01.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   br label %.lr.ph
 
 6:                                                ; preds = %5
@@ -26924,49 +26923,51 @@ define hidden noundef nonnull ptr @_ZN4pyo35types5tuple16array_into_tuple17h28a2
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %7 = phi i64 [ %9, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %8 = phi i64 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %8 = phi i64 [ %13, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %9 = add nuw nsw i64 %7, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %.sroa.01.sroa.3.0..sroa_idx, i64 %7
-  %11 = load ptr, ptr %10, align 8, !alias.scope !2428, !nonnull !4, !noundef !4
-  %12 = add nuw i64 %8, 1
-  %13 = tail call noundef i32 @PyTuple_SetItem(ptr noundef nonnull %3, i64 noundef %8, ptr noundef nonnull %11) #26
+  %10 = icmp samesign ult i64 %7, 5
+  tail call void @llvm.assume(i1 %10)
+  %11 = getelementptr inbounds nuw ptr, ptr %.sroa.01.sroa.3.0..sroa_idx, i64 %7
+  %12 = load ptr, ptr %11, align 8, !alias.scope !2428, !nonnull !4, !noundef !4
+  %13 = add nuw i64 %8, 1
+  %14 = tail call noundef i32 @PyTuple_SetItem(ptr noundef nonnull %3, i64 noundef %8, ptr noundef nonnull %12) #26
   %.not.i.i.i = icmp eq i64 %9, 5
   br i1 %.not.i.i.i, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   store i64 5, ptr %2, align 8
-  store i64 %12, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 %13, ptr %.sroa.2.0..sroa_idx, align 8
   invoke void @"_ZN4core3ptr168drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$core..array..iter..IntoIter$LT$pyo3..instance..Bound$LT$pyo3..types..any..PyAny$GT$$C$5_usize$GT$$GT$$GT$17h60f0493e1c88e5c3E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %2)
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
-14:                                               ; preds = %._crit_edge
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %._crit_edge
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @Py_DecRef(ptr noundef nonnull %3) #26
   br label %"_ZN4core3ptr94drop_in_place$LT$$u5b$pyo3..instance..Bound$LT$pyo3..types..any..PyAny$GT$$u3b$$u20$5$u5d$$GT$17h1711ffa5e27aa0bdE.exit"
 
-16:                                               ; preds = %._crit_edge
+17:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %3
 
-"_ZN4core3ptr94drop_in_place$LT$$u5b$pyo3..instance..Bound$LT$pyo3..types..any..PyAny$GT$$u3b$$u20$5$u5d$$GT$17h1711ffa5e27aa0bdE.exit": ; preds = %19, %14
-  %.pn1317 = phi { ptr, i32 } [ %15, %14 ], [ %18, %19 ]
+"_ZN4core3ptr94drop_in_place$LT$$u5b$pyo3..instance..Bound$LT$pyo3..types..any..PyAny$GT$$u3b$$u20$5$u5d$$GT$17h1711ffa5e27aa0bdE.exit": ; preds = %20, %15
+  %.pn1317 = phi { ptr, i32 } [ %16, %15 ], [ %19, %20 ]
   resume { ptr, i32 } %.pn1317
 
-17:                                               ; preds = %5
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %5
+  %19 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2435)
-  br label %19
+  br label %20
 
-19:                                               ; preds = %19, %17
-  %.sroa.0.08.i = phi i64 [ 0, %17 ], [ %21, %19 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %.sroa.0.08.i
-  %21 = add nuw nsw i64 %.sroa.0.08.i, 1
-  %.val7.i = load ptr, ptr %20, align 8, !alias.scope !2435, !nonnull !4, !noundef !4
+20:                                               ; preds = %20, %18
+  %.sroa.0.08.i = phi i64 [ 0, %18 ], [ %22, %20 ]
+  %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %.sroa.0.08.i
+  %22 = add nuw nsw i64 %.sroa.0.08.i, 1
+  %.val7.i = load ptr, ptr %21, align 8, !alias.scope !2435, !nonnull !4, !noundef !4
   tail call void @Py_DecRef(ptr noundef nonnull %.val7.i) #26, !noalias !2435
-  %22 = icmp eq i64 %21, 5
-  br i1 %22, label %"_ZN4core3ptr94drop_in_place$LT$$u5b$pyo3..instance..Bound$LT$pyo3..types..any..PyAny$GT$$u3b$$u20$5$u5d$$GT$17h1711ffa5e27aa0bdE.exit", label %19
+  %23 = icmp eq i64 %22, 5
+  br i1 %23, label %"_ZN4core3ptr94drop_in_place$LT$$u5b$pyo3..instance..Bound$LT$pyo3..types..any..PyAny$GT$$u3b$$u20$5$u5d$$GT$17h1711ffa5e27aa0bdE.exit", label %20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -26978,7 +26979,7 @@ define hidden noundef nonnull ptr @_ZN4pyo35types5tuple16array_into_tuple17hcea5
 
 5:                                                ; preds = %1
   invoke void @_ZN4pyo33err17panic_after_error17h7dee6a99836651baE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8a3a3f038c6b1baba8418046c4c953cd.164) #27
-          to label %6 unwind label %17
+          to label %6 unwind label %18
 
 .lr.ph.preheader:                                 ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -26987,7 +26988,6 @@ define hidden noundef nonnull ptr @_ZN4pyo35types5tuple16array_into_tuple17hcea5
   %.sroa.01.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   br label %.lr.ph
 
 6:                                                ; preds = %5
@@ -26995,49 +26995,51 @@ define hidden noundef nonnull ptr @_ZN4pyo35types5tuple16array_into_tuple17hcea5
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %7 = phi i64 [ %9, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %8 = phi i64 [ %12, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %8 = phi i64 [ %13, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %9 = add nuw nsw i64 %7, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %.sroa.01.sroa.3.0..sroa_idx, i64 %7
-  %11 = load ptr, ptr %10, align 8, !alias.scope !2438, !nonnull !4, !noundef !4
-  %12 = add nuw i64 %8, 1
-  %13 = tail call noundef i32 @PyTuple_SetItem(ptr noundef nonnull %3, i64 noundef %8, ptr noundef nonnull %11) #26
+  %10 = icmp samesign ult i64 %7, 4
+  tail call void @llvm.assume(i1 %10)
+  %11 = getelementptr inbounds nuw ptr, ptr %.sroa.01.sroa.3.0..sroa_idx, i64 %7
+  %12 = load ptr, ptr %11, align 8, !alias.scope !2438, !nonnull !4, !noundef !4
+  %13 = add nuw i64 %8, 1
+  %14 = tail call noundef i32 @PyTuple_SetItem(ptr noundef nonnull %3, i64 noundef %8, ptr noundef nonnull %12) #26
   %.not.i.i.i = icmp eq i64 %9, 4
   br i1 %.not.i.i.i, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   store i64 4, ptr %2, align 8
-  store i64 %12, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 %13, ptr %.sroa.2.0..sroa_idx, align 8
   invoke void @"_ZN4core3ptr168drop_in_place$LT$core..iter..adapters..enumerate..Enumerate$LT$core..array..iter..IntoIter$LT$pyo3..instance..Bound$LT$pyo3..types..any..PyAny$GT$$C$4_usize$GT$$GT$$GT$17h1f204b74e74523d1E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %2)
-          to label %16 unwind label %14
+          to label %17 unwind label %15
 
-14:                                               ; preds = %._crit_edge
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %._crit_edge
+  %16 = landingpad { ptr, i32 }
           cleanup
   call void @Py_DecRef(ptr noundef nonnull %3) #26
   br label %"_ZN4core3ptr94drop_in_place$LT$$u5b$pyo3..instance..Bound$LT$pyo3..types..any..PyAny$GT$$u3b$$u20$4$u5d$$GT$17h2153e0316afff9a4E.exit"
 
-16:                                               ; preds = %._crit_edge
+17:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %3
 
-"_ZN4core3ptr94drop_in_place$LT$$u5b$pyo3..instance..Bound$LT$pyo3..types..any..PyAny$GT$$u3b$$u20$4$u5d$$GT$17h2153e0316afff9a4E.exit": ; preds = %19, %14
-  %.pn1317 = phi { ptr, i32 } [ %15, %14 ], [ %18, %19 ]
+"_ZN4core3ptr94drop_in_place$LT$$u5b$pyo3..instance..Bound$LT$pyo3..types..any..PyAny$GT$$u3b$$u20$4$u5d$$GT$17h2153e0316afff9a4E.exit": ; preds = %20, %15
+  %.pn1317 = phi { ptr, i32 } [ %16, %15 ], [ %19, %20 ]
   resume { ptr, i32 } %.pn1317
 
-17:                                               ; preds = %5
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %5
+  %19 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2445)
-  br label %19
+  br label %20
 
-19:                                               ; preds = %19, %17
-  %.sroa.0.08.i = phi i64 [ 0, %17 ], [ %21, %19 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %.sroa.0.08.i
-  %21 = add nuw nsw i64 %.sroa.0.08.i, 1
-  %.val7.i = load ptr, ptr %20, align 8, !alias.scope !2445, !nonnull !4, !noundef !4
+20:                                               ; preds = %20, %18
+  %.sroa.0.08.i = phi i64 [ 0, %18 ], [ %22, %20 ]
+  %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %.sroa.0.08.i
+  %22 = add nuw nsw i64 %.sroa.0.08.i, 1
+  %.val7.i = load ptr, ptr %21, align 8, !alias.scope !2445, !nonnull !4, !noundef !4
   tail call void @Py_DecRef(ptr noundef nonnull %.val7.i) #26, !noalias !2445
-  %22 = icmp eq i64 %21, 4
-  br i1 %22, label %"_ZN4core3ptr94drop_in_place$LT$$u5b$pyo3..instance..Bound$LT$pyo3..types..any..PyAny$GT$$u3b$$u20$4$u5d$$GT$17h2153e0316afff9a4E.exit", label %19
+  %23 = icmp eq i64 %22, 4
+  br i1 %23, label %"_ZN4core3ptr94drop_in_place$LT$$u5b$pyo3..instance..Bound$LT$pyo3..types..any..PyAny$GT$$u3b$$u20$4$u5d$$GT$17h2153e0316afff9a4E.exit", label %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

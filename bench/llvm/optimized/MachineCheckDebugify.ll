@@ -633,6 +633,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %220, %.thread217
   br label %222
 
 222:                                              ; preds = %.lr.ph, %_ZN4llvm8DebugLocD2Ev.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0200.0249) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0200.0249, align 8
   %223 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i93 = icmp eq i64 %223, 0
@@ -735,6 +736,7 @@ _ZNK4llvm10DIVariable7getNameEv.exit:             ; preds = %_ZNK4llvm6DINode12g
   br label %272
 
 272:                                              ; preds = %.lr.ph253, %_ZNK4llvm10DIVariable7getNameEv.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0197.0252) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i100 = load i64, ptr %.sroa.0197.0252, align 8
   %273 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i100, 4
   %.not.i.i.i101 = icmp eq i64 %273, 0

@@ -6807,6 +6807,7 @@ _ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit: ; preds = %103
   br i1 %156, label %.thread71, label %.thread68
 
 .thread71:                                        ; preds = %167, %119, %19
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.059.079) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.059.079, align 8
   %168 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i58 = icmp eq i64 %168, 0
@@ -7125,6 +7126,7 @@ _ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit.i: ; preds = %89
 120:                                              ; preds = %113, %106
   %.399.i = phi i32 [ %119, %113 ], [ %.298264.i, %106 ]
   %.195.i = phi i32 [ %.094265.i, %113 ], [ %112, %106 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0221.0263.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i135.i = load i64, ptr %.sroa.0221.0263.i, align 8
   %121 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i135.i, 4
   %.not.i.i.i136.i = icmp eq i64 %121, 0
@@ -7219,6 +7221,7 @@ _ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit148.i: ; preds = %134
 165:                                              ; preds = %158, %151
   %.5101.i = phi i32 [ %164, %158 ], [ %.4100273.i, %151 ]
   %.3.i = phi i32 [ %.2274.i, %158 ], [ %157, %151 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0216.0272.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i150.i = load i64, ptr %.sroa.0216.0272.i, align 8
   %166 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i150.i, 4
   %.not.i.i.i151.i = icmp eq i64 %166, 0
@@ -7289,6 +7292,7 @@ _ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit165.i: ; preds = %177
 
 198:                                              ; preds = %191, %_ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit165.i, %184
   %.5.i = phi i32 [ %197, %191 ], [ %.4282.i, %_ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit165.i ], [ %.4282.i, %184 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0211.0281.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i167.i = load i64, ptr %.sroa.0211.0281.i, align 8
   %199 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i167.i, 4
   %.not.i.i.i168.i = icmp eq i64 %199, 0
@@ -7823,6 +7827,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_111IfConverter27Coun
   br i1 %switch.i.i, label %.critedge2.i, label %_ZN4llvm28skipDebugInstructionsForwardINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEET_S4_S4_b.exit
 
 .critedge2.i:                                     ; preds = %.lr.ph.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.08.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.03.08.i, align 8
   %22 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %22, 0
@@ -7869,6 +7874,7 @@ _ZN4llvm28skipDebugInstructionsForwardINS_26MachineInstrBundleIteratorINS_12Mach
   br i1 %switch.i.i69, label %.critedge2.i71, label %_ZN4llvm28skipDebugInstructionsForwardINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEET_S4_S4_b.exit82
 
 .critedge2.i71:                                   ; preds = %.lr.ph.i66
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.08.i67) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i72 = load i64, ptr %.sroa.03.08.i67, align 8
   %35 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i72, 4
   %.not.i.i.i.i73 = icmp eq i64 %35, 0

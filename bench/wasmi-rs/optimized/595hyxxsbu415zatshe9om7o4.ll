@@ -969,7 +969,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %25 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr73drop_in_place$LT$wasmi_collections..string_interner..detail..LenOrder$GT$17ha8b1639eb71a4fcaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #14
-          to label %75 unwind label %26, !noalias !131
+          to label %76 unwind label %26, !noalias !131
 
 26:                                               ; preds = %24
   %27 = landingpad { ptr, i32 }
@@ -1015,7 +1015,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %48 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr73drop_in_place$LT$wasmi_collections..string_interner..detail..LenOrder$GT$17ha8b1639eb71a4fcaE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-          to label %75 unwind label %73
+          to label %76 unwind label %74
 
 49:                                               ; preds = %28
   %50 = zext i16 %7 to i64
@@ -1046,37 +1046,39 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %not..i.i = xor i1 %61, true
   %62 = zext i1 %not..i.i to i64
   %spec.select10.i.i = add nuw nsw i64 %.sroa.0.013.i.i, %62
-  %63 = getelementptr inbounds nuw ptr, ptr %43, i64 %.sroa.0.013.i.i
-  %64 = load ptr, ptr %63, align 8, !alias.scope !144, !noalias !147, !nonnull !3, !noundef !3
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 176
-  store ptr %8, ptr %65, align 8, !noalias !154
-  %66 = trunc nuw nsw i64 %.sroa.0.013.i.i to i16
-  %67 = getelementptr inbounds nuw i8, ptr %64, i64 228
-  store i16 %66, ptr %67, align 4, !noalias !155
+  %63 = icmp samesign ult i64 %.sroa.0.013.i.i, 12
+  tail call void @llvm.assume(i1 %63)
+  %64 = getelementptr inbounds nuw ptr, ptr %43, i64 %.sroa.0.013.i.i
+  %65 = load ptr, ptr %64, align 8, !alias.scope !144, !noalias !147, !nonnull !3, !noundef !3
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 176
+  store ptr %8, ptr %66, align 8, !noalias !154
+  %67 = trunc nuw nsw i64 %.sroa.0.013.i.i to i16
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 228
+  store i16 %67, ptr %68, align 4, !noalias !155
   %.not.i.i.i.i = icmp samesign ugt i64 %spec.select10.i.i, %42
   %or.cond.i.i = select i1 %61, i1 true, i1 %.not.i.i.i.i
-  br i1 %or.cond.i.i, label %68, label %60
+  br i1 %or.cond.i.i, label %69, label %60
 
-68:                                               ; preds = %60
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+69:                                               ; preds = %60
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   store ptr %5, ptr %0, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %59, ptr %70, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %8, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %59, ptr %72, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %59, ptr %71, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %8, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %59, ptr %73, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-73:                                               ; preds = %47
-  %74 = landingpad { ptr, i32 }
+74:                                               ; preds = %47
+  %75 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #15
   unreachable
 
-75:                                               ; preds = %24, %47
+76:                                               ; preds = %24, %47
   %.pn = phi { ptr, i32 } [ %25, %24 ], [ %48, %47 ]
   call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %8, i64 noundef 328, i64 noundef 8) #16
   resume { ptr, i32 } %.pn

@@ -1203,17 +1203,17 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
 
 .noexc:                                           ; preds = %28
   %30 = load i64, ptr %12, align 8, !range !127, !noalias !117, !noundef !9
-  %31 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %32 = load i64, ptr %31, align 8, !noalias !117, !noundef !9
-  %33 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %34 = load i64, ptr %33, align 8, !noalias !117, !noundef !9
+  %31 = icmp ne i64 %30, 0
+  tail call void @llvm.assume(i1 %31)
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %33 = load i64, ptr %32, align 8, !noalias !117, !noundef !9
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %35 = load i64, ptr %34, align 8, !noalias !117, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !117
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.274.0.copyload) ]
-  %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds i8, ptr %.sroa.274.0.copyload, i64 %35
-  %37 = icmp ne i64 %30, 0
-  tail call void @llvm.assume(i1 %37)
-  tail call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %32, i64 noundef %30) #57, !noalias !117
+  %36 = sub nsw i64 0, %35
+  %37 = getelementptr inbounds i8, ptr %.sroa.274.0.copyload, i64 %36
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %33, i64 noundef %30) #57, !noalias !117
   br label %64
 
 38:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17hfb13ae3db7a1b486E.exit47", %24
@@ -1788,17 +1788,17 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
 
 .noexc:                                           ; preds = %28
   %30 = load i64, ptr %12, align 8, !range !127, !noalias !309, !noundef !9
-  %31 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %32 = load i64, ptr %31, align 8, !noalias !309, !noundef !9
-  %33 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %34 = load i64, ptr %33, align 8, !noalias !309, !noundef !9
+  %31 = icmp ne i64 %30, 0
+  tail call void @llvm.assume(i1 %31)
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %33 = load i64, ptr %32, align 8, !noalias !309, !noundef !9
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %35 = load i64, ptr %34, align 8, !noalias !309, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !309
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.274.0.copyload) ]
-  %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds i8, ptr %.sroa.274.0.copyload, i64 %35
-  %37 = icmp ne i64 %30, 0
-  tail call void @llvm.assume(i1 %37)
-  tail call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %32, i64 noundef %30) #57, !noalias !309
+  %36 = sub nsw i64 0, %35
+  %37 = getelementptr inbounds i8, ptr %.sroa.274.0.copyload, i64 %36
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %33, i64 noundef %30) #57, !noalias !309
   br label %64
 
 38:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17hfb13ae3db7a1b486E.exit47", %24
@@ -2373,17 +2373,17 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
 
 .noexc:                                           ; preds = %28
   %30 = load i64, ptr %12, align 8, !range !127, !noalias !500, !noundef !9
-  %31 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %32 = load i64, ptr %31, align 8, !noalias !500, !noundef !9
-  %33 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %34 = load i64, ptr %33, align 8, !noalias !500, !noundef !9
+  %31 = icmp ne i64 %30, 0
+  tail call void @llvm.assume(i1 %31)
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %33 = load i64, ptr %32, align 8, !noalias !500, !noundef !9
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %35 = load i64, ptr %34, align 8, !noalias !500, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !500
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.274.0.copyload) ]
-  %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds i8, ptr %.sroa.274.0.copyload, i64 %35
-  %37 = icmp ne i64 %30, 0
-  tail call void @llvm.assume(i1 %37)
-  tail call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %32, i64 noundef %30) #57, !noalias !500
+  %36 = sub nsw i64 0, %35
+  %37 = getelementptr inbounds i8, ptr %.sroa.274.0.copyload, i64 %36
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %33, i64 noundef %30) #57, !noalias !500
   br label %64
 
 38:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17hfb13ae3db7a1b486E.exit47", %24
@@ -2958,17 +2958,17 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
 
 .noexc:                                           ; preds = %28
   %30 = load i64, ptr %12, align 8, !range !127, !noalias !692, !noundef !9
-  %31 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %32 = load i64, ptr %31, align 8, !noalias !692, !noundef !9
-  %33 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %34 = load i64, ptr %33, align 8, !noalias !692, !noundef !9
+  %31 = icmp ne i64 %30, 0
+  tail call void @llvm.assume(i1 %31)
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %33 = load i64, ptr %32, align 8, !noalias !692, !noundef !9
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %35 = load i64, ptr %34, align 8, !noalias !692, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !692
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.274.0.copyload) ]
-  %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds i8, ptr %.sroa.274.0.copyload, i64 %35
-  %37 = icmp ne i64 %30, 0
-  tail call void @llvm.assume(i1 %37)
-  tail call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %32, i64 noundef %30) #57, !noalias !692
+  %36 = sub nsw i64 0, %35
+  %37 = getelementptr inbounds i8, ptr %.sroa.274.0.copyload, i64 %36
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %33, i64 noundef %30) #57, !noalias !692
   br label %64
 
 38:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17hfb13ae3db7a1b486E.exit47", %24
@@ -32495,6 +32495,7 @@ define void @_ZN8language8Language12with_queries17h35a731be12a94b79E(ptr dead_on
   ]
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i": ; preds = %46
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.8.0.copyload) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.8.0.copyload, i64 noundef %40, i64 noundef 1) #57, !noalias !6947
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8ed78d2dac57283dE.llvm.2236694107137947918.exit419"
 
@@ -32581,6 +32582,7 @@ define void @_ZN8language8Language12with_queries17h35a731be12a94b79E(ptr dead_on
   ]
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i320": ; preds = %64
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.8485.0.copyload) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.8485.0.copyload, i64 noundef %44, i64 noundef 1) #57, !noalias !6995
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8ed78d2dac57283dE.llvm.2236694107137947918.exit421"
 
@@ -32667,6 +32669,7 @@ define void @_ZN8language8Language12with_queries17h35a731be12a94b79E(ptr dead_on
   ]
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i328": ; preds = %82
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.8499.0.copyload) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.8499.0.copyload, i64 noundef %62, i64 noundef 1) #57, !noalias !7043
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8ed78d2dac57283dE.llvm.2236694107137947918.exit419"
 
@@ -32753,6 +32756,7 @@ define void @_ZN8language8Language12with_queries17h35a731be12a94b79E(ptr dead_on
   ]
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i336": ; preds = %100
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.8513.0.copyload) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.8513.0.copyload, i64 noundef %80, i64 noundef 1) #57, !noalias !7091
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8ed78d2dac57283dE.llvm.2236694107137947918.exit419"
 
@@ -32839,6 +32843,7 @@ define void @_ZN8language8Language12with_queries17h35a731be12a94b79E(ptr dead_on
   ]
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i344": ; preds = %118
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.8527.0.copyload) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.8527.0.copyload, i64 noundef %98, i64 noundef 1) #57, !noalias !7139
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8ed78d2dac57283dE.llvm.2236694107137947918.exit419"
 
@@ -32925,6 +32930,7 @@ define void @_ZN8language8Language12with_queries17h35a731be12a94b79E(ptr dead_on
   ]
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i352": ; preds = %136
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.8541.0.copyload) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.8541.0.copyload, i64 noundef %116, i64 noundef 1) #57, !noalias !7187
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8ed78d2dac57283dE.llvm.2236694107137947918.exit419"
 
@@ -33011,6 +33017,7 @@ define void @_ZN8language8Language12with_queries17h35a731be12a94b79E(ptr dead_on
   ]
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i360": ; preds = %154
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.8555.0.copyload) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.8555.0.copyload, i64 noundef %134, i64 noundef 1) #57, !noalias !7235
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8ed78d2dac57283dE.llvm.2236694107137947918.exit419"
 
@@ -33097,6 +33104,7 @@ define void @_ZN8language8Language12with_queries17h35a731be12a94b79E(ptr dead_on
   ]
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i368": ; preds = %172
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.8569.0.copyload) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.8569.0.copyload, i64 noundef %152, i64 noundef 1) #57, !noalias !7283
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8ed78d2dac57283dE.llvm.2236694107137947918.exit419"
 
@@ -33183,6 +33191,7 @@ define void @_ZN8language8Language12with_queries17h35a731be12a94b79E(ptr dead_on
   ]
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17800909824106940392.exit.i.i1.i.i.i376": ; preds = %189
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.8583.0.copyload) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.8583.0.copyload, i64 noundef %170, i64 noundef 1) #57, !noalias !7331
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8ed78d2dac57283dE.llvm.2236694107137947918.exit419"
 

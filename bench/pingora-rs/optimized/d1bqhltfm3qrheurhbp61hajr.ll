@@ -10799,6 +10799,7 @@ select.unfold.i.i:                                ; preds = %165, %164
 
 491:                                              ; preds = %486
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !747
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %478) ]
   store ptr %477, ptr %17, align 8, !noalias !747
   %492 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %478, ptr %492, align 8, !noalias !747
@@ -14132,6 +14133,7 @@ select.unfold.i.i:                                ; preds = %165, %164
 
 491:                                              ; preds = %486
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !1040
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %478) ]
   store ptr %477, ptr %17, align 8, !noalias !1040
   %492 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %478, ptr %492, align 8, !noalias !1040

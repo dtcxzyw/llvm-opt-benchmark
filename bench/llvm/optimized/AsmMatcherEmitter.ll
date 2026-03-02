@@ -52319,6 +52319,8 @@ _ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
   br label %106
 
 87:                                               ; preds = %14
+  %spec.select.i67 = icmp samesign ult i32 %5, 65536
+  tail call void @llvm.assume(i1 %spec.select.i67)
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %89 = load i64, ptr %88, align 8, !tbaa !105
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 264

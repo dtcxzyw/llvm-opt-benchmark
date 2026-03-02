@@ -572,8 +572,8 @@ _ZN10rayon_core8registry12WorkerThread4push17hc3b5b91e42609c5eE.exit: ; preds = 
   %61 = extractvalue { ptr, ptr } %53, 0
   %62 = extractvalue { ptr, ptr } %53, 1
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %61) ]
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %62) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %62) ]
   invoke void @_ZN10rayon_core4join23join_recover_from_panic17h86e0814a9d2b98d9E(ptr noundef nonnull align 128 %2, ptr noundef nonnull align 8 %16, ptr noundef nonnull align 1 %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %62) #21
           to label %125 unwind label %.thread.loopexit.split-lp
 
@@ -6312,6 +6312,7 @@ _ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.exit.i: ;
 
 14:                                               ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h7cf2ae87500fc920E.exit.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !770
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
   store ptr %.0.val, ptr %1, align 8, !noalias !770
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 %.0.i.i.i.i, ptr %15, align 8, !noalias !770
@@ -6338,6 +6339,7 @@ common.resume.i:                                  ; preds = %23, %16
   resume { ptr, i32 } %common.resume.op.i
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha6dd5bbc024295c9E.exit.i": ; preds = %"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17h7cf2ae87500fc920E.exit.i"
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
   %21 = getelementptr inbounds nuw i8, ptr %.0.val, i64 5
   store i8 1, ptr %21, align 1
   %22 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
@@ -6352,7 +6354,6 @@ common.resume.i:                                  ; preds = %23, %16
 
 25:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17ha6dd5bbc024295c9E.exit.i"
   %26 = trunc nuw i8 %.0.i.i.i.i to i1
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
   br i1 %26, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i.i, label %27
 
 27:                                               ; preds = %25

@@ -30775,6 +30775,7 @@ define internal { ptr, ptr } @"_ZN6client6Client24add_message_handler_impl28_$u7
 
 49:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !8408
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %36) ]
   store ptr %35, ptr %10, align 8, !noalias !8408
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %36, ptr %50, align 8, !noalias !8408
@@ -31032,6 +31033,7 @@ define internal { ptr, ptr } @"_ZN6client6Client24add_message_handler_impl28_$u7
 
 51:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !8457
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %38) ]
   store ptr %37, ptr %11, align 8, !noalias !8457
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %38, ptr %52, align 8, !noalias !8457
@@ -78169,7 +78171,6 @@ default.unreachable:                              ; preds = %.noexc
   %90 = extractvalue { ptr, ptr } %74, 0
   %91 = extractvalue { ptr, ptr } %74, 1
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %90) ]
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %91) ]
   br label %92
 
 92:                                               ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hd9d4ac3d4735b80cE.llvm.4784060810856971783.exit", %89

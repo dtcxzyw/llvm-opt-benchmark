@@ -52372,6 +52372,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 .body.i:                                          ; preds = %186, %178, %134, %125
   %.pn25.i = phi { ptr, i32 } [ %.pn.i, %134 ], [ %126, %125 ], [ %179, %186 ], [ %179, %178 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %122) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %121, ptr nonnull %122) #32
           to label %.thread.i unwind label %206, !noalias !3423
 
@@ -52394,6 +52395,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 134:                                              ; preds = %140, %135
   %.pn.i = phi { ptr, i32 } [ %136, %135 ], [ %141, %140 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %131) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %130, ptr nonnull %131) #32
           to label %.body.i unwind label %206, !noalias !3423
 
@@ -52405,7 +52407,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 137:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3423
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %121) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %122) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %130) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %131) ]
   invoke void @_ZN14polars_compute11comparisons9dyn_array27array_tot_eq_missing_kernel17hde3a673494763fd7E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 1 %121, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %122, ptr noundef nonnull align 1 %130, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %131)
           to label %138 unwind label %135, !noalias !3423
 
@@ -52852,6 +52856,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 .body.i:                                          ; preds = %184, %176, %132, %123
   %.pn25.i = phi { ptr, i32 } [ %.pn.i, %132 ], [ %124, %123 ], [ %177, %184 ], [ %177, %176 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %120) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %119, ptr nonnull %120) #32
           to label %.thread.i unwind label %204, !noalias !3434
 
@@ -52874,6 +52879,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 132:                                              ; preds = %138, %133
   %.pn.i = phi { ptr, i32 } [ %134, %133 ], [ %139, %138 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %129) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %128, ptr nonnull %129) #32
           to label %.body.i unwind label %204, !noalias !3434
 
@@ -52885,7 +52891,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 135:                                              ; preds = %127
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3434
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %119) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %120) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %128) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %129) ]
   invoke void @_ZN14polars_compute11comparisons9dyn_array27array_tot_eq_missing_kernel17hde3a673494763fd7E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 1 %119, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %120, ptr noundef nonnull align 1 %128, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %129)
           to label %136 unwind label %133, !noalias !3434
 
@@ -53332,6 +53340,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 .body.i:                                          ; preds = %186, %178, %134, %125
   %.pn25.i = phi { ptr, i32 } [ %.pn.i, %134 ], [ %126, %125 ], [ %179, %186 ], [ %179, %178 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %122) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %121, ptr nonnull %122) #32
           to label %.thread.i unwind label %206, !noalias !3445
 
@@ -53354,6 +53363,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 134:                                              ; preds = %140, %135
   %.pn.i = phi { ptr, i32 } [ %136, %135 ], [ %141, %140 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %131) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %130, ptr nonnull %131) #32
           to label %.body.i unwind label %206, !noalias !3445
 
@@ -53365,7 +53375,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 137:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3445
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %121) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %122) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %130) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %131) ]
   invoke void @_ZN14polars_compute11comparisons9dyn_array27array_tot_eq_missing_kernel17hde3a673494763fd7E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 1 %121, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %122, ptr noundef nonnull align 1 %130, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %131)
           to label %138 unwind label %135, !noalias !3445
 
@@ -53812,6 +53824,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 .body.i:                                          ; preds = %186, %178, %134, %125
   %.pn25.i = phi { ptr, i32 } [ %.pn.i, %134 ], [ %126, %125 ], [ %179, %186 ], [ %179, %178 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %122) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %121, ptr nonnull %122) #32
           to label %.thread.i unwind label %206, !noalias !3456
 
@@ -53834,6 +53847,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 134:                                              ; preds = %140, %135
   %.pn.i = phi { ptr, i32 } [ %136, %135 ], [ %141, %140 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %131) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %130, ptr nonnull %131) #32
           to label %.body.i unwind label %206, !noalias !3456
 
@@ -53845,7 +53859,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 137:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3456
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %121) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %122) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %130) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %131) ]
   invoke void @_ZN14polars_compute11comparisons9dyn_array27array_tot_eq_missing_kernel17hde3a673494763fd7E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 1 %121, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %122, ptr noundef nonnull align 1 %130, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %131)
           to label %138 unwind label %135, !noalias !3456
 
@@ -54344,6 +54360,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 .body.i:                                          ; preds = %184, %176, %132, %123
   %.pn25.i = phi { ptr, i32 } [ %.pn.i, %132 ], [ %124, %123 ], [ %177, %184 ], [ %177, %176 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %120) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %119, ptr nonnull %120) #32
           to label %.thread.i unwind label %204, !noalias !3467
 
@@ -54366,6 +54383,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 132:                                              ; preds = %138, %133
   %.pn.i = phi { ptr, i32 } [ %134, %133 ], [ %139, %138 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %129) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %128, ptr nonnull %129) #32
           to label %.body.i unwind label %204, !noalias !3467
 
@@ -54377,7 +54395,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 135:                                              ; preds = %127
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3467
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %119) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %120) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %128) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %129) ]
   invoke void @_ZN14polars_compute11comparisons9dyn_array27array_tot_eq_missing_kernel17hde3a673494763fd7E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 1 %119, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %120, ptr noundef nonnull align 1 %128, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %129)
           to label %136 unwind label %133, !noalias !3467
 
@@ -54820,6 +54840,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 .body.i:                                          ; preds = %184, %176, %132, %123
   %.pn25.i = phi { ptr, i32 } [ %.pn.i, %132 ], [ %124, %123 ], [ %177, %184 ], [ %177, %176 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %120) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %119, ptr nonnull %120) #32
           to label %.thread.i unwind label %204, !noalias !3478
 
@@ -54842,6 +54863,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 132:                                              ; preds = %138, %133
   %.pn.i = phi { ptr, i32 } [ %134, %133 ], [ %139, %138 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %129) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %128, ptr nonnull %129) #32
           to label %.body.i unwind label %204, !noalias !3478
 
@@ -54853,7 +54875,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 135:                                              ; preds = %127
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3478
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %119) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %120) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %128) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %129) ]
   invoke void @_ZN14polars_compute11comparisons9dyn_array27array_tot_eq_missing_kernel17hde3a673494763fd7E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 1 %119, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %120, ptr noundef nonnull align 1 %128, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %129)
           to label %136 unwind label %133, !noalias !3478
 
@@ -55296,6 +55320,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 .body.i:                                          ; preds = %184, %176, %132, %123
   %.pn25.i = phi { ptr, i32 } [ %.pn.i, %132 ], [ %124, %123 ], [ %177, %184 ], [ %177, %176 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %120) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %119, ptr nonnull %120) #32
           to label %.thread.i unwind label %204, !noalias !3489
 
@@ -55318,6 +55343,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 132:                                              ; preds = %138, %133
   %.pn.i = phi { ptr, i32 } [ %134, %133 ], [ %139, %138 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %129) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %128, ptr nonnull %129) #32
           to label %.body.i unwind label %204, !noalias !3489
 
@@ -55329,7 +55355,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 135:                                              ; preds = %127
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3489
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %119) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %120) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %128) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %129) ]
   invoke void @_ZN14polars_compute11comparisons9dyn_array27array_tot_eq_missing_kernel17hde3a673494763fd7E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 1 %119, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %120, ptr noundef nonnull align 1 %128, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %129)
           to label %136 unwind label %133, !noalias !3489
 
@@ -55774,6 +55802,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 .body.i:                                          ; preds = %184, %176, %132, %123
   %.pn25.i = phi { ptr, i32 } [ %.pn.i, %132 ], [ %124, %123 ], [ %177, %184 ], [ %177, %176 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %120) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %119, ptr nonnull %120) #32
           to label %.thread.i unwind label %204, !noalias !3500
 
@@ -55796,6 +55825,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 132:                                              ; preds = %138, %133
   %.pn.i = phi { ptr, i32 } [ %134, %133 ], [ %139, %138 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %129) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %128, ptr nonnull %129) #32
           to label %.body.i unwind label %204, !noalias !3500
 
@@ -55807,7 +55837,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 135:                                              ; preds = %127
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3500
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %119) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %120) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %128) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %129) ]
   invoke void @_ZN14polars_compute11comparisons9dyn_array27array_tot_eq_missing_kernel17hde3a673494763fd7E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 1 %119, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %120, ptr noundef nonnull align 1 %128, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %129)
           to label %136 unwind label %133, !noalias !3500
 
@@ -56248,6 +56280,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 .body.i:                                          ; preds = %182, %174, %130, %121
   %.pn25.i = phi { ptr, i32 } [ %.pn.i, %130 ], [ %122, %121 ], [ %175, %182 ], [ %175, %174 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %118) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %117, ptr nonnull %118) #32
           to label %.thread.i unwind label %202, !noalias !3511
 
@@ -56270,6 +56303,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 130:                                              ; preds = %136, %131
   %.pn.i = phi { ptr, i32 } [ %132, %131 ], [ %137, %136 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %127) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %126, ptr nonnull %127) #32
           to label %.body.i unwind label %202, !noalias !3511
 
@@ -56281,7 +56315,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 133:                                              ; preds = %125
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3511
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %117) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %118) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %126) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %127) ]
   invoke void @_ZN14polars_compute11comparisons9dyn_array27array_tot_eq_missing_kernel17hde3a673494763fd7E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 1 %117, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %118, ptr noundef nonnull align 1 %126, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %127)
           to label %134 unwind label %131, !noalias !3511
 
@@ -56782,6 +56818,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 .body.i:                                          ; preds = %186, %178, %133, %124
   %.pn25.i = phi { ptr, i32 } [ %.pn.i, %133 ], [ %125, %124 ], [ %179, %186 ], [ %179, %178 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %121) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %120, ptr nonnull %121) #32
           to label %.thread.i unwind label %206, !noalias !3522
 
@@ -56804,6 +56841,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 133:                                              ; preds = %140, %134
   %.pn.i = phi { ptr, i32 } [ %135, %134 ], [ %141, %140 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %130) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %129, ptr nonnull %130) #32
           to label %.body.i unwind label %206, !noalias !3522
 
@@ -56815,7 +56853,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 136:                                              ; preds = %128
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3522
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %120) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %121) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %129) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %130) ]
   invoke void @_ZN14polars_compute11comparisons9dyn_array27array_tot_ne_missing_kernel17h5ca457670296474dE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 1 %120, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %121, ptr noundef nonnull align 1 %129, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %130)
           to label %137 unwind label %134, !noalias !3522
 
@@ -57403,6 +57443,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 .body.i:                                          ; preds = %182, %174, %129, %120
   %.pn25.i = phi { ptr, i32 } [ %.pn.i, %129 ], [ %121, %120 ], [ %175, %182 ], [ %175, %174 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %117) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %116, ptr nonnull %117) #32
           to label %.thread.i unwind label %202, !noalias !3533
 
@@ -57425,6 +57466,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 129:                                              ; preds = %136, %130
   %.pn.i = phi { ptr, i32 } [ %131, %130 ], [ %137, %136 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %126) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %125, ptr nonnull %126) #32
           to label %.body.i unwind label %202, !noalias !3533
 
@@ -57436,7 +57478,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 132:                                              ; preds = %124
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3533
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %116) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %117) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %125) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %126) ]
   invoke void @_ZN14polars_compute11comparisons9dyn_array27array_tot_ne_missing_kernel17h5ca457670296474dE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 1 %116, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %117, ptr noundef nonnull align 1 %125, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %126)
           to label %133 unwind label %130, !noalias !3533
 
@@ -57923,6 +57967,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 .body.i:                                          ; preds = %184, %176, %131, %122
   %.pn25.i = phi { ptr, i32 } [ %.pn.i, %131 ], [ %123, %122 ], [ %177, %184 ], [ %177, %176 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %119) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %118, ptr nonnull %119) #32
           to label %.thread.i unwind label %204, !noalias !3544
 
@@ -57945,6 +57990,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 131:                                              ; preds = %138, %132
   %.pn.i = phi { ptr, i32 } [ %133, %132 ], [ %139, %138 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %128) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %127, ptr nonnull %128) #32
           to label %.body.i unwind label %204, !noalias !3544
 
@@ -57956,7 +58002,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 134:                                              ; preds = %126
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3544
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %118) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %119) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %127) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %128) ]
   invoke void @_ZN14polars_compute11comparisons9dyn_array27array_tot_ne_missing_kernel17h5ca457670296474dE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 1 %118, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %119, ptr noundef nonnull align 1 %127, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %128)
           to label %135 unwind label %132, !noalias !3544
 
@@ -58447,6 +58495,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 .body.i:                                          ; preds = %186, %178, %133, %124
   %.pn25.i = phi { ptr, i32 } [ %.pn.i, %133 ], [ %125, %124 ], [ %179, %186 ], [ %179, %178 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %121) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %120, ptr nonnull %121) #32
           to label %.thread.i unwind label %206, !noalias !3555
 
@@ -58469,6 +58518,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 133:                                              ; preds = %140, %134
   %.pn.i = phi { ptr, i32 } [ %135, %134 ], [ %141, %140 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %130) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %129, ptr nonnull %130) #32
           to label %.body.i unwind label %206, !noalias !3555
 
@@ -58480,7 +58530,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 136:                                              ; preds = %128
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3555
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %120) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %121) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %129) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %130) ]
   invoke void @_ZN14polars_compute11comparisons9dyn_array27array_tot_ne_missing_kernel17h5ca457670296474dE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 1 %120, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %121, ptr noundef nonnull align 1 %129, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %130)
           to label %137 unwind label %134, !noalias !3555
 
@@ -58967,6 +59019,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 .body.i:                                          ; preds = %184, %176, %131, %122
   %.pn25.i = phi { ptr, i32 } [ %.pn.i, %131 ], [ %123, %122 ], [ %177, %184 ], [ %177, %176 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %119) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %118, ptr nonnull %119) #32
           to label %.thread.i unwind label %204, !noalias !3566
 
@@ -58989,6 +59042,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 131:                                              ; preds = %138, %132
   %.pn.i = phi { ptr, i32 } [ %133, %132 ], [ %139, %138 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %128) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %127, ptr nonnull %128) #32
           to label %.body.i unwind label %204, !noalias !3566
 
@@ -59000,7 +59054,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 134:                                              ; preds = %126
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3566
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %118) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %119) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %127) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %128) ]
   invoke void @_ZN14polars_compute11comparisons9dyn_array27array_tot_ne_missing_kernel17h5ca457670296474dE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 1 %118, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %119, ptr noundef nonnull align 1 %127, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %128)
           to label %135 unwind label %132, !noalias !3566
 
@@ -59491,6 +59547,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 .body.i:                                          ; preds = %186, %178, %133, %124
   %.pn25.i = phi { ptr, i32 } [ %.pn.i, %133 ], [ %125, %124 ], [ %179, %186 ], [ %179, %178 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %121) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %120, ptr nonnull %121) #32
           to label %.thread.i unwind label %206, !noalias !3577
 
@@ -59513,6 +59570,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 133:                                              ; preds = %140, %134
   %.pn.i = phi { ptr, i32 } [ %135, %134 ], [ %141, %140 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %130) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %129, ptr nonnull %130) #32
           to label %.body.i unwind label %206, !noalias !3577
 
@@ -59524,7 +59582,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 136:                                              ; preds = %128
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3577
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %120) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %121) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %129) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %130) ]
   invoke void @_ZN14polars_compute11comparisons9dyn_array27array_tot_ne_missing_kernel17h5ca457670296474dE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 1 %120, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %121, ptr noundef nonnull align 1 %129, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %130)
           to label %137 unwind label %134, !noalias !3577
 
@@ -60015,6 +60075,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 .body.i:                                          ; preds = %184, %176, %131, %122
   %.pn25.i = phi { ptr, i32 } [ %.pn.i, %131 ], [ %123, %122 ], [ %177, %184 ], [ %177, %176 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %119) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %118, ptr nonnull %119) #32
           to label %.thread.i unwind label %204, !noalias !3588
 
@@ -60037,6 +60098,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 131:                                              ; preds = %138, %132
   %.pn.i = phi { ptr, i32 } [ %133, %132 ], [ %139, %138 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %128) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %127, ptr nonnull %128) #32
           to label %.body.i unwind label %204, !noalias !3588
 
@@ -60048,7 +60110,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 134:                                              ; preds = %126
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3588
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %118) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %119) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %127) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %128) ]
   invoke void @_ZN14polars_compute11comparisons9dyn_array27array_tot_ne_missing_kernel17h5ca457670296474dE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 1 %118, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %119, ptr noundef nonnull align 1 %127, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %128)
           to label %135 unwind label %132, !noalias !3588
 
@@ -60640,6 +60704,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 .body.i:                                          ; preds = %184, %176, %131, %122
   %.pn25.i = phi { ptr, i32 } [ %.pn.i, %131 ], [ %123, %122 ], [ %177, %184 ], [ %177, %176 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %119) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %118, ptr nonnull %119) #32
           to label %.thread.i unwind label %204, !noalias !3599
 
@@ -60662,6 +60727,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 131:                                              ; preds = %138, %132
   %.pn.i = phi { ptr, i32 } [ %133, %132 ], [ %139, %138 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %128) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %127, ptr nonnull %128) #32
           to label %.body.i unwind label %204, !noalias !3599
 
@@ -60673,7 +60739,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 134:                                              ; preds = %126
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3599
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %118) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %119) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %127) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %128) ]
   invoke void @_ZN14polars_compute11comparisons9dyn_array27array_tot_ne_missing_kernel17h5ca457670296474dE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 1 %118, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %119, ptr noundef nonnull align 1 %127, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %128)
           to label %135 unwind label %132, !noalias !3599
 
@@ -61160,6 +61228,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 .body.i:                                          ; preds = %184, %176, %131, %122
   %.pn25.i = phi { ptr, i32 } [ %.pn.i, %131 ], [ %123, %122 ], [ %177, %184 ], [ %177, %176 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %119) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %118, ptr nonnull %119) #32
           to label %.thread.i unwind label %204, !noalias !3610
 
@@ -61182,6 +61251,7 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 
 131:                                              ; preds = %138, %132
   %.pn.i = phi { ptr, i32 } [ %133, %132 ], [ %139, %138 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %128) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr %127, ptr nonnull %128) #32
           to label %.body.i unwind label %204, !noalias !3610
 
@@ -61193,7 +61263,9 @@ _ZN12polars_arrow6bitmap9immutable6Bitmap3get17he4474c70dc73f7abE.exit38.thread.
 134:                                              ; preds = %126
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3610
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %118) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %119) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %127) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %128) ]
   invoke void @_ZN14polars_compute11comparisons9dyn_array27array_tot_ne_missing_kernel17h5ca457670296474dE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %5, ptr noundef nonnull align 1 %118, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %119, ptr noundef nonnull align 1 %127, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %128)
           to label %135 unwind label %132, !noalias !3610
 
@@ -61725,6 +61797,7 @@ define hidden void @_ZN14polars_compute32trim_lists_to_normalized_offsets37trim_
 87:                                               ; preds = %60
   %88 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %62) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr nonnull %61, ptr nonnull %62) #32
           to label %.body48 unwind label %89
 
@@ -62072,6 +62145,7 @@ define hidden void @_ZN14polars_compute32trim_lists_to_normalized_offsets37trim_
 85:                                               ; preds = %58
   %86 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %60) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr nonnull %59, ptr nonnull %60) #32
           to label %.body48 unwind label %87
 

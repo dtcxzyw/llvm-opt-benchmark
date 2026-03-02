@@ -112434,6 +112434,8 @@ _ZNK4llvm10IRPosition14getAnchorScopeEv.exit.thread.i.i: ; preds = %_ZNK4llvm10I
   %switch.not.i = icmp eq i8 %256, 0
   call void @llvm.assume(i1 %switch.not.i)
   %257 = and i64 %.0.copyload.i.i.i.i.i.i, -4
+  %.not.i.i = icmp ne i64 %257, 0
+  call void @llvm.assume(i1 %.not.i.i)
   %258 = inttoptr i64 %257 to ptr
   %259 = load i8, ptr %258, align 8, !tbaa !77
   %cond.i = icmp eq i8 %259, 0

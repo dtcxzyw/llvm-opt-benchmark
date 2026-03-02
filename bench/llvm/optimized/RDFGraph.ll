@@ -7503,6 +7503,7 @@ _ZNK4llvm3rdf8CodeNode7membersERKNS0_13DataFlowGraphE.exit: ; preds = %_ZNK4llvm
   br label %320
 
 320:                                              ; preds = %.lr.ph590, %319
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0506.0588) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0506.0588, align 8
   %321 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i228 = icmp eq i64 %321, 0

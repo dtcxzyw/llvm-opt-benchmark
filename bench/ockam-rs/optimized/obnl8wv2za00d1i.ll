@@ -2145,13 +2145,13 @@ common.ret:                                       ; preds = %"_ZN10ockam_node7co
           to label %374 unwind label %364
 
 711:                                              ; preds = %677
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.435.0.copyload.i) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %204)
   call void @llvm.lifetime.end.p0(ptr nonnull %205), !noalias !115
   store i8 1, ptr %399, align 8, !noalias !115
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %206)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9325)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.435.0.copyload.i) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %215)
   br label %712
 

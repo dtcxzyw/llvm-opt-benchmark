@@ -9613,6 +9613,7 @@ _ZNSt6vectorIPN4llvm12MachineInstrESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_c
 
 _ZNSt6vectorIPN4llvm12MachineInstrESaIS2_EE9push_backEOS2_.exit.i: ; preds = %_ZNSt6vectorIPN4llvm12MachineInstrESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, %173
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.06.010.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i35 = load i64, ptr %.sroa.06.010.i, align 8
   %195 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i35, 4
   %.not.i.i.i.i = icmp eq i64 %195, 0

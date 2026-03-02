@@ -66253,6 +66253,7 @@ _ZN12polars_arrow5array5Array10null_count17h5df6b414b464f103E.exit: ; preds = %3
 76:                                               ; preds = %.critedge
   %77 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %75) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr nonnull %74, ptr nonnull %75) #28
           to label %common.resume unwind label %149
 
@@ -66533,6 +66534,7 @@ common.resume:                                    ; preds = %.thread226, %.crite
 191:                                              ; preds = %188
   %192 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %189) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr nonnull %190, ptr nonnull %189) #28
           to label %common.resume unwind label %149
 
@@ -67131,6 +67133,7 @@ _ZN12polars_arrow5array5Array10null_count17h22a1db255fd35651E.exit: ; preds = %3
 80:                                               ; preds = %.critedge
   %81 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %79) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr nonnull %78, ptr nonnull %79) #28
           to label %common.resume unwind label %153
 
@@ -67411,6 +67414,7 @@ common.resume:                                    ; preds = %.thread226, %.crite
 195:                                              ; preds = %192
   %196 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %193) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h9e1e7f6f77e8dab7E"(ptr nonnull %194, ptr nonnull %193) #28
           to label %common.resume unwind label %153
 

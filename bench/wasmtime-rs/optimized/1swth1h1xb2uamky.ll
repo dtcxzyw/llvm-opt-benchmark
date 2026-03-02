@@ -45508,10 +45508,14 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hde28f6fe7035b411E.l
   %13 = sub nuw i64 -9223372036854775808, %2
   %14 = icmp ule i64 %12, %13
   tail call void @llvm.assume(i1 %14)
-  %15 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
-  %16 = sub nsw i64 0, %10
-  %17 = getelementptr inbounds i8, ptr %15, i64 %16
-  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %12, i64 noundef %2) #22
+  %15 = icmp ult i64 %2, -9223372036854775807
+  tail call void @llvm.assume(i1 %15)
+  %16 = icmp ne i64 %2, 0
+  tail call void @llvm.assume(i1 %16)
+  %17 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
+  %18 = sub nsw i64 0, %10
+  %19 = getelementptr inbounds i8, ptr %17, i64 %18
+  tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %12, i64 noundef %2) #22
   ret void
 }
 

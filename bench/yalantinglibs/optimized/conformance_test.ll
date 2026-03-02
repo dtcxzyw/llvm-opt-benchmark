@@ -3744,7 +3744,9 @@ if.then21:                                        ; preds = %invoke.cont
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.thread
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %if.then21
-  %cmp.i46 = icmp ugt i64 %add.i, 15
+  %cmp3.i.i.i = icmp samesign ult i64 %21, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i)
+  %cmp.i46 = icmp samesign ugt i64 %add.i, 15
   br i1 %cmp.i46, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i72, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.thread: ; preds = %if.then21

@@ -17305,6 +17305,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit: ;
   br label %54
 
 54:                                               ; preds = %28, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.016.025) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i7 = load i64, ptr %.sroa.016.025, align 8
   %55 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i7, 4
   %.not.i.i.i8 = icmp eq i64 %55, 0

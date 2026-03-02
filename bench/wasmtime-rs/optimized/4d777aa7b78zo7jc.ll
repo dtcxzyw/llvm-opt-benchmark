@@ -10926,15 +10926,15 @@ _ZN5gimli5write4unit4Unit5write17h6690b6e50d9080f7E.exit.thread: ; preds = %"_ZN
 
 .noexc.i.i.i.i:                                   ; preds = %859
   %861 = load i64, ptr %18, align 8, !range !32, !noalias !2935, !noundef !4
-  %862 = load i64, ptr %86, align 8, !noalias !2935, !noundef !4
-  %863 = load i64, ptr %87, align 8, !noalias !2935, !noundef !4
+  %862 = icmp ne i64 %861, 0
+  call void @llvm.assume(i1 %862)
+  %863 = load i64, ptr %86, align 8, !noalias !2935, !noundef !4
+  %864 = load i64, ptr %87, align 8, !noalias !2935, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !2935
-  %864 = load ptr, ptr %.sroa.049.sroa.6.0..sroa_idx, align 8, !alias.scope !2935, !nonnull !4, !noundef !4
-  %865 = sub nsw i64 0, %863
-  %866 = getelementptr inbounds i8, ptr %864, i64 %865
-  %867 = icmp ne i64 %861, 0
-  call void @llvm.assume(i1 %867)
-  call void @__rust_dealloc(ptr noundef nonnull %866, i64 noundef %862, i64 noundef %861) #21, !noalias !2935
+  %865 = load ptr, ptr %.sroa.049.sroa.6.0..sroa_idx, align 8, !alias.scope !2935, !nonnull !4, !noundef !4
+  %866 = sub nsw i64 0, %864
+  %867 = getelementptr inbounds i8, ptr %865, i64 %866
+  call void @__rust_dealloc(ptr noundef nonnull %867, i64 noundef %863, i64 noundef %861) #21, !noalias !2935
   br label %"_ZN4core3ptr86drop_in_place$LT$indexmap..set..IndexSet$LT$gimli..write..abbrev..Abbreviation$GT$$GT$17h6efa1025b864394dE.llvm.3191862155771161713.exit.i"
 
 868:                                              ; preds = %859
@@ -10982,17 +10982,17 @@ _ZN5gimli5write4unit4Unit5write17h6690b6e50d9080f7E.exit.thread: ; preds = %"_ZN
 
 .noexc.i.i.i.i115:                                ; preds = %876
   %878 = load i64, ptr %17, align 8, !range !32, !noalias !2959, !noundef !4
-  %879 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %880 = load i64, ptr %879, align 8, !noalias !2959, !noundef !4
-  %881 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %882 = load i64, ptr %881, align 8, !noalias !2959, !noundef !4
+  %879 = icmp ne i64 %878, 0
+  call void @llvm.assume(i1 %879)
+  %880 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %881 = load i64, ptr %880, align 8, !noalias !2959, !noundef !4
+  %882 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %883 = load i64, ptr %882, align 8, !noalias !2959, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !2959
-  %883 = load ptr, ptr %.sroa.049.sroa.6.0..sroa_idx, align 8, !alias.scope !2959, !nonnull !4, !noundef !4
-  %884 = sub nsw i64 0, %882
-  %885 = getelementptr inbounds i8, ptr %883, i64 %884
-  %886 = icmp ne i64 %878, 0
-  call void @llvm.assume(i1 %886)
-  call void @__rust_dealloc(ptr noundef nonnull %885, i64 noundef %880, i64 noundef %878) #21, !noalias !2959
+  %884 = load ptr, ptr %.sroa.049.sroa.6.0..sroa_idx, align 8, !alias.scope !2959, !nonnull !4, !noundef !4
+  %885 = sub nsw i64 0, %883
+  %886 = getelementptr inbounds i8, ptr %884, i64 %885
+  call void @__rust_dealloc(ptr noundef nonnull %886, i64 noundef %881, i64 noundef %878) #21, !noalias !2959
   br label %"_ZN4core3ptr86drop_in_place$LT$indexmap..set..IndexSet$LT$gimli..write..abbrev..Abbreviation$GT$$GT$17h6efa1025b864394dE.llvm.3191862155771161713.exit.i116"
 
 887:                                              ; preds = %876
@@ -16552,17 +16552,17 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i117:
 
 .noexc.i.i.i.i:                                   ; preds = %338
   %340 = load i64, ptr %10, align 8, !range !32, !noalias !3840, !noundef !4
-  %341 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %342 = load i64, ptr %341, align 8, !noalias !3840, !noundef !4
-  %343 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %344 = load i64, ptr %343, align 8, !noalias !3840, !noundef !4
+  %341 = icmp ne i64 %340, 0
+  call void @llvm.assume(i1 %341)
+  %342 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %343 = load i64, ptr %342, align 8, !noalias !3840, !noundef !4
+  %344 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %345 = load i64, ptr %344, align 8, !noalias !3840, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !3840
-  %345 = load ptr, ptr %.sroa.060.sroa.6.0..sroa_idx, align 8, !alias.scope !3840, !nonnull !4, !noundef !4
-  %346 = sub nsw i64 0, %344
-  %347 = getelementptr inbounds i8, ptr %345, i64 %346
-  %348 = icmp ne i64 %340, 0
-  call void @llvm.assume(i1 %348)
-  call void @__rust_dealloc(ptr noundef nonnull %347, i64 noundef %342, i64 noundef %340) #21, !noalias !3840
+  %346 = load ptr, ptr %.sroa.060.sroa.6.0..sroa_idx, align 8, !alias.scope !3840, !nonnull !4, !noundef !4
+  %347 = sub nsw i64 0, %345
+  %348 = getelementptr inbounds i8, ptr %346, i64 %347
+  call void @__rust_dealloc(ptr noundef nonnull %348, i64 noundef %343, i64 noundef %340) #21, !noalias !3840
   br label %"_ZN4core3ptr77drop_in_place$LT$indexmap..set..IndexSet$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17he9520ed74ede5215E.llvm.3191862155771161713.exit.i"
 
 349:                                              ; preds = %338
@@ -16671,17 +16671,17 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.i117:
 
 .noexc.i.i.i.i164:                                ; preds = %379
   %381 = load i64, ptr %8, align 8, !range !32, !noalias !3879, !noundef !4
-  %382 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %383 = load i64, ptr %382, align 8, !noalias !3879, !noundef !4
-  %384 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %385 = load i64, ptr %384, align 8, !noalias !3879, !noundef !4
+  %382 = icmp ne i64 %381, 0
+  call void @llvm.assume(i1 %382)
+  %383 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %384 = load i64, ptr %383, align 8, !noalias !3879, !noundef !4
+  %385 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %386 = load i64, ptr %385, align 8, !noalias !3879, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !3879
-  %386 = load ptr, ptr %.sroa.056.sroa.6.0..sroa_idx, align 8, !alias.scope !3879, !nonnull !4, !noundef !4
-  %387 = sub nsw i64 0, %385
-  %388 = getelementptr inbounds i8, ptr %386, i64 %387
-  %389 = icmp ne i64 %381, 0
-  call void @llvm.assume(i1 %389)
-  call void @__rust_dealloc(ptr noundef nonnull %388, i64 noundef %383, i64 noundef %381) #21, !noalias !3879
+  %387 = load ptr, ptr %.sroa.056.sroa.6.0..sroa_idx, align 8, !alias.scope !3879, !nonnull !4, !noundef !4
+  %388 = sub nsw i64 0, %386
+  %389 = getelementptr inbounds i8, ptr %387, i64 %388
+  call void @__rust_dealloc(ptr noundef nonnull %389, i64 noundef %384, i64 noundef %381) #21, !noalias !3879
   br label %"_ZN4core3ptr77drop_in_place$LT$indexmap..set..IndexSet$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17he9520ed74ede5215E.llvm.3191862155771161713.exit.i165"
 
 390:                                              ; preds = %379

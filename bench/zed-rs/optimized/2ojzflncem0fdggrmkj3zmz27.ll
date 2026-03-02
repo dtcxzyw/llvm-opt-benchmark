@@ -603,17 +603,17 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
 
 .noexc:                                           ; preds = %34
   %36 = load i64, ptr %15, align 8, !range !16, !noalias !6, !noundef !5
-  %37 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %38 = load i64, ptr %37, align 8, !noalias !6, !noundef !5
-  %39 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %40 = load i64, ptr %39, align 8, !noalias !6, !noundef !5
+  %37 = icmp ne i64 %36, 0
+  tail call void @llvm.assume(i1 %37)
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %39 = load i64, ptr %38, align 8, !noalias !6, !noundef !5
+  %40 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %41 = load i64, ptr %40, align 8, !noalias !6, !noundef !5
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !6
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.261.0.copyload) ]
-  %41 = sub nsw i64 0, %40
-  %42 = getelementptr inbounds i8, ptr %.sroa.261.0.copyload, i64 %41
-  %43 = icmp ne i64 %36, 0
-  tail call void @llvm.assume(i1 %43)
-  tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %38, i64 noundef %36) #47, !noalias !6
+  %42 = sub nsw i64 0, %41
+  %43 = getelementptr inbounds i8, ptr %.sroa.261.0.copyload, i64 %42
+  tail call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %39, i64 noundef %36) #47, !noalias !6
   br label %70
 
 44:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17he75373447e801c5cE.exit42", %30
@@ -44072,17 +44072,17 @@ define void @"_ZN56_$LT$vim..SwitchMode$u20$as$u20$gpui..action..Action$GT$5buil
   %28 = add i64 %.sroa.36.0.copyload.i.i.i, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.llvm.9705791266194482142(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, i64 noundef 8, i64 noundef 16, i64 noundef %28), !noalias !7795
   %29 = load i64, ptr %6, align 8, !range !16, !noalias !7813, !noundef !5
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %31 = load i64, ptr %30, align 8, !noalias !7813, !noundef !5
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %33 = load i64, ptr %32, align 8, !noalias !7813, !noundef !5
+  %30 = icmp ne i64 %29, 0
+  tail call void @llvm.assume(i1 %30)
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %32 = load i64, ptr %31, align 8, !noalias !7813, !noundef !5
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %34 = load i64, ptr %33, align 8, !noalias !7813, !noundef !5
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !7813
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.25.0.copyload.i.i.i) ]
-  %34 = sub nsw i64 0, %33
-  %35 = getelementptr inbounds i8, ptr %.sroa.25.0.copyload.i.i.i, i64 %34
-  %36 = icmp ne i64 %29, 0
-  tail call void @llvm.assume(i1 %36)
-  tail call void @__rust_dealloc(ptr noundef nonnull %35, i64 noundef %31, i64 noundef %29) #47, !noalias !7813
+  %35 = sub nsw i64 0, %34
+  %36 = getelementptr inbounds i8, ptr %.sroa.25.0.copyload.i.i.i, i64 %35
+  tail call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %32, i64 noundef %29) #47, !noalias !7813
   br label %39
 
 37:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17he75373447e801c5cE.exit37.i.i.i", %24
@@ -44718,17 +44718,17 @@ define void @"_ZN58_$LT$vim..PushOperator$u20$as$u20$gpui..action..Action$GT$5bu
   %29 = add i64 %.sroa.36.0.copyload.i.i.i, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.llvm.9705791266194482142(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, i64 noundef 8, i64 noundef 16, i64 noundef %29), !noalias !7942
   %30 = load i64, ptr %6, align 8, !range !16, !noalias !7960, !noundef !5
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %32 = load i64, ptr %31, align 8, !noalias !7960, !noundef !5
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %34 = load i64, ptr %33, align 8, !noalias !7960, !noundef !5
+  %31 = icmp ne i64 %30, 0
+  tail call void @llvm.assume(i1 %31)
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %33 = load i64, ptr %32, align 8, !noalias !7960, !noundef !5
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %35 = load i64, ptr %34, align 8, !noalias !7960, !noundef !5
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !7960
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.25.0.copyload.i.i.i) ]
-  %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds i8, ptr %.sroa.25.0.copyload.i.i.i, i64 %35
-  %37 = icmp ne i64 %30, 0
-  tail call void @llvm.assume(i1 %37)
-  tail call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %32, i64 noundef %30) #47, !noalias !7960
+  %36 = sub nsw i64 0, %35
+  %37 = getelementptr inbounds i8, ptr %.sroa.25.0.copyload.i.i.i, i64 %36
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %33, i64 noundef %30) #47, !noalias !7960
   br label %40
 
 38:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17he75373447e801c5cE.exit37.i.i.i", %25

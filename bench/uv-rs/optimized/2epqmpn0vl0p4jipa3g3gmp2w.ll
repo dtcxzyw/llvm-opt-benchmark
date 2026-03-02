@@ -839,17 +839,19 @@ _ZN9hashbrown3raw13RawTableInner13drop_elements17h96d6ded61e9f90edE.llvm.1661679
   %44 = sub nuw i64 -9223372036854775808, %3
   %45 = icmp ule i64 %43, %44
   tail call void @llvm.assume(i1 %45)
-  %46 = icmp eq i64 %43, 0
-  br i1 %46, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.16616795316985032872.exit", label %47
+  %46 = icmp ne i64 %3, 0
+  tail call void @llvm.assume(i1 %46)
+  %47 = icmp eq i64 %43, 0
+  br i1 %47, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.16616795316985032872.exit", label %48
 
-47:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17h96d6ded61e9f90edE.llvm.16616795316985032872.exit
-  %48 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
-  %49 = sub nsw i64 0, %41
-  %50 = getelementptr inbounds i8, ptr %48, i64 %49
-  tail call void @__rust_dealloc(ptr noundef nonnull %50, i64 noundef %43, i64 noundef range(i64 1, -9223372036854775807) %3) #16
+48:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17h96d6ded61e9f90edE.llvm.16616795316985032872.exit
+  %49 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
+  %50 = sub nsw i64 0, %41
+  %51 = getelementptr inbounds i8, ptr %49, i64 %50
+  tail call void @__rust_dealloc(ptr noundef nonnull %51, i64 noundef %43, i64 noundef range(i64 1, -9223372036854775807) %3) #16
   br label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.16616795316985032872.exit"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.16616795316985032872.exit": ; preds = %47, %_ZN9hashbrown3raw13RawTableInner13drop_elements17h96d6ded61e9f90edE.llvm.16616795316985032872.exit, %4
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.16616795316985032872.exit": ; preds = %48, %_ZN9hashbrown3raw13RawTableInner13drop_elements17h96d6ded61e9f90edE.llvm.16616795316985032872.exit, %4
   ret void
 }
 

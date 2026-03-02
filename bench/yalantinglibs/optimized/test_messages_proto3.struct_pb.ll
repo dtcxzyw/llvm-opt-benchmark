@@ -52596,6 +52596,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   br i1 %cmp.i.i.i.i.i.i21472, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21473, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21473.thread
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21473: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i21471
+  %cmp3.i.i.i.i.i.i21484 = icmp samesign ult i64 %2925, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i21484)
   %cmp.not.i.i.i.i21475 = icmp ugt i64 %str_sz.0, 15
   br i1 %cmp.not.i.i.i.i21475, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, label %if.then12.i.i.i.i21476
 
@@ -52875,6 +52877,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   br i1 %cmp.i.i.i.i.i.i21500, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21501, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21501.thread
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21501: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i21499
+  %cmp3.i.i.i.i.i.i21512 = icmp samesign ult i64 %2947, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i21512)
   %cmp.not.i.i.i.i21503 = icmp ugt i64 %str_sz2346.0, 15
   br i1 %cmp.not.i.i.i.i21503, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i22364, label %if.then12.i.i.i.i21504
 
@@ -53623,6 +53627,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   br i1 %cmp.i.i.i.i.i.i21546, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21547, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21547.thread
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21547: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i21545
+  %cmp3.i.i.i.i.i.i21558 = icmp samesign ult i64 %3006, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i21558)
   %cmp.not.i.i.i.i21549 = icmp ugt i64 %str_sz2392.0, 15
   br i1 %cmp.not.i.i.i.i21549, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i22411, label %if.then12.i.i.i.i21550
 
@@ -53902,6 +53908,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   br i1 %cmp.i.i.i.i.i.i21574, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21575, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21575.thread
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21575: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i21573
+  %cmp3.i.i.i.i.i.i21586 = icmp samesign ult i64 %3028, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i21586)
   %cmp.not.i.i.i.i21577 = icmp ugt i64 %str_sz2408.0, 15
   br i1 %cmp.not.i.i.i.i21577, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i22457, label %if.then12.i.i.i.i21578
 
@@ -54643,6 +54651,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   br i1 %cmp.i.i.i.i.i.i21618, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21619, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21619.thread
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21619: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i21617
+  %cmp3.i.i.i.i.i.i21630 = icmp samesign ult i64 %3086, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i21630)
   %cmp.not.i.i.i.i21621 = icmp ugt i64 %str_sz2454.0, 15
   br i1 %cmp.not.i.i.i.i21621, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i22503, label %if.then12.i.i.i.i21622
 
@@ -55587,6 +55597,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   br i1 %cmp.i.i.i.i.i.i21661, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21662, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21662.thread
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21662: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i21660
+  %cmp3.i.i.i.i.i.i21673 = icmp samesign ult i64 %3162, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i21673)
   %cmp.not.i.i.i.i21664 = icmp ugt i64 %str_sz2515.0, 15
   br i1 %cmp.not.i.i.i.i21664, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i22555, label %if.then12.i.i.i.i21665
 
@@ -56521,6 +56533,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   br i1 %cmp.i.i.i.i.i.i21709, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21710, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21710.thread
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21710: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i21708
+  %cmp3.i.i.i.i.i.i21721 = icmp samesign ult i64 %3238, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i21721)
   %cmp.not.i.i.i.i21712 = icmp ugt i64 %str_sz2575.0, 15
   br i1 %cmp.not.i.i.i.i21712, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i22601, label %if.then12.i.i.i.i21713
 
@@ -57410,6 +57424,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   br i1 %cmp.i.i.i.i.i.i21746, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21747, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21747.thread
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i21747: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i.i21745
+  %cmp3.i.i.i.i.i.i21758 = icmp samesign ult i64 %3311, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i21758)
   %cmp.not.i.i.i.i21749 = icmp ugt i64 %str_sz2628.0, 15
   br i1 %cmp.not.i.i.i.i21749, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i22647, label %if.then12.i.i.i.i21750
 

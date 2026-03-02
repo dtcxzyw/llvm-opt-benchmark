@@ -14815,6 +14815,7 @@ define internal { ptr, ptr } @"_ZN6client6Client24add_message_handler_impl28_$u7
 
 51:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !2110
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %38) ]
   store ptr %37, ptr %11, align 8, !noalias !2110
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %38, ptr %52, align 8, !noalias !2110
@@ -15070,6 +15071,7 @@ define internal { ptr, ptr } @"_ZN6client6Client24add_message_handler_impl28_$u7
 
 51:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !2178
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %38) ]
   store ptr %37, ptr %10, align 8, !noalias !2178
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %38, ptr %52, align 8, !noalias !2178
@@ -15324,6 +15326,7 @@ define internal { ptr, ptr } @"_ZN6client6Client24add_message_handler_impl28_$u7
 
 49:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !2246
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %36) ]
   store ptr %35, ptr %9, align 8, !noalias !2246
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %36, ptr %50, align 8, !noalias !2246

@@ -20072,6 +20072,8 @@ switch.lookup.i.i:                                ; preds = %13
   br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.i
 
 .thread.i.i:                                      ; preds = %13
+  %switch.i9.i.i = icmp samesign ult i32 %.sroa.021.0.extract.trunc, 38
+  tail call void @llvm.assume(i1 %switch.i9.i.i)
   %switch.offset18.i.i = add nuw nsw i32 %.sroa.021.0.extract.trunc, 4
   br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit.i
 
@@ -20102,6 +20104,8 @@ switch.lookup.i9.i:                               ; preds = %21
   br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11.i
 
 .thread.i2.i:                                     ; preds = %21
+  %switch.i9.i4.i = icmp samesign ult i32 %.sroa.035.0.extract.trunc, 38
+  tail call void @llvm.assume(i1 %switch.i9.i4.i)
   %switch.offset18.i5.i = add nuw nsw i32 %.sroa.035.0.extract.trunc, 4
   br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11.i
 
@@ -20279,6 +20283,8 @@ switch.lookup.i:                                  ; preds = %17
   br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
 
 .thread.i:                                        ; preds = %17
+  %switch.i9.i = icmp samesign ult i32 %.sroa.013.0.extract.trunc, 38
+  tail call void @llvm.assume(i1 %switch.i9.i)
   %switch.offset18.i = add nuw nsw i32 %.sroa.013.0.extract.trunc, 4
   br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit
 
@@ -20309,6 +20315,8 @@ switch.lookup.i9:                                 ; preds = %25
   br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11
 
 .thread.i2:                                       ; preds = %25
+  %switch.i9.i4 = icmp samesign ult i32 %.sroa.019.0.extract.trunc, 38
+  tail call void @llvm.assume(i1 %switch.i9.i4)
   %switch.offset18.i5 = add nuw nsw i32 %.sroa.019.0.extract.trunc, 4
   br label %_ZN4llvm8ICmpInst29getFlippedSignednessPredicateENS_7CmpInst9PredicateE.exit11
 

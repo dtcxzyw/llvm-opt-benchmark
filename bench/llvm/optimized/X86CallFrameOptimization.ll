@@ -636,6 +636,7 @@ _ZN12_GLOBAL__N_124X86CallFrameOptimization7isLegalERN4llvm15MachineFunctionE.ex
 
 113:                                              ; preds = %111, %109, %102
   %.339.i = phi i8 [ %.03662.i, %109 ], [ 1, %102 ], [ 0, %111 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.043.063.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.043.063.i, align 8
   %114 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %114, 0
@@ -860,6 +861,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEi.exit.i: ; preds
   ]
 
 .critedge.i:                                      ; preds = %.preheader47.i, %.preheader47.i, %.preheader47.i, %.preheader47.i, %.preheader47.i, %.preheader47.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.020.0.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i43 = load i64, ptr %.sroa.020.0.i, align 8
   %208 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i43, 4
   %.not.i.i.i.i44 = icmp eq i64 %208, 0
@@ -951,6 +953,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEi.exit85.i: ; pre
   br label %.loopexit.i
 
 .critedge3.i:                                     ; preds = %251, %246, %240, %236
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.011.0.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i87.i = load i64, ptr %.sroa.011.0.i, align 8
   %257 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i87.i, 4
   %.not.i.i.i88.i = icmp eq i64 %257, 0
@@ -1581,6 +1584,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit116.i: ; preds = %532
 
 546:                                              ; preds = %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit116.i, %539
   store ptr %.sroa.0.0.i.i.i111.i, ptr %140, align 8, !tbaa !416
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.i.i.i111.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i118.i = load i64, ptr %.sroa.0.0.i.i.i111.i, align 8
   %547 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i118.i, 4
   %.not.i.i.i119.i = icmp eq i64 %547, 0

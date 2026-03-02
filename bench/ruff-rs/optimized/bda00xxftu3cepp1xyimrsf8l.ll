@@ -2998,6 +2998,7 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i.i34: ; preds = %109, 
 118:                                              ; preds = %42, %49, %52
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %43) ]
   invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$tracing_subscriber..registry..extensions..ExtensionsMut$GT$17h7279b19c3c6d15d4E"(ptr nonnull %43, i8 %45) #37
           to label %.thread67 unwind label %119
 
@@ -3692,6 +3693,7 @@ _ZN3std4sync6poison4Flag4done17h10a53d883c6fda20E.exit.i.i.i34: ; preds = %108, 
 117:                                              ; preds = %42, %49, %52
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %43) ]
   invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$tracing_subscriber..registry..extensions..ExtensionsMut$GT$17h7279b19c3c6d15d4E"(ptr nonnull %43, i8 %45) #37
           to label %.thread67 unwind label %118
 

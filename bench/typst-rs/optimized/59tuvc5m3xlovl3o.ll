@@ -102976,11 +102976,11 @@ default.unreachable:                              ; preds = %"_ZN83_$LT$typst..l
 377:                                              ; preds = %356
   %378 = extractvalue { i64, ptr } %361, 0
   %379 = extractvalue { i64, ptr } %361, 1
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %379) ]
   %380 = shl i64 %360, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %379, ptr nonnull readonly align 1 %359, i64 %380, i1 false), !noalias !20643
   call void @llvm.experimental.noalias.scope.decl(metadata !20646)
   call void @llvm.experimental.noalias.scope.decl(metadata !20635)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %379) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !20647)
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !20637
   %381 = getelementptr inbounds { i8, [1 x i8] }, ptr %379, i64 %360

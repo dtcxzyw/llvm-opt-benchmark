@@ -169,8 +169,8 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %30 = shl i64 %9, 31
   %sext = add i64 %30, -4294967296
   %31 = ashr i64 %sext, 32
-  %sext103 = shl i64 %9, 31
-  %32 = ashr i64 %sext103, 32
+  %sext100 = shl i64 %9, 31
+  %32 = ashr i64 %sext100, 32
   br label %36
 
 .preheader83:                                     ; preds = %18
@@ -181,7 +181,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %34 = add nuw i64 %10, 4294967295
   %35 = and i64 %34, 4294967295
   %wide.trip.count = and i64 %10, 2147483647
-  br label %46
+  br label %43
 
 36:                                               ; preds = %.preheader84, %36
   %indvars.iv = phi i64 [ 0, %.preheader84 ], [ %indvars.iv.next, %36 ]
@@ -195,7 +195,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65536
   br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !26
 
-.preheader:                                       ; preds = %62
+.preheader:                                       ; preds = %59
   %.not90 = icmp eq i32 %11, 65536
   br i1 %.not90, label %.loopexit, label %.lr.ph89
 
@@ -204,76 +204,73 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %sext82 = add i64 %40, -4294967296
   %41 = ashr i64 %sext82, 32
   %42 = getelementptr inbounds nuw i16, ptr %6, i64 %41
-  %43 = and i64 %10, 2147483647
-  %umax = tail call i32 @llvm.umax.i32(i32 %11, i32 65535)
-  %44 = add nuw i32 %umax, 1
-  %45 = icmp sgt i32 %11, -1
-  tail call void @llvm.assume(i1 %45)
-  br label %73
+  br label %70
 
-46:                                               ; preds = %.lr.ph, %62
-  %indvars.iv93 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next94, %62 ]
-  %47 = getelementptr i16, ptr %6, i64 %indvars.iv93
-  %48 = load i16, ptr %47, align 2, !tbaa !19
-  %49 = zext i16 %48 to i32
+43:                                               ; preds = %.lr.ph, %59
+  %indvars.iv93 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next94, %59 ]
+  %44 = getelementptr i16, ptr %6, i64 %indvars.iv93
+  %45 = load i16, ptr %44, align 2, !tbaa !19
+  %46 = zext i16 %45 to i32
   %.not = icmp eq i64 %indvars.iv93, 0
-  br i1 %.not, label %55, label %50
+  br i1 %.not, label %52, label %47
 
-50:                                               ; preds = %46
-  %51 = getelementptr i8, ptr %47, i64 -2
-  %52 = load i16, ptr %51, align 2, !tbaa !19
-  %53 = tail call i16 @llvm.umin.i16(i16 %52, i16 %48)
-  %54 = zext i16 %53 to i32
-  br label %55
+47:                                               ; preds = %43
+  %48 = getelementptr i8, ptr %44, i64 -2
+  %49 = load i16, ptr %48, align 2, !tbaa !19
+  %50 = tail call i16 @llvm.umin.i16(i16 %49, i16 %45)
+  %51 = zext i16 %50 to i32
+  br label %52
 
-55:                                               ; preds = %46, %50
-  %.sroa.speculated45 = phi i32 [ %54, %50 ], [ %49, %46 ]
-  %56 = icmp samesign ult i64 %indvars.iv93, %35
-  br i1 %56, label %57, label %62
+52:                                               ; preds = %43, %47
+  %.sroa.speculated45 = phi i32 [ %51, %47 ], [ %46, %43 ]
+  %53 = icmp samesign ult i64 %indvars.iv93, %35
+  br i1 %53, label %54, label %59
 
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds nuw i8, ptr %47, i64 2
-  %59 = load i16, ptr %58, align 2, !tbaa !19
-  %60 = tail call i16 @llvm.umax.i16(i16 %59, i16 %48)
-  %61 = zext i16 %60 to i32
-  br label %62
+54:                                               ; preds = %52
+  %55 = getelementptr inbounds nuw i8, ptr %44, i64 2
+  %56 = load i16, ptr %55, align 2, !tbaa !19
+  %57 = tail call i16 @llvm.umax.i16(i16 %56, i16 %45)
+  %58 = zext i16 %57 to i32
+  br label %59
 
-62:                                               ; preds = %55, %57
-  %.sroa.speculated = phi i32 [ %61, %57 ], [ %49, %55 ]
-  %63 = sub nsw i32 %.sroa.speculated, %.sroa.speculated45
-  %64 = icmp sgt i32 %63, -1
-  tail call void @llvm.assume(i1 %64)
-  %65 = add nuw nsw i32 %63, 2
-  %66 = lshr i32 %65, 2
-  %67 = sub nsw i32 %49, %66
-  %.sroa.speculate.load.false.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %67, i32 0)
-  %68 = trunc nuw i32 %.sroa.speculate.load.false.sroa.speculated.i to i16
-  %69 = icmp samesign ult i64 %indvars.iv93, 65536
-  tail call void @llvm.assume(i1 %69)
+59:                                               ; preds = %52, %54
+  %.sroa.speculated = phi i32 [ %58, %54 ], [ %46, %52 ]
+  %60 = sub nsw i32 %.sroa.speculated, %.sroa.speculated45
+  %61 = icmp sgt i32 %60, -1
+  tail call void @llvm.assume(i1 %61)
+  %62 = add nuw nsw i32 %60, 2
+  %63 = lshr i32 %62, 2
+  %64 = sub nsw i32 %46, %63
+  %.sroa.speculate.load.false.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %64, i32 0)
+  %65 = trunc nuw i32 %.sroa.speculate.load.false.sroa.speculated.i to i16
+  %66 = icmp samesign ult i64 %indvars.iv93, 65536
+  tail call void @llvm.assume(i1 %66)
   %.idx = shl nuw nsw i64 %indvars.iv93, 2
-  %70 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx
-  store i16 %68, ptr %70, align 2, !tbaa !19
-  %71 = trunc nuw i32 %63 to i16
-  %72 = getelementptr inbounds nuw i8, ptr %70, i64 2
-  store i16 %71, ptr %72, align 2, !tbaa !19
+  %67 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx
+  store i16 %65, ptr %67, align 2, !tbaa !19
+  %68 = trunc nuw i32 %60 to i16
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 2
+  store i16 %68, ptr %69, align 2, !tbaa !19
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count
-  br i1 %exitcond96.not, label %.preheader, label %46, !llvm.loop !28
+  br i1 %exitcond96.not, label %.preheader, label %43, !llvm.loop !28
 
-73:                                               ; preds = %.lr.ph89, %73
-  %indvars.iv97 = phi i64 [ %43, %.lr.ph89 ], [ %indvars.iv.next98, %73 ]
-  %74 = load i16, ptr %42, align 2, !tbaa !19
-  %.idx104 = shl nuw nsw i64 %indvars.iv97, 2
-  %75 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx104
-  store i16 %74, ptr %75, align 2, !tbaa !19
+70:                                               ; preds = %.lr.ph89, %70
+  %.088 = phi i32 [ %11, %.lr.ph89 ], [ %77, %70 ]
+  %71 = load i16, ptr %42, align 2, !tbaa !19
+  %72 = shl nsw i32 %.088, 1
+  %73 = icmp samesign ult i32 %72, 131072
+  tail call void @llvm.assume(i1 %73)
+  %74 = zext nneg i32 %72 to i64
+  %75 = getelementptr inbounds nuw i16, ptr %26, i64 %74
+  store i16 %71, ptr %75, align 2, !tbaa !19
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 2
   store i16 0, ptr %76, align 2, !tbaa !19
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next98 to i32
-  %exitcond100.not = icmp eq i32 %44, %lftr.wideiv
-  br i1 %exitcond100.not, label %.loopexit, label %73, !llvm.loop !29
+  %77 = add i32 %.088, 1
+  %exitcond97.not = icmp eq i32 %77, 65536
+  br i1 %exitcond97.not, label %.loopexit, label %70, !llvm.loop !29
 
-.loopexit:                                        ; preds = %36, %73, %.preheader
+.loopexit:                                        ; preds = %36, %70, %.preheader
   ret void
 }
 
@@ -585,9 +582,6 @@ declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #17
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #17

@@ -129983,19 +129983,19 @@ define hidden void @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6retain17h1591abd309
 .lr.ph:                                           ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %1, align 4
-  %.fr19 = freeze i32 %8
-  %.not20 = icmp eq i32 %.fr19, 0
+  %.fr18 = freeze i32 %8
+  %.not19 = icmp eq i32 %.fr18, 0
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  br i1 %.not20, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not19, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %"_ZN4gpui3app10AppContext29release_dropped_focus_handles28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h947de0895f4f1600E.exit.us"
-  %.sroa.09.018.us = phi i64 [ %13, %"_ZN4gpui3app10AppContext29release_dropped_focus_handles28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h947de0895f4f1600E.exit.us" ], [ 1, %.lr.ph ]
-  %13 = add nuw i64 %.sroa.09.018.us, 1
+  %.sroa.09.017.us = phi i64 [ %13, %"_ZN4gpui3app10AppContext29release_dropped_focus_handles28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h947de0895f4f1600E.exit.us" ], [ 1, %.lr.ph ]
+  %13 = add nuw i64 %.sroa.09.017.us, 1
   %14 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
-  %15 = getelementptr inbounds { { [1 x i64] }, i32, [1 x i32] }, ptr %14, i64 %.sroa.09.018.us
+  %15 = getelementptr inbounds { { [1 x i64] }, i32, [1 x i32] }, ptr %14, i64 %.sroa.09.017.us
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8, !noundef !5
   %18 = and i32 %17, 1
@@ -130009,9 +130009,9 @@ define hidden void @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6retain17h1591abd309
   br i1 %.not16.us, label %21, label %"_ZN4gpui3app10AppContext29release_dropped_focus_handles28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h947de0895f4f1600E.exit.us"
 
 21:                                               ; preds = %19
-  %22 = trunc i64 %.sroa.09.018.us to i32
+  %22 = trunc i64 %.sroa.09.017.us to i32
   %23 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
-  %24 = getelementptr inbounds { { [1 x i64] }, i32, [1 x i32] }, ptr %23, i64 %.sroa.09.018.us
+  %24 = getelementptr inbounds { { [1 x i64] }, i32, [1 x i32] }, ptr %23, i64 %.sroa.09.017.us
   %25 = load i32, ptr %11, align 8, !noundef !5
   store i32 %25, ptr %24, align 8
   store i32 %22, ptr %11, align 8
@@ -130025,17 +130025,17 @@ define hidden void @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6retain17h1591abd309
   br label %"_ZN4gpui3app10AppContext29release_dropped_focus_handles28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h947de0895f4f1600E.exit.us"
 
 "_ZN4gpui3app10AppContext29release_dropped_focus_handles28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h947de0895f4f1600E.exit.us": ; preds = %21, %19, %.lr.ph.split.us
-  %exitcond22.not = icmp eq i64 %13, %5
-  br i1 %exitcond22.not, label %._crit_edge, label %.lr.ph.split.us
+  %exitcond21.not = icmp eq i64 %13, %5
+  br i1 %exitcond21.not, label %._crit_edge, label %.lr.ph.split.us
 
 ._crit_edge:                                      ; preds = %"_ZN4gpui3app10AppContext29release_dropped_focus_handles28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h947de0895f4f1600E.exit", %"_ZN4gpui3app10AppContext29release_dropped_focus_handles28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h947de0895f4f1600E.exit.us", %3
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %"_ZN4gpui3app10AppContext29release_dropped_focus_handles28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h947de0895f4f1600E.exit"
-  %.sroa.09.018 = phi i64 [ %31, %"_ZN4gpui3app10AppContext29release_dropped_focus_handles28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h947de0895f4f1600E.exit" ], [ 1, %.lr.ph ]
-  %31 = add nuw i64 %.sroa.09.018, 1
+  %.sroa.09.017 = phi i64 [ %31, %"_ZN4gpui3app10AppContext29release_dropped_focus_handles28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h947de0895f4f1600E.exit" ], [ 1, %.lr.ph ]
+  %31 = add nuw i64 %.sroa.09.017, 1
   %32 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
-  %33 = getelementptr inbounds { { [1 x i64] }, i32, [1 x i32] }, ptr %32, i64 %.sroa.09.018
+  %33 = getelementptr inbounds { { [1 x i64] }, i32, [1 x i32] }, ptr %32, i64 %.sroa.09.017
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i32, ptr %34, align 8, !noundef !5
   %36 = and i32 %35, 1
@@ -130043,7 +130043,7 @@ define hidden void @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6retain17h1591abd309
   br i1 %.not, label %"_ZN4gpui3app10AppContext29release_dropped_focus_handles28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h947de0895f4f1600E.exit", label %37
 
 37:                                               ; preds = %.lr.ph.split
-  %38 = trunc i64 %.sroa.09.018 to i32
+  %38 = trunc i64 %.sroa.09.017 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38011)
   %39 = load atomic i64, ptr %33 seq_cst, align 8, !alias.scope !38011, !noalias !38014
   %.not16 = icmp eq i64 %39, 0
@@ -130051,31 +130051,35 @@ define hidden void @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$6retain17h1591abd309
 
 40:                                               ; preds = %37
   %41 = icmp eq i32 %10, %38
-  %42 = icmp eq i32 %.fr19, %35
-  %or.cond17 = and i1 %42, %41
-  br i1 %or.cond17, label %43, label %44
+  br i1 %41, label %42, label %46
 
-43:                                               ; preds = %40
+42:                                               ; preds = %40
+  %43 = icmp ne i32 %35, 0
+  tail call void @llvm.assume(i1 %43)
+  %44 = icmp eq i32 %.fr18, %35
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %42
   store i8 1, ptr %2, align 1, !noalias !38016
-  br label %44
+  br label %46
 
-"_ZN4gpui3app10AppContext29release_dropped_focus_handles28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h947de0895f4f1600E.exit": ; preds = %37, %.lr.ph.split, %44
+"_ZN4gpui3app10AppContext29release_dropped_focus_handles28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h947de0895f4f1600E.exit": ; preds = %37, %.lr.ph.split, %46
   %exitcond.not = icmp eq i64 %31, %5
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
-44:                                               ; preds = %40, %43
-  %45 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
-  %46 = getelementptr inbounds { { [1 x i64] }, i32, [1 x i32] }, ptr %45, i64 %.sroa.09.018
-  %47 = load i32, ptr %11, align 8, !noundef !5
-  store i32 %47, ptr %46, align 8
+46:                                               ; preds = %40, %42, %45
+  %47 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
+  %48 = getelementptr inbounds { { [1 x i64] }, i32, [1 x i32] }, ptr %47, i64 %.sroa.09.017
+  %49 = load i32, ptr %11, align 8, !noundef !5
+  store i32 %49, ptr %48, align 8
   store i32 %38, ptr %11, align 8
-  %48 = load i32, ptr %12, align 4, !noundef !5
-  %49 = add i32 %48, -1
-  store i32 %49, ptr %12, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %51 = load i32, ptr %50, align 8, !noundef !5
-  %52 = add i32 %51, 1
-  store i32 %52, ptr %50, align 8
+  %50 = load i32, ptr %12, align 4, !noundef !5
+  %51 = add i32 %50, -1
+  store i32 %51, ptr %12, align 4
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %53 = load i32, ptr %52, align 8, !noundef !5
+  %54 = add i32 %53, 1
+  store i32 %54, ptr %52, align 8
   br label %"_ZN4gpui3app10AppContext29release_dropped_focus_handles28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h947de0895f4f1600E.exit"
 }
 

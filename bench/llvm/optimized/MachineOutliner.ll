@@ -8455,6 +8455,7 @@ _ZN4llvm8DebugLocD2Ev.exit145.i:                  ; preds = %1075, %_ZN4llvm8Deb
   br label %1076
 
 1076:                                             ; preds = %_ZN4llvm8DebugLocD2Ev.exit145.i, %964
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.017.057.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.017.057.i, align 8
   %1077 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i147.i = icmp eq i64 %1077, 0

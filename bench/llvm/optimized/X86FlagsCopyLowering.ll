@@ -599,6 +599,7 @@ _ZNSt10unique_ptrIN4llvm20MachineDominatorTreeESt14default_deleteIS1_EED2Ev.exit
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %135, %129
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0466.0598) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0466.0598, align 8
   %137 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i213 = icmp eq i64 %137, 0

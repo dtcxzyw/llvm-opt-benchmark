@@ -35624,34 +35624,34 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec
   %.val1.i = load i64, ptr %3, align 8, !alias.scope !3390, !noundef !8
   %4 = ptrtoint ptr %.val.i to i64
   %5 = and i64 %4, -8
-  %6 = shl i64 %4, 3
-  %7 = and i64 %6, 56
-  %8 = and i64 %.val1.i, 7
-  %9 = or disjoint i64 %7, %8
-  %10 = icmp eq i64 %5, 8
-  %11 = icmp eq i64 %9, 0
-  %or.cond.i.i = and i1 %10, %11
-  %12 = icmp ult i64 %.val1.i, 8
-  %spec.select.i.i = and i1 %12, %or.cond.i.i
-  br i1 %spec.select.i.i, label %"_ZN6bitvec3vec3ops84_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$bitvec..vec..BitVec$LT$T$C$O$GT$$GT$4drop17h621cf2bce41ec1c9E.exit", label %13
+  %6 = icmp ne i64 %5, 0
+  tail call void @llvm.assume(i1 %6)
+  %7 = shl i64 %4, 3
+  %8 = and i64 %7, 56
+  %9 = and i64 %.val1.i, 7
+  %10 = or disjoint i64 %8, %9
+  %11 = icmp eq i64 %5, 8
+  %12 = icmp eq i64 %10, 0
+  %or.cond.i.i = and i1 %11, %12
+  %13 = icmp ult i64 %.val1.i, 8
+  %spec.select.i.i = and i1 %13, %or.cond.i.i
+  br i1 %spec.select.i.i, label %"_ZN6bitvec3vec3ops84_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$bitvec..vec..BitVec$LT$T$C$O$GT$$GT$4drop17h621cf2bce41ec1c9E.exit", label %14
 
-13:                                               ; preds = %1
+14:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3393)
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !3396
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !3396
-  %14 = inttoptr i64 %5 to ptr
-  %15 = lshr i64 %.val1.i, 3
-  %16 = add nuw nsw i64 %15, %8
-  %17 = add nuw nsw i64 %16, %7
-  %18 = tail call noundef i64 @_ZN6bitvec3mem4elts17hb4b35fed789486c9E(i64 noundef %17), !noalias !3397
-  %19 = icmp ne i64 %5, 0
-  tail call void @llvm.assume(i1 %19)
+  %15 = inttoptr i64 %5 to ptr
+  %16 = lshr i64 %.val1.i, 3
+  %17 = add nuw nsw i64 %16, %9
+  %18 = add nuw nsw i64 %17, %8
+  %19 = tail call noundef i64 @_ZN6bitvec3mem4elts17hb4b35fed789486c9E(i64 noundef %18), !noalias !3397
   store i64 %.sroa.5.0.copyload.i.i, ptr %2, align 8, !noalias !3396
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %14, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !3396
+  store ptr %15, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !3396
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %18, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !3396
+  store i64 %19, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !noalias !3396
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h409d61f9f5cf9ac6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 8, i64 noundef 8), !noalias !3396
   %20 = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !noalias !3396, !nonnull !8, !noundef !8
   %21 = ptrtoint ptr %20 to i64
@@ -35667,7 +35667,7 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !3396
   br label %"_ZN6bitvec3vec3ops84_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$bitvec..vec..BitVec$LT$T$C$O$GT$$GT$4drop17h621cf2bce41ec1c9E.exit"
 
-"_ZN6bitvec3vec3ops84_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$bitvec..vec..BitVec$LT$T$C$O$GT$$GT$4drop17h621cf2bce41ec1c9E.exit": ; preds = %1, %13
+"_ZN6bitvec3vec3ops84_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$bitvec..vec..BitVec$LT$T$C$O$GT$$GT$4drop17h621cf2bce41ec1c9E.exit": ; preds = %1, %14
   ret void
 }
 
@@ -66474,37 +66474,37 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$yara_x..re..bitmaps
   %.val1.i.i = load i64, ptr %13, align 8, !alias.scope !7951, !noundef !8
   %14 = ptrtoint ptr %.val.i.i to i64
   %15 = and i64 %14, -8
-  %16 = shl i64 %14, 3
-  %17 = and i64 %16, 56
-  %18 = and i64 %.val1.i.i, 7
-  %19 = or disjoint i64 %17, %18
-  %20 = icmp eq i64 %15, 8
-  %21 = icmp eq i64 %19, 0
-  %or.cond.i.i.i = and i1 %20, %21
-  %22 = icmp ult i64 %.val1.i.i, 8
-  %spec.select.i.i.i = and i1 %22, %or.cond.i.i.i
-  br i1 %spec.select.i.i.i, label %"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E.exit", label %23
+  %16 = icmp ne i64 %15, 0
+  tail call void @llvm.assume(i1 %16)
+  %17 = shl i64 %14, 3
+  %18 = and i64 %17, 56
+  %19 = and i64 %.val1.i.i, 7
+  %20 = or disjoint i64 %18, %19
+  %21 = icmp eq i64 %15, 8
+  %22 = icmp eq i64 %20, 0
+  %or.cond.i.i.i = and i1 %21, %22
+  %23 = icmp ult i64 %.val1.i.i, 8
+  %spec.select.i.i.i = and i1 %23, %or.cond.i.i.i
+  br i1 %spec.select.i.i.i, label %"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E.exit", label %24
 
-23:                                               ; preds = %"_ZN4core3ptr112drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$usize$C$u32$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h67e76af2a1dd4cb1E.exit4"
+24:                                               ; preds = %"_ZN4core3ptr112drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$usize$C$u32$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h67e76af2a1dd4cb1E.exit4"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7952)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !7955
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !7955
-  %24 = lshr i64 %.val1.i.i, 3
-  %25 = add nuw nsw i64 %24, %18
-  %26 = add nuw nsw i64 %25, %17
-  %27 = invoke noundef i64 @_ZN6bitvec3mem4elts17hb4b35fed789486c9E(i64 noundef %26)
+  %25 = lshr i64 %.val1.i.i, 3
+  %26 = add nuw nsw i64 %25, %19
+  %27 = add nuw nsw i64 %26, %18
+  %28 = invoke noundef i64 @_ZN6bitvec3mem4elts17hb4b35fed789486c9E(i64 noundef %27)
           to label %.noexc unwind label %40
 
-.noexc:                                           ; preds = %23
-  %28 = inttoptr i64 %15 to ptr
-  %29 = icmp ne i64 %15, 0
-  tail call void @llvm.assume(i1 %29)
+.noexc:                                           ; preds = %24
+  %29 = inttoptr i64 %15 to ptr
   store i64 %.sroa.5.0.copyload.i.i.i, ptr %3, align 8, !noalias !7955
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %28, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !7955
+  store ptr %29, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !7955
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %27, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8, !noalias !7955
+  store i64 %28, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8, !noalias !7955
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h409d61f9f5cf9ac6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 8, i64 noundef 8)
           to label %.noexc5 unwind label %40
 
@@ -66529,7 +66529,7 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$yara_x..re..bitmaps
   invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E"(ptr noalias noundef align 8 dereferenceable(24) %39) #39
           to label %70 unwind label %68
 
-40:                                               ; preds = %.noexc, %23
+40:                                               ; preds = %.noexc, %24
   %41 = landingpad { ptr, i32 }
           cleanup
   br label %38
@@ -66543,34 +66543,34 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$yara_x..re..bitmaps
   %.val1.i.i7 = load i64, ptr %43, align 8, !alias.scope !7962, !noundef !8
   %44 = ptrtoint ptr %.val.i.i6 to i64
   %45 = and i64 %44, -8
-  %46 = shl i64 %44, 3
-  %47 = and i64 %46, 56
-  %48 = and i64 %.val1.i.i7, 7
-  %49 = or disjoint i64 %47, %48
-  %50 = icmp eq i64 %45, 8
-  %51 = icmp eq i64 %49, 0
-  %or.cond.i.i.i8 = and i1 %50, %51
-  %52 = icmp ult i64 %.val1.i.i7, 8
-  %spec.select.i.i.i9 = and i1 %52, %or.cond.i.i.i8
-  br i1 %spec.select.i.i.i9, label %"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E.exit14", label %53
+  %46 = icmp ne i64 %45, 0
+  call void @llvm.assume(i1 %46)
+  %47 = shl i64 %44, 3
+  %48 = and i64 %47, 56
+  %49 = and i64 %.val1.i.i7, 7
+  %50 = or disjoint i64 %48, %49
+  %51 = icmp eq i64 %45, 8
+  %52 = icmp eq i64 %50, 0
+  %or.cond.i.i.i8 = and i1 %51, %52
+  %53 = icmp ult i64 %.val1.i.i7, 8
+  %spec.select.i.i.i9 = and i1 %53, %or.cond.i.i.i8
+  br i1 %spec.select.i.i.i9, label %"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E.exit14", label %54
 
-53:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E.exit"
+54:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !7963)
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !7966
   %.sroa.5.0..sroa_idx.i.i.i10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.sroa.5.0.copyload.i.i.i11 = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i10, align 8, !alias.scope !7966
-  %54 = inttoptr i64 %45 to ptr
-  %55 = lshr i64 %.val1.i.i7, 3
-  %56 = add nuw nsw i64 %55, %48
-  %57 = add nuw nsw i64 %56, %47
-  %58 = call noundef i64 @_ZN6bitvec3mem4elts17hb4b35fed789486c9E(i64 noundef %57), !noalias !7967
-  %59 = icmp ne i64 %45, 0
-  call void @llvm.assume(i1 %59)
+  %55 = inttoptr i64 %45 to ptr
+  %56 = lshr i64 %.val1.i.i7, 3
+  %57 = add nuw nsw i64 %56, %49
+  %58 = add nuw nsw i64 %57, %48
+  %59 = call noundef i64 @_ZN6bitvec3mem4elts17hb4b35fed789486c9E(i64 noundef %58), !noalias !7967
   store i64 %.sroa.5.0.copyload.i.i.i11, ptr %2, align 8, !noalias !7966
   %.sroa.2.0..sroa_idx.i.i.i12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %54, ptr %.sroa.2.0..sroa_idx.i.i.i12, align 8, !noalias !7966
+  store ptr %55, ptr %.sroa.2.0..sroa_idx.i.i.i12, align 8, !noalias !7966
   %.sroa.3.0..sroa_idx.i.i.i13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %58, ptr %.sroa.3.0..sroa_idx.i.i.i13, align 8, !noalias !7966
+  store i64 %59, ptr %.sroa.3.0..sroa_idx.i.i.i13, align 8, !noalias !7966
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h409d61f9f5cf9ac6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 8, i64 noundef 8), !noalias !7966
   %60 = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i12, align 8, !noalias !7966, !nonnull !8, !noundef !8
   %61 = ptrtoint ptr %60 to i64
@@ -66586,7 +66586,7 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$yara_x..re..bitmaps
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !7966
   br label %"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E.exit14"
 
-"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E.exit14": ; preds = %"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E.exit", %53
+"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E.exit14": ; preds = %"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E.exit", %54
   ret void
 
 68:                                               ; preds = %4, %38, %"_ZN4core3ptr112drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$usize$C$u32$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17h67e76af2a1dd4cb1E.exit"
@@ -73279,37 +73279,37 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$yara_x..re..bitmapset..Bitma
   %.val1.i.i = load i64, ptr %13, align 8, !alias.scope !9024, !noundef !8
   %14 = ptrtoint ptr %.val.i.i to i64
   %15 = and i64 %14, -8
-  %16 = shl i64 %14, 3
-  %17 = and i64 %16, 56
-  %18 = and i64 %.val1.i.i, 7
-  %19 = or disjoint i64 %17, %18
-  %20 = icmp eq i64 %15, 8
-  %21 = icmp eq i64 %19, 0
-  %or.cond.i.i.i = and i1 %20, %21
-  %22 = icmp ult i64 %.val1.i.i, 8
-  %spec.select.i.i.i = and i1 %22, %or.cond.i.i.i
-  br i1 %spec.select.i.i.i, label %"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E.exit", label %23
+  %16 = icmp ne i64 %15, 0
+  tail call void @llvm.assume(i1 %16)
+  %17 = shl i64 %14, 3
+  %18 = and i64 %17, 56
+  %19 = and i64 %.val1.i.i, 7
+  %20 = or disjoint i64 %18, %19
+  %21 = icmp eq i64 %15, 8
+  %22 = icmp eq i64 %20, 0
+  %or.cond.i.i.i = and i1 %21, %22
+  %23 = icmp ult i64 %.val1.i.i, 8
+  %spec.select.i.i.i = and i1 %23, %or.cond.i.i.i
+  br i1 %spec.select.i.i.i, label %"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E.exit", label %24
 
-23:                                               ; preds = %"_ZN4core3ptr117drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$usize$C$$LP$$RP$$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17hb55d7f31b563379bE.exit4"
+24:                                               ; preds = %"_ZN4core3ptr117drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$usize$C$$LP$$RP$$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17hb55d7f31b563379bE.exit4"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9025)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !9028
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.5.0.copyload.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !9028
-  %24 = lshr i64 %.val1.i.i, 3
-  %25 = add nuw nsw i64 %24, %18
-  %26 = add nuw nsw i64 %25, %17
-  %27 = invoke noundef i64 @_ZN6bitvec3mem4elts17hb4b35fed789486c9E(i64 noundef %26)
+  %25 = lshr i64 %.val1.i.i, 3
+  %26 = add nuw nsw i64 %25, %19
+  %27 = add nuw nsw i64 %26, %18
+  %28 = invoke noundef i64 @_ZN6bitvec3mem4elts17hb4b35fed789486c9E(i64 noundef %27)
           to label %.noexc unwind label %40
 
-.noexc:                                           ; preds = %23
-  %28 = inttoptr i64 %15 to ptr
-  %29 = icmp ne i64 %15, 0
-  tail call void @llvm.assume(i1 %29)
+.noexc:                                           ; preds = %24
+  %29 = inttoptr i64 %15 to ptr
   store i64 %.sroa.5.0.copyload.i.i.i, ptr %3, align 8, !noalias !9028
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %28, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !9028
+  store ptr %29, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !noalias !9028
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %27, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8, !noalias !9028
+  store i64 %28, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8, !noalias !9028
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h409d61f9f5cf9ac6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 8, i64 noundef 8)
           to label %.noexc5 unwind label %40
 
@@ -73334,7 +73334,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$yara_x..re..bitmapset..Bitma
   invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E"(ptr noalias noundef align 8 dereferenceable(24) %39) #39
           to label %70 unwind label %68
 
-40:                                               ; preds = %.noexc, %23
+40:                                               ; preds = %.noexc, %24
   %41 = landingpad { ptr, i32 }
           cleanup
   br label %38
@@ -73348,34 +73348,34 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$yara_x..re..bitmapset..Bitma
   %.val1.i.i7 = load i64, ptr %43, align 8, !alias.scope !9035, !noundef !8
   %44 = ptrtoint ptr %.val.i.i6 to i64
   %45 = and i64 %44, -8
-  %46 = shl i64 %44, 3
-  %47 = and i64 %46, 56
-  %48 = and i64 %.val1.i.i7, 7
-  %49 = or disjoint i64 %47, %48
-  %50 = icmp eq i64 %45, 8
-  %51 = icmp eq i64 %49, 0
-  %or.cond.i.i.i8 = and i1 %50, %51
-  %52 = icmp ult i64 %.val1.i.i7, 8
-  %spec.select.i.i.i9 = and i1 %52, %or.cond.i.i.i8
-  br i1 %spec.select.i.i.i9, label %"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E.exit14", label %53
+  %46 = icmp ne i64 %45, 0
+  call void @llvm.assume(i1 %46)
+  %47 = shl i64 %44, 3
+  %48 = and i64 %47, 56
+  %49 = and i64 %.val1.i.i7, 7
+  %50 = or disjoint i64 %48, %49
+  %51 = icmp eq i64 %45, 8
+  %52 = icmp eq i64 %50, 0
+  %or.cond.i.i.i8 = and i1 %51, %52
+  %53 = icmp ult i64 %.val1.i.i7, 8
+  %spec.select.i.i.i9 = and i1 %53, %or.cond.i.i.i8
+  br i1 %spec.select.i.i.i9, label %"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E.exit14", label %54
 
-53:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E.exit"
+54:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !9036)
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !9039
   %.sroa.5.0..sroa_idx.i.i.i10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.sroa.5.0.copyload.i.i.i11 = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i10, align 8, !alias.scope !9039
-  %54 = inttoptr i64 %45 to ptr
-  %55 = lshr i64 %.val1.i.i7, 3
-  %56 = add nuw nsw i64 %55, %48
-  %57 = add nuw nsw i64 %56, %47
-  %58 = call noundef i64 @_ZN6bitvec3mem4elts17hb4b35fed789486c9E(i64 noundef %57), !noalias !9040
-  %59 = icmp ne i64 %45, 0
-  call void @llvm.assume(i1 %59)
+  %55 = inttoptr i64 %45 to ptr
+  %56 = lshr i64 %.val1.i.i7, 3
+  %57 = add nuw nsw i64 %56, %49
+  %58 = add nuw nsw i64 %57, %48
+  %59 = call noundef i64 @_ZN6bitvec3mem4elts17hb4b35fed789486c9E(i64 noundef %58), !noalias !9040
   store i64 %.sroa.5.0.copyload.i.i.i11, ptr %2, align 8, !noalias !9039
   %.sroa.2.0..sroa_idx.i.i.i12 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %54, ptr %.sroa.2.0..sroa_idx.i.i.i12, align 8, !noalias !9039
+  store ptr %55, ptr %.sroa.2.0..sroa_idx.i.i.i12, align 8, !noalias !9039
   %.sroa.3.0..sroa_idx.i.i.i13 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %58, ptr %.sroa.3.0..sroa_idx.i.i.i13, align 8, !noalias !9039
+  store i64 %59, ptr %.sroa.3.0..sroa_idx.i.i.i13, align 8, !noalias !9039
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h409d61f9f5cf9ac6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i64 noundef 8, i64 noundef 8), !noalias !9039
   %60 = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i12, align 8, !noalias !9039, !nonnull !8, !noundef !8
   %61 = ptrtoint ptr %60 to i64
@@ -73391,7 +73391,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$yara_x..re..bitmapset..Bitma
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !9039
   br label %"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E.exit14"
 
-"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E.exit14": ; preds = %"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E.exit", %53
+"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E.exit14": ; preds = %"_ZN4core3ptr40drop_in_place$LT$bitvec..vec..BitVec$GT$17h4a322100aded4995E.exit", %54
   ret void
 
 68:                                               ; preds = %4, %38, %"_ZN4core3ptr117drop_in_place$LT$std..collections..hash..set..HashSet$LT$$LP$usize$C$$LP$$RP$$RP$$C$rustc_hash..FxBuildHasher$GT$$GT$17hb55d7f31b563379bE.exit"

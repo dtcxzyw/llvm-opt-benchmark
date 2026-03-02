@@ -3022,6 +3022,7 @@ common.resume:                                    ; preds = %190, %.body61, %.bo
   br i1 %.sroa.0.0.i.i, label %103, label %95
 
 95:                                               ; preds = %90
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %78) ]
   %96 = invoke fastcc noundef nonnull ptr @"_ZN4gpui6window13WindowContext18with_element_state28_$u7b$$u7b$closure$u7d$$u7d$17h7593e0dcb13ffbe9E"(ptr noundef nonnull align 1 %77, ptr noalias noundef readonly align 8 dereferenceable(32) %78)
           to label %97 unwind label %88
 

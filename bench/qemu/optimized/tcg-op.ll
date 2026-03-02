@@ -2124,6 +2124,8 @@ define dso_local void @tcg_gen_extract2_i32(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %29, label %30, label %57
 
 30:                                               ; preds = %28
+  %or.cond.i = icmp samesign ult i32 %3, 32
+  tail call void @llvm.assume(i1 %or.cond.i)
   %31 = icmp eq i32 %3, 0
   br i1 %31, label %32, label %tcg_gen_rotli_i32.exit.i
 
@@ -5563,9 +5565,11 @@ define dso_local void @tcg_gen_extract2_i64(ptr noundef %0, ptr noundef %1, ptr 
 
 30:                                               ; preds = %4
   %31 = icmp eq ptr %1, %2
-  br i1 %31, label %32, label %61
+  br i1 %31, label %32, label %60
 
 32:                                               ; preds = %30
+  %or.cond.i = icmp samesign ult i32 %3, 64
+  tail call void @llvm.assume(i1 %or.cond.i)
   %33 = icmp eq i32 %3, 0
   br i1 %33, label %34, label %tcg_gen_rotli_i64.exit.i
 
@@ -5586,40 +5590,40 @@ define dso_local void @tcg_gen_extract2_i64(ptr noundef %0, ptr noundef %1, ptr 
   br label %tcg_gen_mov_i64.exit
 
 tcg_gen_rotli_i64.exit.i:                         ; preds = %32
-  %46 = zext nneg i32 %3 to i64
-  %47 = sub nuw nsw i64 64, %46
-  %48 = tail call ptr @tcg_constant_i64(i64 noundef %47) #6
-  %49 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %50 = load ptr, ptr %49, align 8
-  %51 = ptrtoint ptr %0 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 %51
-  %53 = ptrtoint ptr %52 to i64
-  %54 = ptrtoint ptr %2 to i64
-  %55 = getelementptr inbounds nuw i8, ptr %50, i64 %54
-  %56 = ptrtoint ptr %55 to i64
-  %57 = ptrtoint ptr %48 to i64
-  %58 = getelementptr inbounds nuw i8, ptr %50, i64 %57
-  %59 = ptrtoint ptr %58 to i64
-  %60 = tail call ptr @tcg_gen_op3(i32 noundef 93, i32 noundef 1, i64 noundef %53, i64 noundef %56, i64 noundef %59)
+  %narrow = sub nuw nsw i32 64, %3
+  %46 = zext nneg i32 %narrow to i64
+  %47 = tail call ptr @tcg_constant_i64(i64 noundef %46) #6
+  %48 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %49 = load ptr, ptr %48, align 8
+  %50 = ptrtoint ptr %0 to i64
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 %50
+  %52 = ptrtoint ptr %51 to i64
+  %53 = ptrtoint ptr %2 to i64
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 %53
+  %55 = ptrtoint ptr %54 to i64
+  %56 = ptrtoint ptr %47 to i64
+  %57 = getelementptr inbounds nuw i8, ptr %49, i64 %56
+  %58 = ptrtoint ptr %57 to i64
+  %59 = tail call ptr @tcg_gen_op3(i32 noundef 93, i32 noundef 1, i64 noundef %52, i64 noundef %55, i64 noundef %58)
   br label %tcg_gen_mov_i64.exit
 
-61:                                               ; preds = %30
-  %62 = zext nneg i32 %3 to i64
-  %63 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %64 = load ptr, ptr %63, align 8
-  %65 = ptrtoint ptr %0 to i64
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %65
-  %67 = ptrtoint ptr %66 to i64
-  %68 = ptrtoint ptr %1 to i64
-  %69 = getelementptr inbounds nuw i8, ptr %64, i64 %68
-  %70 = ptrtoint ptr %69 to i64
-  %71 = ptrtoint ptr %2 to i64
-  %72 = getelementptr inbounds nuw i8, ptr %64, i64 %71
-  %73 = ptrtoint ptr %72 to i64
-  %74 = tail call ptr @tcg_gen_op4(i32 noundef 98, i32 noundef 1, i64 noundef %67, i64 noundef %70, i64 noundef %73, i64 noundef range(i64 1, 4294967296) %62)
+60:                                               ; preds = %30
+  %61 = zext nneg i32 %3 to i64
+  %62 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %63 = load ptr, ptr %62, align 8
+  %64 = ptrtoint ptr %0 to i64
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 %64
+  %66 = ptrtoint ptr %65 to i64
+  %67 = ptrtoint ptr %1 to i64
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 %67
+  %69 = ptrtoint ptr %68 to i64
+  %70 = ptrtoint ptr %2 to i64
+  %71 = getelementptr inbounds nuw i8, ptr %63, i64 %70
+  %72 = ptrtoint ptr %71 to i64
+  %73 = tail call ptr @tcg_gen_op4(i32 noundef 98, i32 noundef 1, i64 noundef %66, i64 noundef %69, i64 noundef %72, i64 noundef range(i64 1, 4294967296) %61)
   br label %tcg_gen_mov_i64.exit
 
-tcg_gen_mov_i64.exit:                             ; preds = %tcg_gen_rotli_i64.exit.i, %36, %34, %20, %18, %8, %6, %61
+tcg_gen_mov_i64.exit:                             ; preds = %tcg_gen_rotli_i64.exit.i, %36, %34, %20, %18, %8, %6, %60
   ret void
 }
 

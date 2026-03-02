@@ -3174,6 +3174,7 @@ _ZN4llvm18ExecutionDomainFix10visitInstrEPNS_12MachineInstrE.exit: ; preds = %23
   br label %24
 
 24:                                               ; preds = %_ZN4llvm18ExecutionDomainFix10visitInstrEPNS_12MachineInstrE.exit, %8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.010.014) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.010.014, align 8
   %25 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %25, 0

@@ -5429,6 +5429,7 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$3new17h66
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i82": ; preds = %.body78
   %134 = shl nsw i64 %.sroa.6.0243, 5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0170.0260) ]
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.0170.0260, i64 noundef %134, i64 noundef 2) #24, !noalias !393
   br label %.body
 
@@ -5509,6 +5510,7 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$3new17h66
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i92": ; preds = %.body88
   %157 = shl nsw i64 %.sroa.6175.0288, 5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0173.0303) ]
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.0173.0303, i64 noundef %157, i64 noundef 2) #24, !noalias !405
   br label %.body78
 

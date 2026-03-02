@@ -9336,6 +9336,7 @@ define internal fastcc void @_ZN6syntax10validation17validate_let_expr17hb50585d
 .body:                                            ; preds = %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..BinExpr$GT$17ha7d757a14a40451aE.exit.loopexit", %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..BinExpr$GT$17ha7d757a14a40451aE.exit.loopexit.split-lp", %85, %92, %155, %62, %67, %36, %45
   %.2 = phi ptr [ %25, %45 ], [ %.3, %155 ], [ %25, %85 ], [ %25, %62 ], [ %.1106, %36 ], [ %25, %67 ], [ %25, %92 ], [ %25, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..BinExpr$GT$17ha7d757a14a40451aE.exit.loopexit" ], [ %25, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..BinExpr$GT$17ha7d757a14a40451aE.exit.loopexit.split-lp" ]
   %.pn15 = phi { ptr, i32 } [ %46, %45 ], [ %156, %155 ], [ %86, %85 ], [ %63, %62 ], [ %37, %36 ], [ %63, %67 ], [ %86, %92 ], [ %lpad.loopexit, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..BinExpr$GT$17ha7d757a14a40451aE.exit.loopexit" ], [ %lpad.loopexit.split-lp, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..BinExpr$GT$17ha7d757a14a40451aE.exit.loopexit.split-lp" ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.2) ]
   %31 = getelementptr inbounds nuw i8, ptr %.2, i64 48
   %32 = load i32, ptr %31, align 4, !noalias !2483, !noundef !4
   %33 = add i32 %32, -1

@@ -2811,7 +2811,7 @@ define void @_ZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11Instruct
   store ptr %2, ptr %561, align 8
   %562 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %563 = load i32, ptr %562, align 4
-  switch i32 %563, label %5287 [
+  switch i32 %563, label %5292 [
     i32 0, label %564
     i32 1, label %565
     i32 2, label %566
@@ -2881,508 +2881,508 @@ define void @_ZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11Instruct
     i32 28, label %3034
     i32 29, label %3034
     i32 30, label %3034
-    i32 32, label %3085
+    i32 32, label %3090
     i32 31, label %.thread
-    i32 33, label %3118
-    i32 34, label %3118
-    i32 245, label %3118
-    i32 246, label %3118
-    i32 247, label %3118
-    i32 242, label %3118
-    i32 244, label %3118
-    i32 243, label %3277
-    i32 35, label %3293
-    i32 36, label %3302
-    i32 37, label %3311
-    i32 38, label %3320
-    i32 39, label %3329
-    i32 40, label %3329
-    i32 41, label %3338
-    i32 42, label %3338
-    i32 43, label %3347
-    i32 44, label %3347
-    i32 45, label %3356
-    i32 46, label %3356
-    i32 47, label %3365
-    i32 48, label %3365
-    i32 49, label %3374
-    i32 50, label %3383
-    i32 51, label %3392
-    i32 52, label %3401
-    i32 53, label %3410
-    i32 54, label %3419
-    i32 55, label %3428
-    i32 56, label %3437
-    i32 57, label %3446
-    i32 58, label %3455
-    i32 59, label %3460
-    i32 238, label %3469
-    i32 240, label %3505
-    i32 241, label %3513
-    i32 239, label %3526
-    i32 60, label %3542
-    i32 61, label %3547
-    i32 62, label %3552
-    i32 63, label %3557
-    i32 64, label %3562
-    i32 75, label %3571
-    i32 98, label %3580
-    i32 99, label %3580
-    i32 100, label %3580
-    i32 116, label %3589
-    i32 117, label %3589
-    i32 118, label %3589
-    i32 134, label %3598
-    i32 135, label %3598
-    i32 136, label %3598
-    i32 137, label %3598
-    i32 138, label %3598
-    i32 139, label %3598
-    i32 140, label %3598
-    i32 148, label %3607
-    i32 149, label %3607
-    i32 150, label %3607
-    i32 151, label %3607
-    i32 152, label %3607
-    i32 153, label %3607
-    i32 154, label %3607
-    i32 162, label %3616
-    i32 163, label %3625
-    i32 164, label %3625
-    i32 165, label %3634
-    i32 166, label %3634
-    i32 167, label %3643
-    i32 168, label %3643
-    i32 169, label %3652
-    i32 170, label %3652
-    i32 171, label %3661
-    i32 172, label %3661
-    i32 173, label %3670
-    i32 174, label %3670
-    i32 175, label %3679
-    i32 176, label %3679
-    i32 177, label %3688
-    i32 178, label %3697
-    i32 179, label %3697
-    i32 180, label %3706
-    i32 181, label %3706
-    i32 182, label %3715
-    i32 183, label %3724
-    i32 184, label %3733
-    i32 185, label %3742
-    i32 186, label %3751
-    i32 187, label %3760
-    i32 188, label %3760
-    i32 189, label %3769
-    i32 190, label %3769
-    i32 191, label %3769
-    i32 230, label %3778
-    i32 231, label %3778
-    i32 232, label %3787
-    i32 233, label %3787
-    i32 234, label %3796
-    i32 235, label %3796
-    i32 236, label %3805
-    i32 237, label %3805
-    i32 65, label %3814
-    i32 66, label %3814
-    i32 67, label %3814
-    i32 68, label %3814
-    i32 69, label %3814
-    i32 70, label %3814
-    i32 71, label %3814
-    i32 72, label %3814
-    i32 73, label %3814
-    i32 74, label %3814
-    i32 76, label %3827
-    i32 77, label %3827
-    i32 78, label %3827
-    i32 79, label %3827
-    i32 80, label %3827
-    i32 81, label %3827
-    i32 82, label %3827
-    i32 83, label %3827
-    i32 84, label %3827
-    i32 85, label %3827
-    i32 86, label %3840
-    i32 87, label %3840
-    i32 88, label %3840
-    i32 89, label %3840
-    i32 90, label %3840
-    i32 91, label %3840
-    i32 92, label %3853
-    i32 93, label %3853
-    i32 94, label %3853
-    i32 95, label %3853
-    i32 96, label %3853
-    i32 97, label %3853
-    i32 101, label %3866
-    i32 102, label %3866
-    i32 103, label %3866
-    i32 104, label %3866
-    i32 105, label %3866
-    i32 106, label %3866
-    i32 107, label %3866
-    i32 108, label %3866
-    i32 109, label %3866
-    i32 110, label %3866
-    i32 111, label %3866
-    i32 112, label %3866
-    i32 113, label %3866
-    i32 114, label %3866
-    i32 115, label %3866
-    i32 119, label %3890
-    i32 120, label %3890
-    i32 121, label %3890
-    i32 122, label %3890
-    i32 123, label %3890
-    i32 124, label %3890
-    i32 125, label %3890
-    i32 126, label %3890
-    i32 127, label %3890
-    i32 128, label %3890
-    i32 129, label %3890
-    i32 130, label %3890
-    i32 131, label %3890
-    i32 132, label %3890
-    i32 133, label %3890
-    i32 141, label %3914
-    i32 142, label %3914
-    i32 143, label %3914
-    i32 144, label %3914
-    i32 145, label %3914
-    i32 146, label %3914
-    i32 147, label %3914
-    i32 155, label %3927
-    i32 156, label %3927
-    i32 157, label %3927
-    i32 158, label %3927
-    i32 159, label %3927
-    i32 160, label %3927
-    i32 161, label %3927
-    i32 248, label %3940
-    i32 249, label %3949
-    i32 250, label %3949
-    i32 251, label %3949
-    i32 252, label %3949
-    i32 253, label %3949
-    i32 254, label %3949
-    i32 258, label %3949
-    i32 341, label %3949
-    i32 255, label %3958
-    i32 256, label %3967
-    i32 257, label %3976
-    i32 340, label %3976
-    i32 259, label %3985
-    i32 332, label %3994
-    i32 333, label %4007
-    i32 334, label %4020
-    i32 335, label %4033
-    i32 336, label %4046
-    i32 337, label %4055
-    i32 338, label %4064
-    i32 339, label %4073
-    i32 260, label %4082
-    i32 261, label %4087
-    i32 269, label %4105
-    i32 270, label %4105
-    i32 271, label %4115
-    i32 272, label %4129
-    i32 273, label %4129
-    i32 274, label %4139
-    i32 275, label %4153
-    i32 276, label %4163
-    i32 277, label %4177
-    i32 278, label %4187
-    i32 279, label %4201
-    i32 280, label %4211
-    i32 281, label %4225
-    i32 282, label %4235
-    i32 263, label %4249
-    i32 264, label %4249
-    i32 265, label %4249
-    i32 266, label %4258
-    i32 267, label %4267
-    i32 268, label %4276
-    i32 325, label %4285
-    i32 344, label %4285
-    i32 345, label %4285
-    i32 346, label %4285
-    i32 376, label %4285
-    i32 377, label %4285
-    i32 383, label %4285
-    i32 384, label %4285
-    i32 385, label %4285
-    i32 386, label %4285
-    i32 372, label %4285
-    i32 373, label %4285
-    i32 407, label %4285
-    i32 408, label %4285
-    i32 411, label %4285
-    i32 412, label %4285
-    i32 413, label %4285
-    i32 414, label %4285
-    i32 374, label %4285
-    i32 375, label %4285
-    i32 430, label %4285
-    i32 431, label %4285
-    i32 434, label %4285
-    i32 435, label %4285
-    i32 436, label %4285
-    i32 437, label %4285
-    i32 454, label %4285
-    i32 455, label %4285
-    i32 456, label %4285
-    i32 465, label %4285
-    i32 466, label %4285
-    i32 467, label %4285
-    i32 476, label %4285
-    i32 477, label %4285
-    i32 478, label %4285
-    i32 479, label %4285
-    i32 480, label %4285
-    i32 481, label %4285
-    i32 482, label %4285
-    i32 483, label %4285
-    i32 342, label %4285
-    i32 343, label %4285
-    i32 351, label %4285
-    i32 352, label %4285
-    i32 353, label %4285
-    i32 354, label %4285
-    i32 364, label %4285
-    i32 365, label %4285
-    i32 370, label %4285
-    i32 396, label %4285
-    i32 262, label %4305
-    i32 283, label %4305
-    i32 284, label %4305
-    i32 285, label %4305
-    i32 286, label %4305
-    i32 287, label %4305
-    i32 288, label %4305
-    i32 289, label %4305
-    i32 290, label %4305
-    i32 291, label %4305
-    i32 292, label %4305
-    i32 293, label %4305
-    i32 294, label %4305
-    i32 295, label %4305
-    i32 296, label %4305
-    i32 297, label %4305
-    i32 298, label %4305
-    i32 299, label %4305
-    i32 300, label %4305
-    i32 301, label %4305
-    i32 302, label %4305
-    i32 303, label %4305
-    i32 304, label %4305
-    i32 305, label %4305
-    i32 306, label %4305
-    i32 307, label %4305
-    i32 308, label %4305
-    i32 309, label %4305
-    i32 310, label %4305
-    i32 311, label %4305
-    i32 312, label %4305
-    i32 444, label %4305
-    i32 445, label %4305
-    i32 446, label %4305
-    i32 447, label %4305
-    i32 448, label %4305
-    i32 449, label %4305
-    i32 313, label %4305
-    i32 314, label %4305
-    i32 315, label %4305
-    i32 316, label %4305
-    i32 317, label %4305
-    i32 318, label %4305
-    i32 319, label %4305
-    i32 320, label %4305
-    i32 321, label %4305
-    i32 322, label %4305
-    i32 323, label %4305
-    i32 324, label %4305
-    i32 326, label %4305
-    i32 327, label %4305
-    i32 328, label %4305
-    i32 329, label %4305
-    i32 349, label %4305
-    i32 350, label %4305
-    i32 358, label %4305
-    i32 359, label %4305
-    i32 360, label %4305
-    i32 361, label %4305
-    i32 362, label %4305
-    i32 363, label %4305
-    i32 366, label %4305
-    i32 367, label %4305
-    i32 368, label %4305
-    i32 369, label %4305
-    i32 371, label %4305
-    i32 381, label %4305
-    i32 382, label %4305
-    i32 390, label %4305
-    i32 391, label %4305
-    i32 392, label %4305
-    i32 393, label %4305
-    i32 394, label %4305
-    i32 395, label %4305
-    i32 397, label %4305
-    i32 398, label %4305
-    i32 399, label %4305
-    i32 400, label %4305
-    i32 401, label %4305
-    i32 402, label %4305
-    i32 403, label %4305
-    i32 404, label %4305
-    i32 405, label %4305
-    i32 406, label %4305
-    i32 378, label %4305
-    i32 418, label %4305
-    i32 419, label %4305
-    i32 420, label %4305
-    i32 421, label %4305
-    i32 422, label %4305
-    i32 423, label %4305
-    i32 424, label %4305
-    i32 426, label %4305
-    i32 427, label %4305
-    i32 428, label %4305
-    i32 429, label %4305
-    i32 441, label %4305
-    i32 442, label %4305
-    i32 443, label %4305
-    i32 450, label %4305
-    i32 451, label %4305
-    i32 452, label %4305
-    i32 453, label %4305
-    i32 457, label %4305
-    i32 458, label %4305
-    i32 459, label %4305
-    i32 460, label %4305
-    i32 461, label %4305
-    i32 462, label %4305
-    i32 463, label %4305
-    i32 464, label %4305
-    i32 468, label %4305
-    i32 469, label %4305
-    i32 470, label %4305
-    i32 471, label %4305
-    i32 472, label %4305
-    i32 473, label %4305
-    i32 474, label %4305
-    i32 475, label %4305
-    i32 425, label %4305
-    i32 330, label %4329
-    i32 331, label %4346
-    i32 347, label %4346
-    i32 348, label %4346
-    i32 379, label %4346
-    i32 380, label %4346
-    i32 409, label %4346
-    i32 410, label %4346
-    i32 432, label %4346
-    i32 433, label %4346
-    i32 355, label %4355
-    i32 356, label %4355
-    i32 357, label %4355
-    i32 387, label %4355
-    i32 388, label %4355
-    i32 389, label %4355
-    i32 415, label %4355
-    i32 416, label %4355
-    i32 417, label %4355
-    i32 438, label %4355
-    i32 439, label %4355
-    i32 440, label %4355
-    i32 484, label %4379
-    i32 485, label %4392
-    i32 486, label %4392
-    i32 487, label %4392
-    i32 488, label %4392
-    i32 489, label %4401
-    i32 490, label %4401
-    i32 491, label %4401
-    i32 492, label %4401
-    i32 493, label %4401
-    i32 494, label %4401
-    i32 495, label %4401
-    i32 496, label %4401
-    i32 497, label %4418
-    i32 498, label %4418
-    i32 499, label %4418
-    i32 500, label %4418
-    i32 501, label %4418
-    i32 502, label %4418
-    i32 503, label %4431
-    i32 507, label %4448
-    i32 504, label %4449
-    i32 505, label %4462
-    i32 506, label %4479
-    i32 508, label %4496
-    i32 509, label %4505
-    i32 510, label %4514
-    i32 511, label %4523
-    i32 512, label %4532
-    i32 513, label %4541
-    i32 514, label %4550
-    i32 515, label %4559
-    i32 516, label %4568
-    i32 517, label %4577
-    i32 518, label %4586
-    i32 519, label %4595
-    i32 520, label %4604
-    i32 521, label %4613
-    i32 522, label %4622
-    i32 523, label %4635
-    i32 524, label %4648
-    i32 525, label %4661
-    i32 526, label %4674
-    i32 527, label %4687
-    i32 528, label %4700
-    i32 529, label %4713
-    i32 530, label %4726
-    i32 531, label %4739
-    i32 532, label %4752
-    i32 533, label %4765
-    i32 534, label %4778
-    i32 535, label %4791
-    i32 536, label %4804
-    i32 537, label %4817
-    i32 538, label %4830
-    i32 539, label %4843
-    i32 540, label %4856
-    i32 541, label %4869
-    i32 542, label %4882
-    i32 543, label %4895
-    i32 544, label %4908
-    i32 545, label %4921
-    i32 546, label %4934
-    i32 547, label %4947
-    i32 548, label %4960
-    i32 549, label %4973
-    i32 550, label %4986
-    i32 551, label %4999
-    i32 552, label %5012
-    i32 553, label %5025
-    i32 554, label %5038
-    i32 555, label %5051
-    i32 556, label %5064
-    i32 557, label %5077
-    i32 558, label %5090
-    i32 559, label %5103
-    i32 560, label %5116
-    i32 561, label %5129
-    i32 562, label %5142
-    i32 563, label %5155
-    i32 564, label %5168
-    i32 565, label %5185
-    i32 566, label %5202
-    i32 567, label %5219
-    i32 568, label %5236
-    i32 569, label %5253
-    i32 570, label %5270
+    i32 33, label %3123
+    i32 34, label %3123
+    i32 245, label %3123
+    i32 246, label %3123
+    i32 247, label %3123
+    i32 242, label %3123
+    i32 244, label %3123
+    i32 243, label %3282
+    i32 35, label %3298
+    i32 36, label %3307
+    i32 37, label %3316
+    i32 38, label %3325
+    i32 39, label %3334
+    i32 40, label %3334
+    i32 41, label %3343
+    i32 42, label %3343
+    i32 43, label %3352
+    i32 44, label %3352
+    i32 45, label %3361
+    i32 46, label %3361
+    i32 47, label %3370
+    i32 48, label %3370
+    i32 49, label %3379
+    i32 50, label %3388
+    i32 51, label %3397
+    i32 52, label %3406
+    i32 53, label %3415
+    i32 54, label %3424
+    i32 55, label %3433
+    i32 56, label %3442
+    i32 57, label %3451
+    i32 58, label %3460
+    i32 59, label %3465
+    i32 238, label %3474
+    i32 240, label %3510
+    i32 241, label %3518
+    i32 239, label %3531
+    i32 60, label %3547
+    i32 61, label %3552
+    i32 62, label %3557
+    i32 63, label %3562
+    i32 64, label %3567
+    i32 75, label %3576
+    i32 98, label %3585
+    i32 99, label %3585
+    i32 100, label %3585
+    i32 116, label %3594
+    i32 117, label %3594
+    i32 118, label %3594
+    i32 134, label %3603
+    i32 135, label %3603
+    i32 136, label %3603
+    i32 137, label %3603
+    i32 138, label %3603
+    i32 139, label %3603
+    i32 140, label %3603
+    i32 148, label %3612
+    i32 149, label %3612
+    i32 150, label %3612
+    i32 151, label %3612
+    i32 152, label %3612
+    i32 153, label %3612
+    i32 154, label %3612
+    i32 162, label %3621
+    i32 163, label %3630
+    i32 164, label %3630
+    i32 165, label %3639
+    i32 166, label %3639
+    i32 167, label %3648
+    i32 168, label %3648
+    i32 169, label %3657
+    i32 170, label %3657
+    i32 171, label %3666
+    i32 172, label %3666
+    i32 173, label %3675
+    i32 174, label %3675
+    i32 175, label %3684
+    i32 176, label %3684
+    i32 177, label %3693
+    i32 178, label %3702
+    i32 179, label %3702
+    i32 180, label %3711
+    i32 181, label %3711
+    i32 182, label %3720
+    i32 183, label %3729
+    i32 184, label %3738
+    i32 185, label %3747
+    i32 186, label %3756
+    i32 187, label %3765
+    i32 188, label %3765
+    i32 189, label %3774
+    i32 190, label %3774
+    i32 191, label %3774
+    i32 230, label %3783
+    i32 231, label %3783
+    i32 232, label %3792
+    i32 233, label %3792
+    i32 234, label %3801
+    i32 235, label %3801
+    i32 236, label %3810
+    i32 237, label %3810
+    i32 65, label %3819
+    i32 66, label %3819
+    i32 67, label %3819
+    i32 68, label %3819
+    i32 69, label %3819
+    i32 70, label %3819
+    i32 71, label %3819
+    i32 72, label %3819
+    i32 73, label %3819
+    i32 74, label %3819
+    i32 76, label %3832
+    i32 77, label %3832
+    i32 78, label %3832
+    i32 79, label %3832
+    i32 80, label %3832
+    i32 81, label %3832
+    i32 82, label %3832
+    i32 83, label %3832
+    i32 84, label %3832
+    i32 85, label %3832
+    i32 86, label %3845
+    i32 87, label %3845
+    i32 88, label %3845
+    i32 89, label %3845
+    i32 90, label %3845
+    i32 91, label %3845
+    i32 92, label %3858
+    i32 93, label %3858
+    i32 94, label %3858
+    i32 95, label %3858
+    i32 96, label %3858
+    i32 97, label %3858
+    i32 101, label %3871
+    i32 102, label %3871
+    i32 103, label %3871
+    i32 104, label %3871
+    i32 105, label %3871
+    i32 106, label %3871
+    i32 107, label %3871
+    i32 108, label %3871
+    i32 109, label %3871
+    i32 110, label %3871
+    i32 111, label %3871
+    i32 112, label %3871
+    i32 113, label %3871
+    i32 114, label %3871
+    i32 115, label %3871
+    i32 119, label %3895
+    i32 120, label %3895
+    i32 121, label %3895
+    i32 122, label %3895
+    i32 123, label %3895
+    i32 124, label %3895
+    i32 125, label %3895
+    i32 126, label %3895
+    i32 127, label %3895
+    i32 128, label %3895
+    i32 129, label %3895
+    i32 130, label %3895
+    i32 131, label %3895
+    i32 132, label %3895
+    i32 133, label %3895
+    i32 141, label %3919
+    i32 142, label %3919
+    i32 143, label %3919
+    i32 144, label %3919
+    i32 145, label %3919
+    i32 146, label %3919
+    i32 147, label %3919
+    i32 155, label %3932
+    i32 156, label %3932
+    i32 157, label %3932
+    i32 158, label %3932
+    i32 159, label %3932
+    i32 160, label %3932
+    i32 161, label %3932
+    i32 248, label %3945
+    i32 249, label %3954
+    i32 250, label %3954
+    i32 251, label %3954
+    i32 252, label %3954
+    i32 253, label %3954
+    i32 254, label %3954
+    i32 258, label %3954
+    i32 341, label %3954
+    i32 255, label %3963
+    i32 256, label %3972
+    i32 257, label %3981
+    i32 340, label %3981
+    i32 259, label %3990
+    i32 332, label %3999
+    i32 333, label %4012
+    i32 334, label %4025
+    i32 335, label %4038
+    i32 336, label %4051
+    i32 337, label %4060
+    i32 338, label %4069
+    i32 339, label %4078
+    i32 260, label %4087
+    i32 261, label %4092
+    i32 269, label %4110
+    i32 270, label %4110
+    i32 271, label %4120
+    i32 272, label %4134
+    i32 273, label %4134
+    i32 274, label %4144
+    i32 275, label %4158
+    i32 276, label %4168
+    i32 277, label %4182
+    i32 278, label %4192
+    i32 279, label %4206
+    i32 280, label %4216
+    i32 281, label %4230
+    i32 282, label %4240
+    i32 263, label %4254
+    i32 264, label %4254
+    i32 265, label %4254
+    i32 266, label %4263
+    i32 267, label %4272
+    i32 268, label %4281
+    i32 325, label %4290
+    i32 344, label %4290
+    i32 345, label %4290
+    i32 346, label %4290
+    i32 376, label %4290
+    i32 377, label %4290
+    i32 383, label %4290
+    i32 384, label %4290
+    i32 385, label %4290
+    i32 386, label %4290
+    i32 372, label %4290
+    i32 373, label %4290
+    i32 407, label %4290
+    i32 408, label %4290
+    i32 411, label %4290
+    i32 412, label %4290
+    i32 413, label %4290
+    i32 414, label %4290
+    i32 374, label %4290
+    i32 375, label %4290
+    i32 430, label %4290
+    i32 431, label %4290
+    i32 434, label %4290
+    i32 435, label %4290
+    i32 436, label %4290
+    i32 437, label %4290
+    i32 454, label %4290
+    i32 455, label %4290
+    i32 456, label %4290
+    i32 465, label %4290
+    i32 466, label %4290
+    i32 467, label %4290
+    i32 476, label %4290
+    i32 477, label %4290
+    i32 478, label %4290
+    i32 479, label %4290
+    i32 480, label %4290
+    i32 481, label %4290
+    i32 482, label %4290
+    i32 483, label %4290
+    i32 342, label %4290
+    i32 343, label %4290
+    i32 351, label %4290
+    i32 352, label %4290
+    i32 353, label %4290
+    i32 354, label %4290
+    i32 364, label %4290
+    i32 365, label %4290
+    i32 370, label %4290
+    i32 396, label %4290
+    i32 262, label %4310
+    i32 283, label %4310
+    i32 284, label %4310
+    i32 285, label %4310
+    i32 286, label %4310
+    i32 287, label %4310
+    i32 288, label %4310
+    i32 289, label %4310
+    i32 290, label %4310
+    i32 291, label %4310
+    i32 292, label %4310
+    i32 293, label %4310
+    i32 294, label %4310
+    i32 295, label %4310
+    i32 296, label %4310
+    i32 297, label %4310
+    i32 298, label %4310
+    i32 299, label %4310
+    i32 300, label %4310
+    i32 301, label %4310
+    i32 302, label %4310
+    i32 303, label %4310
+    i32 304, label %4310
+    i32 305, label %4310
+    i32 306, label %4310
+    i32 307, label %4310
+    i32 308, label %4310
+    i32 309, label %4310
+    i32 310, label %4310
+    i32 311, label %4310
+    i32 312, label %4310
+    i32 444, label %4310
+    i32 445, label %4310
+    i32 446, label %4310
+    i32 447, label %4310
+    i32 448, label %4310
+    i32 449, label %4310
+    i32 313, label %4310
+    i32 314, label %4310
+    i32 315, label %4310
+    i32 316, label %4310
+    i32 317, label %4310
+    i32 318, label %4310
+    i32 319, label %4310
+    i32 320, label %4310
+    i32 321, label %4310
+    i32 322, label %4310
+    i32 323, label %4310
+    i32 324, label %4310
+    i32 326, label %4310
+    i32 327, label %4310
+    i32 328, label %4310
+    i32 329, label %4310
+    i32 349, label %4310
+    i32 350, label %4310
+    i32 358, label %4310
+    i32 359, label %4310
+    i32 360, label %4310
+    i32 361, label %4310
+    i32 362, label %4310
+    i32 363, label %4310
+    i32 366, label %4310
+    i32 367, label %4310
+    i32 368, label %4310
+    i32 369, label %4310
+    i32 371, label %4310
+    i32 381, label %4310
+    i32 382, label %4310
+    i32 390, label %4310
+    i32 391, label %4310
+    i32 392, label %4310
+    i32 393, label %4310
+    i32 394, label %4310
+    i32 395, label %4310
+    i32 397, label %4310
+    i32 398, label %4310
+    i32 399, label %4310
+    i32 400, label %4310
+    i32 401, label %4310
+    i32 402, label %4310
+    i32 403, label %4310
+    i32 404, label %4310
+    i32 405, label %4310
+    i32 406, label %4310
+    i32 378, label %4310
+    i32 418, label %4310
+    i32 419, label %4310
+    i32 420, label %4310
+    i32 421, label %4310
+    i32 422, label %4310
+    i32 423, label %4310
+    i32 424, label %4310
+    i32 426, label %4310
+    i32 427, label %4310
+    i32 428, label %4310
+    i32 429, label %4310
+    i32 441, label %4310
+    i32 442, label %4310
+    i32 443, label %4310
+    i32 450, label %4310
+    i32 451, label %4310
+    i32 452, label %4310
+    i32 453, label %4310
+    i32 457, label %4310
+    i32 458, label %4310
+    i32 459, label %4310
+    i32 460, label %4310
+    i32 461, label %4310
+    i32 462, label %4310
+    i32 463, label %4310
+    i32 464, label %4310
+    i32 468, label %4310
+    i32 469, label %4310
+    i32 470, label %4310
+    i32 471, label %4310
+    i32 472, label %4310
+    i32 473, label %4310
+    i32 474, label %4310
+    i32 475, label %4310
+    i32 425, label %4310
+    i32 330, label %4334
+    i32 331, label %4351
+    i32 347, label %4351
+    i32 348, label %4351
+    i32 379, label %4351
+    i32 380, label %4351
+    i32 409, label %4351
+    i32 410, label %4351
+    i32 432, label %4351
+    i32 433, label %4351
+    i32 355, label %4360
+    i32 356, label %4360
+    i32 357, label %4360
+    i32 387, label %4360
+    i32 388, label %4360
+    i32 389, label %4360
+    i32 415, label %4360
+    i32 416, label %4360
+    i32 417, label %4360
+    i32 438, label %4360
+    i32 439, label %4360
+    i32 440, label %4360
+    i32 484, label %4384
+    i32 485, label %4397
+    i32 486, label %4397
+    i32 487, label %4397
+    i32 488, label %4397
+    i32 489, label %4406
+    i32 490, label %4406
+    i32 491, label %4406
+    i32 492, label %4406
+    i32 493, label %4406
+    i32 494, label %4406
+    i32 495, label %4406
+    i32 496, label %4406
+    i32 497, label %4423
+    i32 498, label %4423
+    i32 499, label %4423
+    i32 500, label %4423
+    i32 501, label %4423
+    i32 502, label %4423
+    i32 503, label %4436
+    i32 507, label %4453
+    i32 504, label %4454
+    i32 505, label %4467
+    i32 506, label %4484
+    i32 508, label %4501
+    i32 509, label %4510
+    i32 510, label %4519
+    i32 511, label %4528
+    i32 512, label %4537
+    i32 513, label %4546
+    i32 514, label %4555
+    i32 515, label %4564
+    i32 516, label %4573
+    i32 517, label %4582
+    i32 518, label %4591
+    i32 519, label %4600
+    i32 520, label %4609
+    i32 521, label %4618
+    i32 522, label %4627
+    i32 523, label %4640
+    i32 524, label %4653
+    i32 525, label %4666
+    i32 526, label %4679
+    i32 527, label %4692
+    i32 528, label %4705
+    i32 529, label %4718
+    i32 530, label %4731
+    i32 531, label %4744
+    i32 532, label %4757
+    i32 533, label %4770
+    i32 534, label %4783
+    i32 535, label %4796
+    i32 536, label %4809
+    i32 537, label %4822
+    i32 538, label %4835
+    i32 539, label %4848
+    i32 540, label %4861
+    i32 541, label %4874
+    i32 542, label %4887
+    i32 543, label %4900
+    i32 544, label %4913
+    i32 545, label %4926
+    i32 546, label %4939
+    i32 547, label %4952
+    i32 548, label %4965
+    i32 549, label %4978
+    i32 550, label %4991
+    i32 551, label %5004
+    i32 552, label %5017
+    i32 553, label %5030
+    i32 554, label %5043
+    i32 555, label %5056
+    i32 556, label %5069
+    i32 557, label %5082
+    i32 558, label %5095
+    i32 559, label %5108
+    i32 560, label %5121
+    i32 561, label %5134
+    i32 562, label %5147
+    i32 563, label %5160
+    i32 564, label %5173
+    i32 565, label %5190
+    i32 566, label %5207
+    i32 567, label %5224
+    i32 568, label %5241
+    i32 569, label %5258
+    i32 570, label %5275
   ]
 
 564:                                              ; preds = %3
@@ -8114,17 +8114,17 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   %3061 = trunc i64 %3060 to i32
   %3062 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %3061, ptr %3062, align 8
-  %3063 = load i8, ptr %3050, align 4
-  %3064 = trunc i8 %3063 to i1
-  switch i32 %563, label %3078 [
-    i32 28, label %3065
+  switch i32 %563, label %3080 [
+    i32 28, label %3063
     i32 29, label %3071
   ]
 
-3065:                                             ; preds = %3049
-  br i1 %3064, label %3068, label %3066
+3063:                                             ; preds = %3049
+  %3064 = load i8, ptr %3050, align 4
+  %3065 = trunc i8 %3064 to i1
+  br i1 %3065, label %3068, label %3066
 
-3066:                                             ; preds = %3065
+3066:                                             ; preds = %3063
   store i32 538, ptr %207, align 4
   call void @_ZN6spdlog5errorIN8WasmEdge7ErrCode5ValueEEEvRKT_(ptr noundef nonnull align 4 dereferenceable(4) %207)
   store i8 0, ptr %0, align 4
@@ -8132,7 +8132,7 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   store i32 538, ptr %3067, align 4
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3068:                                             ; preds = %3065
+3068:                                             ; preds = %3063
   %3069 = getelementptr inbounds nuw i8, ptr %3050, i64 4
   %3070 = load i64, ptr %3069, align 4
   store i64 %3070, ptr %208, align 8
@@ -8140,74 +8140,80 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
 3071:                                             ; preds = %3049
-  br i1 %3064, label %3075, label %3072
+  %3072 = load i8, ptr %3050, align 4
+  %3073 = trunc i8 %3072 to i1
+  br i1 %3073, label %3077, label %3074
 
-3072:                                             ; preds = %3071
+3074:                                             ; preds = %3071
   store i8 1, ptr %3050, align 4
-  %3073 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %3074 = load i32, ptr %2, align 16
-  store i32 %3074, ptr %209, align 4
-  call void @_ZNSt6vectorIjSaIjEE9push_backEOj(ptr noundef nonnull align 8 dereferenceable(24) %3073, ptr noundef nonnull align 4 dereferenceable(4) %209)
-  br label %3075
+  %3075 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %3076 = load i32, ptr %2, align 16
+  store i32 %3076, ptr %209, align 4
+  call void @_ZNSt6vectorIjSaIjEE9push_backEOj(ptr noundef nonnull align 8 dereferenceable(24) %3075, ptr noundef nonnull align 4 dereferenceable(4) %209)
+  br label %3077
 
-3075:                                             ; preds = %3072, %3071
-  %3076 = getelementptr inbounds nuw i8, ptr %3050, i64 4
-  %3077 = load i64, ptr %3076, align 4
-  store i64 %3077, ptr %210, align 8
+3077:                                             ; preds = %3074, %3071
+  %3078 = getelementptr inbounds nuw i8, ptr %3050, i64 4
+  %3079 = load i64, ptr %3078, align 4
+  store i64 %3079, ptr %210, align 8
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %210, i64 1, ptr null, i64 0)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3078:                                             ; preds = %3049
-  br i1 %3064, label %3082, label %3079
+3080:                                             ; preds = %3049
+  %3081 = icmp eq i32 %563, 30
+  tail call void @llvm.assume(i1 %3081)
+  %3082 = load i8, ptr %3050, align 4
+  %3083 = trunc i8 %3082 to i1
+  br i1 %3083, label %3087, label %3084
 
-3079:                                             ; preds = %3078
+3084:                                             ; preds = %3080
   store i8 1, ptr %3050, align 4
-  %3080 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %3081 = load i32, ptr %2, align 16
-  store i32 %3081, ptr %211, align 4
-  call void @_ZNSt6vectorIjSaIjEE9push_backEOj(ptr noundef nonnull align 8 dereferenceable(24) %3080, ptr noundef nonnull align 4 dereferenceable(4) %211)
-  br label %3082
+  %3085 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %3086 = load i32, ptr %2, align 16
+  store i32 %3086, ptr %211, align 4
+  call void @_ZNSt6vectorIjSaIjEE9push_backEOj(ptr noundef nonnull align 8 dereferenceable(24) %3085, ptr noundef nonnull align 4 dereferenceable(4) %211)
+  br label %3087
 
-3082:                                             ; preds = %3079, %3078
-  %3083 = getelementptr inbounds nuw i8, ptr %3050, i64 4
-  %3084 = load i64, ptr %3083, align 4
-  store i64 %3084, ptr %212, align 8
-  store i64 %3084, ptr %213, align 8
+3087:                                             ; preds = %3084, %3080
+  %3088 = getelementptr inbounds nuw i8, ptr %3050, i64 4
+  %3089 = load i64, ptr %3088, align 4
+  store i64 %3089, ptr %212, align 8
+  store i64 %3089, ptr %213, align 8
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %212, i64 1, ptr nonnull %213, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3085:                                             ; preds = %3
-  %3086 = load i32, ptr %2, align 16
-  %3087 = zext i32 %3086 to i64
-  %3088 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %3089 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %3090 = load ptr, ptr %3089, align 8
-  %3091 = load ptr, ptr %3088, align 8
-  %3092 = ptrtoint ptr %3090 to i64
-  %3093 = ptrtoint ptr %3091 to i64
-  %3094 = sub i64 %3092, %3093
-  %3095 = sdiv exact i64 %3094, 12
-  %3096 = icmp ugt i64 %3095, %3087
-  br i1 %3096, label %3097, label %3103
+3090:                                             ; preds = %3
+  %3091 = load i32, ptr %2, align 16
+  %3092 = zext i32 %3091 to i64
+  %3093 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %3094 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %3095 = load ptr, ptr %3094, align 8
+  %3096 = load ptr, ptr %3093, align 8
+  %3097 = ptrtoint ptr %3095 to i64
+  %3098 = ptrtoint ptr %3096 to i64
+  %3099 = sub i64 %3097, %3098
+  %3100 = sdiv exact i64 %3099, 12
+  %3101 = icmp ugt i64 %3100, %3092
+  br i1 %3101, label %3102, label %3108
 
-3097:                                             ; preds = %3085
-  %3098 = getelementptr inbounds nuw %"struct.std::pair", ptr %3091, i64 %3087
-  %3099 = getelementptr inbounds nuw i8, ptr %3098, i64 8
-  %3100 = load i8, ptr %3099, align 4
-  %.not889 = icmp eq i8 %3100, 1
-  br i1 %.not889, label %3103, label %3101
+3102:                                             ; preds = %3090
+  %3103 = getelementptr inbounds nuw %"struct.std::pair", ptr %3096, i64 %3092
+  %3104 = getelementptr inbounds nuw i8, ptr %3103, i64 8
+  %3105 = load i8, ptr %3104, align 4
+  %.not889 = icmp eq i8 %3105, 1
+  br i1 %.not889, label %3108, label %3106
 
-3101:                                             ; preds = %3097
+3106:                                             ; preds = %3102
   store i32 528, ptr %214, align 4
   call void @_ZN6spdlog5errorIN8WasmEdge7ErrCode5ValueEEEvRKT_(ptr noundef nonnull align 4 dereferenceable(4) %214)
   store i8 0, ptr %0, align 4
-  %3102 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 528, ptr %3102, align 4
+  %3107 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 528, ptr %3107, align 4
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3103:                                             ; preds = %3085, %3097
-  %.not890 = icmp ugt i64 %3095, %3087
-  br i1 %.not890, label %3111, label %3106
+3108:                                             ; preds = %3090, %3102
+  %.not890 = icmp ugt i64 %3100, %3092
+  br i1 %.not890, label %3116, label %3111
 
 .thread:                                          ; preds = %3
   %.pre = load i32, ptr %2, align 16
@@ -8221,4760 +8227,4760 @@ _ZSteqIN8WasmEdge7ValTypeES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7de
   %.pre3456 = sub i64 %.pre3452, %.pre3454
   %.pre3458 = sdiv exact i64 %.pre3456, 12
   %.not8903531 = icmp ugt i64 %.pre3458, %.pre3451
-  br i1 %.not8903531, label %.thread3534, label %3106
+  br i1 %.not8903531, label %.thread3534, label %3111
 
 .thread3534:                                      ; preds = %.thread
-  %3104 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre3438, i64 %.pre3451
-  %3105 = load i64, ptr %3104, align 4
-  br label %3116
+  %3109 = getelementptr inbounds nuw %"struct.std::pair", ptr %.pre3438, i64 %.pre3451
+  %3110 = load i64, ptr %3109, align 4
+  br label %3121
 
-3106:                                             ; preds = %.thread, %3103
-  %3107 = phi i32 [ %.pre, %.thread ], [ %3086, %3103 ]
-  %.pre-phi34593532 = phi i64 [ %.pre3458, %.thread ], [ %3095, %3103 ]
+3111:                                             ; preds = %.thread, %3108
+  %3112 = phi i32 [ %.pre, %.thread ], [ %3091, %3108 ]
+  %.pre-phi34593532 = phi i64 [ %.pre3458, %.thread ], [ %3100, %3108 ]
   store i32 521, ptr %216, align 4
-  %3108 = trunc nuw i64 %.pre-phi34593532 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %215, ptr noundef %216, i8 noundef zeroext 7, i32 noundef %3107, i32 noundef %3108)
+  %3113 = trunc nuw i64 %.pre-phi34593532 to i32
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %215, ptr noundef %216, i8 noundef zeroext 7, i32 noundef %3112, i32 noundef %3113)
   store i8 0, ptr %0, align 4
-  %3109 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3110 = load i32, ptr %215, align 4
-  store i32 %3110, ptr %3109, align 4
+  %3114 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %3115 = load i32, ptr %215, align 4
+  store i32 %3115, ptr %3114, align 4
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3111:                                             ; preds = %3103
-  %3112 = getelementptr inbounds nuw %"struct.std::pair", ptr %3091, i64 %3087
-  %3113 = load i64, ptr %3112, align 4
-  %3114 = icmp eq i32 %563, 32
-  br i1 %3114, label %3115, label %3116
+3116:                                             ; preds = %3108
+  %3117 = getelementptr inbounds nuw %"struct.std::pair", ptr %3096, i64 %3092
+  %3118 = load i64, ptr %3117, align 4
+  %3119 = icmp eq i32 %563, 32
+  br i1 %3119, label %3120, label %3121
 
-3115:                                             ; preds = %3111
-  store i64 %3113, ptr %217, align 8
+3120:                                             ; preds = %3116
+  store i64 %3118, ptr %217, align 8
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %217, i64 1, ptr null, i64 0)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3116:                                             ; preds = %.thread3534, %3111
-  %3117 = phi i64 [ %3105, %.thread3534 ], [ %3113, %3111 ]
-  store i64 %3117, ptr %218, align 8
+3121:                                             ; preds = %.thread3534, %3116
+  %3122 = phi i64 [ %3110, %.thread3534 ], [ %3118, %3116 ]
+  store i64 %3122, ptr %218, align 8
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr null, i64 0, ptr nonnull %218, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3118:                                             ; preds = %3, %3, %3, %3, %3, %3, %3
-  %3119 = load i32, ptr %2, align 16
-  %3120 = zext i32 %3119 to i64
-  %3121 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %3122 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %3123 = load ptr, ptr %3122, align 8
-  %3124 = load ptr, ptr %3121, align 8
-  %3125 = ptrtoint ptr %3123 to i64
-  %3126 = ptrtoint ptr %3124 to i64
-  %3127 = sub i64 %3125, %3126
-  %3128 = ashr exact i64 %3127, 3
-  %.not886 = icmp ugt i64 %3128, %3120
-  br i1 %.not886, label %3133, label %3129
+3123:                                             ; preds = %3, %3, %3, %3, %3, %3, %3
+  %3124 = load i32, ptr %2, align 16
+  %3125 = zext i32 %3124 to i64
+  %3126 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %3127 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %3128 = load ptr, ptr %3127, align 8
+  %3129 = load ptr, ptr %3126, align 8
+  %3130 = ptrtoint ptr %3128 to i64
+  %3131 = ptrtoint ptr %3129 to i64
+  %3132 = sub i64 %3130, %3131
+  %3133 = ashr exact i64 %3132, 3
+  %.not886 = icmp ugt i64 %3133, %3125
+  br i1 %.not886, label %3138, label %3134
 
-3129:                                             ; preds = %3118
+3134:                                             ; preds = %3123
   store i32 519, ptr %220, align 4
-  %3130 = trunc nuw i64 %3128 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %219, ptr noundef %220, i8 noundef zeroext 5, i32 noundef %3119, i32 noundef %3130)
+  %3135 = trunc nuw i64 %3133 to i32
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %219, ptr noundef %220, i8 noundef zeroext 5, i32 noundef %3124, i32 noundef %3135)
   store i8 0, ptr %0, align 4
-  %3131 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3132 = load i32, ptr %219, align 4
-  store i32 %3132, ptr %3131, align 4
+  %3136 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %3137 = load i32, ptr %219, align 4
+  store i32 %3137, ptr %3136, align 4
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3133:                                             ; preds = %3118
-  %3134 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %3124, i64 %3120
-  %3135 = load i64, ptr %3134, align 4
-  switch i32 %563, label %3228 [
-    i32 33, label %3136
-    i32 34, label %3141
-    i32 245, label %3147
-    i32 246, label %3156
-    i32 247, label %3161
-    i32 242, label %3171
+3138:                                             ; preds = %3123
+  %3139 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %3129, i64 %3125
+  %3140 = load i64, ptr %3139, align 4
+  switch i32 %563, label %3233 [
+    i32 33, label %3141
+    i32 34, label %3146
+    i32 245, label %3152
+    i32 246, label %3161
+    i32 247, label %3166
+    i32 242, label %3176
   ]
 
-3136:                                             ; preds = %3133
-  %3137 = getelementptr inbounds nuw i8, ptr %221, i64 1
-  store i8 0, ptr %3137, align 1
-  %3138 = getelementptr inbounds nuw i8, ptr %221, i64 4
-  store i32 0, ptr %3138, align 4
-  %3139 = getelementptr inbounds nuw i8, ptr %221, i64 3
-  %3140 = getelementptr inbounds nuw i8, ptr %221, i64 2
-  store i8 127, ptr %3140, align 2
-  store i8 64, ptr %3139, align 1
-  store i64 %3135, ptr %222, align 8
+3141:                                             ; preds = %3138
+  %3142 = getelementptr inbounds nuw i8, ptr %221, i64 1
+  store i8 0, ptr %3142, align 1
+  %3143 = getelementptr inbounds nuw i8, ptr %221, i64 4
+  store i32 0, ptr %3143, align 4
+  %3144 = getelementptr inbounds nuw i8, ptr %221, i64 3
+  %3145 = getelementptr inbounds nuw i8, ptr %221, i64 2
+  store i8 127, ptr %3145, align 2
+  store i8 64, ptr %3144, align 1
+  store i64 %3140, ptr %222, align 8
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %221, i64 1, ptr nonnull %222, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3141:                                             ; preds = %3133
-  %3142 = getelementptr inbounds nuw i8, ptr %223, i64 1
-  store i8 0, ptr %3142, align 1
-  %3143 = getelementptr inbounds nuw i8, ptr %223, i64 4
-  store i32 0, ptr %3143, align 4
-  %3144 = getelementptr inbounds nuw i8, ptr %223, i64 3
-  %3145 = getelementptr inbounds nuw i8, ptr %223, i64 2
-  store i8 127, ptr %3145, align 2
-  store i8 64, ptr %3144, align 1
-  %3146 = getelementptr inbounds nuw i8, ptr %223, i64 8
-  store i64 %3135, ptr %3146, align 4
+3146:                                             ; preds = %3138
+  %3147 = getelementptr inbounds nuw i8, ptr %223, i64 1
+  store i8 0, ptr %3147, align 1
+  %3148 = getelementptr inbounds nuw i8, ptr %223, i64 4
+  store i32 0, ptr %3148, align 4
+  %3149 = getelementptr inbounds nuw i8, ptr %223, i64 3
+  %3150 = getelementptr inbounds nuw i8, ptr %223, i64 2
+  store i8 127, ptr %3150, align 2
+  store i8 64, ptr %3149, align 1
+  %3151 = getelementptr inbounds nuw i8, ptr %223, i64 8
+  store i64 %3140, ptr %3151, align 4
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %223, i64 2, ptr null, i64 0)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3147:                                             ; preds = %3133
-  store i64 %3135, ptr %224, align 8
-  %3148 = getelementptr inbounds nuw i8, ptr %224, i64 9
-  store i8 0, ptr %3148, align 1
-  %3149 = getelementptr inbounds nuw i8, ptr %224, i64 12
-  store i32 0, ptr %3149, align 4
-  %3150 = getelementptr inbounds nuw i8, ptr %224, i64 11
-  %3151 = getelementptr inbounds nuw i8, ptr %224, i64 10
-  store i8 127, ptr %3151, align 2
-  store i8 64, ptr %3150, align 1
-  %3152 = getelementptr inbounds nuw i8, ptr %225, i64 1
-  store i8 0, ptr %3152, align 1
-  %3153 = getelementptr inbounds nuw i8, ptr %225, i64 4
-  store i32 0, ptr %3153, align 4
-  %3154 = getelementptr inbounds nuw i8, ptr %225, i64 3
-  %3155 = getelementptr inbounds nuw i8, ptr %225, i64 2
-  store i8 127, ptr %3155, align 2
-  store i8 64, ptr %3154, align 1
+3152:                                             ; preds = %3138
+  store i64 %3140, ptr %224, align 8
+  %3153 = getelementptr inbounds nuw i8, ptr %224, i64 9
+  store i8 0, ptr %3153, align 1
+  %3154 = getelementptr inbounds nuw i8, ptr %224, i64 12
+  store i32 0, ptr %3154, align 4
+  %3155 = getelementptr inbounds nuw i8, ptr %224, i64 11
+  %3156 = getelementptr inbounds nuw i8, ptr %224, i64 10
+  store i8 127, ptr %3156, align 2
+  store i8 64, ptr %3155, align 1
+  %3157 = getelementptr inbounds nuw i8, ptr %225, i64 1
+  store i8 0, ptr %3157, align 1
+  %3158 = getelementptr inbounds nuw i8, ptr %225, i64 4
+  store i32 0, ptr %3158, align 4
+  %3159 = getelementptr inbounds nuw i8, ptr %225, i64 3
+  %3160 = getelementptr inbounds nuw i8, ptr %225, i64 2
+  store i8 127, ptr %3160, align 2
+  store i8 64, ptr %3159, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %224, i64 2, ptr nonnull %225, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3156:                                             ; preds = %3133
-  %3157 = getelementptr inbounds nuw i8, ptr %226, i64 1
-  store i8 0, ptr %3157, align 1
-  %3158 = getelementptr inbounds nuw i8, ptr %226, i64 4
-  store i32 0, ptr %3158, align 4
-  %3159 = getelementptr inbounds nuw i8, ptr %226, i64 3
-  %3160 = getelementptr inbounds nuw i8, ptr %226, i64 2
-  store i8 127, ptr %3160, align 2
-  store i8 64, ptr %3159, align 1
+3161:                                             ; preds = %3138
+  %3162 = getelementptr inbounds nuw i8, ptr %226, i64 1
+  store i8 0, ptr %3162, align 1
+  %3163 = getelementptr inbounds nuw i8, ptr %226, i64 4
+  store i32 0, ptr %3163, align 4
+  %3164 = getelementptr inbounds nuw i8, ptr %226, i64 3
+  %3165 = getelementptr inbounds nuw i8, ptr %226, i64 2
+  store i8 127, ptr %3165, align 2
+  store i8 64, ptr %3164, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr null, i64 0, ptr nonnull %226, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3161:                                             ; preds = %3133
-  %3162 = getelementptr inbounds nuw i8, ptr %227, i64 1
-  store i8 0, ptr %3162, align 1
-  %3163 = getelementptr inbounds nuw i8, ptr %227, i64 4
-  store i32 0, ptr %3163, align 4
-  %3164 = getelementptr inbounds nuw i8, ptr %227, i64 3
-  %3165 = getelementptr inbounds nuw i8, ptr %227, i64 2
-  store i8 127, ptr %3165, align 2
-  store i8 64, ptr %3164, align 1
-  %3166 = getelementptr inbounds nuw i8, ptr %227, i64 8
-  store i64 %3135, ptr %3166, align 4
-  %3167 = getelementptr inbounds nuw i8, ptr %227, i64 17
+3166:                                             ; preds = %3138
+  %3167 = getelementptr inbounds nuw i8, ptr %227, i64 1
   store i8 0, ptr %3167, align 1
-  %3168 = getelementptr inbounds nuw i8, ptr %227, i64 20
+  %3168 = getelementptr inbounds nuw i8, ptr %227, i64 4
   store i32 0, ptr %3168, align 4
-  %3169 = getelementptr inbounds nuw i8, ptr %227, i64 19
-  %3170 = getelementptr inbounds nuw i8, ptr %227, i64 18
+  %3169 = getelementptr inbounds nuw i8, ptr %227, i64 3
+  %3170 = getelementptr inbounds nuw i8, ptr %227, i64 2
   store i8 127, ptr %3170, align 2
   store i8 64, ptr %3169, align 1
+  %3171 = getelementptr inbounds nuw i8, ptr %227, i64 8
+  store i64 %3140, ptr %3171, align 4
+  %3172 = getelementptr inbounds nuw i8, ptr %227, i64 17
+  store i8 0, ptr %3172, align 1
+  %3173 = getelementptr inbounds nuw i8, ptr %227, i64 20
+  store i32 0, ptr %3173, align 4
+  %3174 = getelementptr inbounds nuw i8, ptr %227, i64 19
+  %3175 = getelementptr inbounds nuw i8, ptr %227, i64 18
+  store i8 127, ptr %3175, align 2
+  store i8 64, ptr %3174, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %227, i64 3, ptr null, i64 0)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3171:                                             ; preds = %3133
-  %3172 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %3173 = load i32, ptr %3172, align 4
-  %3174 = zext i32 %3173 to i64
-  %3175 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %3176 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %3177 = load ptr, ptr %3176, align 8
-  %3178 = load ptr, ptr %3175, align 8
-  %3179 = ptrtoint ptr %3177 to i64
-  %3180 = ptrtoint ptr %3178 to i64
-  %3181 = sub i64 %3179, %3180
-  %3182 = ashr exact i64 %3181, 3
-  %.not888 = icmp ugt i64 %3182, %3174
-  br i1 %.not888, label %3187, label %3183
+3176:                                             ; preds = %3138
+  %3177 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %3178 = load i32, ptr %3177, align 4
+  %3179 = zext i32 %3178 to i64
+  %3180 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %3181 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %3182 = load ptr, ptr %3181, align 8
+  %3183 = load ptr, ptr %3180, align 8
+  %3184 = ptrtoint ptr %3182 to i64
+  %3185 = ptrtoint ptr %3183 to i64
+  %3186 = sub i64 %3184, %3185
+  %3187 = ashr exact i64 %3186, 3
+  %.not888 = icmp ugt i64 %3187, %3179
+  br i1 %.not888, label %3192, label %3188
 
-3183:                                             ; preds = %3171
+3188:                                             ; preds = %3176
   store i32 523, ptr %229, align 4
-  %3184 = trunc nuw i64 %3182 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %228, ptr noundef %229, i8 noundef zeroext 8, i32 noundef %3173, i32 noundef %3184)
+  %3189 = trunc nuw i64 %3187 to i32
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %228, ptr noundef %229, i8 noundef zeroext 8, i32 noundef %3178, i32 noundef %3189)
   store i8 0, ptr %0, align 4
-  %3185 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3186 = load i32, ptr %228, align 4
-  store i32 %3186, ptr %3185, align 4
+  %3190 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %3191 = load i32, ptr %228, align 4
+  store i32 %3191, ptr %3190, align 4
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3187:                                             ; preds = %3171
-  %3188 = load ptr, ptr %1, align 8
-  %3189 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3190 = load ptr, ptr %3189, align 8
-  %3191 = ptrtoint ptr %3190 to i64
-  %3192 = ptrtoint ptr %3188 to i64
-  %3193 = sub i64 %3191, %3192
-  %3194 = ashr exact i64 %3193, 3
-  %3195 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %3178, i64 %3174
-  %3196 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %3188, i64 %3194, ptr noundef nonnull align 4 dereferenceable(8) %3134, ptr %3188, i64 %3194, ptr noundef nonnull align 4 dereferenceable(8) %3195) #26
-  br i1 %3196, label %3215, label %3197
+3192:                                             ; preds = %3176
+  %3193 = load ptr, ptr %1, align 8
+  %3194 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3195 = load ptr, ptr %3194, align 8
+  %3196 = ptrtoint ptr %3195 to i64
+  %3197 = ptrtoint ptr %3193 to i64
+  %3198 = sub i64 %3196, %3197
+  %3199 = ashr exact i64 %3198, 3
+  %3200 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %3183, i64 %3179
+  %3201 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %3193, i64 %3199, ptr noundef nonnull align 4 dereferenceable(8) %3139, ptr %3193, i64 %3199, ptr noundef nonnull align 4 dereferenceable(8) %3200) #26
+  br i1 %3201, label %3220, label %3202
 
-3197:                                             ; preds = %3187
+3202:                                             ; preds = %3192
   store i32 513, ptr %230, align 4
   call void @_ZN6spdlog5errorIN8WasmEdge7ErrCode5ValueEEEvRKT_(ptr noundef nonnull align 4 dereferenceable(4) %230)
-  %3198 = load i32, ptr %2, align 16
-  %3199 = zext i32 %3198 to i64
-  %3200 = load ptr, ptr %3121, align 8
-  %3201 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %3200, i64 %3199
-  %3202 = load i32, ptr %3172, align 4
-  %3203 = zext i32 %3202 to i64
-  %3204 = load ptr, ptr %3175, align 8
-  %3205 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %3204, i64 %3203
+  %3203 = load i32, ptr %2, align 16
+  %3204 = zext i32 %3203 to i64
+  %3205 = load ptr, ptr %3126, align 8
+  %3206 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %3205, i64 %3204
+  %3207 = load i32, ptr %3177, align 4
+  %3208 = zext i32 %3207 to i64
+  %3209 = load ptr, ptr %3180, align 8
+  %3210 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %3209, i64 %3208
   store i8 1, ptr %231, align 8
-  %3206 = getelementptr inbounds nuw i8, ptr %231, i64 16
-  %3207 = getelementptr inbounds nuw i8, ptr %231, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3206, i8 0, i64 96, i1 false)
-  %3208 = load i64, ptr %3201, align 4
-  store i64 %3208, ptr %3207, align 8
-  %3209 = getelementptr inbounds nuw i8, ptr %231, i64 120
-  %3210 = load i64, ptr %3205, align 4
-  store i64 %3210, ptr %3209, align 8
+  %3211 = getelementptr inbounds nuw i8, ptr %231, i64 16
+  %3212 = getelementptr inbounds nuw i8, ptr %231, i64 112
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3211, i8 0, i64 96, i1 false)
+  %3213 = load i64, ptr %3206, align 4
+  store i64 %3213, ptr %3212, align 8
+  %3214 = getelementptr inbounds nuw i8, ptr %231, i64 120
+  %3215 = load i64, ptr %3210, align 4
+  store i64 %3215, ptr %3214, align 8
   invoke void @_ZN6spdlog5errorIN8WasmEdge7ErrInfo12InfoMismatchEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(156) %231)
-          to label %3211 unwind label %3213
+          to label %3216 unwind label %3218
 
-3211:                                             ; preds = %3197
+3216:                                             ; preds = %3202
   call void @_ZN8WasmEdge7ErrInfo12InfoMismatchD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %231) #26
   store i8 0, ptr %0, align 4
-  %3212 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 513, ptr %3212, align 4
+  %3217 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 513, ptr %3217, align 4
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3213:                                             ; preds = %3197
-  %3214 = landingpad { ptr, i32 }
+3218:                                             ; preds = %3202
+  %3219 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8WasmEdge7ErrInfo12InfoMismatchD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %231) #26
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1260
 
-3215:                                             ; preds = %3187
-  %3216 = getelementptr inbounds nuw i8, ptr %232, i64 1
-  store i8 0, ptr %3216, align 1
-  %3217 = getelementptr inbounds nuw i8, ptr %232, i64 4
-  store i32 0, ptr %3217, align 4
-  %3218 = getelementptr inbounds nuw i8, ptr %232, i64 3
-  %3219 = getelementptr inbounds nuw i8, ptr %232, i64 2
-  store i8 127, ptr %3219, align 2
-  store i8 64, ptr %3218, align 1
-  %3220 = getelementptr inbounds nuw i8, ptr %232, i64 9
-  store i8 0, ptr %3220, align 1
-  %3221 = getelementptr inbounds nuw i8, ptr %232, i64 12
-  store i32 0, ptr %3221, align 4
-  %3222 = getelementptr inbounds nuw i8, ptr %232, i64 11
-  %3223 = getelementptr inbounds nuw i8, ptr %232, i64 10
-  store i8 127, ptr %3223, align 2
-  store i8 64, ptr %3222, align 1
-  %3224 = getelementptr inbounds nuw i8, ptr %232, i64 17
-  store i8 0, ptr %3224, align 1
-  %3225 = getelementptr inbounds nuw i8, ptr %232, i64 20
-  store i32 0, ptr %3225, align 4
-  %3226 = getelementptr inbounds nuw i8, ptr %232, i64 19
-  %3227 = getelementptr inbounds nuw i8, ptr %232, i64 18
-  store i8 127, ptr %3227, align 2
-  store i8 64, ptr %3226, align 1
+3220:                                             ; preds = %3192
+  %3221 = getelementptr inbounds nuw i8, ptr %232, i64 1
+  store i8 0, ptr %3221, align 1
+  %3222 = getelementptr inbounds nuw i8, ptr %232, i64 4
+  store i32 0, ptr %3222, align 4
+  %3223 = getelementptr inbounds nuw i8, ptr %232, i64 3
+  %3224 = getelementptr inbounds nuw i8, ptr %232, i64 2
+  store i8 127, ptr %3224, align 2
+  store i8 64, ptr %3223, align 1
+  %3225 = getelementptr inbounds nuw i8, ptr %232, i64 9
+  store i8 0, ptr %3225, align 1
+  %3226 = getelementptr inbounds nuw i8, ptr %232, i64 12
+  store i32 0, ptr %3226, align 4
+  %3227 = getelementptr inbounds nuw i8, ptr %232, i64 11
+  %3228 = getelementptr inbounds nuw i8, ptr %232, i64 10
+  store i8 127, ptr %3228, align 2
+  store i8 64, ptr %3227, align 1
+  %3229 = getelementptr inbounds nuw i8, ptr %232, i64 17
+  store i8 0, ptr %3229, align 1
+  %3230 = getelementptr inbounds nuw i8, ptr %232, i64 20
+  store i32 0, ptr %3230, align 4
+  %3231 = getelementptr inbounds nuw i8, ptr %232, i64 19
+  %3232 = getelementptr inbounds nuw i8, ptr %232, i64 18
+  store i8 127, ptr %3232, align 2
+  store i8 64, ptr %3231, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %232, i64 3, ptr null, i64 0)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3228:                                             ; preds = %3133
-  %3229 = icmp eq i32 %563, 244
-  tail call void @llvm.assume(i1 %3229)
-  %3230 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %3231 = load i32, ptr %3230, align 4
-  %3232 = zext i32 %3231 to i64
-  %.not887 = icmp ugt i64 %3128, %3232
-  br i1 %.not887, label %3237, label %3233
+3233:                                             ; preds = %3138
+  %3234 = icmp eq i32 %563, 244
+  tail call void @llvm.assume(i1 %3234)
+  %3235 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %3236 = load i32, ptr %3235, align 4
+  %3237 = zext i32 %3236 to i64
+  %.not887 = icmp ugt i64 %3133, %3237
+  br i1 %.not887, label %3242, label %3238
 
-3233:                                             ; preds = %3228
+3238:                                             ; preds = %3233
   store i32 519, ptr %234, align 4
-  %3234 = trunc nuw i64 %3128 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %233, ptr noundef %234, i8 noundef zeroext 5, i32 noundef %3231, i32 noundef %3234)
+  %3239 = trunc nuw i64 %3133 to i32
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %233, ptr noundef %234, i8 noundef zeroext 5, i32 noundef %3236, i32 noundef %3239)
   store i8 0, ptr %0, align 4
-  %3235 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3236 = load i32, ptr %233, align 4
-  store i32 %3236, ptr %3235, align 4
+  %3240 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %3241 = load i32, ptr %233, align 4
+  store i32 %3241, ptr %3240, align 4
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3237:                                             ; preds = %3228
-  %3238 = load ptr, ptr %1, align 8
-  %3239 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3240 = load ptr, ptr %3239, align 8
-  %3241 = ptrtoint ptr %3240 to i64
-  %3242 = ptrtoint ptr %3238 to i64
-  %3243 = sub i64 %3241, %3242
-  %3244 = ashr exact i64 %3243, 3
-  %3245 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %3124, i64 %3232
-  %3246 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %3238, i64 %3244, ptr noundef nonnull align 4 dereferenceable(8) %3134, ptr %3238, i64 %3244, ptr noundef nonnull align 4 dereferenceable(8) %3245) #26
-  br i1 %3246, label %3264, label %3247
+3242:                                             ; preds = %3233
+  %3243 = load ptr, ptr %1, align 8
+  %3244 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %3245 = load ptr, ptr %3244, align 8
+  %3246 = ptrtoint ptr %3245 to i64
+  %3247 = ptrtoint ptr %3243 to i64
+  %3248 = sub i64 %3246, %3247
+  %3249 = ashr exact i64 %3248, 3
+  %3250 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %3129, i64 %3237
+  %3251 = tail call noundef zeroext i1 @_ZN8WasmEdge3AST11TypeMatcher9matchTypeEN5cxx204spanIKPKNS0_7SubTypeELm18446744073709551615EEERKNS_7ValTypeES8_SB_(ptr %3243, i64 %3249, ptr noundef nonnull align 4 dereferenceable(8) %3139, ptr %3243, i64 %3249, ptr noundef nonnull align 4 dereferenceable(8) %3250) #26
+  br i1 %3251, label %3269, label %3252
 
-3247:                                             ; preds = %3237
+3252:                                             ; preds = %3242
   store i32 513, ptr %235, align 4
   call void @_ZN6spdlog5errorIN8WasmEdge7ErrCode5ValueEEEvRKT_(ptr noundef nonnull align 4 dereferenceable(4) %235)
-  %3248 = load i32, ptr %2, align 16
-  %3249 = zext i32 %3248 to i64
-  %3250 = load ptr, ptr %3121, align 8
-  %3251 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %3250, i64 %3249
-  %3252 = load i32, ptr %3230, align 4
-  %3253 = zext i32 %3252 to i64
-  %3254 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %3250, i64 %3253
+  %3253 = load i32, ptr %2, align 16
+  %3254 = zext i32 %3253 to i64
+  %3255 = load ptr, ptr %3126, align 8
+  %3256 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %3255, i64 %3254
+  %3257 = load i32, ptr %3235, align 4
+  %3258 = zext i32 %3257 to i64
+  %3259 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %3255, i64 %3258
   store i8 1, ptr %236, align 8
-  %3255 = getelementptr inbounds nuw i8, ptr %236, i64 16
-  %3256 = getelementptr inbounds nuw i8, ptr %236, i64 112
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3255, i8 0, i64 96, i1 false)
-  %3257 = load i64, ptr %3251, align 4
-  store i64 %3257, ptr %3256, align 8
-  %3258 = getelementptr inbounds nuw i8, ptr %236, i64 120
-  %3259 = load i64, ptr %3254, align 4
-  store i64 %3259, ptr %3258, align 8
+  %3260 = getelementptr inbounds nuw i8, ptr %236, i64 16
+  %3261 = getelementptr inbounds nuw i8, ptr %236, i64 112
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3260, i8 0, i64 96, i1 false)
+  %3262 = load i64, ptr %3256, align 4
+  store i64 %3262, ptr %3261, align 8
+  %3263 = getelementptr inbounds nuw i8, ptr %236, i64 120
+  %3264 = load i64, ptr %3259, align 4
+  store i64 %3264, ptr %3263, align 8
   invoke void @_ZN6spdlog5errorIN8WasmEdge7ErrInfo12InfoMismatchEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(156) %236)
-          to label %3260 unwind label %3262
+          to label %3265 unwind label %3267
 
-3260:                                             ; preds = %3247
+3265:                                             ; preds = %3252
   call void @_ZN8WasmEdge7ErrInfo12InfoMismatchD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %236) #26
   store i8 0, ptr %0, align 4
-  %3261 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 513, ptr %3261, align 4
+  %3266 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 513, ptr %3266, align 4
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3262:                                             ; preds = %3247
-  %3263 = landingpad { ptr, i32 }
+3267:                                             ; preds = %3252
+  %3268 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8WasmEdge7ErrInfo12InfoMismatchD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %236) #26
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1260
 
-3264:                                             ; preds = %3237
-  %3265 = getelementptr inbounds nuw i8, ptr %237, i64 1
-  store i8 0, ptr %3265, align 1
-  %3266 = getelementptr inbounds nuw i8, ptr %237, i64 4
-  store i32 0, ptr %3266, align 4
-  %3267 = getelementptr inbounds nuw i8, ptr %237, i64 3
-  %3268 = getelementptr inbounds nuw i8, ptr %237, i64 2
-  store i8 127, ptr %3268, align 2
-  store i8 64, ptr %3267, align 1
-  %3269 = getelementptr inbounds nuw i8, ptr %237, i64 9
-  store i8 0, ptr %3269, align 1
-  %3270 = getelementptr inbounds nuw i8, ptr %237, i64 12
-  store i32 0, ptr %3270, align 4
-  %3271 = getelementptr inbounds nuw i8, ptr %237, i64 11
-  %3272 = getelementptr inbounds nuw i8, ptr %237, i64 10
-  store i8 127, ptr %3272, align 2
-  store i8 64, ptr %3271, align 1
-  %3273 = getelementptr inbounds nuw i8, ptr %237, i64 17
-  store i8 0, ptr %3273, align 1
-  %3274 = getelementptr inbounds nuw i8, ptr %237, i64 20
-  store i32 0, ptr %3274, align 4
-  %3275 = getelementptr inbounds nuw i8, ptr %237, i64 19
-  %3276 = getelementptr inbounds nuw i8, ptr %237, i64 18
-  store i8 127, ptr %3276, align 2
-  store i8 64, ptr %3275, align 1
+3269:                                             ; preds = %3242
+  %3270 = getelementptr inbounds nuw i8, ptr %237, i64 1
+  store i8 0, ptr %3270, align 1
+  %3271 = getelementptr inbounds nuw i8, ptr %237, i64 4
+  store i32 0, ptr %3271, align 4
+  %3272 = getelementptr inbounds nuw i8, ptr %237, i64 3
+  %3273 = getelementptr inbounds nuw i8, ptr %237, i64 2
+  store i8 127, ptr %3273, align 2
+  store i8 64, ptr %3272, align 1
+  %3274 = getelementptr inbounds nuw i8, ptr %237, i64 9
+  store i8 0, ptr %3274, align 1
+  %3275 = getelementptr inbounds nuw i8, ptr %237, i64 12
+  store i32 0, ptr %3275, align 4
+  %3276 = getelementptr inbounds nuw i8, ptr %237, i64 11
+  %3277 = getelementptr inbounds nuw i8, ptr %237, i64 10
+  store i8 127, ptr %3277, align 2
+  store i8 64, ptr %3276, align 1
+  %3278 = getelementptr inbounds nuw i8, ptr %237, i64 17
+  store i8 0, ptr %3278, align 1
+  %3279 = getelementptr inbounds nuw i8, ptr %237, i64 20
+  store i32 0, ptr %3279, align 4
+  %3280 = getelementptr inbounds nuw i8, ptr %237, i64 19
+  %3281 = getelementptr inbounds nuw i8, ptr %237, i64 18
+  store i8 127, ptr %3281, align 2
+  store i8 64, ptr %3280, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %237, i64 3, ptr null, i64 0)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3277:                                             ; preds = %3
-  %3278 = load i32, ptr %2, align 16
-  %3279 = zext i32 %3278 to i64
-  %3280 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %3281 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %3282 = load ptr, ptr %3281, align 8
-  %3283 = load ptr, ptr %3280, align 8
-  %3284 = ptrtoint ptr %3282 to i64
-  %3285 = ptrtoint ptr %3283 to i64
-  %3286 = sub i64 %3284, %3285
-  %3287 = ashr exact i64 %3286, 3
-  %.not885 = icmp ugt i64 %3287, %3279
-  br i1 %.not885, label %3292, label %3288
+3282:                                             ; preds = %3
+  %3283 = load i32, ptr %2, align 16
+  %3284 = zext i32 %3283 to i64
+  %3285 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %3286 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %3287 = load ptr, ptr %3286, align 8
+  %3288 = load ptr, ptr %3285, align 8
+  %3289 = ptrtoint ptr %3287 to i64
+  %3290 = ptrtoint ptr %3288 to i64
+  %3291 = sub i64 %3289, %3290
+  %3292 = ashr exact i64 %3291, 3
+  %.not885 = icmp ugt i64 %3292, %3284
+  br i1 %.not885, label %3297, label %3293
 
-3288:                                             ; preds = %3277
+3293:                                             ; preds = %3282
   store i32 523, ptr %239, align 4
-  %3289 = trunc nuw i64 %3287 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %238, ptr noundef %239, i8 noundef zeroext 8, i32 noundef %3278, i32 noundef %3289)
+  %3294 = trunc nuw i64 %3292 to i32
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %238, ptr noundef %239, i8 noundef zeroext 8, i32 noundef %3283, i32 noundef %3294)
   store i8 0, ptr %0, align 4
-  %3290 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3291 = load i32, ptr %238, align 4
-  store i32 %3291, ptr %3290, align 4
+  %3295 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %3296 = load i32, ptr %238, align 4
+  store i32 %3296, ptr %3295, align 4
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3292:                                             ; preds = %3277
+3297:                                             ; preds = %3282
   store i64 1, ptr %0, align 4
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3293:                                             ; preds = %3
-  %3294 = getelementptr inbounds nuw i8, ptr %240, i64 1
-  store i8 0, ptr %3294, align 1
-  %3295 = getelementptr inbounds nuw i8, ptr %240, i64 4
-  store i32 0, ptr %3295, align 4
-  %3296 = getelementptr inbounds nuw i8, ptr %240, i64 3
-  %3297 = getelementptr inbounds nuw i8, ptr %240, i64 2
-  store i8 127, ptr %3297, align 2
-  store i8 64, ptr %3296, align 1
-  %3298 = getelementptr inbounds nuw i8, ptr %241, i64 1
-  store i8 0, ptr %3298, align 1
-  %3299 = getelementptr inbounds nuw i8, ptr %241, i64 4
-  store i32 0, ptr %3299, align 4
-  %3300 = getelementptr inbounds nuw i8, ptr %241, i64 3
-  %3301 = getelementptr inbounds nuw i8, ptr %241, i64 2
-  store i8 127, ptr %3301, align 2
-  store i8 64, ptr %3300, align 1
+3298:                                             ; preds = %3
+  %3299 = getelementptr inbounds nuw i8, ptr %240, i64 1
+  store i8 0, ptr %3299, align 1
+  %3300 = getelementptr inbounds nuw i8, ptr %240, i64 4
+  store i32 0, ptr %3300, align 4
+  %3301 = getelementptr inbounds nuw i8, ptr %240, i64 3
+  %3302 = getelementptr inbounds nuw i8, ptr %240, i64 2
+  store i8 127, ptr %3302, align 2
+  store i8 64, ptr %3301, align 1
+  %3303 = getelementptr inbounds nuw i8, ptr %241, i64 1
+  store i8 0, ptr %3303, align 1
+  %3304 = getelementptr inbounds nuw i8, ptr %241, i64 4
+  store i32 0, ptr %3304, align 4
+  %3305 = getelementptr inbounds nuw i8, ptr %241, i64 3
+  %3306 = getelementptr inbounds nuw i8, ptr %241, i64 2
+  store i8 127, ptr %3306, align 2
+  store i8 64, ptr %3305, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %240, i64 1, ptr nonnull %241, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3302:                                             ; preds = %3
-  %3303 = getelementptr inbounds nuw i8, ptr %242, i64 1
-  store i8 0, ptr %3303, align 1
-  %3304 = getelementptr inbounds nuw i8, ptr %242, i64 4
-  store i32 0, ptr %3304, align 4
-  %3305 = getelementptr inbounds nuw i8, ptr %242, i64 3
-  %3306 = getelementptr inbounds nuw i8, ptr %242, i64 2
-  store i8 127, ptr %3306, align 2
-  store i8 64, ptr %3305, align 1
-  %3307 = getelementptr inbounds nuw i8, ptr %243, i64 1
-  store i8 0, ptr %3307, align 1
-  %3308 = getelementptr inbounds nuw i8, ptr %243, i64 4
-  store i32 0, ptr %3308, align 4
-  %3309 = getelementptr inbounds nuw i8, ptr %243, i64 3
-  %3310 = getelementptr inbounds nuw i8, ptr %243, i64 2
-  store i8 126, ptr %3310, align 2
-  store i8 64, ptr %3309, align 1
+3307:                                             ; preds = %3
+  %3308 = getelementptr inbounds nuw i8, ptr %242, i64 1
+  store i8 0, ptr %3308, align 1
+  %3309 = getelementptr inbounds nuw i8, ptr %242, i64 4
+  store i32 0, ptr %3309, align 4
+  %3310 = getelementptr inbounds nuw i8, ptr %242, i64 3
+  %3311 = getelementptr inbounds nuw i8, ptr %242, i64 2
+  store i8 127, ptr %3311, align 2
+  store i8 64, ptr %3310, align 1
+  %3312 = getelementptr inbounds nuw i8, ptr %243, i64 1
+  store i8 0, ptr %3312, align 1
+  %3313 = getelementptr inbounds nuw i8, ptr %243, i64 4
+  store i32 0, ptr %3313, align 4
+  %3314 = getelementptr inbounds nuw i8, ptr %243, i64 3
+  %3315 = getelementptr inbounds nuw i8, ptr %243, i64 2
+  store i8 126, ptr %3315, align 2
+  store i8 64, ptr %3314, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %242, i64 1, ptr nonnull %243, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3311:                                             ; preds = %3
-  %3312 = getelementptr inbounds nuw i8, ptr %244, i64 1
-  store i8 0, ptr %3312, align 1
-  %3313 = getelementptr inbounds nuw i8, ptr %244, i64 4
-  store i32 0, ptr %3313, align 4
-  %3314 = getelementptr inbounds nuw i8, ptr %244, i64 3
-  %3315 = getelementptr inbounds nuw i8, ptr %244, i64 2
-  store i8 127, ptr %3315, align 2
-  store i8 64, ptr %3314, align 1
-  %3316 = getelementptr inbounds nuw i8, ptr %245, i64 1
-  store i8 0, ptr %3316, align 1
-  %3317 = getelementptr inbounds nuw i8, ptr %245, i64 4
-  store i32 0, ptr %3317, align 4
-  %3318 = getelementptr inbounds nuw i8, ptr %245, i64 3
-  %3319 = getelementptr inbounds nuw i8, ptr %245, i64 2
-  store i8 125, ptr %3319, align 2
-  store i8 64, ptr %3318, align 1
+3316:                                             ; preds = %3
+  %3317 = getelementptr inbounds nuw i8, ptr %244, i64 1
+  store i8 0, ptr %3317, align 1
+  %3318 = getelementptr inbounds nuw i8, ptr %244, i64 4
+  store i32 0, ptr %3318, align 4
+  %3319 = getelementptr inbounds nuw i8, ptr %244, i64 3
+  %3320 = getelementptr inbounds nuw i8, ptr %244, i64 2
+  store i8 127, ptr %3320, align 2
+  store i8 64, ptr %3319, align 1
+  %3321 = getelementptr inbounds nuw i8, ptr %245, i64 1
+  store i8 0, ptr %3321, align 1
+  %3322 = getelementptr inbounds nuw i8, ptr %245, i64 4
+  store i32 0, ptr %3322, align 4
+  %3323 = getelementptr inbounds nuw i8, ptr %245, i64 3
+  %3324 = getelementptr inbounds nuw i8, ptr %245, i64 2
+  store i8 125, ptr %3324, align 2
+  store i8 64, ptr %3323, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %244, i64 1, ptr nonnull %245, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3320:                                             ; preds = %3
-  %3321 = getelementptr inbounds nuw i8, ptr %246, i64 1
-  store i8 0, ptr %3321, align 1
-  %3322 = getelementptr inbounds nuw i8, ptr %246, i64 4
-  store i32 0, ptr %3322, align 4
-  %3323 = getelementptr inbounds nuw i8, ptr %246, i64 3
-  %3324 = getelementptr inbounds nuw i8, ptr %246, i64 2
-  store i8 127, ptr %3324, align 2
-  store i8 64, ptr %3323, align 1
-  %3325 = getelementptr inbounds nuw i8, ptr %247, i64 1
-  store i8 0, ptr %3325, align 1
-  %3326 = getelementptr inbounds nuw i8, ptr %247, i64 4
-  store i32 0, ptr %3326, align 4
-  %3327 = getelementptr inbounds nuw i8, ptr %247, i64 3
-  %3328 = getelementptr inbounds nuw i8, ptr %247, i64 2
-  store i8 124, ptr %3328, align 2
-  store i8 64, ptr %3327, align 1
+3325:                                             ; preds = %3
+  %3326 = getelementptr inbounds nuw i8, ptr %246, i64 1
+  store i8 0, ptr %3326, align 1
+  %3327 = getelementptr inbounds nuw i8, ptr %246, i64 4
+  store i32 0, ptr %3327, align 4
+  %3328 = getelementptr inbounds nuw i8, ptr %246, i64 3
+  %3329 = getelementptr inbounds nuw i8, ptr %246, i64 2
+  store i8 127, ptr %3329, align 2
+  store i8 64, ptr %3328, align 1
+  %3330 = getelementptr inbounds nuw i8, ptr %247, i64 1
+  store i8 0, ptr %3330, align 1
+  %3331 = getelementptr inbounds nuw i8, ptr %247, i64 4
+  store i32 0, ptr %3331, align 4
+  %3332 = getelementptr inbounds nuw i8, ptr %247, i64 3
+  %3333 = getelementptr inbounds nuw i8, ptr %247, i64 2
+  store i8 124, ptr %3333, align 2
+  store i8 64, ptr %3332, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %246, i64 1, ptr nonnull %247, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3329:                                             ; preds = %3, %3
-  %3330 = getelementptr inbounds nuw i8, ptr %248, i64 1
-  store i8 0, ptr %3330, align 1
-  %3331 = getelementptr inbounds nuw i8, ptr %248, i64 4
-  store i32 0, ptr %3331, align 4
-  %3332 = getelementptr inbounds nuw i8, ptr %248, i64 3
-  %3333 = getelementptr inbounds nuw i8, ptr %248, i64 2
-  store i8 127, ptr %3333, align 2
-  store i8 64, ptr %3332, align 1
-  %3334 = getelementptr inbounds nuw i8, ptr %249, i64 1
-  store i8 0, ptr %3334, align 1
-  %3335 = getelementptr inbounds nuw i8, ptr %249, i64 4
-  store i32 0, ptr %3335, align 4
-  %3336 = getelementptr inbounds nuw i8, ptr %249, i64 3
-  %3337 = getelementptr inbounds nuw i8, ptr %249, i64 2
-  store i8 127, ptr %3337, align 2
-  store i8 64, ptr %3336, align 1
+3334:                                             ; preds = %3, %3
+  %3335 = getelementptr inbounds nuw i8, ptr %248, i64 1
+  store i8 0, ptr %3335, align 1
+  %3336 = getelementptr inbounds nuw i8, ptr %248, i64 4
+  store i32 0, ptr %3336, align 4
+  %3337 = getelementptr inbounds nuw i8, ptr %248, i64 3
+  %3338 = getelementptr inbounds nuw i8, ptr %248, i64 2
+  store i8 127, ptr %3338, align 2
+  store i8 64, ptr %3337, align 1
+  %3339 = getelementptr inbounds nuw i8, ptr %249, i64 1
+  store i8 0, ptr %3339, align 1
+  %3340 = getelementptr inbounds nuw i8, ptr %249, i64 4
+  store i32 0, ptr %3340, align 4
+  %3341 = getelementptr inbounds nuw i8, ptr %249, i64 3
+  %3342 = getelementptr inbounds nuw i8, ptr %249, i64 2
+  store i8 127, ptr %3342, align 2
+  store i8 64, ptr %3341, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %248, i64 1, ptr nonnull %249, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3338:                                             ; preds = %3, %3
-  %3339 = getelementptr inbounds nuw i8, ptr %250, i64 1
-  store i8 0, ptr %3339, align 1
-  %3340 = getelementptr inbounds nuw i8, ptr %250, i64 4
-  store i32 0, ptr %3340, align 4
-  %3341 = getelementptr inbounds nuw i8, ptr %250, i64 3
-  %3342 = getelementptr inbounds nuw i8, ptr %250, i64 2
-  store i8 127, ptr %3342, align 2
-  store i8 64, ptr %3341, align 1
-  %3343 = getelementptr inbounds nuw i8, ptr %251, i64 1
-  store i8 0, ptr %3343, align 1
-  %3344 = getelementptr inbounds nuw i8, ptr %251, i64 4
-  store i32 0, ptr %3344, align 4
-  %3345 = getelementptr inbounds nuw i8, ptr %251, i64 3
-  %3346 = getelementptr inbounds nuw i8, ptr %251, i64 2
-  store i8 127, ptr %3346, align 2
-  store i8 64, ptr %3345, align 1
+3343:                                             ; preds = %3, %3
+  %3344 = getelementptr inbounds nuw i8, ptr %250, i64 1
+  store i8 0, ptr %3344, align 1
+  %3345 = getelementptr inbounds nuw i8, ptr %250, i64 4
+  store i32 0, ptr %3345, align 4
+  %3346 = getelementptr inbounds nuw i8, ptr %250, i64 3
+  %3347 = getelementptr inbounds nuw i8, ptr %250, i64 2
+  store i8 127, ptr %3347, align 2
+  store i8 64, ptr %3346, align 1
+  %3348 = getelementptr inbounds nuw i8, ptr %251, i64 1
+  store i8 0, ptr %3348, align 1
+  %3349 = getelementptr inbounds nuw i8, ptr %251, i64 4
+  store i32 0, ptr %3349, align 4
+  %3350 = getelementptr inbounds nuw i8, ptr %251, i64 3
+  %3351 = getelementptr inbounds nuw i8, ptr %251, i64 2
+  store i8 127, ptr %3351, align 2
+  store i8 64, ptr %3350, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %250, i64 1, ptr nonnull %251, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3347:                                             ; preds = %3, %3
-  %3348 = getelementptr inbounds nuw i8, ptr %252, i64 1
-  store i8 0, ptr %3348, align 1
-  %3349 = getelementptr inbounds nuw i8, ptr %252, i64 4
-  store i32 0, ptr %3349, align 4
-  %3350 = getelementptr inbounds nuw i8, ptr %252, i64 3
-  %3351 = getelementptr inbounds nuw i8, ptr %252, i64 2
-  store i8 127, ptr %3351, align 2
-  store i8 64, ptr %3350, align 1
-  %3352 = getelementptr inbounds nuw i8, ptr %253, i64 1
-  store i8 0, ptr %3352, align 1
-  %3353 = getelementptr inbounds nuw i8, ptr %253, i64 4
-  store i32 0, ptr %3353, align 4
-  %3354 = getelementptr inbounds nuw i8, ptr %253, i64 3
-  %3355 = getelementptr inbounds nuw i8, ptr %253, i64 2
-  store i8 126, ptr %3355, align 2
-  store i8 64, ptr %3354, align 1
+3352:                                             ; preds = %3, %3
+  %3353 = getelementptr inbounds nuw i8, ptr %252, i64 1
+  store i8 0, ptr %3353, align 1
+  %3354 = getelementptr inbounds nuw i8, ptr %252, i64 4
+  store i32 0, ptr %3354, align 4
+  %3355 = getelementptr inbounds nuw i8, ptr %252, i64 3
+  %3356 = getelementptr inbounds nuw i8, ptr %252, i64 2
+  store i8 127, ptr %3356, align 2
+  store i8 64, ptr %3355, align 1
+  %3357 = getelementptr inbounds nuw i8, ptr %253, i64 1
+  store i8 0, ptr %3357, align 1
+  %3358 = getelementptr inbounds nuw i8, ptr %253, i64 4
+  store i32 0, ptr %3358, align 4
+  %3359 = getelementptr inbounds nuw i8, ptr %253, i64 3
+  %3360 = getelementptr inbounds nuw i8, ptr %253, i64 2
+  store i8 126, ptr %3360, align 2
+  store i8 64, ptr %3359, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %252, i64 1, ptr nonnull %253, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3356:                                             ; preds = %3, %3
-  %3357 = getelementptr inbounds nuw i8, ptr %254, i64 1
-  store i8 0, ptr %3357, align 1
-  %3358 = getelementptr inbounds nuw i8, ptr %254, i64 4
-  store i32 0, ptr %3358, align 4
-  %3359 = getelementptr inbounds nuw i8, ptr %254, i64 3
-  %3360 = getelementptr inbounds nuw i8, ptr %254, i64 2
-  store i8 127, ptr %3360, align 2
-  store i8 64, ptr %3359, align 1
-  %3361 = getelementptr inbounds nuw i8, ptr %255, i64 1
-  store i8 0, ptr %3361, align 1
-  %3362 = getelementptr inbounds nuw i8, ptr %255, i64 4
-  store i32 0, ptr %3362, align 4
-  %3363 = getelementptr inbounds nuw i8, ptr %255, i64 3
-  %3364 = getelementptr inbounds nuw i8, ptr %255, i64 2
-  store i8 126, ptr %3364, align 2
-  store i8 64, ptr %3363, align 1
+3361:                                             ; preds = %3, %3
+  %3362 = getelementptr inbounds nuw i8, ptr %254, i64 1
+  store i8 0, ptr %3362, align 1
+  %3363 = getelementptr inbounds nuw i8, ptr %254, i64 4
+  store i32 0, ptr %3363, align 4
+  %3364 = getelementptr inbounds nuw i8, ptr %254, i64 3
+  %3365 = getelementptr inbounds nuw i8, ptr %254, i64 2
+  store i8 127, ptr %3365, align 2
+  store i8 64, ptr %3364, align 1
+  %3366 = getelementptr inbounds nuw i8, ptr %255, i64 1
+  store i8 0, ptr %3366, align 1
+  %3367 = getelementptr inbounds nuw i8, ptr %255, i64 4
+  store i32 0, ptr %3367, align 4
+  %3368 = getelementptr inbounds nuw i8, ptr %255, i64 3
+  %3369 = getelementptr inbounds nuw i8, ptr %255, i64 2
+  store i8 126, ptr %3369, align 2
+  store i8 64, ptr %3368, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %254, i64 1, ptr nonnull %255, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3365:                                             ; preds = %3, %3
-  %3366 = getelementptr inbounds nuw i8, ptr %256, i64 1
-  store i8 0, ptr %3366, align 1
-  %3367 = getelementptr inbounds nuw i8, ptr %256, i64 4
-  store i32 0, ptr %3367, align 4
-  %3368 = getelementptr inbounds nuw i8, ptr %256, i64 3
-  %3369 = getelementptr inbounds nuw i8, ptr %256, i64 2
-  store i8 127, ptr %3369, align 2
-  store i8 64, ptr %3368, align 1
-  %3370 = getelementptr inbounds nuw i8, ptr %257, i64 1
-  store i8 0, ptr %3370, align 1
-  %3371 = getelementptr inbounds nuw i8, ptr %257, i64 4
-  store i32 0, ptr %3371, align 4
-  %3372 = getelementptr inbounds nuw i8, ptr %257, i64 3
-  %3373 = getelementptr inbounds nuw i8, ptr %257, i64 2
-  store i8 126, ptr %3373, align 2
-  store i8 64, ptr %3372, align 1
+3370:                                             ; preds = %3, %3
+  %3371 = getelementptr inbounds nuw i8, ptr %256, i64 1
+  store i8 0, ptr %3371, align 1
+  %3372 = getelementptr inbounds nuw i8, ptr %256, i64 4
+  store i32 0, ptr %3372, align 4
+  %3373 = getelementptr inbounds nuw i8, ptr %256, i64 3
+  %3374 = getelementptr inbounds nuw i8, ptr %256, i64 2
+  store i8 127, ptr %3374, align 2
+  store i8 64, ptr %3373, align 1
+  %3375 = getelementptr inbounds nuw i8, ptr %257, i64 1
+  store i8 0, ptr %3375, align 1
+  %3376 = getelementptr inbounds nuw i8, ptr %257, i64 4
+  store i32 0, ptr %3376, align 4
+  %3377 = getelementptr inbounds nuw i8, ptr %257, i64 3
+  %3378 = getelementptr inbounds nuw i8, ptr %257, i64 2
+  store i8 126, ptr %3378, align 2
+  store i8 64, ptr %3377, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %256, i64 1, ptr nonnull %257, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3374:                                             ; preds = %3
-  %3375 = getelementptr inbounds nuw i8, ptr %258, i64 1
-  store i8 0, ptr %3375, align 1
-  %3376 = getelementptr inbounds nuw i8, ptr %258, i64 4
-  store i32 0, ptr %3376, align 4
-  %3377 = getelementptr inbounds nuw i8, ptr %258, i64 3
-  %3378 = getelementptr inbounds nuw i8, ptr %258, i64 2
-  store i8 127, ptr %3378, align 2
-  store i8 64, ptr %3377, align 1
-  %3379 = getelementptr inbounds nuw i8, ptr %258, i64 9
-  store i8 0, ptr %3379, align 1
-  %3380 = getelementptr inbounds nuw i8, ptr %258, i64 12
-  store i32 0, ptr %3380, align 4
-  %3381 = getelementptr inbounds nuw i8, ptr %258, i64 11
-  %3382 = getelementptr inbounds nuw i8, ptr %258, i64 10
-  store i8 127, ptr %3382, align 2
-  store i8 64, ptr %3381, align 1
+3379:                                             ; preds = %3
+  %3380 = getelementptr inbounds nuw i8, ptr %258, i64 1
+  store i8 0, ptr %3380, align 1
+  %3381 = getelementptr inbounds nuw i8, ptr %258, i64 4
+  store i32 0, ptr %3381, align 4
+  %3382 = getelementptr inbounds nuw i8, ptr %258, i64 3
+  %3383 = getelementptr inbounds nuw i8, ptr %258, i64 2
+  store i8 127, ptr %3383, align 2
+  store i8 64, ptr %3382, align 1
+  %3384 = getelementptr inbounds nuw i8, ptr %258, i64 9
+  store i8 0, ptr %3384, align 1
+  %3385 = getelementptr inbounds nuw i8, ptr %258, i64 12
+  store i32 0, ptr %3385, align 4
+  %3386 = getelementptr inbounds nuw i8, ptr %258, i64 11
+  %3387 = getelementptr inbounds nuw i8, ptr %258, i64 10
+  store i8 127, ptr %3387, align 2
+  store i8 64, ptr %3386, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %258, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3383:                                             ; preds = %3
-  %3384 = getelementptr inbounds nuw i8, ptr %259, i64 1
-  store i8 0, ptr %3384, align 1
-  %3385 = getelementptr inbounds nuw i8, ptr %259, i64 4
-  store i32 0, ptr %3385, align 4
-  %3386 = getelementptr inbounds nuw i8, ptr %259, i64 3
-  %3387 = getelementptr inbounds nuw i8, ptr %259, i64 2
-  store i8 127, ptr %3387, align 2
-  store i8 64, ptr %3386, align 1
-  %3388 = getelementptr inbounds nuw i8, ptr %259, i64 9
-  store i8 0, ptr %3388, align 1
-  %3389 = getelementptr inbounds nuw i8, ptr %259, i64 12
-  store i32 0, ptr %3389, align 4
-  %3390 = getelementptr inbounds nuw i8, ptr %259, i64 11
-  %3391 = getelementptr inbounds nuw i8, ptr %259, i64 10
-  store i8 126, ptr %3391, align 2
-  store i8 64, ptr %3390, align 1
+3388:                                             ; preds = %3
+  %3389 = getelementptr inbounds nuw i8, ptr %259, i64 1
+  store i8 0, ptr %3389, align 1
+  %3390 = getelementptr inbounds nuw i8, ptr %259, i64 4
+  store i32 0, ptr %3390, align 4
+  %3391 = getelementptr inbounds nuw i8, ptr %259, i64 3
+  %3392 = getelementptr inbounds nuw i8, ptr %259, i64 2
+  store i8 127, ptr %3392, align 2
+  store i8 64, ptr %3391, align 1
+  %3393 = getelementptr inbounds nuw i8, ptr %259, i64 9
+  store i8 0, ptr %3393, align 1
+  %3394 = getelementptr inbounds nuw i8, ptr %259, i64 12
+  store i32 0, ptr %3394, align 4
+  %3395 = getelementptr inbounds nuw i8, ptr %259, i64 11
+  %3396 = getelementptr inbounds nuw i8, ptr %259, i64 10
+  store i8 126, ptr %3396, align 2
+  store i8 64, ptr %3395, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %259, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3392:                                             ; preds = %3
-  %3393 = getelementptr inbounds nuw i8, ptr %260, i64 1
-  store i8 0, ptr %3393, align 1
-  %3394 = getelementptr inbounds nuw i8, ptr %260, i64 4
-  store i32 0, ptr %3394, align 4
-  %3395 = getelementptr inbounds nuw i8, ptr %260, i64 3
-  %3396 = getelementptr inbounds nuw i8, ptr %260, i64 2
-  store i8 127, ptr %3396, align 2
-  store i8 64, ptr %3395, align 1
-  %3397 = getelementptr inbounds nuw i8, ptr %260, i64 9
-  store i8 0, ptr %3397, align 1
-  %3398 = getelementptr inbounds nuw i8, ptr %260, i64 12
-  store i32 0, ptr %3398, align 4
-  %3399 = getelementptr inbounds nuw i8, ptr %260, i64 11
-  %3400 = getelementptr inbounds nuw i8, ptr %260, i64 10
-  store i8 125, ptr %3400, align 2
-  store i8 64, ptr %3399, align 1
+3397:                                             ; preds = %3
+  %3398 = getelementptr inbounds nuw i8, ptr %260, i64 1
+  store i8 0, ptr %3398, align 1
+  %3399 = getelementptr inbounds nuw i8, ptr %260, i64 4
+  store i32 0, ptr %3399, align 4
+  %3400 = getelementptr inbounds nuw i8, ptr %260, i64 3
+  %3401 = getelementptr inbounds nuw i8, ptr %260, i64 2
+  store i8 127, ptr %3401, align 2
+  store i8 64, ptr %3400, align 1
+  %3402 = getelementptr inbounds nuw i8, ptr %260, i64 9
+  store i8 0, ptr %3402, align 1
+  %3403 = getelementptr inbounds nuw i8, ptr %260, i64 12
+  store i32 0, ptr %3403, align 4
+  %3404 = getelementptr inbounds nuw i8, ptr %260, i64 11
+  %3405 = getelementptr inbounds nuw i8, ptr %260, i64 10
+  store i8 125, ptr %3405, align 2
+  store i8 64, ptr %3404, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %260, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3401:                                             ; preds = %3
-  %3402 = getelementptr inbounds nuw i8, ptr %261, i64 1
-  store i8 0, ptr %3402, align 1
-  %3403 = getelementptr inbounds nuw i8, ptr %261, i64 4
-  store i32 0, ptr %3403, align 4
-  %3404 = getelementptr inbounds nuw i8, ptr %261, i64 3
-  %3405 = getelementptr inbounds nuw i8, ptr %261, i64 2
-  store i8 127, ptr %3405, align 2
-  store i8 64, ptr %3404, align 1
-  %3406 = getelementptr inbounds nuw i8, ptr %261, i64 9
-  store i8 0, ptr %3406, align 1
-  %3407 = getelementptr inbounds nuw i8, ptr %261, i64 12
-  store i32 0, ptr %3407, align 4
-  %3408 = getelementptr inbounds nuw i8, ptr %261, i64 11
-  %3409 = getelementptr inbounds nuw i8, ptr %261, i64 10
-  store i8 124, ptr %3409, align 2
-  store i8 64, ptr %3408, align 1
+3406:                                             ; preds = %3
+  %3407 = getelementptr inbounds nuw i8, ptr %261, i64 1
+  store i8 0, ptr %3407, align 1
+  %3408 = getelementptr inbounds nuw i8, ptr %261, i64 4
+  store i32 0, ptr %3408, align 4
+  %3409 = getelementptr inbounds nuw i8, ptr %261, i64 3
+  %3410 = getelementptr inbounds nuw i8, ptr %261, i64 2
+  store i8 127, ptr %3410, align 2
+  store i8 64, ptr %3409, align 1
+  %3411 = getelementptr inbounds nuw i8, ptr %261, i64 9
+  store i8 0, ptr %3411, align 1
+  %3412 = getelementptr inbounds nuw i8, ptr %261, i64 12
+  store i32 0, ptr %3412, align 4
+  %3413 = getelementptr inbounds nuw i8, ptr %261, i64 11
+  %3414 = getelementptr inbounds nuw i8, ptr %261, i64 10
+  store i8 124, ptr %3414, align 2
+  store i8 64, ptr %3413, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %261, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3410:                                             ; preds = %3
-  %3411 = getelementptr inbounds nuw i8, ptr %262, i64 1
-  store i8 0, ptr %3411, align 1
-  %3412 = getelementptr inbounds nuw i8, ptr %262, i64 4
-  store i32 0, ptr %3412, align 4
-  %3413 = getelementptr inbounds nuw i8, ptr %262, i64 3
-  %3414 = getelementptr inbounds nuw i8, ptr %262, i64 2
-  store i8 127, ptr %3414, align 2
-  store i8 64, ptr %3413, align 1
-  %3415 = getelementptr inbounds nuw i8, ptr %262, i64 9
-  store i8 0, ptr %3415, align 1
-  %3416 = getelementptr inbounds nuw i8, ptr %262, i64 12
-  store i32 0, ptr %3416, align 4
-  %3417 = getelementptr inbounds nuw i8, ptr %262, i64 11
-  %3418 = getelementptr inbounds nuw i8, ptr %262, i64 10
-  store i8 127, ptr %3418, align 2
-  store i8 64, ptr %3417, align 1
+3415:                                             ; preds = %3
+  %3416 = getelementptr inbounds nuw i8, ptr %262, i64 1
+  store i8 0, ptr %3416, align 1
+  %3417 = getelementptr inbounds nuw i8, ptr %262, i64 4
+  store i32 0, ptr %3417, align 4
+  %3418 = getelementptr inbounds nuw i8, ptr %262, i64 3
+  %3419 = getelementptr inbounds nuw i8, ptr %262, i64 2
+  store i8 127, ptr %3419, align 2
+  store i8 64, ptr %3418, align 1
+  %3420 = getelementptr inbounds nuw i8, ptr %262, i64 9
+  store i8 0, ptr %3420, align 1
+  %3421 = getelementptr inbounds nuw i8, ptr %262, i64 12
+  store i32 0, ptr %3421, align 4
+  %3422 = getelementptr inbounds nuw i8, ptr %262, i64 11
+  %3423 = getelementptr inbounds nuw i8, ptr %262, i64 10
+  store i8 127, ptr %3423, align 2
+  store i8 64, ptr %3422, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %262, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3419:                                             ; preds = %3
-  %3420 = getelementptr inbounds nuw i8, ptr %263, i64 1
-  store i8 0, ptr %3420, align 1
-  %3421 = getelementptr inbounds nuw i8, ptr %263, i64 4
-  store i32 0, ptr %3421, align 4
-  %3422 = getelementptr inbounds nuw i8, ptr %263, i64 3
-  %3423 = getelementptr inbounds nuw i8, ptr %263, i64 2
-  store i8 127, ptr %3423, align 2
-  store i8 64, ptr %3422, align 1
-  %3424 = getelementptr inbounds nuw i8, ptr %263, i64 9
-  store i8 0, ptr %3424, align 1
-  %3425 = getelementptr inbounds nuw i8, ptr %263, i64 12
-  store i32 0, ptr %3425, align 4
-  %3426 = getelementptr inbounds nuw i8, ptr %263, i64 11
-  %3427 = getelementptr inbounds nuw i8, ptr %263, i64 10
-  store i8 127, ptr %3427, align 2
-  store i8 64, ptr %3426, align 1
+3424:                                             ; preds = %3
+  %3425 = getelementptr inbounds nuw i8, ptr %263, i64 1
+  store i8 0, ptr %3425, align 1
+  %3426 = getelementptr inbounds nuw i8, ptr %263, i64 4
+  store i32 0, ptr %3426, align 4
+  %3427 = getelementptr inbounds nuw i8, ptr %263, i64 3
+  %3428 = getelementptr inbounds nuw i8, ptr %263, i64 2
+  store i8 127, ptr %3428, align 2
+  store i8 64, ptr %3427, align 1
+  %3429 = getelementptr inbounds nuw i8, ptr %263, i64 9
+  store i8 0, ptr %3429, align 1
+  %3430 = getelementptr inbounds nuw i8, ptr %263, i64 12
+  store i32 0, ptr %3430, align 4
+  %3431 = getelementptr inbounds nuw i8, ptr %263, i64 11
+  %3432 = getelementptr inbounds nuw i8, ptr %263, i64 10
+  store i8 127, ptr %3432, align 2
+  store i8 64, ptr %3431, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %263, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3428:                                             ; preds = %3
-  %3429 = getelementptr inbounds nuw i8, ptr %264, i64 1
-  store i8 0, ptr %3429, align 1
-  %3430 = getelementptr inbounds nuw i8, ptr %264, i64 4
-  store i32 0, ptr %3430, align 4
-  %3431 = getelementptr inbounds nuw i8, ptr %264, i64 3
-  %3432 = getelementptr inbounds nuw i8, ptr %264, i64 2
-  store i8 127, ptr %3432, align 2
-  store i8 64, ptr %3431, align 1
-  %3433 = getelementptr inbounds nuw i8, ptr %264, i64 9
-  store i8 0, ptr %3433, align 1
-  %3434 = getelementptr inbounds nuw i8, ptr %264, i64 12
-  store i32 0, ptr %3434, align 4
-  %3435 = getelementptr inbounds nuw i8, ptr %264, i64 11
-  %3436 = getelementptr inbounds nuw i8, ptr %264, i64 10
-  store i8 126, ptr %3436, align 2
-  store i8 64, ptr %3435, align 1
+3433:                                             ; preds = %3
+  %3434 = getelementptr inbounds nuw i8, ptr %264, i64 1
+  store i8 0, ptr %3434, align 1
+  %3435 = getelementptr inbounds nuw i8, ptr %264, i64 4
+  store i32 0, ptr %3435, align 4
+  %3436 = getelementptr inbounds nuw i8, ptr %264, i64 3
+  %3437 = getelementptr inbounds nuw i8, ptr %264, i64 2
+  store i8 127, ptr %3437, align 2
+  store i8 64, ptr %3436, align 1
+  %3438 = getelementptr inbounds nuw i8, ptr %264, i64 9
+  store i8 0, ptr %3438, align 1
+  %3439 = getelementptr inbounds nuw i8, ptr %264, i64 12
+  store i32 0, ptr %3439, align 4
+  %3440 = getelementptr inbounds nuw i8, ptr %264, i64 11
+  %3441 = getelementptr inbounds nuw i8, ptr %264, i64 10
+  store i8 126, ptr %3441, align 2
+  store i8 64, ptr %3440, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %264, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3437:                                             ; preds = %3
-  %3438 = getelementptr inbounds nuw i8, ptr %265, i64 1
-  store i8 0, ptr %3438, align 1
-  %3439 = getelementptr inbounds nuw i8, ptr %265, i64 4
-  store i32 0, ptr %3439, align 4
-  %3440 = getelementptr inbounds nuw i8, ptr %265, i64 3
-  %3441 = getelementptr inbounds nuw i8, ptr %265, i64 2
-  store i8 127, ptr %3441, align 2
-  store i8 64, ptr %3440, align 1
-  %3442 = getelementptr inbounds nuw i8, ptr %265, i64 9
-  store i8 0, ptr %3442, align 1
-  %3443 = getelementptr inbounds nuw i8, ptr %265, i64 12
-  store i32 0, ptr %3443, align 4
-  %3444 = getelementptr inbounds nuw i8, ptr %265, i64 11
-  %3445 = getelementptr inbounds nuw i8, ptr %265, i64 10
-  store i8 126, ptr %3445, align 2
-  store i8 64, ptr %3444, align 1
+3442:                                             ; preds = %3
+  %3443 = getelementptr inbounds nuw i8, ptr %265, i64 1
+  store i8 0, ptr %3443, align 1
+  %3444 = getelementptr inbounds nuw i8, ptr %265, i64 4
+  store i32 0, ptr %3444, align 4
+  %3445 = getelementptr inbounds nuw i8, ptr %265, i64 3
+  %3446 = getelementptr inbounds nuw i8, ptr %265, i64 2
+  store i8 127, ptr %3446, align 2
+  store i8 64, ptr %3445, align 1
+  %3447 = getelementptr inbounds nuw i8, ptr %265, i64 9
+  store i8 0, ptr %3447, align 1
+  %3448 = getelementptr inbounds nuw i8, ptr %265, i64 12
+  store i32 0, ptr %3448, align 4
+  %3449 = getelementptr inbounds nuw i8, ptr %265, i64 11
+  %3450 = getelementptr inbounds nuw i8, ptr %265, i64 10
+  store i8 126, ptr %3450, align 2
+  store i8 64, ptr %3449, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %265, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3446:                                             ; preds = %3
-  %3447 = getelementptr inbounds nuw i8, ptr %266, i64 1
-  store i8 0, ptr %3447, align 1
-  %3448 = getelementptr inbounds nuw i8, ptr %266, i64 4
-  store i32 0, ptr %3448, align 4
-  %3449 = getelementptr inbounds nuw i8, ptr %266, i64 3
-  %3450 = getelementptr inbounds nuw i8, ptr %266, i64 2
-  store i8 127, ptr %3450, align 2
-  store i8 64, ptr %3449, align 1
-  %3451 = getelementptr inbounds nuw i8, ptr %266, i64 9
-  store i8 0, ptr %3451, align 1
-  %3452 = getelementptr inbounds nuw i8, ptr %266, i64 12
-  store i32 0, ptr %3452, align 4
-  %3453 = getelementptr inbounds nuw i8, ptr %266, i64 11
-  %3454 = getelementptr inbounds nuw i8, ptr %266, i64 10
-  store i8 126, ptr %3454, align 2
-  store i8 64, ptr %3453, align 1
+3451:                                             ; preds = %3
+  %3452 = getelementptr inbounds nuw i8, ptr %266, i64 1
+  store i8 0, ptr %3452, align 1
+  %3453 = getelementptr inbounds nuw i8, ptr %266, i64 4
+  store i32 0, ptr %3453, align 4
+  %3454 = getelementptr inbounds nuw i8, ptr %266, i64 3
+  %3455 = getelementptr inbounds nuw i8, ptr %266, i64 2
+  store i8 127, ptr %3455, align 2
+  store i8 64, ptr %3454, align 1
+  %3456 = getelementptr inbounds nuw i8, ptr %266, i64 9
+  store i8 0, ptr %3456, align 1
+  %3457 = getelementptr inbounds nuw i8, ptr %266, i64 12
+  store i32 0, ptr %3457, align 4
+  %3458 = getelementptr inbounds nuw i8, ptr %266, i64 11
+  %3459 = getelementptr inbounds nuw i8, ptr %266, i64 10
+  store i8 126, ptr %3459, align 2
+  store i8 64, ptr %3458, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %266, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3455:                                             ; preds = %3
-  %3456 = getelementptr inbounds nuw i8, ptr %267, i64 1
-  store i8 0, ptr %3456, align 1
-  %3457 = getelementptr inbounds nuw i8, ptr %267, i64 4
-  store i32 0, ptr %3457, align 4
-  %3458 = getelementptr inbounds nuw i8, ptr %267, i64 3
-  %3459 = getelementptr inbounds nuw i8, ptr %267, i64 2
-  store i8 127, ptr %3459, align 2
-  store i8 64, ptr %3458, align 1
+3460:                                             ; preds = %3
+  %3461 = getelementptr inbounds nuw i8, ptr %267, i64 1
+  store i8 0, ptr %3461, align 1
+  %3462 = getelementptr inbounds nuw i8, ptr %267, i64 4
+  store i32 0, ptr %3462, align 4
+  %3463 = getelementptr inbounds nuw i8, ptr %267, i64 3
+  %3464 = getelementptr inbounds nuw i8, ptr %267, i64 2
+  store i8 127, ptr %3464, align 2
+  store i8 64, ptr %3463, align 1
   %.val1240.val = load i32, ptr %2, align 16
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_8clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i32 %.val1240.val, ptr null, i64 0, ptr nonnull %267, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3460:                                             ; preds = %3
-  %3461 = getelementptr inbounds nuw i8, ptr %268, i64 1
-  store i8 0, ptr %3461, align 1
-  %3462 = getelementptr inbounds nuw i8, ptr %268, i64 4
-  store i32 0, ptr %3462, align 4
-  %3463 = getelementptr inbounds nuw i8, ptr %268, i64 3
-  %3464 = getelementptr inbounds nuw i8, ptr %268, i64 2
-  store i8 127, ptr %3464, align 2
-  store i8 64, ptr %3463, align 1
-  %3465 = getelementptr inbounds nuw i8, ptr %269, i64 1
-  store i8 0, ptr %3465, align 1
-  %3466 = getelementptr inbounds nuw i8, ptr %269, i64 4
-  store i32 0, ptr %3466, align 4
-  %3467 = getelementptr inbounds nuw i8, ptr %269, i64 3
-  %3468 = getelementptr inbounds nuw i8, ptr %269, i64 2
-  store i8 127, ptr %3468, align 2
-  store i8 64, ptr %3467, align 1
+3465:                                             ; preds = %3
+  %3466 = getelementptr inbounds nuw i8, ptr %268, i64 1
+  store i8 0, ptr %3466, align 1
+  %3467 = getelementptr inbounds nuw i8, ptr %268, i64 4
+  store i32 0, ptr %3467, align 4
+  %3468 = getelementptr inbounds nuw i8, ptr %268, i64 3
+  %3469 = getelementptr inbounds nuw i8, ptr %268, i64 2
+  store i8 127, ptr %3469, align 2
+  store i8 64, ptr %3468, align 1
+  %3470 = getelementptr inbounds nuw i8, ptr %269, i64 1
+  store i8 0, ptr %3470, align 1
+  %3471 = getelementptr inbounds nuw i8, ptr %269, i64 4
+  store i32 0, ptr %3471, align 4
+  %3472 = getelementptr inbounds nuw i8, ptr %269, i64 3
+  %3473 = getelementptr inbounds nuw i8, ptr %269, i64 2
+  store i8 127, ptr %3473, align 2
+  store i8 64, ptr %3472, align 1
   %.val1242.val = load i32, ptr %2, align 16
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_8clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i32 %.val1242.val, ptr nonnull %268, i64 1, ptr nonnull %269, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3469:                                             ; preds = %3
-  %3470 = load i32, ptr %2, align 16
-  %3471 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %3472 = load i32, ptr %3471, align 8
-  %.not883 = icmp ult i32 %3470, %3472
-  br i1 %.not883, label %3476, label %3473
+3474:                                             ; preds = %3
+  %3475 = load i32, ptr %2, align 16
+  %3476 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %3477 = load i32, ptr %3476, align 8
+  %.not883 = icmp ult i32 %3475, %3477
+  br i1 %.not883, label %3481, label %3478
 
-3473:                                             ; preds = %3469
+3478:                                             ; preds = %3474
   store i32 520, ptr %271, align 4
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %270, ptr noundef %271, i8 noundef zeroext 6, i32 noundef %3470, i32 noundef %3472)
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %270, ptr noundef %271, i8 noundef zeroext 6, i32 noundef %3475, i32 noundef %3477)
   store i8 0, ptr %0, align 4
-  %3474 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3475 = load i32, ptr %270, align 4
-  store i32 %3475, ptr %3474, align 4
+  %3479 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %3480 = load i32, ptr %270, align 4
+  store i32 %3480, ptr %3479, align 4
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3476:                                             ; preds = %3469
-  %3477 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %3478 = load i32, ptr %3477, align 4
-  %3479 = zext i32 %3478 to i64
-  %3480 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %3481 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %3482 = load ptr, ptr %3481, align 8
-  %3483 = load ptr, ptr %3480, align 8
-  %3484 = ptrtoint ptr %3482 to i64
-  %3485 = ptrtoint ptr %3483 to i64
-  %3486 = sub i64 %3484, %3485
-  %3487 = ashr exact i64 %3486, 2
-  %.not884 = icmp ugt i64 %3487, %3479
-  br i1 %.not884, label %3492, label %3488
+3481:                                             ; preds = %3474
+  %3482 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %3483 = load i32, ptr %3482, align 4
+  %3484 = zext i32 %3483 to i64
+  %3485 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %3486 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %3487 = load ptr, ptr %3486, align 8
+  %3488 = load ptr, ptr %3485, align 8
+  %3489 = ptrtoint ptr %3487 to i64
+  %3490 = ptrtoint ptr %3488 to i64
+  %3491 = sub i64 %3489, %3490
+  %3492 = ashr exact i64 %3491, 2
+  %.not884 = icmp ugt i64 %3492, %3484
+  br i1 %.not884, label %3497, label %3493
 
-3488:                                             ; preds = %3476
+3493:                                             ; preds = %3481
   store i32 524, ptr %273, align 4
-  %3489 = trunc nuw i64 %3487 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %272, ptr noundef %273, i8 noundef zeroext 9, i32 noundef %3478, i32 noundef %3489)
+  %3494 = trunc nuw i64 %3492 to i32
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %272, ptr noundef %273, i8 noundef zeroext 9, i32 noundef %3483, i32 noundef %3494)
   store i8 0, ptr %0, align 4
-  %3490 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3491 = load i32, ptr %272, align 4
-  store i32 %3491, ptr %3490, align 4
+  %3495 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %3496 = load i32, ptr %272, align 4
+  store i32 %3496, ptr %3495, align 4
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3492:                                             ; preds = %3476
-  %3493 = getelementptr inbounds nuw i8, ptr %274, i64 1
-  store i8 0, ptr %3493, align 1
-  %3494 = getelementptr inbounds nuw i8, ptr %274, i64 4
-  store i32 0, ptr %3494, align 4
-  %3495 = getelementptr inbounds nuw i8, ptr %274, i64 3
-  %3496 = getelementptr inbounds nuw i8, ptr %274, i64 2
-  store i8 127, ptr %3496, align 2
-  store i8 64, ptr %3495, align 1
-  %3497 = getelementptr inbounds nuw i8, ptr %274, i64 9
-  store i8 0, ptr %3497, align 1
-  %3498 = getelementptr inbounds nuw i8, ptr %274, i64 12
-  store i32 0, ptr %3498, align 4
-  %3499 = getelementptr inbounds nuw i8, ptr %274, i64 11
-  %3500 = getelementptr inbounds nuw i8, ptr %274, i64 10
-  store i8 127, ptr %3500, align 2
-  store i8 64, ptr %3499, align 1
-  %3501 = getelementptr inbounds nuw i8, ptr %274, i64 17
-  store i8 0, ptr %3501, align 1
-  %3502 = getelementptr inbounds nuw i8, ptr %274, i64 20
-  store i32 0, ptr %3502, align 4
-  %3503 = getelementptr inbounds nuw i8, ptr %274, i64 19
-  %3504 = getelementptr inbounds nuw i8, ptr %274, i64 18
-  store i8 127, ptr %3504, align 2
-  store i8 64, ptr %3503, align 1
+3497:                                             ; preds = %3481
+  %3498 = getelementptr inbounds nuw i8, ptr %274, i64 1
+  store i8 0, ptr %3498, align 1
+  %3499 = getelementptr inbounds nuw i8, ptr %274, i64 4
+  store i32 0, ptr %3499, align 4
+  %3500 = getelementptr inbounds nuw i8, ptr %274, i64 3
+  %3501 = getelementptr inbounds nuw i8, ptr %274, i64 2
+  store i8 127, ptr %3501, align 2
+  store i8 64, ptr %3500, align 1
+  %3502 = getelementptr inbounds nuw i8, ptr %274, i64 9
+  store i8 0, ptr %3502, align 1
+  %3503 = getelementptr inbounds nuw i8, ptr %274, i64 12
+  store i32 0, ptr %3503, align 4
+  %3504 = getelementptr inbounds nuw i8, ptr %274, i64 11
+  %3505 = getelementptr inbounds nuw i8, ptr %274, i64 10
+  store i8 127, ptr %3505, align 2
+  store i8 64, ptr %3504, align 1
+  %3506 = getelementptr inbounds nuw i8, ptr %274, i64 17
+  store i8 0, ptr %3506, align 1
+  %3507 = getelementptr inbounds nuw i8, ptr %274, i64 20
+  store i32 0, ptr %3507, align 4
+  %3508 = getelementptr inbounds nuw i8, ptr %274, i64 19
+  %3509 = getelementptr inbounds nuw i8, ptr %274, i64 18
+  store i8 127, ptr %3509, align 2
+  store i8 64, ptr %3508, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %274, i64 3, ptr null, i64 0)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3505:                                             ; preds = %3
-  %3506 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %3507 = load i32, ptr %3506, align 4
-  %3508 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %3509 = load i32, ptr %3508, align 8
-  %.not882 = icmp ult i32 %3507, %3509
-  br i1 %.not882, label %3513, label %3510
+3510:                                             ; preds = %3
+  %3511 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %3512 = load i32, ptr %3511, align 4
+  %3513 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %3514 = load i32, ptr %3513, align 8
+  %.not882 = icmp ult i32 %3512, %3514
+  br i1 %.not882, label %3518, label %3515
 
-3510:                                             ; preds = %3505
+3515:                                             ; preds = %3510
   store i32 520, ptr %276, align 4
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %275, ptr noundef %276, i8 noundef zeroext 6, i32 noundef %3507, i32 noundef %3509)
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %275, ptr noundef %276, i8 noundef zeroext 6, i32 noundef %3512, i32 noundef %3514)
   store i8 0, ptr %0, align 4
-  %3511 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3512 = load i32, ptr %275, align 4
-  store i32 %3512, ptr %3511, align 4
+  %3516 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %3517 = load i32, ptr %275, align 4
+  store i32 %3517, ptr %3516, align 4
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3513:                                             ; preds = %3505, %3
-  %3514 = getelementptr inbounds nuw i8, ptr %277, i64 1
-  store i8 0, ptr %3514, align 1
-  %3515 = getelementptr inbounds nuw i8, ptr %277, i64 4
-  store i32 0, ptr %3515, align 4
-  %3516 = getelementptr inbounds nuw i8, ptr %277, i64 3
-  %3517 = getelementptr inbounds nuw i8, ptr %277, i64 2
-  store i8 127, ptr %3517, align 2
-  store i8 64, ptr %3516, align 1
-  %3518 = getelementptr inbounds nuw i8, ptr %277, i64 9
-  store i8 0, ptr %3518, align 1
-  %3519 = getelementptr inbounds nuw i8, ptr %277, i64 12
-  store i32 0, ptr %3519, align 4
-  %3520 = getelementptr inbounds nuw i8, ptr %277, i64 11
-  %3521 = getelementptr inbounds nuw i8, ptr %277, i64 10
-  store i8 127, ptr %3521, align 2
-  store i8 64, ptr %3520, align 1
-  %3522 = getelementptr inbounds nuw i8, ptr %277, i64 17
-  store i8 0, ptr %3522, align 1
-  %3523 = getelementptr inbounds nuw i8, ptr %277, i64 20
-  store i32 0, ptr %3523, align 4
-  %3524 = getelementptr inbounds nuw i8, ptr %277, i64 19
-  %3525 = getelementptr inbounds nuw i8, ptr %277, i64 18
-  store i8 127, ptr %3525, align 2
-  store i8 64, ptr %3524, align 1
+3518:                                             ; preds = %3510, %3
+  %3519 = getelementptr inbounds nuw i8, ptr %277, i64 1
+  store i8 0, ptr %3519, align 1
+  %3520 = getelementptr inbounds nuw i8, ptr %277, i64 4
+  store i32 0, ptr %3520, align 4
+  %3521 = getelementptr inbounds nuw i8, ptr %277, i64 3
+  %3522 = getelementptr inbounds nuw i8, ptr %277, i64 2
+  store i8 127, ptr %3522, align 2
+  store i8 64, ptr %3521, align 1
+  %3523 = getelementptr inbounds nuw i8, ptr %277, i64 9
+  store i8 0, ptr %3523, align 1
+  %3524 = getelementptr inbounds nuw i8, ptr %277, i64 12
+  store i32 0, ptr %3524, align 4
+  %3525 = getelementptr inbounds nuw i8, ptr %277, i64 11
+  %3526 = getelementptr inbounds nuw i8, ptr %277, i64 10
+  store i8 127, ptr %3526, align 2
+  store i8 64, ptr %3525, align 1
+  %3527 = getelementptr inbounds nuw i8, ptr %277, i64 17
+  store i8 0, ptr %3527, align 1
+  %3528 = getelementptr inbounds nuw i8, ptr %277, i64 20
+  store i32 0, ptr %3528, align 4
+  %3529 = getelementptr inbounds nuw i8, ptr %277, i64 19
+  %3530 = getelementptr inbounds nuw i8, ptr %277, i64 18
+  store i8 127, ptr %3530, align 2
+  store i8 64, ptr %3529, align 1
   %.val1244.val = load i32, ptr %2, align 16
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_8clEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i32 %.val1244.val, ptr nonnull %277, i64 3, ptr null, i64 0)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3526:                                             ; preds = %3
-  %3527 = load i32, ptr %2, align 16
-  %3528 = zext i32 %3527 to i64
-  %3529 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %3530 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %3531 = load ptr, ptr %3530, align 8
-  %3532 = load ptr, ptr %3529, align 8
-  %3533 = ptrtoint ptr %3531 to i64
-  %3534 = ptrtoint ptr %3532 to i64
-  %3535 = sub i64 %3533, %3534
-  %3536 = ashr exact i64 %3535, 2
-  %.not881 = icmp ugt i64 %3536, %3528
-  br i1 %.not881, label %3541, label %3537
+3531:                                             ; preds = %3
+  %3532 = load i32, ptr %2, align 16
+  %3533 = zext i32 %3532 to i64
+  %3534 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %3535 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %3536 = load ptr, ptr %3535, align 8
+  %3537 = load ptr, ptr %3534, align 8
+  %3538 = ptrtoint ptr %3536 to i64
+  %3539 = ptrtoint ptr %3537 to i64
+  %3540 = sub i64 %3538, %3539
+  %3541 = ashr exact i64 %3540, 2
+  %.not881 = icmp ugt i64 %3541, %3533
+  br i1 %.not881, label %3546, label %3542
 
-3537:                                             ; preds = %3526
+3542:                                             ; preds = %3531
   store i32 524, ptr %279, align 4
-  %3538 = trunc nuw i64 %3536 to i32
-  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %278, ptr noundef %279, i8 noundef zeroext 9, i32 noundef %3527, i32 noundef %3538)
+  %3543 = trunc nuw i64 %3541 to i32
+  call fastcc void @_ZN8WasmEdge9Validator12_GLOBAL__N_113logOutOfRangeENS_7ErrCodeENS_7ErrInfo13IndexCategoryEjj(ptr dead_on_unwind noalias writable align 4 %278, ptr noundef %279, i8 noundef zeroext 9, i32 noundef %3532, i32 noundef %3543)
   store i8 0, ptr %0, align 4
-  %3539 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3540 = load i32, ptr %278, align 4
-  store i32 %3540, ptr %3539, align 4
+  %3544 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %3545 = load i32, ptr %278, align 4
+  store i32 %3545, ptr %3544, align 4
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3541:                                             ; preds = %3526
+3546:                                             ; preds = %3531
   store i64 1, ptr %0, align 4
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3542:                                             ; preds = %3
-  %3543 = getelementptr inbounds nuw i8, ptr %280, i64 1
-  store i8 0, ptr %3543, align 1
-  %3544 = getelementptr inbounds nuw i8, ptr %280, i64 4
-  store i32 0, ptr %3544, align 4
-  %3545 = getelementptr inbounds nuw i8, ptr %280, i64 3
-  %3546 = getelementptr inbounds nuw i8, ptr %280, i64 2
-  store i8 127, ptr %3546, align 2
-  store i8 64, ptr %3545, align 1
+3547:                                             ; preds = %3
+  %3548 = getelementptr inbounds nuw i8, ptr %280, i64 1
+  store i8 0, ptr %3548, align 1
+  %3549 = getelementptr inbounds nuw i8, ptr %280, i64 4
+  store i32 0, ptr %3549, align 4
+  %3550 = getelementptr inbounds nuw i8, ptr %280, i64 3
+  %3551 = getelementptr inbounds nuw i8, ptr %280, i64 2
+  store i8 127, ptr %3551, align 2
+  store i8 64, ptr %3550, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr null, i64 0, ptr nonnull %280, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3547:                                             ; preds = %3
-  %3548 = getelementptr inbounds nuw i8, ptr %281, i64 1
-  store i8 0, ptr %3548, align 1
-  %3549 = getelementptr inbounds nuw i8, ptr %281, i64 4
-  store i32 0, ptr %3549, align 4
-  %3550 = getelementptr inbounds nuw i8, ptr %281, i64 3
-  %3551 = getelementptr inbounds nuw i8, ptr %281, i64 2
-  store i8 126, ptr %3551, align 2
-  store i8 64, ptr %3550, align 1
+3552:                                             ; preds = %3
+  %3553 = getelementptr inbounds nuw i8, ptr %281, i64 1
+  store i8 0, ptr %3553, align 1
+  %3554 = getelementptr inbounds nuw i8, ptr %281, i64 4
+  store i32 0, ptr %3554, align 4
+  %3555 = getelementptr inbounds nuw i8, ptr %281, i64 3
+  %3556 = getelementptr inbounds nuw i8, ptr %281, i64 2
+  store i8 126, ptr %3556, align 2
+  store i8 64, ptr %3555, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr null, i64 0, ptr nonnull %281, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3552:                                             ; preds = %3
-  %3553 = getelementptr inbounds nuw i8, ptr %282, i64 1
-  store i8 0, ptr %3553, align 1
-  %3554 = getelementptr inbounds nuw i8, ptr %282, i64 4
-  store i32 0, ptr %3554, align 4
-  %3555 = getelementptr inbounds nuw i8, ptr %282, i64 3
-  %3556 = getelementptr inbounds nuw i8, ptr %282, i64 2
-  store i8 125, ptr %3556, align 2
-  store i8 64, ptr %3555, align 1
+3557:                                             ; preds = %3
+  %3558 = getelementptr inbounds nuw i8, ptr %282, i64 1
+  store i8 0, ptr %3558, align 1
+  %3559 = getelementptr inbounds nuw i8, ptr %282, i64 4
+  store i32 0, ptr %3559, align 4
+  %3560 = getelementptr inbounds nuw i8, ptr %282, i64 3
+  %3561 = getelementptr inbounds nuw i8, ptr %282, i64 2
+  store i8 125, ptr %3561, align 2
+  store i8 64, ptr %3560, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr null, i64 0, ptr nonnull %282, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3557:                                             ; preds = %3
-  %3558 = getelementptr inbounds nuw i8, ptr %283, i64 1
-  store i8 0, ptr %3558, align 1
-  %3559 = getelementptr inbounds nuw i8, ptr %283, i64 4
-  store i32 0, ptr %3559, align 4
-  %3560 = getelementptr inbounds nuw i8, ptr %283, i64 3
-  %3561 = getelementptr inbounds nuw i8, ptr %283, i64 2
-  store i8 124, ptr %3561, align 2
-  store i8 64, ptr %3560, align 1
+3562:                                             ; preds = %3
+  %3563 = getelementptr inbounds nuw i8, ptr %283, i64 1
+  store i8 0, ptr %3563, align 1
+  %3564 = getelementptr inbounds nuw i8, ptr %283, i64 4
+  store i32 0, ptr %3564, align 4
+  %3565 = getelementptr inbounds nuw i8, ptr %283, i64 3
+  %3566 = getelementptr inbounds nuw i8, ptr %283, i64 2
+  store i8 124, ptr %3566, align 2
+  store i8 64, ptr %3565, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr null, i64 0, ptr nonnull %283, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3562:                                             ; preds = %3
-  %3563 = getelementptr inbounds nuw i8, ptr %284, i64 1
-  store i8 0, ptr %3563, align 1
-  %3564 = getelementptr inbounds nuw i8, ptr %284, i64 4
-  store i32 0, ptr %3564, align 4
-  %3565 = getelementptr inbounds nuw i8, ptr %284, i64 3
-  %3566 = getelementptr inbounds nuw i8, ptr %284, i64 2
-  store i8 127, ptr %3566, align 2
-  store i8 64, ptr %3565, align 1
-  %3567 = getelementptr inbounds nuw i8, ptr %285, i64 1
-  store i8 0, ptr %3567, align 1
-  %3568 = getelementptr inbounds nuw i8, ptr %285, i64 4
-  store i32 0, ptr %3568, align 4
-  %3569 = getelementptr inbounds nuw i8, ptr %285, i64 3
-  %3570 = getelementptr inbounds nuw i8, ptr %285, i64 2
-  store i8 127, ptr %3570, align 2
-  store i8 64, ptr %3569, align 1
+3567:                                             ; preds = %3
+  %3568 = getelementptr inbounds nuw i8, ptr %284, i64 1
+  store i8 0, ptr %3568, align 1
+  %3569 = getelementptr inbounds nuw i8, ptr %284, i64 4
+  store i32 0, ptr %3569, align 4
+  %3570 = getelementptr inbounds nuw i8, ptr %284, i64 3
+  %3571 = getelementptr inbounds nuw i8, ptr %284, i64 2
+  store i8 127, ptr %3571, align 2
+  store i8 64, ptr %3570, align 1
+  %3572 = getelementptr inbounds nuw i8, ptr %285, i64 1
+  store i8 0, ptr %3572, align 1
+  %3573 = getelementptr inbounds nuw i8, ptr %285, i64 4
+  store i32 0, ptr %3573, align 4
+  %3574 = getelementptr inbounds nuw i8, ptr %285, i64 3
+  %3575 = getelementptr inbounds nuw i8, ptr %285, i64 2
+  store i8 127, ptr %3575, align 2
+  store i8 64, ptr %3574, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %284, i64 1, ptr nonnull %285, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3571:                                             ; preds = %3
-  %3572 = getelementptr inbounds nuw i8, ptr %286, i64 1
-  store i8 0, ptr %3572, align 1
-  %3573 = getelementptr inbounds nuw i8, ptr %286, i64 4
-  store i32 0, ptr %3573, align 4
-  %3574 = getelementptr inbounds nuw i8, ptr %286, i64 3
-  %3575 = getelementptr inbounds nuw i8, ptr %286, i64 2
-  store i8 126, ptr %3575, align 2
-  store i8 64, ptr %3574, align 1
-  %3576 = getelementptr inbounds nuw i8, ptr %287, i64 1
-  store i8 0, ptr %3576, align 1
-  %3577 = getelementptr inbounds nuw i8, ptr %287, i64 4
-  store i32 0, ptr %3577, align 4
-  %3578 = getelementptr inbounds nuw i8, ptr %287, i64 3
-  %3579 = getelementptr inbounds nuw i8, ptr %287, i64 2
-  store i8 127, ptr %3579, align 2
-  store i8 64, ptr %3578, align 1
+3576:                                             ; preds = %3
+  %3577 = getelementptr inbounds nuw i8, ptr %286, i64 1
+  store i8 0, ptr %3577, align 1
+  %3578 = getelementptr inbounds nuw i8, ptr %286, i64 4
+  store i32 0, ptr %3578, align 4
+  %3579 = getelementptr inbounds nuw i8, ptr %286, i64 3
+  %3580 = getelementptr inbounds nuw i8, ptr %286, i64 2
+  store i8 126, ptr %3580, align 2
+  store i8 64, ptr %3579, align 1
+  %3581 = getelementptr inbounds nuw i8, ptr %287, i64 1
+  store i8 0, ptr %3581, align 1
+  %3582 = getelementptr inbounds nuw i8, ptr %287, i64 4
+  store i32 0, ptr %3582, align 4
+  %3583 = getelementptr inbounds nuw i8, ptr %287, i64 3
+  %3584 = getelementptr inbounds nuw i8, ptr %287, i64 2
+  store i8 127, ptr %3584, align 2
+  store i8 64, ptr %3583, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %286, i64 1, ptr nonnull %287, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3580:                                             ; preds = %3, %3, %3
-  %3581 = getelementptr inbounds nuw i8, ptr %288, i64 1
-  store i8 0, ptr %3581, align 1
-  %3582 = getelementptr inbounds nuw i8, ptr %288, i64 4
-  store i32 0, ptr %3582, align 4
-  %3583 = getelementptr inbounds nuw i8, ptr %288, i64 3
-  %3584 = getelementptr inbounds nuw i8, ptr %288, i64 2
-  store i8 127, ptr %3584, align 2
-  store i8 64, ptr %3583, align 1
-  %3585 = getelementptr inbounds nuw i8, ptr %289, i64 1
-  store i8 0, ptr %3585, align 1
-  %3586 = getelementptr inbounds nuw i8, ptr %289, i64 4
-  store i32 0, ptr %3586, align 4
-  %3587 = getelementptr inbounds nuw i8, ptr %289, i64 3
-  %3588 = getelementptr inbounds nuw i8, ptr %289, i64 2
-  store i8 127, ptr %3588, align 2
-  store i8 64, ptr %3587, align 1
+3585:                                             ; preds = %3, %3, %3
+  %3586 = getelementptr inbounds nuw i8, ptr %288, i64 1
+  store i8 0, ptr %3586, align 1
+  %3587 = getelementptr inbounds nuw i8, ptr %288, i64 4
+  store i32 0, ptr %3587, align 4
+  %3588 = getelementptr inbounds nuw i8, ptr %288, i64 3
+  %3589 = getelementptr inbounds nuw i8, ptr %288, i64 2
+  store i8 127, ptr %3589, align 2
+  store i8 64, ptr %3588, align 1
+  %3590 = getelementptr inbounds nuw i8, ptr %289, i64 1
+  store i8 0, ptr %3590, align 1
+  %3591 = getelementptr inbounds nuw i8, ptr %289, i64 4
+  store i32 0, ptr %3591, align 4
+  %3592 = getelementptr inbounds nuw i8, ptr %289, i64 3
+  %3593 = getelementptr inbounds nuw i8, ptr %289, i64 2
+  store i8 127, ptr %3593, align 2
+  store i8 64, ptr %3592, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %288, i64 1, ptr nonnull %289, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3589:                                             ; preds = %3, %3, %3
-  %3590 = getelementptr inbounds nuw i8, ptr %290, i64 1
-  store i8 0, ptr %3590, align 1
-  %3591 = getelementptr inbounds nuw i8, ptr %290, i64 4
-  store i32 0, ptr %3591, align 4
-  %3592 = getelementptr inbounds nuw i8, ptr %290, i64 3
-  %3593 = getelementptr inbounds nuw i8, ptr %290, i64 2
-  store i8 126, ptr %3593, align 2
-  store i8 64, ptr %3592, align 1
-  %3594 = getelementptr inbounds nuw i8, ptr %291, i64 1
-  store i8 0, ptr %3594, align 1
-  %3595 = getelementptr inbounds nuw i8, ptr %291, i64 4
-  store i32 0, ptr %3595, align 4
-  %3596 = getelementptr inbounds nuw i8, ptr %291, i64 3
-  %3597 = getelementptr inbounds nuw i8, ptr %291, i64 2
-  store i8 126, ptr %3597, align 2
-  store i8 64, ptr %3596, align 1
+3594:                                             ; preds = %3, %3, %3
+  %3595 = getelementptr inbounds nuw i8, ptr %290, i64 1
+  store i8 0, ptr %3595, align 1
+  %3596 = getelementptr inbounds nuw i8, ptr %290, i64 4
+  store i32 0, ptr %3596, align 4
+  %3597 = getelementptr inbounds nuw i8, ptr %290, i64 3
+  %3598 = getelementptr inbounds nuw i8, ptr %290, i64 2
+  store i8 126, ptr %3598, align 2
+  store i8 64, ptr %3597, align 1
+  %3599 = getelementptr inbounds nuw i8, ptr %291, i64 1
+  store i8 0, ptr %3599, align 1
+  %3600 = getelementptr inbounds nuw i8, ptr %291, i64 4
+  store i32 0, ptr %3600, align 4
+  %3601 = getelementptr inbounds nuw i8, ptr %291, i64 3
+  %3602 = getelementptr inbounds nuw i8, ptr %291, i64 2
+  store i8 126, ptr %3602, align 2
+  store i8 64, ptr %3601, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %290, i64 1, ptr nonnull %291, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3598:                                             ; preds = %3, %3, %3, %3, %3, %3, %3
-  %3599 = getelementptr inbounds nuw i8, ptr %292, i64 1
-  store i8 0, ptr %3599, align 1
-  %3600 = getelementptr inbounds nuw i8, ptr %292, i64 4
-  store i32 0, ptr %3600, align 4
-  %3601 = getelementptr inbounds nuw i8, ptr %292, i64 3
-  %3602 = getelementptr inbounds nuw i8, ptr %292, i64 2
-  store i8 125, ptr %3602, align 2
-  store i8 64, ptr %3601, align 1
-  %3603 = getelementptr inbounds nuw i8, ptr %293, i64 1
-  store i8 0, ptr %3603, align 1
-  %3604 = getelementptr inbounds nuw i8, ptr %293, i64 4
-  store i32 0, ptr %3604, align 4
-  %3605 = getelementptr inbounds nuw i8, ptr %293, i64 3
-  %3606 = getelementptr inbounds nuw i8, ptr %293, i64 2
-  store i8 125, ptr %3606, align 2
-  store i8 64, ptr %3605, align 1
+3603:                                             ; preds = %3, %3, %3, %3, %3, %3, %3
+  %3604 = getelementptr inbounds nuw i8, ptr %292, i64 1
+  store i8 0, ptr %3604, align 1
+  %3605 = getelementptr inbounds nuw i8, ptr %292, i64 4
+  store i32 0, ptr %3605, align 4
+  %3606 = getelementptr inbounds nuw i8, ptr %292, i64 3
+  %3607 = getelementptr inbounds nuw i8, ptr %292, i64 2
+  store i8 125, ptr %3607, align 2
+  store i8 64, ptr %3606, align 1
+  %3608 = getelementptr inbounds nuw i8, ptr %293, i64 1
+  store i8 0, ptr %3608, align 1
+  %3609 = getelementptr inbounds nuw i8, ptr %293, i64 4
+  store i32 0, ptr %3609, align 4
+  %3610 = getelementptr inbounds nuw i8, ptr %293, i64 3
+  %3611 = getelementptr inbounds nuw i8, ptr %293, i64 2
+  store i8 125, ptr %3611, align 2
+  store i8 64, ptr %3610, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %292, i64 1, ptr nonnull %293, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3607:                                             ; preds = %3, %3, %3, %3, %3, %3, %3
-  %3608 = getelementptr inbounds nuw i8, ptr %294, i64 1
-  store i8 0, ptr %3608, align 1
-  %3609 = getelementptr inbounds nuw i8, ptr %294, i64 4
-  store i32 0, ptr %3609, align 4
-  %3610 = getelementptr inbounds nuw i8, ptr %294, i64 3
-  %3611 = getelementptr inbounds nuw i8, ptr %294, i64 2
-  store i8 124, ptr %3611, align 2
-  store i8 64, ptr %3610, align 1
-  %3612 = getelementptr inbounds nuw i8, ptr %295, i64 1
-  store i8 0, ptr %3612, align 1
-  %3613 = getelementptr inbounds nuw i8, ptr %295, i64 4
-  store i32 0, ptr %3613, align 4
-  %3614 = getelementptr inbounds nuw i8, ptr %295, i64 3
-  %3615 = getelementptr inbounds nuw i8, ptr %295, i64 2
-  store i8 124, ptr %3615, align 2
-  store i8 64, ptr %3614, align 1
+3612:                                             ; preds = %3, %3, %3, %3, %3, %3, %3
+  %3613 = getelementptr inbounds nuw i8, ptr %294, i64 1
+  store i8 0, ptr %3613, align 1
+  %3614 = getelementptr inbounds nuw i8, ptr %294, i64 4
+  store i32 0, ptr %3614, align 4
+  %3615 = getelementptr inbounds nuw i8, ptr %294, i64 3
+  %3616 = getelementptr inbounds nuw i8, ptr %294, i64 2
+  store i8 124, ptr %3616, align 2
+  store i8 64, ptr %3615, align 1
+  %3617 = getelementptr inbounds nuw i8, ptr %295, i64 1
+  store i8 0, ptr %3617, align 1
+  %3618 = getelementptr inbounds nuw i8, ptr %295, i64 4
+  store i32 0, ptr %3618, align 4
+  %3619 = getelementptr inbounds nuw i8, ptr %295, i64 3
+  %3620 = getelementptr inbounds nuw i8, ptr %295, i64 2
+  store i8 124, ptr %3620, align 2
+  store i8 64, ptr %3619, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %294, i64 1, ptr nonnull %295, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3616:                                             ; preds = %3
-  %3617 = getelementptr inbounds nuw i8, ptr %296, i64 1
-  store i8 0, ptr %3617, align 1
-  %3618 = getelementptr inbounds nuw i8, ptr %296, i64 4
-  store i32 0, ptr %3618, align 4
-  %3619 = getelementptr inbounds nuw i8, ptr %296, i64 3
-  %3620 = getelementptr inbounds nuw i8, ptr %296, i64 2
-  store i8 126, ptr %3620, align 2
-  store i8 64, ptr %3619, align 1
-  %3621 = getelementptr inbounds nuw i8, ptr %297, i64 1
-  store i8 0, ptr %3621, align 1
-  %3622 = getelementptr inbounds nuw i8, ptr %297, i64 4
-  store i32 0, ptr %3622, align 4
-  %3623 = getelementptr inbounds nuw i8, ptr %297, i64 3
-  %3624 = getelementptr inbounds nuw i8, ptr %297, i64 2
-  store i8 127, ptr %3624, align 2
-  store i8 64, ptr %3623, align 1
+3621:                                             ; preds = %3
+  %3622 = getelementptr inbounds nuw i8, ptr %296, i64 1
+  store i8 0, ptr %3622, align 1
+  %3623 = getelementptr inbounds nuw i8, ptr %296, i64 4
+  store i32 0, ptr %3623, align 4
+  %3624 = getelementptr inbounds nuw i8, ptr %296, i64 3
+  %3625 = getelementptr inbounds nuw i8, ptr %296, i64 2
+  store i8 126, ptr %3625, align 2
+  store i8 64, ptr %3624, align 1
+  %3626 = getelementptr inbounds nuw i8, ptr %297, i64 1
+  store i8 0, ptr %3626, align 1
+  %3627 = getelementptr inbounds nuw i8, ptr %297, i64 4
+  store i32 0, ptr %3627, align 4
+  %3628 = getelementptr inbounds nuw i8, ptr %297, i64 3
+  %3629 = getelementptr inbounds nuw i8, ptr %297, i64 2
+  store i8 127, ptr %3629, align 2
+  store i8 64, ptr %3628, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %296, i64 1, ptr nonnull %297, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3625:                                             ; preds = %3, %3
-  %3626 = getelementptr inbounds nuw i8, ptr %298, i64 1
-  store i8 0, ptr %3626, align 1
-  %3627 = getelementptr inbounds nuw i8, ptr %298, i64 4
-  store i32 0, ptr %3627, align 4
-  %3628 = getelementptr inbounds nuw i8, ptr %298, i64 3
-  %3629 = getelementptr inbounds nuw i8, ptr %298, i64 2
-  store i8 125, ptr %3629, align 2
-  store i8 64, ptr %3628, align 1
-  %3630 = getelementptr inbounds nuw i8, ptr %299, i64 1
-  store i8 0, ptr %3630, align 1
-  %3631 = getelementptr inbounds nuw i8, ptr %299, i64 4
-  store i32 0, ptr %3631, align 4
-  %3632 = getelementptr inbounds nuw i8, ptr %299, i64 3
-  %3633 = getelementptr inbounds nuw i8, ptr %299, i64 2
-  store i8 127, ptr %3633, align 2
-  store i8 64, ptr %3632, align 1
+3630:                                             ; preds = %3, %3
+  %3631 = getelementptr inbounds nuw i8, ptr %298, i64 1
+  store i8 0, ptr %3631, align 1
+  %3632 = getelementptr inbounds nuw i8, ptr %298, i64 4
+  store i32 0, ptr %3632, align 4
+  %3633 = getelementptr inbounds nuw i8, ptr %298, i64 3
+  %3634 = getelementptr inbounds nuw i8, ptr %298, i64 2
+  store i8 125, ptr %3634, align 2
+  store i8 64, ptr %3633, align 1
+  %3635 = getelementptr inbounds nuw i8, ptr %299, i64 1
+  store i8 0, ptr %3635, align 1
+  %3636 = getelementptr inbounds nuw i8, ptr %299, i64 4
+  store i32 0, ptr %3636, align 4
+  %3637 = getelementptr inbounds nuw i8, ptr %299, i64 3
+  %3638 = getelementptr inbounds nuw i8, ptr %299, i64 2
+  store i8 127, ptr %3638, align 2
+  store i8 64, ptr %3637, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %298, i64 1, ptr nonnull %299, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3634:                                             ; preds = %3, %3
-  %3635 = getelementptr inbounds nuw i8, ptr %300, i64 1
-  store i8 0, ptr %3635, align 1
-  %3636 = getelementptr inbounds nuw i8, ptr %300, i64 4
-  store i32 0, ptr %3636, align 4
-  %3637 = getelementptr inbounds nuw i8, ptr %300, i64 3
-  %3638 = getelementptr inbounds nuw i8, ptr %300, i64 2
-  store i8 124, ptr %3638, align 2
-  store i8 64, ptr %3637, align 1
-  %3639 = getelementptr inbounds nuw i8, ptr %301, i64 1
-  store i8 0, ptr %3639, align 1
-  %3640 = getelementptr inbounds nuw i8, ptr %301, i64 4
-  store i32 0, ptr %3640, align 4
-  %3641 = getelementptr inbounds nuw i8, ptr %301, i64 3
-  %3642 = getelementptr inbounds nuw i8, ptr %301, i64 2
-  store i8 127, ptr %3642, align 2
-  store i8 64, ptr %3641, align 1
+3639:                                             ; preds = %3, %3
+  %3640 = getelementptr inbounds nuw i8, ptr %300, i64 1
+  store i8 0, ptr %3640, align 1
+  %3641 = getelementptr inbounds nuw i8, ptr %300, i64 4
+  store i32 0, ptr %3641, align 4
+  %3642 = getelementptr inbounds nuw i8, ptr %300, i64 3
+  %3643 = getelementptr inbounds nuw i8, ptr %300, i64 2
+  store i8 124, ptr %3643, align 2
+  store i8 64, ptr %3642, align 1
+  %3644 = getelementptr inbounds nuw i8, ptr %301, i64 1
+  store i8 0, ptr %3644, align 1
+  %3645 = getelementptr inbounds nuw i8, ptr %301, i64 4
+  store i32 0, ptr %3645, align 4
+  %3646 = getelementptr inbounds nuw i8, ptr %301, i64 3
+  %3647 = getelementptr inbounds nuw i8, ptr %301, i64 2
+  store i8 127, ptr %3647, align 2
+  store i8 64, ptr %3646, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %300, i64 1, ptr nonnull %301, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3643:                                             ; preds = %3, %3
-  %3644 = getelementptr inbounds nuw i8, ptr %302, i64 1
-  store i8 0, ptr %3644, align 1
-  %3645 = getelementptr inbounds nuw i8, ptr %302, i64 4
-  store i32 0, ptr %3645, align 4
-  %3646 = getelementptr inbounds nuw i8, ptr %302, i64 3
-  %3647 = getelementptr inbounds nuw i8, ptr %302, i64 2
-  store i8 127, ptr %3647, align 2
-  store i8 64, ptr %3646, align 1
-  %3648 = getelementptr inbounds nuw i8, ptr %303, i64 1
-  store i8 0, ptr %3648, align 1
-  %3649 = getelementptr inbounds nuw i8, ptr %303, i64 4
-  store i32 0, ptr %3649, align 4
-  %3650 = getelementptr inbounds nuw i8, ptr %303, i64 3
-  %3651 = getelementptr inbounds nuw i8, ptr %303, i64 2
-  store i8 126, ptr %3651, align 2
-  store i8 64, ptr %3650, align 1
+3648:                                             ; preds = %3, %3
+  %3649 = getelementptr inbounds nuw i8, ptr %302, i64 1
+  store i8 0, ptr %3649, align 1
+  %3650 = getelementptr inbounds nuw i8, ptr %302, i64 4
+  store i32 0, ptr %3650, align 4
+  %3651 = getelementptr inbounds nuw i8, ptr %302, i64 3
+  %3652 = getelementptr inbounds nuw i8, ptr %302, i64 2
+  store i8 127, ptr %3652, align 2
+  store i8 64, ptr %3651, align 1
+  %3653 = getelementptr inbounds nuw i8, ptr %303, i64 1
+  store i8 0, ptr %3653, align 1
+  %3654 = getelementptr inbounds nuw i8, ptr %303, i64 4
+  store i32 0, ptr %3654, align 4
+  %3655 = getelementptr inbounds nuw i8, ptr %303, i64 3
+  %3656 = getelementptr inbounds nuw i8, ptr %303, i64 2
+  store i8 126, ptr %3656, align 2
+  store i8 64, ptr %3655, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %302, i64 1, ptr nonnull %303, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3652:                                             ; preds = %3, %3
-  %3653 = getelementptr inbounds nuw i8, ptr %304, i64 1
-  store i8 0, ptr %3653, align 1
-  %3654 = getelementptr inbounds nuw i8, ptr %304, i64 4
-  store i32 0, ptr %3654, align 4
-  %3655 = getelementptr inbounds nuw i8, ptr %304, i64 3
-  %3656 = getelementptr inbounds nuw i8, ptr %304, i64 2
-  store i8 125, ptr %3656, align 2
-  store i8 64, ptr %3655, align 1
-  %3657 = getelementptr inbounds nuw i8, ptr %305, i64 1
-  store i8 0, ptr %3657, align 1
-  %3658 = getelementptr inbounds nuw i8, ptr %305, i64 4
-  store i32 0, ptr %3658, align 4
-  %3659 = getelementptr inbounds nuw i8, ptr %305, i64 3
-  %3660 = getelementptr inbounds nuw i8, ptr %305, i64 2
-  store i8 126, ptr %3660, align 2
-  store i8 64, ptr %3659, align 1
+3657:                                             ; preds = %3, %3
+  %3658 = getelementptr inbounds nuw i8, ptr %304, i64 1
+  store i8 0, ptr %3658, align 1
+  %3659 = getelementptr inbounds nuw i8, ptr %304, i64 4
+  store i32 0, ptr %3659, align 4
+  %3660 = getelementptr inbounds nuw i8, ptr %304, i64 3
+  %3661 = getelementptr inbounds nuw i8, ptr %304, i64 2
+  store i8 125, ptr %3661, align 2
+  store i8 64, ptr %3660, align 1
+  %3662 = getelementptr inbounds nuw i8, ptr %305, i64 1
+  store i8 0, ptr %3662, align 1
+  %3663 = getelementptr inbounds nuw i8, ptr %305, i64 4
+  store i32 0, ptr %3663, align 4
+  %3664 = getelementptr inbounds nuw i8, ptr %305, i64 3
+  %3665 = getelementptr inbounds nuw i8, ptr %305, i64 2
+  store i8 126, ptr %3665, align 2
+  store i8 64, ptr %3664, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %304, i64 1, ptr nonnull %305, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3661:                                             ; preds = %3, %3
-  %3662 = getelementptr inbounds nuw i8, ptr %306, i64 1
-  store i8 0, ptr %3662, align 1
-  %3663 = getelementptr inbounds nuw i8, ptr %306, i64 4
-  store i32 0, ptr %3663, align 4
-  %3664 = getelementptr inbounds nuw i8, ptr %306, i64 3
-  %3665 = getelementptr inbounds nuw i8, ptr %306, i64 2
-  store i8 124, ptr %3665, align 2
-  store i8 64, ptr %3664, align 1
-  %3666 = getelementptr inbounds nuw i8, ptr %307, i64 1
-  store i8 0, ptr %3666, align 1
-  %3667 = getelementptr inbounds nuw i8, ptr %307, i64 4
-  store i32 0, ptr %3667, align 4
-  %3668 = getelementptr inbounds nuw i8, ptr %307, i64 3
-  %3669 = getelementptr inbounds nuw i8, ptr %307, i64 2
-  store i8 126, ptr %3669, align 2
-  store i8 64, ptr %3668, align 1
+3666:                                             ; preds = %3, %3
+  %3667 = getelementptr inbounds nuw i8, ptr %306, i64 1
+  store i8 0, ptr %3667, align 1
+  %3668 = getelementptr inbounds nuw i8, ptr %306, i64 4
+  store i32 0, ptr %3668, align 4
+  %3669 = getelementptr inbounds nuw i8, ptr %306, i64 3
+  %3670 = getelementptr inbounds nuw i8, ptr %306, i64 2
+  store i8 124, ptr %3670, align 2
+  store i8 64, ptr %3669, align 1
+  %3671 = getelementptr inbounds nuw i8, ptr %307, i64 1
+  store i8 0, ptr %3671, align 1
+  %3672 = getelementptr inbounds nuw i8, ptr %307, i64 4
+  store i32 0, ptr %3672, align 4
+  %3673 = getelementptr inbounds nuw i8, ptr %307, i64 3
+  %3674 = getelementptr inbounds nuw i8, ptr %307, i64 2
+  store i8 126, ptr %3674, align 2
+  store i8 64, ptr %3673, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %306, i64 1, ptr nonnull %307, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3670:                                             ; preds = %3, %3
-  %3671 = getelementptr inbounds nuw i8, ptr %308, i64 1
-  store i8 0, ptr %3671, align 1
-  %3672 = getelementptr inbounds nuw i8, ptr %308, i64 4
-  store i32 0, ptr %3672, align 4
-  %3673 = getelementptr inbounds nuw i8, ptr %308, i64 3
-  %3674 = getelementptr inbounds nuw i8, ptr %308, i64 2
-  store i8 127, ptr %3674, align 2
-  store i8 64, ptr %3673, align 1
-  %3675 = getelementptr inbounds nuw i8, ptr %309, i64 1
-  store i8 0, ptr %3675, align 1
-  %3676 = getelementptr inbounds nuw i8, ptr %309, i64 4
-  store i32 0, ptr %3676, align 4
-  %3677 = getelementptr inbounds nuw i8, ptr %309, i64 3
-  %3678 = getelementptr inbounds nuw i8, ptr %309, i64 2
-  store i8 125, ptr %3678, align 2
-  store i8 64, ptr %3677, align 1
+3675:                                             ; preds = %3, %3
+  %3676 = getelementptr inbounds nuw i8, ptr %308, i64 1
+  store i8 0, ptr %3676, align 1
+  %3677 = getelementptr inbounds nuw i8, ptr %308, i64 4
+  store i32 0, ptr %3677, align 4
+  %3678 = getelementptr inbounds nuw i8, ptr %308, i64 3
+  %3679 = getelementptr inbounds nuw i8, ptr %308, i64 2
+  store i8 127, ptr %3679, align 2
+  store i8 64, ptr %3678, align 1
+  %3680 = getelementptr inbounds nuw i8, ptr %309, i64 1
+  store i8 0, ptr %3680, align 1
+  %3681 = getelementptr inbounds nuw i8, ptr %309, i64 4
+  store i32 0, ptr %3681, align 4
+  %3682 = getelementptr inbounds nuw i8, ptr %309, i64 3
+  %3683 = getelementptr inbounds nuw i8, ptr %309, i64 2
+  store i8 125, ptr %3683, align 2
+  store i8 64, ptr %3682, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %308, i64 1, ptr nonnull %309, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3679:                                             ; preds = %3, %3
-  %3680 = getelementptr inbounds nuw i8, ptr %310, i64 1
-  store i8 0, ptr %3680, align 1
-  %3681 = getelementptr inbounds nuw i8, ptr %310, i64 4
-  store i32 0, ptr %3681, align 4
-  %3682 = getelementptr inbounds nuw i8, ptr %310, i64 3
-  %3683 = getelementptr inbounds nuw i8, ptr %310, i64 2
-  store i8 126, ptr %3683, align 2
-  store i8 64, ptr %3682, align 1
-  %3684 = getelementptr inbounds nuw i8, ptr %311, i64 1
-  store i8 0, ptr %3684, align 1
-  %3685 = getelementptr inbounds nuw i8, ptr %311, i64 4
-  store i32 0, ptr %3685, align 4
-  %3686 = getelementptr inbounds nuw i8, ptr %311, i64 3
-  %3687 = getelementptr inbounds nuw i8, ptr %311, i64 2
-  store i8 125, ptr %3687, align 2
-  store i8 64, ptr %3686, align 1
+3684:                                             ; preds = %3, %3
+  %3685 = getelementptr inbounds nuw i8, ptr %310, i64 1
+  store i8 0, ptr %3685, align 1
+  %3686 = getelementptr inbounds nuw i8, ptr %310, i64 4
+  store i32 0, ptr %3686, align 4
+  %3687 = getelementptr inbounds nuw i8, ptr %310, i64 3
+  %3688 = getelementptr inbounds nuw i8, ptr %310, i64 2
+  store i8 126, ptr %3688, align 2
+  store i8 64, ptr %3687, align 1
+  %3689 = getelementptr inbounds nuw i8, ptr %311, i64 1
+  store i8 0, ptr %3689, align 1
+  %3690 = getelementptr inbounds nuw i8, ptr %311, i64 4
+  store i32 0, ptr %3690, align 4
+  %3691 = getelementptr inbounds nuw i8, ptr %311, i64 3
+  %3692 = getelementptr inbounds nuw i8, ptr %311, i64 2
+  store i8 125, ptr %3692, align 2
+  store i8 64, ptr %3691, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %310, i64 1, ptr nonnull %311, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3688:                                             ; preds = %3
-  %3689 = getelementptr inbounds nuw i8, ptr %312, i64 1
-  store i8 0, ptr %3689, align 1
-  %3690 = getelementptr inbounds nuw i8, ptr %312, i64 4
-  store i32 0, ptr %3690, align 4
-  %3691 = getelementptr inbounds nuw i8, ptr %312, i64 3
-  %3692 = getelementptr inbounds nuw i8, ptr %312, i64 2
-  store i8 124, ptr %3692, align 2
-  store i8 64, ptr %3691, align 1
-  %3693 = getelementptr inbounds nuw i8, ptr %313, i64 1
-  store i8 0, ptr %3693, align 1
-  %3694 = getelementptr inbounds nuw i8, ptr %313, i64 4
-  store i32 0, ptr %3694, align 4
-  %3695 = getelementptr inbounds nuw i8, ptr %313, i64 3
-  %3696 = getelementptr inbounds nuw i8, ptr %313, i64 2
-  store i8 125, ptr %3696, align 2
-  store i8 64, ptr %3695, align 1
+3693:                                             ; preds = %3
+  %3694 = getelementptr inbounds nuw i8, ptr %312, i64 1
+  store i8 0, ptr %3694, align 1
+  %3695 = getelementptr inbounds nuw i8, ptr %312, i64 4
+  store i32 0, ptr %3695, align 4
+  %3696 = getelementptr inbounds nuw i8, ptr %312, i64 3
+  %3697 = getelementptr inbounds nuw i8, ptr %312, i64 2
+  store i8 124, ptr %3697, align 2
+  store i8 64, ptr %3696, align 1
+  %3698 = getelementptr inbounds nuw i8, ptr %313, i64 1
+  store i8 0, ptr %3698, align 1
+  %3699 = getelementptr inbounds nuw i8, ptr %313, i64 4
+  store i32 0, ptr %3699, align 4
+  %3700 = getelementptr inbounds nuw i8, ptr %313, i64 3
+  %3701 = getelementptr inbounds nuw i8, ptr %313, i64 2
+  store i8 125, ptr %3701, align 2
+  store i8 64, ptr %3700, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %312, i64 1, ptr nonnull %313, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3697:                                             ; preds = %3, %3
-  %3698 = getelementptr inbounds nuw i8, ptr %314, i64 1
-  store i8 0, ptr %3698, align 1
-  %3699 = getelementptr inbounds nuw i8, ptr %314, i64 4
-  store i32 0, ptr %3699, align 4
-  %3700 = getelementptr inbounds nuw i8, ptr %314, i64 3
-  %3701 = getelementptr inbounds nuw i8, ptr %314, i64 2
-  store i8 127, ptr %3701, align 2
-  store i8 64, ptr %3700, align 1
-  %3702 = getelementptr inbounds nuw i8, ptr %315, i64 1
-  store i8 0, ptr %3702, align 1
-  %3703 = getelementptr inbounds nuw i8, ptr %315, i64 4
-  store i32 0, ptr %3703, align 4
-  %3704 = getelementptr inbounds nuw i8, ptr %315, i64 3
-  %3705 = getelementptr inbounds nuw i8, ptr %315, i64 2
-  store i8 124, ptr %3705, align 2
-  store i8 64, ptr %3704, align 1
+3702:                                             ; preds = %3, %3
+  %3703 = getelementptr inbounds nuw i8, ptr %314, i64 1
+  store i8 0, ptr %3703, align 1
+  %3704 = getelementptr inbounds nuw i8, ptr %314, i64 4
+  store i32 0, ptr %3704, align 4
+  %3705 = getelementptr inbounds nuw i8, ptr %314, i64 3
+  %3706 = getelementptr inbounds nuw i8, ptr %314, i64 2
+  store i8 127, ptr %3706, align 2
+  store i8 64, ptr %3705, align 1
+  %3707 = getelementptr inbounds nuw i8, ptr %315, i64 1
+  store i8 0, ptr %3707, align 1
+  %3708 = getelementptr inbounds nuw i8, ptr %315, i64 4
+  store i32 0, ptr %3708, align 4
+  %3709 = getelementptr inbounds nuw i8, ptr %315, i64 3
+  %3710 = getelementptr inbounds nuw i8, ptr %315, i64 2
+  store i8 124, ptr %3710, align 2
+  store i8 64, ptr %3709, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %314, i64 1, ptr nonnull %315, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3706:                                             ; preds = %3, %3
-  %3707 = getelementptr inbounds nuw i8, ptr %316, i64 1
-  store i8 0, ptr %3707, align 1
-  %3708 = getelementptr inbounds nuw i8, ptr %316, i64 4
-  store i32 0, ptr %3708, align 4
-  %3709 = getelementptr inbounds nuw i8, ptr %316, i64 3
-  %3710 = getelementptr inbounds nuw i8, ptr %316, i64 2
-  store i8 126, ptr %3710, align 2
-  store i8 64, ptr %3709, align 1
-  %3711 = getelementptr inbounds nuw i8, ptr %317, i64 1
-  store i8 0, ptr %3711, align 1
-  %3712 = getelementptr inbounds nuw i8, ptr %317, i64 4
-  store i32 0, ptr %3712, align 4
-  %3713 = getelementptr inbounds nuw i8, ptr %317, i64 3
-  %3714 = getelementptr inbounds nuw i8, ptr %317, i64 2
-  store i8 124, ptr %3714, align 2
-  store i8 64, ptr %3713, align 1
+3711:                                             ; preds = %3, %3
+  %3712 = getelementptr inbounds nuw i8, ptr %316, i64 1
+  store i8 0, ptr %3712, align 1
+  %3713 = getelementptr inbounds nuw i8, ptr %316, i64 4
+  store i32 0, ptr %3713, align 4
+  %3714 = getelementptr inbounds nuw i8, ptr %316, i64 3
+  %3715 = getelementptr inbounds nuw i8, ptr %316, i64 2
+  store i8 126, ptr %3715, align 2
+  store i8 64, ptr %3714, align 1
+  %3716 = getelementptr inbounds nuw i8, ptr %317, i64 1
+  store i8 0, ptr %3716, align 1
+  %3717 = getelementptr inbounds nuw i8, ptr %317, i64 4
+  store i32 0, ptr %3717, align 4
+  %3718 = getelementptr inbounds nuw i8, ptr %317, i64 3
+  %3719 = getelementptr inbounds nuw i8, ptr %317, i64 2
+  store i8 124, ptr %3719, align 2
+  store i8 64, ptr %3718, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %316, i64 1, ptr nonnull %317, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3715:                                             ; preds = %3
-  %3716 = getelementptr inbounds nuw i8, ptr %318, i64 1
-  store i8 0, ptr %3716, align 1
-  %3717 = getelementptr inbounds nuw i8, ptr %318, i64 4
-  store i32 0, ptr %3717, align 4
-  %3718 = getelementptr inbounds nuw i8, ptr %318, i64 3
-  %3719 = getelementptr inbounds nuw i8, ptr %318, i64 2
-  store i8 125, ptr %3719, align 2
-  store i8 64, ptr %3718, align 1
-  %3720 = getelementptr inbounds nuw i8, ptr %319, i64 1
-  store i8 0, ptr %3720, align 1
-  %3721 = getelementptr inbounds nuw i8, ptr %319, i64 4
-  store i32 0, ptr %3721, align 4
-  %3722 = getelementptr inbounds nuw i8, ptr %319, i64 3
-  %3723 = getelementptr inbounds nuw i8, ptr %319, i64 2
-  store i8 124, ptr %3723, align 2
-  store i8 64, ptr %3722, align 1
+3720:                                             ; preds = %3
+  %3721 = getelementptr inbounds nuw i8, ptr %318, i64 1
+  store i8 0, ptr %3721, align 1
+  %3722 = getelementptr inbounds nuw i8, ptr %318, i64 4
+  store i32 0, ptr %3722, align 4
+  %3723 = getelementptr inbounds nuw i8, ptr %318, i64 3
+  %3724 = getelementptr inbounds nuw i8, ptr %318, i64 2
+  store i8 125, ptr %3724, align 2
+  store i8 64, ptr %3723, align 1
+  %3725 = getelementptr inbounds nuw i8, ptr %319, i64 1
+  store i8 0, ptr %3725, align 1
+  %3726 = getelementptr inbounds nuw i8, ptr %319, i64 4
+  store i32 0, ptr %3726, align 4
+  %3727 = getelementptr inbounds nuw i8, ptr %319, i64 3
+  %3728 = getelementptr inbounds nuw i8, ptr %319, i64 2
+  store i8 124, ptr %3728, align 2
+  store i8 64, ptr %3727, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %318, i64 1, ptr nonnull %319, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3724:                                             ; preds = %3
-  %3725 = getelementptr inbounds nuw i8, ptr %320, i64 1
-  store i8 0, ptr %3725, align 1
-  %3726 = getelementptr inbounds nuw i8, ptr %320, i64 4
-  store i32 0, ptr %3726, align 4
-  %3727 = getelementptr inbounds nuw i8, ptr %320, i64 3
-  %3728 = getelementptr inbounds nuw i8, ptr %320, i64 2
-  store i8 125, ptr %3728, align 2
-  store i8 64, ptr %3727, align 1
-  %3729 = getelementptr inbounds nuw i8, ptr %321, i64 1
-  store i8 0, ptr %3729, align 1
-  %3730 = getelementptr inbounds nuw i8, ptr %321, i64 4
-  store i32 0, ptr %3730, align 4
-  %3731 = getelementptr inbounds nuw i8, ptr %321, i64 3
-  %3732 = getelementptr inbounds nuw i8, ptr %321, i64 2
-  store i8 127, ptr %3732, align 2
-  store i8 64, ptr %3731, align 1
+3729:                                             ; preds = %3
+  %3730 = getelementptr inbounds nuw i8, ptr %320, i64 1
+  store i8 0, ptr %3730, align 1
+  %3731 = getelementptr inbounds nuw i8, ptr %320, i64 4
+  store i32 0, ptr %3731, align 4
+  %3732 = getelementptr inbounds nuw i8, ptr %320, i64 3
+  %3733 = getelementptr inbounds nuw i8, ptr %320, i64 2
+  store i8 125, ptr %3733, align 2
+  store i8 64, ptr %3732, align 1
+  %3734 = getelementptr inbounds nuw i8, ptr %321, i64 1
+  store i8 0, ptr %3734, align 1
+  %3735 = getelementptr inbounds nuw i8, ptr %321, i64 4
+  store i32 0, ptr %3735, align 4
+  %3736 = getelementptr inbounds nuw i8, ptr %321, i64 3
+  %3737 = getelementptr inbounds nuw i8, ptr %321, i64 2
+  store i8 127, ptr %3737, align 2
+  store i8 64, ptr %3736, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %320, i64 1, ptr nonnull %321, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3733:                                             ; preds = %3
-  %3734 = getelementptr inbounds nuw i8, ptr %322, i64 1
-  store i8 0, ptr %3734, align 1
-  %3735 = getelementptr inbounds nuw i8, ptr %322, i64 4
-  store i32 0, ptr %3735, align 4
-  %3736 = getelementptr inbounds nuw i8, ptr %322, i64 3
-  %3737 = getelementptr inbounds nuw i8, ptr %322, i64 2
-  store i8 124, ptr %3737, align 2
-  store i8 64, ptr %3736, align 1
-  %3738 = getelementptr inbounds nuw i8, ptr %323, i64 1
-  store i8 0, ptr %3738, align 1
-  %3739 = getelementptr inbounds nuw i8, ptr %323, i64 4
-  store i32 0, ptr %3739, align 4
-  %3740 = getelementptr inbounds nuw i8, ptr %323, i64 3
-  %3741 = getelementptr inbounds nuw i8, ptr %323, i64 2
-  store i8 126, ptr %3741, align 2
-  store i8 64, ptr %3740, align 1
+3738:                                             ; preds = %3
+  %3739 = getelementptr inbounds nuw i8, ptr %322, i64 1
+  store i8 0, ptr %3739, align 1
+  %3740 = getelementptr inbounds nuw i8, ptr %322, i64 4
+  store i32 0, ptr %3740, align 4
+  %3741 = getelementptr inbounds nuw i8, ptr %322, i64 3
+  %3742 = getelementptr inbounds nuw i8, ptr %322, i64 2
+  store i8 124, ptr %3742, align 2
+  store i8 64, ptr %3741, align 1
+  %3743 = getelementptr inbounds nuw i8, ptr %323, i64 1
+  store i8 0, ptr %3743, align 1
+  %3744 = getelementptr inbounds nuw i8, ptr %323, i64 4
+  store i32 0, ptr %3744, align 4
+  %3745 = getelementptr inbounds nuw i8, ptr %323, i64 3
+  %3746 = getelementptr inbounds nuw i8, ptr %323, i64 2
+  store i8 126, ptr %3746, align 2
+  store i8 64, ptr %3745, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %322, i64 1, ptr nonnull %323, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3742:                                             ; preds = %3
-  %3743 = getelementptr inbounds nuw i8, ptr %324, i64 1
-  store i8 0, ptr %3743, align 1
-  %3744 = getelementptr inbounds nuw i8, ptr %324, i64 4
-  store i32 0, ptr %3744, align 4
-  %3745 = getelementptr inbounds nuw i8, ptr %324, i64 3
-  %3746 = getelementptr inbounds nuw i8, ptr %324, i64 2
-  store i8 127, ptr %3746, align 2
-  store i8 64, ptr %3745, align 1
-  %3747 = getelementptr inbounds nuw i8, ptr %325, i64 1
-  store i8 0, ptr %3747, align 1
-  %3748 = getelementptr inbounds nuw i8, ptr %325, i64 4
-  store i32 0, ptr %3748, align 4
-  %3749 = getelementptr inbounds nuw i8, ptr %325, i64 3
-  %3750 = getelementptr inbounds nuw i8, ptr %325, i64 2
-  store i8 125, ptr %3750, align 2
-  store i8 64, ptr %3749, align 1
+3747:                                             ; preds = %3
+  %3748 = getelementptr inbounds nuw i8, ptr %324, i64 1
+  store i8 0, ptr %3748, align 1
+  %3749 = getelementptr inbounds nuw i8, ptr %324, i64 4
+  store i32 0, ptr %3749, align 4
+  %3750 = getelementptr inbounds nuw i8, ptr %324, i64 3
+  %3751 = getelementptr inbounds nuw i8, ptr %324, i64 2
+  store i8 127, ptr %3751, align 2
+  store i8 64, ptr %3750, align 1
+  %3752 = getelementptr inbounds nuw i8, ptr %325, i64 1
+  store i8 0, ptr %3752, align 1
+  %3753 = getelementptr inbounds nuw i8, ptr %325, i64 4
+  store i32 0, ptr %3753, align 4
+  %3754 = getelementptr inbounds nuw i8, ptr %325, i64 3
+  %3755 = getelementptr inbounds nuw i8, ptr %325, i64 2
+  store i8 125, ptr %3755, align 2
+  store i8 64, ptr %3754, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %324, i64 1, ptr nonnull %325, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3751:                                             ; preds = %3
-  %3752 = getelementptr inbounds nuw i8, ptr %326, i64 1
-  store i8 0, ptr %3752, align 1
-  %3753 = getelementptr inbounds nuw i8, ptr %326, i64 4
-  store i32 0, ptr %3753, align 4
-  %3754 = getelementptr inbounds nuw i8, ptr %326, i64 3
-  %3755 = getelementptr inbounds nuw i8, ptr %326, i64 2
-  store i8 126, ptr %3755, align 2
-  store i8 64, ptr %3754, align 1
-  %3756 = getelementptr inbounds nuw i8, ptr %327, i64 1
-  store i8 0, ptr %3756, align 1
-  %3757 = getelementptr inbounds nuw i8, ptr %327, i64 4
-  store i32 0, ptr %3757, align 4
-  %3758 = getelementptr inbounds nuw i8, ptr %327, i64 3
-  %3759 = getelementptr inbounds nuw i8, ptr %327, i64 2
-  store i8 124, ptr %3759, align 2
-  store i8 64, ptr %3758, align 1
+3756:                                             ; preds = %3
+  %3757 = getelementptr inbounds nuw i8, ptr %326, i64 1
+  store i8 0, ptr %3757, align 1
+  %3758 = getelementptr inbounds nuw i8, ptr %326, i64 4
+  store i32 0, ptr %3758, align 4
+  %3759 = getelementptr inbounds nuw i8, ptr %326, i64 3
+  %3760 = getelementptr inbounds nuw i8, ptr %326, i64 2
+  store i8 126, ptr %3760, align 2
+  store i8 64, ptr %3759, align 1
+  %3761 = getelementptr inbounds nuw i8, ptr %327, i64 1
+  store i8 0, ptr %3761, align 1
+  %3762 = getelementptr inbounds nuw i8, ptr %327, i64 4
+  store i32 0, ptr %3762, align 4
+  %3763 = getelementptr inbounds nuw i8, ptr %327, i64 3
+  %3764 = getelementptr inbounds nuw i8, ptr %327, i64 2
+  store i8 124, ptr %3764, align 2
+  store i8 64, ptr %3763, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %326, i64 1, ptr nonnull %327, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3760:                                             ; preds = %3, %3
-  %3761 = getelementptr inbounds nuw i8, ptr %328, i64 1
-  store i8 0, ptr %3761, align 1
-  %3762 = getelementptr inbounds nuw i8, ptr %328, i64 4
-  store i32 0, ptr %3762, align 4
-  %3763 = getelementptr inbounds nuw i8, ptr %328, i64 3
-  %3764 = getelementptr inbounds nuw i8, ptr %328, i64 2
-  store i8 127, ptr %3764, align 2
-  store i8 64, ptr %3763, align 1
-  %3765 = getelementptr inbounds nuw i8, ptr %329, i64 1
-  store i8 0, ptr %3765, align 1
-  %3766 = getelementptr inbounds nuw i8, ptr %329, i64 4
-  store i32 0, ptr %3766, align 4
-  %3767 = getelementptr inbounds nuw i8, ptr %329, i64 3
-  %3768 = getelementptr inbounds nuw i8, ptr %329, i64 2
-  store i8 127, ptr %3768, align 2
-  store i8 64, ptr %3767, align 1
+3765:                                             ; preds = %3, %3
+  %3766 = getelementptr inbounds nuw i8, ptr %328, i64 1
+  store i8 0, ptr %3766, align 1
+  %3767 = getelementptr inbounds nuw i8, ptr %328, i64 4
+  store i32 0, ptr %3767, align 4
+  %3768 = getelementptr inbounds nuw i8, ptr %328, i64 3
+  %3769 = getelementptr inbounds nuw i8, ptr %328, i64 2
+  store i8 127, ptr %3769, align 2
+  store i8 64, ptr %3768, align 1
+  %3770 = getelementptr inbounds nuw i8, ptr %329, i64 1
+  store i8 0, ptr %3770, align 1
+  %3771 = getelementptr inbounds nuw i8, ptr %329, i64 4
+  store i32 0, ptr %3771, align 4
+  %3772 = getelementptr inbounds nuw i8, ptr %329, i64 3
+  %3773 = getelementptr inbounds nuw i8, ptr %329, i64 2
+  store i8 127, ptr %3773, align 2
+  store i8 64, ptr %3772, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %328, i64 1, ptr nonnull %329, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3769:                                             ; preds = %3, %3, %3
-  %3770 = getelementptr inbounds nuw i8, ptr %330, i64 1
-  store i8 0, ptr %3770, align 1
-  %3771 = getelementptr inbounds nuw i8, ptr %330, i64 4
-  store i32 0, ptr %3771, align 4
-  %3772 = getelementptr inbounds nuw i8, ptr %330, i64 3
-  %3773 = getelementptr inbounds nuw i8, ptr %330, i64 2
-  store i8 126, ptr %3773, align 2
-  store i8 64, ptr %3772, align 1
-  %3774 = getelementptr inbounds nuw i8, ptr %331, i64 1
-  store i8 0, ptr %3774, align 1
-  %3775 = getelementptr inbounds nuw i8, ptr %331, i64 4
-  store i32 0, ptr %3775, align 4
-  %3776 = getelementptr inbounds nuw i8, ptr %331, i64 3
-  %3777 = getelementptr inbounds nuw i8, ptr %331, i64 2
-  store i8 126, ptr %3777, align 2
-  store i8 64, ptr %3776, align 1
+3774:                                             ; preds = %3, %3, %3
+  %3775 = getelementptr inbounds nuw i8, ptr %330, i64 1
+  store i8 0, ptr %3775, align 1
+  %3776 = getelementptr inbounds nuw i8, ptr %330, i64 4
+  store i32 0, ptr %3776, align 4
+  %3777 = getelementptr inbounds nuw i8, ptr %330, i64 3
+  %3778 = getelementptr inbounds nuw i8, ptr %330, i64 2
+  store i8 126, ptr %3778, align 2
+  store i8 64, ptr %3777, align 1
+  %3779 = getelementptr inbounds nuw i8, ptr %331, i64 1
+  store i8 0, ptr %3779, align 1
+  %3780 = getelementptr inbounds nuw i8, ptr %331, i64 4
+  store i32 0, ptr %3780, align 4
+  %3781 = getelementptr inbounds nuw i8, ptr %331, i64 3
+  %3782 = getelementptr inbounds nuw i8, ptr %331, i64 2
+  store i8 126, ptr %3782, align 2
+  store i8 64, ptr %3781, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %330, i64 1, ptr nonnull %331, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3778:                                             ; preds = %3, %3
-  %3779 = getelementptr inbounds nuw i8, ptr %332, i64 1
-  store i8 0, ptr %3779, align 1
-  %3780 = getelementptr inbounds nuw i8, ptr %332, i64 4
-  store i32 0, ptr %3780, align 4
-  %3781 = getelementptr inbounds nuw i8, ptr %332, i64 3
-  %3782 = getelementptr inbounds nuw i8, ptr %332, i64 2
-  store i8 125, ptr %3782, align 2
-  store i8 64, ptr %3781, align 1
-  %3783 = getelementptr inbounds nuw i8, ptr %333, i64 1
-  store i8 0, ptr %3783, align 1
-  %3784 = getelementptr inbounds nuw i8, ptr %333, i64 4
-  store i32 0, ptr %3784, align 4
-  %3785 = getelementptr inbounds nuw i8, ptr %333, i64 3
-  %3786 = getelementptr inbounds nuw i8, ptr %333, i64 2
-  store i8 127, ptr %3786, align 2
-  store i8 64, ptr %3785, align 1
+3783:                                             ; preds = %3, %3
+  %3784 = getelementptr inbounds nuw i8, ptr %332, i64 1
+  store i8 0, ptr %3784, align 1
+  %3785 = getelementptr inbounds nuw i8, ptr %332, i64 4
+  store i32 0, ptr %3785, align 4
+  %3786 = getelementptr inbounds nuw i8, ptr %332, i64 3
+  %3787 = getelementptr inbounds nuw i8, ptr %332, i64 2
+  store i8 125, ptr %3787, align 2
+  store i8 64, ptr %3786, align 1
+  %3788 = getelementptr inbounds nuw i8, ptr %333, i64 1
+  store i8 0, ptr %3788, align 1
+  %3789 = getelementptr inbounds nuw i8, ptr %333, i64 4
+  store i32 0, ptr %3789, align 4
+  %3790 = getelementptr inbounds nuw i8, ptr %333, i64 3
+  %3791 = getelementptr inbounds nuw i8, ptr %333, i64 2
+  store i8 127, ptr %3791, align 2
+  store i8 64, ptr %3790, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %332, i64 1, ptr nonnull %333, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3787:                                             ; preds = %3, %3
-  %3788 = getelementptr inbounds nuw i8, ptr %334, i64 1
-  store i8 0, ptr %3788, align 1
-  %3789 = getelementptr inbounds nuw i8, ptr %334, i64 4
-  store i32 0, ptr %3789, align 4
-  %3790 = getelementptr inbounds nuw i8, ptr %334, i64 3
-  %3791 = getelementptr inbounds nuw i8, ptr %334, i64 2
-  store i8 124, ptr %3791, align 2
-  store i8 64, ptr %3790, align 1
-  %3792 = getelementptr inbounds nuw i8, ptr %335, i64 1
-  store i8 0, ptr %3792, align 1
-  %3793 = getelementptr inbounds nuw i8, ptr %335, i64 4
-  store i32 0, ptr %3793, align 4
-  %3794 = getelementptr inbounds nuw i8, ptr %335, i64 3
-  %3795 = getelementptr inbounds nuw i8, ptr %335, i64 2
-  store i8 127, ptr %3795, align 2
-  store i8 64, ptr %3794, align 1
+3792:                                             ; preds = %3, %3
+  %3793 = getelementptr inbounds nuw i8, ptr %334, i64 1
+  store i8 0, ptr %3793, align 1
+  %3794 = getelementptr inbounds nuw i8, ptr %334, i64 4
+  store i32 0, ptr %3794, align 4
+  %3795 = getelementptr inbounds nuw i8, ptr %334, i64 3
+  %3796 = getelementptr inbounds nuw i8, ptr %334, i64 2
+  store i8 124, ptr %3796, align 2
+  store i8 64, ptr %3795, align 1
+  %3797 = getelementptr inbounds nuw i8, ptr %335, i64 1
+  store i8 0, ptr %3797, align 1
+  %3798 = getelementptr inbounds nuw i8, ptr %335, i64 4
+  store i32 0, ptr %3798, align 4
+  %3799 = getelementptr inbounds nuw i8, ptr %335, i64 3
+  %3800 = getelementptr inbounds nuw i8, ptr %335, i64 2
+  store i8 127, ptr %3800, align 2
+  store i8 64, ptr %3799, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %334, i64 1, ptr nonnull %335, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3796:                                             ; preds = %3, %3
-  %3797 = getelementptr inbounds nuw i8, ptr %336, i64 1
-  store i8 0, ptr %3797, align 1
-  %3798 = getelementptr inbounds nuw i8, ptr %336, i64 4
-  store i32 0, ptr %3798, align 4
-  %3799 = getelementptr inbounds nuw i8, ptr %336, i64 3
-  %3800 = getelementptr inbounds nuw i8, ptr %336, i64 2
-  store i8 125, ptr %3800, align 2
-  store i8 64, ptr %3799, align 1
-  %3801 = getelementptr inbounds nuw i8, ptr %337, i64 1
-  store i8 0, ptr %3801, align 1
-  %3802 = getelementptr inbounds nuw i8, ptr %337, i64 4
-  store i32 0, ptr %3802, align 4
-  %3803 = getelementptr inbounds nuw i8, ptr %337, i64 3
-  %3804 = getelementptr inbounds nuw i8, ptr %337, i64 2
-  store i8 126, ptr %3804, align 2
-  store i8 64, ptr %3803, align 1
+3801:                                             ; preds = %3, %3
+  %3802 = getelementptr inbounds nuw i8, ptr %336, i64 1
+  store i8 0, ptr %3802, align 1
+  %3803 = getelementptr inbounds nuw i8, ptr %336, i64 4
+  store i32 0, ptr %3803, align 4
+  %3804 = getelementptr inbounds nuw i8, ptr %336, i64 3
+  %3805 = getelementptr inbounds nuw i8, ptr %336, i64 2
+  store i8 125, ptr %3805, align 2
+  store i8 64, ptr %3804, align 1
+  %3806 = getelementptr inbounds nuw i8, ptr %337, i64 1
+  store i8 0, ptr %3806, align 1
+  %3807 = getelementptr inbounds nuw i8, ptr %337, i64 4
+  store i32 0, ptr %3807, align 4
+  %3808 = getelementptr inbounds nuw i8, ptr %337, i64 3
+  %3809 = getelementptr inbounds nuw i8, ptr %337, i64 2
+  store i8 126, ptr %3809, align 2
+  store i8 64, ptr %3808, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %336, i64 1, ptr nonnull %337, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3805:                                             ; preds = %3, %3
-  %3806 = getelementptr inbounds nuw i8, ptr %338, i64 1
-  store i8 0, ptr %3806, align 1
-  %3807 = getelementptr inbounds nuw i8, ptr %338, i64 4
-  store i32 0, ptr %3807, align 4
-  %3808 = getelementptr inbounds nuw i8, ptr %338, i64 3
-  %3809 = getelementptr inbounds nuw i8, ptr %338, i64 2
-  store i8 124, ptr %3809, align 2
-  store i8 64, ptr %3808, align 1
-  %3810 = getelementptr inbounds nuw i8, ptr %339, i64 1
-  store i8 0, ptr %3810, align 1
-  %3811 = getelementptr inbounds nuw i8, ptr %339, i64 4
-  store i32 0, ptr %3811, align 4
-  %3812 = getelementptr inbounds nuw i8, ptr %339, i64 3
-  %3813 = getelementptr inbounds nuw i8, ptr %339, i64 2
-  store i8 126, ptr %3813, align 2
-  store i8 64, ptr %3812, align 1
+3810:                                             ; preds = %3, %3
+  %3811 = getelementptr inbounds nuw i8, ptr %338, i64 1
+  store i8 0, ptr %3811, align 1
+  %3812 = getelementptr inbounds nuw i8, ptr %338, i64 4
+  store i32 0, ptr %3812, align 4
+  %3813 = getelementptr inbounds nuw i8, ptr %338, i64 3
+  %3814 = getelementptr inbounds nuw i8, ptr %338, i64 2
+  store i8 124, ptr %3814, align 2
+  store i8 64, ptr %3813, align 1
+  %3815 = getelementptr inbounds nuw i8, ptr %339, i64 1
+  store i8 0, ptr %3815, align 1
+  %3816 = getelementptr inbounds nuw i8, ptr %339, i64 4
+  store i32 0, ptr %3816, align 4
+  %3817 = getelementptr inbounds nuw i8, ptr %339, i64 3
+  %3818 = getelementptr inbounds nuw i8, ptr %339, i64 2
+  store i8 126, ptr %3818, align 2
+  store i8 64, ptr %3817, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %338, i64 1, ptr nonnull %339, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3814:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  %3815 = getelementptr inbounds nuw i8, ptr %340, i64 1
-  store i8 0, ptr %3815, align 1
-  %3816 = getelementptr inbounds nuw i8, ptr %340, i64 4
-  store i32 0, ptr %3816, align 4
-  %3817 = getelementptr inbounds nuw i8, ptr %340, i64 3
-  %3818 = getelementptr inbounds nuw i8, ptr %340, i64 2
-  store i8 127, ptr %3818, align 2
-  store i8 64, ptr %3817, align 1
-  %3819 = getelementptr inbounds nuw i8, ptr %340, i64 9
-  store i8 0, ptr %3819, align 1
-  %3820 = getelementptr inbounds nuw i8, ptr %340, i64 12
-  store i32 0, ptr %3820, align 4
-  %3821 = getelementptr inbounds nuw i8, ptr %340, i64 11
-  %3822 = getelementptr inbounds nuw i8, ptr %340, i64 10
-  store i8 127, ptr %3822, align 2
-  store i8 64, ptr %3821, align 1
-  %3823 = getelementptr inbounds nuw i8, ptr %341, i64 1
-  store i8 0, ptr %3823, align 1
-  %3824 = getelementptr inbounds nuw i8, ptr %341, i64 4
-  store i32 0, ptr %3824, align 4
-  %3825 = getelementptr inbounds nuw i8, ptr %341, i64 3
-  %3826 = getelementptr inbounds nuw i8, ptr %341, i64 2
-  store i8 127, ptr %3826, align 2
-  store i8 64, ptr %3825, align 1
+3819:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
+  %3820 = getelementptr inbounds nuw i8, ptr %340, i64 1
+  store i8 0, ptr %3820, align 1
+  %3821 = getelementptr inbounds nuw i8, ptr %340, i64 4
+  store i32 0, ptr %3821, align 4
+  %3822 = getelementptr inbounds nuw i8, ptr %340, i64 3
+  %3823 = getelementptr inbounds nuw i8, ptr %340, i64 2
+  store i8 127, ptr %3823, align 2
+  store i8 64, ptr %3822, align 1
+  %3824 = getelementptr inbounds nuw i8, ptr %340, i64 9
+  store i8 0, ptr %3824, align 1
+  %3825 = getelementptr inbounds nuw i8, ptr %340, i64 12
+  store i32 0, ptr %3825, align 4
+  %3826 = getelementptr inbounds nuw i8, ptr %340, i64 11
+  %3827 = getelementptr inbounds nuw i8, ptr %340, i64 10
+  store i8 127, ptr %3827, align 2
+  store i8 64, ptr %3826, align 1
+  %3828 = getelementptr inbounds nuw i8, ptr %341, i64 1
+  store i8 0, ptr %3828, align 1
+  %3829 = getelementptr inbounds nuw i8, ptr %341, i64 4
+  store i32 0, ptr %3829, align 4
+  %3830 = getelementptr inbounds nuw i8, ptr %341, i64 3
+  %3831 = getelementptr inbounds nuw i8, ptr %341, i64 2
+  store i8 127, ptr %3831, align 2
+  store i8 64, ptr %3830, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %340, i64 2, ptr nonnull %341, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3827:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  %3828 = getelementptr inbounds nuw i8, ptr %342, i64 1
-  store i8 0, ptr %3828, align 1
-  %3829 = getelementptr inbounds nuw i8, ptr %342, i64 4
-  store i32 0, ptr %3829, align 4
-  %3830 = getelementptr inbounds nuw i8, ptr %342, i64 3
-  %3831 = getelementptr inbounds nuw i8, ptr %342, i64 2
-  store i8 126, ptr %3831, align 2
-  store i8 64, ptr %3830, align 1
-  %3832 = getelementptr inbounds nuw i8, ptr %342, i64 9
-  store i8 0, ptr %3832, align 1
-  %3833 = getelementptr inbounds nuw i8, ptr %342, i64 12
-  store i32 0, ptr %3833, align 4
-  %3834 = getelementptr inbounds nuw i8, ptr %342, i64 11
-  %3835 = getelementptr inbounds nuw i8, ptr %342, i64 10
-  store i8 126, ptr %3835, align 2
-  store i8 64, ptr %3834, align 1
-  %3836 = getelementptr inbounds nuw i8, ptr %343, i64 1
-  store i8 0, ptr %3836, align 1
-  %3837 = getelementptr inbounds nuw i8, ptr %343, i64 4
-  store i32 0, ptr %3837, align 4
-  %3838 = getelementptr inbounds nuw i8, ptr %343, i64 3
-  %3839 = getelementptr inbounds nuw i8, ptr %343, i64 2
-  store i8 127, ptr %3839, align 2
-  store i8 64, ptr %3838, align 1
+3832:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
+  %3833 = getelementptr inbounds nuw i8, ptr %342, i64 1
+  store i8 0, ptr %3833, align 1
+  %3834 = getelementptr inbounds nuw i8, ptr %342, i64 4
+  store i32 0, ptr %3834, align 4
+  %3835 = getelementptr inbounds nuw i8, ptr %342, i64 3
+  %3836 = getelementptr inbounds nuw i8, ptr %342, i64 2
+  store i8 126, ptr %3836, align 2
+  store i8 64, ptr %3835, align 1
+  %3837 = getelementptr inbounds nuw i8, ptr %342, i64 9
+  store i8 0, ptr %3837, align 1
+  %3838 = getelementptr inbounds nuw i8, ptr %342, i64 12
+  store i32 0, ptr %3838, align 4
+  %3839 = getelementptr inbounds nuw i8, ptr %342, i64 11
+  %3840 = getelementptr inbounds nuw i8, ptr %342, i64 10
+  store i8 126, ptr %3840, align 2
+  store i8 64, ptr %3839, align 1
+  %3841 = getelementptr inbounds nuw i8, ptr %343, i64 1
+  store i8 0, ptr %3841, align 1
+  %3842 = getelementptr inbounds nuw i8, ptr %343, i64 4
+  store i32 0, ptr %3842, align 4
+  %3843 = getelementptr inbounds nuw i8, ptr %343, i64 3
+  %3844 = getelementptr inbounds nuw i8, ptr %343, i64 2
+  store i8 127, ptr %3844, align 2
+  store i8 64, ptr %3843, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %342, i64 2, ptr nonnull %343, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3840:                                             ; preds = %3, %3, %3, %3, %3, %3
-  %3841 = getelementptr inbounds nuw i8, ptr %344, i64 1
-  store i8 0, ptr %3841, align 1
-  %3842 = getelementptr inbounds nuw i8, ptr %344, i64 4
-  store i32 0, ptr %3842, align 4
-  %3843 = getelementptr inbounds nuw i8, ptr %344, i64 3
-  %3844 = getelementptr inbounds nuw i8, ptr %344, i64 2
-  store i8 125, ptr %3844, align 2
-  store i8 64, ptr %3843, align 1
-  %3845 = getelementptr inbounds nuw i8, ptr %344, i64 9
-  store i8 0, ptr %3845, align 1
-  %3846 = getelementptr inbounds nuw i8, ptr %344, i64 12
-  store i32 0, ptr %3846, align 4
-  %3847 = getelementptr inbounds nuw i8, ptr %344, i64 11
-  %3848 = getelementptr inbounds nuw i8, ptr %344, i64 10
-  store i8 125, ptr %3848, align 2
-  store i8 64, ptr %3847, align 1
-  %3849 = getelementptr inbounds nuw i8, ptr %345, i64 1
-  store i8 0, ptr %3849, align 1
-  %3850 = getelementptr inbounds nuw i8, ptr %345, i64 4
-  store i32 0, ptr %3850, align 4
-  %3851 = getelementptr inbounds nuw i8, ptr %345, i64 3
-  %3852 = getelementptr inbounds nuw i8, ptr %345, i64 2
-  store i8 127, ptr %3852, align 2
-  store i8 64, ptr %3851, align 1
+3845:                                             ; preds = %3, %3, %3, %3, %3, %3
+  %3846 = getelementptr inbounds nuw i8, ptr %344, i64 1
+  store i8 0, ptr %3846, align 1
+  %3847 = getelementptr inbounds nuw i8, ptr %344, i64 4
+  store i32 0, ptr %3847, align 4
+  %3848 = getelementptr inbounds nuw i8, ptr %344, i64 3
+  %3849 = getelementptr inbounds nuw i8, ptr %344, i64 2
+  store i8 125, ptr %3849, align 2
+  store i8 64, ptr %3848, align 1
+  %3850 = getelementptr inbounds nuw i8, ptr %344, i64 9
+  store i8 0, ptr %3850, align 1
+  %3851 = getelementptr inbounds nuw i8, ptr %344, i64 12
+  store i32 0, ptr %3851, align 4
+  %3852 = getelementptr inbounds nuw i8, ptr %344, i64 11
+  %3853 = getelementptr inbounds nuw i8, ptr %344, i64 10
+  store i8 125, ptr %3853, align 2
+  store i8 64, ptr %3852, align 1
+  %3854 = getelementptr inbounds nuw i8, ptr %345, i64 1
+  store i8 0, ptr %3854, align 1
+  %3855 = getelementptr inbounds nuw i8, ptr %345, i64 4
+  store i32 0, ptr %3855, align 4
+  %3856 = getelementptr inbounds nuw i8, ptr %345, i64 3
+  %3857 = getelementptr inbounds nuw i8, ptr %345, i64 2
+  store i8 127, ptr %3857, align 2
+  store i8 64, ptr %3856, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %344, i64 2, ptr nonnull %345, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3853:                                             ; preds = %3, %3, %3, %3, %3, %3
-  %3854 = getelementptr inbounds nuw i8, ptr %346, i64 1
-  store i8 0, ptr %3854, align 1
-  %3855 = getelementptr inbounds nuw i8, ptr %346, i64 4
-  store i32 0, ptr %3855, align 4
-  %3856 = getelementptr inbounds nuw i8, ptr %346, i64 3
-  %3857 = getelementptr inbounds nuw i8, ptr %346, i64 2
-  store i8 124, ptr %3857, align 2
-  store i8 64, ptr %3856, align 1
-  %3858 = getelementptr inbounds nuw i8, ptr %346, i64 9
-  store i8 0, ptr %3858, align 1
-  %3859 = getelementptr inbounds nuw i8, ptr %346, i64 12
-  store i32 0, ptr %3859, align 4
-  %3860 = getelementptr inbounds nuw i8, ptr %346, i64 11
-  %3861 = getelementptr inbounds nuw i8, ptr %346, i64 10
-  store i8 124, ptr %3861, align 2
-  store i8 64, ptr %3860, align 1
-  %3862 = getelementptr inbounds nuw i8, ptr %347, i64 1
-  store i8 0, ptr %3862, align 1
-  %3863 = getelementptr inbounds nuw i8, ptr %347, i64 4
-  store i32 0, ptr %3863, align 4
-  %3864 = getelementptr inbounds nuw i8, ptr %347, i64 3
-  %3865 = getelementptr inbounds nuw i8, ptr %347, i64 2
-  store i8 127, ptr %3865, align 2
-  store i8 64, ptr %3864, align 1
+3858:                                             ; preds = %3, %3, %3, %3, %3, %3
+  %3859 = getelementptr inbounds nuw i8, ptr %346, i64 1
+  store i8 0, ptr %3859, align 1
+  %3860 = getelementptr inbounds nuw i8, ptr %346, i64 4
+  store i32 0, ptr %3860, align 4
+  %3861 = getelementptr inbounds nuw i8, ptr %346, i64 3
+  %3862 = getelementptr inbounds nuw i8, ptr %346, i64 2
+  store i8 124, ptr %3862, align 2
+  store i8 64, ptr %3861, align 1
+  %3863 = getelementptr inbounds nuw i8, ptr %346, i64 9
+  store i8 0, ptr %3863, align 1
+  %3864 = getelementptr inbounds nuw i8, ptr %346, i64 12
+  store i32 0, ptr %3864, align 4
+  %3865 = getelementptr inbounds nuw i8, ptr %346, i64 11
+  %3866 = getelementptr inbounds nuw i8, ptr %346, i64 10
+  store i8 124, ptr %3866, align 2
+  store i8 64, ptr %3865, align 1
+  %3867 = getelementptr inbounds nuw i8, ptr %347, i64 1
+  store i8 0, ptr %3867, align 1
+  %3868 = getelementptr inbounds nuw i8, ptr %347, i64 4
+  store i32 0, ptr %3868, align 4
+  %3869 = getelementptr inbounds nuw i8, ptr %347, i64 3
+  %3870 = getelementptr inbounds nuw i8, ptr %347, i64 2
+  store i8 127, ptr %3870, align 2
+  store i8 64, ptr %3869, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %346, i64 2, ptr nonnull %347, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3866:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  %3867 = getelementptr inbounds nuw i8, ptr %348, i64 1
-  store i8 0, ptr %3867, align 1
-  %3868 = getelementptr inbounds nuw i8, ptr %348, i64 4
-  store i32 0, ptr %3868, align 4
-  %3869 = getelementptr inbounds nuw i8, ptr %348, i64 3
-  %3870 = getelementptr inbounds nuw i8, ptr %348, i64 2
-  store i8 127, ptr %3870, align 2
-  store i8 64, ptr %3869, align 1
-  %3871 = getelementptr inbounds nuw i8, ptr %348, i64 9
-  store i8 0, ptr %3871, align 1
-  %3872 = getelementptr inbounds nuw i8, ptr %348, i64 12
-  store i32 0, ptr %3872, align 4
-  %3873 = getelementptr inbounds nuw i8, ptr %348, i64 11
-  %3874 = getelementptr inbounds nuw i8, ptr %348, i64 10
-  store i8 127, ptr %3874, align 2
-  store i8 64, ptr %3873, align 1
-  %3875 = getelementptr inbounds nuw i8, ptr %349, i64 1
-  store i8 0, ptr %3875, align 1
-  %3876 = getelementptr inbounds nuw i8, ptr %349, i64 4
-  store i32 0, ptr %3876, align 4
-  %3877 = getelementptr inbounds nuw i8, ptr %349, i64 3
-  %3878 = getelementptr inbounds nuw i8, ptr %349, i64 2
-  store i8 127, ptr %3878, align 2
-  store i8 64, ptr %3877, align 1
+3871:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
+  %3872 = getelementptr inbounds nuw i8, ptr %348, i64 1
+  store i8 0, ptr %3872, align 1
+  %3873 = getelementptr inbounds nuw i8, ptr %348, i64 4
+  store i32 0, ptr %3873, align 4
+  %3874 = getelementptr inbounds nuw i8, ptr %348, i64 3
+  %3875 = getelementptr inbounds nuw i8, ptr %348, i64 2
+  store i8 127, ptr %3875, align 2
+  store i8 64, ptr %3874, align 1
+  %3876 = getelementptr inbounds nuw i8, ptr %348, i64 9
+  store i8 0, ptr %3876, align 1
+  %3877 = getelementptr inbounds nuw i8, ptr %348, i64 12
+  store i32 0, ptr %3877, align 4
+  %3878 = getelementptr inbounds nuw i8, ptr %348, i64 11
+  %3879 = getelementptr inbounds nuw i8, ptr %348, i64 10
+  store i8 127, ptr %3879, align 2
+  store i8 64, ptr %3878, align 1
+  %3880 = getelementptr inbounds nuw i8, ptr %349, i64 1
+  store i8 0, ptr %3880, align 1
+  %3881 = getelementptr inbounds nuw i8, ptr %349, i64 4
+  store i32 0, ptr %3881, align 4
+  %3882 = getelementptr inbounds nuw i8, ptr %349, i64 3
+  %3883 = getelementptr inbounds nuw i8, ptr %349, i64 2
+  store i8 127, ptr %3883, align 2
+  store i8 64, ptr %3882, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !248)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !248
-  %3879 = getelementptr inbounds nuw i8, ptr %348, i64 16
-  br label %3880
+  %3884 = getelementptr inbounds nuw i8, ptr %348, i64 16
+  br label %3885
 
-3880:                                             ; preds = %3881, %3866
-  %.sroa.02.0.i.i = phi ptr [ %3879, %3866 ], [ %3882, %3881 ]
+3885:                                             ; preds = %3886, %3871
+  %.sroa.02.0.i.i = phi ptr [ %3884, %3871 ], [ %3887, %3886 ]
   %.not.i.i = icmp eq ptr %.sroa.02.0.i.i, %348
-  br i1 %.not.i.i, label %3889, label %3881
+  br i1 %.not.i.i, label %3894, label %3886
 
-3881:                                             ; preds = %3880
-  %3882 = getelementptr inbounds i8, ptr %.sroa.02.0.i.i, i64 -8
-  %.sroa.0.0.copyload.i.i = load i64, ptr %3882, align 4, !noalias !251
+3886:                                             ; preds = %3885
+  %3887 = getelementptr inbounds i8, ptr %.sroa.02.0.i.i, i64 -8
+  %.sroa.0.0.copyload.i.i = load i64, ptr %3887, align 4, !noalias !251
   call void @_ZN8WasmEdge9Validator11FormChecker7popTypeENS_7ValTypeE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.119") align 4 %8, ptr noundef nonnull align 8 dereferenceable(360) %1, i64 %.sroa.0.0.copyload.i.i), !noalias !251
-  %3883 = load i8, ptr %8, align 4, !noalias !251
-  %3884 = trunc i8 %3883 to i1
-  br i1 %3884, label %3880, label %3885, !llvm.loop !32
+  %3888 = load i8, ptr %8, align 4, !noalias !251
+  %3889 = trunc i8 %3888 to i1
+  br i1 %3889, label %3885, label %3890, !llvm.loop !32
 
-3885:                                             ; preds = %3881
-  %3886 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %3887 = load i32, ptr %3886, align 4, !noalias !254
+3890:                                             ; preds = %3886
+  %3891 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %3892 = load i32, ptr %3891, align 4, !noalias !254
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !248
   store i8 0, ptr %0, align 4, !alias.scope !248
-  %3888 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %3887, ptr %3888, align 4, !alias.scope !248
+  %3893 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %3892, ptr %3893, align 4, !alias.scope !248
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3889:                                             ; preds = %3880
+3894:                                             ; preds = %3885
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !248
   call void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull readonly %349, i64 1), !noalias !248
   store i64 1, ptr %0, align 4, !alias.scope !248
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3890:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  %3891 = getelementptr inbounds nuw i8, ptr %350, i64 1
-  store i8 0, ptr %3891, align 1
-  %3892 = getelementptr inbounds nuw i8, ptr %350, i64 4
-  store i32 0, ptr %3892, align 4
-  %3893 = getelementptr inbounds nuw i8, ptr %350, i64 3
-  %3894 = getelementptr inbounds nuw i8, ptr %350, i64 2
-  store i8 126, ptr %3894, align 2
-  store i8 64, ptr %3893, align 1
-  %3895 = getelementptr inbounds nuw i8, ptr %350, i64 9
-  store i8 0, ptr %3895, align 1
-  %3896 = getelementptr inbounds nuw i8, ptr %350, i64 12
-  store i32 0, ptr %3896, align 4
-  %3897 = getelementptr inbounds nuw i8, ptr %350, i64 11
-  %3898 = getelementptr inbounds nuw i8, ptr %350, i64 10
-  store i8 126, ptr %3898, align 2
-  store i8 64, ptr %3897, align 1
-  %3899 = getelementptr inbounds nuw i8, ptr %351, i64 1
-  store i8 0, ptr %3899, align 1
-  %3900 = getelementptr inbounds nuw i8, ptr %351, i64 4
-  store i32 0, ptr %3900, align 4
-  %3901 = getelementptr inbounds nuw i8, ptr %351, i64 3
-  %3902 = getelementptr inbounds nuw i8, ptr %351, i64 2
-  store i8 126, ptr %3902, align 2
-  store i8 64, ptr %3901, align 1
+3895:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
+  %3896 = getelementptr inbounds nuw i8, ptr %350, i64 1
+  store i8 0, ptr %3896, align 1
+  %3897 = getelementptr inbounds nuw i8, ptr %350, i64 4
+  store i32 0, ptr %3897, align 4
+  %3898 = getelementptr inbounds nuw i8, ptr %350, i64 3
+  %3899 = getelementptr inbounds nuw i8, ptr %350, i64 2
+  store i8 126, ptr %3899, align 2
+  store i8 64, ptr %3898, align 1
+  %3900 = getelementptr inbounds nuw i8, ptr %350, i64 9
+  store i8 0, ptr %3900, align 1
+  %3901 = getelementptr inbounds nuw i8, ptr %350, i64 12
+  store i32 0, ptr %3901, align 4
+  %3902 = getelementptr inbounds nuw i8, ptr %350, i64 11
+  %3903 = getelementptr inbounds nuw i8, ptr %350, i64 10
+  store i8 126, ptr %3903, align 2
+  store i8 64, ptr %3902, align 1
+  %3904 = getelementptr inbounds nuw i8, ptr %351, i64 1
+  store i8 0, ptr %3904, align 1
+  %3905 = getelementptr inbounds nuw i8, ptr %351, i64 4
+  store i32 0, ptr %3905, align 4
+  %3906 = getelementptr inbounds nuw i8, ptr %351, i64 3
+  %3907 = getelementptr inbounds nuw i8, ptr %351, i64 2
+  store i8 126, ptr %3907, align 2
+  store i8 64, ptr %3906, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !257)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !257
-  %3903 = getelementptr inbounds nuw i8, ptr %350, i64 16
-  br label %3904
+  %3908 = getelementptr inbounds nuw i8, ptr %350, i64 16
+  br label %3909
 
-3904:                                             ; preds = %3905, %3890
-  %.sroa.02.0.i.i1638 = phi ptr [ %3903, %3890 ], [ %3906, %3905 ]
+3909:                                             ; preds = %3910, %3895
+  %.sroa.02.0.i.i1638 = phi ptr [ %3908, %3895 ], [ %3911, %3910 ]
   %.not.i.i1639 = icmp eq ptr %.sroa.02.0.i.i1638, %350
-  br i1 %.not.i.i1639, label %3913, label %3905
+  br i1 %.not.i.i1639, label %3918, label %3910
 
-3905:                                             ; preds = %3904
-  %3906 = getelementptr inbounds i8, ptr %.sroa.02.0.i.i1638, i64 -8
-  %.sroa.0.0.copyload.i.i1640 = load i64, ptr %3906, align 4, !noalias !260
+3910:                                             ; preds = %3909
+  %3911 = getelementptr inbounds i8, ptr %.sroa.02.0.i.i1638, i64 -8
+  %.sroa.0.0.copyload.i.i1640 = load i64, ptr %3911, align 4, !noalias !260
   call void @_ZN8WasmEdge9Validator11FormChecker7popTypeENS_7ValTypeE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.119") align 4 %7, ptr noundef nonnull align 8 dereferenceable(360) %1, i64 %.sroa.0.0.copyload.i.i1640), !noalias !260
-  %3907 = load i8, ptr %7, align 4, !noalias !260
-  %3908 = trunc i8 %3907 to i1
-  br i1 %3908, label %3904, label %3909, !llvm.loop !32
+  %3912 = load i8, ptr %7, align 4, !noalias !260
+  %3913 = trunc i8 %3912 to i1
+  br i1 %3913, label %3909, label %3914, !llvm.loop !32
 
-3909:                                             ; preds = %3905
-  %3910 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %3911 = load i32, ptr %3910, align 4, !noalias !263
+3914:                                             ; preds = %3910
+  %3915 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %3916 = load i32, ptr %3915, align 4, !noalias !263
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !257
   store i8 0, ptr %0, align 4, !alias.scope !257
-  %3912 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %3911, ptr %3912, align 4, !alias.scope !257
+  %3917 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %3916, ptr %3917, align 4, !alias.scope !257
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3913:                                             ; preds = %3904
+3918:                                             ; preds = %3909
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !257
   call void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull readonly %351, i64 1), !noalias !257
   store i64 1, ptr %0, align 4, !alias.scope !257
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3914:                                             ; preds = %3, %3, %3, %3, %3, %3, %3
-  %3915 = getelementptr inbounds nuw i8, ptr %352, i64 1
-  store i8 0, ptr %3915, align 1
-  %3916 = getelementptr inbounds nuw i8, ptr %352, i64 4
-  store i32 0, ptr %3916, align 4
-  %3917 = getelementptr inbounds nuw i8, ptr %352, i64 3
-  %3918 = getelementptr inbounds nuw i8, ptr %352, i64 2
-  store i8 125, ptr %3918, align 2
-  store i8 64, ptr %3917, align 1
-  %3919 = getelementptr inbounds nuw i8, ptr %352, i64 9
-  store i8 0, ptr %3919, align 1
-  %3920 = getelementptr inbounds nuw i8, ptr %352, i64 12
-  store i32 0, ptr %3920, align 4
-  %3921 = getelementptr inbounds nuw i8, ptr %352, i64 11
-  %3922 = getelementptr inbounds nuw i8, ptr %352, i64 10
-  store i8 125, ptr %3922, align 2
-  store i8 64, ptr %3921, align 1
-  %3923 = getelementptr inbounds nuw i8, ptr %353, i64 1
-  store i8 0, ptr %3923, align 1
-  %3924 = getelementptr inbounds nuw i8, ptr %353, i64 4
-  store i32 0, ptr %3924, align 4
-  %3925 = getelementptr inbounds nuw i8, ptr %353, i64 3
-  %3926 = getelementptr inbounds nuw i8, ptr %353, i64 2
-  store i8 125, ptr %3926, align 2
-  store i8 64, ptr %3925, align 1
+3919:                                             ; preds = %3, %3, %3, %3, %3, %3, %3
+  %3920 = getelementptr inbounds nuw i8, ptr %352, i64 1
+  store i8 0, ptr %3920, align 1
+  %3921 = getelementptr inbounds nuw i8, ptr %352, i64 4
+  store i32 0, ptr %3921, align 4
+  %3922 = getelementptr inbounds nuw i8, ptr %352, i64 3
+  %3923 = getelementptr inbounds nuw i8, ptr %352, i64 2
+  store i8 125, ptr %3923, align 2
+  store i8 64, ptr %3922, align 1
+  %3924 = getelementptr inbounds nuw i8, ptr %352, i64 9
+  store i8 0, ptr %3924, align 1
+  %3925 = getelementptr inbounds nuw i8, ptr %352, i64 12
+  store i32 0, ptr %3925, align 4
+  %3926 = getelementptr inbounds nuw i8, ptr %352, i64 11
+  %3927 = getelementptr inbounds nuw i8, ptr %352, i64 10
+  store i8 125, ptr %3927, align 2
+  store i8 64, ptr %3926, align 1
+  %3928 = getelementptr inbounds nuw i8, ptr %353, i64 1
+  store i8 0, ptr %3928, align 1
+  %3929 = getelementptr inbounds nuw i8, ptr %353, i64 4
+  store i32 0, ptr %3929, align 4
+  %3930 = getelementptr inbounds nuw i8, ptr %353, i64 3
+  %3931 = getelementptr inbounds nuw i8, ptr %353, i64 2
+  store i8 125, ptr %3931, align 2
+  store i8 64, ptr %3930, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %352, i64 2, ptr nonnull %353, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3927:                                             ; preds = %3, %3, %3, %3, %3, %3, %3
-  %3928 = getelementptr inbounds nuw i8, ptr %354, i64 1
-  store i8 0, ptr %3928, align 1
-  %3929 = getelementptr inbounds nuw i8, ptr %354, i64 4
-  store i32 0, ptr %3929, align 4
-  %3930 = getelementptr inbounds nuw i8, ptr %354, i64 3
-  %3931 = getelementptr inbounds nuw i8, ptr %354, i64 2
-  store i8 124, ptr %3931, align 2
-  store i8 64, ptr %3930, align 1
-  %3932 = getelementptr inbounds nuw i8, ptr %354, i64 9
-  store i8 0, ptr %3932, align 1
-  %3933 = getelementptr inbounds nuw i8, ptr %354, i64 12
-  store i32 0, ptr %3933, align 4
-  %3934 = getelementptr inbounds nuw i8, ptr %354, i64 11
-  %3935 = getelementptr inbounds nuw i8, ptr %354, i64 10
-  store i8 124, ptr %3935, align 2
-  store i8 64, ptr %3934, align 1
-  %3936 = getelementptr inbounds nuw i8, ptr %355, i64 1
-  store i8 0, ptr %3936, align 1
-  %3937 = getelementptr inbounds nuw i8, ptr %355, i64 4
-  store i32 0, ptr %3937, align 4
-  %3938 = getelementptr inbounds nuw i8, ptr %355, i64 3
-  %3939 = getelementptr inbounds nuw i8, ptr %355, i64 2
-  store i8 124, ptr %3939, align 2
-  store i8 64, ptr %3938, align 1
+3932:                                             ; preds = %3, %3, %3, %3, %3, %3, %3
+  %3933 = getelementptr inbounds nuw i8, ptr %354, i64 1
+  store i8 0, ptr %3933, align 1
+  %3934 = getelementptr inbounds nuw i8, ptr %354, i64 4
+  store i32 0, ptr %3934, align 4
+  %3935 = getelementptr inbounds nuw i8, ptr %354, i64 3
+  %3936 = getelementptr inbounds nuw i8, ptr %354, i64 2
+  store i8 124, ptr %3936, align 2
+  store i8 64, ptr %3935, align 1
+  %3937 = getelementptr inbounds nuw i8, ptr %354, i64 9
+  store i8 0, ptr %3937, align 1
+  %3938 = getelementptr inbounds nuw i8, ptr %354, i64 12
+  store i32 0, ptr %3938, align 4
+  %3939 = getelementptr inbounds nuw i8, ptr %354, i64 11
+  %3940 = getelementptr inbounds nuw i8, ptr %354, i64 10
+  store i8 124, ptr %3940, align 2
+  store i8 64, ptr %3939, align 1
+  %3941 = getelementptr inbounds nuw i8, ptr %355, i64 1
+  store i8 0, ptr %3941, align 1
+  %3942 = getelementptr inbounds nuw i8, ptr %355, i64 4
+  store i32 0, ptr %3942, align 4
+  %3943 = getelementptr inbounds nuw i8, ptr %355, i64 3
+  %3944 = getelementptr inbounds nuw i8, ptr %355, i64 2
+  store i8 124, ptr %3944, align 2
+  store i8 64, ptr %3943, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %354, i64 2, ptr nonnull %355, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3940:                                             ; preds = %3
-  %3941 = getelementptr inbounds nuw i8, ptr %356, i64 1
-  store i8 0, ptr %3941, align 1
-  %3942 = getelementptr inbounds nuw i8, ptr %356, i64 4
-  store i32 0, ptr %3942, align 4
-  %3943 = getelementptr inbounds nuw i8, ptr %356, i64 3
-  %3944 = getelementptr inbounds nuw i8, ptr %356, i64 2
-  store i8 127, ptr %3944, align 2
-  store i8 64, ptr %3943, align 1
-  %3945 = getelementptr inbounds nuw i8, ptr %357, i64 1
-  store i8 0, ptr %3945, align 1
-  %3946 = getelementptr inbounds nuw i8, ptr %357, i64 4
-  store i32 0, ptr %3946, align 4
-  %3947 = getelementptr inbounds nuw i8, ptr %357, i64 3
-  %3948 = getelementptr inbounds nuw i8, ptr %357, i64 2
-  store i8 123, ptr %3948, align 2
-  store i8 64, ptr %3947, align 1
+3945:                                             ; preds = %3
+  %3946 = getelementptr inbounds nuw i8, ptr %356, i64 1
+  store i8 0, ptr %3946, align 1
+  %3947 = getelementptr inbounds nuw i8, ptr %356, i64 4
+  store i32 0, ptr %3947, align 4
+  %3948 = getelementptr inbounds nuw i8, ptr %356, i64 3
+  %3949 = getelementptr inbounds nuw i8, ptr %356, i64 2
+  store i8 127, ptr %3949, align 2
+  store i8 64, ptr %3948, align 1
+  %3950 = getelementptr inbounds nuw i8, ptr %357, i64 1
+  store i8 0, ptr %3950, align 1
+  %3951 = getelementptr inbounds nuw i8, ptr %357, i64 4
+  store i32 0, ptr %3951, align 4
+  %3952 = getelementptr inbounds nuw i8, ptr %357, i64 3
+  %3953 = getelementptr inbounds nuw i8, ptr %357, i64 2
+  store i8 123, ptr %3953, align 2
+  store i8 64, ptr %3952, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 128, ptr nonnull %356, i64 1, ptr nonnull %357, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3949:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3
-  %3950 = getelementptr inbounds nuw i8, ptr %358, i64 1
-  store i8 0, ptr %3950, align 1
-  %3951 = getelementptr inbounds nuw i8, ptr %358, i64 4
-  store i32 0, ptr %3951, align 4
-  %3952 = getelementptr inbounds nuw i8, ptr %358, i64 3
-  %3953 = getelementptr inbounds nuw i8, ptr %358, i64 2
-  store i8 127, ptr %3953, align 2
-  store i8 64, ptr %3952, align 1
-  %3954 = getelementptr inbounds nuw i8, ptr %359, i64 1
-  store i8 0, ptr %3954, align 1
-  %3955 = getelementptr inbounds nuw i8, ptr %359, i64 4
-  store i32 0, ptr %3955, align 4
-  %3956 = getelementptr inbounds nuw i8, ptr %359, i64 3
-  %3957 = getelementptr inbounds nuw i8, ptr %359, i64 2
-  store i8 123, ptr %3957, align 2
-  store i8 64, ptr %3956, align 1
+3954:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3
+  %3955 = getelementptr inbounds nuw i8, ptr %358, i64 1
+  store i8 0, ptr %3955, align 1
+  %3956 = getelementptr inbounds nuw i8, ptr %358, i64 4
+  store i32 0, ptr %3956, align 4
+  %3957 = getelementptr inbounds nuw i8, ptr %358, i64 3
+  %3958 = getelementptr inbounds nuw i8, ptr %358, i64 2
+  store i8 127, ptr %3958, align 2
+  store i8 64, ptr %3957, align 1
+  %3959 = getelementptr inbounds nuw i8, ptr %359, i64 1
+  store i8 0, ptr %3959, align 1
+  %3960 = getelementptr inbounds nuw i8, ptr %359, i64 4
+  store i32 0, ptr %3960, align 4
+  %3961 = getelementptr inbounds nuw i8, ptr %359, i64 3
+  %3962 = getelementptr inbounds nuw i8, ptr %359, i64 2
+  store i8 123, ptr %3962, align 2
+  store i8 64, ptr %3961, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %358, i64 1, ptr nonnull %359, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3958:                                             ; preds = %3
-  %3959 = getelementptr inbounds nuw i8, ptr %360, i64 1
-  store i8 0, ptr %3959, align 1
-  %3960 = getelementptr inbounds nuw i8, ptr %360, i64 4
-  store i32 0, ptr %3960, align 4
-  %3961 = getelementptr inbounds nuw i8, ptr %360, i64 3
-  %3962 = getelementptr inbounds nuw i8, ptr %360, i64 2
-  store i8 127, ptr %3962, align 2
-  store i8 64, ptr %3961, align 1
-  %3963 = getelementptr inbounds nuw i8, ptr %361, i64 1
-  store i8 0, ptr %3963, align 1
-  %3964 = getelementptr inbounds nuw i8, ptr %361, i64 4
-  store i32 0, ptr %3964, align 4
-  %3965 = getelementptr inbounds nuw i8, ptr %361, i64 3
-  %3966 = getelementptr inbounds nuw i8, ptr %361, i64 2
-  store i8 123, ptr %3966, align 2
-  store i8 64, ptr %3965, align 1
+3963:                                             ; preds = %3
+  %3964 = getelementptr inbounds nuw i8, ptr %360, i64 1
+  store i8 0, ptr %3964, align 1
+  %3965 = getelementptr inbounds nuw i8, ptr %360, i64 4
+  store i32 0, ptr %3965, align 4
+  %3966 = getelementptr inbounds nuw i8, ptr %360, i64 3
+  %3967 = getelementptr inbounds nuw i8, ptr %360, i64 2
+  store i8 127, ptr %3967, align 2
+  store i8 64, ptr %3966, align 1
+  %3968 = getelementptr inbounds nuw i8, ptr %361, i64 1
+  store i8 0, ptr %3968, align 1
+  %3969 = getelementptr inbounds nuw i8, ptr %361, i64 4
+  store i32 0, ptr %3969, align 4
+  %3970 = getelementptr inbounds nuw i8, ptr %361, i64 3
+  %3971 = getelementptr inbounds nuw i8, ptr %361, i64 2
+  store i8 123, ptr %3971, align 2
+  store i8 64, ptr %3970, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %360, i64 1, ptr nonnull %361, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3967:                                             ; preds = %3
-  %3968 = getelementptr inbounds nuw i8, ptr %362, i64 1
-  store i8 0, ptr %3968, align 1
-  %3969 = getelementptr inbounds nuw i8, ptr %362, i64 4
-  store i32 0, ptr %3969, align 4
-  %3970 = getelementptr inbounds nuw i8, ptr %362, i64 3
-  %3971 = getelementptr inbounds nuw i8, ptr %362, i64 2
-  store i8 127, ptr %3971, align 2
-  store i8 64, ptr %3970, align 1
-  %3972 = getelementptr inbounds nuw i8, ptr %363, i64 1
-  store i8 0, ptr %3972, align 1
-  %3973 = getelementptr inbounds nuw i8, ptr %363, i64 4
-  store i32 0, ptr %3973, align 4
-  %3974 = getelementptr inbounds nuw i8, ptr %363, i64 3
-  %3975 = getelementptr inbounds nuw i8, ptr %363, i64 2
-  store i8 123, ptr %3975, align 2
-  store i8 64, ptr %3974, align 1
+3972:                                             ; preds = %3
+  %3973 = getelementptr inbounds nuw i8, ptr %362, i64 1
+  store i8 0, ptr %3973, align 1
+  %3974 = getelementptr inbounds nuw i8, ptr %362, i64 4
+  store i32 0, ptr %3974, align 4
+  %3975 = getelementptr inbounds nuw i8, ptr %362, i64 3
+  %3976 = getelementptr inbounds nuw i8, ptr %362, i64 2
+  store i8 127, ptr %3976, align 2
+  store i8 64, ptr %3975, align 1
+  %3977 = getelementptr inbounds nuw i8, ptr %363, i64 1
+  store i8 0, ptr %3977, align 1
+  %3978 = getelementptr inbounds nuw i8, ptr %363, i64 4
+  store i32 0, ptr %3978, align 4
+  %3979 = getelementptr inbounds nuw i8, ptr %363, i64 3
+  %3980 = getelementptr inbounds nuw i8, ptr %363, i64 2
+  store i8 123, ptr %3980, align 2
+  store i8 64, ptr %3979, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %362, i64 1, ptr nonnull %363, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3976:                                             ; preds = %3, %3
-  %3977 = getelementptr inbounds nuw i8, ptr %364, i64 1
-  store i8 0, ptr %3977, align 1
-  %3978 = getelementptr inbounds nuw i8, ptr %364, i64 4
-  store i32 0, ptr %3978, align 4
-  %3979 = getelementptr inbounds nuw i8, ptr %364, i64 3
-  %3980 = getelementptr inbounds nuw i8, ptr %364, i64 2
-  store i8 127, ptr %3980, align 2
-  store i8 64, ptr %3979, align 1
-  %3981 = getelementptr inbounds nuw i8, ptr %365, i64 1
-  store i8 0, ptr %3981, align 1
-  %3982 = getelementptr inbounds nuw i8, ptr %365, i64 4
-  store i32 0, ptr %3982, align 4
-  %3983 = getelementptr inbounds nuw i8, ptr %365, i64 3
-  %3984 = getelementptr inbounds nuw i8, ptr %365, i64 2
-  store i8 123, ptr %3984, align 2
-  store i8 64, ptr %3983, align 1
+3981:                                             ; preds = %3, %3
+  %3982 = getelementptr inbounds nuw i8, ptr %364, i64 1
+  store i8 0, ptr %3982, align 1
+  %3983 = getelementptr inbounds nuw i8, ptr %364, i64 4
+  store i32 0, ptr %3983, align 4
+  %3984 = getelementptr inbounds nuw i8, ptr %364, i64 3
+  %3985 = getelementptr inbounds nuw i8, ptr %364, i64 2
+  store i8 127, ptr %3985, align 2
+  store i8 64, ptr %3984, align 1
+  %3986 = getelementptr inbounds nuw i8, ptr %365, i64 1
+  store i8 0, ptr %3986, align 1
+  %3987 = getelementptr inbounds nuw i8, ptr %365, i64 4
+  store i32 0, ptr %3987, align 4
+  %3988 = getelementptr inbounds nuw i8, ptr %365, i64 3
+  %3989 = getelementptr inbounds nuw i8, ptr %365, i64 2
+  store i8 123, ptr %3989, align 2
+  store i8 64, ptr %3988, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %364, i64 1, ptr nonnull %365, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3985:                                             ; preds = %3
-  %3986 = getelementptr inbounds nuw i8, ptr %366, i64 1
-  store i8 0, ptr %3986, align 1
-  %3987 = getelementptr inbounds nuw i8, ptr %366, i64 4
-  store i32 0, ptr %3987, align 4
-  %3988 = getelementptr inbounds nuw i8, ptr %366, i64 3
-  %3989 = getelementptr inbounds nuw i8, ptr %366, i64 2
-  store i8 127, ptr %3989, align 2
-  store i8 64, ptr %3988, align 1
-  %3990 = getelementptr inbounds nuw i8, ptr %366, i64 9
-  store i8 0, ptr %3990, align 1
-  %3991 = getelementptr inbounds nuw i8, ptr %366, i64 12
-  store i32 0, ptr %3991, align 4
-  %3992 = getelementptr inbounds nuw i8, ptr %366, i64 11
-  %3993 = getelementptr inbounds nuw i8, ptr %366, i64 10
-  store i8 123, ptr %3993, align 2
-  store i8 64, ptr %3992, align 1
+3990:                                             ; preds = %3
+  %3991 = getelementptr inbounds nuw i8, ptr %366, i64 1
+  store i8 0, ptr %3991, align 1
+  %3992 = getelementptr inbounds nuw i8, ptr %366, i64 4
+  store i32 0, ptr %3992, align 4
+  %3993 = getelementptr inbounds nuw i8, ptr %366, i64 3
+  %3994 = getelementptr inbounds nuw i8, ptr %366, i64 2
+  store i8 127, ptr %3994, align 2
+  store i8 64, ptr %3993, align 1
+  %3995 = getelementptr inbounds nuw i8, ptr %366, i64 9
+  store i8 0, ptr %3995, align 1
+  %3996 = getelementptr inbounds nuw i8, ptr %366, i64 12
+  store i32 0, ptr %3996, align 4
+  %3997 = getelementptr inbounds nuw i8, ptr %366, i64 11
+  %3998 = getelementptr inbounds nuw i8, ptr %366, i64 10
+  store i8 123, ptr %3998, align 2
+  store i8 64, ptr %3997, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 128, ptr nonnull %366, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-3994:                                             ; preds = %3
-  %3995 = getelementptr inbounds nuw i8, ptr %367, i64 1
-  store i8 0, ptr %3995, align 1
-  %3996 = getelementptr inbounds nuw i8, ptr %367, i64 4
-  store i32 0, ptr %3996, align 4
-  %3997 = getelementptr inbounds nuw i8, ptr %367, i64 3
-  %3998 = getelementptr inbounds nuw i8, ptr %367, i64 2
-  store i8 127, ptr %3998, align 2
-  store i8 64, ptr %3997, align 1
-  %3999 = getelementptr inbounds nuw i8, ptr %367, i64 9
-  store i8 0, ptr %3999, align 1
-  %4000 = getelementptr inbounds nuw i8, ptr %367, i64 12
-  store i32 0, ptr %4000, align 4
-  %4001 = getelementptr inbounds nuw i8, ptr %367, i64 11
-  %4002 = getelementptr inbounds nuw i8, ptr %367, i64 10
-  store i8 123, ptr %4002, align 2
-  store i8 64, ptr %4001, align 1
-  %4003 = getelementptr inbounds nuw i8, ptr %368, i64 1
-  store i8 0, ptr %4003, align 1
-  %4004 = getelementptr inbounds nuw i8, ptr %368, i64 4
-  store i32 0, ptr %4004, align 4
-  %4005 = getelementptr inbounds nuw i8, ptr %368, i64 3
-  %4006 = getelementptr inbounds nuw i8, ptr %368, i64 2
-  store i8 123, ptr %4006, align 2
-  store i8 64, ptr %4005, align 1
+3999:                                             ; preds = %3
+  %4000 = getelementptr inbounds nuw i8, ptr %367, i64 1
+  store i8 0, ptr %4000, align 1
+  %4001 = getelementptr inbounds nuw i8, ptr %367, i64 4
+  store i32 0, ptr %4001, align 4
+  %4002 = getelementptr inbounds nuw i8, ptr %367, i64 3
+  %4003 = getelementptr inbounds nuw i8, ptr %367, i64 2
+  store i8 127, ptr %4003, align 2
+  store i8 64, ptr %4002, align 1
+  %4004 = getelementptr inbounds nuw i8, ptr %367, i64 9
+  store i8 0, ptr %4004, align 1
+  %4005 = getelementptr inbounds nuw i8, ptr %367, i64 12
+  store i32 0, ptr %4005, align 4
+  %4006 = getelementptr inbounds nuw i8, ptr %367, i64 11
+  %4007 = getelementptr inbounds nuw i8, ptr %367, i64 10
+  store i8 123, ptr %4007, align 2
+  store i8 64, ptr %4006, align 1
+  %4008 = getelementptr inbounds nuw i8, ptr %368, i64 1
+  store i8 0, ptr %4008, align 1
+  %4009 = getelementptr inbounds nuw i8, ptr %368, i64 4
+  store i32 0, ptr %4009, align 4
+  %4010 = getelementptr inbounds nuw i8, ptr %368, i64 3
+  %4011 = getelementptr inbounds nuw i8, ptr %368, i64 2
+  store i8 123, ptr %4011, align 2
+  store i8 64, ptr %4010, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %367, i64 2, ptr nonnull %368, i64 1, i1 noundef zeroext true)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4007:                                             ; preds = %3
-  %4008 = getelementptr inbounds nuw i8, ptr %369, i64 1
-  store i8 0, ptr %4008, align 1
-  %4009 = getelementptr inbounds nuw i8, ptr %369, i64 4
-  store i32 0, ptr %4009, align 4
-  %4010 = getelementptr inbounds nuw i8, ptr %369, i64 3
-  %4011 = getelementptr inbounds nuw i8, ptr %369, i64 2
-  store i8 127, ptr %4011, align 2
-  store i8 64, ptr %4010, align 1
-  %4012 = getelementptr inbounds nuw i8, ptr %369, i64 9
-  store i8 0, ptr %4012, align 1
-  %4013 = getelementptr inbounds nuw i8, ptr %369, i64 12
-  store i32 0, ptr %4013, align 4
-  %4014 = getelementptr inbounds nuw i8, ptr %369, i64 11
-  %4015 = getelementptr inbounds nuw i8, ptr %369, i64 10
-  store i8 123, ptr %4015, align 2
-  store i8 64, ptr %4014, align 1
-  %4016 = getelementptr inbounds nuw i8, ptr %370, i64 1
-  store i8 0, ptr %4016, align 1
-  %4017 = getelementptr inbounds nuw i8, ptr %370, i64 4
-  store i32 0, ptr %4017, align 4
-  %4018 = getelementptr inbounds nuw i8, ptr %370, i64 3
-  %4019 = getelementptr inbounds nuw i8, ptr %370, i64 2
-  store i8 123, ptr %4019, align 2
-  store i8 64, ptr %4018, align 1
+4012:                                             ; preds = %3
+  %4013 = getelementptr inbounds nuw i8, ptr %369, i64 1
+  store i8 0, ptr %4013, align 1
+  %4014 = getelementptr inbounds nuw i8, ptr %369, i64 4
+  store i32 0, ptr %4014, align 4
+  %4015 = getelementptr inbounds nuw i8, ptr %369, i64 3
+  %4016 = getelementptr inbounds nuw i8, ptr %369, i64 2
+  store i8 127, ptr %4016, align 2
+  store i8 64, ptr %4015, align 1
+  %4017 = getelementptr inbounds nuw i8, ptr %369, i64 9
+  store i8 0, ptr %4017, align 1
+  %4018 = getelementptr inbounds nuw i8, ptr %369, i64 12
+  store i32 0, ptr %4018, align 4
+  %4019 = getelementptr inbounds nuw i8, ptr %369, i64 11
+  %4020 = getelementptr inbounds nuw i8, ptr %369, i64 10
+  store i8 123, ptr %4020, align 2
+  store i8 64, ptr %4019, align 1
+  %4021 = getelementptr inbounds nuw i8, ptr %370, i64 1
+  store i8 0, ptr %4021, align 1
+  %4022 = getelementptr inbounds nuw i8, ptr %370, i64 4
+  store i32 0, ptr %4022, align 4
+  %4023 = getelementptr inbounds nuw i8, ptr %370, i64 3
+  %4024 = getelementptr inbounds nuw i8, ptr %370, i64 2
+  store i8 123, ptr %4024, align 2
+  store i8 64, ptr %4023, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %369, i64 2, ptr nonnull %370, i64 1, i1 noundef zeroext true)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4020:                                             ; preds = %3
-  %4021 = getelementptr inbounds nuw i8, ptr %371, i64 1
-  store i8 0, ptr %4021, align 1
-  %4022 = getelementptr inbounds nuw i8, ptr %371, i64 4
-  store i32 0, ptr %4022, align 4
-  %4023 = getelementptr inbounds nuw i8, ptr %371, i64 3
-  %4024 = getelementptr inbounds nuw i8, ptr %371, i64 2
-  store i8 127, ptr %4024, align 2
-  store i8 64, ptr %4023, align 1
-  %4025 = getelementptr inbounds nuw i8, ptr %371, i64 9
-  store i8 0, ptr %4025, align 1
-  %4026 = getelementptr inbounds nuw i8, ptr %371, i64 12
-  store i32 0, ptr %4026, align 4
-  %4027 = getelementptr inbounds nuw i8, ptr %371, i64 11
-  %4028 = getelementptr inbounds nuw i8, ptr %371, i64 10
-  store i8 123, ptr %4028, align 2
-  store i8 64, ptr %4027, align 1
-  %4029 = getelementptr inbounds nuw i8, ptr %372, i64 1
-  store i8 0, ptr %4029, align 1
-  %4030 = getelementptr inbounds nuw i8, ptr %372, i64 4
-  store i32 0, ptr %4030, align 4
-  %4031 = getelementptr inbounds nuw i8, ptr %372, i64 3
-  %4032 = getelementptr inbounds nuw i8, ptr %372, i64 2
-  store i8 123, ptr %4032, align 2
-  store i8 64, ptr %4031, align 1
+4025:                                             ; preds = %3
+  %4026 = getelementptr inbounds nuw i8, ptr %371, i64 1
+  store i8 0, ptr %4026, align 1
+  %4027 = getelementptr inbounds nuw i8, ptr %371, i64 4
+  store i32 0, ptr %4027, align 4
+  %4028 = getelementptr inbounds nuw i8, ptr %371, i64 3
+  %4029 = getelementptr inbounds nuw i8, ptr %371, i64 2
+  store i8 127, ptr %4029, align 2
+  store i8 64, ptr %4028, align 1
+  %4030 = getelementptr inbounds nuw i8, ptr %371, i64 9
+  store i8 0, ptr %4030, align 1
+  %4031 = getelementptr inbounds nuw i8, ptr %371, i64 12
+  store i32 0, ptr %4031, align 4
+  %4032 = getelementptr inbounds nuw i8, ptr %371, i64 11
+  %4033 = getelementptr inbounds nuw i8, ptr %371, i64 10
+  store i8 123, ptr %4033, align 2
+  store i8 64, ptr %4032, align 1
+  %4034 = getelementptr inbounds nuw i8, ptr %372, i64 1
+  store i8 0, ptr %4034, align 1
+  %4035 = getelementptr inbounds nuw i8, ptr %372, i64 4
+  store i32 0, ptr %4035, align 4
+  %4036 = getelementptr inbounds nuw i8, ptr %372, i64 3
+  %4037 = getelementptr inbounds nuw i8, ptr %372, i64 2
+  store i8 123, ptr %4037, align 2
+  store i8 64, ptr %4036, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %371, i64 2, ptr nonnull %372, i64 1, i1 noundef zeroext true)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4033:                                             ; preds = %3
-  %4034 = getelementptr inbounds nuw i8, ptr %373, i64 1
-  store i8 0, ptr %4034, align 1
-  %4035 = getelementptr inbounds nuw i8, ptr %373, i64 4
-  store i32 0, ptr %4035, align 4
-  %4036 = getelementptr inbounds nuw i8, ptr %373, i64 3
-  %4037 = getelementptr inbounds nuw i8, ptr %373, i64 2
-  store i8 127, ptr %4037, align 2
-  store i8 64, ptr %4036, align 1
-  %4038 = getelementptr inbounds nuw i8, ptr %373, i64 9
-  store i8 0, ptr %4038, align 1
-  %4039 = getelementptr inbounds nuw i8, ptr %373, i64 12
-  store i32 0, ptr %4039, align 4
-  %4040 = getelementptr inbounds nuw i8, ptr %373, i64 11
-  %4041 = getelementptr inbounds nuw i8, ptr %373, i64 10
-  store i8 123, ptr %4041, align 2
-  store i8 64, ptr %4040, align 1
-  %4042 = getelementptr inbounds nuw i8, ptr %374, i64 1
-  store i8 0, ptr %4042, align 1
-  %4043 = getelementptr inbounds nuw i8, ptr %374, i64 4
-  store i32 0, ptr %4043, align 4
-  %4044 = getelementptr inbounds nuw i8, ptr %374, i64 3
-  %4045 = getelementptr inbounds nuw i8, ptr %374, i64 2
-  store i8 123, ptr %4045, align 2
-  store i8 64, ptr %4044, align 1
+4038:                                             ; preds = %3
+  %4039 = getelementptr inbounds nuw i8, ptr %373, i64 1
+  store i8 0, ptr %4039, align 1
+  %4040 = getelementptr inbounds nuw i8, ptr %373, i64 4
+  store i32 0, ptr %4040, align 4
+  %4041 = getelementptr inbounds nuw i8, ptr %373, i64 3
+  %4042 = getelementptr inbounds nuw i8, ptr %373, i64 2
+  store i8 127, ptr %4042, align 2
+  store i8 64, ptr %4041, align 1
+  %4043 = getelementptr inbounds nuw i8, ptr %373, i64 9
+  store i8 0, ptr %4043, align 1
+  %4044 = getelementptr inbounds nuw i8, ptr %373, i64 12
+  store i32 0, ptr %4044, align 4
+  %4045 = getelementptr inbounds nuw i8, ptr %373, i64 11
+  %4046 = getelementptr inbounds nuw i8, ptr %373, i64 10
+  store i8 123, ptr %4046, align 2
+  store i8 64, ptr %4045, align 1
+  %4047 = getelementptr inbounds nuw i8, ptr %374, i64 1
+  store i8 0, ptr %4047, align 1
+  %4048 = getelementptr inbounds nuw i8, ptr %374, i64 4
+  store i32 0, ptr %4048, align 4
+  %4049 = getelementptr inbounds nuw i8, ptr %374, i64 3
+  %4050 = getelementptr inbounds nuw i8, ptr %374, i64 2
+  store i8 123, ptr %4050, align 2
+  store i8 64, ptr %4049, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %373, i64 2, ptr nonnull %374, i64 1, i1 noundef zeroext true)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4046:                                             ; preds = %3
-  %4047 = getelementptr inbounds nuw i8, ptr %375, i64 1
-  store i8 0, ptr %4047, align 1
-  %4048 = getelementptr inbounds nuw i8, ptr %375, i64 4
-  store i32 0, ptr %4048, align 4
-  %4049 = getelementptr inbounds nuw i8, ptr %375, i64 3
-  %4050 = getelementptr inbounds nuw i8, ptr %375, i64 2
-  store i8 127, ptr %4050, align 2
-  store i8 64, ptr %4049, align 1
-  %4051 = getelementptr inbounds nuw i8, ptr %375, i64 9
-  store i8 0, ptr %4051, align 1
-  %4052 = getelementptr inbounds nuw i8, ptr %375, i64 12
-  store i32 0, ptr %4052, align 4
-  %4053 = getelementptr inbounds nuw i8, ptr %375, i64 11
-  %4054 = getelementptr inbounds nuw i8, ptr %375, i64 10
-  store i8 123, ptr %4054, align 2
-  store i8 64, ptr %4053, align 1
+4051:                                             ; preds = %3
+  %4052 = getelementptr inbounds nuw i8, ptr %375, i64 1
+  store i8 0, ptr %4052, align 1
+  %4053 = getelementptr inbounds nuw i8, ptr %375, i64 4
+  store i32 0, ptr %4053, align 4
+  %4054 = getelementptr inbounds nuw i8, ptr %375, i64 3
+  %4055 = getelementptr inbounds nuw i8, ptr %375, i64 2
+  store i8 127, ptr %4055, align 2
+  store i8 64, ptr %4054, align 1
+  %4056 = getelementptr inbounds nuw i8, ptr %375, i64 9
+  store i8 0, ptr %4056, align 1
+  %4057 = getelementptr inbounds nuw i8, ptr %375, i64 12
+  store i32 0, ptr %4057, align 4
+  %4058 = getelementptr inbounds nuw i8, ptr %375, i64 11
+  %4059 = getelementptr inbounds nuw i8, ptr %375, i64 10
+  store i8 123, ptr %4059, align 2
+  store i8 64, ptr %4058, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %375, i64 2, ptr null, i64 0, i1 noundef zeroext true)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4055:                                             ; preds = %3
-  %4056 = getelementptr inbounds nuw i8, ptr %376, i64 1
-  store i8 0, ptr %4056, align 1
-  %4057 = getelementptr inbounds nuw i8, ptr %376, i64 4
-  store i32 0, ptr %4057, align 4
-  %4058 = getelementptr inbounds nuw i8, ptr %376, i64 3
-  %4059 = getelementptr inbounds nuw i8, ptr %376, i64 2
-  store i8 127, ptr %4059, align 2
-  store i8 64, ptr %4058, align 1
-  %4060 = getelementptr inbounds nuw i8, ptr %376, i64 9
-  store i8 0, ptr %4060, align 1
-  %4061 = getelementptr inbounds nuw i8, ptr %376, i64 12
-  store i32 0, ptr %4061, align 4
-  %4062 = getelementptr inbounds nuw i8, ptr %376, i64 11
-  %4063 = getelementptr inbounds nuw i8, ptr %376, i64 10
-  store i8 123, ptr %4063, align 2
-  store i8 64, ptr %4062, align 1
+4060:                                             ; preds = %3
+  %4061 = getelementptr inbounds nuw i8, ptr %376, i64 1
+  store i8 0, ptr %4061, align 1
+  %4062 = getelementptr inbounds nuw i8, ptr %376, i64 4
+  store i32 0, ptr %4062, align 4
+  %4063 = getelementptr inbounds nuw i8, ptr %376, i64 3
+  %4064 = getelementptr inbounds nuw i8, ptr %376, i64 2
+  store i8 127, ptr %4064, align 2
+  store i8 64, ptr %4063, align 1
+  %4065 = getelementptr inbounds nuw i8, ptr %376, i64 9
+  store i8 0, ptr %4065, align 1
+  %4066 = getelementptr inbounds nuw i8, ptr %376, i64 12
+  store i32 0, ptr %4066, align 4
+  %4067 = getelementptr inbounds nuw i8, ptr %376, i64 11
+  %4068 = getelementptr inbounds nuw i8, ptr %376, i64 10
+  store i8 123, ptr %4068, align 2
+  store i8 64, ptr %4067, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %376, i64 2, ptr null, i64 0, i1 noundef zeroext true)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4064:                                             ; preds = %3
-  %4065 = getelementptr inbounds nuw i8, ptr %377, i64 1
-  store i8 0, ptr %4065, align 1
-  %4066 = getelementptr inbounds nuw i8, ptr %377, i64 4
-  store i32 0, ptr %4066, align 4
-  %4067 = getelementptr inbounds nuw i8, ptr %377, i64 3
-  %4068 = getelementptr inbounds nuw i8, ptr %377, i64 2
-  store i8 127, ptr %4068, align 2
-  store i8 64, ptr %4067, align 1
-  %4069 = getelementptr inbounds nuw i8, ptr %377, i64 9
-  store i8 0, ptr %4069, align 1
-  %4070 = getelementptr inbounds nuw i8, ptr %377, i64 12
-  store i32 0, ptr %4070, align 4
-  %4071 = getelementptr inbounds nuw i8, ptr %377, i64 11
-  %4072 = getelementptr inbounds nuw i8, ptr %377, i64 10
-  store i8 123, ptr %4072, align 2
-  store i8 64, ptr %4071, align 1
+4069:                                             ; preds = %3
+  %4070 = getelementptr inbounds nuw i8, ptr %377, i64 1
+  store i8 0, ptr %4070, align 1
+  %4071 = getelementptr inbounds nuw i8, ptr %377, i64 4
+  store i32 0, ptr %4071, align 4
+  %4072 = getelementptr inbounds nuw i8, ptr %377, i64 3
+  %4073 = getelementptr inbounds nuw i8, ptr %377, i64 2
+  store i8 127, ptr %4073, align 2
+  store i8 64, ptr %4072, align 1
+  %4074 = getelementptr inbounds nuw i8, ptr %377, i64 9
+  store i8 0, ptr %4074, align 1
+  %4075 = getelementptr inbounds nuw i8, ptr %377, i64 12
+  store i32 0, ptr %4075, align 4
+  %4076 = getelementptr inbounds nuw i8, ptr %377, i64 11
+  %4077 = getelementptr inbounds nuw i8, ptr %377, i64 10
+  store i8 123, ptr %4077, align 2
+  store i8 64, ptr %4076, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %377, i64 2, ptr null, i64 0, i1 noundef zeroext true)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4073:                                             ; preds = %3
-  %4074 = getelementptr inbounds nuw i8, ptr %378, i64 1
-  store i8 0, ptr %4074, align 1
-  %4075 = getelementptr inbounds nuw i8, ptr %378, i64 4
-  store i32 0, ptr %4075, align 4
-  %4076 = getelementptr inbounds nuw i8, ptr %378, i64 3
-  %4077 = getelementptr inbounds nuw i8, ptr %378, i64 2
-  store i8 127, ptr %4077, align 2
-  store i8 64, ptr %4076, align 1
-  %4078 = getelementptr inbounds nuw i8, ptr %378, i64 9
-  store i8 0, ptr %4078, align 1
-  %4079 = getelementptr inbounds nuw i8, ptr %378, i64 12
-  store i32 0, ptr %4079, align 4
-  %4080 = getelementptr inbounds nuw i8, ptr %378, i64 11
-  %4081 = getelementptr inbounds nuw i8, ptr %378, i64 10
-  store i8 123, ptr %4081, align 2
-  store i8 64, ptr %4080, align 1
+4078:                                             ; preds = %3
+  %4079 = getelementptr inbounds nuw i8, ptr %378, i64 1
+  store i8 0, ptr %4079, align 1
+  %4080 = getelementptr inbounds nuw i8, ptr %378, i64 4
+  store i32 0, ptr %4080, align 4
+  %4081 = getelementptr inbounds nuw i8, ptr %378, i64 3
+  %4082 = getelementptr inbounds nuw i8, ptr %378, i64 2
+  store i8 127, ptr %4082, align 2
+  store i8 64, ptr %4081, align 1
+  %4083 = getelementptr inbounds nuw i8, ptr %378, i64 9
+  store i8 0, ptr %4083, align 1
+  %4084 = getelementptr inbounds nuw i8, ptr %378, i64 12
+  store i32 0, ptr %4084, align 4
+  %4085 = getelementptr inbounds nuw i8, ptr %378, i64 11
+  %4086 = getelementptr inbounds nuw i8, ptr %378, i64 10
+  store i8 123, ptr %4086, align 2
+  store i8 64, ptr %4085, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %378, i64 2, ptr null, i64 0, i1 noundef zeroext true)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4082:                                             ; preds = %3
-  %4083 = getelementptr inbounds nuw i8, ptr %379, i64 1
-  store i8 0, ptr %4083, align 1
-  %4084 = getelementptr inbounds nuw i8, ptr %379, i64 4
-  store i32 0, ptr %4084, align 4
-  %4085 = getelementptr inbounds nuw i8, ptr %379, i64 3
-  %4086 = getelementptr inbounds nuw i8, ptr %379, i64 2
-  store i8 123, ptr %4086, align 2
-  store i8 64, ptr %4085, align 1
+4087:                                             ; preds = %3
+  %4088 = getelementptr inbounds nuw i8, ptr %379, i64 1
+  store i8 0, ptr %4088, align 1
+  %4089 = getelementptr inbounds nuw i8, ptr %379, i64 4
+  store i32 0, ptr %4089, align 4
+  %4090 = getelementptr inbounds nuw i8, ptr %379, i64 3
+  %4091 = getelementptr inbounds nuw i8, ptr %379, i64 2
+  store i8 123, ptr %4091, align 2
+  store i8 64, ptr %4090, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr null, i64 0, ptr nonnull %379, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4087:                                             ; preds = %3
-  %4088 = load i128, ptr %2, align 16
-  %4089 = and i128 %4088, -41367660292349381832802403256411037472
-  %.not = icmp eq i128 %4089, 0
-  br i1 %.not, label %4092, label %4090
+4092:                                             ; preds = %3
+  %4093 = load i128, ptr %2, align 16
+  %4094 = and i128 %4093, -41367660292349381832802403256411037472
+  %.not = icmp eq i128 %4094, 0
+  br i1 %.not, label %4097, label %4095
 
-4090:                                             ; preds = %4087
+4095:                                             ; preds = %4092
   store i32 537, ptr %380, align 4
   call void @_ZN6spdlog5errorIN8WasmEdge7ErrCode5ValueEEEvRKT_(ptr noundef nonnull align 4 dereferenceable(4) %380)
   store i8 0, ptr %0, align 4
-  %4091 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 537, ptr %4091, align 4
+  %4096 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 537, ptr %4096, align 4
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4092:                                             ; preds = %4087
-  %4093 = getelementptr inbounds nuw i8, ptr %381, i64 1
-  store i8 0, ptr %4093, align 1
-  %4094 = getelementptr inbounds nuw i8, ptr %381, i64 4
-  store i32 0, ptr %4094, align 4
-  %4095 = getelementptr inbounds nuw i8, ptr %381, i64 3
-  %4096 = getelementptr inbounds nuw i8, ptr %381, i64 2
-  store i8 123, ptr %4096, align 2
-  store i8 64, ptr %4095, align 1
-  %4097 = getelementptr inbounds nuw i8, ptr %381, i64 9
-  store i8 0, ptr %4097, align 1
-  %4098 = getelementptr inbounds nuw i8, ptr %381, i64 12
-  store i32 0, ptr %4098, align 4
-  %4099 = getelementptr inbounds nuw i8, ptr %381, i64 11
-  %4100 = getelementptr inbounds nuw i8, ptr %381, i64 10
-  store i8 123, ptr %4100, align 2
-  store i8 64, ptr %4099, align 1
-  %4101 = getelementptr inbounds nuw i8, ptr %382, i64 1
-  store i8 0, ptr %4101, align 1
-  %4102 = getelementptr inbounds nuw i8, ptr %382, i64 4
-  store i32 0, ptr %4102, align 4
-  %4103 = getelementptr inbounds nuw i8, ptr %382, i64 3
-  %4104 = getelementptr inbounds nuw i8, ptr %382, i64 2
-  store i8 123, ptr %4104, align 2
-  store i8 64, ptr %4103, align 1
+4097:                                             ; preds = %4092
+  %4098 = getelementptr inbounds nuw i8, ptr %381, i64 1
+  store i8 0, ptr %4098, align 1
+  %4099 = getelementptr inbounds nuw i8, ptr %381, i64 4
+  store i32 0, ptr %4099, align 4
+  %4100 = getelementptr inbounds nuw i8, ptr %381, i64 3
+  %4101 = getelementptr inbounds nuw i8, ptr %381, i64 2
+  store i8 123, ptr %4101, align 2
+  store i8 64, ptr %4100, align 1
+  %4102 = getelementptr inbounds nuw i8, ptr %381, i64 9
+  store i8 0, ptr %4102, align 1
+  %4103 = getelementptr inbounds nuw i8, ptr %381, i64 12
+  store i32 0, ptr %4103, align 4
+  %4104 = getelementptr inbounds nuw i8, ptr %381, i64 11
+  %4105 = getelementptr inbounds nuw i8, ptr %381, i64 10
+  store i8 123, ptr %4105, align 2
+  store i8 64, ptr %4104, align 1
+  %4106 = getelementptr inbounds nuw i8, ptr %382, i64 1
+  store i8 0, ptr %4106, align 1
+  %4107 = getelementptr inbounds nuw i8, ptr %382, i64 4
+  store i32 0, ptr %4107, align 4
+  %4108 = getelementptr inbounds nuw i8, ptr %382, i64 3
+  %4109 = getelementptr inbounds nuw i8, ptr %382, i64 2
+  store i8 123, ptr %4109, align 2
+  store i8 64, ptr %4108, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %381, i64 2, ptr nonnull %382, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4105:                                             ; preds = %3, %3
-  %4106 = getelementptr inbounds nuw i8, ptr %383, i64 1
-  store i8 0, ptr %4106, align 1
-  %4107 = getelementptr inbounds nuw i8, ptr %383, i64 4
-  store i32 0, ptr %4107, align 4
-  %4108 = getelementptr inbounds nuw i8, ptr %383, i64 3
-  %4109 = getelementptr inbounds nuw i8, ptr %383, i64 2
-  store i8 123, ptr %4109, align 2
-  store i8 64, ptr %4108, align 1
-  %4110 = getelementptr inbounds nuw i8, ptr %384, i64 1
-  store i8 0, ptr %4110, align 1
-  %4111 = getelementptr inbounds nuw i8, ptr %384, i64 4
-  store i32 0, ptr %4111, align 4
-  %4112 = getelementptr inbounds nuw i8, ptr %384, i64 3
-  %4113 = getelementptr inbounds nuw i8, ptr %384, i64 2
-  store i8 127, ptr %4113, align 2
-  store i8 64, ptr %4112, align 1
-  %4114 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %.val996.val = load i8, ptr %4114, align 4
+4110:                                             ; preds = %3, %3
+  %4111 = getelementptr inbounds nuw i8, ptr %383, i64 1
+  store i8 0, ptr %4111, align 1
+  %4112 = getelementptr inbounds nuw i8, ptr %383, i64 4
+  store i32 0, ptr %4112, align 4
+  %4113 = getelementptr inbounds nuw i8, ptr %383, i64 3
+  %4114 = getelementptr inbounds nuw i8, ptr %383, i64 2
+  store i8 123, ptr %4114, align 2
+  store i8 64, ptr %4113, align 1
+  %4115 = getelementptr inbounds nuw i8, ptr %384, i64 1
+  store i8 0, ptr %4115, align 1
+  %4116 = getelementptr inbounds nuw i8, ptr %384, i64 4
+  store i32 0, ptr %4116, align 4
+  %4117 = getelementptr inbounds nuw i8, ptr %384, i64 3
+  %4118 = getelementptr inbounds nuw i8, ptr %384, i64 2
+  store i8 127, ptr %4118, align 2
+  store i8 64, ptr %4117, align 1
+  %4119 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %.val996.val = load i8, ptr %4119, align 4
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val996.val, i32 noundef 16, ptr nonnull %383, i64 1, ptr nonnull %384, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4115:                                             ; preds = %3
-  %4116 = getelementptr inbounds nuw i8, ptr %385, i64 1
-  store i8 0, ptr %4116, align 1
-  %4117 = getelementptr inbounds nuw i8, ptr %385, i64 4
-  store i32 0, ptr %4117, align 4
-  %4118 = getelementptr inbounds nuw i8, ptr %385, i64 3
-  %4119 = getelementptr inbounds nuw i8, ptr %385, i64 2
-  store i8 123, ptr %4119, align 2
-  store i8 64, ptr %4118, align 1
-  %4120 = getelementptr inbounds nuw i8, ptr %385, i64 9
-  store i8 0, ptr %4120, align 1
-  %4121 = getelementptr inbounds nuw i8, ptr %385, i64 12
-  store i32 0, ptr %4121, align 4
-  %4122 = getelementptr inbounds nuw i8, ptr %385, i64 11
-  %4123 = getelementptr inbounds nuw i8, ptr %385, i64 10
-  store i8 127, ptr %4123, align 2
-  store i8 64, ptr %4122, align 1
-  %4124 = getelementptr inbounds nuw i8, ptr %386, i64 1
-  store i8 0, ptr %4124, align 1
-  %4125 = getelementptr inbounds nuw i8, ptr %386, i64 4
-  store i32 0, ptr %4125, align 4
-  %4126 = getelementptr inbounds nuw i8, ptr %386, i64 3
-  %4127 = getelementptr inbounds nuw i8, ptr %386, i64 2
-  store i8 123, ptr %4127, align 2
-  store i8 64, ptr %4126, align 1
-  %4128 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %.val1000.val = load i8, ptr %4128, align 4
+4120:                                             ; preds = %3
+  %4121 = getelementptr inbounds nuw i8, ptr %385, i64 1
+  store i8 0, ptr %4121, align 1
+  %4122 = getelementptr inbounds nuw i8, ptr %385, i64 4
+  store i32 0, ptr %4122, align 4
+  %4123 = getelementptr inbounds nuw i8, ptr %385, i64 3
+  %4124 = getelementptr inbounds nuw i8, ptr %385, i64 2
+  store i8 123, ptr %4124, align 2
+  store i8 64, ptr %4123, align 1
+  %4125 = getelementptr inbounds nuw i8, ptr %385, i64 9
+  store i8 0, ptr %4125, align 1
+  %4126 = getelementptr inbounds nuw i8, ptr %385, i64 12
+  store i32 0, ptr %4126, align 4
+  %4127 = getelementptr inbounds nuw i8, ptr %385, i64 11
+  %4128 = getelementptr inbounds nuw i8, ptr %385, i64 10
+  store i8 127, ptr %4128, align 2
+  store i8 64, ptr %4127, align 1
+  %4129 = getelementptr inbounds nuw i8, ptr %386, i64 1
+  store i8 0, ptr %4129, align 1
+  %4130 = getelementptr inbounds nuw i8, ptr %386, i64 4
+  store i32 0, ptr %4130, align 4
+  %4131 = getelementptr inbounds nuw i8, ptr %386, i64 3
+  %4132 = getelementptr inbounds nuw i8, ptr %386, i64 2
+  store i8 123, ptr %4132, align 2
+  store i8 64, ptr %4131, align 1
+  %4133 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %.val1000.val = load i8, ptr %4133, align 4
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1000.val, i32 noundef 16, ptr nonnull %385, i64 2, ptr nonnull %386, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4129:                                             ; preds = %3, %3
-  %4130 = getelementptr inbounds nuw i8, ptr %387, i64 1
-  store i8 0, ptr %4130, align 1
-  %4131 = getelementptr inbounds nuw i8, ptr %387, i64 4
-  store i32 0, ptr %4131, align 4
-  %4132 = getelementptr inbounds nuw i8, ptr %387, i64 3
-  %4133 = getelementptr inbounds nuw i8, ptr %387, i64 2
-  store i8 123, ptr %4133, align 2
-  store i8 64, ptr %4132, align 1
-  %4134 = getelementptr inbounds nuw i8, ptr %388, i64 1
-  store i8 0, ptr %4134, align 1
-  %4135 = getelementptr inbounds nuw i8, ptr %388, i64 4
-  store i32 0, ptr %4135, align 4
-  %4136 = getelementptr inbounds nuw i8, ptr %388, i64 3
-  %4137 = getelementptr inbounds nuw i8, ptr %388, i64 2
-  store i8 127, ptr %4137, align 2
-  store i8 64, ptr %4136, align 1
-  %4138 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %.val1004.val = load i8, ptr %4138, align 4
+4134:                                             ; preds = %3, %3
+  %4135 = getelementptr inbounds nuw i8, ptr %387, i64 1
+  store i8 0, ptr %4135, align 1
+  %4136 = getelementptr inbounds nuw i8, ptr %387, i64 4
+  store i32 0, ptr %4136, align 4
+  %4137 = getelementptr inbounds nuw i8, ptr %387, i64 3
+  %4138 = getelementptr inbounds nuw i8, ptr %387, i64 2
+  store i8 123, ptr %4138, align 2
+  store i8 64, ptr %4137, align 1
+  %4139 = getelementptr inbounds nuw i8, ptr %388, i64 1
+  store i8 0, ptr %4139, align 1
+  %4140 = getelementptr inbounds nuw i8, ptr %388, i64 4
+  store i32 0, ptr %4140, align 4
+  %4141 = getelementptr inbounds nuw i8, ptr %388, i64 3
+  %4142 = getelementptr inbounds nuw i8, ptr %388, i64 2
+  store i8 127, ptr %4142, align 2
+  store i8 64, ptr %4141, align 1
+  %4143 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %.val1004.val = load i8, ptr %4143, align 4
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1004.val, i32 noundef 8, ptr nonnull %387, i64 1, ptr nonnull %388, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4139:                                             ; preds = %3
-  %4140 = getelementptr inbounds nuw i8, ptr %389, i64 1
-  store i8 0, ptr %4140, align 1
-  %4141 = getelementptr inbounds nuw i8, ptr %389, i64 4
-  store i32 0, ptr %4141, align 4
-  %4142 = getelementptr inbounds nuw i8, ptr %389, i64 3
-  %4143 = getelementptr inbounds nuw i8, ptr %389, i64 2
-  store i8 123, ptr %4143, align 2
-  store i8 64, ptr %4142, align 1
-  %4144 = getelementptr inbounds nuw i8, ptr %389, i64 9
-  store i8 0, ptr %4144, align 1
-  %4145 = getelementptr inbounds nuw i8, ptr %389, i64 12
-  store i32 0, ptr %4145, align 4
-  %4146 = getelementptr inbounds nuw i8, ptr %389, i64 11
-  %4147 = getelementptr inbounds nuw i8, ptr %389, i64 10
-  store i8 127, ptr %4147, align 2
-  store i8 64, ptr %4146, align 1
-  %4148 = getelementptr inbounds nuw i8, ptr %390, i64 1
-  store i8 0, ptr %4148, align 1
-  %4149 = getelementptr inbounds nuw i8, ptr %390, i64 4
-  store i32 0, ptr %4149, align 4
-  %4150 = getelementptr inbounds nuw i8, ptr %390, i64 3
-  %4151 = getelementptr inbounds nuw i8, ptr %390, i64 2
-  store i8 123, ptr %4151, align 2
-  store i8 64, ptr %4150, align 1
-  %4152 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %.val1008.val = load i8, ptr %4152, align 4
+4144:                                             ; preds = %3
+  %4145 = getelementptr inbounds nuw i8, ptr %389, i64 1
+  store i8 0, ptr %4145, align 1
+  %4146 = getelementptr inbounds nuw i8, ptr %389, i64 4
+  store i32 0, ptr %4146, align 4
+  %4147 = getelementptr inbounds nuw i8, ptr %389, i64 3
+  %4148 = getelementptr inbounds nuw i8, ptr %389, i64 2
+  store i8 123, ptr %4148, align 2
+  store i8 64, ptr %4147, align 1
+  %4149 = getelementptr inbounds nuw i8, ptr %389, i64 9
+  store i8 0, ptr %4149, align 1
+  %4150 = getelementptr inbounds nuw i8, ptr %389, i64 12
+  store i32 0, ptr %4150, align 4
+  %4151 = getelementptr inbounds nuw i8, ptr %389, i64 11
+  %4152 = getelementptr inbounds nuw i8, ptr %389, i64 10
+  store i8 127, ptr %4152, align 2
+  store i8 64, ptr %4151, align 1
+  %4153 = getelementptr inbounds nuw i8, ptr %390, i64 1
+  store i8 0, ptr %4153, align 1
+  %4154 = getelementptr inbounds nuw i8, ptr %390, i64 4
+  store i32 0, ptr %4154, align 4
+  %4155 = getelementptr inbounds nuw i8, ptr %390, i64 3
+  %4156 = getelementptr inbounds nuw i8, ptr %390, i64 2
+  store i8 123, ptr %4156, align 2
+  store i8 64, ptr %4155, align 1
+  %4157 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %.val1008.val = load i8, ptr %4157, align 4
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1008.val, i32 noundef 8, ptr nonnull %389, i64 2, ptr nonnull %390, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4153:                                             ; preds = %3
-  %4154 = getelementptr inbounds nuw i8, ptr %391, i64 1
-  store i8 0, ptr %4154, align 1
-  %4155 = getelementptr inbounds nuw i8, ptr %391, i64 4
-  store i32 0, ptr %4155, align 4
-  %4156 = getelementptr inbounds nuw i8, ptr %391, i64 3
-  %4157 = getelementptr inbounds nuw i8, ptr %391, i64 2
-  store i8 123, ptr %4157, align 2
-  store i8 64, ptr %4156, align 1
-  %4158 = getelementptr inbounds nuw i8, ptr %392, i64 1
-  store i8 0, ptr %4158, align 1
-  %4159 = getelementptr inbounds nuw i8, ptr %392, i64 4
-  store i32 0, ptr %4159, align 4
-  %4160 = getelementptr inbounds nuw i8, ptr %392, i64 3
-  %4161 = getelementptr inbounds nuw i8, ptr %392, i64 2
-  store i8 127, ptr %4161, align 2
-  store i8 64, ptr %4160, align 1
-  %4162 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %.val1012.val = load i8, ptr %4162, align 4
+4158:                                             ; preds = %3
+  %4159 = getelementptr inbounds nuw i8, ptr %391, i64 1
+  store i8 0, ptr %4159, align 1
+  %4160 = getelementptr inbounds nuw i8, ptr %391, i64 4
+  store i32 0, ptr %4160, align 4
+  %4161 = getelementptr inbounds nuw i8, ptr %391, i64 3
+  %4162 = getelementptr inbounds nuw i8, ptr %391, i64 2
+  store i8 123, ptr %4162, align 2
+  store i8 64, ptr %4161, align 1
+  %4163 = getelementptr inbounds nuw i8, ptr %392, i64 1
+  store i8 0, ptr %4163, align 1
+  %4164 = getelementptr inbounds nuw i8, ptr %392, i64 4
+  store i32 0, ptr %4164, align 4
+  %4165 = getelementptr inbounds nuw i8, ptr %392, i64 3
+  %4166 = getelementptr inbounds nuw i8, ptr %392, i64 2
+  store i8 127, ptr %4166, align 2
+  store i8 64, ptr %4165, align 1
+  %4167 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %.val1012.val = load i8, ptr %4167, align 4
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1012.val, i32 noundef 4, ptr nonnull %391, i64 1, ptr nonnull %392, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4163:                                             ; preds = %3
-  %4164 = getelementptr inbounds nuw i8, ptr %393, i64 1
-  store i8 0, ptr %4164, align 1
-  %4165 = getelementptr inbounds nuw i8, ptr %393, i64 4
-  store i32 0, ptr %4165, align 4
-  %4166 = getelementptr inbounds nuw i8, ptr %393, i64 3
-  %4167 = getelementptr inbounds nuw i8, ptr %393, i64 2
-  store i8 123, ptr %4167, align 2
-  store i8 64, ptr %4166, align 1
-  %4168 = getelementptr inbounds nuw i8, ptr %393, i64 9
-  store i8 0, ptr %4168, align 1
-  %4169 = getelementptr inbounds nuw i8, ptr %393, i64 12
-  store i32 0, ptr %4169, align 4
-  %4170 = getelementptr inbounds nuw i8, ptr %393, i64 11
-  %4171 = getelementptr inbounds nuw i8, ptr %393, i64 10
-  store i8 127, ptr %4171, align 2
-  store i8 64, ptr %4170, align 1
-  %4172 = getelementptr inbounds nuw i8, ptr %394, i64 1
-  store i8 0, ptr %4172, align 1
-  %4173 = getelementptr inbounds nuw i8, ptr %394, i64 4
-  store i32 0, ptr %4173, align 4
-  %4174 = getelementptr inbounds nuw i8, ptr %394, i64 3
-  %4175 = getelementptr inbounds nuw i8, ptr %394, i64 2
-  store i8 123, ptr %4175, align 2
-  store i8 64, ptr %4174, align 1
-  %4176 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %.val1016.val = load i8, ptr %4176, align 4
+4168:                                             ; preds = %3
+  %4169 = getelementptr inbounds nuw i8, ptr %393, i64 1
+  store i8 0, ptr %4169, align 1
+  %4170 = getelementptr inbounds nuw i8, ptr %393, i64 4
+  store i32 0, ptr %4170, align 4
+  %4171 = getelementptr inbounds nuw i8, ptr %393, i64 3
+  %4172 = getelementptr inbounds nuw i8, ptr %393, i64 2
+  store i8 123, ptr %4172, align 2
+  store i8 64, ptr %4171, align 1
+  %4173 = getelementptr inbounds nuw i8, ptr %393, i64 9
+  store i8 0, ptr %4173, align 1
+  %4174 = getelementptr inbounds nuw i8, ptr %393, i64 12
+  store i32 0, ptr %4174, align 4
+  %4175 = getelementptr inbounds nuw i8, ptr %393, i64 11
+  %4176 = getelementptr inbounds nuw i8, ptr %393, i64 10
+  store i8 127, ptr %4176, align 2
+  store i8 64, ptr %4175, align 1
+  %4177 = getelementptr inbounds nuw i8, ptr %394, i64 1
+  store i8 0, ptr %4177, align 1
+  %4178 = getelementptr inbounds nuw i8, ptr %394, i64 4
+  store i32 0, ptr %4178, align 4
+  %4179 = getelementptr inbounds nuw i8, ptr %394, i64 3
+  %4180 = getelementptr inbounds nuw i8, ptr %394, i64 2
+  store i8 123, ptr %4180, align 2
+  store i8 64, ptr %4179, align 1
+  %4181 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %.val1016.val = load i8, ptr %4181, align 4
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1016.val, i32 noundef 4, ptr nonnull %393, i64 2, ptr nonnull %394, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4177:                                             ; preds = %3
-  %4178 = getelementptr inbounds nuw i8, ptr %395, i64 1
-  store i8 0, ptr %4178, align 1
-  %4179 = getelementptr inbounds nuw i8, ptr %395, i64 4
-  store i32 0, ptr %4179, align 4
-  %4180 = getelementptr inbounds nuw i8, ptr %395, i64 3
-  %4181 = getelementptr inbounds nuw i8, ptr %395, i64 2
-  store i8 123, ptr %4181, align 2
-  store i8 64, ptr %4180, align 1
-  %4182 = getelementptr inbounds nuw i8, ptr %396, i64 1
-  store i8 0, ptr %4182, align 1
-  %4183 = getelementptr inbounds nuw i8, ptr %396, i64 4
-  store i32 0, ptr %4183, align 4
-  %4184 = getelementptr inbounds nuw i8, ptr %396, i64 3
-  %4185 = getelementptr inbounds nuw i8, ptr %396, i64 2
-  store i8 126, ptr %4185, align 2
-  store i8 64, ptr %4184, align 1
-  %4186 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %.val1020.val = load i8, ptr %4186, align 4
+4182:                                             ; preds = %3
+  %4183 = getelementptr inbounds nuw i8, ptr %395, i64 1
+  store i8 0, ptr %4183, align 1
+  %4184 = getelementptr inbounds nuw i8, ptr %395, i64 4
+  store i32 0, ptr %4184, align 4
+  %4185 = getelementptr inbounds nuw i8, ptr %395, i64 3
+  %4186 = getelementptr inbounds nuw i8, ptr %395, i64 2
+  store i8 123, ptr %4186, align 2
+  store i8 64, ptr %4185, align 1
+  %4187 = getelementptr inbounds nuw i8, ptr %396, i64 1
+  store i8 0, ptr %4187, align 1
+  %4188 = getelementptr inbounds nuw i8, ptr %396, i64 4
+  store i32 0, ptr %4188, align 4
+  %4189 = getelementptr inbounds nuw i8, ptr %396, i64 3
+  %4190 = getelementptr inbounds nuw i8, ptr %396, i64 2
+  store i8 126, ptr %4190, align 2
+  store i8 64, ptr %4189, align 1
+  %4191 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %.val1020.val = load i8, ptr %4191, align 4
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1020.val, i32 noundef 2, ptr nonnull %395, i64 1, ptr nonnull %396, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4187:                                             ; preds = %3
-  %4188 = getelementptr inbounds nuw i8, ptr %397, i64 1
-  store i8 0, ptr %4188, align 1
-  %4189 = getelementptr inbounds nuw i8, ptr %397, i64 4
-  store i32 0, ptr %4189, align 4
-  %4190 = getelementptr inbounds nuw i8, ptr %397, i64 3
-  %4191 = getelementptr inbounds nuw i8, ptr %397, i64 2
-  store i8 123, ptr %4191, align 2
-  store i8 64, ptr %4190, align 1
-  %4192 = getelementptr inbounds nuw i8, ptr %397, i64 9
-  store i8 0, ptr %4192, align 1
-  %4193 = getelementptr inbounds nuw i8, ptr %397, i64 12
-  store i32 0, ptr %4193, align 4
-  %4194 = getelementptr inbounds nuw i8, ptr %397, i64 11
-  %4195 = getelementptr inbounds nuw i8, ptr %397, i64 10
-  store i8 126, ptr %4195, align 2
-  store i8 64, ptr %4194, align 1
-  %4196 = getelementptr inbounds nuw i8, ptr %398, i64 1
-  store i8 0, ptr %4196, align 1
-  %4197 = getelementptr inbounds nuw i8, ptr %398, i64 4
-  store i32 0, ptr %4197, align 4
-  %4198 = getelementptr inbounds nuw i8, ptr %398, i64 3
-  %4199 = getelementptr inbounds nuw i8, ptr %398, i64 2
-  store i8 123, ptr %4199, align 2
-  store i8 64, ptr %4198, align 1
-  %4200 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %.val1024.val = load i8, ptr %4200, align 4
+4192:                                             ; preds = %3
+  %4193 = getelementptr inbounds nuw i8, ptr %397, i64 1
+  store i8 0, ptr %4193, align 1
+  %4194 = getelementptr inbounds nuw i8, ptr %397, i64 4
+  store i32 0, ptr %4194, align 4
+  %4195 = getelementptr inbounds nuw i8, ptr %397, i64 3
+  %4196 = getelementptr inbounds nuw i8, ptr %397, i64 2
+  store i8 123, ptr %4196, align 2
+  store i8 64, ptr %4195, align 1
+  %4197 = getelementptr inbounds nuw i8, ptr %397, i64 9
+  store i8 0, ptr %4197, align 1
+  %4198 = getelementptr inbounds nuw i8, ptr %397, i64 12
+  store i32 0, ptr %4198, align 4
+  %4199 = getelementptr inbounds nuw i8, ptr %397, i64 11
+  %4200 = getelementptr inbounds nuw i8, ptr %397, i64 10
+  store i8 126, ptr %4200, align 2
+  store i8 64, ptr %4199, align 1
+  %4201 = getelementptr inbounds nuw i8, ptr %398, i64 1
+  store i8 0, ptr %4201, align 1
+  %4202 = getelementptr inbounds nuw i8, ptr %398, i64 4
+  store i32 0, ptr %4202, align 4
+  %4203 = getelementptr inbounds nuw i8, ptr %398, i64 3
+  %4204 = getelementptr inbounds nuw i8, ptr %398, i64 2
+  store i8 123, ptr %4204, align 2
+  store i8 64, ptr %4203, align 1
+  %4205 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %.val1024.val = load i8, ptr %4205, align 4
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1024.val, i32 noundef 2, ptr nonnull %397, i64 2, ptr nonnull %398, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4201:                                             ; preds = %3
-  %4202 = getelementptr inbounds nuw i8, ptr %399, i64 1
-  store i8 0, ptr %4202, align 1
-  %4203 = getelementptr inbounds nuw i8, ptr %399, i64 4
-  store i32 0, ptr %4203, align 4
-  %4204 = getelementptr inbounds nuw i8, ptr %399, i64 3
-  %4205 = getelementptr inbounds nuw i8, ptr %399, i64 2
-  store i8 123, ptr %4205, align 2
-  store i8 64, ptr %4204, align 1
-  %4206 = getelementptr inbounds nuw i8, ptr %400, i64 1
-  store i8 0, ptr %4206, align 1
-  %4207 = getelementptr inbounds nuw i8, ptr %400, i64 4
-  store i32 0, ptr %4207, align 4
-  %4208 = getelementptr inbounds nuw i8, ptr %400, i64 3
-  %4209 = getelementptr inbounds nuw i8, ptr %400, i64 2
-  store i8 125, ptr %4209, align 2
-  store i8 64, ptr %4208, align 1
-  %4210 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %.val1028.val = load i8, ptr %4210, align 4
+4206:                                             ; preds = %3
+  %4207 = getelementptr inbounds nuw i8, ptr %399, i64 1
+  store i8 0, ptr %4207, align 1
+  %4208 = getelementptr inbounds nuw i8, ptr %399, i64 4
+  store i32 0, ptr %4208, align 4
+  %4209 = getelementptr inbounds nuw i8, ptr %399, i64 3
+  %4210 = getelementptr inbounds nuw i8, ptr %399, i64 2
+  store i8 123, ptr %4210, align 2
+  store i8 64, ptr %4209, align 1
+  %4211 = getelementptr inbounds nuw i8, ptr %400, i64 1
+  store i8 0, ptr %4211, align 1
+  %4212 = getelementptr inbounds nuw i8, ptr %400, i64 4
+  store i32 0, ptr %4212, align 4
+  %4213 = getelementptr inbounds nuw i8, ptr %400, i64 3
+  %4214 = getelementptr inbounds nuw i8, ptr %400, i64 2
+  store i8 125, ptr %4214, align 2
+  store i8 64, ptr %4213, align 1
+  %4215 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %.val1028.val = load i8, ptr %4215, align 4
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1028.val, i32 noundef 4, ptr nonnull %399, i64 1, ptr nonnull %400, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4211:                                             ; preds = %3
-  %4212 = getelementptr inbounds nuw i8, ptr %401, i64 1
-  store i8 0, ptr %4212, align 1
-  %4213 = getelementptr inbounds nuw i8, ptr %401, i64 4
-  store i32 0, ptr %4213, align 4
-  %4214 = getelementptr inbounds nuw i8, ptr %401, i64 3
-  %4215 = getelementptr inbounds nuw i8, ptr %401, i64 2
-  store i8 123, ptr %4215, align 2
-  store i8 64, ptr %4214, align 1
-  %4216 = getelementptr inbounds nuw i8, ptr %401, i64 9
-  store i8 0, ptr %4216, align 1
-  %4217 = getelementptr inbounds nuw i8, ptr %401, i64 12
-  store i32 0, ptr %4217, align 4
-  %4218 = getelementptr inbounds nuw i8, ptr %401, i64 11
-  %4219 = getelementptr inbounds nuw i8, ptr %401, i64 10
-  store i8 125, ptr %4219, align 2
-  store i8 64, ptr %4218, align 1
-  %4220 = getelementptr inbounds nuw i8, ptr %402, i64 1
-  store i8 0, ptr %4220, align 1
-  %4221 = getelementptr inbounds nuw i8, ptr %402, i64 4
-  store i32 0, ptr %4221, align 4
-  %4222 = getelementptr inbounds nuw i8, ptr %402, i64 3
-  %4223 = getelementptr inbounds nuw i8, ptr %402, i64 2
-  store i8 123, ptr %4223, align 2
-  store i8 64, ptr %4222, align 1
-  %4224 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %.val1032.val = load i8, ptr %4224, align 4
+4216:                                             ; preds = %3
+  %4217 = getelementptr inbounds nuw i8, ptr %401, i64 1
+  store i8 0, ptr %4217, align 1
+  %4218 = getelementptr inbounds nuw i8, ptr %401, i64 4
+  store i32 0, ptr %4218, align 4
+  %4219 = getelementptr inbounds nuw i8, ptr %401, i64 3
+  %4220 = getelementptr inbounds nuw i8, ptr %401, i64 2
+  store i8 123, ptr %4220, align 2
+  store i8 64, ptr %4219, align 1
+  %4221 = getelementptr inbounds nuw i8, ptr %401, i64 9
+  store i8 0, ptr %4221, align 1
+  %4222 = getelementptr inbounds nuw i8, ptr %401, i64 12
+  store i32 0, ptr %4222, align 4
+  %4223 = getelementptr inbounds nuw i8, ptr %401, i64 11
+  %4224 = getelementptr inbounds nuw i8, ptr %401, i64 10
+  store i8 125, ptr %4224, align 2
+  store i8 64, ptr %4223, align 1
+  %4225 = getelementptr inbounds nuw i8, ptr %402, i64 1
+  store i8 0, ptr %4225, align 1
+  %4226 = getelementptr inbounds nuw i8, ptr %402, i64 4
+  store i32 0, ptr %4226, align 4
+  %4227 = getelementptr inbounds nuw i8, ptr %402, i64 3
+  %4228 = getelementptr inbounds nuw i8, ptr %402, i64 2
+  store i8 123, ptr %4228, align 2
+  store i8 64, ptr %4227, align 1
+  %4229 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %.val1032.val = load i8, ptr %4229, align 4
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1032.val, i32 noundef 4, ptr nonnull %401, i64 2, ptr nonnull %402, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4225:                                             ; preds = %3
-  %4226 = getelementptr inbounds nuw i8, ptr %403, i64 1
-  store i8 0, ptr %4226, align 1
-  %4227 = getelementptr inbounds nuw i8, ptr %403, i64 4
-  store i32 0, ptr %4227, align 4
-  %4228 = getelementptr inbounds nuw i8, ptr %403, i64 3
-  %4229 = getelementptr inbounds nuw i8, ptr %403, i64 2
-  store i8 123, ptr %4229, align 2
-  store i8 64, ptr %4228, align 1
-  %4230 = getelementptr inbounds nuw i8, ptr %404, i64 1
-  store i8 0, ptr %4230, align 1
-  %4231 = getelementptr inbounds nuw i8, ptr %404, i64 4
-  store i32 0, ptr %4231, align 4
-  %4232 = getelementptr inbounds nuw i8, ptr %404, i64 3
-  %4233 = getelementptr inbounds nuw i8, ptr %404, i64 2
-  store i8 124, ptr %4233, align 2
-  store i8 64, ptr %4232, align 1
-  %4234 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %.val1036.val = load i8, ptr %4234, align 4
+4230:                                             ; preds = %3
+  %4231 = getelementptr inbounds nuw i8, ptr %403, i64 1
+  store i8 0, ptr %4231, align 1
+  %4232 = getelementptr inbounds nuw i8, ptr %403, i64 4
+  store i32 0, ptr %4232, align 4
+  %4233 = getelementptr inbounds nuw i8, ptr %403, i64 3
+  %4234 = getelementptr inbounds nuw i8, ptr %403, i64 2
+  store i8 123, ptr %4234, align 2
+  store i8 64, ptr %4233, align 1
+  %4235 = getelementptr inbounds nuw i8, ptr %404, i64 1
+  store i8 0, ptr %4235, align 1
+  %4236 = getelementptr inbounds nuw i8, ptr %404, i64 4
+  store i32 0, ptr %4236, align 4
+  %4237 = getelementptr inbounds nuw i8, ptr %404, i64 3
+  %4238 = getelementptr inbounds nuw i8, ptr %404, i64 2
+  store i8 124, ptr %4238, align 2
+  store i8 64, ptr %4237, align 1
+  %4239 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %.val1036.val = load i8, ptr %4239, align 4
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1036.val, i32 noundef 2, ptr nonnull %403, i64 1, ptr nonnull %404, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4235:                                             ; preds = %3
-  %4236 = getelementptr inbounds nuw i8, ptr %405, i64 1
-  store i8 0, ptr %4236, align 1
-  %4237 = getelementptr inbounds nuw i8, ptr %405, i64 4
-  store i32 0, ptr %4237, align 4
-  %4238 = getelementptr inbounds nuw i8, ptr %405, i64 3
-  %4239 = getelementptr inbounds nuw i8, ptr %405, i64 2
-  store i8 123, ptr %4239, align 2
-  store i8 64, ptr %4238, align 1
-  %4240 = getelementptr inbounds nuw i8, ptr %405, i64 9
-  store i8 0, ptr %4240, align 1
-  %4241 = getelementptr inbounds nuw i8, ptr %405, i64 12
-  store i32 0, ptr %4241, align 4
-  %4242 = getelementptr inbounds nuw i8, ptr %405, i64 11
-  %4243 = getelementptr inbounds nuw i8, ptr %405, i64 10
-  store i8 124, ptr %4243, align 2
-  store i8 64, ptr %4242, align 1
-  %4244 = getelementptr inbounds nuw i8, ptr %406, i64 1
-  store i8 0, ptr %4244, align 1
-  %4245 = getelementptr inbounds nuw i8, ptr %406, i64 4
-  store i32 0, ptr %4245, align 4
-  %4246 = getelementptr inbounds nuw i8, ptr %406, i64 3
-  %4247 = getelementptr inbounds nuw i8, ptr %406, i64 2
-  store i8 123, ptr %4247, align 2
-  store i8 64, ptr %4246, align 1
-  %4248 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %.val1040.val = load i8, ptr %4248, align 4
+4240:                                             ; preds = %3
+  %4241 = getelementptr inbounds nuw i8, ptr %405, i64 1
+  store i8 0, ptr %4241, align 1
+  %4242 = getelementptr inbounds nuw i8, ptr %405, i64 4
+  store i32 0, ptr %4242, align 4
+  %4243 = getelementptr inbounds nuw i8, ptr %405, i64 3
+  %4244 = getelementptr inbounds nuw i8, ptr %405, i64 2
+  store i8 123, ptr %4244, align 2
+  store i8 64, ptr %4243, align 1
+  %4245 = getelementptr inbounds nuw i8, ptr %405, i64 9
+  store i8 0, ptr %4245, align 1
+  %4246 = getelementptr inbounds nuw i8, ptr %405, i64 12
+  store i32 0, ptr %4246, align 4
+  %4247 = getelementptr inbounds nuw i8, ptr %405, i64 11
+  %4248 = getelementptr inbounds nuw i8, ptr %405, i64 10
+  store i8 124, ptr %4248, align 2
+  store i8 64, ptr %4247, align 1
+  %4249 = getelementptr inbounds nuw i8, ptr %406, i64 1
+  store i8 0, ptr %4249, align 1
+  %4250 = getelementptr inbounds nuw i8, ptr %406, i64 4
+  store i32 0, ptr %4250, align 4
+  %4251 = getelementptr inbounds nuw i8, ptr %406, i64 3
+  %4252 = getelementptr inbounds nuw i8, ptr %406, i64 2
+  store i8 123, ptr %4252, align 2
+  store i8 64, ptr %4251, align 1
+  %4253 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %.val1040.val = load i8, ptr %4253, align 4
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_9clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_"(ptr dead_on_unwind noalias writable align 4 %0, ptr nonnull %1, i8 %.val1040.val, i32 noundef 2, ptr nonnull %405, i64 2, ptr nonnull %406, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4249:                                             ; preds = %3, %3, %3
-  %4250 = getelementptr inbounds nuw i8, ptr %407, i64 1
-  store i8 0, ptr %4250, align 1
-  %4251 = getelementptr inbounds nuw i8, ptr %407, i64 4
-  store i32 0, ptr %4251, align 4
-  %4252 = getelementptr inbounds nuw i8, ptr %407, i64 3
-  %4253 = getelementptr inbounds nuw i8, ptr %407, i64 2
-  store i8 127, ptr %4253, align 2
-  store i8 64, ptr %4252, align 1
-  %4254 = getelementptr inbounds nuw i8, ptr %408, i64 1
-  store i8 0, ptr %4254, align 1
-  %4255 = getelementptr inbounds nuw i8, ptr %408, i64 4
-  store i32 0, ptr %4255, align 4
-  %4256 = getelementptr inbounds nuw i8, ptr %408, i64 3
-  %4257 = getelementptr inbounds nuw i8, ptr %408, i64 2
-  store i8 123, ptr %4257, align 2
-  store i8 64, ptr %4256, align 1
+4254:                                             ; preds = %3, %3, %3
+  %4255 = getelementptr inbounds nuw i8, ptr %407, i64 1
+  store i8 0, ptr %4255, align 1
+  %4256 = getelementptr inbounds nuw i8, ptr %407, i64 4
+  store i32 0, ptr %4256, align 4
+  %4257 = getelementptr inbounds nuw i8, ptr %407, i64 3
+  %4258 = getelementptr inbounds nuw i8, ptr %407, i64 2
+  store i8 127, ptr %4258, align 2
+  store i8 64, ptr %4257, align 1
+  %4259 = getelementptr inbounds nuw i8, ptr %408, i64 1
+  store i8 0, ptr %4259, align 1
+  %4260 = getelementptr inbounds nuw i8, ptr %408, i64 4
+  store i32 0, ptr %4260, align 4
+  %4261 = getelementptr inbounds nuw i8, ptr %408, i64 3
+  %4262 = getelementptr inbounds nuw i8, ptr %408, i64 2
+  store i8 123, ptr %4262, align 2
+  store i8 64, ptr %4261, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %407, i64 1, ptr nonnull %408, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4258:                                             ; preds = %3
-  %4259 = getelementptr inbounds nuw i8, ptr %409, i64 1
-  store i8 0, ptr %4259, align 1
-  %4260 = getelementptr inbounds nuw i8, ptr %409, i64 4
-  store i32 0, ptr %4260, align 4
-  %4261 = getelementptr inbounds nuw i8, ptr %409, i64 3
-  %4262 = getelementptr inbounds nuw i8, ptr %409, i64 2
-  store i8 126, ptr %4262, align 2
-  store i8 64, ptr %4261, align 1
-  %4263 = getelementptr inbounds nuw i8, ptr %410, i64 1
-  store i8 0, ptr %4263, align 1
-  %4264 = getelementptr inbounds nuw i8, ptr %410, i64 4
-  store i32 0, ptr %4264, align 4
-  %4265 = getelementptr inbounds nuw i8, ptr %410, i64 3
-  %4266 = getelementptr inbounds nuw i8, ptr %410, i64 2
-  store i8 123, ptr %4266, align 2
-  store i8 64, ptr %4265, align 1
+4263:                                             ; preds = %3
+  %4264 = getelementptr inbounds nuw i8, ptr %409, i64 1
+  store i8 0, ptr %4264, align 1
+  %4265 = getelementptr inbounds nuw i8, ptr %409, i64 4
+  store i32 0, ptr %4265, align 4
+  %4266 = getelementptr inbounds nuw i8, ptr %409, i64 3
+  %4267 = getelementptr inbounds nuw i8, ptr %409, i64 2
+  store i8 126, ptr %4267, align 2
+  store i8 64, ptr %4266, align 1
+  %4268 = getelementptr inbounds nuw i8, ptr %410, i64 1
+  store i8 0, ptr %4268, align 1
+  %4269 = getelementptr inbounds nuw i8, ptr %410, i64 4
+  store i32 0, ptr %4269, align 4
+  %4270 = getelementptr inbounds nuw i8, ptr %410, i64 3
+  %4271 = getelementptr inbounds nuw i8, ptr %410, i64 2
+  store i8 123, ptr %4271, align 2
+  store i8 64, ptr %4270, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %409, i64 1, ptr nonnull %410, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4267:                                             ; preds = %3
-  %4268 = getelementptr inbounds nuw i8, ptr %411, i64 1
-  store i8 0, ptr %4268, align 1
-  %4269 = getelementptr inbounds nuw i8, ptr %411, i64 4
-  store i32 0, ptr %4269, align 4
-  %4270 = getelementptr inbounds nuw i8, ptr %411, i64 3
-  %4271 = getelementptr inbounds nuw i8, ptr %411, i64 2
-  store i8 125, ptr %4271, align 2
-  store i8 64, ptr %4270, align 1
-  %4272 = getelementptr inbounds nuw i8, ptr %412, i64 1
-  store i8 0, ptr %4272, align 1
-  %4273 = getelementptr inbounds nuw i8, ptr %412, i64 4
-  store i32 0, ptr %4273, align 4
-  %4274 = getelementptr inbounds nuw i8, ptr %412, i64 3
-  %4275 = getelementptr inbounds nuw i8, ptr %412, i64 2
-  store i8 123, ptr %4275, align 2
-  store i8 64, ptr %4274, align 1
+4272:                                             ; preds = %3
+  %4273 = getelementptr inbounds nuw i8, ptr %411, i64 1
+  store i8 0, ptr %4273, align 1
+  %4274 = getelementptr inbounds nuw i8, ptr %411, i64 4
+  store i32 0, ptr %4274, align 4
+  %4275 = getelementptr inbounds nuw i8, ptr %411, i64 3
+  %4276 = getelementptr inbounds nuw i8, ptr %411, i64 2
+  store i8 125, ptr %4276, align 2
+  store i8 64, ptr %4275, align 1
+  %4277 = getelementptr inbounds nuw i8, ptr %412, i64 1
+  store i8 0, ptr %4277, align 1
+  %4278 = getelementptr inbounds nuw i8, ptr %412, i64 4
+  store i32 0, ptr %4278, align 4
+  %4279 = getelementptr inbounds nuw i8, ptr %412, i64 3
+  %4280 = getelementptr inbounds nuw i8, ptr %412, i64 2
+  store i8 123, ptr %4280, align 2
+  store i8 64, ptr %4279, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %411, i64 1, ptr nonnull %412, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4276:                                             ; preds = %3
-  %4277 = getelementptr inbounds nuw i8, ptr %413, i64 1
-  store i8 0, ptr %4277, align 1
-  %4278 = getelementptr inbounds nuw i8, ptr %413, i64 4
-  store i32 0, ptr %4278, align 4
-  %4279 = getelementptr inbounds nuw i8, ptr %413, i64 3
-  %4280 = getelementptr inbounds nuw i8, ptr %413, i64 2
-  store i8 124, ptr %4280, align 2
-  store i8 64, ptr %4279, align 1
-  %4281 = getelementptr inbounds nuw i8, ptr %414, i64 1
-  store i8 0, ptr %4281, align 1
-  %4282 = getelementptr inbounds nuw i8, ptr %414, i64 4
-  store i32 0, ptr %4282, align 4
-  %4283 = getelementptr inbounds nuw i8, ptr %414, i64 3
-  %4284 = getelementptr inbounds nuw i8, ptr %414, i64 2
-  store i8 123, ptr %4284, align 2
-  store i8 64, ptr %4283, align 1
+4281:                                             ; preds = %3
+  %4282 = getelementptr inbounds nuw i8, ptr %413, i64 1
+  store i8 0, ptr %4282, align 1
+  %4283 = getelementptr inbounds nuw i8, ptr %413, i64 4
+  store i32 0, ptr %4283, align 4
+  %4284 = getelementptr inbounds nuw i8, ptr %413, i64 3
+  %4285 = getelementptr inbounds nuw i8, ptr %413, i64 2
+  store i8 124, ptr %4285, align 2
+  store i8 64, ptr %4284, align 1
+  %4286 = getelementptr inbounds nuw i8, ptr %414, i64 1
+  store i8 0, ptr %4286, align 1
+  %4287 = getelementptr inbounds nuw i8, ptr %414, i64 4
+  store i32 0, ptr %4287, align 4
+  %4288 = getelementptr inbounds nuw i8, ptr %414, i64 3
+  %4289 = getelementptr inbounds nuw i8, ptr %414, i64 2
+  store i8 123, ptr %4289, align 2
+  store i8 64, ptr %4288, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %413, i64 1, ptr nonnull %414, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4285:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  %4286 = getelementptr inbounds nuw i8, ptr %415, i64 1
-  store i8 0, ptr %4286, align 1
-  %4287 = getelementptr inbounds nuw i8, ptr %415, i64 4
-  store i32 0, ptr %4287, align 4
-  %4288 = getelementptr inbounds nuw i8, ptr %415, i64 3
-  %4289 = getelementptr inbounds nuw i8, ptr %415, i64 2
-  store i8 123, ptr %4289, align 2
-  store i8 64, ptr %4288, align 1
-  %4290 = getelementptr inbounds nuw i8, ptr %416, i64 1
-  store i8 0, ptr %4290, align 1
-  %4291 = getelementptr inbounds nuw i8, ptr %416, i64 4
-  store i32 0, ptr %4291, align 4
-  %4292 = getelementptr inbounds nuw i8, ptr %416, i64 3
-  %4293 = getelementptr inbounds nuw i8, ptr %416, i64 2
-  store i8 123, ptr %4293, align 2
-  store i8 64, ptr %4292, align 1
+4290:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
+  %4291 = getelementptr inbounds nuw i8, ptr %415, i64 1
+  store i8 0, ptr %4291, align 1
+  %4292 = getelementptr inbounds nuw i8, ptr %415, i64 4
+  store i32 0, ptr %4292, align 4
+  %4293 = getelementptr inbounds nuw i8, ptr %415, i64 3
+  %4294 = getelementptr inbounds nuw i8, ptr %415, i64 2
+  store i8 123, ptr %4294, align 2
+  store i8 64, ptr %4293, align 1
+  %4295 = getelementptr inbounds nuw i8, ptr %416, i64 1
+  store i8 0, ptr %4295, align 1
+  %4296 = getelementptr inbounds nuw i8, ptr %416, i64 4
+  store i32 0, ptr %4296, align 4
+  %4297 = getelementptr inbounds nuw i8, ptr %416, i64 3
+  %4298 = getelementptr inbounds nuw i8, ptr %416, i64 2
+  store i8 123, ptr %4298, align 2
+  store i8 64, ptr %4297, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !266)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !266
-  %4294 = getelementptr inbounds nuw i8, ptr %415, i64 8
-  br label %4295
+  %4299 = getelementptr inbounds nuw i8, ptr %415, i64 8
+  br label %4300
 
-4295:                                             ; preds = %4296, %4285
-  %.sroa.02.0.i.i1726 = phi ptr [ %4294, %4285 ], [ %4297, %4296 ]
+4300:                                             ; preds = %4301, %4290
+  %.sroa.02.0.i.i1726 = phi ptr [ %4299, %4290 ], [ %4302, %4301 ]
   %.not.i.i1727 = icmp eq ptr %.sroa.02.0.i.i1726, %415
-  br i1 %.not.i.i1727, label %4304, label %4296
+  br i1 %.not.i.i1727, label %4309, label %4301
 
-4296:                                             ; preds = %4295
-  %4297 = getelementptr inbounds i8, ptr %.sroa.02.0.i.i1726, i64 -8
-  %.sroa.0.0.copyload.i.i1728 = load i64, ptr %4297, align 4, !noalias !269
+4301:                                             ; preds = %4300
+  %4302 = getelementptr inbounds i8, ptr %.sroa.02.0.i.i1726, i64 -8
+  %.sroa.0.0.copyload.i.i1728 = load i64, ptr %4302, align 4, !noalias !269
   call void @_ZN8WasmEdge9Validator11FormChecker7popTypeENS_7ValTypeE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.119") align 4 %6, ptr noundef nonnull align 8 dereferenceable(360) %1, i64 %.sroa.0.0.copyload.i.i1728), !noalias !269
-  %4298 = load i8, ptr %6, align 4, !noalias !269
-  %4299 = trunc i8 %4298 to i1
-  br i1 %4299, label %4295, label %4300, !llvm.loop !32
+  %4303 = load i8, ptr %6, align 4, !noalias !269
+  %4304 = trunc i8 %4303 to i1
+  br i1 %4304, label %4300, label %4305, !llvm.loop !32
 
-4300:                                             ; preds = %4296
-  %4301 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %4302 = load i32, ptr %4301, align 4, !noalias !272
+4305:                                             ; preds = %4301
+  %4306 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %4307 = load i32, ptr %4306, align 4, !noalias !272
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !266
   store i8 0, ptr %0, align 4, !alias.scope !266
-  %4303 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %4302, ptr %4303, align 4, !alias.scope !266
+  %4308 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %4307, ptr %4308, align 4, !alias.scope !266
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4304:                                             ; preds = %4295
+4309:                                             ; preds = %4300
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !266
   call void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull readonly %416, i64 1), !noalias !266
   store i64 1, ptr %0, align 4, !alias.scope !266
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4305:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  %4306 = getelementptr inbounds nuw i8, ptr %417, i64 1
-  store i8 0, ptr %4306, align 1
-  %4307 = getelementptr inbounds nuw i8, ptr %417, i64 4
-  store i32 0, ptr %4307, align 4
-  %4308 = getelementptr inbounds nuw i8, ptr %417, i64 3
-  %4309 = getelementptr inbounds nuw i8, ptr %417, i64 2
-  store i8 123, ptr %4309, align 2
-  store i8 64, ptr %4308, align 1
-  %4310 = getelementptr inbounds nuw i8, ptr %417, i64 9
-  store i8 0, ptr %4310, align 1
-  %4311 = getelementptr inbounds nuw i8, ptr %417, i64 12
-  store i32 0, ptr %4311, align 4
-  %4312 = getelementptr inbounds nuw i8, ptr %417, i64 11
-  %4313 = getelementptr inbounds nuw i8, ptr %417, i64 10
-  store i8 123, ptr %4313, align 2
-  store i8 64, ptr %4312, align 1
-  %4314 = getelementptr inbounds nuw i8, ptr %418, i64 1
-  store i8 0, ptr %4314, align 1
-  %4315 = getelementptr inbounds nuw i8, ptr %418, i64 4
-  store i32 0, ptr %4315, align 4
-  %4316 = getelementptr inbounds nuw i8, ptr %418, i64 3
-  %4317 = getelementptr inbounds nuw i8, ptr %418, i64 2
-  store i8 123, ptr %4317, align 2
-  store i8 64, ptr %4316, align 1
+4310:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
+  %4311 = getelementptr inbounds nuw i8, ptr %417, i64 1
+  store i8 0, ptr %4311, align 1
+  %4312 = getelementptr inbounds nuw i8, ptr %417, i64 4
+  store i32 0, ptr %4312, align 4
+  %4313 = getelementptr inbounds nuw i8, ptr %417, i64 3
+  %4314 = getelementptr inbounds nuw i8, ptr %417, i64 2
+  store i8 123, ptr %4314, align 2
+  store i8 64, ptr %4313, align 1
+  %4315 = getelementptr inbounds nuw i8, ptr %417, i64 9
+  store i8 0, ptr %4315, align 1
+  %4316 = getelementptr inbounds nuw i8, ptr %417, i64 12
+  store i32 0, ptr %4316, align 4
+  %4317 = getelementptr inbounds nuw i8, ptr %417, i64 11
+  %4318 = getelementptr inbounds nuw i8, ptr %417, i64 10
+  store i8 123, ptr %4318, align 2
+  store i8 64, ptr %4317, align 1
+  %4319 = getelementptr inbounds nuw i8, ptr %418, i64 1
+  store i8 0, ptr %4319, align 1
+  %4320 = getelementptr inbounds nuw i8, ptr %418, i64 4
+  store i32 0, ptr %4320, align 4
+  %4321 = getelementptr inbounds nuw i8, ptr %418, i64 3
+  %4322 = getelementptr inbounds nuw i8, ptr %418, i64 2
+  store i8 123, ptr %4322, align 2
+  store i8 64, ptr %4321, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !275)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !275
-  %4318 = getelementptr inbounds nuw i8, ptr %417, i64 16
-  br label %4319
+  %4323 = getelementptr inbounds nuw i8, ptr %417, i64 16
+  br label %4324
 
-4319:                                             ; preds = %4320, %4305
-  %.sroa.02.0.i.i1733 = phi ptr [ %4318, %4305 ], [ %4321, %4320 ]
+4324:                                             ; preds = %4325, %4310
+  %.sroa.02.0.i.i1733 = phi ptr [ %4323, %4310 ], [ %4326, %4325 ]
   %.not.i.i1734 = icmp eq ptr %.sroa.02.0.i.i1733, %417
-  br i1 %.not.i.i1734, label %4328, label %4320
+  br i1 %.not.i.i1734, label %4333, label %4325
 
-4320:                                             ; preds = %4319
-  %4321 = getelementptr inbounds i8, ptr %.sroa.02.0.i.i1733, i64 -8
-  %.sroa.0.0.copyload.i.i1735 = load i64, ptr %4321, align 4, !noalias !278
+4325:                                             ; preds = %4324
+  %4326 = getelementptr inbounds i8, ptr %.sroa.02.0.i.i1733, i64 -8
+  %.sroa.0.0.copyload.i.i1735 = load i64, ptr %4326, align 4, !noalias !278
   call void @_ZN8WasmEdge9Validator11FormChecker7popTypeENS_7ValTypeE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.119") align 4 %5, ptr noundef nonnull align 8 dereferenceable(360) %1, i64 %.sroa.0.0.copyload.i.i1735), !noalias !278
-  %4322 = load i8, ptr %5, align 4, !noalias !278
-  %4323 = trunc i8 %4322 to i1
-  br i1 %4323, label %4319, label %4324, !llvm.loop !32
+  %4327 = load i8, ptr %5, align 4, !noalias !278
+  %4328 = trunc i8 %4327 to i1
+  br i1 %4328, label %4324, label %4329, !llvm.loop !32
 
-4324:                                             ; preds = %4320
-  %4325 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %4326 = load i32, ptr %4325, align 4, !noalias !281
+4329:                                             ; preds = %4325
+  %4330 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %4331 = load i32, ptr %4330, align 4, !noalias !281
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !275
   store i8 0, ptr %0, align 4, !alias.scope !275
-  %4327 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %4326, ptr %4327, align 4, !alias.scope !275
+  %4332 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %4331, ptr %4332, align 4, !alias.scope !275
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4328:                                             ; preds = %4319
+4333:                                             ; preds = %4324
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !275
   call void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull readonly %418, i64 1), !noalias !275
   store i64 1, ptr %0, align 4, !alias.scope !275
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4329:                                             ; preds = %3
-  %4330 = getelementptr inbounds nuw i8, ptr %419, i64 1
-  store i8 0, ptr %4330, align 1
-  %4331 = getelementptr inbounds nuw i8, ptr %419, i64 4
-  store i32 0, ptr %4331, align 4
-  %4332 = getelementptr inbounds nuw i8, ptr %419, i64 3
-  %4333 = getelementptr inbounds nuw i8, ptr %419, i64 2
-  store i8 123, ptr %4333, align 2
-  store i8 64, ptr %4332, align 1
-  %4334 = getelementptr inbounds nuw i8, ptr %419, i64 9
-  store i8 0, ptr %4334, align 1
-  %4335 = getelementptr inbounds nuw i8, ptr %419, i64 12
-  store i32 0, ptr %4335, align 4
-  %4336 = getelementptr inbounds nuw i8, ptr %419, i64 11
-  %4337 = getelementptr inbounds nuw i8, ptr %419, i64 10
-  store i8 123, ptr %4337, align 2
-  store i8 64, ptr %4336, align 1
-  %4338 = getelementptr inbounds nuw i8, ptr %419, i64 17
-  store i8 0, ptr %4338, align 1
-  %4339 = getelementptr inbounds nuw i8, ptr %419, i64 20
-  store i32 0, ptr %4339, align 4
-  %4340 = getelementptr inbounds nuw i8, ptr %419, i64 19
-  %4341 = getelementptr inbounds nuw i8, ptr %419, i64 18
-  store i8 123, ptr %4341, align 2
-  store i8 64, ptr %4340, align 1
-  %4342 = getelementptr inbounds nuw i8, ptr %420, i64 1
-  store i8 0, ptr %4342, align 1
-  %4343 = getelementptr inbounds nuw i8, ptr %420, i64 4
-  store i32 0, ptr %4343, align 4
-  %4344 = getelementptr inbounds nuw i8, ptr %420, i64 3
-  %4345 = getelementptr inbounds nuw i8, ptr %420, i64 2
-  store i8 123, ptr %4345, align 2
-  store i8 64, ptr %4344, align 1
+4334:                                             ; preds = %3
+  %4335 = getelementptr inbounds nuw i8, ptr %419, i64 1
+  store i8 0, ptr %4335, align 1
+  %4336 = getelementptr inbounds nuw i8, ptr %419, i64 4
+  store i32 0, ptr %4336, align 4
+  %4337 = getelementptr inbounds nuw i8, ptr %419, i64 3
+  %4338 = getelementptr inbounds nuw i8, ptr %419, i64 2
+  store i8 123, ptr %4338, align 2
+  store i8 64, ptr %4337, align 1
+  %4339 = getelementptr inbounds nuw i8, ptr %419, i64 9
+  store i8 0, ptr %4339, align 1
+  %4340 = getelementptr inbounds nuw i8, ptr %419, i64 12
+  store i32 0, ptr %4340, align 4
+  %4341 = getelementptr inbounds nuw i8, ptr %419, i64 11
+  %4342 = getelementptr inbounds nuw i8, ptr %419, i64 10
+  store i8 123, ptr %4342, align 2
+  store i8 64, ptr %4341, align 1
+  %4343 = getelementptr inbounds nuw i8, ptr %419, i64 17
+  store i8 0, ptr %4343, align 1
+  %4344 = getelementptr inbounds nuw i8, ptr %419, i64 20
+  store i32 0, ptr %4344, align 4
+  %4345 = getelementptr inbounds nuw i8, ptr %419, i64 19
+  %4346 = getelementptr inbounds nuw i8, ptr %419, i64 18
+  store i8 123, ptr %4346, align 2
+  store i8 64, ptr %4345, align 1
+  %4347 = getelementptr inbounds nuw i8, ptr %420, i64 1
+  store i8 0, ptr %4347, align 1
+  %4348 = getelementptr inbounds nuw i8, ptr %420, i64 4
+  store i32 0, ptr %4348, align 4
+  %4349 = getelementptr inbounds nuw i8, ptr %420, i64 3
+  %4350 = getelementptr inbounds nuw i8, ptr %420, i64 2
+  store i8 123, ptr %4350, align 2
+  store i8 64, ptr %4349, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %419, i64 3, ptr nonnull %420, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4346:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3
-  %4347 = getelementptr inbounds nuw i8, ptr %421, i64 1
-  store i8 0, ptr %4347, align 1
-  %4348 = getelementptr inbounds nuw i8, ptr %421, i64 4
-  store i32 0, ptr %4348, align 4
-  %4349 = getelementptr inbounds nuw i8, ptr %421, i64 3
-  %4350 = getelementptr inbounds nuw i8, ptr %421, i64 2
-  store i8 123, ptr %4350, align 2
-  store i8 64, ptr %4349, align 1
-  %4351 = getelementptr inbounds nuw i8, ptr %422, i64 1
-  store i8 0, ptr %4351, align 1
-  %4352 = getelementptr inbounds nuw i8, ptr %422, i64 4
-  store i32 0, ptr %4352, align 4
-  %4353 = getelementptr inbounds nuw i8, ptr %422, i64 3
-  %4354 = getelementptr inbounds nuw i8, ptr %422, i64 2
-  store i8 127, ptr %4354, align 2
-  store i8 64, ptr %4353, align 1
+4351:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3
+  %4352 = getelementptr inbounds nuw i8, ptr %421, i64 1
+  store i8 0, ptr %4352, align 1
+  %4353 = getelementptr inbounds nuw i8, ptr %421, i64 4
+  store i32 0, ptr %4353, align 4
+  %4354 = getelementptr inbounds nuw i8, ptr %421, i64 3
+  %4355 = getelementptr inbounds nuw i8, ptr %421, i64 2
+  store i8 123, ptr %4355, align 2
+  store i8 64, ptr %4354, align 1
+  %4356 = getelementptr inbounds nuw i8, ptr %422, i64 1
+  store i8 0, ptr %4356, align 1
+  %4357 = getelementptr inbounds nuw i8, ptr %422, i64 4
+  store i32 0, ptr %4357, align 4
+  %4358 = getelementptr inbounds nuw i8, ptr %422, i64 3
+  %4359 = getelementptr inbounds nuw i8, ptr %422, i64 2
+  store i8 127, ptr %4359, align 2
+  store i8 64, ptr %4358, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %421, i64 1, ptr nonnull %422, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4355:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
-  %4356 = getelementptr inbounds nuw i8, ptr %423, i64 1
-  store i8 0, ptr %4356, align 1
-  %4357 = getelementptr inbounds nuw i8, ptr %423, i64 4
-  store i32 0, ptr %4357, align 4
-  %4358 = getelementptr inbounds nuw i8, ptr %423, i64 3
-  %4359 = getelementptr inbounds nuw i8, ptr %423, i64 2
-  store i8 123, ptr %4359, align 2
-  store i8 64, ptr %4358, align 1
-  %4360 = getelementptr inbounds nuw i8, ptr %423, i64 9
-  store i8 0, ptr %4360, align 1
-  %4361 = getelementptr inbounds nuw i8, ptr %423, i64 12
-  store i32 0, ptr %4361, align 4
-  %4362 = getelementptr inbounds nuw i8, ptr %423, i64 11
-  %4363 = getelementptr inbounds nuw i8, ptr %423, i64 10
-  store i8 127, ptr %4363, align 2
-  store i8 64, ptr %4362, align 1
-  %4364 = getelementptr inbounds nuw i8, ptr %424, i64 1
-  store i8 0, ptr %4364, align 1
-  %4365 = getelementptr inbounds nuw i8, ptr %424, i64 4
-  store i32 0, ptr %4365, align 4
-  %4366 = getelementptr inbounds nuw i8, ptr %424, i64 3
-  %4367 = getelementptr inbounds nuw i8, ptr %424, i64 2
-  store i8 123, ptr %4367, align 2
-  store i8 64, ptr %4366, align 1
+4360:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
+  %4361 = getelementptr inbounds nuw i8, ptr %423, i64 1
+  store i8 0, ptr %4361, align 1
+  %4362 = getelementptr inbounds nuw i8, ptr %423, i64 4
+  store i32 0, ptr %4362, align 4
+  %4363 = getelementptr inbounds nuw i8, ptr %423, i64 3
+  %4364 = getelementptr inbounds nuw i8, ptr %423, i64 2
+  store i8 123, ptr %4364, align 2
+  store i8 64, ptr %4363, align 1
+  %4365 = getelementptr inbounds nuw i8, ptr %423, i64 9
+  store i8 0, ptr %4365, align 1
+  %4366 = getelementptr inbounds nuw i8, ptr %423, i64 12
+  store i32 0, ptr %4366, align 4
+  %4367 = getelementptr inbounds nuw i8, ptr %423, i64 11
+  %4368 = getelementptr inbounds nuw i8, ptr %423, i64 10
+  store i8 127, ptr %4368, align 2
+  store i8 64, ptr %4367, align 1
+  %4369 = getelementptr inbounds nuw i8, ptr %424, i64 1
+  store i8 0, ptr %4369, align 1
+  %4370 = getelementptr inbounds nuw i8, ptr %424, i64 4
+  store i32 0, ptr %4370, align 4
+  %4371 = getelementptr inbounds nuw i8, ptr %424, i64 3
+  %4372 = getelementptr inbounds nuw i8, ptr %424, i64 2
+  store i8 123, ptr %4372, align 2
+  store i8 64, ptr %4371, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !284)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !284
-  %4368 = getelementptr inbounds nuw i8, ptr %423, i64 16
-  br label %4369
+  %4373 = getelementptr inbounds nuw i8, ptr %423, i64 16
+  br label %4374
 
-4369:                                             ; preds = %4370, %4355
-  %.sroa.02.0.i.i1746 = phi ptr [ %4368, %4355 ], [ %4371, %4370 ]
+4374:                                             ; preds = %4375, %4360
+  %.sroa.02.0.i.i1746 = phi ptr [ %4373, %4360 ], [ %4376, %4375 ]
   %.not.i.i1747 = icmp eq ptr %.sroa.02.0.i.i1746, %423
-  br i1 %.not.i.i1747, label %4378, label %4370
+  br i1 %.not.i.i1747, label %4383, label %4375
 
-4370:                                             ; preds = %4369
-  %4371 = getelementptr inbounds i8, ptr %.sroa.02.0.i.i1746, i64 -8
-  %.sroa.0.0.copyload.i.i1748 = load i64, ptr %4371, align 4, !noalias !287
+4375:                                             ; preds = %4374
+  %4376 = getelementptr inbounds i8, ptr %.sroa.02.0.i.i1746, i64 -8
+  %.sroa.0.0.copyload.i.i1748 = load i64, ptr %4376, align 4, !noalias !287
   call void @_ZN8WasmEdge9Validator11FormChecker7popTypeENS_7ValTypeE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.119") align 4 %4, ptr noundef nonnull align 8 dereferenceable(360) %1, i64 %.sroa.0.0.copyload.i.i1748), !noalias !287
-  %4372 = load i8, ptr %4, align 4, !noalias !287
-  %4373 = trunc i8 %4372 to i1
-  br i1 %4373, label %4369, label %4374, !llvm.loop !32
+  %4377 = load i8, ptr %4, align 4, !noalias !287
+  %4378 = trunc i8 %4377 to i1
+  br i1 %4378, label %4374, label %4379, !llvm.loop !32
 
-4374:                                             ; preds = %4370
-  %4375 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %4376 = load i32, ptr %4375, align 4, !noalias !290
+4379:                                             ; preds = %4375
+  %4380 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %4381 = load i32, ptr %4380, align 4, !noalias !290
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !284
   store i8 0, ptr %0, align 4, !alias.scope !284
-  %4377 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %4376, ptr %4377, align 4, !alias.scope !284
+  %4382 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %4381, ptr %4382, align 4, !alias.scope !284
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4378:                                             ; preds = %4369
+4383:                                             ; preds = %4374
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !284
   call void @_ZN8WasmEdge9Validator11FormChecker9pushTypesEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull readonly %424, i64 1), !noalias !284
   store i64 1, ptr %0, align 4, !alias.scope !284
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4379:                                             ; preds = %3
-  %4380 = getelementptr inbounds nuw i8, ptr %425, i64 1
-  store i8 0, ptr %4380, align 1
-  %4381 = getelementptr inbounds nuw i8, ptr %425, i64 4
-  store i32 0, ptr %4381, align 4
-  %4382 = getelementptr inbounds nuw i8, ptr %425, i64 3
-  %4383 = getelementptr inbounds nuw i8, ptr %425, i64 2
-  store i8 123, ptr %4383, align 2
-  store i8 64, ptr %4382, align 1
-  %4384 = getelementptr inbounds nuw i8, ptr %425, i64 9
-  store i8 0, ptr %4384, align 1
-  %4385 = getelementptr inbounds nuw i8, ptr %425, i64 12
-  store i32 0, ptr %4385, align 4
-  %4386 = getelementptr inbounds nuw i8, ptr %425, i64 11
-  %4387 = getelementptr inbounds nuw i8, ptr %425, i64 10
-  store i8 123, ptr %4387, align 2
-  store i8 64, ptr %4386, align 1
-  %4388 = getelementptr inbounds nuw i8, ptr %426, i64 1
-  store i8 0, ptr %4388, align 1
-  %4389 = getelementptr inbounds nuw i8, ptr %426, i64 4
-  store i32 0, ptr %4389, align 4
-  %4390 = getelementptr inbounds nuw i8, ptr %426, i64 3
-  %4391 = getelementptr inbounds nuw i8, ptr %426, i64 2
-  store i8 123, ptr %4391, align 2
-  store i8 64, ptr %4390, align 1
+4384:                                             ; preds = %3
+  %4385 = getelementptr inbounds nuw i8, ptr %425, i64 1
+  store i8 0, ptr %4385, align 1
+  %4386 = getelementptr inbounds nuw i8, ptr %425, i64 4
+  store i32 0, ptr %4386, align 4
+  %4387 = getelementptr inbounds nuw i8, ptr %425, i64 3
+  %4388 = getelementptr inbounds nuw i8, ptr %425, i64 2
+  store i8 123, ptr %4388, align 2
+  store i8 64, ptr %4387, align 1
+  %4389 = getelementptr inbounds nuw i8, ptr %425, i64 9
+  store i8 0, ptr %4389, align 1
+  %4390 = getelementptr inbounds nuw i8, ptr %425, i64 12
+  store i32 0, ptr %4390, align 4
+  %4391 = getelementptr inbounds nuw i8, ptr %425, i64 11
+  %4392 = getelementptr inbounds nuw i8, ptr %425, i64 10
+  store i8 123, ptr %4392, align 2
+  store i8 64, ptr %4391, align 1
+  %4393 = getelementptr inbounds nuw i8, ptr %426, i64 1
+  store i8 0, ptr %4393, align 1
+  %4394 = getelementptr inbounds nuw i8, ptr %426, i64 4
+  store i32 0, ptr %4394, align 4
+  %4395 = getelementptr inbounds nuw i8, ptr %426, i64 3
+  %4396 = getelementptr inbounds nuw i8, ptr %426, i64 2
+  store i8 123, ptr %4396, align 2
+  store i8 64, ptr %4395, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %425, i64 2, ptr nonnull %426, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4392:                                             ; preds = %3, %3, %3, %3
-  %4393 = getelementptr inbounds nuw i8, ptr %427, i64 1
-  store i8 0, ptr %4393, align 1
-  %4394 = getelementptr inbounds nuw i8, ptr %427, i64 4
-  store i32 0, ptr %4394, align 4
-  %4395 = getelementptr inbounds nuw i8, ptr %427, i64 3
-  %4396 = getelementptr inbounds nuw i8, ptr %427, i64 2
-  store i8 123, ptr %4396, align 2
-  store i8 64, ptr %4395, align 1
-  %4397 = getelementptr inbounds nuw i8, ptr %428, i64 1
-  store i8 0, ptr %4397, align 1
-  %4398 = getelementptr inbounds nuw i8, ptr %428, i64 4
-  store i32 0, ptr %4398, align 4
-  %4399 = getelementptr inbounds nuw i8, ptr %428, i64 3
-  %4400 = getelementptr inbounds nuw i8, ptr %428, i64 2
-  store i8 123, ptr %4400, align 2
-  store i8 64, ptr %4399, align 1
+4397:                                             ; preds = %3, %3, %3, %3
+  %4398 = getelementptr inbounds nuw i8, ptr %427, i64 1
+  store i8 0, ptr %4398, align 1
+  %4399 = getelementptr inbounds nuw i8, ptr %427, i64 4
+  store i32 0, ptr %4399, align 4
+  %4400 = getelementptr inbounds nuw i8, ptr %427, i64 3
+  %4401 = getelementptr inbounds nuw i8, ptr %427, i64 2
+  store i8 123, ptr %4401, align 2
+  store i8 64, ptr %4400, align 1
+  %4402 = getelementptr inbounds nuw i8, ptr %428, i64 1
+  store i8 0, ptr %4402, align 1
+  %4403 = getelementptr inbounds nuw i8, ptr %428, i64 4
+  store i32 0, ptr %4403, align 4
+  %4404 = getelementptr inbounds nuw i8, ptr %428, i64 3
+  %4405 = getelementptr inbounds nuw i8, ptr %428, i64 2
+  store i8 123, ptr %4405, align 2
+  store i8 64, ptr %4404, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %427, i64 1, ptr nonnull %428, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4401:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3
-  %4402 = getelementptr inbounds nuw i8, ptr %429, i64 1
-  store i8 0, ptr %4402, align 1
-  %4403 = getelementptr inbounds nuw i8, ptr %429, i64 4
-  store i32 0, ptr %4403, align 4
-  %4404 = getelementptr inbounds nuw i8, ptr %429, i64 3
-  %4405 = getelementptr inbounds nuw i8, ptr %429, i64 2
-  store i8 123, ptr %4405, align 2
-  store i8 64, ptr %4404, align 1
-  %4406 = getelementptr inbounds nuw i8, ptr %429, i64 9
-  store i8 0, ptr %4406, align 1
-  %4407 = getelementptr inbounds nuw i8, ptr %429, i64 12
-  store i32 0, ptr %4407, align 4
-  %4408 = getelementptr inbounds nuw i8, ptr %429, i64 11
-  %4409 = getelementptr inbounds nuw i8, ptr %429, i64 10
-  store i8 123, ptr %4409, align 2
-  store i8 64, ptr %4408, align 1
-  %4410 = getelementptr inbounds nuw i8, ptr %429, i64 17
-  store i8 0, ptr %4410, align 1
-  %4411 = getelementptr inbounds nuw i8, ptr %429, i64 20
-  store i32 0, ptr %4411, align 4
-  %4412 = getelementptr inbounds nuw i8, ptr %429, i64 19
-  %4413 = getelementptr inbounds nuw i8, ptr %429, i64 18
-  store i8 123, ptr %4413, align 2
-  store i8 64, ptr %4412, align 1
-  %4414 = getelementptr inbounds nuw i8, ptr %430, i64 1
-  store i8 0, ptr %4414, align 1
-  %4415 = getelementptr inbounds nuw i8, ptr %430, i64 4
-  store i32 0, ptr %4415, align 4
-  %4416 = getelementptr inbounds nuw i8, ptr %430, i64 3
-  %4417 = getelementptr inbounds nuw i8, ptr %430, i64 2
-  store i8 123, ptr %4417, align 2
-  store i8 64, ptr %4416, align 1
+4406:                                             ; preds = %3, %3, %3, %3, %3, %3, %3, %3
+  %4407 = getelementptr inbounds nuw i8, ptr %429, i64 1
+  store i8 0, ptr %4407, align 1
+  %4408 = getelementptr inbounds nuw i8, ptr %429, i64 4
+  store i32 0, ptr %4408, align 4
+  %4409 = getelementptr inbounds nuw i8, ptr %429, i64 3
+  %4410 = getelementptr inbounds nuw i8, ptr %429, i64 2
+  store i8 123, ptr %4410, align 2
+  store i8 64, ptr %4409, align 1
+  %4411 = getelementptr inbounds nuw i8, ptr %429, i64 9
+  store i8 0, ptr %4411, align 1
+  %4412 = getelementptr inbounds nuw i8, ptr %429, i64 12
+  store i32 0, ptr %4412, align 4
+  %4413 = getelementptr inbounds nuw i8, ptr %429, i64 11
+  %4414 = getelementptr inbounds nuw i8, ptr %429, i64 10
+  store i8 123, ptr %4414, align 2
+  store i8 64, ptr %4413, align 1
+  %4415 = getelementptr inbounds nuw i8, ptr %429, i64 17
+  store i8 0, ptr %4415, align 1
+  %4416 = getelementptr inbounds nuw i8, ptr %429, i64 20
+  store i32 0, ptr %4416, align 4
+  %4417 = getelementptr inbounds nuw i8, ptr %429, i64 19
+  %4418 = getelementptr inbounds nuw i8, ptr %429, i64 18
+  store i8 123, ptr %4418, align 2
+  store i8 64, ptr %4417, align 1
+  %4419 = getelementptr inbounds nuw i8, ptr %430, i64 1
+  store i8 0, ptr %4419, align 1
+  %4420 = getelementptr inbounds nuw i8, ptr %430, i64 4
+  store i32 0, ptr %4420, align 4
+  %4421 = getelementptr inbounds nuw i8, ptr %430, i64 3
+  %4422 = getelementptr inbounds nuw i8, ptr %430, i64 2
+  store i8 123, ptr %4422, align 2
+  store i8 64, ptr %4421, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %429, i64 3, ptr nonnull %430, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4418:                                             ; preds = %3, %3, %3, %3, %3, %3
-  %4419 = getelementptr inbounds nuw i8, ptr %431, i64 1
-  store i8 0, ptr %4419, align 1
-  %4420 = getelementptr inbounds nuw i8, ptr %431, i64 4
-  store i32 0, ptr %4420, align 4
-  %4421 = getelementptr inbounds nuw i8, ptr %431, i64 3
-  %4422 = getelementptr inbounds nuw i8, ptr %431, i64 2
-  store i8 123, ptr %4422, align 2
-  store i8 64, ptr %4421, align 1
-  %4423 = getelementptr inbounds nuw i8, ptr %431, i64 9
-  store i8 0, ptr %4423, align 1
-  %4424 = getelementptr inbounds nuw i8, ptr %431, i64 12
-  store i32 0, ptr %4424, align 4
-  %4425 = getelementptr inbounds nuw i8, ptr %431, i64 11
-  %4426 = getelementptr inbounds nuw i8, ptr %431, i64 10
-  store i8 123, ptr %4426, align 2
-  store i8 64, ptr %4425, align 1
-  %4427 = getelementptr inbounds nuw i8, ptr %432, i64 1
-  store i8 0, ptr %4427, align 1
-  %4428 = getelementptr inbounds nuw i8, ptr %432, i64 4
-  store i32 0, ptr %4428, align 4
-  %4429 = getelementptr inbounds nuw i8, ptr %432, i64 3
-  %4430 = getelementptr inbounds nuw i8, ptr %432, i64 2
-  store i8 123, ptr %4430, align 2
-  store i8 64, ptr %4429, align 1
+4423:                                             ; preds = %3, %3, %3, %3, %3, %3
+  %4424 = getelementptr inbounds nuw i8, ptr %431, i64 1
+  store i8 0, ptr %4424, align 1
+  %4425 = getelementptr inbounds nuw i8, ptr %431, i64 4
+  store i32 0, ptr %4425, align 4
+  %4426 = getelementptr inbounds nuw i8, ptr %431, i64 3
+  %4427 = getelementptr inbounds nuw i8, ptr %431, i64 2
+  store i8 123, ptr %4427, align 2
+  store i8 64, ptr %4426, align 1
+  %4428 = getelementptr inbounds nuw i8, ptr %431, i64 9
+  store i8 0, ptr %4428, align 1
+  %4429 = getelementptr inbounds nuw i8, ptr %431, i64 12
+  store i32 0, ptr %4429, align 4
+  %4430 = getelementptr inbounds nuw i8, ptr %431, i64 11
+  %4431 = getelementptr inbounds nuw i8, ptr %431, i64 10
+  store i8 123, ptr %4431, align 2
+  store i8 64, ptr %4430, align 1
+  %4432 = getelementptr inbounds nuw i8, ptr %432, i64 1
+  store i8 0, ptr %4432, align 1
+  %4433 = getelementptr inbounds nuw i8, ptr %432, i64 4
+  store i32 0, ptr %4433, align 4
+  %4434 = getelementptr inbounds nuw i8, ptr %432, i64 3
+  %4435 = getelementptr inbounds nuw i8, ptr %432, i64 2
+  store i8 123, ptr %4435, align 2
+  store i8 64, ptr %4434, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %431, i64 2, ptr nonnull %432, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4431:                                             ; preds = %3
-  %4432 = getelementptr inbounds nuw i8, ptr %433, i64 1
-  store i8 0, ptr %4432, align 1
-  %4433 = getelementptr inbounds nuw i8, ptr %433, i64 4
-  store i32 0, ptr %4433, align 4
-  %4434 = getelementptr inbounds nuw i8, ptr %433, i64 3
-  %4435 = getelementptr inbounds nuw i8, ptr %433, i64 2
-  store i8 123, ptr %4435, align 2
-  store i8 64, ptr %4434, align 1
-  %4436 = getelementptr inbounds nuw i8, ptr %433, i64 9
-  store i8 0, ptr %4436, align 1
-  %4437 = getelementptr inbounds nuw i8, ptr %433, i64 12
-  store i32 0, ptr %4437, align 4
-  %4438 = getelementptr inbounds nuw i8, ptr %433, i64 11
-  %4439 = getelementptr inbounds nuw i8, ptr %433, i64 10
-  store i8 123, ptr %4439, align 2
-  store i8 64, ptr %4438, align 1
-  %4440 = getelementptr inbounds nuw i8, ptr %433, i64 17
-  store i8 0, ptr %4440, align 1
-  %4441 = getelementptr inbounds nuw i8, ptr %433, i64 20
-  store i32 0, ptr %4441, align 4
-  %4442 = getelementptr inbounds nuw i8, ptr %433, i64 19
-  %4443 = getelementptr inbounds nuw i8, ptr %433, i64 18
-  store i8 123, ptr %4443, align 2
-  store i8 64, ptr %4442, align 1
-  %4444 = getelementptr inbounds nuw i8, ptr %434, i64 1
-  store i8 0, ptr %4444, align 1
-  %4445 = getelementptr inbounds nuw i8, ptr %434, i64 4
-  store i32 0, ptr %4445, align 4
-  %4446 = getelementptr inbounds nuw i8, ptr %434, i64 3
-  %4447 = getelementptr inbounds nuw i8, ptr %434, i64 2
-  store i8 123, ptr %4447, align 2
-  store i8 64, ptr %4446, align 1
+4436:                                             ; preds = %3
+  %4437 = getelementptr inbounds nuw i8, ptr %433, i64 1
+  store i8 0, ptr %4437, align 1
+  %4438 = getelementptr inbounds nuw i8, ptr %433, i64 4
+  store i32 0, ptr %4438, align 4
+  %4439 = getelementptr inbounds nuw i8, ptr %433, i64 3
+  %4440 = getelementptr inbounds nuw i8, ptr %433, i64 2
+  store i8 123, ptr %4440, align 2
+  store i8 64, ptr %4439, align 1
+  %4441 = getelementptr inbounds nuw i8, ptr %433, i64 9
+  store i8 0, ptr %4441, align 1
+  %4442 = getelementptr inbounds nuw i8, ptr %433, i64 12
+  store i32 0, ptr %4442, align 4
+  %4443 = getelementptr inbounds nuw i8, ptr %433, i64 11
+  %4444 = getelementptr inbounds nuw i8, ptr %433, i64 10
+  store i8 123, ptr %4444, align 2
+  store i8 64, ptr %4443, align 1
+  %4445 = getelementptr inbounds nuw i8, ptr %433, i64 17
+  store i8 0, ptr %4445, align 1
+  %4446 = getelementptr inbounds nuw i8, ptr %433, i64 20
+  store i32 0, ptr %4446, align 4
+  %4447 = getelementptr inbounds nuw i8, ptr %433, i64 19
+  %4448 = getelementptr inbounds nuw i8, ptr %433, i64 18
+  store i8 123, ptr %4448, align 2
+  store i8 64, ptr %4447, align 1
+  %4449 = getelementptr inbounds nuw i8, ptr %434, i64 1
+  store i8 0, ptr %4449, align 1
+  %4450 = getelementptr inbounds nuw i8, ptr %434, i64 4
+  store i32 0, ptr %4450, align 4
+  %4451 = getelementptr inbounds nuw i8, ptr %434, i64 3
+  %4452 = getelementptr inbounds nuw i8, ptr %434, i64 2
+  store i8 123, ptr %4452, align 2
+  store i8 64, ptr %4451, align 1
   call void @_ZN8WasmEdge9Validator11FormChecker10StackTransEN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEES6_(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nonnull %433, i64 3, ptr nonnull %434, i64 1)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4448:                                             ; preds = %3
+4453:                                             ; preds = %3
   store i64 1, ptr %0, align 4
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4449:                                             ; preds = %3
-  %4450 = getelementptr inbounds nuw i8, ptr %435, i64 1
-  store i8 0, ptr %4450, align 1
-  %4451 = getelementptr inbounds nuw i8, ptr %435, i64 4
-  store i32 0, ptr %4451, align 4
-  %4452 = getelementptr inbounds nuw i8, ptr %435, i64 3
-  %4453 = getelementptr inbounds nuw i8, ptr %435, i64 2
-  store i8 127, ptr %4453, align 2
-  store i8 64, ptr %4452, align 1
-  %4454 = getelementptr inbounds nuw i8, ptr %435, i64 9
-  store i8 0, ptr %4454, align 1
-  %4455 = getelementptr inbounds nuw i8, ptr %435, i64 12
-  store i32 0, ptr %4455, align 4
-  %4456 = getelementptr inbounds nuw i8, ptr %435, i64 11
-  %4457 = getelementptr inbounds nuw i8, ptr %435, i64 10
-  store i8 127, ptr %4457, align 2
-  store i8 64, ptr %4456, align 1
-  %4458 = getelementptr inbounds nuw i8, ptr %436, i64 1
-  store i8 0, ptr %4458, align 1
-  %4459 = getelementptr inbounds nuw i8, ptr %436, i64 4
-  store i32 0, ptr %4459, align 4
-  %4460 = getelementptr inbounds nuw i8, ptr %436, i64 3
-  %4461 = getelementptr inbounds nuw i8, ptr %436, i64 2
-  store i8 127, ptr %4461, align 2
-  store i8 64, ptr %4460, align 1
+4454:                                             ; preds = %3
+  %4455 = getelementptr inbounds nuw i8, ptr %435, i64 1
+  store i8 0, ptr %4455, align 1
+  %4456 = getelementptr inbounds nuw i8, ptr %435, i64 4
+  store i32 0, ptr %4456, align 4
+  %4457 = getelementptr inbounds nuw i8, ptr %435, i64 3
+  %4458 = getelementptr inbounds nuw i8, ptr %435, i64 2
+  store i8 127, ptr %4458, align 2
+  store i8 64, ptr %4457, align 1
+  %4459 = getelementptr inbounds nuw i8, ptr %435, i64 9
+  store i8 0, ptr %4459, align 1
+  %4460 = getelementptr inbounds nuw i8, ptr %435, i64 12
+  store i32 0, ptr %4460, align 4
+  %4461 = getelementptr inbounds nuw i8, ptr %435, i64 11
+  %4462 = getelementptr inbounds nuw i8, ptr %435, i64 10
+  store i8 127, ptr %4462, align 2
+  store i8 64, ptr %4461, align 1
+  %4463 = getelementptr inbounds nuw i8, ptr %436, i64 1
+  store i8 0, ptr %4463, align 1
+  %4464 = getelementptr inbounds nuw i8, ptr %436, i64 4
+  store i32 0, ptr %4464, align 4
+  %4465 = getelementptr inbounds nuw i8, ptr %436, i64 3
+  %4466 = getelementptr inbounds nuw i8, ptr %436, i64 2
+  store i8 127, ptr %4466, align 2
+  store i8 64, ptr %4465, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %435, i64 2, ptr nonnull %436, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4462:                                             ; preds = %3
-  %4463 = getelementptr inbounds nuw i8, ptr %437, i64 1
-  store i8 0, ptr %4463, align 1
-  %4464 = getelementptr inbounds nuw i8, ptr %437, i64 4
-  store i32 0, ptr %4464, align 4
-  %4465 = getelementptr inbounds nuw i8, ptr %437, i64 3
-  %4466 = getelementptr inbounds nuw i8, ptr %437, i64 2
-  store i8 127, ptr %4466, align 2
-  store i8 64, ptr %4465, align 1
-  %4467 = getelementptr inbounds nuw i8, ptr %437, i64 9
-  store i8 0, ptr %4467, align 1
-  %4468 = getelementptr inbounds nuw i8, ptr %437, i64 12
-  store i32 0, ptr %4468, align 4
-  %4469 = getelementptr inbounds nuw i8, ptr %437, i64 11
-  %4470 = getelementptr inbounds nuw i8, ptr %437, i64 10
-  store i8 127, ptr %4470, align 2
-  store i8 64, ptr %4469, align 1
-  %4471 = getelementptr inbounds nuw i8, ptr %437, i64 17
-  store i8 0, ptr %4471, align 1
-  %4472 = getelementptr inbounds nuw i8, ptr %437, i64 20
-  store i32 0, ptr %4472, align 4
-  %4473 = getelementptr inbounds nuw i8, ptr %437, i64 19
-  %4474 = getelementptr inbounds nuw i8, ptr %437, i64 18
-  store i8 126, ptr %4474, align 2
-  store i8 64, ptr %4473, align 1
-  %4475 = getelementptr inbounds nuw i8, ptr %438, i64 1
-  store i8 0, ptr %4475, align 1
-  %4476 = getelementptr inbounds nuw i8, ptr %438, i64 4
-  store i32 0, ptr %4476, align 4
-  %4477 = getelementptr inbounds nuw i8, ptr %438, i64 3
-  %4478 = getelementptr inbounds nuw i8, ptr %438, i64 2
-  store i8 127, ptr %4478, align 2
-  store i8 64, ptr %4477, align 1
+4467:                                             ; preds = %3
+  %4468 = getelementptr inbounds nuw i8, ptr %437, i64 1
+  store i8 0, ptr %4468, align 1
+  %4469 = getelementptr inbounds nuw i8, ptr %437, i64 4
+  store i32 0, ptr %4469, align 4
+  %4470 = getelementptr inbounds nuw i8, ptr %437, i64 3
+  %4471 = getelementptr inbounds nuw i8, ptr %437, i64 2
+  store i8 127, ptr %4471, align 2
+  store i8 64, ptr %4470, align 1
+  %4472 = getelementptr inbounds nuw i8, ptr %437, i64 9
+  store i8 0, ptr %4472, align 1
+  %4473 = getelementptr inbounds nuw i8, ptr %437, i64 12
+  store i32 0, ptr %4473, align 4
+  %4474 = getelementptr inbounds nuw i8, ptr %437, i64 11
+  %4475 = getelementptr inbounds nuw i8, ptr %437, i64 10
+  store i8 127, ptr %4475, align 2
+  store i8 64, ptr %4474, align 1
+  %4476 = getelementptr inbounds nuw i8, ptr %437, i64 17
+  store i8 0, ptr %4476, align 1
+  %4477 = getelementptr inbounds nuw i8, ptr %437, i64 20
+  store i32 0, ptr %4477, align 4
+  %4478 = getelementptr inbounds nuw i8, ptr %437, i64 19
+  %4479 = getelementptr inbounds nuw i8, ptr %437, i64 18
+  store i8 126, ptr %4479, align 2
+  store i8 64, ptr %4478, align 1
+  %4480 = getelementptr inbounds nuw i8, ptr %438, i64 1
+  store i8 0, ptr %4480, align 1
+  %4481 = getelementptr inbounds nuw i8, ptr %438, i64 4
+  store i32 0, ptr %4481, align 4
+  %4482 = getelementptr inbounds nuw i8, ptr %438, i64 3
+  %4483 = getelementptr inbounds nuw i8, ptr %438, i64 2
+  store i8 127, ptr %4483, align 2
+  store i8 64, ptr %4482, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %437, i64 3, ptr nonnull %438, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4479:                                             ; preds = %3
-  %4480 = getelementptr inbounds nuw i8, ptr %439, i64 1
-  store i8 0, ptr %4480, align 1
-  %4481 = getelementptr inbounds nuw i8, ptr %439, i64 4
-  store i32 0, ptr %4481, align 4
-  %4482 = getelementptr inbounds nuw i8, ptr %439, i64 3
-  %4483 = getelementptr inbounds nuw i8, ptr %439, i64 2
-  store i8 127, ptr %4483, align 2
-  store i8 64, ptr %4482, align 1
-  %4484 = getelementptr inbounds nuw i8, ptr %439, i64 9
-  store i8 0, ptr %4484, align 1
-  %4485 = getelementptr inbounds nuw i8, ptr %439, i64 12
-  store i32 0, ptr %4485, align 4
-  %4486 = getelementptr inbounds nuw i8, ptr %439, i64 11
-  %4487 = getelementptr inbounds nuw i8, ptr %439, i64 10
-  store i8 126, ptr %4487, align 2
-  store i8 64, ptr %4486, align 1
-  %4488 = getelementptr inbounds nuw i8, ptr %439, i64 17
-  store i8 0, ptr %4488, align 1
-  %4489 = getelementptr inbounds nuw i8, ptr %439, i64 20
-  store i32 0, ptr %4489, align 4
-  %4490 = getelementptr inbounds nuw i8, ptr %439, i64 19
-  %4491 = getelementptr inbounds nuw i8, ptr %439, i64 18
-  store i8 126, ptr %4491, align 2
-  store i8 64, ptr %4490, align 1
-  %4492 = getelementptr inbounds nuw i8, ptr %440, i64 1
-  store i8 0, ptr %4492, align 1
-  %4493 = getelementptr inbounds nuw i8, ptr %440, i64 4
-  store i32 0, ptr %4493, align 4
-  %4494 = getelementptr inbounds nuw i8, ptr %440, i64 3
-  %4495 = getelementptr inbounds nuw i8, ptr %440, i64 2
-  store i8 127, ptr %4495, align 2
-  store i8 64, ptr %4494, align 1
+4484:                                             ; preds = %3
+  %4485 = getelementptr inbounds nuw i8, ptr %439, i64 1
+  store i8 0, ptr %4485, align 1
+  %4486 = getelementptr inbounds nuw i8, ptr %439, i64 4
+  store i32 0, ptr %4486, align 4
+  %4487 = getelementptr inbounds nuw i8, ptr %439, i64 3
+  %4488 = getelementptr inbounds nuw i8, ptr %439, i64 2
+  store i8 127, ptr %4488, align 2
+  store i8 64, ptr %4487, align 1
+  %4489 = getelementptr inbounds nuw i8, ptr %439, i64 9
+  store i8 0, ptr %4489, align 1
+  %4490 = getelementptr inbounds nuw i8, ptr %439, i64 12
+  store i32 0, ptr %4490, align 4
+  %4491 = getelementptr inbounds nuw i8, ptr %439, i64 11
+  %4492 = getelementptr inbounds nuw i8, ptr %439, i64 10
+  store i8 126, ptr %4492, align 2
+  store i8 64, ptr %4491, align 1
+  %4493 = getelementptr inbounds nuw i8, ptr %439, i64 17
+  store i8 0, ptr %4493, align 1
+  %4494 = getelementptr inbounds nuw i8, ptr %439, i64 20
+  store i32 0, ptr %4494, align 4
+  %4495 = getelementptr inbounds nuw i8, ptr %439, i64 19
+  %4496 = getelementptr inbounds nuw i8, ptr %439, i64 18
+  store i8 126, ptr %4496, align 2
+  store i8 64, ptr %4495, align 1
+  %4497 = getelementptr inbounds nuw i8, ptr %440, i64 1
+  store i8 0, ptr %4497, align 1
+  %4498 = getelementptr inbounds nuw i8, ptr %440, i64 4
+  store i32 0, ptr %4498, align 4
+  %4499 = getelementptr inbounds nuw i8, ptr %440, i64 3
+  %4500 = getelementptr inbounds nuw i8, ptr %440, i64 2
+  store i8 127, ptr %4500, align 2
+  store i8 64, ptr %4499, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %439, i64 3, ptr nonnull %440, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4496:                                             ; preds = %3
-  %4497 = getelementptr inbounds nuw i8, ptr %441, i64 1
-  store i8 0, ptr %4497, align 1
-  %4498 = getelementptr inbounds nuw i8, ptr %441, i64 4
-  store i32 0, ptr %4498, align 4
-  %4499 = getelementptr inbounds nuw i8, ptr %441, i64 3
-  %4500 = getelementptr inbounds nuw i8, ptr %441, i64 2
-  store i8 127, ptr %4500, align 2
-  store i8 64, ptr %4499, align 1
-  %4501 = getelementptr inbounds nuw i8, ptr %442, i64 1
-  store i8 0, ptr %4501, align 1
-  %4502 = getelementptr inbounds nuw i8, ptr %442, i64 4
-  store i32 0, ptr %4502, align 4
-  %4503 = getelementptr inbounds nuw i8, ptr %442, i64 3
-  %4504 = getelementptr inbounds nuw i8, ptr %442, i64 2
-  store i8 127, ptr %4504, align 2
-  store i8 64, ptr %4503, align 1
+4501:                                             ; preds = %3
+  %4502 = getelementptr inbounds nuw i8, ptr %441, i64 1
+  store i8 0, ptr %4502, align 1
+  %4503 = getelementptr inbounds nuw i8, ptr %441, i64 4
+  store i32 0, ptr %4503, align 4
+  %4504 = getelementptr inbounds nuw i8, ptr %441, i64 3
+  %4505 = getelementptr inbounds nuw i8, ptr %441, i64 2
+  store i8 127, ptr %4505, align 2
+  store i8 64, ptr %4504, align 1
+  %4506 = getelementptr inbounds nuw i8, ptr %442, i64 1
+  store i8 0, ptr %4506, align 1
+  %4507 = getelementptr inbounds nuw i8, ptr %442, i64 4
+  store i32 0, ptr %4507, align 4
+  %4508 = getelementptr inbounds nuw i8, ptr %442, i64 3
+  %4509 = getelementptr inbounds nuw i8, ptr %442, i64 2
+  store i8 127, ptr %4509, align 2
+  store i8 64, ptr %4508, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %441, i64 1, ptr nonnull %442, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4505:                                             ; preds = %3
-  %4506 = getelementptr inbounds nuw i8, ptr %443, i64 1
-  store i8 0, ptr %4506, align 1
-  %4507 = getelementptr inbounds nuw i8, ptr %443, i64 4
-  store i32 0, ptr %4507, align 4
-  %4508 = getelementptr inbounds nuw i8, ptr %443, i64 3
-  %4509 = getelementptr inbounds nuw i8, ptr %443, i64 2
-  store i8 127, ptr %4509, align 2
-  store i8 64, ptr %4508, align 1
-  %4510 = getelementptr inbounds nuw i8, ptr %444, i64 1
-  store i8 0, ptr %4510, align 1
-  %4511 = getelementptr inbounds nuw i8, ptr %444, i64 4
-  store i32 0, ptr %4511, align 4
-  %4512 = getelementptr inbounds nuw i8, ptr %444, i64 3
-  %4513 = getelementptr inbounds nuw i8, ptr %444, i64 2
-  store i8 126, ptr %4513, align 2
-  store i8 64, ptr %4512, align 1
+4510:                                             ; preds = %3
+  %4511 = getelementptr inbounds nuw i8, ptr %443, i64 1
+  store i8 0, ptr %4511, align 1
+  %4512 = getelementptr inbounds nuw i8, ptr %443, i64 4
+  store i32 0, ptr %4512, align 4
+  %4513 = getelementptr inbounds nuw i8, ptr %443, i64 3
+  %4514 = getelementptr inbounds nuw i8, ptr %443, i64 2
+  store i8 127, ptr %4514, align 2
+  store i8 64, ptr %4513, align 1
+  %4515 = getelementptr inbounds nuw i8, ptr %444, i64 1
+  store i8 0, ptr %4515, align 1
+  %4516 = getelementptr inbounds nuw i8, ptr %444, i64 4
+  store i32 0, ptr %4516, align 4
+  %4517 = getelementptr inbounds nuw i8, ptr %444, i64 3
+  %4518 = getelementptr inbounds nuw i8, ptr %444, i64 2
+  store i8 126, ptr %4518, align 2
+  store i8 64, ptr %4517, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %443, i64 1, ptr nonnull %444, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4514:                                             ; preds = %3
-  %4515 = getelementptr inbounds nuw i8, ptr %445, i64 1
-  store i8 0, ptr %4515, align 1
-  %4516 = getelementptr inbounds nuw i8, ptr %445, i64 4
-  store i32 0, ptr %4516, align 4
-  %4517 = getelementptr inbounds nuw i8, ptr %445, i64 3
-  %4518 = getelementptr inbounds nuw i8, ptr %445, i64 2
-  store i8 127, ptr %4518, align 2
-  store i8 64, ptr %4517, align 1
-  %4519 = getelementptr inbounds nuw i8, ptr %446, i64 1
-  store i8 0, ptr %4519, align 1
-  %4520 = getelementptr inbounds nuw i8, ptr %446, i64 4
-  store i32 0, ptr %4520, align 4
-  %4521 = getelementptr inbounds nuw i8, ptr %446, i64 3
-  %4522 = getelementptr inbounds nuw i8, ptr %446, i64 2
-  store i8 127, ptr %4522, align 2
-  store i8 64, ptr %4521, align 1
+4519:                                             ; preds = %3
+  %4520 = getelementptr inbounds nuw i8, ptr %445, i64 1
+  store i8 0, ptr %4520, align 1
+  %4521 = getelementptr inbounds nuw i8, ptr %445, i64 4
+  store i32 0, ptr %4521, align 4
+  %4522 = getelementptr inbounds nuw i8, ptr %445, i64 3
+  %4523 = getelementptr inbounds nuw i8, ptr %445, i64 2
+  store i8 127, ptr %4523, align 2
+  store i8 64, ptr %4522, align 1
+  %4524 = getelementptr inbounds nuw i8, ptr %446, i64 1
+  store i8 0, ptr %4524, align 1
+  %4525 = getelementptr inbounds nuw i8, ptr %446, i64 4
+  store i32 0, ptr %4525, align 4
+  %4526 = getelementptr inbounds nuw i8, ptr %446, i64 3
+  %4527 = getelementptr inbounds nuw i8, ptr %446, i64 2
+  store i8 127, ptr %4527, align 2
+  store i8 64, ptr %4526, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %445, i64 1, ptr nonnull %446, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4523:                                             ; preds = %3
-  %4524 = getelementptr inbounds nuw i8, ptr %447, i64 1
-  store i8 0, ptr %4524, align 1
-  %4525 = getelementptr inbounds nuw i8, ptr %447, i64 4
-  store i32 0, ptr %4525, align 4
-  %4526 = getelementptr inbounds nuw i8, ptr %447, i64 3
-  %4527 = getelementptr inbounds nuw i8, ptr %447, i64 2
-  store i8 127, ptr %4527, align 2
-  store i8 64, ptr %4526, align 1
-  %4528 = getelementptr inbounds nuw i8, ptr %448, i64 1
-  store i8 0, ptr %4528, align 1
-  %4529 = getelementptr inbounds nuw i8, ptr %448, i64 4
-  store i32 0, ptr %4529, align 4
-  %4530 = getelementptr inbounds nuw i8, ptr %448, i64 3
-  %4531 = getelementptr inbounds nuw i8, ptr %448, i64 2
-  store i8 127, ptr %4531, align 2
-  store i8 64, ptr %4530, align 1
+4528:                                             ; preds = %3
+  %4529 = getelementptr inbounds nuw i8, ptr %447, i64 1
+  store i8 0, ptr %4529, align 1
+  %4530 = getelementptr inbounds nuw i8, ptr %447, i64 4
+  store i32 0, ptr %4530, align 4
+  %4531 = getelementptr inbounds nuw i8, ptr %447, i64 3
+  %4532 = getelementptr inbounds nuw i8, ptr %447, i64 2
+  store i8 127, ptr %4532, align 2
+  store i8 64, ptr %4531, align 1
+  %4533 = getelementptr inbounds nuw i8, ptr %448, i64 1
+  store i8 0, ptr %4533, align 1
+  %4534 = getelementptr inbounds nuw i8, ptr %448, i64 4
+  store i32 0, ptr %4534, align 4
+  %4535 = getelementptr inbounds nuw i8, ptr %448, i64 3
+  %4536 = getelementptr inbounds nuw i8, ptr %448, i64 2
+  store i8 127, ptr %4536, align 2
+  store i8 64, ptr %4535, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %447, i64 1, ptr nonnull %448, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4532:                                             ; preds = %3
-  %4533 = getelementptr inbounds nuw i8, ptr %449, i64 1
-  store i8 0, ptr %4533, align 1
-  %4534 = getelementptr inbounds nuw i8, ptr %449, i64 4
-  store i32 0, ptr %4534, align 4
-  %4535 = getelementptr inbounds nuw i8, ptr %449, i64 3
-  %4536 = getelementptr inbounds nuw i8, ptr %449, i64 2
-  store i8 127, ptr %4536, align 2
-  store i8 64, ptr %4535, align 1
-  %4537 = getelementptr inbounds nuw i8, ptr %450, i64 1
-  store i8 0, ptr %4537, align 1
-  %4538 = getelementptr inbounds nuw i8, ptr %450, i64 4
-  store i32 0, ptr %4538, align 4
-  %4539 = getelementptr inbounds nuw i8, ptr %450, i64 3
-  %4540 = getelementptr inbounds nuw i8, ptr %450, i64 2
-  store i8 126, ptr %4540, align 2
-  store i8 64, ptr %4539, align 1
+4537:                                             ; preds = %3
+  %4538 = getelementptr inbounds nuw i8, ptr %449, i64 1
+  store i8 0, ptr %4538, align 1
+  %4539 = getelementptr inbounds nuw i8, ptr %449, i64 4
+  store i32 0, ptr %4539, align 4
+  %4540 = getelementptr inbounds nuw i8, ptr %449, i64 3
+  %4541 = getelementptr inbounds nuw i8, ptr %449, i64 2
+  store i8 127, ptr %4541, align 2
+  store i8 64, ptr %4540, align 1
+  %4542 = getelementptr inbounds nuw i8, ptr %450, i64 1
+  store i8 0, ptr %4542, align 1
+  %4543 = getelementptr inbounds nuw i8, ptr %450, i64 4
+  store i32 0, ptr %4543, align 4
+  %4544 = getelementptr inbounds nuw i8, ptr %450, i64 3
+  %4545 = getelementptr inbounds nuw i8, ptr %450, i64 2
+  store i8 126, ptr %4545, align 2
+  store i8 64, ptr %4544, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %449, i64 1, ptr nonnull %450, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4541:                                             ; preds = %3
-  %4542 = getelementptr inbounds nuw i8, ptr %451, i64 1
-  store i8 0, ptr %4542, align 1
-  %4543 = getelementptr inbounds nuw i8, ptr %451, i64 4
-  store i32 0, ptr %4543, align 4
-  %4544 = getelementptr inbounds nuw i8, ptr %451, i64 3
-  %4545 = getelementptr inbounds nuw i8, ptr %451, i64 2
-  store i8 127, ptr %4545, align 2
-  store i8 64, ptr %4544, align 1
-  %4546 = getelementptr inbounds nuw i8, ptr %452, i64 1
-  store i8 0, ptr %4546, align 1
-  %4547 = getelementptr inbounds nuw i8, ptr %452, i64 4
-  store i32 0, ptr %4547, align 4
-  %4548 = getelementptr inbounds nuw i8, ptr %452, i64 3
-  %4549 = getelementptr inbounds nuw i8, ptr %452, i64 2
-  store i8 126, ptr %4549, align 2
-  store i8 64, ptr %4548, align 1
+4546:                                             ; preds = %3
+  %4547 = getelementptr inbounds nuw i8, ptr %451, i64 1
+  store i8 0, ptr %4547, align 1
+  %4548 = getelementptr inbounds nuw i8, ptr %451, i64 4
+  store i32 0, ptr %4548, align 4
+  %4549 = getelementptr inbounds nuw i8, ptr %451, i64 3
+  %4550 = getelementptr inbounds nuw i8, ptr %451, i64 2
+  store i8 127, ptr %4550, align 2
+  store i8 64, ptr %4549, align 1
+  %4551 = getelementptr inbounds nuw i8, ptr %452, i64 1
+  store i8 0, ptr %4551, align 1
+  %4552 = getelementptr inbounds nuw i8, ptr %452, i64 4
+  store i32 0, ptr %4552, align 4
+  %4553 = getelementptr inbounds nuw i8, ptr %452, i64 3
+  %4554 = getelementptr inbounds nuw i8, ptr %452, i64 2
+  store i8 126, ptr %4554, align 2
+  store i8 64, ptr %4553, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %451, i64 1, ptr nonnull %452, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4550:                                             ; preds = %3
-  %4551 = getelementptr inbounds nuw i8, ptr %453, i64 1
-  store i8 0, ptr %4551, align 1
-  %4552 = getelementptr inbounds nuw i8, ptr %453, i64 4
-  store i32 0, ptr %4552, align 4
-  %4553 = getelementptr inbounds nuw i8, ptr %453, i64 3
-  %4554 = getelementptr inbounds nuw i8, ptr %453, i64 2
-  store i8 127, ptr %4554, align 2
-  store i8 64, ptr %4553, align 1
-  %4555 = getelementptr inbounds nuw i8, ptr %454, i64 1
-  store i8 0, ptr %4555, align 1
-  %4556 = getelementptr inbounds nuw i8, ptr %454, i64 4
-  store i32 0, ptr %4556, align 4
-  %4557 = getelementptr inbounds nuw i8, ptr %454, i64 3
-  %4558 = getelementptr inbounds nuw i8, ptr %454, i64 2
-  store i8 126, ptr %4558, align 2
-  store i8 64, ptr %4557, align 1
+4555:                                             ; preds = %3
+  %4556 = getelementptr inbounds nuw i8, ptr %453, i64 1
+  store i8 0, ptr %4556, align 1
+  %4557 = getelementptr inbounds nuw i8, ptr %453, i64 4
+  store i32 0, ptr %4557, align 4
+  %4558 = getelementptr inbounds nuw i8, ptr %453, i64 3
+  %4559 = getelementptr inbounds nuw i8, ptr %453, i64 2
+  store i8 127, ptr %4559, align 2
+  store i8 64, ptr %4558, align 1
+  %4560 = getelementptr inbounds nuw i8, ptr %454, i64 1
+  store i8 0, ptr %4560, align 1
+  %4561 = getelementptr inbounds nuw i8, ptr %454, i64 4
+  store i32 0, ptr %4561, align 4
+  %4562 = getelementptr inbounds nuw i8, ptr %454, i64 3
+  %4563 = getelementptr inbounds nuw i8, ptr %454, i64 2
+  store i8 126, ptr %4563, align 2
+  store i8 64, ptr %4562, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %453, i64 1, ptr nonnull %454, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4559:                                             ; preds = %3
-  %4560 = getelementptr inbounds nuw i8, ptr %455, i64 1
-  store i8 0, ptr %4560, align 1
-  %4561 = getelementptr inbounds nuw i8, ptr %455, i64 4
-  store i32 0, ptr %4561, align 4
-  %4562 = getelementptr inbounds nuw i8, ptr %455, i64 3
-  %4563 = getelementptr inbounds nuw i8, ptr %455, i64 2
-  store i8 127, ptr %4563, align 2
-  store i8 64, ptr %4562, align 1
-  %4564 = getelementptr inbounds nuw i8, ptr %455, i64 9
-  store i8 0, ptr %4564, align 1
-  %4565 = getelementptr inbounds nuw i8, ptr %455, i64 12
-  store i32 0, ptr %4565, align 4
-  %4566 = getelementptr inbounds nuw i8, ptr %455, i64 11
-  %4567 = getelementptr inbounds nuw i8, ptr %455, i64 10
-  store i8 127, ptr %4567, align 2
-  store i8 64, ptr %4566, align 1
+4564:                                             ; preds = %3
+  %4565 = getelementptr inbounds nuw i8, ptr %455, i64 1
+  store i8 0, ptr %4565, align 1
+  %4566 = getelementptr inbounds nuw i8, ptr %455, i64 4
+  store i32 0, ptr %4566, align 4
+  %4567 = getelementptr inbounds nuw i8, ptr %455, i64 3
+  %4568 = getelementptr inbounds nuw i8, ptr %455, i64 2
+  store i8 127, ptr %4568, align 2
+  store i8 64, ptr %4567, align 1
+  %4569 = getelementptr inbounds nuw i8, ptr %455, i64 9
+  store i8 0, ptr %4569, align 1
+  %4570 = getelementptr inbounds nuw i8, ptr %455, i64 12
+  store i32 0, ptr %4570, align 4
+  %4571 = getelementptr inbounds nuw i8, ptr %455, i64 11
+  %4572 = getelementptr inbounds nuw i8, ptr %455, i64 10
+  store i8 127, ptr %4572, align 2
+  store i8 64, ptr %4571, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %455, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4568:                                             ; preds = %3
-  %4569 = getelementptr inbounds nuw i8, ptr %456, i64 1
-  store i8 0, ptr %4569, align 1
-  %4570 = getelementptr inbounds nuw i8, ptr %456, i64 4
-  store i32 0, ptr %4570, align 4
-  %4571 = getelementptr inbounds nuw i8, ptr %456, i64 3
-  %4572 = getelementptr inbounds nuw i8, ptr %456, i64 2
-  store i8 127, ptr %4572, align 2
-  store i8 64, ptr %4571, align 1
-  %4573 = getelementptr inbounds nuw i8, ptr %456, i64 9
-  store i8 0, ptr %4573, align 1
-  %4574 = getelementptr inbounds nuw i8, ptr %456, i64 12
-  store i32 0, ptr %4574, align 4
-  %4575 = getelementptr inbounds nuw i8, ptr %456, i64 11
-  %4576 = getelementptr inbounds nuw i8, ptr %456, i64 10
-  store i8 126, ptr %4576, align 2
-  store i8 64, ptr %4575, align 1
+4573:                                             ; preds = %3
+  %4574 = getelementptr inbounds nuw i8, ptr %456, i64 1
+  store i8 0, ptr %4574, align 1
+  %4575 = getelementptr inbounds nuw i8, ptr %456, i64 4
+  store i32 0, ptr %4575, align 4
+  %4576 = getelementptr inbounds nuw i8, ptr %456, i64 3
+  %4577 = getelementptr inbounds nuw i8, ptr %456, i64 2
+  store i8 127, ptr %4577, align 2
+  store i8 64, ptr %4576, align 1
+  %4578 = getelementptr inbounds nuw i8, ptr %456, i64 9
+  store i8 0, ptr %4578, align 1
+  %4579 = getelementptr inbounds nuw i8, ptr %456, i64 12
+  store i32 0, ptr %4579, align 4
+  %4580 = getelementptr inbounds nuw i8, ptr %456, i64 11
+  %4581 = getelementptr inbounds nuw i8, ptr %456, i64 10
+  store i8 126, ptr %4581, align 2
+  store i8 64, ptr %4580, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %456, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4577:                                             ; preds = %3
-  %4578 = getelementptr inbounds nuw i8, ptr %457, i64 1
-  store i8 0, ptr %4578, align 1
-  %4579 = getelementptr inbounds nuw i8, ptr %457, i64 4
-  store i32 0, ptr %4579, align 4
-  %4580 = getelementptr inbounds nuw i8, ptr %457, i64 3
-  %4581 = getelementptr inbounds nuw i8, ptr %457, i64 2
-  store i8 127, ptr %4581, align 2
-  store i8 64, ptr %4580, align 1
-  %4582 = getelementptr inbounds nuw i8, ptr %457, i64 9
-  store i8 0, ptr %4582, align 1
-  %4583 = getelementptr inbounds nuw i8, ptr %457, i64 12
-  store i32 0, ptr %4583, align 4
-  %4584 = getelementptr inbounds nuw i8, ptr %457, i64 11
-  %4585 = getelementptr inbounds nuw i8, ptr %457, i64 10
-  store i8 127, ptr %4585, align 2
-  store i8 64, ptr %4584, align 1
+4582:                                             ; preds = %3
+  %4583 = getelementptr inbounds nuw i8, ptr %457, i64 1
+  store i8 0, ptr %4583, align 1
+  %4584 = getelementptr inbounds nuw i8, ptr %457, i64 4
+  store i32 0, ptr %4584, align 4
+  %4585 = getelementptr inbounds nuw i8, ptr %457, i64 3
+  %4586 = getelementptr inbounds nuw i8, ptr %457, i64 2
+  store i8 127, ptr %4586, align 2
+  store i8 64, ptr %4585, align 1
+  %4587 = getelementptr inbounds nuw i8, ptr %457, i64 9
+  store i8 0, ptr %4587, align 1
+  %4588 = getelementptr inbounds nuw i8, ptr %457, i64 12
+  store i32 0, ptr %4588, align 4
+  %4589 = getelementptr inbounds nuw i8, ptr %457, i64 11
+  %4590 = getelementptr inbounds nuw i8, ptr %457, i64 10
+  store i8 127, ptr %4590, align 2
+  store i8 64, ptr %4589, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %457, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4586:                                             ; preds = %3
-  %4587 = getelementptr inbounds nuw i8, ptr %458, i64 1
-  store i8 0, ptr %4587, align 1
-  %4588 = getelementptr inbounds nuw i8, ptr %458, i64 4
-  store i32 0, ptr %4588, align 4
-  %4589 = getelementptr inbounds nuw i8, ptr %458, i64 3
-  %4590 = getelementptr inbounds nuw i8, ptr %458, i64 2
-  store i8 127, ptr %4590, align 2
-  store i8 64, ptr %4589, align 1
-  %4591 = getelementptr inbounds nuw i8, ptr %458, i64 9
-  store i8 0, ptr %4591, align 1
-  %4592 = getelementptr inbounds nuw i8, ptr %458, i64 12
-  store i32 0, ptr %4592, align 4
-  %4593 = getelementptr inbounds nuw i8, ptr %458, i64 11
-  %4594 = getelementptr inbounds nuw i8, ptr %458, i64 10
-  store i8 127, ptr %4594, align 2
-  store i8 64, ptr %4593, align 1
+4591:                                             ; preds = %3
+  %4592 = getelementptr inbounds nuw i8, ptr %458, i64 1
+  store i8 0, ptr %4592, align 1
+  %4593 = getelementptr inbounds nuw i8, ptr %458, i64 4
+  store i32 0, ptr %4593, align 4
+  %4594 = getelementptr inbounds nuw i8, ptr %458, i64 3
+  %4595 = getelementptr inbounds nuw i8, ptr %458, i64 2
+  store i8 127, ptr %4595, align 2
+  store i8 64, ptr %4594, align 1
+  %4596 = getelementptr inbounds nuw i8, ptr %458, i64 9
+  store i8 0, ptr %4596, align 1
+  %4597 = getelementptr inbounds nuw i8, ptr %458, i64 12
+  store i32 0, ptr %4597, align 4
+  %4598 = getelementptr inbounds nuw i8, ptr %458, i64 11
+  %4599 = getelementptr inbounds nuw i8, ptr %458, i64 10
+  store i8 127, ptr %4599, align 2
+  store i8 64, ptr %4598, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %458, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4595:                                             ; preds = %3
-  %4596 = getelementptr inbounds nuw i8, ptr %459, i64 1
-  store i8 0, ptr %4596, align 1
-  %4597 = getelementptr inbounds nuw i8, ptr %459, i64 4
-  store i32 0, ptr %4597, align 4
-  %4598 = getelementptr inbounds nuw i8, ptr %459, i64 3
-  %4599 = getelementptr inbounds nuw i8, ptr %459, i64 2
-  store i8 127, ptr %4599, align 2
-  store i8 64, ptr %4598, align 1
-  %4600 = getelementptr inbounds nuw i8, ptr %459, i64 9
-  store i8 0, ptr %4600, align 1
-  %4601 = getelementptr inbounds nuw i8, ptr %459, i64 12
-  store i32 0, ptr %4601, align 4
-  %4602 = getelementptr inbounds nuw i8, ptr %459, i64 11
-  %4603 = getelementptr inbounds nuw i8, ptr %459, i64 10
-  store i8 126, ptr %4603, align 2
-  store i8 64, ptr %4602, align 1
+4600:                                             ; preds = %3
+  %4601 = getelementptr inbounds nuw i8, ptr %459, i64 1
+  store i8 0, ptr %4601, align 1
+  %4602 = getelementptr inbounds nuw i8, ptr %459, i64 4
+  store i32 0, ptr %4602, align 4
+  %4603 = getelementptr inbounds nuw i8, ptr %459, i64 3
+  %4604 = getelementptr inbounds nuw i8, ptr %459, i64 2
+  store i8 127, ptr %4604, align 2
+  store i8 64, ptr %4603, align 1
+  %4605 = getelementptr inbounds nuw i8, ptr %459, i64 9
+  store i8 0, ptr %4605, align 1
+  %4606 = getelementptr inbounds nuw i8, ptr %459, i64 12
+  store i32 0, ptr %4606, align 4
+  %4607 = getelementptr inbounds nuw i8, ptr %459, i64 11
+  %4608 = getelementptr inbounds nuw i8, ptr %459, i64 10
+  store i8 126, ptr %4608, align 2
+  store i8 64, ptr %4607, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %459, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4604:                                             ; preds = %3
-  %4605 = getelementptr inbounds nuw i8, ptr %460, i64 1
-  store i8 0, ptr %4605, align 1
-  %4606 = getelementptr inbounds nuw i8, ptr %460, i64 4
-  store i32 0, ptr %4606, align 4
-  %4607 = getelementptr inbounds nuw i8, ptr %460, i64 3
-  %4608 = getelementptr inbounds nuw i8, ptr %460, i64 2
-  store i8 127, ptr %4608, align 2
-  store i8 64, ptr %4607, align 1
-  %4609 = getelementptr inbounds nuw i8, ptr %460, i64 9
-  store i8 0, ptr %4609, align 1
-  %4610 = getelementptr inbounds nuw i8, ptr %460, i64 12
-  store i32 0, ptr %4610, align 4
-  %4611 = getelementptr inbounds nuw i8, ptr %460, i64 11
-  %4612 = getelementptr inbounds nuw i8, ptr %460, i64 10
-  store i8 126, ptr %4612, align 2
-  store i8 64, ptr %4611, align 1
+4609:                                             ; preds = %3
+  %4610 = getelementptr inbounds nuw i8, ptr %460, i64 1
+  store i8 0, ptr %4610, align 1
+  %4611 = getelementptr inbounds nuw i8, ptr %460, i64 4
+  store i32 0, ptr %4611, align 4
+  %4612 = getelementptr inbounds nuw i8, ptr %460, i64 3
+  %4613 = getelementptr inbounds nuw i8, ptr %460, i64 2
+  store i8 127, ptr %4613, align 2
+  store i8 64, ptr %4612, align 1
+  %4614 = getelementptr inbounds nuw i8, ptr %460, i64 9
+  store i8 0, ptr %4614, align 1
+  %4615 = getelementptr inbounds nuw i8, ptr %460, i64 12
+  store i32 0, ptr %4615, align 4
+  %4616 = getelementptr inbounds nuw i8, ptr %460, i64 11
+  %4617 = getelementptr inbounds nuw i8, ptr %460, i64 10
+  store i8 126, ptr %4617, align 2
+  store i8 64, ptr %4616, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %460, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4613:                                             ; preds = %3
-  %4614 = getelementptr inbounds nuw i8, ptr %461, i64 1
-  store i8 0, ptr %4614, align 1
-  %4615 = getelementptr inbounds nuw i8, ptr %461, i64 4
-  store i32 0, ptr %4615, align 4
-  %4616 = getelementptr inbounds nuw i8, ptr %461, i64 3
-  %4617 = getelementptr inbounds nuw i8, ptr %461, i64 2
-  store i8 127, ptr %4617, align 2
-  store i8 64, ptr %4616, align 1
-  %4618 = getelementptr inbounds nuw i8, ptr %461, i64 9
-  store i8 0, ptr %4618, align 1
-  %4619 = getelementptr inbounds nuw i8, ptr %461, i64 12
-  store i32 0, ptr %4619, align 4
-  %4620 = getelementptr inbounds nuw i8, ptr %461, i64 11
-  %4621 = getelementptr inbounds nuw i8, ptr %461, i64 10
-  store i8 126, ptr %4621, align 2
-  store i8 64, ptr %4620, align 1
+4618:                                             ; preds = %3
+  %4619 = getelementptr inbounds nuw i8, ptr %461, i64 1
+  store i8 0, ptr %4619, align 1
+  %4620 = getelementptr inbounds nuw i8, ptr %461, i64 4
+  store i32 0, ptr %4620, align 4
+  %4621 = getelementptr inbounds nuw i8, ptr %461, i64 3
+  %4622 = getelementptr inbounds nuw i8, ptr %461, i64 2
+  store i8 127, ptr %4622, align 2
+  store i8 64, ptr %4621, align 1
+  %4623 = getelementptr inbounds nuw i8, ptr %461, i64 9
+  store i8 0, ptr %4623, align 1
+  %4624 = getelementptr inbounds nuw i8, ptr %461, i64 12
+  store i32 0, ptr %4624, align 4
+  %4625 = getelementptr inbounds nuw i8, ptr %461, i64 11
+  %4626 = getelementptr inbounds nuw i8, ptr %461, i64 10
+  store i8 126, ptr %4626, align 2
+  store i8 64, ptr %4625, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %461, i64 2, ptr null, i64 0, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4622:                                             ; preds = %3
-  %4623 = getelementptr inbounds nuw i8, ptr %462, i64 1
-  store i8 0, ptr %4623, align 1
-  %4624 = getelementptr inbounds nuw i8, ptr %462, i64 4
-  store i32 0, ptr %4624, align 4
-  %4625 = getelementptr inbounds nuw i8, ptr %462, i64 3
-  %4626 = getelementptr inbounds nuw i8, ptr %462, i64 2
-  store i8 127, ptr %4626, align 2
-  store i8 64, ptr %4625, align 1
-  %4627 = getelementptr inbounds nuw i8, ptr %462, i64 9
-  store i8 0, ptr %4627, align 1
-  %4628 = getelementptr inbounds nuw i8, ptr %462, i64 12
-  store i32 0, ptr %4628, align 4
-  %4629 = getelementptr inbounds nuw i8, ptr %462, i64 11
-  %4630 = getelementptr inbounds nuw i8, ptr %462, i64 10
-  store i8 127, ptr %4630, align 2
-  store i8 64, ptr %4629, align 1
-  %4631 = getelementptr inbounds nuw i8, ptr %463, i64 1
-  store i8 0, ptr %4631, align 1
-  %4632 = getelementptr inbounds nuw i8, ptr %463, i64 4
-  store i32 0, ptr %4632, align 4
-  %4633 = getelementptr inbounds nuw i8, ptr %463, i64 3
-  %4634 = getelementptr inbounds nuw i8, ptr %463, i64 2
-  store i8 127, ptr %4634, align 2
-  store i8 64, ptr %4633, align 1
+4627:                                             ; preds = %3
+  %4628 = getelementptr inbounds nuw i8, ptr %462, i64 1
+  store i8 0, ptr %4628, align 1
+  %4629 = getelementptr inbounds nuw i8, ptr %462, i64 4
+  store i32 0, ptr %4629, align 4
+  %4630 = getelementptr inbounds nuw i8, ptr %462, i64 3
+  %4631 = getelementptr inbounds nuw i8, ptr %462, i64 2
+  store i8 127, ptr %4631, align 2
+  store i8 64, ptr %4630, align 1
+  %4632 = getelementptr inbounds nuw i8, ptr %462, i64 9
+  store i8 0, ptr %4632, align 1
+  %4633 = getelementptr inbounds nuw i8, ptr %462, i64 12
+  store i32 0, ptr %4633, align 4
+  %4634 = getelementptr inbounds nuw i8, ptr %462, i64 11
+  %4635 = getelementptr inbounds nuw i8, ptr %462, i64 10
+  store i8 127, ptr %4635, align 2
+  store i8 64, ptr %4634, align 1
+  %4636 = getelementptr inbounds nuw i8, ptr %463, i64 1
+  store i8 0, ptr %4636, align 1
+  %4637 = getelementptr inbounds nuw i8, ptr %463, i64 4
+  store i32 0, ptr %4637, align 4
+  %4638 = getelementptr inbounds nuw i8, ptr %463, i64 3
+  %4639 = getelementptr inbounds nuw i8, ptr %463, i64 2
+  store i8 127, ptr %4639, align 2
+  store i8 64, ptr %4638, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %462, i64 2, ptr nonnull %463, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4635:                                             ; preds = %3
-  %4636 = getelementptr inbounds nuw i8, ptr %464, i64 1
-  store i8 0, ptr %4636, align 1
-  %4637 = getelementptr inbounds nuw i8, ptr %464, i64 4
-  store i32 0, ptr %4637, align 4
-  %4638 = getelementptr inbounds nuw i8, ptr %464, i64 3
-  %4639 = getelementptr inbounds nuw i8, ptr %464, i64 2
-  store i8 127, ptr %4639, align 2
-  store i8 64, ptr %4638, align 1
-  %4640 = getelementptr inbounds nuw i8, ptr %464, i64 9
-  store i8 0, ptr %4640, align 1
-  %4641 = getelementptr inbounds nuw i8, ptr %464, i64 12
-  store i32 0, ptr %4641, align 4
-  %4642 = getelementptr inbounds nuw i8, ptr %464, i64 11
-  %4643 = getelementptr inbounds nuw i8, ptr %464, i64 10
-  store i8 126, ptr %4643, align 2
-  store i8 64, ptr %4642, align 1
-  %4644 = getelementptr inbounds nuw i8, ptr %465, i64 1
-  store i8 0, ptr %4644, align 1
-  %4645 = getelementptr inbounds nuw i8, ptr %465, i64 4
-  store i32 0, ptr %4645, align 4
-  %4646 = getelementptr inbounds nuw i8, ptr %465, i64 3
-  %4647 = getelementptr inbounds nuw i8, ptr %465, i64 2
-  store i8 126, ptr %4647, align 2
-  store i8 64, ptr %4646, align 1
+4640:                                             ; preds = %3
+  %4641 = getelementptr inbounds nuw i8, ptr %464, i64 1
+  store i8 0, ptr %4641, align 1
+  %4642 = getelementptr inbounds nuw i8, ptr %464, i64 4
+  store i32 0, ptr %4642, align 4
+  %4643 = getelementptr inbounds nuw i8, ptr %464, i64 3
+  %4644 = getelementptr inbounds nuw i8, ptr %464, i64 2
+  store i8 127, ptr %4644, align 2
+  store i8 64, ptr %4643, align 1
+  %4645 = getelementptr inbounds nuw i8, ptr %464, i64 9
+  store i8 0, ptr %4645, align 1
+  %4646 = getelementptr inbounds nuw i8, ptr %464, i64 12
+  store i32 0, ptr %4646, align 4
+  %4647 = getelementptr inbounds nuw i8, ptr %464, i64 11
+  %4648 = getelementptr inbounds nuw i8, ptr %464, i64 10
+  store i8 126, ptr %4648, align 2
+  store i8 64, ptr %4647, align 1
+  %4649 = getelementptr inbounds nuw i8, ptr %465, i64 1
+  store i8 0, ptr %4649, align 1
+  %4650 = getelementptr inbounds nuw i8, ptr %465, i64 4
+  store i32 0, ptr %4650, align 4
+  %4651 = getelementptr inbounds nuw i8, ptr %465, i64 3
+  %4652 = getelementptr inbounds nuw i8, ptr %465, i64 2
+  store i8 126, ptr %4652, align 2
+  store i8 64, ptr %4651, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %464, i64 2, ptr nonnull %465, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4648:                                             ; preds = %3
-  %4649 = getelementptr inbounds nuw i8, ptr %466, i64 1
-  store i8 0, ptr %4649, align 1
-  %4650 = getelementptr inbounds nuw i8, ptr %466, i64 4
-  store i32 0, ptr %4650, align 4
-  %4651 = getelementptr inbounds nuw i8, ptr %466, i64 3
-  %4652 = getelementptr inbounds nuw i8, ptr %466, i64 2
-  store i8 127, ptr %4652, align 2
-  store i8 64, ptr %4651, align 1
-  %4653 = getelementptr inbounds nuw i8, ptr %466, i64 9
-  store i8 0, ptr %4653, align 1
-  %4654 = getelementptr inbounds nuw i8, ptr %466, i64 12
-  store i32 0, ptr %4654, align 4
-  %4655 = getelementptr inbounds nuw i8, ptr %466, i64 11
-  %4656 = getelementptr inbounds nuw i8, ptr %466, i64 10
-  store i8 127, ptr %4656, align 2
-  store i8 64, ptr %4655, align 1
-  %4657 = getelementptr inbounds nuw i8, ptr %467, i64 1
-  store i8 0, ptr %4657, align 1
-  %4658 = getelementptr inbounds nuw i8, ptr %467, i64 4
-  store i32 0, ptr %4658, align 4
-  %4659 = getelementptr inbounds nuw i8, ptr %467, i64 3
-  %4660 = getelementptr inbounds nuw i8, ptr %467, i64 2
-  store i8 127, ptr %4660, align 2
-  store i8 64, ptr %4659, align 1
+4653:                                             ; preds = %3
+  %4654 = getelementptr inbounds nuw i8, ptr %466, i64 1
+  store i8 0, ptr %4654, align 1
+  %4655 = getelementptr inbounds nuw i8, ptr %466, i64 4
+  store i32 0, ptr %4655, align 4
+  %4656 = getelementptr inbounds nuw i8, ptr %466, i64 3
+  %4657 = getelementptr inbounds nuw i8, ptr %466, i64 2
+  store i8 127, ptr %4657, align 2
+  store i8 64, ptr %4656, align 1
+  %4658 = getelementptr inbounds nuw i8, ptr %466, i64 9
+  store i8 0, ptr %4658, align 1
+  %4659 = getelementptr inbounds nuw i8, ptr %466, i64 12
+  store i32 0, ptr %4659, align 4
+  %4660 = getelementptr inbounds nuw i8, ptr %466, i64 11
+  %4661 = getelementptr inbounds nuw i8, ptr %466, i64 10
+  store i8 127, ptr %4661, align 2
+  store i8 64, ptr %4660, align 1
+  %4662 = getelementptr inbounds nuw i8, ptr %467, i64 1
+  store i8 0, ptr %4662, align 1
+  %4663 = getelementptr inbounds nuw i8, ptr %467, i64 4
+  store i32 0, ptr %4663, align 4
+  %4664 = getelementptr inbounds nuw i8, ptr %467, i64 3
+  %4665 = getelementptr inbounds nuw i8, ptr %467, i64 2
+  store i8 127, ptr %4665, align 2
+  store i8 64, ptr %4664, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %466, i64 2, ptr nonnull %467, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4661:                                             ; preds = %3
-  %4662 = getelementptr inbounds nuw i8, ptr %468, i64 1
-  store i8 0, ptr %4662, align 1
-  %4663 = getelementptr inbounds nuw i8, ptr %468, i64 4
-  store i32 0, ptr %4663, align 4
-  %4664 = getelementptr inbounds nuw i8, ptr %468, i64 3
-  %4665 = getelementptr inbounds nuw i8, ptr %468, i64 2
-  store i8 127, ptr %4665, align 2
-  store i8 64, ptr %4664, align 1
-  %4666 = getelementptr inbounds nuw i8, ptr %468, i64 9
-  store i8 0, ptr %4666, align 1
-  %4667 = getelementptr inbounds nuw i8, ptr %468, i64 12
-  store i32 0, ptr %4667, align 4
-  %4668 = getelementptr inbounds nuw i8, ptr %468, i64 11
-  %4669 = getelementptr inbounds nuw i8, ptr %468, i64 10
-  store i8 127, ptr %4669, align 2
-  store i8 64, ptr %4668, align 1
-  %4670 = getelementptr inbounds nuw i8, ptr %469, i64 1
-  store i8 0, ptr %4670, align 1
-  %4671 = getelementptr inbounds nuw i8, ptr %469, i64 4
-  store i32 0, ptr %4671, align 4
-  %4672 = getelementptr inbounds nuw i8, ptr %469, i64 3
-  %4673 = getelementptr inbounds nuw i8, ptr %469, i64 2
-  store i8 127, ptr %4673, align 2
-  store i8 64, ptr %4672, align 1
+4666:                                             ; preds = %3
+  %4667 = getelementptr inbounds nuw i8, ptr %468, i64 1
+  store i8 0, ptr %4667, align 1
+  %4668 = getelementptr inbounds nuw i8, ptr %468, i64 4
+  store i32 0, ptr %4668, align 4
+  %4669 = getelementptr inbounds nuw i8, ptr %468, i64 3
+  %4670 = getelementptr inbounds nuw i8, ptr %468, i64 2
+  store i8 127, ptr %4670, align 2
+  store i8 64, ptr %4669, align 1
+  %4671 = getelementptr inbounds nuw i8, ptr %468, i64 9
+  store i8 0, ptr %4671, align 1
+  %4672 = getelementptr inbounds nuw i8, ptr %468, i64 12
+  store i32 0, ptr %4672, align 4
+  %4673 = getelementptr inbounds nuw i8, ptr %468, i64 11
+  %4674 = getelementptr inbounds nuw i8, ptr %468, i64 10
+  store i8 127, ptr %4674, align 2
+  store i8 64, ptr %4673, align 1
+  %4675 = getelementptr inbounds nuw i8, ptr %469, i64 1
+  store i8 0, ptr %4675, align 1
+  %4676 = getelementptr inbounds nuw i8, ptr %469, i64 4
+  store i32 0, ptr %4676, align 4
+  %4677 = getelementptr inbounds nuw i8, ptr %469, i64 3
+  %4678 = getelementptr inbounds nuw i8, ptr %469, i64 2
+  store i8 127, ptr %4678, align 2
+  store i8 64, ptr %4677, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %468, i64 2, ptr nonnull %469, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4674:                                             ; preds = %3
-  %4675 = getelementptr inbounds nuw i8, ptr %470, i64 1
-  store i8 0, ptr %4675, align 1
-  %4676 = getelementptr inbounds nuw i8, ptr %470, i64 4
-  store i32 0, ptr %4676, align 4
-  %4677 = getelementptr inbounds nuw i8, ptr %470, i64 3
-  %4678 = getelementptr inbounds nuw i8, ptr %470, i64 2
-  store i8 127, ptr %4678, align 2
-  store i8 64, ptr %4677, align 1
-  %4679 = getelementptr inbounds nuw i8, ptr %470, i64 9
-  store i8 0, ptr %4679, align 1
-  %4680 = getelementptr inbounds nuw i8, ptr %470, i64 12
-  store i32 0, ptr %4680, align 4
-  %4681 = getelementptr inbounds nuw i8, ptr %470, i64 11
-  %4682 = getelementptr inbounds nuw i8, ptr %470, i64 10
-  store i8 126, ptr %4682, align 2
-  store i8 64, ptr %4681, align 1
-  %4683 = getelementptr inbounds nuw i8, ptr %471, i64 1
-  store i8 0, ptr %4683, align 1
-  %4684 = getelementptr inbounds nuw i8, ptr %471, i64 4
-  store i32 0, ptr %4684, align 4
-  %4685 = getelementptr inbounds nuw i8, ptr %471, i64 3
-  %4686 = getelementptr inbounds nuw i8, ptr %471, i64 2
-  store i8 126, ptr %4686, align 2
-  store i8 64, ptr %4685, align 1
+4679:                                             ; preds = %3
+  %4680 = getelementptr inbounds nuw i8, ptr %470, i64 1
+  store i8 0, ptr %4680, align 1
+  %4681 = getelementptr inbounds nuw i8, ptr %470, i64 4
+  store i32 0, ptr %4681, align 4
+  %4682 = getelementptr inbounds nuw i8, ptr %470, i64 3
+  %4683 = getelementptr inbounds nuw i8, ptr %470, i64 2
+  store i8 127, ptr %4683, align 2
+  store i8 64, ptr %4682, align 1
+  %4684 = getelementptr inbounds nuw i8, ptr %470, i64 9
+  store i8 0, ptr %4684, align 1
+  %4685 = getelementptr inbounds nuw i8, ptr %470, i64 12
+  store i32 0, ptr %4685, align 4
+  %4686 = getelementptr inbounds nuw i8, ptr %470, i64 11
+  %4687 = getelementptr inbounds nuw i8, ptr %470, i64 10
+  store i8 126, ptr %4687, align 2
+  store i8 64, ptr %4686, align 1
+  %4688 = getelementptr inbounds nuw i8, ptr %471, i64 1
+  store i8 0, ptr %4688, align 1
+  %4689 = getelementptr inbounds nuw i8, ptr %471, i64 4
+  store i32 0, ptr %4689, align 4
+  %4690 = getelementptr inbounds nuw i8, ptr %471, i64 3
+  %4691 = getelementptr inbounds nuw i8, ptr %471, i64 2
+  store i8 126, ptr %4691, align 2
+  store i8 64, ptr %4690, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %470, i64 2, ptr nonnull %471, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4687:                                             ; preds = %3
-  %4688 = getelementptr inbounds nuw i8, ptr %472, i64 1
-  store i8 0, ptr %4688, align 1
-  %4689 = getelementptr inbounds nuw i8, ptr %472, i64 4
-  store i32 0, ptr %4689, align 4
-  %4690 = getelementptr inbounds nuw i8, ptr %472, i64 3
-  %4691 = getelementptr inbounds nuw i8, ptr %472, i64 2
-  store i8 127, ptr %4691, align 2
-  store i8 64, ptr %4690, align 1
-  %4692 = getelementptr inbounds nuw i8, ptr %472, i64 9
-  store i8 0, ptr %4692, align 1
-  %4693 = getelementptr inbounds nuw i8, ptr %472, i64 12
-  store i32 0, ptr %4693, align 4
-  %4694 = getelementptr inbounds nuw i8, ptr %472, i64 11
-  %4695 = getelementptr inbounds nuw i8, ptr %472, i64 10
-  store i8 126, ptr %4695, align 2
-  store i8 64, ptr %4694, align 1
-  %4696 = getelementptr inbounds nuw i8, ptr %473, i64 1
-  store i8 0, ptr %4696, align 1
-  %4697 = getelementptr inbounds nuw i8, ptr %473, i64 4
-  store i32 0, ptr %4697, align 4
-  %4698 = getelementptr inbounds nuw i8, ptr %473, i64 3
-  %4699 = getelementptr inbounds nuw i8, ptr %473, i64 2
-  store i8 126, ptr %4699, align 2
-  store i8 64, ptr %4698, align 1
+4692:                                             ; preds = %3
+  %4693 = getelementptr inbounds nuw i8, ptr %472, i64 1
+  store i8 0, ptr %4693, align 1
+  %4694 = getelementptr inbounds nuw i8, ptr %472, i64 4
+  store i32 0, ptr %4694, align 4
+  %4695 = getelementptr inbounds nuw i8, ptr %472, i64 3
+  %4696 = getelementptr inbounds nuw i8, ptr %472, i64 2
+  store i8 127, ptr %4696, align 2
+  store i8 64, ptr %4695, align 1
+  %4697 = getelementptr inbounds nuw i8, ptr %472, i64 9
+  store i8 0, ptr %4697, align 1
+  %4698 = getelementptr inbounds nuw i8, ptr %472, i64 12
+  store i32 0, ptr %4698, align 4
+  %4699 = getelementptr inbounds nuw i8, ptr %472, i64 11
+  %4700 = getelementptr inbounds nuw i8, ptr %472, i64 10
+  store i8 126, ptr %4700, align 2
+  store i8 64, ptr %4699, align 1
+  %4701 = getelementptr inbounds nuw i8, ptr %473, i64 1
+  store i8 0, ptr %4701, align 1
+  %4702 = getelementptr inbounds nuw i8, ptr %473, i64 4
+  store i32 0, ptr %4702, align 4
+  %4703 = getelementptr inbounds nuw i8, ptr %473, i64 3
+  %4704 = getelementptr inbounds nuw i8, ptr %473, i64 2
+  store i8 126, ptr %4704, align 2
+  store i8 64, ptr %4703, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %472, i64 2, ptr nonnull %473, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4700:                                             ; preds = %3
-  %4701 = getelementptr inbounds nuw i8, ptr %474, i64 1
-  store i8 0, ptr %4701, align 1
-  %4702 = getelementptr inbounds nuw i8, ptr %474, i64 4
-  store i32 0, ptr %4702, align 4
-  %4703 = getelementptr inbounds nuw i8, ptr %474, i64 3
-  %4704 = getelementptr inbounds nuw i8, ptr %474, i64 2
-  store i8 127, ptr %4704, align 2
-  store i8 64, ptr %4703, align 1
-  %4705 = getelementptr inbounds nuw i8, ptr %474, i64 9
-  store i8 0, ptr %4705, align 1
-  %4706 = getelementptr inbounds nuw i8, ptr %474, i64 12
-  store i32 0, ptr %4706, align 4
-  %4707 = getelementptr inbounds nuw i8, ptr %474, i64 11
-  %4708 = getelementptr inbounds nuw i8, ptr %474, i64 10
-  store i8 126, ptr %4708, align 2
-  store i8 64, ptr %4707, align 1
-  %4709 = getelementptr inbounds nuw i8, ptr %475, i64 1
-  store i8 0, ptr %4709, align 1
-  %4710 = getelementptr inbounds nuw i8, ptr %475, i64 4
-  store i32 0, ptr %4710, align 4
-  %4711 = getelementptr inbounds nuw i8, ptr %475, i64 3
-  %4712 = getelementptr inbounds nuw i8, ptr %475, i64 2
-  store i8 126, ptr %4712, align 2
-  store i8 64, ptr %4711, align 1
+4705:                                             ; preds = %3
+  %4706 = getelementptr inbounds nuw i8, ptr %474, i64 1
+  store i8 0, ptr %4706, align 1
+  %4707 = getelementptr inbounds nuw i8, ptr %474, i64 4
+  store i32 0, ptr %4707, align 4
+  %4708 = getelementptr inbounds nuw i8, ptr %474, i64 3
+  %4709 = getelementptr inbounds nuw i8, ptr %474, i64 2
+  store i8 127, ptr %4709, align 2
+  store i8 64, ptr %4708, align 1
+  %4710 = getelementptr inbounds nuw i8, ptr %474, i64 9
+  store i8 0, ptr %4710, align 1
+  %4711 = getelementptr inbounds nuw i8, ptr %474, i64 12
+  store i32 0, ptr %4711, align 4
+  %4712 = getelementptr inbounds nuw i8, ptr %474, i64 11
+  %4713 = getelementptr inbounds nuw i8, ptr %474, i64 10
+  store i8 126, ptr %4713, align 2
+  store i8 64, ptr %4712, align 1
+  %4714 = getelementptr inbounds nuw i8, ptr %475, i64 1
+  store i8 0, ptr %4714, align 1
+  %4715 = getelementptr inbounds nuw i8, ptr %475, i64 4
+  store i32 0, ptr %4715, align 4
+  %4716 = getelementptr inbounds nuw i8, ptr %475, i64 3
+  %4717 = getelementptr inbounds nuw i8, ptr %475, i64 2
+  store i8 126, ptr %4717, align 2
+  store i8 64, ptr %4716, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %474, i64 2, ptr nonnull %475, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4713:                                             ; preds = %3
-  %4714 = getelementptr inbounds nuw i8, ptr %476, i64 1
-  store i8 0, ptr %4714, align 1
-  %4715 = getelementptr inbounds nuw i8, ptr %476, i64 4
-  store i32 0, ptr %4715, align 4
-  %4716 = getelementptr inbounds nuw i8, ptr %476, i64 3
-  %4717 = getelementptr inbounds nuw i8, ptr %476, i64 2
-  store i8 127, ptr %4717, align 2
-  store i8 64, ptr %4716, align 1
-  %4718 = getelementptr inbounds nuw i8, ptr %476, i64 9
-  store i8 0, ptr %4718, align 1
-  %4719 = getelementptr inbounds nuw i8, ptr %476, i64 12
-  store i32 0, ptr %4719, align 4
-  %4720 = getelementptr inbounds nuw i8, ptr %476, i64 11
-  %4721 = getelementptr inbounds nuw i8, ptr %476, i64 10
-  store i8 127, ptr %4721, align 2
-  store i8 64, ptr %4720, align 1
-  %4722 = getelementptr inbounds nuw i8, ptr %477, i64 1
-  store i8 0, ptr %4722, align 1
-  %4723 = getelementptr inbounds nuw i8, ptr %477, i64 4
-  store i32 0, ptr %4723, align 4
-  %4724 = getelementptr inbounds nuw i8, ptr %477, i64 3
-  %4725 = getelementptr inbounds nuw i8, ptr %477, i64 2
-  store i8 127, ptr %4725, align 2
-  store i8 64, ptr %4724, align 1
+4718:                                             ; preds = %3
+  %4719 = getelementptr inbounds nuw i8, ptr %476, i64 1
+  store i8 0, ptr %4719, align 1
+  %4720 = getelementptr inbounds nuw i8, ptr %476, i64 4
+  store i32 0, ptr %4720, align 4
+  %4721 = getelementptr inbounds nuw i8, ptr %476, i64 3
+  %4722 = getelementptr inbounds nuw i8, ptr %476, i64 2
+  store i8 127, ptr %4722, align 2
+  store i8 64, ptr %4721, align 1
+  %4723 = getelementptr inbounds nuw i8, ptr %476, i64 9
+  store i8 0, ptr %4723, align 1
+  %4724 = getelementptr inbounds nuw i8, ptr %476, i64 12
+  store i32 0, ptr %4724, align 4
+  %4725 = getelementptr inbounds nuw i8, ptr %476, i64 11
+  %4726 = getelementptr inbounds nuw i8, ptr %476, i64 10
+  store i8 127, ptr %4726, align 2
+  store i8 64, ptr %4725, align 1
+  %4727 = getelementptr inbounds nuw i8, ptr %477, i64 1
+  store i8 0, ptr %4727, align 1
+  %4728 = getelementptr inbounds nuw i8, ptr %477, i64 4
+  store i32 0, ptr %4728, align 4
+  %4729 = getelementptr inbounds nuw i8, ptr %477, i64 3
+  %4730 = getelementptr inbounds nuw i8, ptr %477, i64 2
+  store i8 127, ptr %4730, align 2
+  store i8 64, ptr %4729, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %476, i64 2, ptr nonnull %477, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4726:                                             ; preds = %3
-  %4727 = getelementptr inbounds nuw i8, ptr %478, i64 1
-  store i8 0, ptr %4727, align 1
-  %4728 = getelementptr inbounds nuw i8, ptr %478, i64 4
-  store i32 0, ptr %4728, align 4
-  %4729 = getelementptr inbounds nuw i8, ptr %478, i64 3
-  %4730 = getelementptr inbounds nuw i8, ptr %478, i64 2
-  store i8 127, ptr %4730, align 2
-  store i8 64, ptr %4729, align 1
-  %4731 = getelementptr inbounds nuw i8, ptr %478, i64 9
-  store i8 0, ptr %4731, align 1
-  %4732 = getelementptr inbounds nuw i8, ptr %478, i64 12
-  store i32 0, ptr %4732, align 4
-  %4733 = getelementptr inbounds nuw i8, ptr %478, i64 11
-  %4734 = getelementptr inbounds nuw i8, ptr %478, i64 10
-  store i8 126, ptr %4734, align 2
-  store i8 64, ptr %4733, align 1
-  %4735 = getelementptr inbounds nuw i8, ptr %479, i64 1
-  store i8 0, ptr %4735, align 1
-  %4736 = getelementptr inbounds nuw i8, ptr %479, i64 4
-  store i32 0, ptr %4736, align 4
-  %4737 = getelementptr inbounds nuw i8, ptr %479, i64 3
-  %4738 = getelementptr inbounds nuw i8, ptr %479, i64 2
-  store i8 126, ptr %4738, align 2
-  store i8 64, ptr %4737, align 1
+4731:                                             ; preds = %3
+  %4732 = getelementptr inbounds nuw i8, ptr %478, i64 1
+  store i8 0, ptr %4732, align 1
+  %4733 = getelementptr inbounds nuw i8, ptr %478, i64 4
+  store i32 0, ptr %4733, align 4
+  %4734 = getelementptr inbounds nuw i8, ptr %478, i64 3
+  %4735 = getelementptr inbounds nuw i8, ptr %478, i64 2
+  store i8 127, ptr %4735, align 2
+  store i8 64, ptr %4734, align 1
+  %4736 = getelementptr inbounds nuw i8, ptr %478, i64 9
+  store i8 0, ptr %4736, align 1
+  %4737 = getelementptr inbounds nuw i8, ptr %478, i64 12
+  store i32 0, ptr %4737, align 4
+  %4738 = getelementptr inbounds nuw i8, ptr %478, i64 11
+  %4739 = getelementptr inbounds nuw i8, ptr %478, i64 10
+  store i8 126, ptr %4739, align 2
+  store i8 64, ptr %4738, align 1
+  %4740 = getelementptr inbounds nuw i8, ptr %479, i64 1
+  store i8 0, ptr %4740, align 1
+  %4741 = getelementptr inbounds nuw i8, ptr %479, i64 4
+  store i32 0, ptr %4741, align 4
+  %4742 = getelementptr inbounds nuw i8, ptr %479, i64 3
+  %4743 = getelementptr inbounds nuw i8, ptr %479, i64 2
+  store i8 126, ptr %4743, align 2
+  store i8 64, ptr %4742, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %478, i64 2, ptr nonnull %479, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4739:                                             ; preds = %3
-  %4740 = getelementptr inbounds nuw i8, ptr %480, i64 1
-  store i8 0, ptr %4740, align 1
-  %4741 = getelementptr inbounds nuw i8, ptr %480, i64 4
-  store i32 0, ptr %4741, align 4
-  %4742 = getelementptr inbounds nuw i8, ptr %480, i64 3
-  %4743 = getelementptr inbounds nuw i8, ptr %480, i64 2
-  store i8 127, ptr %4743, align 2
-  store i8 64, ptr %4742, align 1
-  %4744 = getelementptr inbounds nuw i8, ptr %480, i64 9
-  store i8 0, ptr %4744, align 1
-  %4745 = getelementptr inbounds nuw i8, ptr %480, i64 12
-  store i32 0, ptr %4745, align 4
-  %4746 = getelementptr inbounds nuw i8, ptr %480, i64 11
-  %4747 = getelementptr inbounds nuw i8, ptr %480, i64 10
-  store i8 127, ptr %4747, align 2
-  store i8 64, ptr %4746, align 1
-  %4748 = getelementptr inbounds nuw i8, ptr %481, i64 1
-  store i8 0, ptr %4748, align 1
-  %4749 = getelementptr inbounds nuw i8, ptr %481, i64 4
-  store i32 0, ptr %4749, align 4
-  %4750 = getelementptr inbounds nuw i8, ptr %481, i64 3
-  %4751 = getelementptr inbounds nuw i8, ptr %481, i64 2
-  store i8 127, ptr %4751, align 2
-  store i8 64, ptr %4750, align 1
+4744:                                             ; preds = %3
+  %4745 = getelementptr inbounds nuw i8, ptr %480, i64 1
+  store i8 0, ptr %4745, align 1
+  %4746 = getelementptr inbounds nuw i8, ptr %480, i64 4
+  store i32 0, ptr %4746, align 4
+  %4747 = getelementptr inbounds nuw i8, ptr %480, i64 3
+  %4748 = getelementptr inbounds nuw i8, ptr %480, i64 2
+  store i8 127, ptr %4748, align 2
+  store i8 64, ptr %4747, align 1
+  %4749 = getelementptr inbounds nuw i8, ptr %480, i64 9
+  store i8 0, ptr %4749, align 1
+  %4750 = getelementptr inbounds nuw i8, ptr %480, i64 12
+  store i32 0, ptr %4750, align 4
+  %4751 = getelementptr inbounds nuw i8, ptr %480, i64 11
+  %4752 = getelementptr inbounds nuw i8, ptr %480, i64 10
+  store i8 127, ptr %4752, align 2
+  store i8 64, ptr %4751, align 1
+  %4753 = getelementptr inbounds nuw i8, ptr %481, i64 1
+  store i8 0, ptr %4753, align 1
+  %4754 = getelementptr inbounds nuw i8, ptr %481, i64 4
+  store i32 0, ptr %4754, align 4
+  %4755 = getelementptr inbounds nuw i8, ptr %481, i64 3
+  %4756 = getelementptr inbounds nuw i8, ptr %481, i64 2
+  store i8 127, ptr %4756, align 2
+  store i8 64, ptr %4755, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %480, i64 2, ptr nonnull %481, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4752:                                             ; preds = %3
-  %4753 = getelementptr inbounds nuw i8, ptr %482, i64 1
-  store i8 0, ptr %4753, align 1
-  %4754 = getelementptr inbounds nuw i8, ptr %482, i64 4
-  store i32 0, ptr %4754, align 4
-  %4755 = getelementptr inbounds nuw i8, ptr %482, i64 3
-  %4756 = getelementptr inbounds nuw i8, ptr %482, i64 2
-  store i8 127, ptr %4756, align 2
-  store i8 64, ptr %4755, align 1
-  %4757 = getelementptr inbounds nuw i8, ptr %482, i64 9
-  store i8 0, ptr %4757, align 1
-  %4758 = getelementptr inbounds nuw i8, ptr %482, i64 12
-  store i32 0, ptr %4758, align 4
-  %4759 = getelementptr inbounds nuw i8, ptr %482, i64 11
-  %4760 = getelementptr inbounds nuw i8, ptr %482, i64 10
-  store i8 127, ptr %4760, align 2
-  store i8 64, ptr %4759, align 1
-  %4761 = getelementptr inbounds nuw i8, ptr %483, i64 1
-  store i8 0, ptr %4761, align 1
-  %4762 = getelementptr inbounds nuw i8, ptr %483, i64 4
-  store i32 0, ptr %4762, align 4
-  %4763 = getelementptr inbounds nuw i8, ptr %483, i64 3
-  %4764 = getelementptr inbounds nuw i8, ptr %483, i64 2
-  store i8 127, ptr %4764, align 2
-  store i8 64, ptr %4763, align 1
+4757:                                             ; preds = %3
+  %4758 = getelementptr inbounds nuw i8, ptr %482, i64 1
+  store i8 0, ptr %4758, align 1
+  %4759 = getelementptr inbounds nuw i8, ptr %482, i64 4
+  store i32 0, ptr %4759, align 4
+  %4760 = getelementptr inbounds nuw i8, ptr %482, i64 3
+  %4761 = getelementptr inbounds nuw i8, ptr %482, i64 2
+  store i8 127, ptr %4761, align 2
+  store i8 64, ptr %4760, align 1
+  %4762 = getelementptr inbounds nuw i8, ptr %482, i64 9
+  store i8 0, ptr %4762, align 1
+  %4763 = getelementptr inbounds nuw i8, ptr %482, i64 12
+  store i32 0, ptr %4763, align 4
+  %4764 = getelementptr inbounds nuw i8, ptr %482, i64 11
+  %4765 = getelementptr inbounds nuw i8, ptr %482, i64 10
+  store i8 127, ptr %4765, align 2
+  store i8 64, ptr %4764, align 1
+  %4766 = getelementptr inbounds nuw i8, ptr %483, i64 1
+  store i8 0, ptr %4766, align 1
+  %4767 = getelementptr inbounds nuw i8, ptr %483, i64 4
+  store i32 0, ptr %4767, align 4
+  %4768 = getelementptr inbounds nuw i8, ptr %483, i64 3
+  %4769 = getelementptr inbounds nuw i8, ptr %483, i64 2
+  store i8 127, ptr %4769, align 2
+  store i8 64, ptr %4768, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %482, i64 2, ptr nonnull %483, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4765:                                             ; preds = %3
-  %4766 = getelementptr inbounds nuw i8, ptr %484, i64 1
-  store i8 0, ptr %4766, align 1
-  %4767 = getelementptr inbounds nuw i8, ptr %484, i64 4
-  store i32 0, ptr %4767, align 4
-  %4768 = getelementptr inbounds nuw i8, ptr %484, i64 3
-  %4769 = getelementptr inbounds nuw i8, ptr %484, i64 2
-  store i8 127, ptr %4769, align 2
-  store i8 64, ptr %4768, align 1
-  %4770 = getelementptr inbounds nuw i8, ptr %484, i64 9
-  store i8 0, ptr %4770, align 1
-  %4771 = getelementptr inbounds nuw i8, ptr %484, i64 12
-  store i32 0, ptr %4771, align 4
-  %4772 = getelementptr inbounds nuw i8, ptr %484, i64 11
-  %4773 = getelementptr inbounds nuw i8, ptr %484, i64 10
-  store i8 126, ptr %4773, align 2
-  store i8 64, ptr %4772, align 1
-  %4774 = getelementptr inbounds nuw i8, ptr %485, i64 1
-  store i8 0, ptr %4774, align 1
-  %4775 = getelementptr inbounds nuw i8, ptr %485, i64 4
-  store i32 0, ptr %4775, align 4
-  %4776 = getelementptr inbounds nuw i8, ptr %485, i64 3
-  %4777 = getelementptr inbounds nuw i8, ptr %485, i64 2
-  store i8 126, ptr %4777, align 2
-  store i8 64, ptr %4776, align 1
+4770:                                             ; preds = %3
+  %4771 = getelementptr inbounds nuw i8, ptr %484, i64 1
+  store i8 0, ptr %4771, align 1
+  %4772 = getelementptr inbounds nuw i8, ptr %484, i64 4
+  store i32 0, ptr %4772, align 4
+  %4773 = getelementptr inbounds nuw i8, ptr %484, i64 3
+  %4774 = getelementptr inbounds nuw i8, ptr %484, i64 2
+  store i8 127, ptr %4774, align 2
+  store i8 64, ptr %4773, align 1
+  %4775 = getelementptr inbounds nuw i8, ptr %484, i64 9
+  store i8 0, ptr %4775, align 1
+  %4776 = getelementptr inbounds nuw i8, ptr %484, i64 12
+  store i32 0, ptr %4776, align 4
+  %4777 = getelementptr inbounds nuw i8, ptr %484, i64 11
+  %4778 = getelementptr inbounds nuw i8, ptr %484, i64 10
+  store i8 126, ptr %4778, align 2
+  store i8 64, ptr %4777, align 1
+  %4779 = getelementptr inbounds nuw i8, ptr %485, i64 1
+  store i8 0, ptr %4779, align 1
+  %4780 = getelementptr inbounds nuw i8, ptr %485, i64 4
+  store i32 0, ptr %4780, align 4
+  %4781 = getelementptr inbounds nuw i8, ptr %485, i64 3
+  %4782 = getelementptr inbounds nuw i8, ptr %485, i64 2
+  store i8 126, ptr %4782, align 2
+  store i8 64, ptr %4781, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %484, i64 2, ptr nonnull %485, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4778:                                             ; preds = %3
-  %4779 = getelementptr inbounds nuw i8, ptr %486, i64 1
-  store i8 0, ptr %4779, align 1
-  %4780 = getelementptr inbounds nuw i8, ptr %486, i64 4
-  store i32 0, ptr %4780, align 4
-  %4781 = getelementptr inbounds nuw i8, ptr %486, i64 3
-  %4782 = getelementptr inbounds nuw i8, ptr %486, i64 2
-  store i8 127, ptr %4782, align 2
-  store i8 64, ptr %4781, align 1
-  %4783 = getelementptr inbounds nuw i8, ptr %486, i64 9
-  store i8 0, ptr %4783, align 1
-  %4784 = getelementptr inbounds nuw i8, ptr %486, i64 12
-  store i32 0, ptr %4784, align 4
-  %4785 = getelementptr inbounds nuw i8, ptr %486, i64 11
-  %4786 = getelementptr inbounds nuw i8, ptr %486, i64 10
-  store i8 126, ptr %4786, align 2
-  store i8 64, ptr %4785, align 1
-  %4787 = getelementptr inbounds nuw i8, ptr %487, i64 1
-  store i8 0, ptr %4787, align 1
-  %4788 = getelementptr inbounds nuw i8, ptr %487, i64 4
-  store i32 0, ptr %4788, align 4
-  %4789 = getelementptr inbounds nuw i8, ptr %487, i64 3
-  %4790 = getelementptr inbounds nuw i8, ptr %487, i64 2
-  store i8 126, ptr %4790, align 2
-  store i8 64, ptr %4789, align 1
+4783:                                             ; preds = %3
+  %4784 = getelementptr inbounds nuw i8, ptr %486, i64 1
+  store i8 0, ptr %4784, align 1
+  %4785 = getelementptr inbounds nuw i8, ptr %486, i64 4
+  store i32 0, ptr %4785, align 4
+  %4786 = getelementptr inbounds nuw i8, ptr %486, i64 3
+  %4787 = getelementptr inbounds nuw i8, ptr %486, i64 2
+  store i8 127, ptr %4787, align 2
+  store i8 64, ptr %4786, align 1
+  %4788 = getelementptr inbounds nuw i8, ptr %486, i64 9
+  store i8 0, ptr %4788, align 1
+  %4789 = getelementptr inbounds nuw i8, ptr %486, i64 12
+  store i32 0, ptr %4789, align 4
+  %4790 = getelementptr inbounds nuw i8, ptr %486, i64 11
+  %4791 = getelementptr inbounds nuw i8, ptr %486, i64 10
+  store i8 126, ptr %4791, align 2
+  store i8 64, ptr %4790, align 1
+  %4792 = getelementptr inbounds nuw i8, ptr %487, i64 1
+  store i8 0, ptr %4792, align 1
+  %4793 = getelementptr inbounds nuw i8, ptr %487, i64 4
+  store i32 0, ptr %4793, align 4
+  %4794 = getelementptr inbounds nuw i8, ptr %487, i64 3
+  %4795 = getelementptr inbounds nuw i8, ptr %487, i64 2
+  store i8 126, ptr %4795, align 2
+  store i8 64, ptr %4794, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %486, i64 2, ptr nonnull %487, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4791:                                             ; preds = %3
-  %4792 = getelementptr inbounds nuw i8, ptr %488, i64 1
-  store i8 0, ptr %4792, align 1
-  %4793 = getelementptr inbounds nuw i8, ptr %488, i64 4
-  store i32 0, ptr %4793, align 4
-  %4794 = getelementptr inbounds nuw i8, ptr %488, i64 3
-  %4795 = getelementptr inbounds nuw i8, ptr %488, i64 2
-  store i8 127, ptr %4795, align 2
-  store i8 64, ptr %4794, align 1
-  %4796 = getelementptr inbounds nuw i8, ptr %488, i64 9
-  store i8 0, ptr %4796, align 1
-  %4797 = getelementptr inbounds nuw i8, ptr %488, i64 12
-  store i32 0, ptr %4797, align 4
-  %4798 = getelementptr inbounds nuw i8, ptr %488, i64 11
-  %4799 = getelementptr inbounds nuw i8, ptr %488, i64 10
-  store i8 126, ptr %4799, align 2
-  store i8 64, ptr %4798, align 1
-  %4800 = getelementptr inbounds nuw i8, ptr %489, i64 1
-  store i8 0, ptr %4800, align 1
-  %4801 = getelementptr inbounds nuw i8, ptr %489, i64 4
-  store i32 0, ptr %4801, align 4
-  %4802 = getelementptr inbounds nuw i8, ptr %489, i64 3
-  %4803 = getelementptr inbounds nuw i8, ptr %489, i64 2
-  store i8 126, ptr %4803, align 2
-  store i8 64, ptr %4802, align 1
+4796:                                             ; preds = %3
+  %4797 = getelementptr inbounds nuw i8, ptr %488, i64 1
+  store i8 0, ptr %4797, align 1
+  %4798 = getelementptr inbounds nuw i8, ptr %488, i64 4
+  store i32 0, ptr %4798, align 4
+  %4799 = getelementptr inbounds nuw i8, ptr %488, i64 3
+  %4800 = getelementptr inbounds nuw i8, ptr %488, i64 2
+  store i8 127, ptr %4800, align 2
+  store i8 64, ptr %4799, align 1
+  %4801 = getelementptr inbounds nuw i8, ptr %488, i64 9
+  store i8 0, ptr %4801, align 1
+  %4802 = getelementptr inbounds nuw i8, ptr %488, i64 12
+  store i32 0, ptr %4802, align 4
+  %4803 = getelementptr inbounds nuw i8, ptr %488, i64 11
+  %4804 = getelementptr inbounds nuw i8, ptr %488, i64 10
+  store i8 126, ptr %4804, align 2
+  store i8 64, ptr %4803, align 1
+  %4805 = getelementptr inbounds nuw i8, ptr %489, i64 1
+  store i8 0, ptr %4805, align 1
+  %4806 = getelementptr inbounds nuw i8, ptr %489, i64 4
+  store i32 0, ptr %4806, align 4
+  %4807 = getelementptr inbounds nuw i8, ptr %489, i64 3
+  %4808 = getelementptr inbounds nuw i8, ptr %489, i64 2
+  store i8 126, ptr %4808, align 2
+  store i8 64, ptr %4807, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %488, i64 2, ptr nonnull %489, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4804:                                             ; preds = %3
-  %4805 = getelementptr inbounds nuw i8, ptr %490, i64 1
-  store i8 0, ptr %4805, align 1
-  %4806 = getelementptr inbounds nuw i8, ptr %490, i64 4
-  store i32 0, ptr %4806, align 4
-  %4807 = getelementptr inbounds nuw i8, ptr %490, i64 3
-  %4808 = getelementptr inbounds nuw i8, ptr %490, i64 2
-  store i8 127, ptr %4808, align 2
-  store i8 64, ptr %4807, align 1
-  %4809 = getelementptr inbounds nuw i8, ptr %490, i64 9
-  store i8 0, ptr %4809, align 1
-  %4810 = getelementptr inbounds nuw i8, ptr %490, i64 12
-  store i32 0, ptr %4810, align 4
-  %4811 = getelementptr inbounds nuw i8, ptr %490, i64 11
-  %4812 = getelementptr inbounds nuw i8, ptr %490, i64 10
-  store i8 127, ptr %4812, align 2
-  store i8 64, ptr %4811, align 1
-  %4813 = getelementptr inbounds nuw i8, ptr %491, i64 1
-  store i8 0, ptr %4813, align 1
-  %4814 = getelementptr inbounds nuw i8, ptr %491, i64 4
-  store i32 0, ptr %4814, align 4
-  %4815 = getelementptr inbounds nuw i8, ptr %491, i64 3
-  %4816 = getelementptr inbounds nuw i8, ptr %491, i64 2
-  store i8 127, ptr %4816, align 2
-  store i8 64, ptr %4815, align 1
+4809:                                             ; preds = %3
+  %4810 = getelementptr inbounds nuw i8, ptr %490, i64 1
+  store i8 0, ptr %4810, align 1
+  %4811 = getelementptr inbounds nuw i8, ptr %490, i64 4
+  store i32 0, ptr %4811, align 4
+  %4812 = getelementptr inbounds nuw i8, ptr %490, i64 3
+  %4813 = getelementptr inbounds nuw i8, ptr %490, i64 2
+  store i8 127, ptr %4813, align 2
+  store i8 64, ptr %4812, align 1
+  %4814 = getelementptr inbounds nuw i8, ptr %490, i64 9
+  store i8 0, ptr %4814, align 1
+  %4815 = getelementptr inbounds nuw i8, ptr %490, i64 12
+  store i32 0, ptr %4815, align 4
+  %4816 = getelementptr inbounds nuw i8, ptr %490, i64 11
+  %4817 = getelementptr inbounds nuw i8, ptr %490, i64 10
+  store i8 127, ptr %4817, align 2
+  store i8 64, ptr %4816, align 1
+  %4818 = getelementptr inbounds nuw i8, ptr %491, i64 1
+  store i8 0, ptr %4818, align 1
+  %4819 = getelementptr inbounds nuw i8, ptr %491, i64 4
+  store i32 0, ptr %4819, align 4
+  %4820 = getelementptr inbounds nuw i8, ptr %491, i64 3
+  %4821 = getelementptr inbounds nuw i8, ptr %491, i64 2
+  store i8 127, ptr %4821, align 2
+  store i8 64, ptr %4820, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %490, i64 2, ptr nonnull %491, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4817:                                             ; preds = %3
-  %4818 = getelementptr inbounds nuw i8, ptr %492, i64 1
-  store i8 0, ptr %4818, align 1
-  %4819 = getelementptr inbounds nuw i8, ptr %492, i64 4
-  store i32 0, ptr %4819, align 4
-  %4820 = getelementptr inbounds nuw i8, ptr %492, i64 3
-  %4821 = getelementptr inbounds nuw i8, ptr %492, i64 2
-  store i8 127, ptr %4821, align 2
-  store i8 64, ptr %4820, align 1
-  %4822 = getelementptr inbounds nuw i8, ptr %492, i64 9
-  store i8 0, ptr %4822, align 1
-  %4823 = getelementptr inbounds nuw i8, ptr %492, i64 12
-  store i32 0, ptr %4823, align 4
-  %4824 = getelementptr inbounds nuw i8, ptr %492, i64 11
-  %4825 = getelementptr inbounds nuw i8, ptr %492, i64 10
-  store i8 126, ptr %4825, align 2
-  store i8 64, ptr %4824, align 1
-  %4826 = getelementptr inbounds nuw i8, ptr %493, i64 1
-  store i8 0, ptr %4826, align 1
-  %4827 = getelementptr inbounds nuw i8, ptr %493, i64 4
-  store i32 0, ptr %4827, align 4
-  %4828 = getelementptr inbounds nuw i8, ptr %493, i64 3
-  %4829 = getelementptr inbounds nuw i8, ptr %493, i64 2
-  store i8 126, ptr %4829, align 2
-  store i8 64, ptr %4828, align 1
+4822:                                             ; preds = %3
+  %4823 = getelementptr inbounds nuw i8, ptr %492, i64 1
+  store i8 0, ptr %4823, align 1
+  %4824 = getelementptr inbounds nuw i8, ptr %492, i64 4
+  store i32 0, ptr %4824, align 4
+  %4825 = getelementptr inbounds nuw i8, ptr %492, i64 3
+  %4826 = getelementptr inbounds nuw i8, ptr %492, i64 2
+  store i8 127, ptr %4826, align 2
+  store i8 64, ptr %4825, align 1
+  %4827 = getelementptr inbounds nuw i8, ptr %492, i64 9
+  store i8 0, ptr %4827, align 1
+  %4828 = getelementptr inbounds nuw i8, ptr %492, i64 12
+  store i32 0, ptr %4828, align 4
+  %4829 = getelementptr inbounds nuw i8, ptr %492, i64 11
+  %4830 = getelementptr inbounds nuw i8, ptr %492, i64 10
+  store i8 126, ptr %4830, align 2
+  store i8 64, ptr %4829, align 1
+  %4831 = getelementptr inbounds nuw i8, ptr %493, i64 1
+  store i8 0, ptr %4831, align 1
+  %4832 = getelementptr inbounds nuw i8, ptr %493, i64 4
+  store i32 0, ptr %4832, align 4
+  %4833 = getelementptr inbounds nuw i8, ptr %493, i64 3
+  %4834 = getelementptr inbounds nuw i8, ptr %493, i64 2
+  store i8 126, ptr %4834, align 2
+  store i8 64, ptr %4833, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %492, i64 2, ptr nonnull %493, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4830:                                             ; preds = %3
-  %4831 = getelementptr inbounds nuw i8, ptr %494, i64 1
-  store i8 0, ptr %4831, align 1
-  %4832 = getelementptr inbounds nuw i8, ptr %494, i64 4
-  store i32 0, ptr %4832, align 4
-  %4833 = getelementptr inbounds nuw i8, ptr %494, i64 3
-  %4834 = getelementptr inbounds nuw i8, ptr %494, i64 2
-  store i8 127, ptr %4834, align 2
-  store i8 64, ptr %4833, align 1
-  %4835 = getelementptr inbounds nuw i8, ptr %494, i64 9
-  store i8 0, ptr %4835, align 1
-  %4836 = getelementptr inbounds nuw i8, ptr %494, i64 12
-  store i32 0, ptr %4836, align 4
-  %4837 = getelementptr inbounds nuw i8, ptr %494, i64 11
-  %4838 = getelementptr inbounds nuw i8, ptr %494, i64 10
-  store i8 127, ptr %4838, align 2
-  store i8 64, ptr %4837, align 1
-  %4839 = getelementptr inbounds nuw i8, ptr %495, i64 1
-  store i8 0, ptr %4839, align 1
-  %4840 = getelementptr inbounds nuw i8, ptr %495, i64 4
-  store i32 0, ptr %4840, align 4
-  %4841 = getelementptr inbounds nuw i8, ptr %495, i64 3
-  %4842 = getelementptr inbounds nuw i8, ptr %495, i64 2
-  store i8 127, ptr %4842, align 2
-  store i8 64, ptr %4841, align 1
+4835:                                             ; preds = %3
+  %4836 = getelementptr inbounds nuw i8, ptr %494, i64 1
+  store i8 0, ptr %4836, align 1
+  %4837 = getelementptr inbounds nuw i8, ptr %494, i64 4
+  store i32 0, ptr %4837, align 4
+  %4838 = getelementptr inbounds nuw i8, ptr %494, i64 3
+  %4839 = getelementptr inbounds nuw i8, ptr %494, i64 2
+  store i8 127, ptr %4839, align 2
+  store i8 64, ptr %4838, align 1
+  %4840 = getelementptr inbounds nuw i8, ptr %494, i64 9
+  store i8 0, ptr %4840, align 1
+  %4841 = getelementptr inbounds nuw i8, ptr %494, i64 12
+  store i32 0, ptr %4841, align 4
+  %4842 = getelementptr inbounds nuw i8, ptr %494, i64 11
+  %4843 = getelementptr inbounds nuw i8, ptr %494, i64 10
+  store i8 127, ptr %4843, align 2
+  store i8 64, ptr %4842, align 1
+  %4844 = getelementptr inbounds nuw i8, ptr %495, i64 1
+  store i8 0, ptr %4844, align 1
+  %4845 = getelementptr inbounds nuw i8, ptr %495, i64 4
+  store i32 0, ptr %4845, align 4
+  %4846 = getelementptr inbounds nuw i8, ptr %495, i64 3
+  %4847 = getelementptr inbounds nuw i8, ptr %495, i64 2
+  store i8 127, ptr %4847, align 2
+  store i8 64, ptr %4846, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %494, i64 2, ptr nonnull %495, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4843:                                             ; preds = %3
-  %4844 = getelementptr inbounds nuw i8, ptr %496, i64 1
-  store i8 0, ptr %4844, align 1
-  %4845 = getelementptr inbounds nuw i8, ptr %496, i64 4
-  store i32 0, ptr %4845, align 4
-  %4846 = getelementptr inbounds nuw i8, ptr %496, i64 3
-  %4847 = getelementptr inbounds nuw i8, ptr %496, i64 2
-  store i8 127, ptr %4847, align 2
-  store i8 64, ptr %4846, align 1
-  %4848 = getelementptr inbounds nuw i8, ptr %496, i64 9
-  store i8 0, ptr %4848, align 1
-  %4849 = getelementptr inbounds nuw i8, ptr %496, i64 12
-  store i32 0, ptr %4849, align 4
-  %4850 = getelementptr inbounds nuw i8, ptr %496, i64 11
-  %4851 = getelementptr inbounds nuw i8, ptr %496, i64 10
-  store i8 127, ptr %4851, align 2
-  store i8 64, ptr %4850, align 1
-  %4852 = getelementptr inbounds nuw i8, ptr %497, i64 1
-  store i8 0, ptr %4852, align 1
-  %4853 = getelementptr inbounds nuw i8, ptr %497, i64 4
-  store i32 0, ptr %4853, align 4
-  %4854 = getelementptr inbounds nuw i8, ptr %497, i64 3
-  %4855 = getelementptr inbounds nuw i8, ptr %497, i64 2
-  store i8 127, ptr %4855, align 2
-  store i8 64, ptr %4854, align 1
+4848:                                             ; preds = %3
+  %4849 = getelementptr inbounds nuw i8, ptr %496, i64 1
+  store i8 0, ptr %4849, align 1
+  %4850 = getelementptr inbounds nuw i8, ptr %496, i64 4
+  store i32 0, ptr %4850, align 4
+  %4851 = getelementptr inbounds nuw i8, ptr %496, i64 3
+  %4852 = getelementptr inbounds nuw i8, ptr %496, i64 2
+  store i8 127, ptr %4852, align 2
+  store i8 64, ptr %4851, align 1
+  %4853 = getelementptr inbounds nuw i8, ptr %496, i64 9
+  store i8 0, ptr %4853, align 1
+  %4854 = getelementptr inbounds nuw i8, ptr %496, i64 12
+  store i32 0, ptr %4854, align 4
+  %4855 = getelementptr inbounds nuw i8, ptr %496, i64 11
+  %4856 = getelementptr inbounds nuw i8, ptr %496, i64 10
+  store i8 127, ptr %4856, align 2
+  store i8 64, ptr %4855, align 1
+  %4857 = getelementptr inbounds nuw i8, ptr %497, i64 1
+  store i8 0, ptr %4857, align 1
+  %4858 = getelementptr inbounds nuw i8, ptr %497, i64 4
+  store i32 0, ptr %4858, align 4
+  %4859 = getelementptr inbounds nuw i8, ptr %497, i64 3
+  %4860 = getelementptr inbounds nuw i8, ptr %497, i64 2
+  store i8 127, ptr %4860, align 2
+  store i8 64, ptr %4859, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %496, i64 2, ptr nonnull %497, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4856:                                             ; preds = %3
-  %4857 = getelementptr inbounds nuw i8, ptr %498, i64 1
-  store i8 0, ptr %4857, align 1
-  %4858 = getelementptr inbounds nuw i8, ptr %498, i64 4
-  store i32 0, ptr %4858, align 4
-  %4859 = getelementptr inbounds nuw i8, ptr %498, i64 3
-  %4860 = getelementptr inbounds nuw i8, ptr %498, i64 2
-  store i8 127, ptr %4860, align 2
-  store i8 64, ptr %4859, align 1
-  %4861 = getelementptr inbounds nuw i8, ptr %498, i64 9
-  store i8 0, ptr %4861, align 1
-  %4862 = getelementptr inbounds nuw i8, ptr %498, i64 12
-  store i32 0, ptr %4862, align 4
-  %4863 = getelementptr inbounds nuw i8, ptr %498, i64 11
-  %4864 = getelementptr inbounds nuw i8, ptr %498, i64 10
-  store i8 126, ptr %4864, align 2
-  store i8 64, ptr %4863, align 1
-  %4865 = getelementptr inbounds nuw i8, ptr %499, i64 1
-  store i8 0, ptr %4865, align 1
-  %4866 = getelementptr inbounds nuw i8, ptr %499, i64 4
-  store i32 0, ptr %4866, align 4
-  %4867 = getelementptr inbounds nuw i8, ptr %499, i64 3
-  %4868 = getelementptr inbounds nuw i8, ptr %499, i64 2
-  store i8 126, ptr %4868, align 2
-  store i8 64, ptr %4867, align 1
+4861:                                             ; preds = %3
+  %4862 = getelementptr inbounds nuw i8, ptr %498, i64 1
+  store i8 0, ptr %4862, align 1
+  %4863 = getelementptr inbounds nuw i8, ptr %498, i64 4
+  store i32 0, ptr %4863, align 4
+  %4864 = getelementptr inbounds nuw i8, ptr %498, i64 3
+  %4865 = getelementptr inbounds nuw i8, ptr %498, i64 2
+  store i8 127, ptr %4865, align 2
+  store i8 64, ptr %4864, align 1
+  %4866 = getelementptr inbounds nuw i8, ptr %498, i64 9
+  store i8 0, ptr %4866, align 1
+  %4867 = getelementptr inbounds nuw i8, ptr %498, i64 12
+  store i32 0, ptr %4867, align 4
+  %4868 = getelementptr inbounds nuw i8, ptr %498, i64 11
+  %4869 = getelementptr inbounds nuw i8, ptr %498, i64 10
+  store i8 126, ptr %4869, align 2
+  store i8 64, ptr %4868, align 1
+  %4870 = getelementptr inbounds nuw i8, ptr %499, i64 1
+  store i8 0, ptr %4870, align 1
+  %4871 = getelementptr inbounds nuw i8, ptr %499, i64 4
+  store i32 0, ptr %4871, align 4
+  %4872 = getelementptr inbounds nuw i8, ptr %499, i64 3
+  %4873 = getelementptr inbounds nuw i8, ptr %499, i64 2
+  store i8 126, ptr %4873, align 2
+  store i8 64, ptr %4872, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %498, i64 2, ptr nonnull %499, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4869:                                             ; preds = %3
-  %4870 = getelementptr inbounds nuw i8, ptr %500, i64 1
-  store i8 0, ptr %4870, align 1
-  %4871 = getelementptr inbounds nuw i8, ptr %500, i64 4
-  store i32 0, ptr %4871, align 4
-  %4872 = getelementptr inbounds nuw i8, ptr %500, i64 3
-  %4873 = getelementptr inbounds nuw i8, ptr %500, i64 2
-  store i8 127, ptr %4873, align 2
-  store i8 64, ptr %4872, align 1
-  %4874 = getelementptr inbounds nuw i8, ptr %500, i64 9
-  store i8 0, ptr %4874, align 1
-  %4875 = getelementptr inbounds nuw i8, ptr %500, i64 12
-  store i32 0, ptr %4875, align 4
-  %4876 = getelementptr inbounds nuw i8, ptr %500, i64 11
-  %4877 = getelementptr inbounds nuw i8, ptr %500, i64 10
-  store i8 126, ptr %4877, align 2
-  store i8 64, ptr %4876, align 1
-  %4878 = getelementptr inbounds nuw i8, ptr %501, i64 1
-  store i8 0, ptr %4878, align 1
-  %4879 = getelementptr inbounds nuw i8, ptr %501, i64 4
-  store i32 0, ptr %4879, align 4
-  %4880 = getelementptr inbounds nuw i8, ptr %501, i64 3
-  %4881 = getelementptr inbounds nuw i8, ptr %501, i64 2
-  store i8 126, ptr %4881, align 2
-  store i8 64, ptr %4880, align 1
+4874:                                             ; preds = %3
+  %4875 = getelementptr inbounds nuw i8, ptr %500, i64 1
+  store i8 0, ptr %4875, align 1
+  %4876 = getelementptr inbounds nuw i8, ptr %500, i64 4
+  store i32 0, ptr %4876, align 4
+  %4877 = getelementptr inbounds nuw i8, ptr %500, i64 3
+  %4878 = getelementptr inbounds nuw i8, ptr %500, i64 2
+  store i8 127, ptr %4878, align 2
+  store i8 64, ptr %4877, align 1
+  %4879 = getelementptr inbounds nuw i8, ptr %500, i64 9
+  store i8 0, ptr %4879, align 1
+  %4880 = getelementptr inbounds nuw i8, ptr %500, i64 12
+  store i32 0, ptr %4880, align 4
+  %4881 = getelementptr inbounds nuw i8, ptr %500, i64 11
+  %4882 = getelementptr inbounds nuw i8, ptr %500, i64 10
+  store i8 126, ptr %4882, align 2
+  store i8 64, ptr %4881, align 1
+  %4883 = getelementptr inbounds nuw i8, ptr %501, i64 1
+  store i8 0, ptr %4883, align 1
+  %4884 = getelementptr inbounds nuw i8, ptr %501, i64 4
+  store i32 0, ptr %4884, align 4
+  %4885 = getelementptr inbounds nuw i8, ptr %501, i64 3
+  %4886 = getelementptr inbounds nuw i8, ptr %501, i64 2
+  store i8 126, ptr %4886, align 2
+  store i8 64, ptr %4885, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %500, i64 2, ptr nonnull %501, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4882:                                             ; preds = %3
-  %4883 = getelementptr inbounds nuw i8, ptr %502, i64 1
-  store i8 0, ptr %4883, align 1
-  %4884 = getelementptr inbounds nuw i8, ptr %502, i64 4
-  store i32 0, ptr %4884, align 4
-  %4885 = getelementptr inbounds nuw i8, ptr %502, i64 3
-  %4886 = getelementptr inbounds nuw i8, ptr %502, i64 2
-  store i8 127, ptr %4886, align 2
-  store i8 64, ptr %4885, align 1
-  %4887 = getelementptr inbounds nuw i8, ptr %502, i64 9
-  store i8 0, ptr %4887, align 1
-  %4888 = getelementptr inbounds nuw i8, ptr %502, i64 12
-  store i32 0, ptr %4888, align 4
-  %4889 = getelementptr inbounds nuw i8, ptr %502, i64 11
-  %4890 = getelementptr inbounds nuw i8, ptr %502, i64 10
-  store i8 126, ptr %4890, align 2
-  store i8 64, ptr %4889, align 1
-  %4891 = getelementptr inbounds nuw i8, ptr %503, i64 1
-  store i8 0, ptr %4891, align 1
-  %4892 = getelementptr inbounds nuw i8, ptr %503, i64 4
-  store i32 0, ptr %4892, align 4
-  %4893 = getelementptr inbounds nuw i8, ptr %503, i64 3
-  %4894 = getelementptr inbounds nuw i8, ptr %503, i64 2
-  store i8 126, ptr %4894, align 2
-  store i8 64, ptr %4893, align 1
+4887:                                             ; preds = %3
+  %4888 = getelementptr inbounds nuw i8, ptr %502, i64 1
+  store i8 0, ptr %4888, align 1
+  %4889 = getelementptr inbounds nuw i8, ptr %502, i64 4
+  store i32 0, ptr %4889, align 4
+  %4890 = getelementptr inbounds nuw i8, ptr %502, i64 3
+  %4891 = getelementptr inbounds nuw i8, ptr %502, i64 2
+  store i8 127, ptr %4891, align 2
+  store i8 64, ptr %4890, align 1
+  %4892 = getelementptr inbounds nuw i8, ptr %502, i64 9
+  store i8 0, ptr %4892, align 1
+  %4893 = getelementptr inbounds nuw i8, ptr %502, i64 12
+  store i32 0, ptr %4893, align 4
+  %4894 = getelementptr inbounds nuw i8, ptr %502, i64 11
+  %4895 = getelementptr inbounds nuw i8, ptr %502, i64 10
+  store i8 126, ptr %4895, align 2
+  store i8 64, ptr %4894, align 1
+  %4896 = getelementptr inbounds nuw i8, ptr %503, i64 1
+  store i8 0, ptr %4896, align 1
+  %4897 = getelementptr inbounds nuw i8, ptr %503, i64 4
+  store i32 0, ptr %4897, align 4
+  %4898 = getelementptr inbounds nuw i8, ptr %503, i64 3
+  %4899 = getelementptr inbounds nuw i8, ptr %503, i64 2
+  store i8 126, ptr %4899, align 2
+  store i8 64, ptr %4898, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %502, i64 2, ptr nonnull %503, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4895:                                             ; preds = %3
-  %4896 = getelementptr inbounds nuw i8, ptr %504, i64 1
-  store i8 0, ptr %4896, align 1
-  %4897 = getelementptr inbounds nuw i8, ptr %504, i64 4
-  store i32 0, ptr %4897, align 4
-  %4898 = getelementptr inbounds nuw i8, ptr %504, i64 3
-  %4899 = getelementptr inbounds nuw i8, ptr %504, i64 2
-  store i8 127, ptr %4899, align 2
-  store i8 64, ptr %4898, align 1
-  %4900 = getelementptr inbounds nuw i8, ptr %504, i64 9
-  store i8 0, ptr %4900, align 1
-  %4901 = getelementptr inbounds nuw i8, ptr %504, i64 12
-  store i32 0, ptr %4901, align 4
-  %4902 = getelementptr inbounds nuw i8, ptr %504, i64 11
-  %4903 = getelementptr inbounds nuw i8, ptr %504, i64 10
-  store i8 127, ptr %4903, align 2
-  store i8 64, ptr %4902, align 1
-  %4904 = getelementptr inbounds nuw i8, ptr %505, i64 1
-  store i8 0, ptr %4904, align 1
-  %4905 = getelementptr inbounds nuw i8, ptr %505, i64 4
-  store i32 0, ptr %4905, align 4
-  %4906 = getelementptr inbounds nuw i8, ptr %505, i64 3
-  %4907 = getelementptr inbounds nuw i8, ptr %505, i64 2
-  store i8 127, ptr %4907, align 2
-  store i8 64, ptr %4906, align 1
+4900:                                             ; preds = %3
+  %4901 = getelementptr inbounds nuw i8, ptr %504, i64 1
+  store i8 0, ptr %4901, align 1
+  %4902 = getelementptr inbounds nuw i8, ptr %504, i64 4
+  store i32 0, ptr %4902, align 4
+  %4903 = getelementptr inbounds nuw i8, ptr %504, i64 3
+  %4904 = getelementptr inbounds nuw i8, ptr %504, i64 2
+  store i8 127, ptr %4904, align 2
+  store i8 64, ptr %4903, align 1
+  %4905 = getelementptr inbounds nuw i8, ptr %504, i64 9
+  store i8 0, ptr %4905, align 1
+  %4906 = getelementptr inbounds nuw i8, ptr %504, i64 12
+  store i32 0, ptr %4906, align 4
+  %4907 = getelementptr inbounds nuw i8, ptr %504, i64 11
+  %4908 = getelementptr inbounds nuw i8, ptr %504, i64 10
+  store i8 127, ptr %4908, align 2
+  store i8 64, ptr %4907, align 1
+  %4909 = getelementptr inbounds nuw i8, ptr %505, i64 1
+  store i8 0, ptr %4909, align 1
+  %4910 = getelementptr inbounds nuw i8, ptr %505, i64 4
+  store i32 0, ptr %4910, align 4
+  %4911 = getelementptr inbounds nuw i8, ptr %505, i64 3
+  %4912 = getelementptr inbounds nuw i8, ptr %505, i64 2
+  store i8 127, ptr %4912, align 2
+  store i8 64, ptr %4911, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %504, i64 2, ptr nonnull %505, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4908:                                             ; preds = %3
-  %4909 = getelementptr inbounds nuw i8, ptr %506, i64 1
-  store i8 0, ptr %4909, align 1
-  %4910 = getelementptr inbounds nuw i8, ptr %506, i64 4
-  store i32 0, ptr %4910, align 4
-  %4911 = getelementptr inbounds nuw i8, ptr %506, i64 3
-  %4912 = getelementptr inbounds nuw i8, ptr %506, i64 2
-  store i8 127, ptr %4912, align 2
-  store i8 64, ptr %4911, align 1
-  %4913 = getelementptr inbounds nuw i8, ptr %506, i64 9
-  store i8 0, ptr %4913, align 1
-  %4914 = getelementptr inbounds nuw i8, ptr %506, i64 12
-  store i32 0, ptr %4914, align 4
-  %4915 = getelementptr inbounds nuw i8, ptr %506, i64 11
-  %4916 = getelementptr inbounds nuw i8, ptr %506, i64 10
-  store i8 126, ptr %4916, align 2
-  store i8 64, ptr %4915, align 1
-  %4917 = getelementptr inbounds nuw i8, ptr %507, i64 1
-  store i8 0, ptr %4917, align 1
-  %4918 = getelementptr inbounds nuw i8, ptr %507, i64 4
-  store i32 0, ptr %4918, align 4
-  %4919 = getelementptr inbounds nuw i8, ptr %507, i64 3
-  %4920 = getelementptr inbounds nuw i8, ptr %507, i64 2
-  store i8 126, ptr %4920, align 2
-  store i8 64, ptr %4919, align 1
+4913:                                             ; preds = %3
+  %4914 = getelementptr inbounds nuw i8, ptr %506, i64 1
+  store i8 0, ptr %4914, align 1
+  %4915 = getelementptr inbounds nuw i8, ptr %506, i64 4
+  store i32 0, ptr %4915, align 4
+  %4916 = getelementptr inbounds nuw i8, ptr %506, i64 3
+  %4917 = getelementptr inbounds nuw i8, ptr %506, i64 2
+  store i8 127, ptr %4917, align 2
+  store i8 64, ptr %4916, align 1
+  %4918 = getelementptr inbounds nuw i8, ptr %506, i64 9
+  store i8 0, ptr %4918, align 1
+  %4919 = getelementptr inbounds nuw i8, ptr %506, i64 12
+  store i32 0, ptr %4919, align 4
+  %4920 = getelementptr inbounds nuw i8, ptr %506, i64 11
+  %4921 = getelementptr inbounds nuw i8, ptr %506, i64 10
+  store i8 126, ptr %4921, align 2
+  store i8 64, ptr %4920, align 1
+  %4922 = getelementptr inbounds nuw i8, ptr %507, i64 1
+  store i8 0, ptr %4922, align 1
+  %4923 = getelementptr inbounds nuw i8, ptr %507, i64 4
+  store i32 0, ptr %4923, align 4
+  %4924 = getelementptr inbounds nuw i8, ptr %507, i64 3
+  %4925 = getelementptr inbounds nuw i8, ptr %507, i64 2
+  store i8 126, ptr %4925, align 2
+  store i8 64, ptr %4924, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %506, i64 2, ptr nonnull %507, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4921:                                             ; preds = %3
-  %4922 = getelementptr inbounds nuw i8, ptr %508, i64 1
-  store i8 0, ptr %4922, align 1
-  %4923 = getelementptr inbounds nuw i8, ptr %508, i64 4
-  store i32 0, ptr %4923, align 4
-  %4924 = getelementptr inbounds nuw i8, ptr %508, i64 3
-  %4925 = getelementptr inbounds nuw i8, ptr %508, i64 2
-  store i8 127, ptr %4925, align 2
-  store i8 64, ptr %4924, align 1
-  %4926 = getelementptr inbounds nuw i8, ptr %508, i64 9
-  store i8 0, ptr %4926, align 1
-  %4927 = getelementptr inbounds nuw i8, ptr %508, i64 12
-  store i32 0, ptr %4927, align 4
-  %4928 = getelementptr inbounds nuw i8, ptr %508, i64 11
-  %4929 = getelementptr inbounds nuw i8, ptr %508, i64 10
-  store i8 127, ptr %4929, align 2
-  store i8 64, ptr %4928, align 1
-  %4930 = getelementptr inbounds nuw i8, ptr %509, i64 1
-  store i8 0, ptr %4930, align 1
-  %4931 = getelementptr inbounds nuw i8, ptr %509, i64 4
-  store i32 0, ptr %4931, align 4
-  %4932 = getelementptr inbounds nuw i8, ptr %509, i64 3
-  %4933 = getelementptr inbounds nuw i8, ptr %509, i64 2
-  store i8 127, ptr %4933, align 2
-  store i8 64, ptr %4932, align 1
+4926:                                             ; preds = %3
+  %4927 = getelementptr inbounds nuw i8, ptr %508, i64 1
+  store i8 0, ptr %4927, align 1
+  %4928 = getelementptr inbounds nuw i8, ptr %508, i64 4
+  store i32 0, ptr %4928, align 4
+  %4929 = getelementptr inbounds nuw i8, ptr %508, i64 3
+  %4930 = getelementptr inbounds nuw i8, ptr %508, i64 2
+  store i8 127, ptr %4930, align 2
+  store i8 64, ptr %4929, align 1
+  %4931 = getelementptr inbounds nuw i8, ptr %508, i64 9
+  store i8 0, ptr %4931, align 1
+  %4932 = getelementptr inbounds nuw i8, ptr %508, i64 12
+  store i32 0, ptr %4932, align 4
+  %4933 = getelementptr inbounds nuw i8, ptr %508, i64 11
+  %4934 = getelementptr inbounds nuw i8, ptr %508, i64 10
+  store i8 127, ptr %4934, align 2
+  store i8 64, ptr %4933, align 1
+  %4935 = getelementptr inbounds nuw i8, ptr %509, i64 1
+  store i8 0, ptr %4935, align 1
+  %4936 = getelementptr inbounds nuw i8, ptr %509, i64 4
+  store i32 0, ptr %4936, align 4
+  %4937 = getelementptr inbounds nuw i8, ptr %509, i64 3
+  %4938 = getelementptr inbounds nuw i8, ptr %509, i64 2
+  store i8 127, ptr %4938, align 2
+  store i8 64, ptr %4937, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %508, i64 2, ptr nonnull %509, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4934:                                             ; preds = %3
-  %4935 = getelementptr inbounds nuw i8, ptr %510, i64 1
-  store i8 0, ptr %4935, align 1
-  %4936 = getelementptr inbounds nuw i8, ptr %510, i64 4
-  store i32 0, ptr %4936, align 4
-  %4937 = getelementptr inbounds nuw i8, ptr %510, i64 3
-  %4938 = getelementptr inbounds nuw i8, ptr %510, i64 2
-  store i8 127, ptr %4938, align 2
-  store i8 64, ptr %4937, align 1
-  %4939 = getelementptr inbounds nuw i8, ptr %510, i64 9
-  store i8 0, ptr %4939, align 1
-  %4940 = getelementptr inbounds nuw i8, ptr %510, i64 12
-  store i32 0, ptr %4940, align 4
-  %4941 = getelementptr inbounds nuw i8, ptr %510, i64 11
-  %4942 = getelementptr inbounds nuw i8, ptr %510, i64 10
-  store i8 127, ptr %4942, align 2
-  store i8 64, ptr %4941, align 1
-  %4943 = getelementptr inbounds nuw i8, ptr %511, i64 1
-  store i8 0, ptr %4943, align 1
-  %4944 = getelementptr inbounds nuw i8, ptr %511, i64 4
-  store i32 0, ptr %4944, align 4
-  %4945 = getelementptr inbounds nuw i8, ptr %511, i64 3
-  %4946 = getelementptr inbounds nuw i8, ptr %511, i64 2
-  store i8 127, ptr %4946, align 2
-  store i8 64, ptr %4945, align 1
+4939:                                             ; preds = %3
+  %4940 = getelementptr inbounds nuw i8, ptr %510, i64 1
+  store i8 0, ptr %4940, align 1
+  %4941 = getelementptr inbounds nuw i8, ptr %510, i64 4
+  store i32 0, ptr %4941, align 4
+  %4942 = getelementptr inbounds nuw i8, ptr %510, i64 3
+  %4943 = getelementptr inbounds nuw i8, ptr %510, i64 2
+  store i8 127, ptr %4943, align 2
+  store i8 64, ptr %4942, align 1
+  %4944 = getelementptr inbounds nuw i8, ptr %510, i64 9
+  store i8 0, ptr %4944, align 1
+  %4945 = getelementptr inbounds nuw i8, ptr %510, i64 12
+  store i32 0, ptr %4945, align 4
+  %4946 = getelementptr inbounds nuw i8, ptr %510, i64 11
+  %4947 = getelementptr inbounds nuw i8, ptr %510, i64 10
+  store i8 127, ptr %4947, align 2
+  store i8 64, ptr %4946, align 1
+  %4948 = getelementptr inbounds nuw i8, ptr %511, i64 1
+  store i8 0, ptr %4948, align 1
+  %4949 = getelementptr inbounds nuw i8, ptr %511, i64 4
+  store i32 0, ptr %4949, align 4
+  %4950 = getelementptr inbounds nuw i8, ptr %511, i64 3
+  %4951 = getelementptr inbounds nuw i8, ptr %511, i64 2
+  store i8 127, ptr %4951, align 2
+  store i8 64, ptr %4950, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %510, i64 2, ptr nonnull %511, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4947:                                             ; preds = %3
-  %4948 = getelementptr inbounds nuw i8, ptr %512, i64 1
-  store i8 0, ptr %4948, align 1
-  %4949 = getelementptr inbounds nuw i8, ptr %512, i64 4
-  store i32 0, ptr %4949, align 4
-  %4950 = getelementptr inbounds nuw i8, ptr %512, i64 3
-  %4951 = getelementptr inbounds nuw i8, ptr %512, i64 2
-  store i8 127, ptr %4951, align 2
-  store i8 64, ptr %4950, align 1
-  %4952 = getelementptr inbounds nuw i8, ptr %512, i64 9
-  store i8 0, ptr %4952, align 1
-  %4953 = getelementptr inbounds nuw i8, ptr %512, i64 12
-  store i32 0, ptr %4953, align 4
-  %4954 = getelementptr inbounds nuw i8, ptr %512, i64 11
-  %4955 = getelementptr inbounds nuw i8, ptr %512, i64 10
-  store i8 126, ptr %4955, align 2
-  store i8 64, ptr %4954, align 1
-  %4956 = getelementptr inbounds nuw i8, ptr %513, i64 1
-  store i8 0, ptr %4956, align 1
-  %4957 = getelementptr inbounds nuw i8, ptr %513, i64 4
-  store i32 0, ptr %4957, align 4
-  %4958 = getelementptr inbounds nuw i8, ptr %513, i64 3
-  %4959 = getelementptr inbounds nuw i8, ptr %513, i64 2
-  store i8 126, ptr %4959, align 2
-  store i8 64, ptr %4958, align 1
+4952:                                             ; preds = %3
+  %4953 = getelementptr inbounds nuw i8, ptr %512, i64 1
+  store i8 0, ptr %4953, align 1
+  %4954 = getelementptr inbounds nuw i8, ptr %512, i64 4
+  store i32 0, ptr %4954, align 4
+  %4955 = getelementptr inbounds nuw i8, ptr %512, i64 3
+  %4956 = getelementptr inbounds nuw i8, ptr %512, i64 2
+  store i8 127, ptr %4956, align 2
+  store i8 64, ptr %4955, align 1
+  %4957 = getelementptr inbounds nuw i8, ptr %512, i64 9
+  store i8 0, ptr %4957, align 1
+  %4958 = getelementptr inbounds nuw i8, ptr %512, i64 12
+  store i32 0, ptr %4958, align 4
+  %4959 = getelementptr inbounds nuw i8, ptr %512, i64 11
+  %4960 = getelementptr inbounds nuw i8, ptr %512, i64 10
+  store i8 126, ptr %4960, align 2
+  store i8 64, ptr %4959, align 1
+  %4961 = getelementptr inbounds nuw i8, ptr %513, i64 1
+  store i8 0, ptr %4961, align 1
+  %4962 = getelementptr inbounds nuw i8, ptr %513, i64 4
+  store i32 0, ptr %4962, align 4
+  %4963 = getelementptr inbounds nuw i8, ptr %513, i64 3
+  %4964 = getelementptr inbounds nuw i8, ptr %513, i64 2
+  store i8 126, ptr %4964, align 2
+  store i8 64, ptr %4963, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %512, i64 2, ptr nonnull %513, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4960:                                             ; preds = %3
-  %4961 = getelementptr inbounds nuw i8, ptr %514, i64 1
-  store i8 0, ptr %4961, align 1
-  %4962 = getelementptr inbounds nuw i8, ptr %514, i64 4
-  store i32 0, ptr %4962, align 4
-  %4963 = getelementptr inbounds nuw i8, ptr %514, i64 3
-  %4964 = getelementptr inbounds nuw i8, ptr %514, i64 2
-  store i8 127, ptr %4964, align 2
-  store i8 64, ptr %4963, align 1
-  %4965 = getelementptr inbounds nuw i8, ptr %514, i64 9
-  store i8 0, ptr %4965, align 1
-  %4966 = getelementptr inbounds nuw i8, ptr %514, i64 12
-  store i32 0, ptr %4966, align 4
-  %4967 = getelementptr inbounds nuw i8, ptr %514, i64 11
-  %4968 = getelementptr inbounds nuw i8, ptr %514, i64 10
-  store i8 126, ptr %4968, align 2
-  store i8 64, ptr %4967, align 1
-  %4969 = getelementptr inbounds nuw i8, ptr %515, i64 1
-  store i8 0, ptr %4969, align 1
-  %4970 = getelementptr inbounds nuw i8, ptr %515, i64 4
-  store i32 0, ptr %4970, align 4
-  %4971 = getelementptr inbounds nuw i8, ptr %515, i64 3
-  %4972 = getelementptr inbounds nuw i8, ptr %515, i64 2
-  store i8 126, ptr %4972, align 2
-  store i8 64, ptr %4971, align 1
+4965:                                             ; preds = %3
+  %4966 = getelementptr inbounds nuw i8, ptr %514, i64 1
+  store i8 0, ptr %4966, align 1
+  %4967 = getelementptr inbounds nuw i8, ptr %514, i64 4
+  store i32 0, ptr %4967, align 4
+  %4968 = getelementptr inbounds nuw i8, ptr %514, i64 3
+  %4969 = getelementptr inbounds nuw i8, ptr %514, i64 2
+  store i8 127, ptr %4969, align 2
+  store i8 64, ptr %4968, align 1
+  %4970 = getelementptr inbounds nuw i8, ptr %514, i64 9
+  store i8 0, ptr %4970, align 1
+  %4971 = getelementptr inbounds nuw i8, ptr %514, i64 12
+  store i32 0, ptr %4971, align 4
+  %4972 = getelementptr inbounds nuw i8, ptr %514, i64 11
+  %4973 = getelementptr inbounds nuw i8, ptr %514, i64 10
+  store i8 126, ptr %4973, align 2
+  store i8 64, ptr %4972, align 1
+  %4974 = getelementptr inbounds nuw i8, ptr %515, i64 1
+  store i8 0, ptr %4974, align 1
+  %4975 = getelementptr inbounds nuw i8, ptr %515, i64 4
+  store i32 0, ptr %4975, align 4
+  %4976 = getelementptr inbounds nuw i8, ptr %515, i64 3
+  %4977 = getelementptr inbounds nuw i8, ptr %515, i64 2
+  store i8 126, ptr %4977, align 2
+  store i8 64, ptr %4976, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %514, i64 2, ptr nonnull %515, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4973:                                             ; preds = %3
-  %4974 = getelementptr inbounds nuw i8, ptr %516, i64 1
-  store i8 0, ptr %4974, align 1
-  %4975 = getelementptr inbounds nuw i8, ptr %516, i64 4
-  store i32 0, ptr %4975, align 4
-  %4976 = getelementptr inbounds nuw i8, ptr %516, i64 3
-  %4977 = getelementptr inbounds nuw i8, ptr %516, i64 2
-  store i8 127, ptr %4977, align 2
-  store i8 64, ptr %4976, align 1
-  %4978 = getelementptr inbounds nuw i8, ptr %516, i64 9
-  store i8 0, ptr %4978, align 1
-  %4979 = getelementptr inbounds nuw i8, ptr %516, i64 12
-  store i32 0, ptr %4979, align 4
-  %4980 = getelementptr inbounds nuw i8, ptr %516, i64 11
-  %4981 = getelementptr inbounds nuw i8, ptr %516, i64 10
-  store i8 126, ptr %4981, align 2
-  store i8 64, ptr %4980, align 1
-  %4982 = getelementptr inbounds nuw i8, ptr %517, i64 1
-  store i8 0, ptr %4982, align 1
-  %4983 = getelementptr inbounds nuw i8, ptr %517, i64 4
-  store i32 0, ptr %4983, align 4
-  %4984 = getelementptr inbounds nuw i8, ptr %517, i64 3
-  %4985 = getelementptr inbounds nuw i8, ptr %517, i64 2
-  store i8 126, ptr %4985, align 2
-  store i8 64, ptr %4984, align 1
+4978:                                             ; preds = %3
+  %4979 = getelementptr inbounds nuw i8, ptr %516, i64 1
+  store i8 0, ptr %4979, align 1
+  %4980 = getelementptr inbounds nuw i8, ptr %516, i64 4
+  store i32 0, ptr %4980, align 4
+  %4981 = getelementptr inbounds nuw i8, ptr %516, i64 3
+  %4982 = getelementptr inbounds nuw i8, ptr %516, i64 2
+  store i8 127, ptr %4982, align 2
+  store i8 64, ptr %4981, align 1
+  %4983 = getelementptr inbounds nuw i8, ptr %516, i64 9
+  store i8 0, ptr %4983, align 1
+  %4984 = getelementptr inbounds nuw i8, ptr %516, i64 12
+  store i32 0, ptr %4984, align 4
+  %4985 = getelementptr inbounds nuw i8, ptr %516, i64 11
+  %4986 = getelementptr inbounds nuw i8, ptr %516, i64 10
+  store i8 126, ptr %4986, align 2
+  store i8 64, ptr %4985, align 1
+  %4987 = getelementptr inbounds nuw i8, ptr %517, i64 1
+  store i8 0, ptr %4987, align 1
+  %4988 = getelementptr inbounds nuw i8, ptr %517, i64 4
+  store i32 0, ptr %4988, align 4
+  %4989 = getelementptr inbounds nuw i8, ptr %517, i64 3
+  %4990 = getelementptr inbounds nuw i8, ptr %517, i64 2
+  store i8 126, ptr %4990, align 2
+  store i8 64, ptr %4989, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %516, i64 2, ptr nonnull %517, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4986:                                             ; preds = %3
-  %4987 = getelementptr inbounds nuw i8, ptr %518, i64 1
-  store i8 0, ptr %4987, align 1
-  %4988 = getelementptr inbounds nuw i8, ptr %518, i64 4
-  store i32 0, ptr %4988, align 4
-  %4989 = getelementptr inbounds nuw i8, ptr %518, i64 3
-  %4990 = getelementptr inbounds nuw i8, ptr %518, i64 2
-  store i8 127, ptr %4990, align 2
-  store i8 64, ptr %4989, align 1
-  %4991 = getelementptr inbounds nuw i8, ptr %518, i64 9
-  store i8 0, ptr %4991, align 1
-  %4992 = getelementptr inbounds nuw i8, ptr %518, i64 12
-  store i32 0, ptr %4992, align 4
-  %4993 = getelementptr inbounds nuw i8, ptr %518, i64 11
-  %4994 = getelementptr inbounds nuw i8, ptr %518, i64 10
-  store i8 127, ptr %4994, align 2
-  store i8 64, ptr %4993, align 1
-  %4995 = getelementptr inbounds nuw i8, ptr %519, i64 1
-  store i8 0, ptr %4995, align 1
-  %4996 = getelementptr inbounds nuw i8, ptr %519, i64 4
-  store i32 0, ptr %4996, align 4
-  %4997 = getelementptr inbounds nuw i8, ptr %519, i64 3
-  %4998 = getelementptr inbounds nuw i8, ptr %519, i64 2
-  store i8 127, ptr %4998, align 2
-  store i8 64, ptr %4997, align 1
+4991:                                             ; preds = %3
+  %4992 = getelementptr inbounds nuw i8, ptr %518, i64 1
+  store i8 0, ptr %4992, align 1
+  %4993 = getelementptr inbounds nuw i8, ptr %518, i64 4
+  store i32 0, ptr %4993, align 4
+  %4994 = getelementptr inbounds nuw i8, ptr %518, i64 3
+  %4995 = getelementptr inbounds nuw i8, ptr %518, i64 2
+  store i8 127, ptr %4995, align 2
+  store i8 64, ptr %4994, align 1
+  %4996 = getelementptr inbounds nuw i8, ptr %518, i64 9
+  store i8 0, ptr %4996, align 1
+  %4997 = getelementptr inbounds nuw i8, ptr %518, i64 12
+  store i32 0, ptr %4997, align 4
+  %4998 = getelementptr inbounds nuw i8, ptr %518, i64 11
+  %4999 = getelementptr inbounds nuw i8, ptr %518, i64 10
+  store i8 127, ptr %4999, align 2
+  store i8 64, ptr %4998, align 1
+  %5000 = getelementptr inbounds nuw i8, ptr %519, i64 1
+  store i8 0, ptr %5000, align 1
+  %5001 = getelementptr inbounds nuw i8, ptr %519, i64 4
+  store i32 0, ptr %5001, align 4
+  %5002 = getelementptr inbounds nuw i8, ptr %519, i64 3
+  %5003 = getelementptr inbounds nuw i8, ptr %519, i64 2
+  store i8 127, ptr %5003, align 2
+  store i8 64, ptr %5002, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %518, i64 2, ptr nonnull %519, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-4999:                                             ; preds = %3
-  %5000 = getelementptr inbounds nuw i8, ptr %520, i64 1
-  store i8 0, ptr %5000, align 1
-  %5001 = getelementptr inbounds nuw i8, ptr %520, i64 4
-  store i32 0, ptr %5001, align 4
-  %5002 = getelementptr inbounds nuw i8, ptr %520, i64 3
-  %5003 = getelementptr inbounds nuw i8, ptr %520, i64 2
-  store i8 127, ptr %5003, align 2
-  store i8 64, ptr %5002, align 1
-  %5004 = getelementptr inbounds nuw i8, ptr %520, i64 9
-  store i8 0, ptr %5004, align 1
-  %5005 = getelementptr inbounds nuw i8, ptr %520, i64 12
-  store i32 0, ptr %5005, align 4
-  %5006 = getelementptr inbounds nuw i8, ptr %520, i64 11
-  %5007 = getelementptr inbounds nuw i8, ptr %520, i64 10
-  store i8 126, ptr %5007, align 2
-  store i8 64, ptr %5006, align 1
-  %5008 = getelementptr inbounds nuw i8, ptr %521, i64 1
-  store i8 0, ptr %5008, align 1
-  %5009 = getelementptr inbounds nuw i8, ptr %521, i64 4
-  store i32 0, ptr %5009, align 4
-  %5010 = getelementptr inbounds nuw i8, ptr %521, i64 3
-  %5011 = getelementptr inbounds nuw i8, ptr %521, i64 2
-  store i8 126, ptr %5011, align 2
-  store i8 64, ptr %5010, align 1
+5004:                                             ; preds = %3
+  %5005 = getelementptr inbounds nuw i8, ptr %520, i64 1
+  store i8 0, ptr %5005, align 1
+  %5006 = getelementptr inbounds nuw i8, ptr %520, i64 4
+  store i32 0, ptr %5006, align 4
+  %5007 = getelementptr inbounds nuw i8, ptr %520, i64 3
+  %5008 = getelementptr inbounds nuw i8, ptr %520, i64 2
+  store i8 127, ptr %5008, align 2
+  store i8 64, ptr %5007, align 1
+  %5009 = getelementptr inbounds nuw i8, ptr %520, i64 9
+  store i8 0, ptr %5009, align 1
+  %5010 = getelementptr inbounds nuw i8, ptr %520, i64 12
+  store i32 0, ptr %5010, align 4
+  %5011 = getelementptr inbounds nuw i8, ptr %520, i64 11
+  %5012 = getelementptr inbounds nuw i8, ptr %520, i64 10
+  store i8 126, ptr %5012, align 2
+  store i8 64, ptr %5011, align 1
+  %5013 = getelementptr inbounds nuw i8, ptr %521, i64 1
+  store i8 0, ptr %5013, align 1
+  %5014 = getelementptr inbounds nuw i8, ptr %521, i64 4
+  store i32 0, ptr %5014, align 4
+  %5015 = getelementptr inbounds nuw i8, ptr %521, i64 3
+  %5016 = getelementptr inbounds nuw i8, ptr %521, i64 2
+  store i8 126, ptr %5016, align 2
+  store i8 64, ptr %5015, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %520, i64 2, ptr nonnull %521, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-5012:                                             ; preds = %3
-  %5013 = getelementptr inbounds nuw i8, ptr %522, i64 1
-  store i8 0, ptr %5013, align 1
-  %5014 = getelementptr inbounds nuw i8, ptr %522, i64 4
-  store i32 0, ptr %5014, align 4
-  %5015 = getelementptr inbounds nuw i8, ptr %522, i64 3
-  %5016 = getelementptr inbounds nuw i8, ptr %522, i64 2
-  store i8 127, ptr %5016, align 2
-  store i8 64, ptr %5015, align 1
-  %5017 = getelementptr inbounds nuw i8, ptr %522, i64 9
-  store i8 0, ptr %5017, align 1
-  %5018 = getelementptr inbounds nuw i8, ptr %522, i64 12
-  store i32 0, ptr %5018, align 4
-  %5019 = getelementptr inbounds nuw i8, ptr %522, i64 11
-  %5020 = getelementptr inbounds nuw i8, ptr %522, i64 10
-  store i8 127, ptr %5020, align 2
-  store i8 64, ptr %5019, align 1
-  %5021 = getelementptr inbounds nuw i8, ptr %523, i64 1
-  store i8 0, ptr %5021, align 1
-  %5022 = getelementptr inbounds nuw i8, ptr %523, i64 4
-  store i32 0, ptr %5022, align 4
-  %5023 = getelementptr inbounds nuw i8, ptr %523, i64 3
-  %5024 = getelementptr inbounds nuw i8, ptr %523, i64 2
-  store i8 127, ptr %5024, align 2
-  store i8 64, ptr %5023, align 1
+5017:                                             ; preds = %3
+  %5018 = getelementptr inbounds nuw i8, ptr %522, i64 1
+  store i8 0, ptr %5018, align 1
+  %5019 = getelementptr inbounds nuw i8, ptr %522, i64 4
+  store i32 0, ptr %5019, align 4
+  %5020 = getelementptr inbounds nuw i8, ptr %522, i64 3
+  %5021 = getelementptr inbounds nuw i8, ptr %522, i64 2
+  store i8 127, ptr %5021, align 2
+  store i8 64, ptr %5020, align 1
+  %5022 = getelementptr inbounds nuw i8, ptr %522, i64 9
+  store i8 0, ptr %5022, align 1
+  %5023 = getelementptr inbounds nuw i8, ptr %522, i64 12
+  store i32 0, ptr %5023, align 4
+  %5024 = getelementptr inbounds nuw i8, ptr %522, i64 11
+  %5025 = getelementptr inbounds nuw i8, ptr %522, i64 10
+  store i8 127, ptr %5025, align 2
+  store i8 64, ptr %5024, align 1
+  %5026 = getelementptr inbounds nuw i8, ptr %523, i64 1
+  store i8 0, ptr %5026, align 1
+  %5027 = getelementptr inbounds nuw i8, ptr %523, i64 4
+  store i32 0, ptr %5027, align 4
+  %5028 = getelementptr inbounds nuw i8, ptr %523, i64 3
+  %5029 = getelementptr inbounds nuw i8, ptr %523, i64 2
+  store i8 127, ptr %5029, align 2
+  store i8 64, ptr %5028, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %522, i64 2, ptr nonnull %523, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-5025:                                             ; preds = %3
-  %5026 = getelementptr inbounds nuw i8, ptr %524, i64 1
-  store i8 0, ptr %5026, align 1
-  %5027 = getelementptr inbounds nuw i8, ptr %524, i64 4
-  store i32 0, ptr %5027, align 4
-  %5028 = getelementptr inbounds nuw i8, ptr %524, i64 3
-  %5029 = getelementptr inbounds nuw i8, ptr %524, i64 2
-  store i8 127, ptr %5029, align 2
-  store i8 64, ptr %5028, align 1
-  %5030 = getelementptr inbounds nuw i8, ptr %524, i64 9
-  store i8 0, ptr %5030, align 1
-  %5031 = getelementptr inbounds nuw i8, ptr %524, i64 12
-  store i32 0, ptr %5031, align 4
-  %5032 = getelementptr inbounds nuw i8, ptr %524, i64 11
-  %5033 = getelementptr inbounds nuw i8, ptr %524, i64 10
-  store i8 127, ptr %5033, align 2
-  store i8 64, ptr %5032, align 1
-  %5034 = getelementptr inbounds nuw i8, ptr %525, i64 1
-  store i8 0, ptr %5034, align 1
-  %5035 = getelementptr inbounds nuw i8, ptr %525, i64 4
-  store i32 0, ptr %5035, align 4
-  %5036 = getelementptr inbounds nuw i8, ptr %525, i64 3
-  %5037 = getelementptr inbounds nuw i8, ptr %525, i64 2
-  store i8 127, ptr %5037, align 2
-  store i8 64, ptr %5036, align 1
+5030:                                             ; preds = %3
+  %5031 = getelementptr inbounds nuw i8, ptr %524, i64 1
+  store i8 0, ptr %5031, align 1
+  %5032 = getelementptr inbounds nuw i8, ptr %524, i64 4
+  store i32 0, ptr %5032, align 4
+  %5033 = getelementptr inbounds nuw i8, ptr %524, i64 3
+  %5034 = getelementptr inbounds nuw i8, ptr %524, i64 2
+  store i8 127, ptr %5034, align 2
+  store i8 64, ptr %5033, align 1
+  %5035 = getelementptr inbounds nuw i8, ptr %524, i64 9
+  store i8 0, ptr %5035, align 1
+  %5036 = getelementptr inbounds nuw i8, ptr %524, i64 12
+  store i32 0, ptr %5036, align 4
+  %5037 = getelementptr inbounds nuw i8, ptr %524, i64 11
+  %5038 = getelementptr inbounds nuw i8, ptr %524, i64 10
+  store i8 127, ptr %5038, align 2
+  store i8 64, ptr %5037, align 1
+  %5039 = getelementptr inbounds nuw i8, ptr %525, i64 1
+  store i8 0, ptr %5039, align 1
+  %5040 = getelementptr inbounds nuw i8, ptr %525, i64 4
+  store i32 0, ptr %5040, align 4
+  %5041 = getelementptr inbounds nuw i8, ptr %525, i64 3
+  %5042 = getelementptr inbounds nuw i8, ptr %525, i64 2
+  store i8 127, ptr %5042, align 2
+  store i8 64, ptr %5041, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %524, i64 2, ptr nonnull %525, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-5038:                                             ; preds = %3
-  %5039 = getelementptr inbounds nuw i8, ptr %526, i64 1
-  store i8 0, ptr %5039, align 1
-  %5040 = getelementptr inbounds nuw i8, ptr %526, i64 4
-  store i32 0, ptr %5040, align 4
-  %5041 = getelementptr inbounds nuw i8, ptr %526, i64 3
-  %5042 = getelementptr inbounds nuw i8, ptr %526, i64 2
-  store i8 127, ptr %5042, align 2
-  store i8 64, ptr %5041, align 1
-  %5043 = getelementptr inbounds nuw i8, ptr %526, i64 9
-  store i8 0, ptr %5043, align 1
-  %5044 = getelementptr inbounds nuw i8, ptr %526, i64 12
-  store i32 0, ptr %5044, align 4
-  %5045 = getelementptr inbounds nuw i8, ptr %526, i64 11
-  %5046 = getelementptr inbounds nuw i8, ptr %526, i64 10
-  store i8 126, ptr %5046, align 2
-  store i8 64, ptr %5045, align 1
-  %5047 = getelementptr inbounds nuw i8, ptr %527, i64 1
-  store i8 0, ptr %5047, align 1
-  %5048 = getelementptr inbounds nuw i8, ptr %527, i64 4
-  store i32 0, ptr %5048, align 4
-  %5049 = getelementptr inbounds nuw i8, ptr %527, i64 3
-  %5050 = getelementptr inbounds nuw i8, ptr %527, i64 2
-  store i8 126, ptr %5050, align 2
-  store i8 64, ptr %5049, align 1
+5043:                                             ; preds = %3
+  %5044 = getelementptr inbounds nuw i8, ptr %526, i64 1
+  store i8 0, ptr %5044, align 1
+  %5045 = getelementptr inbounds nuw i8, ptr %526, i64 4
+  store i32 0, ptr %5045, align 4
+  %5046 = getelementptr inbounds nuw i8, ptr %526, i64 3
+  %5047 = getelementptr inbounds nuw i8, ptr %526, i64 2
+  store i8 127, ptr %5047, align 2
+  store i8 64, ptr %5046, align 1
+  %5048 = getelementptr inbounds nuw i8, ptr %526, i64 9
+  store i8 0, ptr %5048, align 1
+  %5049 = getelementptr inbounds nuw i8, ptr %526, i64 12
+  store i32 0, ptr %5049, align 4
+  %5050 = getelementptr inbounds nuw i8, ptr %526, i64 11
+  %5051 = getelementptr inbounds nuw i8, ptr %526, i64 10
+  store i8 126, ptr %5051, align 2
+  store i8 64, ptr %5050, align 1
+  %5052 = getelementptr inbounds nuw i8, ptr %527, i64 1
+  store i8 0, ptr %5052, align 1
+  %5053 = getelementptr inbounds nuw i8, ptr %527, i64 4
+  store i32 0, ptr %5053, align 4
+  %5054 = getelementptr inbounds nuw i8, ptr %527, i64 3
+  %5055 = getelementptr inbounds nuw i8, ptr %527, i64 2
+  store i8 126, ptr %5055, align 2
+  store i8 64, ptr %5054, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %526, i64 2, ptr nonnull %527, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-5051:                                             ; preds = %3
-  %5052 = getelementptr inbounds nuw i8, ptr %528, i64 1
-  store i8 0, ptr %5052, align 1
-  %5053 = getelementptr inbounds nuw i8, ptr %528, i64 4
-  store i32 0, ptr %5053, align 4
-  %5054 = getelementptr inbounds nuw i8, ptr %528, i64 3
-  %5055 = getelementptr inbounds nuw i8, ptr %528, i64 2
-  store i8 127, ptr %5055, align 2
-  store i8 64, ptr %5054, align 1
-  %5056 = getelementptr inbounds nuw i8, ptr %528, i64 9
-  store i8 0, ptr %5056, align 1
-  %5057 = getelementptr inbounds nuw i8, ptr %528, i64 12
-  store i32 0, ptr %5057, align 4
-  %5058 = getelementptr inbounds nuw i8, ptr %528, i64 11
-  %5059 = getelementptr inbounds nuw i8, ptr %528, i64 10
-  store i8 126, ptr %5059, align 2
-  store i8 64, ptr %5058, align 1
-  %5060 = getelementptr inbounds nuw i8, ptr %529, i64 1
-  store i8 0, ptr %5060, align 1
-  %5061 = getelementptr inbounds nuw i8, ptr %529, i64 4
-  store i32 0, ptr %5061, align 4
-  %5062 = getelementptr inbounds nuw i8, ptr %529, i64 3
-  %5063 = getelementptr inbounds nuw i8, ptr %529, i64 2
-  store i8 126, ptr %5063, align 2
-  store i8 64, ptr %5062, align 1
+5056:                                             ; preds = %3
+  %5057 = getelementptr inbounds nuw i8, ptr %528, i64 1
+  store i8 0, ptr %5057, align 1
+  %5058 = getelementptr inbounds nuw i8, ptr %528, i64 4
+  store i32 0, ptr %5058, align 4
+  %5059 = getelementptr inbounds nuw i8, ptr %528, i64 3
+  %5060 = getelementptr inbounds nuw i8, ptr %528, i64 2
+  store i8 127, ptr %5060, align 2
+  store i8 64, ptr %5059, align 1
+  %5061 = getelementptr inbounds nuw i8, ptr %528, i64 9
+  store i8 0, ptr %5061, align 1
+  %5062 = getelementptr inbounds nuw i8, ptr %528, i64 12
+  store i32 0, ptr %5062, align 4
+  %5063 = getelementptr inbounds nuw i8, ptr %528, i64 11
+  %5064 = getelementptr inbounds nuw i8, ptr %528, i64 10
+  store i8 126, ptr %5064, align 2
+  store i8 64, ptr %5063, align 1
+  %5065 = getelementptr inbounds nuw i8, ptr %529, i64 1
+  store i8 0, ptr %5065, align 1
+  %5066 = getelementptr inbounds nuw i8, ptr %529, i64 4
+  store i32 0, ptr %5066, align 4
+  %5067 = getelementptr inbounds nuw i8, ptr %529, i64 3
+  %5068 = getelementptr inbounds nuw i8, ptr %529, i64 2
+  store i8 126, ptr %5068, align 2
+  store i8 64, ptr %5067, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %528, i64 2, ptr nonnull %529, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-5064:                                             ; preds = %3
-  %5065 = getelementptr inbounds nuw i8, ptr %530, i64 1
-  store i8 0, ptr %5065, align 1
-  %5066 = getelementptr inbounds nuw i8, ptr %530, i64 4
-  store i32 0, ptr %5066, align 4
-  %5067 = getelementptr inbounds nuw i8, ptr %530, i64 3
-  %5068 = getelementptr inbounds nuw i8, ptr %530, i64 2
-  store i8 127, ptr %5068, align 2
-  store i8 64, ptr %5067, align 1
-  %5069 = getelementptr inbounds nuw i8, ptr %530, i64 9
-  store i8 0, ptr %5069, align 1
-  %5070 = getelementptr inbounds nuw i8, ptr %530, i64 12
-  store i32 0, ptr %5070, align 4
-  %5071 = getelementptr inbounds nuw i8, ptr %530, i64 11
-  %5072 = getelementptr inbounds nuw i8, ptr %530, i64 10
-  store i8 126, ptr %5072, align 2
-  store i8 64, ptr %5071, align 1
-  %5073 = getelementptr inbounds nuw i8, ptr %531, i64 1
-  store i8 0, ptr %5073, align 1
-  %5074 = getelementptr inbounds nuw i8, ptr %531, i64 4
-  store i32 0, ptr %5074, align 4
-  %5075 = getelementptr inbounds nuw i8, ptr %531, i64 3
-  %5076 = getelementptr inbounds nuw i8, ptr %531, i64 2
-  store i8 126, ptr %5076, align 2
-  store i8 64, ptr %5075, align 1
+5069:                                             ; preds = %3
+  %5070 = getelementptr inbounds nuw i8, ptr %530, i64 1
+  store i8 0, ptr %5070, align 1
+  %5071 = getelementptr inbounds nuw i8, ptr %530, i64 4
+  store i32 0, ptr %5071, align 4
+  %5072 = getelementptr inbounds nuw i8, ptr %530, i64 3
+  %5073 = getelementptr inbounds nuw i8, ptr %530, i64 2
+  store i8 127, ptr %5073, align 2
+  store i8 64, ptr %5072, align 1
+  %5074 = getelementptr inbounds nuw i8, ptr %530, i64 9
+  store i8 0, ptr %5074, align 1
+  %5075 = getelementptr inbounds nuw i8, ptr %530, i64 12
+  store i32 0, ptr %5075, align 4
+  %5076 = getelementptr inbounds nuw i8, ptr %530, i64 11
+  %5077 = getelementptr inbounds nuw i8, ptr %530, i64 10
+  store i8 126, ptr %5077, align 2
+  store i8 64, ptr %5076, align 1
+  %5078 = getelementptr inbounds nuw i8, ptr %531, i64 1
+  store i8 0, ptr %5078, align 1
+  %5079 = getelementptr inbounds nuw i8, ptr %531, i64 4
+  store i32 0, ptr %5079, align 4
+  %5080 = getelementptr inbounds nuw i8, ptr %531, i64 3
+  %5081 = getelementptr inbounds nuw i8, ptr %531, i64 2
+  store i8 126, ptr %5081, align 2
+  store i8 64, ptr %5080, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %530, i64 2, ptr nonnull %531, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-5077:                                             ; preds = %3
-  %5078 = getelementptr inbounds nuw i8, ptr %532, i64 1
-  store i8 0, ptr %5078, align 1
-  %5079 = getelementptr inbounds nuw i8, ptr %532, i64 4
-  store i32 0, ptr %5079, align 4
-  %5080 = getelementptr inbounds nuw i8, ptr %532, i64 3
-  %5081 = getelementptr inbounds nuw i8, ptr %532, i64 2
-  store i8 127, ptr %5081, align 2
-  store i8 64, ptr %5080, align 1
-  %5082 = getelementptr inbounds nuw i8, ptr %532, i64 9
-  store i8 0, ptr %5082, align 1
-  %5083 = getelementptr inbounds nuw i8, ptr %532, i64 12
-  store i32 0, ptr %5083, align 4
-  %5084 = getelementptr inbounds nuw i8, ptr %532, i64 11
-  %5085 = getelementptr inbounds nuw i8, ptr %532, i64 10
-  store i8 127, ptr %5085, align 2
-  store i8 64, ptr %5084, align 1
-  %5086 = getelementptr inbounds nuw i8, ptr %533, i64 1
-  store i8 0, ptr %5086, align 1
-  %5087 = getelementptr inbounds nuw i8, ptr %533, i64 4
-  store i32 0, ptr %5087, align 4
-  %5088 = getelementptr inbounds nuw i8, ptr %533, i64 3
-  %5089 = getelementptr inbounds nuw i8, ptr %533, i64 2
-  store i8 127, ptr %5089, align 2
-  store i8 64, ptr %5088, align 1
+5082:                                             ; preds = %3
+  %5083 = getelementptr inbounds nuw i8, ptr %532, i64 1
+  store i8 0, ptr %5083, align 1
+  %5084 = getelementptr inbounds nuw i8, ptr %532, i64 4
+  store i32 0, ptr %5084, align 4
+  %5085 = getelementptr inbounds nuw i8, ptr %532, i64 3
+  %5086 = getelementptr inbounds nuw i8, ptr %532, i64 2
+  store i8 127, ptr %5086, align 2
+  store i8 64, ptr %5085, align 1
+  %5087 = getelementptr inbounds nuw i8, ptr %532, i64 9
+  store i8 0, ptr %5087, align 1
+  %5088 = getelementptr inbounds nuw i8, ptr %532, i64 12
+  store i32 0, ptr %5088, align 4
+  %5089 = getelementptr inbounds nuw i8, ptr %532, i64 11
+  %5090 = getelementptr inbounds nuw i8, ptr %532, i64 10
+  store i8 127, ptr %5090, align 2
+  store i8 64, ptr %5089, align 1
+  %5091 = getelementptr inbounds nuw i8, ptr %533, i64 1
+  store i8 0, ptr %5091, align 1
+  %5092 = getelementptr inbounds nuw i8, ptr %533, i64 4
+  store i32 0, ptr %5092, align 4
+  %5093 = getelementptr inbounds nuw i8, ptr %533, i64 3
+  %5094 = getelementptr inbounds nuw i8, ptr %533, i64 2
+  store i8 127, ptr %5094, align 2
+  store i8 64, ptr %5093, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %532, i64 2, ptr nonnull %533, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-5090:                                             ; preds = %3
-  %5091 = getelementptr inbounds nuw i8, ptr %534, i64 1
-  store i8 0, ptr %5091, align 1
-  %5092 = getelementptr inbounds nuw i8, ptr %534, i64 4
-  store i32 0, ptr %5092, align 4
-  %5093 = getelementptr inbounds nuw i8, ptr %534, i64 3
-  %5094 = getelementptr inbounds nuw i8, ptr %534, i64 2
-  store i8 127, ptr %5094, align 2
-  store i8 64, ptr %5093, align 1
-  %5095 = getelementptr inbounds nuw i8, ptr %534, i64 9
-  store i8 0, ptr %5095, align 1
-  %5096 = getelementptr inbounds nuw i8, ptr %534, i64 12
-  store i32 0, ptr %5096, align 4
-  %5097 = getelementptr inbounds nuw i8, ptr %534, i64 11
-  %5098 = getelementptr inbounds nuw i8, ptr %534, i64 10
-  store i8 126, ptr %5098, align 2
-  store i8 64, ptr %5097, align 1
-  %5099 = getelementptr inbounds nuw i8, ptr %535, i64 1
-  store i8 0, ptr %5099, align 1
-  %5100 = getelementptr inbounds nuw i8, ptr %535, i64 4
-  store i32 0, ptr %5100, align 4
-  %5101 = getelementptr inbounds nuw i8, ptr %535, i64 3
-  %5102 = getelementptr inbounds nuw i8, ptr %535, i64 2
-  store i8 126, ptr %5102, align 2
-  store i8 64, ptr %5101, align 1
+5095:                                             ; preds = %3
+  %5096 = getelementptr inbounds nuw i8, ptr %534, i64 1
+  store i8 0, ptr %5096, align 1
+  %5097 = getelementptr inbounds nuw i8, ptr %534, i64 4
+  store i32 0, ptr %5097, align 4
+  %5098 = getelementptr inbounds nuw i8, ptr %534, i64 3
+  %5099 = getelementptr inbounds nuw i8, ptr %534, i64 2
+  store i8 127, ptr %5099, align 2
+  store i8 64, ptr %5098, align 1
+  %5100 = getelementptr inbounds nuw i8, ptr %534, i64 9
+  store i8 0, ptr %5100, align 1
+  %5101 = getelementptr inbounds nuw i8, ptr %534, i64 12
+  store i32 0, ptr %5101, align 4
+  %5102 = getelementptr inbounds nuw i8, ptr %534, i64 11
+  %5103 = getelementptr inbounds nuw i8, ptr %534, i64 10
+  store i8 126, ptr %5103, align 2
+  store i8 64, ptr %5102, align 1
+  %5104 = getelementptr inbounds nuw i8, ptr %535, i64 1
+  store i8 0, ptr %5104, align 1
+  %5105 = getelementptr inbounds nuw i8, ptr %535, i64 4
+  store i32 0, ptr %5105, align 4
+  %5106 = getelementptr inbounds nuw i8, ptr %535, i64 3
+  %5107 = getelementptr inbounds nuw i8, ptr %535, i64 2
+  store i8 126, ptr %5107, align 2
+  store i8 64, ptr %5106, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %534, i64 2, ptr nonnull %535, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-5103:                                             ; preds = %3
-  %5104 = getelementptr inbounds nuw i8, ptr %536, i64 1
-  store i8 0, ptr %5104, align 1
-  %5105 = getelementptr inbounds nuw i8, ptr %536, i64 4
-  store i32 0, ptr %5105, align 4
-  %5106 = getelementptr inbounds nuw i8, ptr %536, i64 3
-  %5107 = getelementptr inbounds nuw i8, ptr %536, i64 2
-  store i8 127, ptr %5107, align 2
-  store i8 64, ptr %5106, align 1
-  %5108 = getelementptr inbounds nuw i8, ptr %536, i64 9
-  store i8 0, ptr %5108, align 1
-  %5109 = getelementptr inbounds nuw i8, ptr %536, i64 12
-  store i32 0, ptr %5109, align 4
-  %5110 = getelementptr inbounds nuw i8, ptr %536, i64 11
-  %5111 = getelementptr inbounds nuw i8, ptr %536, i64 10
-  store i8 127, ptr %5111, align 2
-  store i8 64, ptr %5110, align 1
-  %5112 = getelementptr inbounds nuw i8, ptr %537, i64 1
-  store i8 0, ptr %5112, align 1
-  %5113 = getelementptr inbounds nuw i8, ptr %537, i64 4
-  store i32 0, ptr %5113, align 4
-  %5114 = getelementptr inbounds nuw i8, ptr %537, i64 3
-  %5115 = getelementptr inbounds nuw i8, ptr %537, i64 2
-  store i8 127, ptr %5115, align 2
-  store i8 64, ptr %5114, align 1
+5108:                                             ; preds = %3
+  %5109 = getelementptr inbounds nuw i8, ptr %536, i64 1
+  store i8 0, ptr %5109, align 1
+  %5110 = getelementptr inbounds nuw i8, ptr %536, i64 4
+  store i32 0, ptr %5110, align 4
+  %5111 = getelementptr inbounds nuw i8, ptr %536, i64 3
+  %5112 = getelementptr inbounds nuw i8, ptr %536, i64 2
+  store i8 127, ptr %5112, align 2
+  store i8 64, ptr %5111, align 1
+  %5113 = getelementptr inbounds nuw i8, ptr %536, i64 9
+  store i8 0, ptr %5113, align 1
+  %5114 = getelementptr inbounds nuw i8, ptr %536, i64 12
+  store i32 0, ptr %5114, align 4
+  %5115 = getelementptr inbounds nuw i8, ptr %536, i64 11
+  %5116 = getelementptr inbounds nuw i8, ptr %536, i64 10
+  store i8 127, ptr %5116, align 2
+  store i8 64, ptr %5115, align 1
+  %5117 = getelementptr inbounds nuw i8, ptr %537, i64 1
+  store i8 0, ptr %5117, align 1
+  %5118 = getelementptr inbounds nuw i8, ptr %537, i64 4
+  store i32 0, ptr %5118, align 4
+  %5119 = getelementptr inbounds nuw i8, ptr %537, i64 3
+  %5120 = getelementptr inbounds nuw i8, ptr %537, i64 2
+  store i8 127, ptr %5120, align 2
+  store i8 64, ptr %5119, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %536, i64 2, ptr nonnull %537, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-5116:                                             ; preds = %3
-  %5117 = getelementptr inbounds nuw i8, ptr %538, i64 1
-  store i8 0, ptr %5117, align 1
-  %5118 = getelementptr inbounds nuw i8, ptr %538, i64 4
-  store i32 0, ptr %5118, align 4
-  %5119 = getelementptr inbounds nuw i8, ptr %538, i64 3
-  %5120 = getelementptr inbounds nuw i8, ptr %538, i64 2
-  store i8 127, ptr %5120, align 2
-  store i8 64, ptr %5119, align 1
-  %5121 = getelementptr inbounds nuw i8, ptr %538, i64 9
-  store i8 0, ptr %5121, align 1
-  %5122 = getelementptr inbounds nuw i8, ptr %538, i64 12
-  store i32 0, ptr %5122, align 4
-  %5123 = getelementptr inbounds nuw i8, ptr %538, i64 11
-  %5124 = getelementptr inbounds nuw i8, ptr %538, i64 10
-  store i8 127, ptr %5124, align 2
-  store i8 64, ptr %5123, align 1
-  %5125 = getelementptr inbounds nuw i8, ptr %539, i64 1
-  store i8 0, ptr %5125, align 1
-  %5126 = getelementptr inbounds nuw i8, ptr %539, i64 4
-  store i32 0, ptr %5126, align 4
-  %5127 = getelementptr inbounds nuw i8, ptr %539, i64 3
-  %5128 = getelementptr inbounds nuw i8, ptr %539, i64 2
-  store i8 127, ptr %5128, align 2
-  store i8 64, ptr %5127, align 1
+5121:                                             ; preds = %3
+  %5122 = getelementptr inbounds nuw i8, ptr %538, i64 1
+  store i8 0, ptr %5122, align 1
+  %5123 = getelementptr inbounds nuw i8, ptr %538, i64 4
+  store i32 0, ptr %5123, align 4
+  %5124 = getelementptr inbounds nuw i8, ptr %538, i64 3
+  %5125 = getelementptr inbounds nuw i8, ptr %538, i64 2
+  store i8 127, ptr %5125, align 2
+  store i8 64, ptr %5124, align 1
+  %5126 = getelementptr inbounds nuw i8, ptr %538, i64 9
+  store i8 0, ptr %5126, align 1
+  %5127 = getelementptr inbounds nuw i8, ptr %538, i64 12
+  store i32 0, ptr %5127, align 4
+  %5128 = getelementptr inbounds nuw i8, ptr %538, i64 11
+  %5129 = getelementptr inbounds nuw i8, ptr %538, i64 10
+  store i8 127, ptr %5129, align 2
+  store i8 64, ptr %5128, align 1
+  %5130 = getelementptr inbounds nuw i8, ptr %539, i64 1
+  store i8 0, ptr %5130, align 1
+  %5131 = getelementptr inbounds nuw i8, ptr %539, i64 4
+  store i32 0, ptr %5131, align 4
+  %5132 = getelementptr inbounds nuw i8, ptr %539, i64 3
+  %5133 = getelementptr inbounds nuw i8, ptr %539, i64 2
+  store i8 127, ptr %5133, align 2
+  store i8 64, ptr %5132, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %538, i64 2, ptr nonnull %539, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-5129:                                             ; preds = %3
-  %5130 = getelementptr inbounds nuw i8, ptr %540, i64 1
-  store i8 0, ptr %5130, align 1
-  %5131 = getelementptr inbounds nuw i8, ptr %540, i64 4
-  store i32 0, ptr %5131, align 4
-  %5132 = getelementptr inbounds nuw i8, ptr %540, i64 3
-  %5133 = getelementptr inbounds nuw i8, ptr %540, i64 2
-  store i8 127, ptr %5133, align 2
-  store i8 64, ptr %5132, align 1
-  %5134 = getelementptr inbounds nuw i8, ptr %540, i64 9
-  store i8 0, ptr %5134, align 1
-  %5135 = getelementptr inbounds nuw i8, ptr %540, i64 12
-  store i32 0, ptr %5135, align 4
-  %5136 = getelementptr inbounds nuw i8, ptr %540, i64 11
-  %5137 = getelementptr inbounds nuw i8, ptr %540, i64 10
-  store i8 126, ptr %5137, align 2
-  store i8 64, ptr %5136, align 1
-  %5138 = getelementptr inbounds nuw i8, ptr %541, i64 1
-  store i8 0, ptr %5138, align 1
-  %5139 = getelementptr inbounds nuw i8, ptr %541, i64 4
-  store i32 0, ptr %5139, align 4
-  %5140 = getelementptr inbounds nuw i8, ptr %541, i64 3
-  %5141 = getelementptr inbounds nuw i8, ptr %541, i64 2
-  store i8 126, ptr %5141, align 2
-  store i8 64, ptr %5140, align 1
+5134:                                             ; preds = %3
+  %5135 = getelementptr inbounds nuw i8, ptr %540, i64 1
+  store i8 0, ptr %5135, align 1
+  %5136 = getelementptr inbounds nuw i8, ptr %540, i64 4
+  store i32 0, ptr %5136, align 4
+  %5137 = getelementptr inbounds nuw i8, ptr %540, i64 3
+  %5138 = getelementptr inbounds nuw i8, ptr %540, i64 2
+  store i8 127, ptr %5138, align 2
+  store i8 64, ptr %5137, align 1
+  %5139 = getelementptr inbounds nuw i8, ptr %540, i64 9
+  store i8 0, ptr %5139, align 1
+  %5140 = getelementptr inbounds nuw i8, ptr %540, i64 12
+  store i32 0, ptr %5140, align 4
+  %5141 = getelementptr inbounds nuw i8, ptr %540, i64 11
+  %5142 = getelementptr inbounds nuw i8, ptr %540, i64 10
+  store i8 126, ptr %5142, align 2
+  store i8 64, ptr %5141, align 1
+  %5143 = getelementptr inbounds nuw i8, ptr %541, i64 1
+  store i8 0, ptr %5143, align 1
+  %5144 = getelementptr inbounds nuw i8, ptr %541, i64 4
+  store i32 0, ptr %5144, align 4
+  %5145 = getelementptr inbounds nuw i8, ptr %541, i64 3
+  %5146 = getelementptr inbounds nuw i8, ptr %541, i64 2
+  store i8 126, ptr %5146, align 2
+  store i8 64, ptr %5145, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %540, i64 2, ptr nonnull %541, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-5142:                                             ; preds = %3
-  %5143 = getelementptr inbounds nuw i8, ptr %542, i64 1
-  store i8 0, ptr %5143, align 1
-  %5144 = getelementptr inbounds nuw i8, ptr %542, i64 4
-  store i32 0, ptr %5144, align 4
-  %5145 = getelementptr inbounds nuw i8, ptr %542, i64 3
-  %5146 = getelementptr inbounds nuw i8, ptr %542, i64 2
-  store i8 127, ptr %5146, align 2
-  store i8 64, ptr %5145, align 1
-  %5147 = getelementptr inbounds nuw i8, ptr %542, i64 9
-  store i8 0, ptr %5147, align 1
-  %5148 = getelementptr inbounds nuw i8, ptr %542, i64 12
-  store i32 0, ptr %5148, align 4
-  %5149 = getelementptr inbounds nuw i8, ptr %542, i64 11
-  %5150 = getelementptr inbounds nuw i8, ptr %542, i64 10
-  store i8 126, ptr %5150, align 2
-  store i8 64, ptr %5149, align 1
-  %5151 = getelementptr inbounds nuw i8, ptr %543, i64 1
-  store i8 0, ptr %5151, align 1
-  %5152 = getelementptr inbounds nuw i8, ptr %543, i64 4
-  store i32 0, ptr %5152, align 4
-  %5153 = getelementptr inbounds nuw i8, ptr %543, i64 3
-  %5154 = getelementptr inbounds nuw i8, ptr %543, i64 2
-  store i8 126, ptr %5154, align 2
-  store i8 64, ptr %5153, align 1
+5147:                                             ; preds = %3
+  %5148 = getelementptr inbounds nuw i8, ptr %542, i64 1
+  store i8 0, ptr %5148, align 1
+  %5149 = getelementptr inbounds nuw i8, ptr %542, i64 4
+  store i32 0, ptr %5149, align 4
+  %5150 = getelementptr inbounds nuw i8, ptr %542, i64 3
+  %5151 = getelementptr inbounds nuw i8, ptr %542, i64 2
+  store i8 127, ptr %5151, align 2
+  store i8 64, ptr %5150, align 1
+  %5152 = getelementptr inbounds nuw i8, ptr %542, i64 9
+  store i8 0, ptr %5152, align 1
+  %5153 = getelementptr inbounds nuw i8, ptr %542, i64 12
+  store i32 0, ptr %5153, align 4
+  %5154 = getelementptr inbounds nuw i8, ptr %542, i64 11
+  %5155 = getelementptr inbounds nuw i8, ptr %542, i64 10
+  store i8 126, ptr %5155, align 2
+  store i8 64, ptr %5154, align 1
+  %5156 = getelementptr inbounds nuw i8, ptr %543, i64 1
+  store i8 0, ptr %5156, align 1
+  %5157 = getelementptr inbounds nuw i8, ptr %543, i64 4
+  store i32 0, ptr %5157, align 4
+  %5158 = getelementptr inbounds nuw i8, ptr %543, i64 3
+  %5159 = getelementptr inbounds nuw i8, ptr %543, i64 2
+  store i8 126, ptr %5159, align 2
+  store i8 64, ptr %5158, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %542, i64 2, ptr nonnull %543, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-5155:                                             ; preds = %3
-  %5156 = getelementptr inbounds nuw i8, ptr %544, i64 1
-  store i8 0, ptr %5156, align 1
-  %5157 = getelementptr inbounds nuw i8, ptr %544, i64 4
-  store i32 0, ptr %5157, align 4
-  %5158 = getelementptr inbounds nuw i8, ptr %544, i64 3
-  %5159 = getelementptr inbounds nuw i8, ptr %544, i64 2
-  store i8 127, ptr %5159, align 2
-  store i8 64, ptr %5158, align 1
-  %5160 = getelementptr inbounds nuw i8, ptr %544, i64 9
-  store i8 0, ptr %5160, align 1
-  %5161 = getelementptr inbounds nuw i8, ptr %544, i64 12
-  store i32 0, ptr %5161, align 4
-  %5162 = getelementptr inbounds nuw i8, ptr %544, i64 11
-  %5163 = getelementptr inbounds nuw i8, ptr %544, i64 10
-  store i8 126, ptr %5163, align 2
-  store i8 64, ptr %5162, align 1
-  %5164 = getelementptr inbounds nuw i8, ptr %545, i64 1
-  store i8 0, ptr %5164, align 1
-  %5165 = getelementptr inbounds nuw i8, ptr %545, i64 4
-  store i32 0, ptr %5165, align 4
-  %5166 = getelementptr inbounds nuw i8, ptr %545, i64 3
-  %5167 = getelementptr inbounds nuw i8, ptr %545, i64 2
-  store i8 126, ptr %5167, align 2
-  store i8 64, ptr %5166, align 1
+5160:                                             ; preds = %3
+  %5161 = getelementptr inbounds nuw i8, ptr %544, i64 1
+  store i8 0, ptr %5161, align 1
+  %5162 = getelementptr inbounds nuw i8, ptr %544, i64 4
+  store i32 0, ptr %5162, align 4
+  %5163 = getelementptr inbounds nuw i8, ptr %544, i64 3
+  %5164 = getelementptr inbounds nuw i8, ptr %544, i64 2
+  store i8 127, ptr %5164, align 2
+  store i8 64, ptr %5163, align 1
+  %5165 = getelementptr inbounds nuw i8, ptr %544, i64 9
+  store i8 0, ptr %5165, align 1
+  %5166 = getelementptr inbounds nuw i8, ptr %544, i64 12
+  store i32 0, ptr %5166, align 4
+  %5167 = getelementptr inbounds nuw i8, ptr %544, i64 11
+  %5168 = getelementptr inbounds nuw i8, ptr %544, i64 10
+  store i8 126, ptr %5168, align 2
+  store i8 64, ptr %5167, align 1
+  %5169 = getelementptr inbounds nuw i8, ptr %545, i64 1
+  store i8 0, ptr %5169, align 1
+  %5170 = getelementptr inbounds nuw i8, ptr %545, i64 4
+  store i32 0, ptr %5170, align 4
+  %5171 = getelementptr inbounds nuw i8, ptr %545, i64 3
+  %5172 = getelementptr inbounds nuw i8, ptr %545, i64 2
+  store i8 126, ptr %5172, align 2
+  store i8 64, ptr %5171, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %544, i64 2, ptr nonnull %545, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-5168:                                             ; preds = %3
-  %5169 = getelementptr inbounds nuw i8, ptr %546, i64 1
-  store i8 0, ptr %5169, align 1
-  %5170 = getelementptr inbounds nuw i8, ptr %546, i64 4
-  store i32 0, ptr %5170, align 4
-  %5171 = getelementptr inbounds nuw i8, ptr %546, i64 3
-  %5172 = getelementptr inbounds nuw i8, ptr %546, i64 2
-  store i8 127, ptr %5172, align 2
-  store i8 64, ptr %5171, align 1
-  %5173 = getelementptr inbounds nuw i8, ptr %546, i64 9
-  store i8 0, ptr %5173, align 1
-  %5174 = getelementptr inbounds nuw i8, ptr %546, i64 12
-  store i32 0, ptr %5174, align 4
-  %5175 = getelementptr inbounds nuw i8, ptr %546, i64 11
-  %5176 = getelementptr inbounds nuw i8, ptr %546, i64 10
-  store i8 127, ptr %5176, align 2
-  store i8 64, ptr %5175, align 1
-  %5177 = getelementptr inbounds nuw i8, ptr %546, i64 17
-  store i8 0, ptr %5177, align 1
-  %5178 = getelementptr inbounds nuw i8, ptr %546, i64 20
-  store i32 0, ptr %5178, align 4
-  %5179 = getelementptr inbounds nuw i8, ptr %546, i64 19
-  %5180 = getelementptr inbounds nuw i8, ptr %546, i64 18
-  store i8 127, ptr %5180, align 2
-  store i8 64, ptr %5179, align 1
-  %5181 = getelementptr inbounds nuw i8, ptr %547, i64 1
-  store i8 0, ptr %5181, align 1
-  %5182 = getelementptr inbounds nuw i8, ptr %547, i64 4
-  store i32 0, ptr %5182, align 4
-  %5183 = getelementptr inbounds nuw i8, ptr %547, i64 3
-  %5184 = getelementptr inbounds nuw i8, ptr %547, i64 2
-  store i8 127, ptr %5184, align 2
-  store i8 64, ptr %5183, align 1
+5173:                                             ; preds = %3
+  %5174 = getelementptr inbounds nuw i8, ptr %546, i64 1
+  store i8 0, ptr %5174, align 1
+  %5175 = getelementptr inbounds nuw i8, ptr %546, i64 4
+  store i32 0, ptr %5175, align 4
+  %5176 = getelementptr inbounds nuw i8, ptr %546, i64 3
+  %5177 = getelementptr inbounds nuw i8, ptr %546, i64 2
+  store i8 127, ptr %5177, align 2
+  store i8 64, ptr %5176, align 1
+  %5178 = getelementptr inbounds nuw i8, ptr %546, i64 9
+  store i8 0, ptr %5178, align 1
+  %5179 = getelementptr inbounds nuw i8, ptr %546, i64 12
+  store i32 0, ptr %5179, align 4
+  %5180 = getelementptr inbounds nuw i8, ptr %546, i64 11
+  %5181 = getelementptr inbounds nuw i8, ptr %546, i64 10
+  store i8 127, ptr %5181, align 2
+  store i8 64, ptr %5180, align 1
+  %5182 = getelementptr inbounds nuw i8, ptr %546, i64 17
+  store i8 0, ptr %5182, align 1
+  %5183 = getelementptr inbounds nuw i8, ptr %546, i64 20
+  store i32 0, ptr %5183, align 4
+  %5184 = getelementptr inbounds nuw i8, ptr %546, i64 19
+  %5185 = getelementptr inbounds nuw i8, ptr %546, i64 18
+  store i8 127, ptr %5185, align 2
+  store i8 64, ptr %5184, align 1
+  %5186 = getelementptr inbounds nuw i8, ptr %547, i64 1
+  store i8 0, ptr %5186, align 1
+  %5187 = getelementptr inbounds nuw i8, ptr %547, i64 4
+  store i32 0, ptr %5187, align 4
+  %5188 = getelementptr inbounds nuw i8, ptr %547, i64 3
+  %5189 = getelementptr inbounds nuw i8, ptr %547, i64 2
+  store i8 127, ptr %5189, align 2
+  store i8 64, ptr %5188, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %546, i64 3, ptr nonnull %547, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-5185:                                             ; preds = %3
-  %5186 = getelementptr inbounds nuw i8, ptr %548, i64 1
-  store i8 0, ptr %5186, align 1
-  %5187 = getelementptr inbounds nuw i8, ptr %548, i64 4
-  store i32 0, ptr %5187, align 4
-  %5188 = getelementptr inbounds nuw i8, ptr %548, i64 3
-  %5189 = getelementptr inbounds nuw i8, ptr %548, i64 2
-  store i8 127, ptr %5189, align 2
-  store i8 64, ptr %5188, align 1
-  %5190 = getelementptr inbounds nuw i8, ptr %548, i64 9
-  store i8 0, ptr %5190, align 1
-  %5191 = getelementptr inbounds nuw i8, ptr %548, i64 12
-  store i32 0, ptr %5191, align 4
-  %5192 = getelementptr inbounds nuw i8, ptr %548, i64 11
-  %5193 = getelementptr inbounds nuw i8, ptr %548, i64 10
-  store i8 126, ptr %5193, align 2
-  store i8 64, ptr %5192, align 1
-  %5194 = getelementptr inbounds nuw i8, ptr %548, i64 17
-  store i8 0, ptr %5194, align 1
-  %5195 = getelementptr inbounds nuw i8, ptr %548, i64 20
-  store i32 0, ptr %5195, align 4
-  %5196 = getelementptr inbounds nuw i8, ptr %548, i64 19
-  %5197 = getelementptr inbounds nuw i8, ptr %548, i64 18
-  store i8 126, ptr %5197, align 2
-  store i8 64, ptr %5196, align 1
-  %5198 = getelementptr inbounds nuw i8, ptr %549, i64 1
-  store i8 0, ptr %5198, align 1
-  %5199 = getelementptr inbounds nuw i8, ptr %549, i64 4
-  store i32 0, ptr %5199, align 4
-  %5200 = getelementptr inbounds nuw i8, ptr %549, i64 3
-  %5201 = getelementptr inbounds nuw i8, ptr %549, i64 2
-  store i8 126, ptr %5201, align 2
-  store i8 64, ptr %5200, align 1
+5190:                                             ; preds = %3
+  %5191 = getelementptr inbounds nuw i8, ptr %548, i64 1
+  store i8 0, ptr %5191, align 1
+  %5192 = getelementptr inbounds nuw i8, ptr %548, i64 4
+  store i32 0, ptr %5192, align 4
+  %5193 = getelementptr inbounds nuw i8, ptr %548, i64 3
+  %5194 = getelementptr inbounds nuw i8, ptr %548, i64 2
+  store i8 127, ptr %5194, align 2
+  store i8 64, ptr %5193, align 1
+  %5195 = getelementptr inbounds nuw i8, ptr %548, i64 9
+  store i8 0, ptr %5195, align 1
+  %5196 = getelementptr inbounds nuw i8, ptr %548, i64 12
+  store i32 0, ptr %5196, align 4
+  %5197 = getelementptr inbounds nuw i8, ptr %548, i64 11
+  %5198 = getelementptr inbounds nuw i8, ptr %548, i64 10
+  store i8 126, ptr %5198, align 2
+  store i8 64, ptr %5197, align 1
+  %5199 = getelementptr inbounds nuw i8, ptr %548, i64 17
+  store i8 0, ptr %5199, align 1
+  %5200 = getelementptr inbounds nuw i8, ptr %548, i64 20
+  store i32 0, ptr %5200, align 4
+  %5201 = getelementptr inbounds nuw i8, ptr %548, i64 19
+  %5202 = getelementptr inbounds nuw i8, ptr %548, i64 18
+  store i8 126, ptr %5202, align 2
+  store i8 64, ptr %5201, align 1
+  %5203 = getelementptr inbounds nuw i8, ptr %549, i64 1
+  store i8 0, ptr %5203, align 1
+  %5204 = getelementptr inbounds nuw i8, ptr %549, i64 4
+  store i32 0, ptr %5204, align 4
+  %5205 = getelementptr inbounds nuw i8, ptr %549, i64 3
+  %5206 = getelementptr inbounds nuw i8, ptr %549, i64 2
+  store i8 126, ptr %5206, align 2
+  store i8 64, ptr %5205, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 64, ptr nonnull %548, i64 3, ptr nonnull %549, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-5202:                                             ; preds = %3
-  %5203 = getelementptr inbounds nuw i8, ptr %550, i64 1
-  store i8 0, ptr %5203, align 1
-  %5204 = getelementptr inbounds nuw i8, ptr %550, i64 4
-  store i32 0, ptr %5204, align 4
-  %5205 = getelementptr inbounds nuw i8, ptr %550, i64 3
-  %5206 = getelementptr inbounds nuw i8, ptr %550, i64 2
-  store i8 127, ptr %5206, align 2
-  store i8 64, ptr %5205, align 1
-  %5207 = getelementptr inbounds nuw i8, ptr %550, i64 9
-  store i8 0, ptr %5207, align 1
-  %5208 = getelementptr inbounds nuw i8, ptr %550, i64 12
-  store i32 0, ptr %5208, align 4
-  %5209 = getelementptr inbounds nuw i8, ptr %550, i64 11
-  %5210 = getelementptr inbounds nuw i8, ptr %550, i64 10
-  store i8 127, ptr %5210, align 2
-  store i8 64, ptr %5209, align 1
-  %5211 = getelementptr inbounds nuw i8, ptr %550, i64 17
-  store i8 0, ptr %5211, align 1
-  %5212 = getelementptr inbounds nuw i8, ptr %550, i64 20
-  store i32 0, ptr %5212, align 4
-  %5213 = getelementptr inbounds nuw i8, ptr %550, i64 19
-  %5214 = getelementptr inbounds nuw i8, ptr %550, i64 18
-  store i8 127, ptr %5214, align 2
-  store i8 64, ptr %5213, align 1
-  %5215 = getelementptr inbounds nuw i8, ptr %551, i64 1
-  store i8 0, ptr %5215, align 1
-  %5216 = getelementptr inbounds nuw i8, ptr %551, i64 4
-  store i32 0, ptr %5216, align 4
-  %5217 = getelementptr inbounds nuw i8, ptr %551, i64 3
-  %5218 = getelementptr inbounds nuw i8, ptr %551, i64 2
-  store i8 127, ptr %5218, align 2
-  store i8 64, ptr %5217, align 1
+5207:                                             ; preds = %3
+  %5208 = getelementptr inbounds nuw i8, ptr %550, i64 1
+  store i8 0, ptr %5208, align 1
+  %5209 = getelementptr inbounds nuw i8, ptr %550, i64 4
+  store i32 0, ptr %5209, align 4
+  %5210 = getelementptr inbounds nuw i8, ptr %550, i64 3
+  %5211 = getelementptr inbounds nuw i8, ptr %550, i64 2
+  store i8 127, ptr %5211, align 2
+  store i8 64, ptr %5210, align 1
+  %5212 = getelementptr inbounds nuw i8, ptr %550, i64 9
+  store i8 0, ptr %5212, align 1
+  %5213 = getelementptr inbounds nuw i8, ptr %550, i64 12
+  store i32 0, ptr %5213, align 4
+  %5214 = getelementptr inbounds nuw i8, ptr %550, i64 11
+  %5215 = getelementptr inbounds nuw i8, ptr %550, i64 10
+  store i8 127, ptr %5215, align 2
+  store i8 64, ptr %5214, align 1
+  %5216 = getelementptr inbounds nuw i8, ptr %550, i64 17
+  store i8 0, ptr %5216, align 1
+  %5217 = getelementptr inbounds nuw i8, ptr %550, i64 20
+  store i32 0, ptr %5217, align 4
+  %5218 = getelementptr inbounds nuw i8, ptr %550, i64 19
+  %5219 = getelementptr inbounds nuw i8, ptr %550, i64 18
+  store i8 127, ptr %5219, align 2
+  store i8 64, ptr %5218, align 1
+  %5220 = getelementptr inbounds nuw i8, ptr %551, i64 1
+  store i8 0, ptr %5220, align 1
+  %5221 = getelementptr inbounds nuw i8, ptr %551, i64 4
+  store i32 0, ptr %5221, align 4
+  %5222 = getelementptr inbounds nuw i8, ptr %551, i64 3
+  %5223 = getelementptr inbounds nuw i8, ptr %551, i64 2
+  store i8 127, ptr %5223, align 2
+  store i8 64, ptr %5222, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %550, i64 3, ptr nonnull %551, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-5219:                                             ; preds = %3
-  %5220 = getelementptr inbounds nuw i8, ptr %552, i64 1
-  store i8 0, ptr %5220, align 1
-  %5221 = getelementptr inbounds nuw i8, ptr %552, i64 4
-  store i32 0, ptr %5221, align 4
-  %5222 = getelementptr inbounds nuw i8, ptr %552, i64 3
-  %5223 = getelementptr inbounds nuw i8, ptr %552, i64 2
-  store i8 127, ptr %5223, align 2
-  store i8 64, ptr %5222, align 1
-  %5224 = getelementptr inbounds nuw i8, ptr %552, i64 9
-  store i8 0, ptr %5224, align 1
-  %5225 = getelementptr inbounds nuw i8, ptr %552, i64 12
-  store i32 0, ptr %5225, align 4
-  %5226 = getelementptr inbounds nuw i8, ptr %552, i64 11
-  %5227 = getelementptr inbounds nuw i8, ptr %552, i64 10
-  store i8 127, ptr %5227, align 2
-  store i8 64, ptr %5226, align 1
-  %5228 = getelementptr inbounds nuw i8, ptr %552, i64 17
-  store i8 0, ptr %5228, align 1
-  %5229 = getelementptr inbounds nuw i8, ptr %552, i64 20
-  store i32 0, ptr %5229, align 4
-  %5230 = getelementptr inbounds nuw i8, ptr %552, i64 19
-  %5231 = getelementptr inbounds nuw i8, ptr %552, i64 18
-  store i8 127, ptr %5231, align 2
-  store i8 64, ptr %5230, align 1
-  %5232 = getelementptr inbounds nuw i8, ptr %553, i64 1
-  store i8 0, ptr %5232, align 1
-  %5233 = getelementptr inbounds nuw i8, ptr %553, i64 4
-  store i32 0, ptr %5233, align 4
-  %5234 = getelementptr inbounds nuw i8, ptr %553, i64 3
-  %5235 = getelementptr inbounds nuw i8, ptr %553, i64 2
-  store i8 127, ptr %5235, align 2
-  store i8 64, ptr %5234, align 1
+5224:                                             ; preds = %3
+  %5225 = getelementptr inbounds nuw i8, ptr %552, i64 1
+  store i8 0, ptr %5225, align 1
+  %5226 = getelementptr inbounds nuw i8, ptr %552, i64 4
+  store i32 0, ptr %5226, align 4
+  %5227 = getelementptr inbounds nuw i8, ptr %552, i64 3
+  %5228 = getelementptr inbounds nuw i8, ptr %552, i64 2
+  store i8 127, ptr %5228, align 2
+  store i8 64, ptr %5227, align 1
+  %5229 = getelementptr inbounds nuw i8, ptr %552, i64 9
+  store i8 0, ptr %5229, align 1
+  %5230 = getelementptr inbounds nuw i8, ptr %552, i64 12
+  store i32 0, ptr %5230, align 4
+  %5231 = getelementptr inbounds nuw i8, ptr %552, i64 11
+  %5232 = getelementptr inbounds nuw i8, ptr %552, i64 10
+  store i8 127, ptr %5232, align 2
+  store i8 64, ptr %5231, align 1
+  %5233 = getelementptr inbounds nuw i8, ptr %552, i64 17
+  store i8 0, ptr %5233, align 1
+  %5234 = getelementptr inbounds nuw i8, ptr %552, i64 20
+  store i32 0, ptr %5234, align 4
+  %5235 = getelementptr inbounds nuw i8, ptr %552, i64 19
+  %5236 = getelementptr inbounds nuw i8, ptr %552, i64 18
+  store i8 127, ptr %5236, align 2
+  store i8 64, ptr %5235, align 1
+  %5237 = getelementptr inbounds nuw i8, ptr %553, i64 1
+  store i8 0, ptr %5237, align 1
+  %5238 = getelementptr inbounds nuw i8, ptr %553, i64 4
+  store i32 0, ptr %5238, align 4
+  %5239 = getelementptr inbounds nuw i8, ptr %553, i64 3
+  %5240 = getelementptr inbounds nuw i8, ptr %553, i64 2
+  store i8 127, ptr %5240, align 2
+  store i8 64, ptr %5239, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %552, i64 3, ptr nonnull %553, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-5236:                                             ; preds = %3
-  %5237 = getelementptr inbounds nuw i8, ptr %554, i64 1
-  store i8 0, ptr %5237, align 1
-  %5238 = getelementptr inbounds nuw i8, ptr %554, i64 4
-  store i32 0, ptr %5238, align 4
-  %5239 = getelementptr inbounds nuw i8, ptr %554, i64 3
-  %5240 = getelementptr inbounds nuw i8, ptr %554, i64 2
-  store i8 127, ptr %5240, align 2
-  store i8 64, ptr %5239, align 1
-  %5241 = getelementptr inbounds nuw i8, ptr %554, i64 9
-  store i8 0, ptr %5241, align 1
-  %5242 = getelementptr inbounds nuw i8, ptr %554, i64 12
-  store i32 0, ptr %5242, align 4
-  %5243 = getelementptr inbounds nuw i8, ptr %554, i64 11
-  %5244 = getelementptr inbounds nuw i8, ptr %554, i64 10
-  store i8 126, ptr %5244, align 2
-  store i8 64, ptr %5243, align 1
-  %5245 = getelementptr inbounds nuw i8, ptr %554, i64 17
-  store i8 0, ptr %5245, align 1
-  %5246 = getelementptr inbounds nuw i8, ptr %554, i64 20
-  store i32 0, ptr %5246, align 4
-  %5247 = getelementptr inbounds nuw i8, ptr %554, i64 19
-  %5248 = getelementptr inbounds nuw i8, ptr %554, i64 18
-  store i8 126, ptr %5248, align 2
-  store i8 64, ptr %5247, align 1
-  %5249 = getelementptr inbounds nuw i8, ptr %555, i64 1
-  store i8 0, ptr %5249, align 1
-  %5250 = getelementptr inbounds nuw i8, ptr %555, i64 4
-  store i32 0, ptr %5250, align 4
-  %5251 = getelementptr inbounds nuw i8, ptr %555, i64 3
-  %5252 = getelementptr inbounds nuw i8, ptr %555, i64 2
-  store i8 126, ptr %5252, align 2
-  store i8 64, ptr %5251, align 1
+5241:                                             ; preds = %3
+  %5242 = getelementptr inbounds nuw i8, ptr %554, i64 1
+  store i8 0, ptr %5242, align 1
+  %5243 = getelementptr inbounds nuw i8, ptr %554, i64 4
+  store i32 0, ptr %5243, align 4
+  %5244 = getelementptr inbounds nuw i8, ptr %554, i64 3
+  %5245 = getelementptr inbounds nuw i8, ptr %554, i64 2
+  store i8 127, ptr %5245, align 2
+  store i8 64, ptr %5244, align 1
+  %5246 = getelementptr inbounds nuw i8, ptr %554, i64 9
+  store i8 0, ptr %5246, align 1
+  %5247 = getelementptr inbounds nuw i8, ptr %554, i64 12
+  store i32 0, ptr %5247, align 4
+  %5248 = getelementptr inbounds nuw i8, ptr %554, i64 11
+  %5249 = getelementptr inbounds nuw i8, ptr %554, i64 10
+  store i8 126, ptr %5249, align 2
+  store i8 64, ptr %5248, align 1
+  %5250 = getelementptr inbounds nuw i8, ptr %554, i64 17
+  store i8 0, ptr %5250, align 1
+  %5251 = getelementptr inbounds nuw i8, ptr %554, i64 20
+  store i32 0, ptr %5251, align 4
+  %5252 = getelementptr inbounds nuw i8, ptr %554, i64 19
+  %5253 = getelementptr inbounds nuw i8, ptr %554, i64 18
+  store i8 126, ptr %5253, align 2
+  store i8 64, ptr %5252, align 1
+  %5254 = getelementptr inbounds nuw i8, ptr %555, i64 1
+  store i8 0, ptr %5254, align 1
+  %5255 = getelementptr inbounds nuw i8, ptr %555, i64 4
+  store i32 0, ptr %5255, align 4
+  %5256 = getelementptr inbounds nuw i8, ptr %555, i64 3
+  %5257 = getelementptr inbounds nuw i8, ptr %555, i64 2
+  store i8 126, ptr %5257, align 2
+  store i8 64, ptr %5256, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 8, ptr nonnull %554, i64 3, ptr nonnull %555, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-5253:                                             ; preds = %3
-  %5254 = getelementptr inbounds nuw i8, ptr %556, i64 1
-  store i8 0, ptr %5254, align 1
-  %5255 = getelementptr inbounds nuw i8, ptr %556, i64 4
-  store i32 0, ptr %5255, align 4
-  %5256 = getelementptr inbounds nuw i8, ptr %556, i64 3
-  %5257 = getelementptr inbounds nuw i8, ptr %556, i64 2
-  store i8 127, ptr %5257, align 2
-  store i8 64, ptr %5256, align 1
-  %5258 = getelementptr inbounds nuw i8, ptr %556, i64 9
-  store i8 0, ptr %5258, align 1
-  %5259 = getelementptr inbounds nuw i8, ptr %556, i64 12
-  store i32 0, ptr %5259, align 4
-  %5260 = getelementptr inbounds nuw i8, ptr %556, i64 11
-  %5261 = getelementptr inbounds nuw i8, ptr %556, i64 10
-  store i8 126, ptr %5261, align 2
-  store i8 64, ptr %5260, align 1
-  %5262 = getelementptr inbounds nuw i8, ptr %556, i64 17
-  store i8 0, ptr %5262, align 1
-  %5263 = getelementptr inbounds nuw i8, ptr %556, i64 20
-  store i32 0, ptr %5263, align 4
-  %5264 = getelementptr inbounds nuw i8, ptr %556, i64 19
-  %5265 = getelementptr inbounds nuw i8, ptr %556, i64 18
-  store i8 126, ptr %5265, align 2
-  store i8 64, ptr %5264, align 1
-  %5266 = getelementptr inbounds nuw i8, ptr %557, i64 1
-  store i8 0, ptr %5266, align 1
-  %5267 = getelementptr inbounds nuw i8, ptr %557, i64 4
-  store i32 0, ptr %5267, align 4
-  %5268 = getelementptr inbounds nuw i8, ptr %557, i64 3
-  %5269 = getelementptr inbounds nuw i8, ptr %557, i64 2
-  store i8 126, ptr %5269, align 2
-  store i8 64, ptr %5268, align 1
+5258:                                             ; preds = %3
+  %5259 = getelementptr inbounds nuw i8, ptr %556, i64 1
+  store i8 0, ptr %5259, align 1
+  %5260 = getelementptr inbounds nuw i8, ptr %556, i64 4
+  store i32 0, ptr %5260, align 4
+  %5261 = getelementptr inbounds nuw i8, ptr %556, i64 3
+  %5262 = getelementptr inbounds nuw i8, ptr %556, i64 2
+  store i8 127, ptr %5262, align 2
+  store i8 64, ptr %5261, align 1
+  %5263 = getelementptr inbounds nuw i8, ptr %556, i64 9
+  store i8 0, ptr %5263, align 1
+  %5264 = getelementptr inbounds nuw i8, ptr %556, i64 12
+  store i32 0, ptr %5264, align 4
+  %5265 = getelementptr inbounds nuw i8, ptr %556, i64 11
+  %5266 = getelementptr inbounds nuw i8, ptr %556, i64 10
+  store i8 126, ptr %5266, align 2
+  store i8 64, ptr %5265, align 1
+  %5267 = getelementptr inbounds nuw i8, ptr %556, i64 17
+  store i8 0, ptr %5267, align 1
+  %5268 = getelementptr inbounds nuw i8, ptr %556, i64 20
+  store i32 0, ptr %5268, align 4
+  %5269 = getelementptr inbounds nuw i8, ptr %556, i64 19
+  %5270 = getelementptr inbounds nuw i8, ptr %556, i64 18
+  store i8 126, ptr %5270, align 2
+  store i8 64, ptr %5269, align 1
+  %5271 = getelementptr inbounds nuw i8, ptr %557, i64 1
+  store i8 0, ptr %5271, align 1
+  %5272 = getelementptr inbounds nuw i8, ptr %557, i64 4
+  store i32 0, ptr %5272, align 4
+  %5273 = getelementptr inbounds nuw i8, ptr %557, i64 3
+  %5274 = getelementptr inbounds nuw i8, ptr %557, i64 2
+  store i8 126, ptr %5274, align 2
+  store i8 64, ptr %5273, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 16, ptr nonnull %556, i64 3, ptr nonnull %557, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-5270:                                             ; preds = %3
-  %5271 = getelementptr inbounds nuw i8, ptr %558, i64 1
-  store i8 0, ptr %5271, align 1
-  %5272 = getelementptr inbounds nuw i8, ptr %558, i64 4
-  store i32 0, ptr %5272, align 4
-  %5273 = getelementptr inbounds nuw i8, ptr %558, i64 3
-  %5274 = getelementptr inbounds nuw i8, ptr %558, i64 2
-  store i8 127, ptr %5274, align 2
-  store i8 64, ptr %5273, align 1
-  %5275 = getelementptr inbounds nuw i8, ptr %558, i64 9
-  store i8 0, ptr %5275, align 1
-  %5276 = getelementptr inbounds nuw i8, ptr %558, i64 12
-  store i32 0, ptr %5276, align 4
-  %5277 = getelementptr inbounds nuw i8, ptr %558, i64 11
-  %5278 = getelementptr inbounds nuw i8, ptr %558, i64 10
-  store i8 126, ptr %5278, align 2
-  store i8 64, ptr %5277, align 1
-  %5279 = getelementptr inbounds nuw i8, ptr %558, i64 17
-  store i8 0, ptr %5279, align 1
-  %5280 = getelementptr inbounds nuw i8, ptr %558, i64 20
-  store i32 0, ptr %5280, align 4
-  %5281 = getelementptr inbounds nuw i8, ptr %558, i64 19
-  %5282 = getelementptr inbounds nuw i8, ptr %558, i64 18
-  store i8 126, ptr %5282, align 2
-  store i8 64, ptr %5281, align 1
-  %5283 = getelementptr inbounds nuw i8, ptr %559, i64 1
-  store i8 0, ptr %5283, align 1
-  %5284 = getelementptr inbounds nuw i8, ptr %559, i64 4
-  store i32 0, ptr %5284, align 4
-  %5285 = getelementptr inbounds nuw i8, ptr %559, i64 3
-  %5286 = getelementptr inbounds nuw i8, ptr %559, i64 2
-  store i8 126, ptr %5286, align 2
-  store i8 64, ptr %5285, align 1
+5275:                                             ; preds = %3
+  %5276 = getelementptr inbounds nuw i8, ptr %558, i64 1
+  store i8 0, ptr %5276, align 1
+  %5277 = getelementptr inbounds nuw i8, ptr %558, i64 4
+  store i32 0, ptr %5277, align 4
+  %5278 = getelementptr inbounds nuw i8, ptr %558, i64 3
+  %5279 = getelementptr inbounds nuw i8, ptr %558, i64 2
+  store i8 127, ptr %5279, align 2
+  store i8 64, ptr %5278, align 1
+  %5280 = getelementptr inbounds nuw i8, ptr %558, i64 9
+  store i8 0, ptr %5280, align 1
+  %5281 = getelementptr inbounds nuw i8, ptr %558, i64 12
+  store i32 0, ptr %5281, align 4
+  %5282 = getelementptr inbounds nuw i8, ptr %558, i64 11
+  %5283 = getelementptr inbounds nuw i8, ptr %558, i64 10
+  store i8 126, ptr %5283, align 2
+  store i8 64, ptr %5282, align 1
+  %5284 = getelementptr inbounds nuw i8, ptr %558, i64 17
+  store i8 0, ptr %5284, align 1
+  %5285 = getelementptr inbounds nuw i8, ptr %558, i64 20
+  store i32 0, ptr %5285, align 4
+  %5286 = getelementptr inbounds nuw i8, ptr %558, i64 19
+  %5287 = getelementptr inbounds nuw i8, ptr %558, i64 18
+  store i8 126, ptr %5287, align 2
+  store i8 64, ptr %5286, align 1
+  %5288 = getelementptr inbounds nuw i8, ptr %559, i64 1
+  store i8 0, ptr %5288, align 1
+  %5289 = getelementptr inbounds nuw i8, ptr %559, i64 4
+  store i32 0, ptr %5289, align 4
+  %5290 = getelementptr inbounds nuw i8, ptr %559, i64 3
+  %5291 = getelementptr inbounds nuw i8, ptr %559, i64 2
+  store i8 126, ptr %5291, align 2
+  store i8 64, ptr %5290, align 1
   call fastcc void @"_ZZN8WasmEdge9Validator11FormChecker10checkInstrERKNS_3AST11InstructionEENK3$_7clEjN5cxx204spanIKNS_7ValTypeELm18446744073709551615EEESB_b"(ptr dead_on_unwind noalias writable align 4 %0, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 32, ptr nonnull %558, i64 3, ptr nonnull %559, i64 1, i1 noundef zeroext false)
   br label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262
 
-5287:                                             ; preds = %3
+5292:                                             ; preds = %3
   unreachable
 
-_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262: ; preds = %_ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1302, %4378, %4374, %4328, %4324, %4304, %4300, %3913, %3909, %3889, %3885, %2883, %2881, %2567, %2565, %2284, %2282, %2116, %2114, %1949, %1825, %1823, %1519, %1517, %1000, %966, %964, %909, %815, %5270, %5253, %5236, %5219, %5202, %5185, %5168, %5155, %5142, %5129, %5116, %5103, %5090, %5077, %5064, %5051, %5038, %5025, %5012, %4999, %4986, %4973, %4960, %4947, %4934, %4921, %4908, %4895, %4882, %4869, %4856, %4843, %4830, %4817, %4804, %4791, %4778, %4765, %4752, %4739, %4726, %4713, %4700, %4687, %4674, %4661, %4648, %4635, %4622, %4613, %4604, %4595, %4586, %4577, %4568, %4559, %4550, %4541, %4532, %4523, %4514, %4505, %4496, %4479, %4462, %4449, %4448, %4431, %4418, %4401, %4392, %4379, %4346, %4329, %4276, %4267, %4258, %4249, %4235, %4225, %4211, %4201, %4187, %4177, %4163, %4153, %4139, %4129, %4115, %4105, %4092, %4090, %4082, %4073, %4064, %4055, %4046, %4033, %4020, %4007, %3994, %3985, %3976, %3967, %3958, %3949, %3940, %3927, %3914, %3853, %3840, %3827, %3814, %3805, %3796, %3787, %3778, %3769, %3760, %3751, %3742, %3733, %3724, %3715, %3706, %3697, %3688, %3679, %3670, %3661, %3652, %3643, %3634, %3625, %3616, %3607, %3598, %3589, %3580, %3571, %3562, %3557, %3552, %3547, %3542, %3541, %3537, %3513, %3510, %3492, %3488, %3473, %3460, %3455, %3446, %3437, %3428, %3419, %3410, %3401, %3392, %3383, %3374, %3365, %3356, %3347, %3338, %3329, %3320, %3311, %3302, %3293, %3292, %3288, %3264, %3260, %3233, %3215, %3211, %3183, %3161, %3156, %3147, %3141, %3136, %3129, %3116, %3115, %3106, %3101, %3082, %3075, %3068, %3066, %3045, %3033, %3029, %3013, %3005, %3002, %2998, %2983, %2973, %2966, %2961, %2949, %2945, %2936, %2927, %2923, %2916, %2909, %2902, %2897, %2747, %2728, %2721, %2712, %2710, %2705, %2699, %2679, %2658, %2652, %2649, %2626, %2622, %2597, %2576, %2573, %2524, %2509, %.thread3341, %2497, %2493, %2476, %2458, %2444, %2437, %2414, %2400, %2395, %2377, %2359, %2345, %2339, %2325, %2317, %2299, %2253, %2250, %2234, %2219, %2209, %2207, %2199, %2176, %2174, %2166, %2162, %2145, %2122, %2054, %2052, %2048, %2039, %2019, %2001, %1999, %1989, %1986, %1982, %1962, %1960, %1954, %1953, %1900, %1899, %1895, %1878, %1870, %1840, %1790, %1789, %1785, %1768, %1761, %1733, %1725, %1711, %1707, %1689, %1652, %1637, %1618, %1614, %1605, %1597, %1561, %1557, %1545, %1541, %1525, %1414, %1411, %1410, %1373, %1364, %1329, %1300, %1296, %1278, %1214, %1145, %1113, %1109, %1082, %1075, %1040, %1036, %1013, %1004, %985, %981, %975, %972, %925, %913, %830, %818, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1251, %565, %564
+_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1262: ; preds = %_ZNSt6vectorISt8optionalIN8WasmEdge7ValTypeEESaIS3_EED2Ev.exit1302, %4383, %4379, %4333, %4329, %4309, %4305, %3918, %3914, %3894, %3890, %2883, %2881, %2567, %2565, %2284, %2282, %2116, %2114, %1949, %1825, %1823, %1519, %1517, %1000, %966, %964, %909, %815, %5275, %5258, %5241, %5224, %5207, %5190, %5173, %5160, %5147, %5134, %5121, %5108, %5095, %5082, %5069, %5056, %5043, %5030, %5017, %5004, %4991, %4978, %4965, %4952, %4939, %4926, %4913, %4900, %4887, %4874, %4861, %4848, %4835, %4822, %4809, %4796, %4783, %4770, %4757, %4744, %4731, %4718, %4705, %4692, %4679, %4666, %4653, %4640, %4627, %4618, %4609, %4600, %4591, %4582, %4573, %4564, %4555, %4546, %4537, %4528, %4519, %4510, %4501, %4484, %4467, %4454, %4453, %4436, %4423, %4406, %4397, %4384, %4351, %4334, %4281, %4272, %4263, %4254, %4240, %4230, %4216, %4206, %4192, %4182, %4168, %4158, %4144, %4134, %4120, %4110, %4097, %4095, %4087, %4078, %4069, %4060, %4051, %4038, %4025, %4012, %3999, %3990, %3981, %3972, %3963, %3954, %3945, %3932, %3919, %3858, %3845, %3832, %3819, %3810, %3801, %3792, %3783, %3774, %3765, %3756, %3747, %3738, %3729, %3720, %3711, %3702, %3693, %3684, %3675, %3666, %3657, %3648, %3639, %3630, %3621, %3612, %3603, %3594, %3585, %3576, %3567, %3562, %3557, %3552, %3547, %3546, %3542, %3518, %3515, %3497, %3493, %3478, %3465, %3460, %3451, %3442, %3433, %3424, %3415, %3406, %3397, %3388, %3379, %3370, %3361, %3352, %3343, %3334, %3325, %3316, %3307, %3298, %3297, %3293, %3269, %3265, %3238, %3220, %3216, %3188, %3166, %3161, %3152, %3146, %3141, %3134, %3121, %3120, %3111, %3106, %3087, %3077, %3068, %3066, %3045, %3033, %3029, %3013, %3005, %3002, %2998, %2983, %2973, %2966, %2961, %2949, %2945, %2936, %2927, %2923, %2916, %2909, %2902, %2897, %2747, %2728, %2721, %2712, %2710, %2705, %2699, %2679, %2658, %2652, %2649, %2626, %2622, %2597, %2576, %2573, %2524, %2509, %.thread3341, %2497, %2493, %2476, %2458, %2444, %2437, %2414, %2400, %2395, %2377, %2359, %2345, %2339, %2325, %2317, %2299, %2253, %2250, %2234, %2219, %2209, %2207, %2199, %2176, %2174, %2166, %2162, %2145, %2122, %2054, %2052, %2048, %2039, %2019, %2001, %1999, %1989, %1986, %1982, %1962, %1960, %1954, %1953, %1900, %1899, %1895, %1878, %1870, %1840, %1790, %1789, %1785, %1768, %1761, %1733, %1725, %1711, %1707, %1689, %1652, %1637, %1618, %1614, %1605, %1597, %1561, %1557, %1545, %1541, %1525, %1414, %1411, %1410, %1373, %1364, %1329, %1300, %1296, %1278, %1214, %1145, %1113, %1109, %1082, %1075, %1040, %1036, %1013, %1004, %985, %981, %975, %972, %925, %913, %830, %818, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1251, %565, %564
   ret void
 
-_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1260: ; preds = %2891, %2889, %2551, %2548, %2293, %2290, %2078, %2076, %1834, %1831, %1449, %1447, %1232, %1230, %957, %955, %3262, %3213, %3000, %2985, %2975, %2749, %2701, %2681, %2624, %2439, %2050, %1984, %1947, %998, %907, %813, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1253
-  %.pn910.pn = phi { ptr, i32 } [ %.pn910, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1253 ], [ %.pn, %2891 ], [ %814, %813 ], [ %908, %907 ], [ %3263, %3262 ], [ %999, %998 ], [ %lpad.phi3374, %957 ], [ %.pn, %2889 ], [ %lpad.phi3379, %1232 ], [ %2549, %2548 ], [ %lpad.phi3384, %1449 ], [ %1948, %1947 ], [ %1985, %1984 ], [ %2051, %2050 ], [ %1832, %1834 ], [ %lpad.phi3389, %2078 ], [ %2291, %2290 ], [ %2440, %2439 ], [ %2291, %2293 ], [ %lpad.phi3389, %2076 ], [ %2625, %2624 ], [ %2702, %2701 ], [ %2682, %2681 ], [ %2750, %2749 ], [ %2549, %2551 ], [ %1832, %1831 ], [ %3001, %3000 ], [ %2986, %2985 ], [ %2976, %2975 ], [ %3214, %3213 ], [ %lpad.phi3374, %955 ], [ %lpad.phi3379, %1230 ], [ %lpad.phi3384, %1447 ]
+_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1260: ; preds = %2891, %2889, %2551, %2548, %2293, %2290, %2078, %2076, %1834, %1831, %1449, %1447, %1232, %1230, %957, %955, %3267, %3218, %3000, %2985, %2975, %2749, %2701, %2681, %2624, %2439, %2050, %1984, %1947, %998, %907, %813, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1253
+  %.pn910.pn = phi { ptr, i32 } [ %.pn910, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit1253 ], [ %.pn, %2891 ], [ %814, %813 ], [ %908, %907 ], [ %3268, %3267 ], [ %999, %998 ], [ %lpad.phi3374, %957 ], [ %.pn, %2889 ], [ %lpad.phi3379, %1232 ], [ %2549, %2548 ], [ %lpad.phi3384, %1449 ], [ %1948, %1947 ], [ %1985, %1984 ], [ %2051, %2050 ], [ %1832, %1834 ], [ %lpad.phi3389, %2078 ], [ %2291, %2290 ], [ %2440, %2439 ], [ %2291, %2293 ], [ %lpad.phi3389, %2076 ], [ %2625, %2624 ], [ %2702, %2701 ], [ %2682, %2681 ], [ %2750, %2749 ], [ %2549, %2551 ], [ %1832, %1831 ], [ %3001, %3000 ], [ %2986, %2985 ], [ %2976, %2975 ], [ %3219, %3218 ], [ %lpad.phi3374, %955 ], [ %lpad.phi3379, %1230 ], [ %lpad.phi3384, %1447 ]
   resume { ptr, i32 } %.pn910.pn
 }
 

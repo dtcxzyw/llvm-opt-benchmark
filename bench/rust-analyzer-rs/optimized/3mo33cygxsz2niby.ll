@@ -36203,17 +36203,17 @@ define hidden void @"_ZN4core3ptr290drop_in_place$LT$indexmap..map..core..IndexM
 
 .noexc:                                           ; preds = %7
   %9 = load i64, ptr %2, align 8, !range !1596, !noalias !15218, !noundef !9
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load i64, ptr %10, align 8, !noalias !15218, !noundef !9
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %13 = load i64, ptr %12, align 8, !noalias !15218, !noundef !9
+  %10 = icmp ne i64 %9, 0
+  tail call void @llvm.assume(i1 %10)
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %12 = load i64, ptr %11, align 8, !noalias !15218, !noundef !9
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %14 = load i64, ptr %13, align 8, !noalias !15218, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !15218
-  %14 = load ptr, ptr %3, align 8, !alias.scope !15218, !nonnull !9, !noundef !9
-  %15 = sub nsw i64 0, %13
-  %16 = getelementptr inbounds i8, ptr %14, i64 %15
-  %17 = icmp ne i64 %9, 0
-  tail call void @llvm.assume(i1 %17)
-  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %11, i64 noundef %9) #27, !noalias !15218
+  %15 = load ptr, ptr %3, align 8, !alias.scope !15218, !nonnull !9, !noundef !9
+  %16 = sub nsw i64 0, %14
+  %17 = getelementptr inbounds i8, ptr %15, i64 %16
+  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %12, i64 noundef %9) #27, !noalias !15218
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17h40a3dba2d29f6d4cE.llvm.16532663377229269005.exit"
 
 18:                                               ; preds = %7
@@ -39054,17 +39054,17 @@ define hidden void @"_ZN4core3ptr341drop_in_place$LT$indexmap..map..IndexMap$LT$
 
 .noexc.i:                                         ; preds = %7
   %9 = load i64, ptr %2, align 8, !range !1596, !noalias !16522, !noundef !9
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load i64, ptr %10, align 8, !noalias !16522, !noundef !9
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %13 = load i64, ptr %12, align 8, !noalias !16522, !noundef !9
+  %10 = icmp ne i64 %9, 0
+  tail call void @llvm.assume(i1 %10)
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %12 = load i64, ptr %11, align 8, !noalias !16522, !noundef !9
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %14 = load i64, ptr %13, align 8, !noalias !16522, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !16522
-  %14 = load ptr, ptr %3, align 8, !alias.scope !16522, !nonnull !9, !noundef !9
-  %15 = sub nsw i64 0, %13
-  %16 = getelementptr inbounds i8, ptr %14, i64 %15
-  %17 = icmp ne i64 %9, 0
-  tail call void @llvm.assume(i1 %17)
-  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %11, i64 noundef %9) #27, !noalias !16522
+  %15 = load ptr, ptr %3, align 8, !alias.scope !16522, !nonnull !9, !noundef !9
+  %16 = sub nsw i64 0, %14
+  %17 = getelementptr inbounds i8, ptr %15, i64 %16
+  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %12, i64 noundef %9) #27, !noalias !16522
   br label %"_ZN4core3ptr290drop_in_place$LT$indexmap..map..core..IndexMapCore$LT$syntax..algo..TreeDiffInsertPos$C$alloc..vec..Vec$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$GT$$GT$17h7d84c4113cf0c9e5E.llvm.16532663377229269005.exit"
 
 18:                                               ; preds = %7
@@ -47951,17 +47951,17 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$syntax..algo..TreeDiff$GT$17
 
 .noexc.i.i:                                       ; preds = %17
   %19 = load i64, ptr %2, align 8, !range !1596, !noalias !20589, !noundef !9
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %21 = load i64, ptr %20, align 8, !noalias !20589, !noundef !9
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %23 = load i64, ptr %22, align 8, !noalias !20589, !noundef !9
+  %20 = icmp ne i64 %19, 0
+  tail call void @llvm.assume(i1 %20)
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %22 = load i64, ptr %21, align 8, !noalias !20589, !noundef !9
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %24 = load i64, ptr %23, align 8, !noalias !20589, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !20589
-  %24 = load ptr, ptr %13, align 8, !alias.scope !20589, !nonnull !9, !noundef !9
-  %25 = sub nsw i64 0, %23
-  %26 = getelementptr inbounds i8, ptr %24, i64 %25
-  %27 = icmp ne i64 %19, 0
-  tail call void @llvm.assume(i1 %27)
-  tail call void @__rust_dealloc(ptr noundef nonnull %26, i64 noundef %21, i64 noundef %19) #27, !noalias !20589
+  %25 = load ptr, ptr %13, align 8, !alias.scope !20589, !nonnull !9, !noundef !9
+  %26 = sub nsw i64 0, %24
+  %27 = getelementptr inbounds i8, ptr %25, i64 %26
+  tail call void @__rust_dealloc(ptr noundef nonnull %27, i64 noundef %22, i64 noundef %19) #27, !noalias !20589
   br label %"_ZN4core3ptr341drop_in_place$LT$indexmap..map..IndexMap$LT$syntax..algo..TreeDiffInsertPos$C$alloc..vec..Vec$LT$rowan..utility_types..NodeOrToken$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$C$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h04c0a65dc5baf9a4E.llvm.16532663377229269005.exit"
 
 28:                                               ; preds = %17
@@ -70152,17 +70152,17 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTa
   %7 = add i64 %4, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hdfdfbd0c19a5dc35E.llvm.10506081396157654736(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %2, i64 noundef 8, i64 noundef 16, i64 noundef %7), !noalias !31312
   %8 = load i64, ptr %2, align 8, !range !1596, !noalias !31312, !noundef !9
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = load i64, ptr %9, align 8, !noalias !31312, !noundef !9
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %12 = load i64, ptr %11, align 8, !noalias !31312, !noundef !9
+  %9 = icmp ne i64 %8, 0
+  tail call void @llvm.assume(i1 %9)
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %11 = load i64, ptr %10, align 8, !noalias !31312, !noundef !9
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %13 = load i64, ptr %12, align 8, !noalias !31312, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !31312
-  %13 = load ptr, ptr %0, align 8, !alias.scope !31312, !nonnull !9, !noundef !9
-  %14 = sub nsw i64 0, %12
-  %15 = getelementptr inbounds i8, ptr %13, i64 %14
-  %16 = icmp ne i64 %8, 0
-  tail call void @llvm.assume(i1 %16)
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %10, i64 noundef %8) #27, !noalias !31312
+  %14 = load ptr, ptr %0, align 8, !alias.scope !31312, !nonnull !9, !noundef !9
+  %15 = sub nsw i64 0, %13
+  %16 = getelementptr inbounds i8, ptr %14, i64 %15
+  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %11, i64 noundef %8) #27, !noalias !31312
   br label %"_ZN86_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h76ba479cd47871a0E.llvm.16532663377229269005.exit"
 
 "_ZN86_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h76ba479cd47871a0E.llvm.16532663377229269005.exit": ; preds = %1, %6
@@ -89643,17 +89643,17 @@ define hidden void @"_ZN4core3ptr83drop_in_place$LT$indexmap..map..core..IndexMa
 
 .noexc:                                           ; preds = %7
   %9 = load i64, ptr %2, align 8, !range !1596, !noalias !40036, !noundef !9
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load i64, ptr %10, align 8, !noalias !40036, !noundef !9
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %13 = load i64, ptr %12, align 8, !noalias !40036, !noundef !9
+  %10 = icmp ne i64 %9, 0
+  tail call void @llvm.assume(i1 %10)
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %12 = load i64, ptr %11, align 8, !noalias !40036, !noundef !9
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %14 = load i64, ptr %13, align 8, !noalias !40036, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !40036
-  %14 = load ptr, ptr %3, align 8, !alias.scope !40036, !nonnull !9, !noundef !9
-  %15 = sub nsw i64 0, %13
-  %16 = getelementptr inbounds i8, ptr %14, i64 %15
-  %17 = icmp ne i64 %9, 0
-  tail call void @llvm.assume(i1 %17)
-  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %11, i64 noundef %9) #27, !noalias !40036
+  %15 = load ptr, ptr %3, align 8, !alias.scope !40036, !nonnull !9, !noundef !9
+  %16 = sub nsw i64 0, %14
+  %17 = getelementptr inbounds i8, ptr %15, i64 %16
+  tail call void @__rust_dealloc(ptr noundef nonnull %17, i64 noundef %12, i64 noundef %9) #27, !noalias !40036
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17h40a3dba2d29f6d4cE.llvm.16532663377229269005.exit"
 
 18:                                               ; preds = %7
@@ -124795,17 +124795,17 @@ define hidden void @"_ZN86_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$
   %7 = add i64 %4, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hdfdfbd0c19a5dc35E.llvm.10506081396157654736(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %2, i64 noundef 8, i64 noundef 16, i64 noundef %7), !noalias !51473
   %8 = load i64, ptr %2, align 8, !range !1596, !noalias !51473, !noundef !9
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = load i64, ptr %9, align 8, !noalias !51473, !noundef !9
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %12 = load i64, ptr %11, align 8, !noalias !51473, !noundef !9
+  %9 = icmp ne i64 %8, 0
+  tail call void @llvm.assume(i1 %9)
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %11 = load i64, ptr %10, align 8, !noalias !51473, !noundef !9
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %13 = load i64, ptr %12, align 8, !noalias !51473, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !51473
-  %13 = load ptr, ptr %0, align 8, !alias.scope !51473, !nonnull !9, !noundef !9
-  %14 = sub nsw i64 0, %12
-  %15 = getelementptr inbounds i8, ptr %13, i64 %14
-  %16 = icmp ne i64 %8, 0
-  tail call void @llvm.assume(i1 %16)
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %10, i64 noundef %8) #27, !noalias !51473
+  %14 = load ptr, ptr %0, align 8, !alias.scope !51473, !nonnull !9, !noundef !9
+  %15 = sub nsw i64 0, %13
+  %16 = getelementptr inbounds i8, ptr %14, i64 %15
+  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %11, i64 noundef %8) #27, !noalias !51473
   br label %_ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17hcaf112d0b648329bE.exit
 
 _ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17hcaf112d0b648329bE.exit: ; preds = %1, %6

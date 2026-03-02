@@ -348,6 +348,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119ProcessImplicitDefs20runO
   br label %38
 
 38:                                               ; preds = %36, %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.016.031) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.016.031, align 8
   %39 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %39, 0

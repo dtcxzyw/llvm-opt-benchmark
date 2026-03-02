@@ -18654,38 +18654,40 @@ _ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821cE.llvm.15095859440380444305
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821cE.llvm.15095859440380444305(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #27 {
   %5 = icmp eq i64 %2, 0
-  br i1 %5, label %6, label %10
+  br i1 %5, label %6, label %11
 
 6:                                                ; preds = %4
   %7 = add i64 %1, -1
   %8 = icmp sgt i64 %7, -1
   tail call void @llvm.assume(i1 %8)
   %9 = inttoptr i64 %1 to ptr
-  br label %11
+  %10 = icmp ne i64 %1, 0
+  tail call void @llvm.assume(i1 %10)
+  br label %12
 
-10:                                               ; preds = %4
-  br i1 %3, label %19, label %14
+11:                                               ; preds = %4
+  br i1 %3, label %20, label %15
 
-11:                                               ; preds = %14, %19, %6
-  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %22, %19 ], [ %18, %14 ]
-  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
-  %13 = insertvalue { ptr, i64 } %12, i64 %2, 1
-  ret { ptr, i64 } %13
+12:                                               ; preds = %15, %20, %6
+  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %23, %20 ], [ %19, %15 ]
+  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
+  %14 = insertvalue { ptr, i64 } %13, i64 %2, 1
+  ret { ptr, i64 } %14
 
-14:                                               ; preds = %10
-  %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %16 = add i64 %1, -1
-  %17 = icmp sgt i64 %16, -1
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #59
-  br label %11
+15:                                               ; preds = %11
+  %16 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %17 = add i64 %1, -1
+  %18 = icmp sgt i64 %17, -1
+  tail call void @llvm.assume(i1 %18)
+  %19 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #59
+  br label %12
 
-19:                                               ; preds = %10
-  %20 = add i64 %1, -1
-  %21 = icmp sgt i64 %20, -1
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #59
-  br label %11
+20:                                               ; preds = %11
+  %21 = add i64 %1, -1
+  %22 = icmp sgt i64 %21, -1
+  tail call void @llvm.assume(i1 %22)
+  %23 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #59
+  br label %12
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -53195,6 +53197,7 @@ _ZN6hir_ty5infer16InferenceContext6err_ty17hf3183a5204e0ca17E.exit1050: ; preds 
           to label %3442 unwind label %3467
 
 3437:                                             ; preds = %3434, %3433
+  call void @llvm.assume(i1 %.not533)
   %3438 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %.val675 = load ptr, ptr %3438, align 8, !alias.scope !11200, !nonnull !9, !noundef !9
   %3439 = atomicrmw add ptr %.val675, i64 1 monotonic, align 8, !noalias !12829
@@ -86555,6 +86558,7 @@ _ZN6hir_ty5infer16InferenceContext27insert_atpit_coercion_table17h7ed7516ed50c71
 
 1143:                                             ; preds = %1141
   call void @llvm.lifetime.start.p0(ptr nonnull %105), !noalias !20605
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1132) ]
   store ptr %1131, ptr %105, align 8, !noalias !20605
   %1144 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store ptr %1132, ptr %1144, align 8, !noalias !20605
@@ -89224,17 +89228,17 @@ select.unfold357:                                 ; preds = %.sink.split.i7.i158
 
 .noexc162:                                        ; preds = %269
   %271 = load i64, ptr %6, align 8, !range !2057, !noalias !21346, !noundef !9
-  %272 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %273 = load i64, ptr %272, align 8, !noalias !21346, !noundef !9
-  %274 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %275 = load i64, ptr %274, align 8, !noalias !21346, !noundef !9
+  %272 = icmp ne i64 %271, 0
+  call void @llvm.assume(i1 %272)
+  %273 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %274 = load i64, ptr %273, align 8, !noalias !21346, !noundef !9
+  %275 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %276 = load i64, ptr %275, align 8, !noalias !21346, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !21346
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.6259.0.copyload) ]
-  %276 = sub nsw i64 0, %275
-  %277 = getelementptr inbounds i8, ptr %.sroa.6259.0.copyload, i64 %276
-  %278 = icmp ne i64 %271, 0
-  call void @llvm.assume(i1 %278)
-  call void @__rust_dealloc(ptr noundef nonnull %277, i64 noundef %273, i64 noundef %271) #59, !noalias !21346
+  %277 = sub nsw i64 0, %276
+  %278 = getelementptr inbounds i8, ptr %.sroa.6259.0.copyload, i64 %277
+  call void @__rust_dealloc(ptr noundef nonnull %278, i64 noundef %274, i64 noundef %271) #59, !noalias !21346
   br label %282
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h291f24f2747177c3E.exit": ; preds = %.sink.split.i.i150, %.sink.split.i7.i158

@@ -6371,13 +6371,13 @@ define hidden noundef zeroext i1 @_ZN18tracing_subscriber6filter3env9EnvFilter7e
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %15, label %.critedge
 
-.critedge:                                        ; preds = %15, %72, %18, %4
+.critedge:                                        ; preds = %15, %._crit_edge, %18, %4
   %12 = load i64, ptr %0, align 8, !range !456, !noundef !4
   %.not25 = icmp eq i64 %12, 5
   %13 = load i64, ptr %1, align 8, !range !457
   %14 = icmp samesign ult i64 %13, %12
   %or.cond = select i1 %.not25, i1 true, i1 %14
-  br i1 %or.cond, label %.critedge30, label %73
+  br i1 %or.cond, label %.critedge30, label %71
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -6492,36 +6492,44 @@ _ZN3std3sys4sync6rwlock5futex6RwLock4read17h71ab566576a387feE.exit: ; preds = %3
   %64 = load ptr, ptr %63, align 8, !nonnull !4, !noundef !4
   %65 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %66 = load i64, ptr %65, align 8, !noundef !4
-  %67 = getelementptr inbounds nuw i64, ptr %64, i64 %66
-  br label %.critedge32
+  %.idx = shl nuw nsw i64 %66, 3
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx
+  %68 = icmp eq i64 %66, 0
+  br i1 %68, label %._crit_edge, label %.lr.ph.preheader
 
-.critedge32:                                      ; preds = %69, %59
-  %.sroa.019.0 = phi ptr [ %64, %59 ], [ %.sroa.019.1, %69 ]
-  %68 = icmp eq ptr %.sroa.019.0, %67
-  br i1 %68, label %72, label %69
+.lr.ph.preheader:                                 ; preds = %59
+  %.sroa.019.143 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  br label %.lr.ph
 
-69:                                               ; preds = %.critedge32
-  %.sroa.019.1 = getelementptr inbounds nuw i8, ptr %.sroa.019.0, i64 8
-  %70 = load i64, ptr %.sroa.019.0, align 8, !range !456, !noundef !4
-  %.not27 = icmp eq i64 %70, 5
-  %71 = icmp samesign ult i64 %19, %70
-  %or.cond43 = select i1 %.not27, i1 true, i1 %71
-  br i1 %or.cond43, label %.critedge32, label %75
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge32
+  %.sroa.019.145 = phi ptr [ %.sroa.019.1, %.critedge32 ], [ %.sroa.019.143, %.lr.ph.preheader ]
+  %.sroa.019.044 = phi ptr [ %.sroa.019.145, %.critedge32 ], [ %64, %.lr.ph.preheader ]
+  %69 = load i64, ptr %.sroa.019.044, align 8, !range !456, !noundef !4
+  %.not27 = icmp eq i64 %69, 5
+  %70 = icmp samesign ult i64 %19, %69
+  %or.cond52 = select i1 %.not27, i1 true, i1 %70
+  br i1 %or.cond52, label %.critedge32, label %74
 
-72:                                               ; preds = %.critedge32
+._crit_edge:                                      ; preds = %.critedge32, %59
   call void @"_ZN4core3ptr102drop_in_place$LT$core..cell..Ref$LT$alloc..vec..Vec$LT$tracing_core..metadata..LevelFilter$GT$$GT$$GT$17hd4a90ece6d18398fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
-73:                                               ; preds = %.critedge
-  %74 = call noundef zeroext i1 @"_ZN18tracing_subscriber6filter9directive74DirectiveSet$LT$tracing_subscriber..filter..directive..StaticDirective$GT$7enabled17hd44d965863307517E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(464) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1)
+71:                                               ; preds = %.critedge
+  %72 = call noundef zeroext i1 @"_ZN18tracing_subscriber6filter9directive74DirectiveSet$LT$tracing_subscriber..filter..directive..StaticDirective$GT$7enabled17hd44d965863307517E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(464) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1)
   br label %.critedge30
 
-.critedge30:                                      ; preds = %57, %.critedge, %75, %73
-  %.sroa.0.0 = phi i1 [ true, %57 ], [ true, %75 ], [ %74, %73 ], [ false, %.critedge ]
+.critedge30:                                      ; preds = %57, %.critedge, %74, %71
+  %.sroa.0.0 = phi i1 [ true, %57 ], [ true, %74 ], [ %72, %71 ], [ false, %.critedge ]
   ret i1 %.sroa.0.0
 
-75:                                               ; preds = %69
+.critedge32:                                      ; preds = %.lr.ph
+  %73 = icmp eq ptr %.sroa.019.145, %67
+  %.sroa.019.1.idx = select i1 %73, i64 0, i64 8
+  %.sroa.019.1 = getelementptr inbounds nuw i8, ptr %.sroa.019.145, i64 %.sroa.019.1.idx
+  br i1 %73, label %._crit_edge, label %.lr.ph
+
+74:                                               ; preds = %.lr.ph
   call void @"_ZN4core3ptr102drop_in_place$LT$core..cell..Ref$LT$alloc..vec..Vec$LT$tracing_core..metadata..LevelFilter$GT$$GT$$GT$17hd4a90ece6d18398fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge30

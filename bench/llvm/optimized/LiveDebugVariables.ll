@@ -2677,6 +2677,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm18LiveDebugVariables7LDVImpl18colle
   ]
 
 25:                                               ; preds = %22
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.045.072) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.045.072, align 8
   %26 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %26, 0
@@ -3017,6 +3018,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i: ;
   br i1 %.not.i.i.i27, label %_ZN4llvm17MachineBasicBlock5eraseENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit, label %.lr.ph.i.i.i26, !llvm.loop !385
 
 173:                                              ; preds = %150, %147
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.045.1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i29 = load i64, ptr %.sroa.045.1, align 8
   %174 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i29, 4
   %.not.i.i.i30 = icmp eq i64 %174, 0
@@ -14801,6 +14803,7 @@ _ZSt4nextIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEEET_S4_NSt1
   ]
 
 .critedge2.i:                                     ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.08.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.03.08.i, align 8
   %109 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %109, 0

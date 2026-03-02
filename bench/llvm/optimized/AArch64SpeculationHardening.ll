@@ -872,6 +872,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i: ; preds = %.lr.ph.i
   br i1 %.not40.i, label %172, label %_ZNK12_GLOBAL__N_127AArch64SpeculationHardening29functionUsesHardeningRegisterERN4llvm15MachineFunctionE.exit
 
 172:                                              ; preds = %168, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i, %157
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.021.046.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.021.046.i, align 8
   %173 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %173, 0

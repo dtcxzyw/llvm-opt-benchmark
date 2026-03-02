@@ -120068,17 +120068,17 @@ define void @"_ZN5typst4math6attach1_92_$LT$impl$u20$typst..foundations..repr..R
   %16 = add i64 %.sroa.5.0.copyload.i.i, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd3dd0fcc2cc17290E.llvm.11057974413330164255(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, i64 noundef 8, i64 noundef 16, i64 noundef %16), !noalias !22545
   %17 = load i64, ptr %5, align 8, !range !6189, !noalias !22545, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = load i64, ptr %18, align 8, !noalias !22545, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = load i64, ptr %20, align 8, !noalias !22545, !noundef !4
+  %18 = icmp ne i64 %17, 0
+  tail call void @llvm.assume(i1 %18)
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = load i64, ptr %19, align 8, !noalias !22545, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %22 = load i64, ptr %21, align 8, !noalias !22545, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !22545
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload.i.i) ]
-  %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %22
-  %24 = icmp ne i64 %17, 0
-  tail call void @llvm.assume(i1 %24)
-  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %19, i64 noundef %17) #54, !noalias !22545
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %23
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %20, i64 noundef %17) #54, !noalias !22545
   br label %"_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit"
 
 "_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit": ; preds = %2, %15
@@ -120565,17 +120565,17 @@ common.resume:                                    ; preds = %"_ZN4core3ptr44drop
   %29 = add i64 %.sroa.5.0.copyload.i.i, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd3dd0fcc2cc17290E.llvm.11057974413330164255(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, i64 noundef 8, i64 noundef 16, i64 noundef %29), !noalias !22620
   %30 = load i64, ptr %5, align 8, !range !6189, !noalias !22620, !noundef !4
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %32 = load i64, ptr %31, align 8, !noalias !22620, !noundef !4
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %34 = load i64, ptr %33, align 8, !noalias !22620, !noundef !4
+  %31 = icmp ne i64 %30, 0
+  call void @llvm.assume(i1 %31)
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %33 = load i64, ptr %32, align 8, !noalias !22620, !noundef !4
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %35 = load i64, ptr %34, align 8, !noalias !22620, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !22620
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload.i.i) ]
-  %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %35
-  %37 = icmp ne i64 %30, 0
-  call void @llvm.assume(i1 %37)
-  call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %32, i64 noundef %30) #54, !noalias !22620
+  %36 = sub nsw i64 0, %35
+  %37 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %36
+  call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %33, i64 noundef %30) #54, !noalias !22620
   br label %"_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit"
 
 "_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit": ; preds = %"_ZN5typst4math6attach1_97_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..math..attach..PrimesElem$GT$6fields17h2c11fa6422d130bbE.exit", %28
@@ -121188,17 +121188,17 @@ common.resume:                                    ; preds = %"_ZN4core3ptr44drop
   %32 = add i64 %.sroa.5.0.copyload.i.i, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd3dd0fcc2cc17290E.llvm.11057974413330164255(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, i64 noundef 8, i64 noundef 16, i64 noundef %32), !noalias !22729
   %33 = load i64, ptr %5, align 8, !range !6189, !noalias !22729, !noundef !4
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %35 = load i64, ptr %34, align 8, !noalias !22729, !noundef !4
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %37 = load i64, ptr %36, align 8, !noalias !22729, !noundef !4
+  %34 = icmp ne i64 %33, 0
+  call void @llvm.assume(i1 %34)
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %36 = load i64, ptr %35, align 8, !noalias !22729, !noundef !4
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %38 = load i64, ptr %37, align 8, !noalias !22729, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !22729
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload.i.i) ]
-  %38 = sub nsw i64 0, %37
-  %39 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %38
-  %40 = icmp ne i64 %33, 0
-  call void @llvm.assume(i1 %40)
-  call void @__rust_dealloc(ptr noundef nonnull %39, i64 noundef %35, i64 noundef %33) #54, !noalias !22729
+  %39 = sub nsw i64 0, %38
+  %40 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %39
+  call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef %36, i64 noundef %33) #54, !noalias !22729
   br label %"_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit"
 
 "_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit": ; preds = %"_ZN5typst4math6attach1_98_$LT$impl$u20$typst..foundations..element..Fields$u20$for$u20$typst..math..attach..ScriptsElem$GT$6fields17h8e465d38ce1b233fE.exit", %31
@@ -122406,17 +122406,17 @@ define void @"_ZN5typst4math6attach1_92_$LT$impl$u20$typst..foundations..repr..R
   %16 = add i64 %.sroa.5.0.copyload.i.i, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd3dd0fcc2cc17290E.llvm.11057974413330164255(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, i64 noundef 8, i64 noundef 16, i64 noundef %16), !noalias !23041
   %17 = load i64, ptr %5, align 8, !range !6189, !noalias !23041, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = load i64, ptr %18, align 8, !noalias !23041, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = load i64, ptr %20, align 8, !noalias !23041, !noundef !4
+  %18 = icmp ne i64 %17, 0
+  tail call void @llvm.assume(i1 %18)
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = load i64, ptr %19, align 8, !noalias !23041, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %22 = load i64, ptr %21, align 8, !noalias !23041, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !23041
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload.i.i) ]
-  %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %22
-  %24 = icmp ne i64 %17, 0
-  tail call void @llvm.assume(i1 %24)
-  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %19, i64 noundef %17) #54, !noalias !23041
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %23
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %20, i64 noundef %17) #54, !noalias !23041
   br label %"_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit"
 
 "_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit": ; preds = %2, %15
@@ -123306,17 +123306,17 @@ define void @"_ZN5typst4math4frac1_88_$LT$impl$u20$typst..foundations..repr..Rep
   %16 = add i64 %.sroa.5.0.copyload.i.i, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd3dd0fcc2cc17290E.llvm.11057974413330164255(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, i64 noundef 8, i64 noundef 16, i64 noundef %16), !noalias !23197
   %17 = load i64, ptr %5, align 8, !range !6189, !noalias !23197, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = load i64, ptr %18, align 8, !noalias !23197, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = load i64, ptr %20, align 8, !noalias !23197, !noundef !4
+  %18 = icmp ne i64 %17, 0
+  tail call void @llvm.assume(i1 %18)
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = load i64, ptr %19, align 8, !noalias !23197, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %22 = load i64, ptr %21, align 8, !noalias !23197, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !23197
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload.i.i) ]
-  %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %22
-  %24 = icmp ne i64 %17, 0
-  tail call void @llvm.assume(i1 %24)
-  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %19, i64 noundef %17) #54, !noalias !23197
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %23
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %20, i64 noundef %17) #54, !noalias !23197
   br label %"_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit"
 
 "_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit": ; preds = %2, %15
@@ -124332,17 +124332,17 @@ define void @"_ZN5typst4math4frac1_89_$LT$impl$u20$typst..foundations..repr..Rep
   %16 = add i64 %.sroa.5.0.copyload.i.i, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd3dd0fcc2cc17290E.llvm.11057974413330164255(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, i64 noundef 8, i64 noundef 16, i64 noundef %16), !noalias !23377
   %17 = load i64, ptr %5, align 8, !range !6189, !noalias !23377, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = load i64, ptr %18, align 8, !noalias !23377, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = load i64, ptr %20, align 8, !noalias !23377, !noundef !4
+  %18 = icmp ne i64 %17, 0
+  tail call void @llvm.assume(i1 %18)
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = load i64, ptr %19, align 8, !noalias !23377, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %22 = load i64, ptr %21, align 8, !noalias !23377, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !23377
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload.i.i) ]
-  %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %22
-  %24 = icmp ne i64 %17, 0
-  tail call void @llvm.assume(i1 %24)
-  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %19, i64 noundef %17) #54, !noalias !23377
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %23
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %20, i64 noundef %17) #54, !noalias !23377
   br label %"_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit"
 
 "_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit": ; preds = %2, %15
@@ -126571,17 +126571,17 @@ define void @"_ZN5typst4math6matrix1_89_$LT$impl$u20$typst..foundations..repr..R
   %16 = add i64 %.sroa.5.0.copyload.i.i, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd3dd0fcc2cc17290E.llvm.11057974413330164255(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, i64 noundef 8, i64 noundef 16, i64 noundef %16), !noalias !24159
   %17 = load i64, ptr %5, align 8, !range !6189, !noalias !24159, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = load i64, ptr %18, align 8, !noalias !24159, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = load i64, ptr %20, align 8, !noalias !24159, !noundef !4
+  %18 = icmp ne i64 %17, 0
+  tail call void @llvm.assume(i1 %18)
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = load i64, ptr %19, align 8, !noalias !24159, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %22 = load i64, ptr %21, align 8, !noalias !24159, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !24159
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload.i.i) ]
-  %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %22
-  %24 = icmp ne i64 %17, 0
-  tail call void @llvm.assume(i1 %24)
-  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %19, i64 noundef %17) #54, !noalias !24159
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %23
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %20, i64 noundef %17) #54, !noalias !24159
   br label %"_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit"
 
 "_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit": ; preds = %2, %15
@@ -131140,17 +131140,17 @@ define void @"_ZN5typst4math6matrix1_89_$LT$impl$u20$typst..foundations..repr..R
   %16 = add i64 %.sroa.5.0.copyload.i.i, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd3dd0fcc2cc17290E.llvm.11057974413330164255(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, i64 noundef 8, i64 noundef 16, i64 noundef %16), !noalias !25603
   %17 = load i64, ptr %5, align 8, !range !6189, !noalias !25603, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = load i64, ptr %18, align 8, !noalias !25603, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = load i64, ptr %20, align 8, !noalias !25603, !noundef !4
+  %18 = icmp ne i64 %17, 0
+  tail call void @llvm.assume(i1 %18)
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = load i64, ptr %19, align 8, !noalias !25603, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %22 = load i64, ptr %21, align 8, !noalias !25603, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !25603
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload.i.i) ]
-  %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %22
-  %24 = icmp ne i64 %17, 0
-  tail call void @llvm.assume(i1 %24)
-  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %19, i64 noundef %17) #54, !noalias !25603
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %23
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %20, i64 noundef %17) #54, !noalias !25603
   br label %"_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit"
 
 "_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit": ; preds = %2, %15
@@ -133855,17 +133855,17 @@ define void @"_ZN5typst4math6matrix1_91_$LT$impl$u20$typst..foundations..repr..R
   %16 = add i64 %.sroa.5.0.copyload.i.i, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd3dd0fcc2cc17290E.llvm.11057974413330164255(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, i64 noundef 8, i64 noundef 16, i64 noundef %16), !noalias !26586
   %17 = load i64, ptr %5, align 8, !range !6189, !noalias !26586, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = load i64, ptr %18, align 8, !noalias !26586, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = load i64, ptr %20, align 8, !noalias !26586, !noundef !4
+  %18 = icmp ne i64 %17, 0
+  tail call void @llvm.assume(i1 %18)
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = load i64, ptr %19, align 8, !noalias !26586, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %22 = load i64, ptr %21, align 8, !noalias !26586, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !26586
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload.i.i) ]
-  %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %22
-  %24 = icmp ne i64 %17, 0
-  tail call void @llvm.assume(i1 %24)
-  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %19, i64 noundef %17) #54, !noalias !26586
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %23
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %20, i64 noundef %17) #54, !noalias !26586
   br label %"_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit"
 
 "_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit": ; preds = %2, %15
@@ -137706,17 +137706,17 @@ define void @"_ZN5typst5model5terms1_91_$LT$impl$u20$typst..foundations..repr..R
   %16 = add i64 %.sroa.5.0.copyload.i.i, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd3dd0fcc2cc17290E.llvm.11057974413330164255(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, i64 noundef 8, i64 noundef 16, i64 noundef %16), !noalias !27860
   %17 = load i64, ptr %5, align 8, !range !6189, !noalias !27860, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = load i64, ptr %18, align 8, !noalias !27860, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = load i64, ptr %20, align 8, !noalias !27860, !noundef !4
+  %18 = icmp ne i64 %17, 0
+  tail call void @llvm.assume(i1 %18)
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = load i64, ptr %19, align 8, !noalias !27860, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %22 = load i64, ptr %21, align 8, !noalias !27860, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !27860
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload.i.i) ]
-  %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %22
-  %24 = icmp ne i64 %17, 0
-  tail call void @llvm.assume(i1 %24)
-  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %19, i64 noundef %17) #54, !noalias !27860
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %23
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %20, i64 noundef %17) #54, !noalias !27860
   br label %"_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit"
 
 "_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit": ; preds = %2, %15
@@ -138602,17 +138602,17 @@ define void @"_ZN5typst5model5terms1_90_$LT$impl$u20$typst..foundations..repr..R
   %16 = add i64 %.sroa.5.0.copyload.i.i, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd3dd0fcc2cc17290E.llvm.11057974413330164255(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, i64 noundef 8, i64 noundef 16, i64 noundef %16), !noalias !28016
   %17 = load i64, ptr %5, align 8, !range !6189, !noalias !28016, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = load i64, ptr %18, align 8, !noalias !28016, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = load i64, ptr %20, align 8, !noalias !28016, !noundef !4
+  %18 = icmp ne i64 %17, 0
+  tail call void @llvm.assume(i1 %18)
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = load i64, ptr %19, align 8, !noalias !28016, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %22 = load i64, ptr %21, align 8, !noalias !28016, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !28016
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload.i.i) ]
-  %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %22
-  %24 = icmp ne i64 %17, 0
-  tail call void @llvm.assume(i1 %24)
-  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %19, i64 noundef %17) #54, !noalias !28016
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %23
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %20, i64 noundef %17) #54, !noalias !28016
   br label %"_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit"
 
 "_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit": ; preds = %2, %15
@@ -143227,17 +143227,17 @@ define void @"_ZN5typst4text4deco1_93_$LT$impl$u20$typst..foundations..repr..Rep
   %16 = add i64 %.sroa.5.0.copyload.i.i, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd3dd0fcc2cc17290E.llvm.11057974413330164255(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, i64 noundef 8, i64 noundef 16, i64 noundef %16), !noalias !29333
   %17 = load i64, ptr %5, align 8, !range !6189, !noalias !29333, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = load i64, ptr %18, align 8, !noalias !29333, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = load i64, ptr %20, align 8, !noalias !29333, !noundef !4
+  %18 = icmp ne i64 %17, 0
+  tail call void @llvm.assume(i1 %18)
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = load i64, ptr %19, align 8, !noalias !29333, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %22 = load i64, ptr %21, align 8, !noalias !29333, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !29333
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload.i.i) ]
-  %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %22
-  %24 = icmp ne i64 %17, 0
-  tail call void @llvm.assume(i1 %24)
-  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %19, i64 noundef %17) #54, !noalias !29333
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %23
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %20, i64 noundef %17) #54, !noalias !29333
   br label %"_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit"
 
 "_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit": ; preds = %2, %15
@@ -147090,17 +147090,17 @@ define void @"_ZN5typst4text4deco1_92_$LT$impl$u20$typst..foundations..repr..Rep
   %16 = add i64 %.sroa.5.0.copyload.i.i, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd3dd0fcc2cc17290E.llvm.11057974413330164255(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, i64 noundef 8, i64 noundef 16, i64 noundef %16), !noalias !30537
   %17 = load i64, ptr %5, align 8, !range !6189, !noalias !30537, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = load i64, ptr %18, align 8, !noalias !30537, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = load i64, ptr %20, align 8, !noalias !30537, !noundef !4
+  %18 = icmp ne i64 %17, 0
+  tail call void @llvm.assume(i1 %18)
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = load i64, ptr %19, align 8, !noalias !30537, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %22 = load i64, ptr %21, align 8, !noalias !30537, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !30537
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload.i.i) ]
-  %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %22
-  %24 = icmp ne i64 %17, 0
-  tail call void @llvm.assume(i1 %24)
-  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %19, i64 noundef %17) #54, !noalias !30537
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %23
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %20, i64 noundef %17) #54, !noalias !30537
   br label %"_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit"
 
 "_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit": ; preds = %2, %15
@@ -150528,17 +150528,17 @@ define void @"_ZN5typst4text4deco1_90_$LT$impl$u20$typst..foundations..repr..Rep
   %16 = add i64 %.sroa.5.0.copyload.i.i, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd3dd0fcc2cc17290E.llvm.11057974413330164255(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, i64 noundef 8, i64 noundef 16, i64 noundef %16), !noalias !31560
   %17 = load i64, ptr %5, align 8, !range !6189, !noalias !31560, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = load i64, ptr %18, align 8, !noalias !31560, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = load i64, ptr %20, align 8, !noalias !31560, !noundef !4
+  %18 = icmp ne i64 %17, 0
+  tail call void @llvm.assume(i1 %18)
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = load i64, ptr %19, align 8, !noalias !31560, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %22 = load i64, ptr %21, align 8, !noalias !31560, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !31560
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload.i.i) ]
-  %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %22
-  %24 = icmp ne i64 %17, 0
-  tail call void @llvm.assume(i1 %24)
-  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %19, i64 noundef %17) #54, !noalias !31560
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %23
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %20, i64 noundef %17) #54, !noalias !31560
   br label %"_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit"
 
 "_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit": ; preds = %2, %15
@@ -155408,17 +155408,17 @@ define void @"_ZN5typst4text4deco1_93_$LT$impl$u20$typst..foundations..repr..Rep
   %16 = add i64 %.sroa.5.0.copyload.i.i, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd3dd0fcc2cc17290E.llvm.11057974413330164255(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, i64 noundef 8, i64 noundef 16, i64 noundef %16), !noalias !32904
   %17 = load i64, ptr %5, align 8, !range !6189, !noalias !32904, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = load i64, ptr %18, align 8, !noalias !32904, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = load i64, ptr %20, align 8, !noalias !32904, !noundef !4
+  %18 = icmp ne i64 %17, 0
+  tail call void @llvm.assume(i1 %18)
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = load i64, ptr %19, align 8, !noalias !32904, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %22 = load i64, ptr %21, align 8, !noalias !32904, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !32904
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload.i.i) ]
-  %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %22
-  %24 = icmp ne i64 %17, 0
-  tail call void @llvm.assume(i1 %24)
-  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %19, i64 noundef %17) #54, !noalias !32904
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %23
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %20, i64 noundef %17) #54, !noalias !32904
   br label %"_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit"
 
 "_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit": ; preds = %2, %15
@@ -160068,17 +160068,17 @@ define void @"_ZN5typst9visualize4line1_93_$LT$impl$u20$typst..foundations..repr
   %16 = add i64 %.sroa.5.0.copyload.i.i, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd3dd0fcc2cc17290E.llvm.11057974413330164255(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, i64 noundef 8, i64 noundef 16, i64 noundef %16), !noalias !34593
   %17 = load i64, ptr %5, align 8, !range !6189, !noalias !34593, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = load i64, ptr %18, align 8, !noalias !34593, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = load i64, ptr %20, align 8, !noalias !34593, !noundef !4
+  %18 = icmp ne i64 %17, 0
+  tail call void @llvm.assume(i1 %18)
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = load i64, ptr %19, align 8, !noalias !34593, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %22 = load i64, ptr %21, align 8, !noalias !34593, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !34593
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload.i.i) ]
-  %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %22
-  %24 = icmp ne i64 %17, 0
-  tail call void @llvm.assume(i1 %24)
-  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %19, i64 noundef %17) #54, !noalias !34593
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %23
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %20, i64 noundef %17) #54, !noalias !34593
   br label %"_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit"
 
 "_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit": ; preds = %2, %15
@@ -163131,17 +163131,17 @@ define void @"_ZN5typst9visualize7polygon1_99_$LT$impl$u20$typst..foundations..r
   %16 = add i64 %.sroa.5.0.copyload.i.i, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hd3dd0fcc2cc17290E.llvm.11057974413330164255(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, i64 noundef 8, i64 noundef 16, i64 noundef %16), !noalias !35241
   %17 = load i64, ptr %5, align 8, !range !6189, !noalias !35241, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %19 = load i64, ptr %18, align 8, !noalias !35241, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = load i64, ptr %20, align 8, !noalias !35241, !noundef !4
+  %18 = icmp ne i64 %17, 0
+  tail call void @llvm.assume(i1 %18)
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = load i64, ptr %19, align 8, !noalias !35241, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %22 = load i64, ptr %21, align 8, !noalias !35241, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !35241
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4.0.copyload.i.i) ]
-  %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %22
-  %24 = icmp ne i64 %17, 0
-  tail call void @llvm.assume(i1 %24)
-  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %19, i64 noundef %17) #54, !noalias !35241
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds i8, ptr %.sroa.4.0.copyload.i.i, i64 %23
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %20, i64 noundef %17) #54, !noalias !35241
   br label %"_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit"
 
 "_ZN92_$LT$typst..foundations..dict..Dict$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb686ff3d6bdbae14E.exit": ; preds = %2, %15

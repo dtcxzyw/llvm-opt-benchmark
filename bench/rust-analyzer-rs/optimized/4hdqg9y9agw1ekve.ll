@@ -8518,38 +8518,40 @@ _ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821cE.llvm.14339125420948612040
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821cE.llvm.14339125420948612040(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #20 {
   %5 = icmp eq i64 %2, 0
-  br i1 %5, label %6, label %10
+  br i1 %5, label %6, label %11
 
 6:                                                ; preds = %4
   %7 = add i64 %1, -1
   %8 = icmp sgt i64 %7, -1
   tail call void @llvm.assume(i1 %8)
   %9 = inttoptr i64 %1 to ptr
-  br label %11
+  %10 = icmp ne i64 %1, 0
+  tail call void @llvm.assume(i1 %10)
+  br label %12
 
-10:                                               ; preds = %4
-  br i1 %3, label %19, label %14
+11:                                               ; preds = %4
+  br i1 %3, label %20, label %15
 
-11:                                               ; preds = %14, %19, %6
-  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %22, %19 ], [ %18, %14 ]
-  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
-  %13 = insertvalue { ptr, i64 } %12, i64 %2, 1
-  ret { ptr, i64 } %13
+12:                                               ; preds = %15, %20, %6
+  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %23, %20 ], [ %19, %15 ]
+  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
+  %14 = insertvalue { ptr, i64 } %13, i64 %2, 1
+  ret { ptr, i64 } %14
 
-14:                                               ; preds = %10
-  %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %16 = add i64 %1, -1
-  %17 = icmp sgt i64 %16, -1
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #47
-  br label %11
+15:                                               ; preds = %11
+  %16 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %17 = add i64 %1, -1
+  %18 = icmp sgt i64 %17, -1
+  tail call void @llvm.assume(i1 %18)
+  %19 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #47
+  br label %12
 
-19:                                               ; preds = %10
-  %20 = add i64 %1, -1
-  %21 = icmp sgt i64 %20, -1
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #47
-  br label %11
+20:                                               ; preds = %11
+  %21 = add i64 %1, -1
+  %22 = icmp sgt i64 %21, -1
+  tail call void @llvm.assume(i1 %22)
+  %23 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #47
+  br label %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -36623,17 +36625,17 @@ _ZN4core3ops8function6FnOnce9call_once17hd9d8c8651a40d774E.exit107.i: ; preds = 
 
 .noexc.i.i.i274:                                  ; preds = %2392
   %2394 = load i64, ptr %5, align 8, !range !281, !noalias !10037, !noundef !23
-  %2395 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %2396 = load i64, ptr %2395, align 8, !noalias !10037, !noundef !23
-  %2397 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %2398 = load i64, ptr %2397, align 8, !noalias !10037, !noundef !23
+  %2395 = icmp ne i64 %2394, 0
+  call void @llvm.assume(i1 %2395)
+  %2396 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %2397 = load i64, ptr %2396, align 8, !noalias !10037, !noundef !23
+  %2398 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %2399 = load i64, ptr %2398, align 8, !noalias !10037, !noundef !23
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !10037
-  %2399 = load ptr, ptr %2388, align 8, !alias.scope !10037, !nonnull !23, !noundef !23
-  %2400 = sub nsw i64 0, %2398
-  %2401 = getelementptr inbounds i8, ptr %2399, i64 %2400
-  %2402 = icmp ne i64 %2394, 0
-  call void @llvm.assume(i1 %2402)
-  call void @__rust_dealloc(ptr noundef nonnull %2401, i64 noundef %2396, i64 noundef %2394) #47, !noalias !10037
+  %2400 = load ptr, ptr %2388, align 8, !alias.scope !10037, !nonnull !23, !noundef !23
+  %2401 = sub nsw i64 0, %2399
+  %2402 = getelementptr inbounds i8, ptr %2400, i64 %2401
+  call void @__rust_dealloc(ptr noundef nonnull %2402, i64 noundef %2397, i64 noundef %2394) #47, !noalias !10037
   br label %"_ZN4core3ptr134drop_in_place$LT$indexmap..map..IndexMap$LT$hir..Local$C$$LP$$RP$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h36212b0a208a2ab6E.llvm.16532663377229269005.exit.i"
 
 2403:                                             ; preds = %2392
@@ -41922,17 +41924,17 @@ _ZN4core4iter6traits8iterator8Iterator4fold17ha833499986814d66E.exit.i.i: ; pred
 
 .noexc5:                                          ; preds = %257
   %259 = load i64, ptr %5, align 8, !range !281, !noalias !11120, !noundef !23
-  %260 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %261 = load i64, ptr %260, align 8, !noalias !11120, !noundef !23
-  %262 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %263 = load i64, ptr %262, align 8, !noalias !11120, !noundef !23
+  %260 = icmp ne i64 %259, 0
+  call void @llvm.assume(i1 %260)
+  %261 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %262 = load i64, ptr %261, align 8, !noalias !11120, !noundef !23
+  %263 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %264 = load i64, ptr %263, align 8, !noalias !11120, !noundef !23
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !11120
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.68.0.copyload) ]
-  %264 = sub nsw i64 0, %263
-  %265 = getelementptr inbounds i8, ptr %.sroa.68.0.copyload, i64 %264
-  %266 = icmp ne i64 %259, 0
-  call void @llvm.assume(i1 %266)
-  call void @__rust_dealloc(ptr noundef nonnull %265, i64 noundef %261, i64 noundef %259) #47, !noalias !11120
+  %265 = sub nsw i64 0, %264
+  %266 = getelementptr inbounds i8, ptr %.sroa.68.0.copyload, i64 %265
+  call void @__rust_dealloc(ptr noundef nonnull %266, i64 noundef %262, i64 noundef %259) #47, !noalias !11120
   br label %267
 
 267:                                              ; preds = %.noexc5, %255

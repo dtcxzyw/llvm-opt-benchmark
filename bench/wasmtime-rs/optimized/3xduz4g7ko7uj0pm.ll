@@ -5774,17 +5774,17 @@ common.resume:                                    ; preds = %73, %224, %340, %50
 
 .noexc172:                                        ; preds = %169
   %171 = load i64, ptr %14, align 8, !range !30, !noalias !1482, !noundef !5
-  %172 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %173 = load i64, ptr %172, align 8, !noalias !1482, !noundef !5
-  %174 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %175 = load i64, ptr %174, align 8, !noalias !1482, !noundef !5
+  %172 = icmp ne i64 %171, 0
+  call void @llvm.assume(i1 %172)
+  %173 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %174 = load i64, ptr %173, align 8, !noalias !1482, !noundef !5
+  %175 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %176 = load i64, ptr %175, align 8, !noalias !1482, !noundef !5
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !1482
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.4228.0.copyload) ]
-  %176 = sub nsw i64 0, %175
-  %177 = getelementptr inbounds i8, ptr %.sroa.4228.0.copyload, i64 %176
-  %178 = icmp ne i64 %171, 0
-  call void @llvm.assume(i1 %178)
-  call void @__rust_dealloc(ptr noundef nonnull %177, i64 noundef %173, i64 noundef %171) #30, !noalias !1482
+  %177 = sub nsw i64 0, %176
+  %178 = getelementptr inbounds i8, ptr %.sroa.4228.0.copyload, i64 %177
+  call void @__rust_dealloc(ptr noundef nonnull %178, i64 noundef %174, i64 noundef %171) #30, !noalias !1482
   br label %183
 
 179:                                              ; preds = %200
@@ -13311,17 +13311,17 @@ define internal fastcc noundef ptr @_ZN16wasmtime_environ9component9translate6in
 
 .noexc85:                                         ; preds = %103
   %105 = load i64, ptr %14, align 8, !range !30, !noalias !3169, !noundef !5
-  %106 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %107 = load i64, ptr %106, align 8, !noalias !3169, !noundef !5
-  %108 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %109 = load i64, ptr %108, align 8, !noalias !3169, !noundef !5
+  %106 = icmp ne i64 %105, 0
+  tail call void @llvm.assume(i1 %106)
+  %107 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %108 = load i64, ptr %107, align 8, !noalias !3169, !noundef !5
+  %109 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %110 = load i64, ptr %109, align 8, !noalias !3169, !noundef !5
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !3169
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.2.0.copyload) ]
-  %110 = sub nsw i64 0, %109
-  %111 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload, i64 %110
-  %112 = icmp ne i64 %105, 0
-  tail call void @llvm.assume(i1 %112)
-  tail call void @__rust_dealloc(ptr noundef nonnull %111, i64 noundef %107, i64 noundef %105) #30, !noalias !3169
+  %111 = sub nsw i64 0, %110
+  %112 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload, i64 %111
+  tail call void @__rust_dealloc(ptr noundef nonnull %112, i64 noundef %108, i64 noundef %105) #30, !noalias !3169
   br label %182
 
 .loopexit:                                        ; preds = %142, %147, %153

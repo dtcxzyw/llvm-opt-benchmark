@@ -4559,61 +4559,63 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_box_in17hc8925784e979fd38E.llvm.15769799167173126418"(ptr noalias noundef nonnull align 8 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = invoke { i64, i64 } @_ZN5alloc4sync32arcinner_layout_for_value_layout17h38ddcb37caea89c3E(i64 noundef 8, i64 noundef 48)
-          to label %.noexc unwind label %19
+          to label %.noexc unwind label %20
 
 .noexc:                                           ; preds = %1
   %.fca.0.extract.i = extractvalue { i64, i64 } %2, 0
   %.fca.1.extract.i = extractvalue { i64, i64 } %2, 1
   %3 = icmp eq i64 %.fca.1.extract.i, 0
-  br i1 %3, label %4, label %8
+  br i1 %3, label %4, label %9
 
 4:                                                ; preds = %.noexc
   %5 = add i64 %.fca.0.extract.i, -1
   %6 = icmp sgt i64 %5, -1
   tail call void @llvm.assume(i1 %6)
   %7 = inttoptr i64 %.fca.0.extract.i to ptr
+  %8 = icmp ne i64 %.fca.0.extract.i, 0
+  tail call void @llvm.assume(i1 %8)
   br label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$19allocate_for_ptr_in28_$u7b$$u7b$closure$u7d$$u7d$17he54bf2cef2fb98c6E.exit.i"
 
-8:                                                ; preds = %.noexc
-  %9 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %10 = add i64 %.fca.0.extract.i, -1
-  %11 = icmp sgt i64 %10, -1
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call noundef ptr @__rust_alloc(i64 noundef %.fca.1.extract.i, i64 noundef %.fca.0.extract.i) #25
+9:                                                ; preds = %.noexc
+  %10 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %11 = add i64 %.fca.0.extract.i, -1
+  %12 = icmp sgt i64 %11, -1
+  tail call void @llvm.assume(i1 %12)
+  %13 = tail call noundef ptr @__rust_alloc(i64 noundef %.fca.1.extract.i, i64 noundef %.fca.0.extract.i) #25
   br label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$19allocate_for_ptr_in28_$u7b$$u7b$closure$u7d$$u7d$17he54bf2cef2fb98c6E.exit.i"
 
-"_ZN5alloc4sync16Arc$LT$T$C$A$GT$19allocate_for_ptr_in28_$u7b$$u7b$closure$u7d$$u7d$17he54bf2cef2fb98c6E.exit.i": ; preds = %8, %4
-  %.sroa.05.0.i.i.i.i = phi ptr [ %7, %4 ], [ %12, %8 ]
-  %13 = icmp eq ptr %.sroa.05.0.i.i.i.i, null
-  br i1 %13, label %14, label %15
-
-14:                                               ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$19allocate_for_ptr_in28_$u7b$$u7b$closure$u7d$$u7d$17he54bf2cef2fb98c6E.exit.i"
-  invoke void @_ZN5alloc5alloc18handle_alloc_error17h7d585e222775d2b3E(i64 noundef %.fca.0.extract.i, i64 noundef %.fca.1.extract.i) #22
-          to label %.noexc16 unwind label %19
-
-.noexc16:                                         ; preds = %14
-  unreachable
+"_ZN5alloc4sync16Arc$LT$T$C$A$GT$19allocate_for_ptr_in28_$u7b$$u7b$closure$u7d$$u7d$17he54bf2cef2fb98c6E.exit.i": ; preds = %9, %4
+  %.sroa.05.0.i.i.i.i = phi ptr [ %7, %4 ], [ %13, %9 ]
+  %14 = icmp eq ptr %.sroa.05.0.i.i.i.i, null
+  br i1 %14, label %15, label %16
 
 15:                                               ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$19allocate_for_ptr_in28_$u7b$$u7b$closure$u7d$$u7d$17he54bf2cef2fb98c6E.exit.i"
+  invoke void @_ZN5alloc5alloc18handle_alloc_error17h7d585e222775d2b3E(i64 noundef %.fca.0.extract.i, i64 noundef %.fca.1.extract.i) #22
+          to label %.noexc16 unwind label %20
+
+.noexc16:                                         ; preds = %15
+  unreachable
+
+16:                                               ; preds = %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$19allocate_for_ptr_in28_$u7b$$u7b$closure$u7d$$u7d$17he54bf2cef2fb98c6E.exit.i"
   store i64 1, ptr %.sroa.05.0.i.i.i.i, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i.i.i.i, i64 8
-  store i64 1, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i.i.i.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i.i.i.i, i64 8
+  store i64 1, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.05.0.i.i.i.i, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %18, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
   tail call void @__rust_dealloc(ptr noundef nonnull %0, i64 noundef 48, i64 noundef 8) #25
   ret ptr %.sroa.05.0.i.i.i.i
 
-18:                                               ; preds = %19
-  resume { ptr, i32 } %20
+19:                                               ; preds = %20
+  resume { ptr, i32 } %21
 
-19:                                               ; preds = %14, %1
-  %20 = landingpad { ptr, i32 }
+20:                                               ; preds = %15, %1
+  %21 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr86drop_in_place$LT$alloc..boxed..Box$LT$influxdb3_write..catalog..DatabaseSchema$GT$$GT$17hae9088d80729854bE"(ptr %0) #23
-          to label %18 unwind label %21
+          to label %19 unwind label %22
 
-21:                                               ; preds = %19
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %20
+  %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #24
   unreachable

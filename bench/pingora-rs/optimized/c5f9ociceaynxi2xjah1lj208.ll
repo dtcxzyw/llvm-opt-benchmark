@@ -3009,6 +3009,7 @@ select.unfold.i.i.i.i:                            ; preds = %584, %583
 
 910:                                              ; preds = %905
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !231
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %897) ]
   store ptr %896, ptr %26, align 8, !noalias !231
   %911 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %897, ptr %911, align 8, !noalias !231
@@ -7288,6 +7289,7 @@ select.unfold.i.i.i:                              ; preds = %335, %334
 
 661:                                              ; preds = %656
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !556
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %648) ]
   store ptr %647, ptr %26, align 8, !noalias !556
   %662 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %648, ptr %662, align 8, !noalias !556
@@ -27586,11 +27588,11 @@ switch.lookup:                                    ; preds = %1691
 
 1718:                                             ; preds = %.noexc5.i.i.i
   %1719 = extractvalue { ptr, ptr } %1716, 1
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1719) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %142), !noalias !1850
   store ptr %1714, ptr %142, align 8, !noalias !1850
   call void @llvm.lifetime.start.p0(ptr nonnull %141), !noalias !1850
   store ptr %1717, ptr %141, align 8, !noalias !1850
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1719) ]
   %1720 = load ptr, ptr %1714, align 8, !noalias !1841, !noundef !4
   %1721 = icmp ne ptr %1720, null
   %1722 = load ptr, ptr %1717, align 8, !noalias !1841, !noundef !4

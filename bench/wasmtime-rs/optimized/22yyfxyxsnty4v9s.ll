@@ -7231,38 +7231,40 @@ _ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821cE.llvm.15947207822535676624
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821cE.llvm.15947207822535676624(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #10 {
   %5 = icmp eq i64 %2, 0
-  br i1 %5, label %6, label %10
+  br i1 %5, label %6, label %11
 
 6:                                                ; preds = %4
   %7 = add i64 %1, -1
   %8 = icmp sgt i64 %7, -1
   tail call void @llvm.assume(i1 %8)
   %9 = inttoptr i64 %1 to ptr
-  br label %11
+  %10 = icmp ne i64 %1, 0
+  tail call void @llvm.assume(i1 %10)
+  br label %12
 
-10:                                               ; preds = %4
-  br i1 %3, label %19, label %14
+11:                                               ; preds = %4
+  br i1 %3, label %20, label %15
 
-11:                                               ; preds = %14, %19, %6
-  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %22, %19 ], [ %18, %14 ]
-  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
-  %13 = insertvalue { ptr, i64 } %12, i64 %2, 1
-  ret { ptr, i64 } %13
+12:                                               ; preds = %15, %20, %6
+  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %23, %20 ], [ %19, %15 ]
+  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
+  %14 = insertvalue { ptr, i64 } %13, i64 %2, 1
+  ret { ptr, i64 } %14
 
-14:                                               ; preds = %10
-  %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %16 = add i64 %1, -1
-  %17 = icmp sgt i64 %16, -1
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #38
-  br label %11
+15:                                               ; preds = %11
+  %16 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %17 = add i64 %1, -1
+  %18 = icmp sgt i64 %17, -1
+  tail call void @llvm.assume(i1 %18)
+  %19 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #38
+  br label %12
 
-19:                                               ; preds = %10
-  %20 = add i64 %1, -1
-  %21 = icmp sgt i64 %20, -1
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #38
-  br label %11
+20:                                               ; preds = %11
+  %21 = add i64 %1, -1
+  %22 = icmp sgt i64 %21, -1
+  tail call void @llvm.assume(i1 %22)
+  %23 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #38
+  br label %12
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
@@ -21669,6 +21671,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit
   br i1 %22, label %"_ZN4core3ptr97drop_in_place$LT$std..sync..mutex..MutexGuard$LT$wasmtime_wasi..write_stream..WorkerState$GT$$GT$17h15c39832f099e883E.exit.sink.split", label %"_ZN4core3ptr97drop_in_place$LT$std..sync..mutex..MutexGuard$LT$wasmtime_wasi..write_stream..WorkerState$GT$$GT$17h15c39832f099e883E.exit"
 
 23:                                               ; preds = %2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 57
   %25 = load i8, ptr %24, align 1, !range !508, !noundef !9
   %26 = trunc nuw i8 %25 to i1
@@ -21690,7 +21693,6 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %29, ptr %34, align 8
   store i64 3, ptr %0, align 8
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br i1 %5, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit.i.i7, label %36
 
@@ -21856,6 +21858,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit
   br i1 %34, label %"_ZN4core3ptr97drop_in_place$LT$std..sync..mutex..MutexGuard$LT$wasmtime_wasi..write_stream..WorkerState$GT$$GT$17h15c39832f099e883E.exit.sink.split", label %"_ZN4core3ptr97drop_in_place$LT$std..sync..mutex..MutexGuard$LT$wasmtime_wasi..write_stream..WorkerState$GT$$GT$17h15c39832f099e883E.exit"
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17h3c8c6178ef43c923E.exit": ; preds = %2
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3386)
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -21909,6 +21912,7 @@ define void @_ZN13wasmtime_wasi12write_stream6Worker12report_error17hec9face033b
 
 11:                                               ; preds = %19, %12
   %.pn = phi { ptr, i32 } [ %20, %19 ], [ %13, %12 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   invoke fastcc void @"_ZN4core3ptr97drop_in_place$LT$std..sync..mutex..MutexGuard$LT$wasmtime_wasi..write_stream..WorkerState$GT$$GT$17h15c39832f099e883E"(ptr nonnull %6, i8 %8) #35
           to label %.thread unwind label %33
 
@@ -21918,6 +21922,7 @@ define void @_ZN13wasmtime_wasi12write_stream6Worker12report_error17hec9face033b
   br label %11
 
 14:                                               ; preds = %5
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %16 = load ptr, ptr %15, align 8, !alias.scope !3394, !noundef !9
   %17 = icmp eq ptr %16, null
@@ -21937,7 +21942,6 @@ define void @_ZN13wasmtime_wasi12write_stream6Worker12report_error17hec9face033b
   store ptr %10, ptr %15, align 8
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 57
   store i8 0, ptr %21, align 1
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 4
   br i1 %7, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit.i.i, label %23
 
@@ -22027,6 +22031,7 @@ define { i64, ptr } @"_ZN105_$LT$wasmtime_wasi..write_stream..AsyncWriteStream$u
   br i1 %21, label %22, label %63
 
 22:                                               ; preds = %11
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %12) ]
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 57
   %24 = load i8, ptr %23, align 1, !range !508, !noundef !9
   %25 = trunc nuw i8 %24 to i1
@@ -22166,7 +22171,6 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit
   %85 = add i64 %84, 1
   store i64 %85, ptr %45, align 8, !alias.scope !3403, !noalias !3406
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %12) ]
   %86 = getelementptr inbounds nuw i8, ptr %12, i64 4
   br i1 %13, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit.i.i27, label %87
 
@@ -22271,6 +22275,7 @@ define { i64, ptr } @"_ZN105_$LT$wasmtime_wasi..write_stream..AsyncWriteStream$u
   %11 = load i8, ptr %10, align 8, !range !508, !alias.scope !3438
   %12 = trunc nuw i8 %11 to i1
   %13 = select i1 %.not.i, i1 %12, i1 false
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
   br i1 %13, label %16, label %19
 
 14:                                               ; preds = %16
@@ -22287,7 +22292,6 @@ define { i64, ptr } @"_ZN105_$LT$wasmtime_wasi..write_stream..AsyncWriteStream$u
           to label %29 unwind label %14
 
 19:                                               ; preds = %1
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
   br i1 %6, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit.i.i, label %21
 
@@ -22311,7 +22315,6 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit
   br i1 %28, label %"_ZN4core3ptr97drop_in_place$LT$std..sync..mutex..MutexGuard$LT$wasmtime_wasi..write_stream..WorkerState$GT$$GT$17h15c39832f099e883E.exit.sink.split", label %"_ZN4core3ptr97drop_in_place$LT$std..sync..mutex..MutexGuard$LT$wasmtime_wasi..write_stream..WorkerState$GT$$GT$17h15c39832f099e883E.exit"
 
 29:                                               ; preds = %16
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 4
   br i1 %6, label %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.15947207822535676624.exit.i.i15, label %31
 

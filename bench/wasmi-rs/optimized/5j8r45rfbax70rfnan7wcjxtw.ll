@@ -722,13 +722,13 @@ define hidden { i64, i64 } @"_ZN11multi_stash19MultiStash$LT$T$GT$8take_one17h17
   %15 = trunc nuw i64 %12 to i1
   br i1 %15, label %20, label %26
 
-16:                                               ; preds = %28, %27, %2, %26
-  %.sroa.7.0 = phi i64 [ undef, %2 ], [ undef, %26 ], [ %24, %27 ], [ 0, %28 ]
-  %.sroa.0.0 = phi i64 [ 0, %2 ], [ 0, %26 ], [ 1, %27 ], [ 1, %28 ]
+16:                                               ; preds = %29, %27, %2, %26
+  %.sroa.7.0 = phi i64 [ undef, %2 ], [ undef, %26 ], [ %24, %27 ], [ 0, %29 ]
+  %.sroa.0.0 = phi i64 [ 0, %2 ], [ 0, %26 ], [ 1, %27 ], [ 1, %29 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load i64, ptr %17, align 8, !noundef !10
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %32, label %33
+  br i1 %19, label %33, label %34
 
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -739,7 +739,7 @@ define hidden { i64, i64 } @"_ZN11multi_stash19MultiStash$LT$T$GT$8take_one17h17
   %25 = icmp ne i64 %14, 0
   tail call void @llvm.assume(i1 %25)
   %.not = icmp eq i64 %24, 0
-  br i1 %.not, label %28, label %27
+  br i1 %.not, label %29, label %27
 
 26:                                               ; preds = %6
   store i64 %14, ptr %13, align 8
@@ -748,24 +748,26 @@ define hidden { i64, i64 } @"_ZN11multi_stash19MultiStash$LT$T$GT$8take_one17h17
 27:                                               ; preds = %20
   store i64 1, ptr %9, align 8
   store i64 %24, ptr %13, align 8
+  %28 = icmp ne i64 %14, 1
+  tail call void @llvm.assume(i1 %28)
   br label %16
 
-28:                                               ; preds = %20
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %30 = load i64, ptr %29, align 8, !noundef !10
-  %31 = add i64 %30, -1
-  store i64 %31, ptr %29, align 8
+29:                                               ; preds = %20
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %31 = load i64, ptr %30, align 8, !noundef !10
+  %32 = add i64 %31, -1
+  store i64 %32, ptr %30, align 8
   store i64 %1, ptr %10, align 8
   br label %16
 
-32:                                               ; preds = %16
+33:                                               ; preds = %16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  br label %33
+  br label %34
 
-33:                                               ; preds = %16, %32
-  %34 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %35 = insertvalue { i64, i64 } %34, i64 %.sroa.7.0, 1
-  ret { i64, i64 } %35
+34:                                               ; preds = %16, %33
+  %35 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %36 = insertvalue { i64, i64 } %35, i64 %.sroa.7.0, 1
+  ret { i64, i64 } %36
 }
 
 ; Function Attrs: nonlazybind uwtable

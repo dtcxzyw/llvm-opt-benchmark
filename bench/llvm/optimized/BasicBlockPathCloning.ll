@@ -739,6 +739,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit93.i.i: ; preds = %307, %306, %304
   br label %482
 
 320:                                              ; preds = %_ZNK4llvm12MachineInstr15isNotDuplicableENS0_9QueryTypeE.exit.thread.i.i, %_ZNK4llvm12MachineInstr15isNotDuplicableENS0_9QueryTypeE.exit.i.i, %254
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0123.0161.i.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0123.0161.i.i, align 8
   %321 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp eq i64 %321, 0

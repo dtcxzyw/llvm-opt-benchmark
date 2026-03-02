@@ -6213,9 +6213,9 @@ define hidden void @"_ZN6rustls4conn28ConnectionCommon$LT$Data$GT$25dangerous_ex
 
 21:                                               ; preds = %18
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.515.0.copyload) ]
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.6.0.copyload) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.6.0.copyload) ]
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.copyload, i64 40
   %23 = load ptr, ptr %22, align 8, !invariant.load !4, !nonnull !4
   invoke void %23(ptr noalias noundef nonnull sret({ i8, [111 x i8] }) align 8 captures(none) dereferenceable(112) %11, ptr noundef nonnull align 1 %.sroa.515.0.copyload)

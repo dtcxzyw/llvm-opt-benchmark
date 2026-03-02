@@ -1268,6 +1268,7 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %.sroa.8.sroa.5.0.copyload = load ptr, ptr %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx7.sroa_idx, align 8, !alias.scope !299, !nonnull !25, !noundef !25
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.6.0.copyload5) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.copyload3) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.copyload3) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.8.sroa.0.0.copyload) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !303
   store ptr %.sroa.8.sroa.0.0.copyload, ptr %2, align 8, !noalias !322

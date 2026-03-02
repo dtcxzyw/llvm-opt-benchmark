@@ -2974,6 +2974,7 @@ define internal void @_ZN17tikv_jemalloc_ctl11stats_print8callback17h839c6a6807f
 
 8:                                                ; preds = %5
   %9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   %.val.i.i.i.i = load ptr, ptr %0, align 8, !noalias !197, !nonnull !4, !align !6, !noundef !4
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he55b90e851844799E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.val.i.i.i.i, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ce0e6684e58da1538182cd2ee1a0154e.80)
           to label %42 unwind label %10
@@ -6549,6 +6550,7 @@ define void @_ZN3std3sys9backtrace28__rust_begin_short_backtrace17h35975094f73ae
 46:                                               ; preds = %44
   %47 = extractvalue { ptr, ptr } %41, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !350
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %47) ]
   store ptr %45, ptr %11, align 8, !noalias !350
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %47, ptr %48, align 8, !noalias !350
@@ -6795,6 +6797,7 @@ define void @_ZN3std3sys9backtrace28__rust_begin_short_backtrace17h39679bf7639eb
 46:                                               ; preds = %44
   %47 = extractvalue { ptr, ptr } %41, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !359
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %47) ]
   store ptr %45, ptr %11, align 8, !noalias !359
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %47, ptr %48, align 8, !noalias !359
@@ -7041,6 +7044,7 @@ define void @_ZN3std3sys9backtrace28__rust_begin_short_backtrace17h8cf416d547e52
 46:                                               ; preds = %44
   %47 = extractvalue { ptr, ptr } %41, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !365
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %47) ]
   store ptr %45, ptr %11, align 8, !noalias !365
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %47, ptr %48, align 8, !noalias !365
@@ -7349,6 +7353,7 @@ define void @_ZN3std3sys9backtrace28__rust_begin_short_backtrace17hf30367b589af5
 46:                                               ; preds = %44
   %47 = extractvalue { ptr, ptr } %41, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !386
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %47) ]
   store ptr %45, ptr %11, align 8, !noalias !386
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %47, ptr %48, align 8, !noalias !386

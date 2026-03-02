@@ -12525,6 +12525,7 @@ define hidden void @_ZN4gpui6window13WindowContext18with_element_state17h96b2258
   br i1 %.sroa.0.0.i.i, label %89, label %81
 
 81:                                               ; preds = %76
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %64) ]
   %82 = invoke fastcc noundef nonnull ptr @"_ZN4gpui6window13WindowContext18with_element_state28_$u7b$$u7b$closure$u7d$$u7d$17h6c2c0bb7e5d0d035E"(ptr noundef nonnull align 1 %63, ptr noalias noundef readonly align 8 dereferenceable(32) %64)
           to label %83 unwind label %74
 

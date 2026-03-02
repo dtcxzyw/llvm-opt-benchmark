@@ -419,6 +419,7 @@ define internal fastcc void @"_ZN4core3ptr335drop_in_place$LT$$LT$alloc..collect
 
 .body.i.i.i:                                      ; preds = %25, %7
   %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %26, %25 ], [ %8, %7 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i.i) ]
   tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haf6ec204ef137f12E"(ptr nonnull %.val.i.i, ptr nonnull readonly %.val1.i.i) #15
   resume { ptr, i32 } %eh.lpad-body.i.i.i
 
@@ -878,6 +879,7 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V
 
 .body.i.i:                                        ; preds = %26, %8
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %27, %26 ], [ %9, %8 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i) ]
   tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haf6ec204ef137f12E"(ptr nonnull %.val.i, ptr nonnull readonly %.val1.i) #15
   invoke fastcc void @"_ZN4core3ptr335drop_in_place$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$ockam_executor..executor..TaskId$C$alloc..boxed..Box$LT$ockam_executor..executor..Node$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$$C$alloc..alloc..Global$GT$$GT$17hc21a1041a77cf69dE"(ptr %0) #15
           to label %42 unwind label %43

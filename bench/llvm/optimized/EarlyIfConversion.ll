@@ -5499,6 +5499,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19SSAIfConv18canPredi
 
 43:                                               ; preds = %39, %.lr.ph
   %.1 = phi i32 [ %.0620, %.lr.ph ], [ %15, %39 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.010.019) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.010.019, align 8
   %44 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %44, 0
@@ -5635,6 +5636,7 @@ _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit: ; preds = %30
 
 .thread31:                                        ; preds = %.lr.ph, %50
   %.12134 = phi i32 [ %16, %50 ], [ %.02043, %.lr.ph ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.025.042) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.025.042, align 8
   %51 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %51, 0
@@ -7304,6 +7306,7 @@ _ZN4llvm11SmallVectorINS_14MachineOperandELj4EED2Ev.exit: ; preds = %._crit_edge
   br label %43
 
 43:                                               ; preds = %.lr.ph, %34
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.05.09) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.05.09, align 8
   %44 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i3 = icmp eq i64 %44, 0

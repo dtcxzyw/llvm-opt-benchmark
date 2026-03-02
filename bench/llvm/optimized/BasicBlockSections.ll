@@ -780,6 +780,7 @@ define dso_local void @_ZN4llvm25avoidZeroOffsetLandingPadERNS_15MachineFunction
 
 .lr.ph:                                           ; preds = %13, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit
   %.sroa.0.013 = phi ptr [ %.sroa.0.0, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit ], [ %.sroa.0.012, %13 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.013) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.013, align 8
   %18 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %18, 0
@@ -1509,6 +1510,7 @@ _ZL14assignSectionsRN4llvm15MachineFunctionERKNS_8DenseMapINS_10UniqueBBIDENS_13
 
 .lr.ph.i33.i:                                     ; preds = %164, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i
   %.sroa.0.013.i.i = phi ptr [ %.sroa.0.0.i.i, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i ], [ %.sroa.0.012.i.i, %164 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.013.i.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0.013.i.i, align 8
   %169 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp eq i64 %169, 0

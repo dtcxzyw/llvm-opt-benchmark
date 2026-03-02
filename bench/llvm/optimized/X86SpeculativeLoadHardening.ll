@@ -1559,6 +1559,7 @@ _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread.i: ; preds = %_ZNK4l
   br i1 %198, label %.thread.i, label %_ZL17hasVulnerableLoadRN4llvm15MachineFunctionE.exit
 
 .thread.i:                                        ; preds = %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread.i, %_ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.i, %190
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.019.046.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.019.046.i, align 8
   %199 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %199, 0
@@ -3770,6 +3771,7 @@ _ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit.i177: ; preds = %1075
   br i1 %1102, label %"_ZN4llvm6any_ofINS_14iterator_rangeINS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEEEEZN12_GLOBAL__N_131X86SpeculativeLoadHardeningPass37tracePredStateThroughIndirectBranchesERNS_15MachineFunctionEE3$_0EEbOT_T0_.exit.i", label %1103
 
 1103:                                             ; preds = %.lr.ph.i.i.i.i.i.i.i179
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.05.i.i.i.i.i.i.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.03.05.i.i.i.i.i.i.i, align 8
   %1104 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %1104, 0
@@ -12450,6 +12452,7 @@ _ZN4llvm11SmallVectorINS_14MachineOperandELj4EED2Ev.exit: ; preds = %41, %49
   br i1 %79, label %69, label %.loopexit, !llvm.loop !880
 
 .loopexit:                                        ; preds = %.critedge, %62, %76, %74
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.080.0102) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.080.0102, align 8
   %80 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %80, 0

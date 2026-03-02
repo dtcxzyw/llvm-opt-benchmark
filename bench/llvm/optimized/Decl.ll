@@ -14588,7 +14588,9 @@ _ZNK5clang12FunctionDecl18getPrimaryTemplateEv.exit: ; preds = %_ZN5clang41isGen
   %48 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 6
   %49 = icmp eq i64 %48, 4
   %50 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
+  %.not6.i = icmp ne i64 %50, 0
   tail call void @llvm.assume(i1 %49)
+  tail call void @llvm.assume(i1 %.not6.i)
   %51 = inttoptr i64 %50 to ptr
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %.0.copyload.i.i.i.i.i = load i64, ptr %52, align 8

@@ -3053,6 +3053,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i: ; p
   ]
 
 .critedge2.i.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.08.i.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.03.08.i.i, align 8
   %96 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp eq i64 %96, 0
@@ -3164,6 +3165,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i: ;
   ]
 
 .critedge2.i34.i:                                 ; preds = %.lr.ph.i28.i, %.lr.ph.i28.i, %.lr.ph.i28.i, %.lr.ph.i28.i, %.lr.ph.i28.i, %.lr.ph.i28.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.08.i29.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i35.i = load i64, ptr %.sroa.03.08.i29.i, align 8
   %140 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i35.i, 4
   %.not.i.i.i.i36.i = icmp eq i64 %140, 0
@@ -3311,6 +3313,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i54.i:
   ]
 
 .critedge2.i70.i:                                 ; preds = %.lr.ph.i64.i, %.lr.ph.i64.i, %.lr.ph.i64.i, %.lr.ph.i64.i, %.lr.ph.i64.i, %.lr.ph.i64.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.08.i65.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i71.i = load i64, ptr %.sroa.03.08.i65.i, align 8
   %203 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i71.i, 4
   %.not.i.i.i.i72.i = icmp eq i64 %203, 0

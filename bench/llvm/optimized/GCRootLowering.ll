@@ -1514,6 +1514,7 @@ _ZN12_GLOBAL__N_121GCMachineCodeAnalysis14VisitCallPointEN4llvm26MachineInstrBun
   br label %180
 
 180:                                              ; preds = %_ZN12_GLOBAL__N_121GCMachineCodeAnalysis14VisitCallPointEN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE.exit.i, %_ZNK4llvm12MachineInstr12isTerminatorENS0_9QueryTypeE.exit.i, %105, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i, %93
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.015.027.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.015.027.i, align 8
   %181 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i12.i = icmp eq i64 %181, 0

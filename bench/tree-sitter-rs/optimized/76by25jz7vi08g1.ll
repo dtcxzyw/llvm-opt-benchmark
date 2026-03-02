@@ -26662,38 +26662,40 @@ _ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.16258808753110442553
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h9ea66fc1ee45e506E.llvm.16258808753110442553(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #13 {
   %5 = icmp eq i64 %2, 0
-  br i1 %5, label %6, label %10
+  br i1 %5, label %6, label %11
 
 6:                                                ; preds = %4
   %7 = add i64 %1, -1
   %8 = icmp sgt i64 %7, -1
   tail call void @llvm.assume(i1 %8)
   %9 = inttoptr i64 %1 to ptr
-  br label %11
+  %10 = icmp ne i64 %1, 0
+  tail call void @llvm.assume(i1 %10)
+  br label %12
 
-10:                                               ; preds = %4
-  br i1 %3, label %19, label %14
+11:                                               ; preds = %4
+  br i1 %3, label %20, label %15
 
-11:                                               ; preds = %14, %19, %6
-  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %22, %19 ], [ %18, %14 ]
-  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
-  %13 = insertvalue { ptr, i64 } %12, i64 %2, 1
-  ret { ptr, i64 } %13
+12:                                               ; preds = %15, %20, %6
+  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %23, %20 ], [ %19, %15 ]
+  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
+  %14 = insertvalue { ptr, i64 } %13, i64 %2, 1
+  ret { ptr, i64 } %14
 
-14:                                               ; preds = %10
-  %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %16 = add i64 %1, -1
-  %17 = icmp sgt i64 %16, -1
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #47
-  br label %11
+15:                                               ; preds = %11
+  %16 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %17 = add i64 %1, -1
+  %18 = icmp sgt i64 %17, -1
+  tail call void @llvm.assume(i1 %18)
+  %19 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #47
+  br label %12
 
-19:                                               ; preds = %10
-  %20 = add i64 %1, -1
-  %21 = icmp sgt i64 %20, -1
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #47
-  br label %11
+20:                                               ; preds = %11
+  %21 = add i64 %1, -1
+  %22 = icmp sgt i64 %21, -1
+  tail call void @llvm.assume(i1 %22)
+  %23 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #47
+  br label %12
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
@@ -35867,17 +35869,17 @@ define hidden void @_ZN15tree_sitter_cli8generate13parse_grammar13parse_grammar1
 
 .noexc:                                           ; preds = %77
   %79 = load i64, ptr %30, align 8, !range !177, !noalias !8068, !noundef !4
-  %80 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %81 = load i64, ptr %80, align 8, !noalias !8068, !noundef !4
-  %82 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %83 = load i64, ptr %82, align 8, !noalias !8068, !noundef !4
+  %80 = icmp ne i64 %79, 0
+  tail call void @llvm.assume(i1 %80)
+  %81 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %82 = load i64, ptr %81, align 8, !noalias !8068, !noundef !4
+  %83 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %84 = load i64, ptr %83, align 8, !noalias !8068, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !8068
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.07.sroa.4.0.copyload) ]
-  %84 = sub nsw i64 0, %83
-  %85 = getelementptr inbounds i8, ptr %.sroa.07.sroa.4.0.copyload, i64 %84
-  %86 = icmp ne i64 %79, 0
-  tail call void @llvm.assume(i1 %86)
-  tail call void @__rust_dealloc(ptr noundef nonnull %85, i64 noundef %81, i64 noundef %79) #47, !noalias !8068
+  %85 = sub nsw i64 0, %84
+  %86 = getelementptr inbounds i8, ptr %.sroa.07.sroa.4.0.copyload, i64 %85
+  tail call void @__rust_dealloc(ptr noundef nonnull %86, i64 noundef %82, i64 noundef %79) #47, !noalias !8068
   br label %89
 
 .body:                                            ; preds = %409, %214, %108, %87, %"_ZN4core3ptr133drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$alloc..vec..Vec$LT$tree_sitter_cli..generate..parse_grammar..RuleJSON$GT$$GT$$GT$17hc681883239f16345E.exit", %106

@@ -19083,6 +19083,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_17MachineBasicBlockENS_6detail13De
   br i1 %.not67, label %.critedge, label %.lr.ph387
 
 199:                                              ; preds = %102, %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0279.0384) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0279.0384, align 8
   %200 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i78 = icmp eq i64 %200, 0

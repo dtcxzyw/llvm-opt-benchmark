@@ -59096,6 +59096,7 @@ common.resume:                                    ; preds = %142, %127, %111, %7
 48:                                               ; preds = %44
   %49 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc61f770594add488E"(ptr nonnull %.val, ptr nonnull readonly %.val1) #58
   br label %common.resume
 

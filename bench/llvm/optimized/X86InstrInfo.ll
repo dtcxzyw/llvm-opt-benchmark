@@ -2281,6 +2281,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit19: ; preds = %68
   br i1 %81, label %._crit_edge, label %82
 
 82:                                               ; preds = %75, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit19
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.031.043) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i21 = load i64, ptr %.sroa.031.043, align 8
   %83 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i21, 4
   %.not.i.i.i22 = icmp eq i64 %83, 0
@@ -33117,6 +33118,7 @@ _ZN4llvm8outliner9Candidate3endEv.exit49:         ; preds = %_ZNK4llvm14ilist_it
   %or.cond.not = and i1 %33, %switch.i
   %34 = zext i1 %or.cond.not to i32
   %.1 = add i32 %.0143, %34
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0120.0142) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0120.0142, align 8
   %35 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %35, 0
@@ -39320,6 +39322,7 @@ _ZN12_GLOBAL__N_112LDTLSCleanup11SetRegisterERN4llvm12MachineInstrEPj.exit: ; pr
   %.sroa.03.1 = phi ptr [ %95, %_ZN12_GLOBAL__N_112LDTLSCleanup11SetRegisterERN4llvm12MachineInstrEPj.exit ], [ %58, %_ZN12_GLOBAL__N_112LDTLSCleanup22ReplaceTLSBaseAddrCallERN4llvm12MachineInstrEj.exit ], [ %.sroa.03.017, %26 ]
   %.111 = phi i32 [ %75, %_ZN12_GLOBAL__N_112LDTLSCleanup11SetRegisterERN4llvm12MachineInstrEPj.exit ], [ %.01015, %_ZN12_GLOBAL__N_112LDTLSCleanup22ReplaceTLSBaseAddrCallERN4llvm12MachineInstrEj.exit ], [ %.01015, %26 ]
   %.1 = phi i1 [ true, %_ZN12_GLOBAL__N_112LDTLSCleanup11SetRegisterERN4llvm12MachineInstrEPj.exit ], [ true, %_ZN12_GLOBAL__N_112LDTLSCleanup22ReplaceTLSBaseAddrCallERN4llvm12MachineInstrEj.exit ], [ %.016, %26 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.03.1, align 8
   %102 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i23 = icmp eq i64 %102, 0

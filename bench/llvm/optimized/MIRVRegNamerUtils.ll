@@ -2091,6 +2091,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %_ZN
   br label %.critedge
 
 .critedge:                                        ; preds = %121, %156, %146, %134, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36, %162, %153, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit, %_ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.043.058) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.043.058, align 8
   %221 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %221, 0

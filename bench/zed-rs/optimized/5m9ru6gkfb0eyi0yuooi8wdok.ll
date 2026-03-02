@@ -3581,8 +3581,8 @@ define hidden void @_ZN5serde9__private2de7content21visit_content_seq_ref17h8841
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h95239fc8910c74dfE.llvm.3361432111207538598.exit.i.i"
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.11.2.i.i) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.11.2.i.i) ]
   br label %138
 
 38:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h8b9c00afafc0dfd9E.llvm.3361432111207538598.exit.i.i"
@@ -3751,8 +3751,8 @@ common.resume:                                    ; preds = %140, %53
   br label %53
 
 86:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17h95239fc8910c74dfE.llvm.3361432111207538598.exit.i72.i"
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.11.2.i73.i) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.14.i62.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.11.2.i73.i) ]
   br label %89
 
 87:                                               ; preds = %59, %.noexc79.i

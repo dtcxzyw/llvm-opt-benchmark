@@ -3060,6 +3060,7 @@ _ZL15emitSCSPrologueRN4llvm15MachineFunctionERNS_17MachineBasicBlockENS_26Machin
   br i1 %.not536, label %.critedge, label %277
 
 277:                                              ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0503.0556) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0503.0556, align 8
   %278 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp ne i64 %278, 0
@@ -8008,6 +8009,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i: ;
   ]
 
 .critedge2.i.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.08.i.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i267 = load i64, ptr %.sroa.03.08.i.i, align 8
   %534 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i267, 4
   %.not.i.i.i.i.i268 = icmp eq i64 %534, 0
@@ -10535,6 +10537,7 @@ _ZNK4llvm12MachineInstr21isUnconditionalBranchENS0_9QueryTypeE.exit.thread.i: ; 
 135:                                              ; preds = %_ZNK4llvm12MachineInstr21isUnconditionalBranchENS0_9QueryTypeE.exit.thread.i, %122
   %.3.v.pn.i = phi i32 [ %.3.v.i, %122 ], [ %134, %_ZNK4llvm12MachineInstr21isUnconditionalBranchENS0_9QueryTypeE.exit.thread.i ]
   %.4.i = add i32 %.3.v.pn.i, %.2.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.071.081.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.071.081.i, align 8
   %136 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %136, 0
@@ -13182,6 +13185,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit: ;
 
 99:                                               ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit
   %100 = phi i32 [ %84, %.lr.ph ], [ %98, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.030.036) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.030.036, align 8
   %101 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %101, 0

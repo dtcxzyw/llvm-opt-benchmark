@@ -5344,17 +5344,17 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i103: ; preds = %191, %
 
 .noexc.i.i.i.i.i:                                 ; preds = %227
   %229 = load i64, ptr %14, align 8, !range !22, !noalias !940, !noundef !4
-  %230 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %231 = load i64, ptr %230, align 8, !noalias !940, !noundef !4
-  %232 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %233 = load i64, ptr %232, align 8, !noalias !940, !noundef !4
+  %230 = icmp ne i64 %229, 0
+  call void @llvm.assume(i1 %230)
+  %231 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %232 = load i64, ptr %231, align 8, !noalias !940, !noundef !4
+  %233 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %234 = load i64, ptr %233, align 8, !noalias !940, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !940
-  %234 = load ptr, ptr %223, align 8, !alias.scope !942, !noalias !905, !nonnull !4, !noundef !4
-  %235 = sub nsw i64 0, %233
-  %236 = getelementptr inbounds i8, ptr %234, i64 %235
-  %237 = icmp ne i64 %229, 0
-  call void @llvm.assume(i1 %237)
-  call void @__rust_dealloc(ptr noundef nonnull %236, i64 noundef %231, i64 noundef %229) #25, !noalias !940
+  %235 = load ptr, ptr %223, align 8, !alias.scope !942, !noalias !905, !nonnull !4, !noundef !4
+  %236 = sub nsw i64 0, %234
+  %237 = getelementptr inbounds i8, ptr %235, i64 %236
+  call void @__rust_dealloc(ptr noundef nonnull %237, i64 noundef %232, i64 noundef %229) #25, !noalias !940
   br label %"_ZN4core3ptr115drop_in_place$LT$indexmap..map..IndexMap$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$C$$LP$$RP$$GT$$GT$17h76ace37e728ea605E.exit.i.i.i"
 
 238:                                              ; preds = %227
@@ -5509,17 +5509,17 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i103: ; preds = %191, %
 
 .noexc.i.i.i:                                     ; preds = %269
   %271 = load i64, ptr %12, align 8, !range !22, !noalias !973, !noundef !4
-  %272 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %273 = load i64, ptr %272, align 8, !noalias !973, !noundef !4
-  %274 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %275 = load i64, ptr %274, align 8, !noalias !973, !noundef !4
+  %272 = icmp ne i64 %271, 0
+  call void @llvm.assume(i1 %272)
+  %273 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %274 = load i64, ptr %273, align 8, !noalias !973, !noundef !4
+  %275 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %276 = load i64, ptr %275, align 8, !noalias !973, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !973
-  %276 = load ptr, ptr %.sroa.6170.0..sroa_idx, align 8, !alias.scope !973, !nonnull !4, !noundef !4
-  %277 = sub nsw i64 0, %275
-  %278 = getelementptr inbounds i8, ptr %276, i64 %277
-  %279 = icmp ne i64 %271, 0
-  call void @llvm.assume(i1 %279)
-  call void @__rust_dealloc(ptr noundef nonnull %278, i64 noundef %273, i64 noundef %271) #25, !noalias !973
+  %277 = load ptr, ptr %.sroa.6170.0..sroa_idx, align 8, !alias.scope !973, !nonnull !4, !noundef !4
+  %278 = sub nsw i64 0, %276
+  %279 = getelementptr inbounds i8, ptr %277, i64 %278
+  call void @__rust_dealloc(ptr noundef nonnull %279, i64 noundef %274, i64 noundef %271) #25, !noalias !973
   br label %"_ZN4core3ptr115drop_in_place$LT$indexmap..map..IndexMap$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$C$$LP$$RP$$GT$$GT$17h76ace37e728ea605E.exit.i118.invoke"
 
 280:                                              ; preds = %269
@@ -5627,17 +5627,17 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i103: ; preds = %191, %
 
 .noexc.i.i.i117:                                  ; preds = %308
   %310 = load i64, ptr %10, align 8, !range !22, !noalias !1011, !noundef !4
-  %311 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %312 = load i64, ptr %311, align 8, !noalias !1011, !noundef !4
-  %313 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %314 = load i64, ptr %313, align 8, !noalias !1011, !noundef !4
+  %311 = icmp ne i64 %310, 0
+  call void @llvm.assume(i1 %311)
+  %312 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %313 = load i64, ptr %312, align 8, !noalias !1011, !noundef !4
+  %314 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %315 = load i64, ptr %314, align 8, !noalias !1011, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1011
-  %315 = load ptr, ptr %.sroa.6170.0..sroa_idx, align 8, !alias.scope !1011, !nonnull !4, !noundef !4
-  %316 = sub nsw i64 0, %314
-  %317 = getelementptr inbounds i8, ptr %315, i64 %316
-  %318 = icmp ne i64 %310, 0
-  call void @llvm.assume(i1 %318)
-  call void @__rust_dealloc(ptr noundef nonnull %317, i64 noundef %312, i64 noundef %310) #25, !noalias !1011
+  %316 = load ptr, ptr %.sroa.6170.0..sroa_idx, align 8, !alias.scope !1011, !nonnull !4, !noundef !4
+  %317 = sub nsw i64 0, %315
+  %318 = getelementptr inbounds i8, ptr %316, i64 %317
+  call void @__rust_dealloc(ptr noundef nonnull %318, i64 noundef %313, i64 noundef %310) #25, !noalias !1011
   br label %"_ZN4core3ptr115drop_in_place$LT$indexmap..map..IndexMap$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$C$$LP$$RP$$GT$$GT$17h76ace37e728ea605E.exit.i118.invoke"
 
 319:                                              ; preds = %308

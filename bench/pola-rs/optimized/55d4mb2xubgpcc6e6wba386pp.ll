@@ -4519,35 +4519,36 @@ define hidden void @_ZN15crossbeam_epoch5guard5Guard15defer_unchecked17hae0bc04c
   %3 = alloca [32 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !noundef !3
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %6, label %15
+  br i1 %5, label %6, label %16
 
 6:                                                ; preds = %2
   %7 = and i64 %1, -8
   %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load i64, ptr %9, align 8, !noundef !3
-  %11 = icmp eq i64 %10, 0
-  br i1 %11, label %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17hf8d904765a9f5448E.exit", label %12
+  %9 = icmp ne i64 %7, 0
+  tail call void @llvm.assume(i1 %9)
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %11 = load i64, ptr %10, align 8, !noundef !3
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17hf8d904765a9f5448E.exit", label %13
 
-12:                                               ; preds = %6
-  %13 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
-  %14 = shl nuw nsw i64 %10, 4
-  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %13, i64 noundef range(i64 1, -9223372036854775808) %14, i64 noundef 8) #25
+13:                                               ; preds = %6
+  %14 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
+  %15 = shl nuw nsw i64 %11, 4
+  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %14, i64 noundef range(i64 1, -9223372036854775808) %15, i64 noundef 8) #25
   br label %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17hf8d904765a9f5448E.exit"
 
-"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17hf8d904765a9f5448E.exit": ; preds = %6, %12
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
+"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17hf8d904765a9f5448E.exit": ; preds = %6, %13
   tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %8, i64 noundef 16, i64 noundef 8) #25
-  br label %16
+  br label %17
 
-15:                                               ; preds = %2
+16:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN15crossbeam_epoch8deferred8Deferred3new17h1e90970faec76eb5E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, i64 noundef %1)
   call void @_ZN15crossbeam_epoch8internal5Local5defer17h8550d991494751daE(ptr noundef nonnull align 128 %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %16
+  br label %17
 
-16:                                               ; preds = %15, %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17hf8d904765a9f5448E.exit"
+17:                                               ; preds = %16, %"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize28_$u7b$$u7b$closure$u7d$$u7d$17hf8d904765a9f5448E.exit"
   ret void
 }
 
@@ -34821,6 +34822,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i.i22.
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !3890
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.6.8..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.i.i.i.i.i, i64 56, i1 false), !noalias !3890
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.i7.i.i.i.i.i) ]
   store i64 %.sroa.0.0.copyload1.i.i.i, ptr %26, align 8, !noalias !3890
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !3890
   %250 = load i64, ptr %80, align 8, !noalias !3893, !noundef !3
@@ -36263,6 +36265,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i.i22.
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !4057
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.6.8..sroa_idx.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.i.i.i.i.i, i64 56, i1 false), !noalias !4057
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i.i.i.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.i7.i.i.i.i.i) ]
   store i64 %.sroa.0.0.copyload1.i.i.i, ptr %24, align 8, !noalias !4057
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !4057
   %245 = load i64, ptr %75, align 8, !noalias !4060, !noundef !3

@@ -12770,6 +12770,7 @@ define hidden noundef zeroext i1 @_ZN10rayon_core5scope9ScopeBase19execute_job_c
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.917.0.copyload) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1000
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %64) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %65) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1000
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1000
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !noalias !1000

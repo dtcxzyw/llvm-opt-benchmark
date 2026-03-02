@@ -3477,6 +3477,8 @@ if.end15.i527:                                    ; preds = %for.body.preheader.
   %Ret6.034.i524684 = phi i64 [ %add24.i538, %if.end15.i527 ], [ 0, %for.body.preheader.i518 ]
   %i.035.i523683 = phi i64 [ %inc.i539, %if.end15.i527 ], [ 0, %for.body.preheader.i518 ]
   %110 = add nsw i8 %109, -65
+  %or.cond.i528 = icmp slt i8 %109, 81
+  tail call void @llvm.assume(i1 %or.cond.i528)
   %shl.i536 = shl i64 %Ret6.034.i524684, 4
   %sub22.i537 = zext nneg i8 %110 to i64
   %add24.i538 = add nuw nsw i64 %shl.i536, %sub22.i537

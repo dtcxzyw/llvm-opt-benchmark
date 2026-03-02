@@ -1699,10 +1699,10 @@ define internal fastcc void @_ZN13ruff_notebook8notebook8Notebook19update_cell_c
 
 31:                                               ; preds = %26
   %32 = extractvalue { ptr, ptr } %29, 1
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
   %33 = load i32, ptr %27, align 4, !noundef !3
   store i32 %33, ptr %10, align 4
   store ptr %30, ptr %9, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
   store ptr %32, ptr %8, align 8
   %34 = call noundef i64 @_ZN14ruff_text_size4size8TextSize8to_usize17h34689847ce9e44e9E(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %30)
   %35 = load ptr, ptr %8, align 8, !nonnull !3, !align !134, !noundef !3

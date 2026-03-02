@@ -1511,6 +1511,7 @@ _ZN4llvm15SmallVectorImplIPNS_12MachineInstrEE12emplace_backIJS2_EEERS2_DpOT_.ex
 
 _ZN4llvm15SmallVectorImplIPNS_12MachineInstrEE12emplace_backIJS2_EEERS2_DpOT_.exit.i: ; preds = %_ZN4llvm15SmallVectorImplIPNS_12MachineInstrEE12emplace_backIJS2_EEERS2_DpOT_.exit.sink.split.i, %.lr.ph.i
   %67 = phi i32 [ %50, %.lr.ph.i ], [ %66, %_ZN4llvm15SmallVectorImplIPNS_12MachineInstrEE12emplace_backIJS2_EEERS2_DpOT_.exit.sink.split.i ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.08.025.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.08.025.i, align 8
   %68 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %68, 0

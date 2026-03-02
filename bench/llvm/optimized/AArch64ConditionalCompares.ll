@@ -1380,6 +1380,7 @@ _ZN4llvm14iterator_rangeINS_11df_iteratorIPNS_20MachineDominatorTreeENS_23df_ite
   br i1 %.not.i.i.i48, label %._crit_edge.i.i.i, label %329, !llvm.loop !324
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %322
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.031.043.i.i.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.031.043.i.i.i, align 8
   %340 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i49 = icmp eq i64 %340, 0
@@ -1875,6 +1876,7 @@ _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.i: ; preds = %523
 
 .thread34.i:                                      ; preds = %543, %.lr.ph.i54
   %.12337.i = phi i32 [ %509, %543 ], [ %.02248.i, %.lr.ph.i54 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.028.047.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i57 = load i64, ptr %.sroa.028.047.i, align 8
   %544 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i57, 4
   %.not.i.i.i.i58 = icmp eq i64 %544, 0
@@ -2140,6 +2142,7 @@ _ZN12_GLOBAL__N_126AArch64ConditionalCompares13shouldConvertEv.exit.thread.i: ; 
   br i1 %673, label %660, label %._crit_edge.i.i13.i, !llvm.loop !351
 
 ._crit_edge.i.i13.i:                              ; preds = %672, %654
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.014.019.i.i.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i14.i = load i64, ptr %.sroa.014.019.i.i.i, align 8
   %674 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i14.i, 4
   %.not.i.i.i.i.i15.i = icmp eq i64 %674, 0

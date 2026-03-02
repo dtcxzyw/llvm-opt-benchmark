@@ -1482,6 +1482,7 @@ _ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit: ; preds = %333
   br label %353
 
 353:                                              ; preds = %352, %348
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0129.0186) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i123 = load i64, ptr %.sroa.0129.0186, align 8
   %354 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i123, 4
   %.not.i.i.i124 = icmp eq i64 %354, 0

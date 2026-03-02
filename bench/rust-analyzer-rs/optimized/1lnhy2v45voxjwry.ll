@@ -35654,17 +35654,17 @@ define hidden void @_ZN11chalk_solve10logging_db12id_collector22collect_unrecord
 
 .noexc.i.i.i.i:                                   ; preds = %51
   %53 = load i64, ptr %8, align 8, !range !5000, !noalias !4998, !noundef !137
-  %54 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %55 = load i64, ptr %54, align 8, !noalias !4998, !noundef !137
-  %56 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %57 = load i64, ptr %56, align 8, !noalias !4998, !noundef !137
+  %54 = icmp ne i64 %53, 0
+  call void @llvm.assume(i1 %54)
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %56 = load i64, ptr %55, align 8, !noalias !4998, !noundef !137
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %58 = load i64, ptr %57, align 8, !noalias !4998, !noundef !137
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !4998
-  %58 = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !4998, !nonnull !137, !noundef !137
-  %59 = sub nsw i64 0, %57
-  %60 = getelementptr inbounds i8, ptr %58, i64 %59
-  %61 = icmp ne i64 %53, 0
-  call void @llvm.assume(i1 %61)
-  call void @__rust_dealloc(ptr noundef nonnull %60, i64 noundef %55, i64 noundef %53) #49, !noalias !4998
+  %59 = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !4998, !nonnull !137, !noundef !137
+  %60 = sub nsw i64 0, %58
+  %61 = getelementptr inbounds i8, ptr %59, i64 %60
+  call void @__rust_dealloc(ptr noundef nonnull %61, i64 noundef %56, i64 noundef %53) #49, !noalias !4998
   br label %"_ZN4core3ptr136drop_in_place$LT$chalk_solve..logging_db..id_collector..IdCollector$LT$hir_ty..interner..Interner$C$hir_ty..traits..ChalkContext$GT$$GT$17h68f5122461ffef74E.exit"
 
 62:                                               ; preds = %51
@@ -69750,17 +69750,17 @@ define hidden noundef zeroext i1 @_ZN11chalk_solve7display11write_items17hd81955
   %35 = add i64 %.sroa.7.0.copyload.i, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hdfdfbd0c19a5dc35E.llvm.10169251571672223956(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %23, i64 noundef 8, i64 noundef 16, i64 noundef %35), !noalias !11513
   %36 = load i64, ptr %23, align 8, !range !5000, !noalias !11513, !noundef !137
-  %37 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %38 = load i64, ptr %37, align 8, !noalias !11513, !noundef !137
-  %39 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %40 = load i64, ptr %39, align 8, !noalias !11513, !noundef !137
+  %37 = icmp ne i64 %36, 0
+  tail call void @llvm.assume(i1 %37)
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %39 = load i64, ptr %38, align 8, !noalias !11513, !noundef !137
+  %40 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %41 = load i64, ptr %40, align 8, !noalias !11513, !noundef !137
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !11513
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.6.0.copyload.i) ]
-  %41 = sub nsw i64 0, %40
-  %42 = getelementptr inbounds i8, ptr %.sroa.6.0.copyload.i, i64 %41
-  %43 = icmp ne i64 %36, 0
-  tail call void @llvm.assume(i1 %43)
-  tail call void @__rust_dealloc(ptr noundef nonnull %42, i64 noundef %38, i64 noundef %36) #49, !noalias !11513
+  %42 = sub nsw i64 0, %41
+  %43 = getelementptr inbounds i8, ptr %.sroa.6.0.copyload.i, i64 %42
+  tail call void @__rust_dealloc(ptr noundef nonnull %43, i64 noundef %39, i64 noundef %36) #49, !noalias !11513
   br label %"_ZN8indexmap3set4iter108_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$indexmap..set..IndexSet$LT$T$C$S$GT$$GT$9into_iter17h0f40a6ab76a61249E.exit"
 
 "_ZN8indexmap3set4iter108_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$indexmap..set..IndexSet$LT$T$C$S$GT$$GT$9into_iter17h0f40a6ab76a61249E.exit": ; preds = %3, %34
@@ -82914,17 +82914,17 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTa
   %7 = add i64 %4, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hdfdfbd0c19a5dc35E.llvm.10169251571672223956(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %2, i64 noundef 8, i64 noundef 16, i64 noundef %7), !noalias !14527
   %8 = load i64, ptr %2, align 8, !range !5000, !noalias !14527, !noundef !137
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = load i64, ptr %9, align 8, !noalias !14527, !noundef !137
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %12 = load i64, ptr %11, align 8, !noalias !14527, !noundef !137
+  %9 = icmp ne i64 %8, 0
+  tail call void @llvm.assume(i1 %9)
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %11 = load i64, ptr %10, align 8, !noalias !14527, !noundef !137
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %13 = load i64, ptr %12, align 8, !noalias !14527, !noundef !137
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !14527
-  %13 = load ptr, ptr %0, align 8, !alias.scope !14527, !nonnull !137, !noundef !137
-  %14 = sub nsw i64 0, %12
-  %15 = getelementptr inbounds i8, ptr %13, i64 %14
-  %16 = icmp ne i64 %8, 0
-  tail call void @llvm.assume(i1 %16)
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %10, i64 noundef %8) #49, !noalias !14527
+  %14 = load ptr, ptr %0, align 8, !alias.scope !14527, !nonnull !137, !noundef !137
+  %15 = sub nsw i64 0, %13
+  %16 = getelementptr inbounds i8, ptr %14, i64 %15
+  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %11, i64 noundef %8) #49, !noalias !14527
   br label %"_ZN86_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd003a532f04ee67dE.llvm.3864848197730831337.exit"
 
 "_ZN86_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd003a532f04ee67dE.llvm.3864848197730831337.exit": ; preds = %1, %6
@@ -86265,38 +86265,40 @@ _ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821cE.llvm.3864848197730831337.
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821cE.llvm.3864848197730831337(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #21 {
   %5 = icmp eq i64 %2, 0
-  br i1 %5, label %6, label %10
+  br i1 %5, label %6, label %11
 
 6:                                                ; preds = %4
   %7 = add i64 %1, -1
   %8 = icmp sgt i64 %7, -1
   tail call void @llvm.assume(i1 %8)
   %9 = inttoptr i64 %1 to ptr
-  br label %11
+  %10 = icmp ne i64 %1, 0
+  tail call void @llvm.assume(i1 %10)
+  br label %12
 
-10:                                               ; preds = %4
-  br i1 %3, label %19, label %14
+11:                                               ; preds = %4
+  br i1 %3, label %20, label %15
 
-11:                                               ; preds = %14, %19, %6
-  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %22, %19 ], [ %18, %14 ]
-  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
-  %13 = insertvalue { ptr, i64 } %12, i64 %2, 1
-  ret { ptr, i64 } %13
+12:                                               ; preds = %15, %20, %6
+  %.sroa.05.0 = phi ptr [ %9, %6 ], [ %23, %20 ], [ %19, %15 ]
+  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.05.0, 0
+  %14 = insertvalue { ptr, i64 } %13, i64 %2, 1
+  ret { ptr, i64 } %14
 
-14:                                               ; preds = %10
-  %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %16 = add i64 %1, -1
-  %17 = icmp sgt i64 %16, -1
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #49
-  br label %11
+15:                                               ; preds = %11
+  %16 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %17 = add i64 %1, -1
+  %18 = icmp sgt i64 %17, -1
+  tail call void @llvm.assume(i1 %18)
+  %19 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #49
+  br label %12
 
-19:                                               ; preds = %10
-  %20 = add i64 %1, -1
-  %21 = icmp sgt i64 %20, -1
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #49
-  br label %11
+20:                                               ; preds = %11
+  %21 = add i64 %1, -1
+  %22 = icmp sgt i64 %21, -1
+  tail call void @llvm.assume(i1 %22)
+  %23 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #49
+  br label %12
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
@@ -91742,17 +91744,17 @@ define hidden void @"_ZN86_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$
   %7 = add i64 %4, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hdfdfbd0c19a5dc35E.llvm.10169251571672223956(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %2, i64 noundef 8, i64 noundef 16, i64 noundef %7), !noalias !17694
   %8 = load i64, ptr %2, align 8, !range !5000, !noalias !17694, !noundef !137
-  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = load i64, ptr %9, align 8, !noalias !17694, !noundef !137
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %12 = load i64, ptr %11, align 8, !noalias !17694, !noundef !137
+  %9 = icmp ne i64 %8, 0
+  tail call void @llvm.assume(i1 %9)
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %11 = load i64, ptr %10, align 8, !noalias !17694, !noundef !137
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %13 = load i64, ptr %12, align 8, !noalias !17694, !noundef !137
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !17694
-  %13 = load ptr, ptr %0, align 8, !alias.scope !17694, !nonnull !137, !noundef !137
-  %14 = sub nsw i64 0, %12
-  %15 = getelementptr inbounds i8, ptr %13, i64 %14
-  %16 = icmp ne i64 %8, 0
-  tail call void @llvm.assume(i1 %16)
-  tail call void @__rust_dealloc(ptr noundef nonnull %15, i64 noundef %10, i64 noundef %8) #49, !noalias !17694
+  %14 = load ptr, ptr %0, align 8, !alias.scope !17694, !nonnull !137, !noundef !137
+  %15 = sub nsw i64 0, %13
+  %16 = getelementptr inbounds i8, ptr %14, i64 %15
+  tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef %11, i64 noundef %8) #49, !noalias !17694
   br label %_ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17hc94576f370d26bd3E.exit
 
 _ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17hc94576f370d26bd3E.exit: ; preds = %1, %6

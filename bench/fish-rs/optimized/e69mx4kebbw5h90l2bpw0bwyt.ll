@@ -19807,6 +19807,7 @@ define void @_ZN4fish3env11environment8EnvStack14universal_sync17h0f05a83a39bb8e
   %35 = landingpad { ptr, i32 }
           cleanup
   %36 = zext i1 %31 to i8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %30) ]
   invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..env_universal_common..EnvUniversal$GT$$GT$17haa9c308480b3f527E"(ptr nonnull %30, i8 %36) #36
           to label %109 unwind label %106
 
@@ -24248,6 +24249,7 @@ define hidden void @_ZN4fish3env16environment_impl13EnvScopedImpl21enumerate_gen
 20:                                               ; preds = %22
   %21 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %10) ]
   invoke fastcc void @"_ZN4core3ptr105drop_in_place$LT$std..sync..poison..mutex..MutexGuard$LT$fish..env_universal_common..EnvUniversal$GT$$GT$17haa9c308480b3f527E"(ptr nonnull %10, i8 %12) #36
           to label %19 unwind label %125
 

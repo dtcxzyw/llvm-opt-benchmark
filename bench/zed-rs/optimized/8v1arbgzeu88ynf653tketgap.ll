@@ -5877,19 +5877,19 @@ define hidden noundef align 8 dereferenceable_or_null(112) ptr @"_ZN102_$LT$core
   %5 = load ptr, ptr %4, align 8, !alias.scope !1870, !noalias !1877, !nonnull !14, !noundef !14
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.promoted.i = load ptr, ptr %0, align 8, !alias.scope !1870, !noalias !1877
-  %.promoted15.i = load i64, ptr %6, align 8, !alias.scope !1879, !noalias !1877
+  %.promoted14.i = load i64, ptr %6, align 8, !alias.scope !1879, !noalias !1877
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %1, align 8, !alias.scope !1868, !noalias !1865, !nonnull !14, !align !495
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8, !alias.scope !1868, !noalias !1865
-  %.promoted17.i = load i64, ptr %7, align 8, !alias.scope !1865, !noalias !1868
+  %.promoted16.i = load i64, ptr %7, align 8, !alias.scope !1865, !noalias !1868
   br label %12
 
-12:                                               ; preds = %.backedge, %2
-  %13 = phi i64 [ %.promoted17.i, %2 ], [ %27, %.backedge ]
-  %14 = phi i64 [ %.promoted15.i, %2 ], [ %22, %.backedge ]
-  %15 = phi ptr [ %.promoted.i, %2 ], [ %21, %.backedge ]
+12:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit.thread.i", %2
+  %13 = phi i64 [ %27, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit.thread.i" ], [ %.promoted16.i, %2 ]
+  %14 = phi i64 [ %22, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit.thread.i" ], [ %.promoted14.i, %2 ]
+  %15 = phi ptr [ %21, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit.thread.i" ], [ %.promoted.i, %2 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1880)
   br label %16
 
@@ -5913,6 +5913,7 @@ define hidden noundef align 8 dereferenceable_or_null(112) ptr @"_ZN102_$LT$core
 26:                                               ; preds = %20
   %27 = add i64 %13, -1
   store i64 %27, ptr %7, align 8, !alias.scope !1879, !noalias !1877
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %18) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1883)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1886
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -5948,18 +5949,14 @@ define hidden noundef align 8 dereferenceable_or_null(112) ptr @"_ZN102_$LT$core
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit.thread.i": ; preds = %"_ZN4gpui8platform5linux11text_system21CosmicTextSystemState11load_family28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9b697cb7abc00d36E.llvm.4362809659209244062.exit.backedge.i.i.i.i.i.i", %26
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1886
-  br label %.backedge
+  br label %12
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit.i": ; preds = %37
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1886
-  %42 = icmp eq ptr %18, null
-  br i1 %42, label %.backedge, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf472076dedf39c83E.llvm.16501872790380092992.exit
+  br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hf472076dedf39c83E.llvm.16501872790380092992.exit
 
-.backedge:                                        ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit.i", %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit.thread.i"
-  br label %12
-
-_ZN4core4iter6traits8iterator8Iterator8try_fold17hf472076dedf39c83E.llvm.16501872790380092992.exit: ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit.i", %16
-  %.sroa.0.0.i = phi ptr [ null, %16 ], [ %18, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit.i" ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17hf472076dedf39c83E.llvm.16501872790380092992.exit: ; preds = %16, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit.i"
+  %.sroa.0.0.i = phi ptr [ %18, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit.i" ], [ null, %16 ]
   ret ptr %.sroa.0.0.i
 }
 
@@ -28098,6 +28095,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 25:                                               ; preds = %19
   %26 = add i64 %12, -1
   store i64 %26, ptr %10, align 8, !alias.scope !9166, !noalias !9160
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %17) ]
   %27 = getelementptr i8, ptr %17, i64 8
   %.val2.i.i.i.i.i = load ptr, ptr %27, align 8, !noalias !9172
   %28 = getelementptr i8, ptr %17, i64 16
@@ -57347,19 +57345,19 @@ define hidden noundef align 8 dereferenceable_or_null(112) ptr @_ZN4core4iter6tr
   %6 = load ptr, ptr %5, align 8, !alias.scope !17563, !noalias !17570, !nonnull !14, !noundef !14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.promoted = load ptr, ptr %0, align 8, !alias.scope !17563, !noalias !17570
-  %.promoted15 = load i64, ptr %7, align 8, !alias.scope !17572, !noalias !17570
+  %.promoted14 = load i64, ptr %7, align 8, !alias.scope !17572, !noalias !17570
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %1, align 8, !nonnull !14, !align !495
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
-  %.promoted17 = load i64, ptr %8, align 8
+  %.promoted16 = load i64, ptr %8, align 8
   br label %13
 
-13:                                               ; preds = %.backedge, %3
-  %14 = phi i64 [ %.promoted17, %3 ], [ %28, %.backedge ]
-  %15 = phi i64 [ %.promoted15, %3 ], [ %23, %.backedge ]
-  %16 = phi ptr [ %.promoted, %3 ], [ %22, %.backedge ]
+13:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit.thread", %3
+  %14 = phi i64 [ %28, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit.thread" ], [ %.promoted16, %3 ]
+  %15 = phi i64 [ %23, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit.thread" ], [ %.promoted14, %3 ]
+  %16 = phi ptr [ %22, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit.thread" ], [ %.promoted, %3 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !17572)
   br label %17
 
@@ -57383,6 +57381,7 @@ define hidden noundef align 8 dereferenceable_or_null(112) ptr @_ZN4core4iter6tr
 27:                                               ; preds = %21
   %28 = add i64 %14, -1
   store i64 %28, ptr %8, align 8, !alias.scope !17572, !noalias !17570
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %19) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !17575)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !17578
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -57418,18 +57417,14 @@ define hidden noundef align 8 dereferenceable_or_null(112) ptr @_ZN4core4iter6tr
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit.thread": ; preds = %"_ZN4gpui8platform5linux11text_system21CosmicTextSystemState11load_family28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9b697cb7abc00d36E.llvm.4362809659209244062.exit.backedge.i.i.i.i.i", %27
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !17578
-  br label %.backedge
-
-.backedge:                                        ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit.thread", %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit"
   br label %13
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit": ; preds = %38
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !17578
-  %43 = icmp eq ptr %19, null
-  br i1 %43, label %.backedge, label %.loopexit
+  br label %.loopexit
 
-.loopexit:                                        ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit", %17
-  %.sroa.0.0 = phi ptr [ null, %17 ], [ %19, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit" ]
+.loopexit:                                        ; preds = %17, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit"
+  %.sroa.0.0 = phi ptr [ %19, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5e7e56fa41c9378fE.exit" ], [ null, %17 ]
   ret ptr %.sroa.0.0
 }
 

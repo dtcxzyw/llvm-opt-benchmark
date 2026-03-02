@@ -16527,6 +16527,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node173Handle$LT$allo
 40:                                               ; preds = %"_ZN4core3ptr56drop_in_place$LT$dbus..message..matchrule..MatchRule$GT$17hc991cef98fcf9e71E.exit.i"
   %41 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i) ]
   tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9a4850f009b54028E"(ptr nonnull %.val.i, ptr nonnull readonly %.val1.i) #21, !noalias !6282
   resume { ptr, i32 } %41
 

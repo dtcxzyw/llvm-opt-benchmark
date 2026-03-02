@@ -40451,46 +40451,47 @@ define hidden void @"_ZN4core3ptr204drop_in_place$LT$crossbeam_utils..cache_padd
 ._crit_edge.i.i:                                  ; preds = %"_ZN4core3ptr117drop_in_place$LT$polars_stream..async_executor..task..Runnable$LT$polars_stream..async_executor..TaskMetadata$GT$$GT$17h74653043deab7479E.exit.i.i", %1
   %8 = and i64 %7, -8
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i64, ptr %10, align 8, !noalias !7750, !noundef !3
-  %12 = icmp eq i64 %11, 0
-  br i1 %12, label %"_ZN4core3ptr154drop_in_place$LT$crossbeam_deque..deque..Inner$LT$polars_stream..async_executor..task..Runnable$LT$polars_stream..async_executor..TaskMetadata$GT$$GT$$GT$17hbf5f60133d97a9dfE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit.i.i.i.i"
+  %10 = icmp ne i64 %8, 0
+  call void @llvm.assume(i1 %10)
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %12 = load i64, ptr %11, align 8, !noalias !7750, !noundef !3
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %"_ZN4core3ptr154drop_in_place$LT$crossbeam_deque..deque..Inner$LT$polars_stream..async_executor..task..Runnable$LT$polars_stream..async_executor..TaskMetadata$GT$$GT$$GT$17hbf5f60133d97a9dfE.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit.i.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit.i.i.i.i": ; preds = %._crit_edge.i.i
-  %13 = load ptr, ptr %9, align 8, !noalias !7750, !nonnull !3, !noundef !3
-  %14 = shl nuw nsw i64 %11, 4
-  call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %13, i64 noundef %14, i64 noundef 8) #26, !noalias !7750
+  %14 = load ptr, ptr %9, align 8, !noalias !7750, !nonnull !3, !noundef !3
+  %15 = shl nuw nsw i64 %12, 4
+  call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %14, i64 noundef %15, i64 noundef 8) #26, !noalias !7750
   br label %"_ZN4core3ptr154drop_in_place$LT$crossbeam_deque..deque..Inner$LT$polars_stream..async_executor..task..Runnable$LT$polars_stream..async_executor..TaskMetadata$GT$$GT$$GT$17hbf5f60133d97a9dfE.exit"
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr117drop_in_place$LT$polars_stream..async_executor..task..Runnable$LT$polars_stream..async_executor..TaskMetadata$GT$$GT$17h74653043deab7479E.exit.i.i"
-  %.sroa.0.011.i.i = phi i64 [ %26, %"_ZN4core3ptr117drop_in_place$LT$polars_stream..async_executor..task..Runnable$LT$polars_stream..async_executor..TaskMetadata$GT$$GT$17h74653043deab7479E.exit.i.i" ], [ %6, %1 ]
-  %15 = call noundef align 8 dereferenceable(16) ptr @"_ZN15crossbeam_epoch6atomic15Shared$LT$T$GT$5deref17h5b43c16d5993e8aaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2), !noalias !7750
-  %16 = load ptr, ptr %15, align 8, !noalias !7750, !noundef !3
-  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %18 = load i64, ptr %17, align 8, !noalias !7750, !noundef !3
-  %19 = add i64 %18, -1
-  %20 = and i64 %19, %.sroa.0.011.i.i
-  %21 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} } }, ptr %16, i64 %20
+  %.sroa.0.011.i.i = phi i64 [ %27, %"_ZN4core3ptr117drop_in_place$LT$polars_stream..async_executor..task..Runnable$LT$polars_stream..async_executor..TaskMetadata$GT$$GT$17h74653043deab7479E.exit.i.i" ], [ %6, %1 ]
+  %16 = call noundef align 8 dereferenceable(16) ptr @"_ZN15crossbeam_epoch6atomic15Shared$LT$T$GT$5deref17h5b43c16d5993e8aaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2), !noalias !7750
+  %17 = load ptr, ptr %16, align 8, !noalias !7750, !noundef !3
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %19 = load i64, ptr %18, align 8, !noalias !7750, !noundef !3
+  %20 = add i64 %19, -1
+  %21 = and i64 %20, %.sroa.0.011.i.i
+  %22 = getelementptr inbounds { { { { ptr, ptr } }, {}, {} } }, ptr %17, i64 %21
   call void @llvm.experimental.noalias.scope.decl(metadata !7751)
   call void @llvm.experimental.noalias.scope.decl(metadata !7754)
   call void @llvm.experimental.noalias.scope.decl(metadata !7757)
-  %22 = load ptr, ptr %21, align 8, !alias.scope !7760, !noalias !7750, !nonnull !3, !noundef !3
-  %23 = atomicrmw sub ptr %22, i64 1 release, align 8, !noalias !7761
-  %24 = icmp eq i64 %23, 1
-  br i1 %24, label %25, label %"_ZN4core3ptr117drop_in_place$LT$polars_stream..async_executor..task..Runnable$LT$polars_stream..async_executor..TaskMetadata$GT$$GT$17h74653043deab7479E.exit.i.i"
+  %23 = load ptr, ptr %22, align 8, !alias.scope !7760, !noalias !7750, !nonnull !3, !noundef !3
+  %24 = atomicrmw sub ptr %23, i64 1 release, align 8, !noalias !7761
+  %25 = icmp eq i64 %24, 1
+  br i1 %25, label %26, label %"_ZN4core3ptr117drop_in_place$LT$polars_stream..async_executor..task..Runnable$LT$polars_stream..async_executor..TaskMetadata$GT$$GT$17h74653043deab7479E.exit.i.i"
 
-25:                                               ; preds = %.lr.ph.i.i
+26:                                               ; preds = %.lr.ph.i.i
   fence acquire
-  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h10a1befce86f5a4fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %21), !noalias !7750
+  call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h10a1befce86f5a4fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %22), !noalias !7750
   br label %"_ZN4core3ptr117drop_in_place$LT$polars_stream..async_executor..task..Runnable$LT$polars_stream..async_executor..TaskMetadata$GT$$GT$17h74653043deab7479E.exit.i.i"
 
-"_ZN4core3ptr117drop_in_place$LT$polars_stream..async_executor..task..Runnable$LT$polars_stream..async_executor..TaskMetadata$GT$$GT$17h74653043deab7479E.exit.i.i": ; preds = %25, %.lr.ph.i.i
-  %26 = add i64 %.sroa.0.011.i.i, 1
-  %.not.i.i = icmp eq i64 %26, %4
+"_ZN4core3ptr117drop_in_place$LT$polars_stream..async_executor..task..Runnable$LT$polars_stream..async_executor..TaskMetadata$GT$$GT$17h74653043deab7479E.exit.i.i": ; preds = %26, %.lr.ph.i.i
+  %27 = add i64 %.sroa.0.011.i.i, 1
+  %.not.i.i = icmp eq i64 %27, %4
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 "_ZN4core3ptr154drop_in_place$LT$crossbeam_deque..deque..Inner$LT$polars_stream..async_executor..task..Runnable$LT$polars_stream..async_executor..TaskMetadata$GT$$GT$$GT$17hbf5f60133d97a9dfE.exit": ; preds = %._crit_edge.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2c4b2651a9251490E.exit.i.i.i.i"
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
   call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %9, i64 noundef 16, i64 noundef 8) #26, !noalias !7750
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !7750
   ret void

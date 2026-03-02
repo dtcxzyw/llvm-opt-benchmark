@@ -21166,6 +21166,7 @@ _ZN12_GLOBAL__N_121MachineBlockPlacement19shouldTailDuplicateEPN4llvm17MachineBa
 
 65:                                               ; preds = %57, %.lr.ph.i.i.i, %.lr.ph.i.i.i
   %.1.i.i.i = phi i64 [ %.011.i.i.i, %.lr.ph.i.i.i ], [ %spec.select.i.i.i, %57 ], [ %.011.i.i.i, %.lr.ph.i.i.i ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.06.012.i.i.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.06.012.i.i.i, align 8
   %66 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i = icmp eq i64 %66, 0
@@ -21607,6 +21608,7 @@ _ZN12_GLOBAL__N_121MachineBlockPlacement24getBlockCountOrFrequencyEPKN4llvm17Mac
 
 227:                                              ; preds = %219, %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i
   %.1.i.i.i.i = phi i64 [ %.011.i.i.i.i, %.lr.ph.i.i.i.i ], [ %spec.select.i.i48.i.i, %219 ], [ %.011.i.i.i.i, %.lr.ph.i.i.i.i ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.06.012.i.i.i.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.06.012.i.i.i.i, align 8
   %228 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i = icmp eq i64 %228, 0

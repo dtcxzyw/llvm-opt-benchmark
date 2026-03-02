@@ -443,6 +443,7 @@ _ZNK4llvm4Pass11getAnalysisINS_23VirtRegMapWrapperLegacyEEERT_v.exit: ; preds = 
   br i1 %.not149, label %.loopexit, label %86
 
 86:                                               ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0356.0423) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0356.0423, align 8
   %87 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i161 = icmp eq i64 %87, 0
@@ -511,6 +512,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
 
 115:                                              ; preds = %.lr.ph431, %109
   %116 = add i32 %.0130429, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0353.0430) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i163 = load i64, ptr %.sroa.0353.0430, align 8
   %117 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i163, 4
   %.not.i.i.i164 = icmp eq i64 %117, 0

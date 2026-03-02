@@ -150,96 +150,98 @@ define internal fastcc void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load i64, ptr %13, align 8, !noundef !5
-  %15 = getelementptr i8, ptr %12, i64 %14
-  %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = add i64 %14, -1
-  %18 = icmp ugt i64 %14, 4
-  br i1 %18, label %.lr.ph.split.us, label %.lr.ph.split
+  %15 = icmp slt i64 %14, 5
+  tail call void @llvm.assume(i1 %15)
+  %16 = getelementptr i8, ptr %12, i64 %14
+  %17 = getelementptr i8, ptr %16, i64 -1
+  %18 = add i64 %14, -1
+  %19 = icmp ugt i64 %14, 4
+  br i1 %19, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %33
-  %19 = phi i64 [ %27, %33 ], [ %.promoted, %.lr.ph ]
-  %20 = sub nuw i64 %19, %7
-  %21 = load i8, ptr %16, align 1, !noundef !5
-  %22 = tail call { i64, i64 } @_ZN4core5slice6memchr7memrchr17h462a3d5412d47c9fE(i8 noundef %21, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %20)
-  %23 = extractvalue { i64, i64 } %22, 0
-  %24 = icmp eq i64 %23, 1
-  br i1 %24, label %25, label %.split.us
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %34
+  %20 = phi i64 [ %28, %34 ], [ %.promoted, %.lr.ph ]
+  %21 = sub nuw i64 %20, %7
+  %22 = load i8, ptr %17, align 1, !noundef !5
+  %23 = tail call { i64, i64 } @_ZN4core5slice6memchr7memrchr17h462a3d5412d47c9fE(i8 noundef %22, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %21)
+  %24 = extractvalue { i64, i64 } %23, 0
+  %25 = icmp eq i64 %24, 1
+  br i1 %25, label %26, label %.split.us
 
-25:                                               ; preds = %.lr.ph.split.us
-  %26 = extractvalue { i64, i64 } %22, 1
-  %27 = add i64 %7, %26
-  %.not.us = icmp ult i64 %27, %17
-  br i1 %.not.us, label %33, label %28
+26:                                               ; preds = %.lr.ph.split.us
+  %27 = extractvalue { i64, i64 } %23, 1
+  %28 = add i64 %7, %27
+  %.not.us = icmp ult i64 %28, %18
+  br i1 %.not.us, label %34, label %29
 
-28:                                               ; preds = %25
-  %29 = sub nuw i64 %27, %17
-  %30 = add i64 %29, %14
-  %31 = icmp ugt i64 %29, %30
-  %32 = icmp ugt i64 %30, %5
-  %or.cond.i23.us = or i1 %31, %32
-  br i1 %or.cond.i23.us, label %33, label %.split42.us
+29:                                               ; preds = %26
+  %30 = sub nuw i64 %28, %18
+  %31 = add i64 %30, %14
+  %32 = icmp ugt i64 %30, %31
+  %33 = icmp ugt i64 %31, %5
+  %or.cond.i23.us = or i1 %32, %33
+  br i1 %or.cond.i23.us, label %34, label %.split42.us
 
-33:                                               ; preds = %28, %25
-  store i64 %27, ptr %8, align 8
-  %34 = icmp ugt i64 %7, %27
-  %35 = icmp ugt i64 %27, %5
-  %or.cond.i.us = or i1 %34, %35
+34:                                               ; preds = %29, %26
+  store i64 %28, ptr %8, align 8
+  %35 = icmp ugt i64 %7, %28
+  %36 = icmp ugt i64 %28, %5
+  %or.cond.i.us = or i1 %35, %36
   br i1 %or.cond.i.us, label %.loopexit, label %.lr.ph.split.us
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %45
-  %36 = phi i64 [ %44, %45 ], [ %.promoted, %.lr.ph ]
-  %37 = sub nuw i64 %36, %7
-  %38 = load i8, ptr %16, align 1, !noundef !5
-  %39 = tail call { i64, i64 } @_ZN4core5slice6memchr7memrchr17h462a3d5412d47c9fE(i8 noundef %38, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %37)
-  %40 = extractvalue { i64, i64 } %39, 0
-  %41 = icmp eq i64 %40, 1
-  br i1 %41, label %42, label %.split.us
+.lr.ph.split:                                     ; preds = %.lr.ph, %46
+  %37 = phi i64 [ %45, %46 ], [ %.promoted, %.lr.ph ]
+  %38 = sub nuw i64 %37, %7
+  %39 = load i8, ptr %17, align 1, !noundef !5
+  %40 = tail call { i64, i64 } @_ZN4core5slice6memchr7memrchr17h462a3d5412d47c9fE(i8 noundef %39, ptr noalias noundef nonnull readonly align 1 %11, i64 noundef %38)
+  %41 = extractvalue { i64, i64 } %40, 0
+  %42 = icmp eq i64 %41, 1
+  br i1 %42, label %43, label %.split.us
 
-42:                                               ; preds = %.lr.ph.split
-  %43 = extractvalue { i64, i64 } %39, 1
-  %44 = add i64 %7, %43
-  %.not = icmp ult i64 %44, %17
-  br i1 %.not, label %45, label %48
+43:                                               ; preds = %.lr.ph.split
+  %44 = extractvalue { i64, i64 } %40, 1
+  %45 = add i64 %7, %44
+  %.not = icmp ult i64 %45, %18
+  br i1 %.not, label %46, label %49
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   store i64 %7, ptr %8, align 8
   br label %.loopexit
 
-45:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3862637588da371fE.exit", %48, %42
-  store i64 %44, ptr %8, align 8
-  %46 = icmp ugt i64 %7, %44
-  %47 = icmp ugt i64 %44, %5
-  %or.cond.i = or i1 %46, %47
+46:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3862637588da371fE.exit", %49, %43
+  store i64 %45, ptr %8, align 8
+  %47 = icmp ugt i64 %7, %45
+  %48 = icmp ugt i64 %45, %5
+  %or.cond.i = or i1 %47, %48
   br i1 %or.cond.i, label %.loopexit, label %.lr.ph.split
 
-48:                                               ; preds = %42
-  %49 = sub nuw i64 %44, %17
-  %50 = add i64 %49, %14
-  %51 = icmp ugt i64 %49, %50
-  %52 = icmp ugt i64 %50, %5
-  %or.cond.i23 = or i1 %51, %52
-  br i1 %or.cond.i23, label %45, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3862637588da371fE.exit"
+49:                                               ; preds = %43
+  %50 = sub nuw i64 %45, %18
+  %51 = add i64 %50, %14
+  %52 = icmp ugt i64 %50, %51
+  %53 = icmp ugt i64 %51, %5
+  %or.cond.i23 = or i1 %52, %53
+  br i1 %or.cond.i23, label %46, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3862637588da371fE.exit"
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3862637588da371fE.exit": ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %3, i64 %49
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %53, ptr nonnull readonly align 1 %12, i64 %14), !alias.scope !8
-  %54 = icmp eq i32 %bcmp.i, 0
-  br i1 %54, label %55, label %45
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3862637588da371fE.exit": ; preds = %49
+  %54 = getelementptr inbounds i8, ptr %3, i64 %50
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %54, ptr nonnull readonly align 1 %12, i64 %14), !alias.scope !8
+  %55 = icmp eq i32 %bcmp.i, 0
+  br i1 %55, label %56, label %46
 
-.split42.us:                                      ; preds = %28
+.split42.us:                                      ; preds = %29
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h334e37603831ab29E(i64 noundef %14, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7c783717815ff7b79929cf0f911e8765.15) #11, !noalias !12
   unreachable
 
-55:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3862637588da371fE.exit"
-  store i64 %49, ptr %8, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %49, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+56:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h3862637588da371fE.exit"
+  store i64 %50, ptr %8, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %50, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %51, ptr %58, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %45, %33, %2, %.split.us, %55
-  %storemerge22 = phi i64 [ 1, %55 ], [ 0, %.split.us ], [ 0, %2 ], [ 0, %33 ], [ 0, %45 ]
+.loopexit:                                        ; preds = %46, %34, %2, %.split.us, %56
+  %storemerge22 = phi i64 [ 1, %56 ], [ 0, %.split.us ], [ 0, %2 ], [ 0, %34 ], [ 0, %46 ]
   store i64 %storemerge22, ptr %0, align 8
   ret void
 }

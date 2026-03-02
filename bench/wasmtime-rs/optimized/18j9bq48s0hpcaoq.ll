@@ -3510,17 +3510,17 @@ define internal fastcc void @"_ZN83_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A
 
 .noexc:                                           ; preds = %11
   %13 = load i64, ptr %3, align 8, !range !503, !noalias !502, !noundef !4
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %15 = load i64, ptr %14, align 8, !noalias !502, !noundef !4
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %17 = load i64, ptr %16, align 8, !noalias !502, !noundef !4
+  %14 = icmp ne i64 %13, 0
+  tail call void @llvm.assume(i1 %14)
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %16 = load i64, ptr %15, align 8, !noalias !502, !noundef !4
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %18 = load i64, ptr %17, align 8, !noalias !502, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !502
-  %18 = load ptr, ptr %0, align 8, !alias.scope !502, !nonnull !4, !noundef !4
-  %19 = sub nsw i64 0, %17
-  %20 = getelementptr inbounds i8, ptr %18, i64 %19
-  %21 = icmp ne i64 %13, 0
-  tail call void @llvm.assume(i1 %21)
-  tail call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %15, i64 noundef %13) #43, !noalias !502
+  %19 = load ptr, ptr %0, align 8, !alias.scope !502, !nonnull !4, !noundef !4
+  %20 = sub nsw i64 0, %18
+  %21 = getelementptr inbounds i8, ptr %19, i64 %20
+  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %16, i64 noundef %13) #43, !noalias !502
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17h4724fc2233721d54E.exit"
 
 22:                                               ; preds = %11

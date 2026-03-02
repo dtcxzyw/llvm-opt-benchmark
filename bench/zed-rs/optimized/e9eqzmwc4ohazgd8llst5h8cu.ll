@@ -4013,6 +4013,7 @@ _ZN18alacritty_terminal10event_loop5State9goto_next17h170c8eebc7730480E.exit.i.i
   ]
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.7238318159812895458.exit.i.i1.i.i.i.i.i": ; preds = %540
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.9.0.copyload127.i.i) ]
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.9.0.copyload127.i.i, i64 noundef %.sroa.0.0.copyload125.i.i, i64 noundef 1) #28, !noalias !503
   br label %508
 

@@ -11005,6 +11005,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit: ; preds = %5
   ret void
 
 14:                                               ; preds = %_ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2530)
   %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
   %16 = load i64, ptr %15, align 8, !alias.scope !2530, !noundef !4

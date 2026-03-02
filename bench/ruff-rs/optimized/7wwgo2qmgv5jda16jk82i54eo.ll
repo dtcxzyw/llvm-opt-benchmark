@@ -1130,7 +1130,7 @@ define hidden noundef zeroext i1 @"_ZN113_$LT$tracing_subscriber..layer..layered
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %14, label %.critedge.i.i
 
-.critedge.i.i:                                    ; preds = %101, %17, %14, %2
+.critedge.i.i:                                    ; preds = %._crit_edge.i.i, %17, %14, %2
   %11 = load i64, ptr %0, align 8, !range !91, !noalias !90, !noundef !4
   %.not25.i.i = icmp eq i64 %11, 5
   %12 = load i64, ptr %1, align 8, !range !92, !alias.scope !90
@@ -1327,46 +1327,54 @@ _ZN3std3sys4sync6rwlock5futex6RwLock4read17h71ab566576a387feE.exit.i.i: ; preds 
   %93 = load ptr, ptr %92, align 8, !noalias !90, !nonnull !4, !noundef !4
   %94 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %95 = load i64, ptr %94, align 8, !noalias !90, !noundef !4
-  %96 = getelementptr inbounds nuw i64, ptr %93, i64 %95
-  br label %.critedge32.i.i
+  %.idx.i.i = shl nuw nsw i64 %95, 3
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx.i.i
+  %97 = icmp eq i64 %95, 0
+  br i1 %97, label %._crit_edge.i.i, label %.lr.ph.preheader.i.i
 
-.critedge32.i.i:                                  ; preds = %98, %88
-  %.sroa.019.0.i.i = phi ptr [ %93, %88 ], [ %.sroa.019.1.i.i, %98 ]
-  %97 = icmp eq ptr %.sroa.019.0.i.i, %96
-  br i1 %97, label %101, label %98
+.lr.ph.preheader.i.i:                             ; preds = %88
+  %.sroa.019.112.i.i = getelementptr inbounds nuw i8, ptr %93, i64 8
+  br label %.lr.ph.i.i
 
-98:                                               ; preds = %.critedge32.i.i
-  %.sroa.019.1.i.i = getelementptr inbounds nuw i8, ptr %.sroa.019.0.i.i, i64 8
-  %99 = load i64, ptr %.sroa.019.0.i.i, align 8, !range !91, !noalias !90, !noundef !4
-  %.not27.i.i = icmp eq i64 %99, 5
-  %100 = icmp samesign ult i64 %18, %99
-  %or.cond12.i.i = select i1 %.not27.i.i, i1 true, i1 %100
-  br i1 %or.cond12.i.i, label %.critedge32.i.i, label %102
+.lr.ph.i.i:                                       ; preds = %.critedge32.i.i, %.lr.ph.preheader.i.i
+  %.sroa.019.114.i.i = phi ptr [ %.sroa.019.1.i.i, %.critedge32.i.i ], [ %.sroa.019.112.i.i, %.lr.ph.preheader.i.i ]
+  %.sroa.019.013.i.i = phi ptr [ %.sroa.019.114.i.i, %.critedge32.i.i ], [ %93, %.lr.ph.preheader.i.i ]
+  %98 = load i64, ptr %.sroa.019.013.i.i, align 8, !range !91, !noalias !90, !noundef !4
+  %.not27.i.i = icmp eq i64 %98, 5
+  %99 = icmp samesign ult i64 %18, %98
+  %or.cond23.i.i = select i1 %.not27.i.i, i1 true, i1 %99
+  br i1 %or.cond23.i.i, label %.critedge32.i.i, label %101
 
-101:                                              ; preds = %.critedge32.i.i
+._crit_edge.i.i:                                  ; preds = %.critedge32.i.i, %88
   call void @"_ZN4core3ptr102drop_in_place$LT$core..cell..Ref$LT$alloc..vec..Vec$LT$tracing_core..metadata..LevelFilter$GT$$GT$$GT$17h309a1a406261b22dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !90
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !90
   br label %.critedge.i.i
 
-102:                                              ; preds = %98
+.critedge32.i.i:                                  ; preds = %.lr.ph.i.i
+  %100 = icmp eq ptr %.sroa.019.114.i.i, %96
+  %.sroa.019.1.idx.i.i = select i1 %100, i64 0, i64 8
+  %.sroa.019.1.i.i = getelementptr inbounds nuw i8, ptr %.sroa.019.114.i.i, i64 %.sroa.019.1.idx.i.i
+  br i1 %100, label %._crit_edge.i.i, label %.lr.ph.i.i
+
+101:                                              ; preds = %.lr.ph.i.i
   call void @"_ZN4core3ptr102drop_in_place$LT$core..cell..Ref$LT$alloc..vec..Vec$LT$tracing_core..metadata..LevelFilter$GT$$GT$$GT$17h309a1a406261b22dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !90
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !90
   br label %"_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$7enabled17h3274ffe787624e1aE.exit.thread"
 
 "_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$7enabled17h3274ffe787624e1aE.exit": ; preds = %.critedge.i.i
-  %103 = call noundef zeroext i1 @"_ZN18tracing_subscriber6filter9directive74DirectiveSet$LT$tracing_subscriber..filter..directive..StaticDirective$GT$7enabled17hd44d965863307517E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(464) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1)
-  br i1 %103, label %"_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$7enabled17h3274ffe787624e1aE.exit.thread", label %"_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$7enabled17h3274ffe787624e1aE.exit.thread3"
+  %102 = call noundef zeroext i1 @"_ZN18tracing_subscriber6filter9directive74DirectiveSet$LT$tracing_subscriber..filter..directive..StaticDirective$GT$7enabled17hd44d965863307517E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(464) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1)
+  br i1 %102, label %"_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$7enabled17h3274ffe787624e1aE.exit.thread", label %"_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$7enabled17h3274ffe787624e1aE.exit.thread3"
 
 "_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$7enabled17h3274ffe787624e1aE.exit.thread3": ; preds = %.critedge.i.i, %"_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$7enabled17h3274ffe787624e1aE.exit"
   call void @_ZN18tracing_subscriber6filter13layer_filters11FilterState13clear_enabled17h3e5cc05076ff84bcE()
-  br label %105
+  br label %104
 
-"_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$7enabled17h3274ffe787624e1aE.exit.thread": ; preds = %102, %86, %"_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$7enabled17h3274ffe787624e1aE.exit"
-  %104 = call noundef zeroext i1 @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$7enabled17h6a00e11fb75bb5c3E"(ptr noundef nonnull align 8 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1)
-  br label %105
+"_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$7enabled17h3274ffe787624e1aE.exit.thread": ; preds = %101, %86, %"_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$7enabled17h3274ffe787624e1aE.exit"
+  %103 = call noundef zeroext i1 @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$7enabled17h6a00e11fb75bb5c3E"(ptr noundef nonnull align 8 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1)
+  br label %104
 
-105:                                              ; preds = %"_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$7enabled17h3274ffe787624e1aE.exit.thread", %"_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$7enabled17h3274ffe787624e1aE.exit.thread3"
-  %.sroa.0.0 = phi i1 [ %104, %"_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$7enabled17h3274ffe787624e1aE.exit.thread" ], [ false, %"_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$7enabled17h3274ffe787624e1aE.exit.thread3" ]
+104:                                              ; preds = %"_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$7enabled17h3274ffe787624e1aE.exit.thread", %"_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$7enabled17h3274ffe787624e1aE.exit.thread3"
+  %.sroa.0.0 = phi i1 [ %103, %"_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$7enabled17h3274ffe787624e1aE.exit.thread" ], [ false, %"_ZN104_$LT$tracing_subscriber..filter..env..EnvFilter$u20$as$u20$tracing_subscriber..layer..Layer$LT$S$GT$$GT$7enabled17h3274ffe787624e1aE.exit.thread3" ]
   ret i1 %.sroa.0.0
 }
 

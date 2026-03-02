@@ -4603,6 +4603,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %.critedge6, %447
   br label %489
 
 489:                                              ; preds = %486, %483
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0199.0340) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i193 = load i64, ptr %.sroa.0199.0340, align 8
   %490 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i193, 4
   %.not.i.i.i194 = icmp eq i64 %490, 0

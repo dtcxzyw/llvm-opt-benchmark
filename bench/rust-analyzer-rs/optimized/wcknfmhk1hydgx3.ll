@@ -63324,6 +63324,7 @@ _ZN6syntax3ast7AstNode16clone_for_update17hc492070694ec82c7E.exit103: ; preds = 
   %.pn39.pn163 = phi { ptr, i32 } [ %268, %.thread156 ], [ %.pn39.pn, %267 ]
   %.2162 = phi i8 [ 1, %.thread156 ], [ %.2, %267 ]
   %.0161 = phi ptr [ %264, %.thread156 ], [ %.0, %267 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0161) ]
   %413 = getelementptr inbounds nuw i8, ptr %.0161, i64 48
   %414 = load i32, ptr %413, align 4, !noalias !18282, !noundef !4
   %415 = add i32 %414, -1

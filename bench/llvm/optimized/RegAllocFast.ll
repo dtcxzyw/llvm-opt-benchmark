@@ -1411,6 +1411,7 @@ _ZN4llvm17MachineBasicBlock16liveout_iteratorppEv.exit.i: ; preds = %297, %291, 
   br i1 %switch.i.i.i.i, label %312, label %322
 
 312:                                              ; preds = %.lr.ph37.i.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.024.035.i.i.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.024.035.i.i.i, align 8
   %313 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i = icmp eq i64 %313, 0

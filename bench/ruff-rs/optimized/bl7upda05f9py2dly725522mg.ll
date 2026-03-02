@@ -46457,6 +46457,7 @@ define void @"_ZN123_$LT$ty_python_semantic..types..FunctionType$u20$as$u20$ty_p
   br label %58
 
 61:                                               ; preds = %78, %58
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %23) ]
   call fastcc void @"_ZN4core3ptr94drop_in_place$LT$alloc..boxed..Box$LT$$u5b$ty_python_semantic..types..TypeMapping$u5d$$GT$$GT$17h3100dc3c0c2b2c8fE"(ptr nonnull %23, i64 %24)
   ret void
 

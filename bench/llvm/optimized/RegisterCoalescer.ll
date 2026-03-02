@@ -3117,6 +3117,7 @@ _ZNK4llvm12LoopInfoBaseINS_17MachineBasicBlockENS_11MachineLoopEE12getLoopDepthE
   br i1 %447, label %.critedge.i.i, label %_ZL11isSplitEdgePKN4llvm17MachineBasicBlockE.exit.i
 
 .critedge.i.i:                                    ; preds = %446, %.lr.ph.i.i, %.lr.ph.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.012.017.i.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.012.017.i.i, align 8
   %448 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i23.i = icmp eq i64 %448, 0
@@ -3771,6 +3772,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit37.
   br label %735
 
 735:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit37.i.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit34.i.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit31.i.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit.i51.i, %.lr.ph95.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.069.093.i.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i43.i = load i64, ptr %.sroa.069.093.i.i, align 8
   %736 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i43.i, 4
   %.not.i.i.i38.i.i = icmp eq i64 %736, 0
@@ -3933,6 +3935,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit52.
   br label %800
 
 800:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit52.i.i, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit49.i.i, %.lr.ph.i39.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.066.090.i.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i54.i.i = load i64, ptr %.sroa.066.090.i.i, align 8
   %801 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i54.i.i, 4
   %.not.i.i.i55.i.i = icmp eq i64 %801, 0

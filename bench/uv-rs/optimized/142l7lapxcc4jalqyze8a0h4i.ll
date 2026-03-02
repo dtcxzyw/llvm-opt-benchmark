@@ -10984,6 +10984,7 @@ define internal fastcc void @"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$a
   %107 = load i64, ptr %106, align 8, !alias.scope !2097, !noalias !2098, !noundef !3
   %108 = add i64 %107, 1
   store i64 %108, ptr %106, align 8, !alias.scope !2097, !noalias !2098
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.04.0.i.i.i.i.i.i) ]
   %.not.i.i.i.i.i.i = icmp ult i64 %.sroa.46.0.i.i.i.i.i.i, 2
   br i1 %.not.i.i.i.i.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h05067f5f459bd62dE.exit.thread.i.i.i.i.i", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h05067f5f459bd62dE.exit.i.i.i.i.i"
 
@@ -12756,6 +12757,7 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$csv..deserializer..DeRecordWrap$LT$T$
   %47 = load i64, ptr %46, align 8, !alias.scope !2283, !noalias !2286, !noundef !3
   %48 = add i64 %47, 1
   store i64 %48, ptr %46, align 8, !alias.scope !2283, !noalias !2286
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.04.0.i) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2299)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2302
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17hf7976c544bc1ac73E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, i64 noundef %.sroa.46.0.i, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !2302

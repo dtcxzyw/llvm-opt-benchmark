@@ -14834,6 +14834,7 @@ _ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i:     ; preds = %246
 
 251:                                              ; preds = %240, %236, %.lr.ph
   %spec.select = phi i1 [ false, %240 ], [ false, %236 ], [ %.1200, %.lr.ph ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0122.0201) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0122.0201, align 8
   %252 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i57 = icmp eq i64 %252, 0
@@ -22870,6 +22871,7 @@ _ZNSt6vectorISt5tupleIJPKN4llvm8MCSymbolES4_PKNS1_6DITypeEEESaIS8_EE17_M_realloc
   br label %_ZNSt6vectorISt5tupleIJPKN4llvm8MCSymbolES4_PKNS1_6DITypeEEESaIS8_EE9push_backEOS8_.exit
 
 _ZNSt6vectorISt5tupleIJPKN4llvm8MCSymbolES4_PKNS1_6DITypeEEESaIS8_EE9push_backEOS8_.exit: ; preds = %159, %155, %.lr.ph, %_ZNSt6vectorISt5tupleIJPKN4llvm8MCSymbolES4_PKNS1_6DITypeEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit, %186, %_ZNK4llvm12MachineInstr18getHeapAllocMarkerEv.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.041.059) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.041.059, align 8
   %226 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i25 = icmp eq i64 %226, 0
@@ -23090,6 +23092,7 @@ _ZN4llvm8DebugLocD2Ev.exit26:                     ; preds = %_ZL16isUsableDebugL
   br i1 %.not69, label %_ZN4llvm8DebugLocD2Ev.exit26.thread, label %_ZN4llvm8DebugLocD2Ev.exit28
 
 _ZN4llvm8DebugLocD2Ev.exit26.thread:              ; preds = %_ZN4llvm8DebugLocaSERKS0_.exit, %_ZN4llvm8DebugLocaSERKS0_.exit.thread, %_ZN4llvm8DebugLocC2ERKS0_.exit22, %.lr.ph, %_ZN4llvm8DebugLocD2Ev.exit26, %49
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.037.073) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.037.073, align 8
   %50 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %50, 0

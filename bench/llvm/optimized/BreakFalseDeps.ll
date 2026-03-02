@@ -965,6 +965,7 @@ _ZNSt6vectorISt4pairIPN4llvm12MachineInstrEjESaIS4_EE5clearEv.exit: ; preds = %2
   br label %13
 
 13:                                               ; preds = %12, %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.07.011) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.07.011, align 8
   %14 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %14, 0
@@ -1273,6 +1274,7 @@ _ZNSt6vectorISt4pairIPN4llvm12MachineInstrEjESaIS4_EE5clearEv.exit.i: ; preds = 
   br label %124
 
 124:                                              ; preds = %123, %.lr.ph.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.07.011.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.07.011.i, align 8
   %125 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i26 = icmp eq i64 %125, 0

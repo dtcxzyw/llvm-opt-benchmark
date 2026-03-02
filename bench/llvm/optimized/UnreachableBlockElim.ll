@@ -1219,6 +1219,7 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit.thr
   br label %275
 
 ._crit_edge:                                      ; preds = %288, %.lr.ph270
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0195.0268) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0195.0268, align 8
   %264 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %264, 0

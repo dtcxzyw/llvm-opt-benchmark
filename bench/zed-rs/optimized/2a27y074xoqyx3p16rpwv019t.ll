@@ -192599,17 +192599,17 @@ define hidden void @"_ZN107_$LT$gpui..platform..linux..x11..xim_handler..XimHand
   %40 = add i64 %39, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.llvm.5405220595630156345(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, i64 noundef 32, i64 noundef 16, i64 noundef %40)
   %41 = load i64, ptr %6, align 8, !range !49, !noalias !52873, !noundef !5
-  %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %43 = load i64, ptr %42, align 8, !noalias !52873, !noundef !5
-  %44 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %45 = load i64, ptr %44, align 8, !noalias !52873, !noundef !5
+  %42 = icmp ne i64 %41, 0
+  call void @llvm.assume(i1 %42)
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %44 = load i64, ptr %43, align 8, !noalias !52873, !noundef !5
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %46 = load i64, ptr %45, align 8, !noalias !52873, !noundef !5
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !52873
-  %46 = load ptr, ptr %4, align 8, !alias.scope !52873, !nonnull !5, !noundef !5
-  %47 = sub nsw i64 0, %45
-  %48 = getelementptr inbounds i8, ptr %46, i64 %47
-  %49 = icmp ne i64 %41, 0
-  call void @llvm.assume(i1 %49)
-  call void @__rust_dealloc(ptr noundef nonnull %48, i64 noundef %43, i64 noundef %41) #51
+  %47 = load ptr, ptr %4, align 8, !alias.scope !52873, !nonnull !5, !noundef !5
+  %48 = sub nsw i64 0, %46
+  %49 = getelementptr inbounds i8, ptr %47, i64 %48
+  call void @__rust_dealloc(ptr noundef nonnull %49, i64 noundef %44, i64 noundef %41) #51
   br label %"_ZN4core3ptr148drop_in_place$LT$hashbrown..map..HashMap$LT$xim_parser..parser..AttributeName$C$alloc..vec..Vec$LT$u8$GT$$C$ahash..random_state..RandomState$GT$$GT$17h9f0f46d8b1599addE.exit"
 
 "_ZN4core3ptr148drop_in_place$LT$hashbrown..map..HashMap$LT$xim_parser..parser..AttributeName$C$alloc..vec..Vec$LT$u8$GT$$C$ahash..random_state..RandomState$GT$$GT$17h9f0f46d8b1599addE.exit": ; preds = %34, %38

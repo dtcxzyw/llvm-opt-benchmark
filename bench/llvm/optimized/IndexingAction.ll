@@ -2426,6 +2426,8 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
 23:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
   %.0.copyload.i.i.i.i.i = load i64, ptr %2, align 8
   %24 = and i64 %.0.copyload.i.i.i.i.i, -8
+  %.not.not.i = icmp ne i64 %24, 0
+  tail call void @llvm.assume(i1 %.not.not.i)
   %25 = inttoptr i64 %24 to ptr
   %26 = tail call { ptr, i64 } @_ZN5clang14MacroDirective13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(13) %25) #16
   %.fca.0.extract.i.i = extractvalue { ptr, i64 } %26, 0
@@ -2547,6 +2549,8 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
 39:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
   %.0.copyload.i.i.i.i.i8 = load i64, ptr %2, align 8
   %40 = and i64 %.0.copyload.i.i.i.i.i8, -8
+  %.not.not.i9 = icmp ne i64 %40, 0
+  tail call void @llvm.assume(i1 %.not.not.i9)
   %41 = inttoptr i64 %40 to ptr
   %42 = tail call { ptr, i64 } @_ZN5clang14MacroDirective13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(13) %41) #16
   %.fca.0.extract.i.i10 = extractvalue { ptr, i64 } %42, 0
@@ -2637,6 +2641,8 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
 39:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
   %.0.copyload.i.i.i.i.i9 = load i64, ptr %2, align 8
   %40 = and i64 %.0.copyload.i.i.i.i.i9, -8
+  %.not.not.i10 = icmp ne i64 %40, 0
+  tail call void @llvm.assume(i1 %.not.not.i10)
   %41 = inttoptr i64 %40 to ptr
   %42 = tail call { ptr, i64 } @_ZN5clang14MacroDirective13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(13) %41) #16
   %.fca.0.extract.i.i11 = extractvalue { ptr, i64 } %42, 0
@@ -2749,6 +2755,8 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
 39:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
   %.0.copyload.i.i.i.i.i9 = load i64, ptr %3, align 8
   %40 = and i64 %.0.copyload.i.i.i.i.i9, -8
+  %.not.not.i10 = icmp ne i64 %40, 0
+  tail call void @llvm.assume(i1 %.not.not.i10)
   %41 = inttoptr i64 %40 to ptr
   %42 = tail call { ptr, i64 } @_ZN5clang14MacroDirective13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(13) %41) #16
   %.fca.0.extract.i.i11 = extractvalue { ptr, i64 } %42, 0
@@ -2839,6 +2847,8 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
 39:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
   %.0.copyload.i.i.i.i.i9 = load i64, ptr %3, align 8
   %40 = and i64 %.0.copyload.i.i.i.i.i9, -8
+  %.not.not.i10 = icmp ne i64 %40, 0
+  tail call void @llvm.assume(i1 %.not.not.i10)
   %41 = inttoptr i64 %40 to ptr
   %42 = tail call { ptr, i64 } @_ZN5clang14MacroDirective13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(13) %41) #16
   %.fca.0.extract.i.i11 = extractvalue { ptr, i64 } %42, 0
@@ -2934,6 +2944,8 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
 39:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
   %.0.copyload.i.i.i.i.i9 = load i64, ptr %3, align 8
   %40 = and i64 %.0.copyload.i.i.i.i.i9, -8
+  %.not.not.i10 = icmp ne i64 %40, 0
+  tail call void @llvm.assume(i1 %.not.not.i10)
   %41 = inttoptr i64 %40 to ptr
   %42 = tail call { ptr, i64 } @_ZN5clang14MacroDirective13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(13) %41) #16
   %.fca.0.extract.i.i11 = extractvalue { ptr, i64 } %42, 0
@@ -3024,6 +3036,8 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
 39:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
   %.0.copyload.i.i.i.i.i9 = load i64, ptr %3, align 8
   %40 = and i64 %.0.copyload.i.i.i.i.i9, -8
+  %.not.not.i10 = icmp ne i64 %40, 0
+  tail call void @llvm.assume(i1 %.not.not.i10)
   %41 = inttoptr i64 %40 to ptr
   %42 = tail call { ptr, i64 } @_ZN5clang14MacroDirective13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(13) %41) #16
   %.fca.0.extract.i.i11 = extractvalue { ptr, i64 } %42, 0

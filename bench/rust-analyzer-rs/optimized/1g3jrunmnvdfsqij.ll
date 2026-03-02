@@ -1250,17 +1250,17 @@ define internal fastcc void @"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inn
   %4 = add i64 %.8.val, 1
   call void @_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hdfdfbd0c19a5dc35E.llvm.2527558994870742631(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %1, i64 noundef 8, i64 noundef 16, i64 noundef %4), !noalias !376
   %5 = load i64, ptr %1, align 8, !range !381, !noalias !376, !noundef !9
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i64, ptr %6, align 8, !noalias !376, !noundef !9
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load i64, ptr %8, align 8, !noalias !376, !noundef !9
+  %6 = icmp ne i64 %5, 0
+  tail call void @llvm.assume(i1 %6)
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = load i64, ptr %7, align 8, !noalias !376, !noundef !9
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %10 = load i64, ptr %9, align 8, !noalias !376, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !376
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
-  %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i8, ptr %.0.val, i64 %10
-  %12 = icmp ne i64 %5, 0
-  tail call void @llvm.assume(i1 %12)
-  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %7, i64 noundef %5) #32, !noalias !376
+  %11 = sub nsw i64 0, %10
+  %12 = getelementptr inbounds i8, ptr %.0.val, i64 %11
+  tail call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef %8, i64 noundef %5) #32, !noalias !376
   br label %"_ZN86_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd4304051bc7b2ec5E.exit"
 
 "_ZN86_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd4304051bc7b2ec5E.exit": ; preds = %0, %3

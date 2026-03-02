@@ -882,6 +882,7 @@ _ZNK4llvm10DILocation20getBaseDiscriminatorEv.exit: ; preds = %196, %200, %205, 
   br label %221
 
 221:                                              ; preds = %115, %.lr.ph, %_ZNK4llvm10DILocation20getBaseDiscriminatorEv.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0186.0230) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0186.0230, align 8
   %222 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %222, 0

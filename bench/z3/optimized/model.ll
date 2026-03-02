@@ -15980,6 +15980,8 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i18:              ; preds = %52
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i19:            ; preds = %52
   %56 = add i32 %6, -2147483647
+  %.not.not.i.i = icmp ne i32 %56, 0
+  tail call void @llvm.assume(i1 %.not.not.i.i)
   br label %thread-pre-split.i.i.preheader
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i.i:       ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i18

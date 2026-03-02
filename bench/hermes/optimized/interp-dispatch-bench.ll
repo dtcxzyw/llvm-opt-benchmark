@@ -1276,6 +1276,8 @@ _ZNSt10unique_ptrIN6hermes3hbc14BytecodeModuleESt14default_deleteIS2_EED2Ev.exit
   %59 = load i32, ptr %nativeCallFrameDepth_.i.i.i, align 8
   %inc.i.i.i = add nsw i32 %59, 1
   store i32 %inc.i.i.i, ptr %nativeCallFrameDepth_.i.i.i, align 8
+  %cmp.i2.i.i.i.i = icmp slt i32 %59, 384
+  call void @llvm.assume(i1 %cmp.i2.i.i.i.i)
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %58, i64 72
   store ptr %add.ptr.i.i.i.i, ptr %stackPointer_.i.i.i.i, align 8
   %currentFrame_.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 9496

@@ -392,36 +392,38 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit: ; preds = %._crit_edge, %4
   %111 = fmul float %110, 6.553500e+04
   %112 = fdiv float %111, %103
   %113 = fptosi float %112 to i32
-  %114 = getelementptr inbounds nuw i32, ptr %.ptr226.ptr.ptr, i64 %indvars.iv215
-  store i32 %113, ptr %114, align 4, !tbaa !106
+  %114 = icmp samesign ult i64 %indvars.iv215, 4
+  tail call void @llvm.assume(i1 %114)
+  %115 = getelementptr inbounds nuw i32, ptr %.ptr226.ptr.ptr, i64 %indvars.iv215
+  store i32 %113, ptr %115, align 4, !tbaa !106
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next216, 4
   br i1 %exitcond218.not, label %104, label %108, !llvm.loop !113
 
 .lr.ph193:                                        ; preds = %.lr.ph189
-  %115 = add nsw i32 %118, 2
-  %116 = ashr i32 %115, 2
-  br label %119
+  %116 = add nsw i32 %119, 2
+  %117 = ashr i32 %116, 2
+  br label %120
 
 .lr.ph189:                                        ; preds = %104, %.lr.ph189
   %.066187.idx = phi i64 [ %.066187.add, %.lr.ph189 ], [ 100, %104 ]
-  %.068186 = phi i32 [ %118, %.lr.ph189 ], [ 0, %104 ]
+  %.068186 = phi i32 [ %119, %.lr.ph189 ], [ 0, %104 ]
   %.066187.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.066187.idx
-  %117 = load i32, ptr %.066187.ptr, align 4, !tbaa !106
-  %118 = add nsw i32 %117, %.068186
+  %118 = load i32, ptr %.066187.ptr, align 4, !tbaa !106
+  %119 = add nsw i32 %118, %.068186
   %.066187.add = add nuw nsw i64 %.066187.idx, 4
   %.not75 = icmp eq i64 %.066187.add, 116
   br i1 %.not75, label %.lr.ph193, label %.lr.ph189
 
-119:                                              ; preds = %.lr.ph193, %119
-  %.063192.idx = phi i64 [ 100, %.lr.ph193 ], [ %.063192.add, %119 ]
+120:                                              ; preds = %.lr.ph193, %120
+  %.063192.idx = phi i64 [ 100, %.lr.ph193 ], [ %.063192.add, %120 ]
   %.063192.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.063192.idx
-  store i32 %116, ptr %.063192.ptr, align 4, !tbaa !106
+  store i32 %117, ptr %.063192.ptr, align 4, !tbaa !106
   %.063192.add = add nuw nsw i64 %.063192.idx, 4
   %.not76 = icmp eq i64 %.063192.add, 116
-  br i1 %.not76, label %.loopexit, label %119
+  br i1 %.not76, label %.loopexit, label %120
 
-.loopexit:                                        ; preds = %119, %100, %104
+.loopexit:                                        ; preds = %120, %100, %104
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }

@@ -558,6 +558,7 @@ define internal fastcc void @"_ZN4core3ptr202drop_in_place$LT$alloc..boxed..Box$
 10:                                               ; preds = %2
   %11 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
   %12 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
   %13 = load i64, ptr %12, align 8, !range !42, !invariant.load !7, !noalias !64
   %14 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16

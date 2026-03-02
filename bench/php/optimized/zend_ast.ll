@@ -5435,48 +5435,48 @@ zend_ast_is_decl.exit:                            ; preds = %75
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @zend_ast_destroy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
-  %.not59 = icmp eq ptr %0, null
-  br i1 %.not59, label %zval_ptr_dtor_nogc.exit, label %.lr.ph62
+  %.not60 = icmp eq ptr %0, null
+  br i1 %.not60, label %zval_ptr_dtor_nogc.exit, label %.lr.ph63
 
-.lr.ph62:                                         ; preds = %1, %.backedge
-  %.060 = phi ptr [ %.0.be, %.backedge ], [ %0, %1 ]
-  %2 = load i16, ptr %.060, align 8, !tbaa !60
+.lr.ph63:                                         ; preds = %1, %.backedge
+  %.061 = phi ptr [ %.0.be, %.backedge ], [ %0, %1 ]
+  %2 = load i16, ptr %.061, align 8, !tbaa !60
   %3 = icmp ugt i16 %2, 255
   br i1 %3, label %4, label %12, !prof !104
 
-4:                                                ; preds = %.lr.ph62
+4:                                                ; preds = %.lr.ph63
   %5 = icmp ugt i16 %2, 511
-  br i1 %5, label %.lr.ph57, label %.backedge
+  br i1 %5, label %.lr.ph58, label %.backedge
 
-.lr.ph57:                                         ; preds = %4
+.lr.ph58:                                         ; preds = %4
   %6 = lshr i16 %2, 8
-  %7 = getelementptr inbounds nuw i8, ptr %.060, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.061, i64 8
   %wide.trip.count = zext nneg i16 %6 to i64
   br label %8
 
-8:                                                ; preds = %.lr.ph57, %8
-  %indvars.iv69 = phi i64 [ 1, %.lr.ph57 ], [ %indvars.iv.next70, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv69
+8:                                                ; preds = %.lr.ph58, %8
+  %indvars.iv72 = phi i64 [ 1, %.lr.ph58 ], [ %indvars.iv.next73, %8 ]
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv72
   %10 = load ptr, ptr %9, align 8, !tbaa !63
   tail call void @zend_ast_destroy(ptr noundef %10)
-  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count
+  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count
   br i1 %exitcond.not, label %.backedge, label %8
 
 .backedge:                                        ; preds = %30, %8, %4, %26, %zend_string_release_ex.exit48
   %.sink = phi i64 [ 16, %26 ], [ 64, %zend_string_release_ex.exit48 ], [ 8, %8 ], [ 8, %4 ], [ 16, %30 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.060, i64 %.sink
+  %11 = getelementptr inbounds nuw i8, ptr %.061, i64 %.sink
   %.0.be = load ptr, ptr %11, align 8, !tbaa !63
   %.not = icmp eq ptr %.0.be, null
-  br i1 %.not, label %zval_ptr_dtor_nogc.exit, label %.lr.ph62
+  br i1 %.not, label %zval_ptr_dtor_nogc.exit, label %.lr.ph63
 
-12:                                               ; preds = %.lr.ph62
+12:                                               ; preds = %.lr.ph63
   %13 = icmp eq i16 %2, 64
   br i1 %13, label %14, label %25, !prof !104
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds nuw i8, ptr %.060, i64 8
-  %16 = getelementptr inbounds nuw i8, ptr %.060, i64 17
+  %15 = getelementptr inbounds nuw i8, ptr %.061, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.061, i64 17
   %17 = load i8, ptr %16, align 1, !tbaa !44
   %.not.i = icmp eq i8 %17, 0
   br i1 %.not.i, label %zval_ptr_dtor_nogc.exit, label %18
@@ -5501,7 +5501,7 @@ define dso_local void @zend_ast_destroy(ptr noundef readonly captures(address_is
   br i1 %.not51, label %36, label %26, !prof !13
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds nuw i8, ptr %.060, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.061, i64 8
   %28 = load i32, ptr %27, align 8, !tbaa !77
   switch i32 %28, label %.lr.ph [
     i32 0, label %zval_ptr_dtor_nogc.exit
@@ -5509,7 +5509,7 @@ define dso_local void @zend_ast_destroy(ptr noundef readonly captures(address_is
   ]
 
 .lr.ph:                                           ; preds = %26
-  %29 = getelementptr inbounds nuw i8, ptr %.060, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.061, i64 16
   br label %30
 
 30:                                               ; preds = %.lr.ph, %30
@@ -5530,7 +5530,7 @@ define dso_local void @zend_ast_destroy(ptr noundef readonly captures(address_is
   ], !prof !135
 
 37:                                               ; preds = %36
-  %38 = getelementptr inbounds nuw i8, ptr %.060, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.061, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !44
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !44
@@ -5556,7 +5556,7 @@ define dso_local void @zend_ast_destroy(ptr noundef readonly captures(address_is
   br i1 %50, label %51, label %zval_ptr_dtor_nogc.exit, !prof !136
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds nuw i8, ptr %.060, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %.061, i64 24
   %53 = load ptr, ptr %52, align 8, !tbaa !72
   %.not41 = icmp eq ptr %53, null
   br i1 %.not41, label %zend_string_release_ex.exit46, label %54
@@ -5582,7 +5582,7 @@ define dso_local void @zend_ast_destroy(ptr noundef readonly captures(address_is
   br label %zend_string_release_ex.exit46
 
 zend_string_release_ex.exit46:                    ; preds = %63, %58, %54, %51
-  %64 = getelementptr inbounds nuw i8, ptr %.060, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.061, i64 16
   %65 = load ptr, ptr %64, align 8, !tbaa !71
   %.not42 = icmp eq ptr %65, null
   br i1 %.not42, label %zend_string_release_ex.exit48, label %66
@@ -5608,16 +5608,16 @@ zend_string_release_ex.exit46:                    ; preds = %63, %58, %54, %51
   br label %zend_string_release_ex.exit48
 
 zend_string_release_ex.exit48:                    ; preds = %75, %70, %66, %zend_string_release_ex.exit46
-  %76 = getelementptr inbounds nuw i8, ptr %.060, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %.061, i64 32
   %77 = load ptr, ptr %76, align 8, !tbaa !63
   tail call void @zend_ast_destroy(ptr noundef %77)
-  %78 = getelementptr inbounds nuw i8, ptr %.060, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %.061, i64 40
   %79 = load ptr, ptr %78, align 8, !tbaa !63
   tail call void @zend_ast_destroy(ptr noundef %79)
-  %80 = getelementptr inbounds nuw i8, ptr %.060, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %.061, i64 48
   %81 = load ptr, ptr %80, align 8, !tbaa !63
   tail call void @zend_ast_destroy(ptr noundef %81)
-  %82 = getelementptr inbounds nuw i8, ptr %.060, i64 56
+  %82 = getelementptr inbounds nuw i8, ptr %.061, i64 56
   %83 = load ptr, ptr %82, align 8, !tbaa !63
   tail call void @zend_ast_destroy(ptr noundef %83)
   br label %.backedge

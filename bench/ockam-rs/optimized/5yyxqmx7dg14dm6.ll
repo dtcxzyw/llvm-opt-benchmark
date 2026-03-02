@@ -5734,47 +5734,49 @@ define hidden void @"_ZN4core3ptr167drop_in_place$LT$futures_util..lock..bilock.
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %6 = atomicrmw xchg ptr %5, i64 0 seq_cst, align 8, !noalias !1973
   switch i64 %6, label %7 [
-    i64 0, label %14
+    i64 0, label %15
     i64 1, label %"_ZN90_$LT$futures_util..lock..bilock..BiLockGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he45d87c07aa3cc2eE.llvm.11279091928976205697.exit"
   ]
 
 7:                                                ; preds = %1
   %8 = inttoptr i64 %6 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1973
+  %9 = icmp ne i64 %6, 0
+  tail call void @llvm.assume(i1 %9)
   store ptr %8, ptr %2, align 8, !noalias !1973
-  %9 = load ptr, ptr %8, align 8, !noalias !1973, !nonnull !4, !align !5, !noundef !4
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !1973, !noundef !4
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %13 = load ptr, ptr %12, align 8, !noalias !1973, !nonnull !4, !noundef !4
-  invoke void %13(ptr noundef %11)
-          to label %17 unwind label %15, !noalias !1973
+  %10 = load ptr, ptr %8, align 8, !noalias !1973, !nonnull !4, !align !5, !noundef !4
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !1973, !noundef !4
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %14 = load ptr, ptr %13, align 8, !noalias !1973, !nonnull !4, !noundef !4
+  invoke void %14(ptr noundef %12)
+          to label %18 unwind label %16, !noalias !1973
 
-14:                                               ; preds = %1
+15:                                               ; preds = %1
   tail call void @_ZN3std9panicking11begin_panic17hc584c7470d1a43cfE(ptr noalias noundef nonnull readonly align 1 @anon.86854b3818c1e107d967125bc7de3ba7.21.llvm.3380558238963146499, i64 noundef 22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.86854b3818c1e107d967125bc7de3ba7.23.llvm.3380558238963146499) #24, !noalias !1973
   unreachable
 
-15:                                               ; preds = %7
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %7
+  %17 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbdacb61e30e080caE.llvm.3380558238963146499"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #21
-          to label %20 unwind label %18, !noalias !1973
+          to label %21 unwind label %19, !noalias !1973
 
-17:                                               ; preds = %7
+18:                                               ; preds = %7
   tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 16, i64 noundef 8) #23, !noalias !1974
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !1973
   br label %"_ZN90_$LT$futures_util..lock..bilock..BiLockGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he45d87c07aa3cc2eE.llvm.11279091928976205697.exit"
 
-18:                                               ; preds = %15
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %16
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #22, !noalias !1973
   unreachable
 
-20:                                               ; preds = %15
-  resume { ptr, i32 } %16
+21:                                               ; preds = %16
+  resume { ptr, i32 } %17
 
-"_ZN90_$LT$futures_util..lock..bilock..BiLockGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he45d87c07aa3cc2eE.llvm.11279091928976205697.exit": ; preds = %1, %17
+"_ZN90_$LT$futures_util..lock..bilock..BiLockGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he45d87c07aa3cc2eE.llvm.11279091928976205697.exit": ; preds = %1, %18
   ret void
 }
 
@@ -24179,47 +24181,49 @@ define hidden void @"_ZN90_$LT$futures_util..lock..bilock..BiLockGuard$LT$T$GT$$
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %6 = atomicrmw xchg ptr %5, i64 0 seq_cst, align 8, !noalias !8493
   switch i64 %6, label %7 [
-    i64 0, label %14
+    i64 0, label %15
     i64 1, label %"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$6unlock17h4eb7084bb51adb30E.exit"
   ]
 
 7:                                                ; preds = %1
   %8 = inttoptr i64 %6 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !8493
+  %9 = icmp ne i64 %6, 0
+  tail call void @llvm.assume(i1 %9)
   store ptr %8, ptr %2, align 8, !noalias !8493
-  %9 = load ptr, ptr %8, align 8, !noalias !8493, !nonnull !4, !align !5, !noundef !4
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load ptr, ptr %10, align 8, !noalias !8493, !noundef !4
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %13 = load ptr, ptr %12, align 8, !noalias !8493, !nonnull !4, !noundef !4
-  invoke void %13(ptr noundef %11)
-          to label %17 unwind label %15, !noalias !8493
+  %10 = load ptr, ptr %8, align 8, !noalias !8493, !nonnull !4, !align !5, !noundef !4
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %12 = load ptr, ptr %11, align 8, !noalias !8493, !noundef !4
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %14 = load ptr, ptr %13, align 8, !noalias !8493, !nonnull !4, !noundef !4
+  invoke void %14(ptr noundef %12)
+          to label %18 unwind label %16, !noalias !8493
 
-14:                                               ; preds = %1
+15:                                               ; preds = %1
   tail call void @_ZN3std9panicking11begin_panic17hc584c7470d1a43cfE(ptr noalias noundef nonnull readonly align 1 @anon.86854b3818c1e107d967125bc7de3ba7.21.llvm.3380558238963146499, i64 noundef 22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.86854b3818c1e107d967125bc7de3ba7.23.llvm.3380558238963146499) #24, !noalias !8493
   unreachable
 
-15:                                               ; preds = %7
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %7
+  %17 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbdacb61e30e080caE.llvm.3380558238963146499"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2) #21
-          to label %20 unwind label %18, !noalias !8493
+          to label %21 unwind label %19, !noalias !8493
 
-17:                                               ; preds = %7
+18:                                               ; preds = %7
   tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef 16, i64 noundef 8) #23, !noalias !8496
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !8493
   br label %"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$6unlock17h4eb7084bb51adb30E.exit"
 
-18:                                               ; preds = %15
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %16
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #22, !noalias !8493
   unreachable
 
-20:                                               ; preds = %15
-  resume { ptr, i32 } %16
+21:                                               ; preds = %16
+  resume { ptr, i32 } %17
 
-"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$6unlock17h4eb7084bb51adb30E.exit": ; preds = %1, %17
+"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$6unlock17h4eb7084bb51adb30E.exit": ; preds = %1, %18
   ret void
 }
 

@@ -1944,7 +1944,7 @@ define hidden noundef zeroext i1 @"_ZN16html_to_markdown12html_element11HtmlElem
 
 58:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hfc217e8eba961142E.exit.i", %.lr.ph.i
   %59 = phi i64 [ 0, %.lr.ph.i ], [ %80, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hfc217e8eba961142E.exit.i" ]
-  %.lcssa212728.i = phi i64 [ 0, %.lr.ph.i ], [ %.lcssa2126.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hfc217e8eba961142E.exit.i" ]
+  %.lcssa182223.i = phi i64 [ 0, %.lr.ph.i ], [ %.lcssa1821.i, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17hfc217e8eba961142E.exit.i" ]
   %60 = icmp ult i64 %.sroa.4.0.i, %59
   br i1 %60, label %select.unfold.i, label %.lr.ph.split.split.i.i.i.i
 
@@ -1998,13 +1998,13 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread19.i.i.i.i: ; preds 
 
 select.unfold.i:                                  ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit.i.i.i.i", %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i, %.preheader.i.i.i.i.i, %77, %68, %58
   %80 = phi i64 [ %59, %58 ], [ %.sroa.4.0.i, %68 ], [ %75, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit.i.i.i.i" ], [ %.sroa.4.0.i, %.preheader.i.i.i.i.i ], [ %.sroa.4.0.i, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i ], [ %75, %77 ]
-  %.lcssa2126.i = phi i64 [ %.lcssa212728.i, %58 ], [ %.lcssa212728.i, %68 ], [ %75, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit.i.i.i.i" ], [ %.lcssa212728.i, %.preheader.i.i.i.i.i ], [ %.lcssa212728.i, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i ], [ %.lcssa212728.i, %77 ]
+  %.lcssa1821.i = phi i64 [ %.lcssa182223.i, %58 ], [ %.lcssa182223.i, %68 ], [ %75, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit.i.i.i.i" ], [ %.lcssa182223.i, %.preheader.i.i.i.i.i ], [ %.lcssa182223.i, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i ], [ %.lcssa182223.i, %77 ]
   %81 = phi i1 [ true, %58 ], [ true, %68 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit.i.i.i.i" ], [ true, %.preheader.i.i.i.i.i ], [ true, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i ], [ true, %77 ]
-  %.pn34.i = phi i64 [ %.sroa.4.0.i, %58 ], [ %.sroa.4.0.i, %68 ], [ %76, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit.i.i.i.i" ], [ %.sroa.4.0.i, %.preheader.i.i.i.i.i ], [ %.sroa.4.0.i, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i ], [ %.sroa.4.0.i, %77 ]
-  %.sroa.4.0.i.i.ph.i = sub nuw i64 %.pn34.i, %.lcssa212728.i
-  %.sroa.0.0.i.i.ph.i = getelementptr inbounds i8, ptr %.sroa.0.0.i6, i64 %.lcssa212728.i
+  %.pn27.i = phi i64 [ %.sroa.4.0.i, %58 ], [ %.sroa.4.0.i, %68 ], [ %76, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb6386dc321210b0dE.exit.i.i.i.i" ], [ %.sroa.4.0.i, %.preheader.i.i.i.i.i ], [ %.sroa.4.0.i, %_ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.i.i.i.i ], [ %.sroa.4.0.i, %77 ]
+  %.sroa.4.0.i.i.ph.i = sub nuw i64 %.pn27.i, %.lcssa182223.i
+  %.sroa.0.0.i.i.ph.i = getelementptr inbounds i8, ptr %.sroa.0.0.i6, i64 %.lcssa182223.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !375
-  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i6, i64 %.pn34.i
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i6, i64 %.pn27.i
   store ptr %.sroa.0.0.i.i.ph.i, ptr %5, align 8, !alias.scope !382, !noalias !385
   store i64 %.sroa.4.0.i.i.ph.i, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8, !alias.scope !382, !noalias !385
   store ptr %.sroa.0.0.i.i.ph.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i, align 8, !alias.scope !382, !noalias !385

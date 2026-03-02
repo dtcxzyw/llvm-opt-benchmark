@@ -31478,6 +31478,7 @@ define internal { ptr, ptr } @"_ZN3rpc12proto_client14AnyProtoClient25add_model_
 
 49:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !4513
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %36) ]
   store ptr %35, ptr %10, align 8, !noalias !4513
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %36, ptr %50, align 8, !noalias !4513
@@ -31694,6 +31695,7 @@ define internal { ptr, ptr } @"_ZN3rpc12proto_client14AnyProtoClient25add_model_
 
 49:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !4568
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %36) ]
   store ptr %35, ptr %10, align 8, !noalias !4568
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %36, ptr %50, align 8, !noalias !4568
@@ -32135,6 +32137,7 @@ define internal { ptr, ptr } @"_ZN3rpc12proto_client14AnyProtoClient25add_model_
 
 48:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !4623
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %35) ]
   store ptr %34, ptr %10, align 8, !noalias !4623
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %35, ptr %49, align 8, !noalias !4623
@@ -32340,6 +32343,7 @@ define internal { ptr, ptr } @"_ZN3rpc12proto_client14AnyProtoClient25add_model_
 
 48:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !4657
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %35) ]
   store ptr %34, ptr %10, align 8, !noalias !4657
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %35, ptr %49, align 8, !noalias !4657
@@ -32546,6 +32550,7 @@ define internal { ptr, ptr } @"_ZN3rpc12proto_client14AnyProtoClient25add_model_
 
 48:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !4691
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %35) ]
   store ptr %34, ptr %10, align 8, !noalias !4691
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %35, ptr %49, align 8, !noalias !4691
@@ -50563,6 +50568,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.13361645166614471590.exit
   br i1 %120, label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h70b46aedaf389bf4E.exit274", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13361645166614471590.exit.i.i1.i.i.i.i273"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.13361645166614471590.exit.i.i1.i.i.i.i273": ; preds = %118
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %111) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %111, i64 noundef %108, i64 noundef 1) #39, !noalias !10188
   br label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h70b46aedaf389bf4E.exit274"
 

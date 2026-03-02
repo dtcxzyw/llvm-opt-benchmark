@@ -891,6 +891,7 @@ define dso_local void @_ZN4llvm16MachineFrameInfo23computeMaxCallFrameSizeERNS_1
 _ZNSt6vectorIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEESaIS3_EE9push_backEOS3_.exit.us.us: ; preds = %27, %.lr.ph.us
   %.sroa.speculated.us.us43 = phi i64 [ %.sroa.speculated.us.us, %27 ], [ %.sroa.speculated.us.us44, %.lr.ph.us ]
   %.sroa.speculated.us35.us = phi i64 [ %.sroa.speculated.us.us, %27 ], [ %.sroa.speculated.us36.us, %.lr.ph.us ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.023.034.us.us) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.us.us = load i64, ptr %.sroa.023.034.us.us, align 8
   %32 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.us.us, 4
   %.not.i.i.i.us.us = icmp eq i64 %32, 0
@@ -1027,6 +1028,7 @@ _ZNSt6vectorIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEESaIS3_E
   br label %_ZNSt6vectorIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEESaIS3_EE9push_backEOS3_.exit
 
 _ZNSt6vectorIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEESaIS3_EE9push_backEOS3_.exit: ; preds = %58, %_ZNSt6vectorIN4llvm26MachineInstrBundleIteratorINS0_12MachineInstrELb0EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.023.034) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.023.034, align 8
   %84 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %84, 0

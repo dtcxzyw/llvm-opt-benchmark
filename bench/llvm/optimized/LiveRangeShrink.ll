@@ -1925,6 +1925,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i: ; p
   %825 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_EixEOS3_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(8) %10)
   store i32 %800, ptr %825, align 4, !tbaa !206
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0364.1544) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i291 = load i64, ptr %.sroa.0364.1544, align 8
   %826 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i291, 4
   %.not.i.i.i292 = icmp eq i64 %826, 0

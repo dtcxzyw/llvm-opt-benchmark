@@ -9919,6 +9919,7 @@ _ZNK4llvm9SlotIndex11getPrevSlotEv.exit.i:        ; preds = %658, %653
   %771 = getelementptr inbounds nuw i8, ptr %770, i64 4
   %772 = load i32, ptr %771, align 4, !tbaa !469
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_(ptr noundef nonnull align 8 dereferenceable(16) %20, i32 %772)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %759) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %759, align 8
   %773 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i160 = icmp eq i64 %773, 0
@@ -15641,6 +15642,7 @@ define linkonce_odr hidden ptr @_ZN4llvm28skipDebugInstructionsForwardINS_26Mach
   br i1 %or.cond6, label %.critedge2, label %.critedge
 
 .critedge2:                                       ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.03.08) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.03.08, align 8
   %7 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %7, 0

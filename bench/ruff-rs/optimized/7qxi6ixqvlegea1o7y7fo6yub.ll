@@ -1569,8 +1569,8 @@ _ZN18tracing_subscriber6filter3env7builder7Builder15from_directives17hebd67ce7d8
   %.sroa.092.1246.us.i = phi ptr [ %.sroa.092.1.us.i, %.critedge115.us.i ], [ %.sroa.092.1244.i, %.lr.ph.i ]
   %.sroa.092.0245.us.i = phi ptr [ %.sroa.092.1246.us.i, %.critedge115.us.i ], [ %.sroa.5111.0.copyload, %.lr.ph.i ]
   %142 = load i64, ptr %.sroa.092.0245.us.i, align 8, !range !199, !noalias !289, !noundef !3
-  %cond.us.i = icmp eq i64 %142, 0
-  br i1 %cond.us.i, label %143, label %.critedge115.us.i
+  %cond.i = icmp eq i64 %142, 0
+  br i1 %cond.i, label %143, label %.critedge115.us.i
 
 143:                                              ; preds = %.lr.ph.split.us.i
   call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !289
@@ -2496,8 +2496,8 @@ _ZN18tracing_subscriber6filter3env7builder7Builder15from_directives17hebd67ce7d8
   %.sroa.092.1246.i = phi ptr [ %.sroa.092.1.i, %332 ], [ %.sroa.092.1244.i, %.lr.ph.i ]
   %.sroa.092.0245.i = phi ptr [ %.sroa.092.1246.i, %332 ], [ %.sroa.5111.0.copyload, %.lr.ph.i ]
   %317 = load i64, ptr %.sroa.092.0245.i, align 8, !range !199, !noalias !289, !noundef !3
-  %cond.i = icmp eq i64 %317, 0
-  br i1 %cond.i, label %318, label %.critedge115.i
+  %cond321.i = icmp eq i64 %317, 0
+  br i1 %cond321.i, label %318, label %.critedge115.i
 
 .critedge115.i:                                   ; preds = %328, %.lr.ph.split.i
   invoke void @_ZN18tracing_subscriber6filter3env9directive9Directive10deregexify17h88cb6bcbd10986e2E(ptr noalias noundef nonnull align 8 dereferenceable(80) %.sroa.092.0245.i)

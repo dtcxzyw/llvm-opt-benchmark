@@ -3333,6 +3333,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   ]
 
 62:                                               ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.01.04.i.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.01.04.i.i, align 8
   %63 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp eq i64 %63, 0
@@ -3484,6 +3485,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit36: ; preds
   ]
 
 109:                                              ; preds = %.lr.ph.i.i39, %.lr.ph.i.i39, %.lr.ph.i.i39, %.lr.ph.i.i39, %.lr.ph.i.i39, %.lr.ph.i.i39
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.01.04.i.i40) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i41 = load i64, ptr %.sroa.01.04.i.i40, align 8
   %110 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i41, 4
   %.not.i.i.i.i.i42 = icmp eq i64 %110, 0
@@ -3920,6 +3922,7 @@ _ZN4llvm13ScheduleDAGMI19releasePredecessorsEPNS_5SUnitE.exit: ; preds = %_ZN4ll
   ]
 
 126:                                              ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.01.04.i.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.01.04.i.i, align 8
   %127 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp eq i64 %127, 0
@@ -5992,6 +5995,7 @@ _ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit: ; preds = %_ZNK4llvm13L
   ]
 
 112:                                              ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.01.04.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.01.04.i, align 8
   %113 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %113, 0
@@ -7010,6 +7014,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
   ]
 
 27:                                               ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.01.04.i.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.01.04.i.i, align 8
   %28 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp eq i64 %28, 0
@@ -7461,6 +7466,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit50: ; preds
   ]
 
 228:                                              ; preds = %.lr.ph.i.i53, %.lr.ph.i.i53, %.lr.ph.i.i53, %.lr.ph.i.i53, %.lr.ph.i.i53, %.lr.ph.i.i53
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.01.04.i.i54) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i55 = load i64, ptr %.sroa.01.04.i.i54, align 8
   %229 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i55, 4
   %.not.i.i.i.i.i56 = icmp eq i64 %229, 0
@@ -26616,6 +26622,7 @@ define internal void @_ZN12_GLOBAL__N_113CopyConstrain5applyEPN4llvm17ScheduleDA
   ]
 
 11:                                               ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.01.04.i.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.01.04.i.i, align 8
   %12 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp eq i64 %12, 0

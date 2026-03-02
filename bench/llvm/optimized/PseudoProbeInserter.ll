@@ -599,6 +599,7 @@ _ZN4llvm10MIMetadataD2Ev.exit:                    ; preds = %_ZNK4llvm10DILocati
 
 _ZNK4llvm10DILocation16getDiscriminatorEv.exit.thread: ; preds = %_ZNK4llvm10DILocation8getScopeEv.exit.i, %52, %55, %_ZN4llvm10MIMetadataD2Ev.exit, %_ZNK4llvm10DILocation16getDiscriminatorEv.exit, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit
   %.2 = phi i1 [ %.1118, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit ], [ %.1118, %55 ], [ true, %_ZN4llvm10MIMetadataD2Ev.exit ], [ %.1118, %_ZNK4llvm10DILocation16getDiscriminatorEv.exit ], [ %.1118, %52 ], [ %.1118, %_ZNK4llvm10DILocation8getScopeEv.exit.i ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.097.0119) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.097.0119, align 8
   %157 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i57 = icmp eq i64 %157, 0
@@ -802,6 +803,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit: ;
 
 235:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit, %.lr.ph132
   %236 = phi i32 [ %234, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit ], [ %219, %.lr.ph132 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.081.0130) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i65 = load i64, ptr %.sroa.081.0130, align 8
   %237 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i65, 4
   %.not.i.i.i66 = icmp eq i64 %237, 0

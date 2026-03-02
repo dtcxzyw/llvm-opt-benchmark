@@ -19979,6 +19979,7 @@ _ZNK4llvm17RegisterClassInfo22getRegPressureSetLimitEj.exit.i.i: ; preds = %281,
   br label %299
 
 299:                                              ; preds = %295, %.lr.ph.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.014.027.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.014.027.i, align 8
   %300 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i12.i = icmp eq i64 %300, 0

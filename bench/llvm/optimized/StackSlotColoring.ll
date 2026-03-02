@@ -3938,6 +3938,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i.i.i:
   br i1 %switch.i.i.i, label %1292, label %.critedge.i.i
 
 1292:                                             ; preds = %.lr.ph.i92.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.069.091.i.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.069.091.i.i, align 8
   %1293 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i97 = icmp eq i64 %1293, 0

@@ -3035,6 +3035,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit: ; preds =
 
 983:                                              ; preds = %.lr.ph.i, %.lr.ph.i
   store ptr %.sroa.04.08.i, ptr %28, align 8, !tbaa !339
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.04.08.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.04.08.i, align 8
   %984 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i425 = icmp eq i64 %984, 0
@@ -4350,6 +4351,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEN12_GLOBAL__N_16BBIn
 
 1567:                                             ; preds = %.lr.ph.i631, %.lr.ph.i631
   store ptr %.sroa.04.08.i632, ptr %30, align 8, !tbaa !339
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.04.08.i632) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i633 = load i64, ptr %.sroa.04.08.i632, align 8
   %1568 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i633, 4
   %.not.i.i.i.i634 = icmp eq i64 %1568, 0
@@ -5805,6 +5807,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockEN12_GLOBAL__N_16BBIn
 
 2205:                                             ; preds = %.lr.ph.i843, %.lr.ph.i843
   store ptr %.sroa.04.08.i844, ptr %40, align 8, !tbaa !339
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.04.08.i844) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i845 = load i64, ptr %.sroa.04.08.i844, align 8
   %2206 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i845, 4
   %.not.i.i.i.i846 = icmp eq i64 %2206, 0

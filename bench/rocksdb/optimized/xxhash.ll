@@ -87,9 +87,9 @@ _ZL18XXH32_endian_alignPKhmj13XXH_alignment.exit: ; preds = %5
   br label %54
 
 .preheader.thread.i:                              ; preds = %3
-  %52 = icmp eq i64 %1, 0
-  tail call void @llvm.assume(i1 %52)
-  %53 = add i32 %2, 374761393
+  %52 = add i32 %2, 374761393
+  %53 = icmp eq i64 %1, 0
+  tail call void @llvm.assume(i1 %53)
   br label %_ZL14XXH32_finalizejPKhm13XXH_alignment.exit
 
 54:                                               ; preds = %_ZL18XXH32_endian_alignPKhmj13XXH_alignment.exit, %_ZL18XXH32_endian_alignPKhmj13XXH_alignment.exit.thread
@@ -136,7 +136,7 @@ _ZL18XXH_readLE32_alignPKv13XXH_alignment.exit.i: ; preds = %54, %_ZL18XXH_readL
   br i1 %.not.i, label %_ZL14XXH32_finalizejPKhm13XXH_alignment.exit, label %.lr.ph.i, !llvm.loop !13
 
 _ZL14XXH32_finalizejPKhm13XXH_alignment.exit:     ; preds = %.lr.ph.i, %.preheader.thread.i, %.preheader.i
-  %.1.lcssa.i = phi i32 [ %.0.lcssa.i, %.preheader.i ], [ %53, %.preheader.thread.i ], [ %71, %.lr.ph.i ]
+  %.1.lcssa.i = phi i32 [ %.0.lcssa.i, %.preheader.i ], [ %52, %.preheader.thread.i ], [ %71, %.lr.ph.i ]
   %73 = lshr i32 %.1.lcssa.i, 15
   %74 = xor i32 %73, %.1.lcssa.i
   %75 = mul i32 %74, -2048144777

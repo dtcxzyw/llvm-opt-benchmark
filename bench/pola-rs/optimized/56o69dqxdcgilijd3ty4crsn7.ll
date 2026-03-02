@@ -27705,6 +27705,7 @@ tailrecurse:                                      ; preds = %68, %3
 98:                                               ; preds = %84
   %99 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %96) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h45f9cb42886eaae9E"(ptr nonnull %95, ptr nonnull %96) #30
           to label %common.resume unwind label %120
 
@@ -29161,6 +29162,7 @@ _ZN12polars_arrow2io3ipc5write9serialize22write_buffer_from_iter17hb124128b2757c
 117:                                              ; preds = %104
   %118 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %116) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h45f9cb42886eaae9E"(ptr nonnull %115, ptr nonnull %116) #30
           to label %common.resume unwind label %139
 

@@ -36827,6 +36827,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain6
 113:                                              ; preds = %115, %166, %158, %128, %126, %125, %107
   %114 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %109) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr %108, ptr nonnull %109) #21
           to label %.body60 unwind label %180
 
@@ -37379,6 +37380,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain6
 112:                                              ; preds = %114, %165, %157, %127, %125, %124, %106
   %113 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %108) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr %107, ptr nonnull %108) #21
           to label %.body63 unwind label %179
 
@@ -37921,6 +37923,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain6
 113:                                              ; preds = %115, %166, %158, %128, %126, %125, %107
   %114 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %109) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr %108, ptr nonnull %109) #21
           to label %.body60 unwind label %180
 
@@ -38468,6 +38471,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain6
 113:                                              ; preds = %115, %166, %158, %128, %126, %125, %107
   %114 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %109) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr %108, ptr nonnull %109) #21
           to label %.body60 unwind label %180
 
@@ -39015,6 +39019,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain6
 113:                                              ; preds = %115, %166, %158, %128, %126, %125, %107
   %114 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %109) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr %108, ptr nonnull %109) #21
           to label %.body60 unwind label %180
 
@@ -39562,6 +39567,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain6
 113:                                              ; preds = %115, %166, %158, %128, %126, %125, %107
   %114 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %109) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr %108, ptr nonnull %109) #21
           to label %.body60 unwind label %180
 
@@ -40109,6 +40115,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain6
 113:                                              ; preds = %115, %166, %158, %128, %126, %125, %107
   %114 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %109) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr %108, ptr nonnull %109) #21
           to label %.body60 unwind label %180
 
@@ -40656,6 +40663,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain6
 113:                                              ; preds = %115, %166, %158, %128, %126, %125, %107
   %114 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %109) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr %108, ptr nonnull %109) #21
           to label %.body60 unwind label %180
 
@@ -41203,6 +41211,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain6
 113:                                              ; preds = %115, %166, %158, %128, %126, %125, %107
   %114 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %109) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr %108, ptr nonnull %109) #21
           to label %.body60 unwind label %180
 
@@ -41828,6 +41837,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain6
 137:                                              ; preds = %139, %190, %182, %152, %150, %149, %131
   %138 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %133) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr %132, ptr nonnull %133) #21
           to label %.body71 unwind label %204
 
@@ -42380,6 +42390,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain6
 113:                                              ; preds = %115, %166, %158, %128, %126, %125, %107
   %114 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %109) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr %108, ptr nonnull %109) #21
           to label %.body60 unwind label %180
 
@@ -42932,6 +42943,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain6
 112:                                              ; preds = %114, %165, %157, %127, %125, %124, %106
   %113 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %108) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr %107, ptr nonnull %108) #21
           to label %.body63 unwind label %179
 
@@ -43479,6 +43491,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain6
 113:                                              ; preds = %115, %166, %158, %128, %126, %125, %107
   %114 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %109) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr %108, ptr nonnull %109) #21
           to label %.body63 unwind label %180
 
@@ -44021,6 +44034,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain6
 113:                                              ; preds = %115, %166, %158, %128, %126, %125, %107
   %114 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %109) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr %108, ptr nonnull %109) #21
           to label %.body60 unwind label %180
 
@@ -44573,6 +44587,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain6
 112:                                              ; preds = %114, %165, %157, %127, %125, %124, %106
   %113 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %108) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr %107, ptr nonnull %108) #21
           to label %.body63 unwind label %179
 
@@ -45115,6 +45130,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain6
 113:                                              ; preds = %115, %166, %158, %128, %126, %125, %107
   %114 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %109) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr %108, ptr nonnull %109) #21
           to label %.body60 unwind label %180
 
@@ -45662,6 +45678,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain6
 113:                                              ; preds = %115, %166, %158, %128, %126, %125, %107
   %114 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %109) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr %108, ptr nonnull %109) #21
           to label %.body60 unwind label %180
 
@@ -46214,6 +46231,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain6
 112:                                              ; preds = %114, %165, %157, %127, %125, %124, %106
   %113 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %108) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr %107, ptr nonnull %108) #21
           to label %.body63 unwind label %179
 
@@ -46756,6 +46774,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain6
 113:                                              ; preds = %115, %166, %158, %128, %126, %125, %107
   %114 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %109) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr %108, ptr nonnull %109) #21
           to label %.body60 unwind label %180
 
@@ -47303,6 +47322,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain6
 113:                                              ; preds = %115, %166, %158, %128, %126, %125, %107
   %114 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %109) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr %108, ptr nonnull %109) #21
           to label %.body60 unwind label %180
 
@@ -47855,6 +47875,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain6
 113:                                              ; preds = %115, %166, %158, %128, %126, %125, %107
   %114 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %109) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr %108, ptr nonnull %109) #21
           to label %.body63 unwind label %180
 
@@ -48475,6 +48496,7 @@ define hidden void @_ZN14polars_parquet5arrow4read11deserialize9primitive5plain6
 137:                                              ; preds = %139, %190, %182, %152, %150, %149, %131
   %138 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %133) ]
   invoke fastcc void @"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$17h2338ef7aacb3f99dE"(ptr %132, ptr nonnull %133) #21
           to label %.body71 unwind label %204
 

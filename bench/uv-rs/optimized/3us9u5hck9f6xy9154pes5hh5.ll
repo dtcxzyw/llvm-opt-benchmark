@@ -851,7 +851,7 @@ define hidden void @"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h3d07b3c92
   %5 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp samesign ult i32 %3, 128
-  br i1 %6, label %.lr.ph.i, label %7
+  br i1 %6, label %.lr.ph.split.split.preheader.i, label %7
 
 7:                                                ; preds = %4
   %8 = icmp samesign ult i32 %3, 2048
@@ -873,7 +873,7 @@ define hidden void @"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h3d07b3c92
   %20 = shl i32 %3, 24
   %21 = and i32 %20, 1056964608
   %22 = or disjoint i32 %21, -2147483648
-  br label %.lr.ph.i
+  br label %.lr.ph.split.split.preheader.i
 
 23:                                               ; preds = %9
   %24 = lshr i32 %3, 12
@@ -883,16 +883,16 @@ define hidden void @"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h3d07b3c92
   %28 = or disjoint i32 %27, 128
   %29 = and i32 %3, 63
   %30 = or disjoint i32 %29, 128
-  br label %.lr.ph.i
+  br label %.lr.ph.split.split.preheader.i
 
 31:                                               ; preds = %7
   %32 = lshr i32 %3, 6
   %33 = or disjoint i32 %32, 192
   %34 = and i32 %3, 63
   %35 = or disjoint i32 %34, 128
-  br label %.lr.ph.i
+  br label %.lr.ph.split.split.preheader.i
 
-.lr.ph.i:                                         ; preds = %31, %23, %11, %4
+.lr.ph.split.split.preheader.i:                   ; preds = %31, %23, %11, %4
   %.sroa.13.0.i = phi i32 [ %22, %11 ], [ 0, %31 ], [ 0, %23 ], [ 0, %4 ]
   %.sroa.11.0.i = phi i32 [ %19, %11 ], [ 0, %31 ], [ %30, %23 ], [ 0, %4 ]
   %.sroa.8.0.i = phi i32 [ %16, %11 ], [ %35, %31 ], [ %28, %23 ], [ 0, %4 ]
@@ -915,11 +915,11 @@ define hidden void @"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h3d07b3c92
   %40 = zext nneg i8 %.sroa.0.1.i.i to i64
   %41 = getelementptr i8, ptr %39, i64 %40
   %42 = getelementptr i8, ptr %41, i64 -1
-  %.pre87.i = load i8, ptr %42, align 1, !alias.scope !108, !noalias !111
+  %.pre.i = load i8, ptr %42, align 1, !alias.scope !108, !noalias !111
   br label %.lr.ph.split.split.i
 
-.lr.ph.split.split.i:                             ; preds = %.lr.ph.i, %58
-  %43 = phi i64 [ %57, %58 ], [ 0, %.lr.ph.i ]
+.lr.ph.split.split.i:                             ; preds = %58, %.lr.ph.split.split.preheader.i
+  %43 = phi i64 [ %57, %58 ], [ 0, %.lr.ph.split.split.preheader.i ]
   %44 = sub nuw i64 %2, %43
   %45 = getelementptr inbounds i8, ptr %1, i64 %43
   %46 = icmp ult i64 %44, 16
@@ -933,7 +933,7 @@ define hidden void @"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h3d07b3c92
   %.sroa.01.05.i.i = phi i64 [ %51, %50 ], [ 0, %.preheader.i.i ]
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 %.sroa.01.05.i.i
   %48 = load i8, ptr %47, align 1, !alias.scope !113, !noalias !116, !noundef !8
-  %49 = icmp eq i8 %48, %.pre87.i
+  %49 = icmp eq i8 %48, %.pre.i
   br i1 %49, label %_ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread19.i, label %50
 
 50:                                               ; preds = %.lr.ph.i.i
@@ -942,7 +942,7 @@ define hidden void @"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h3d07b3c92
   br i1 %exitcond.not.i.i, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17hf1b458bba19643b2E.exit.thread", label %.lr.ph.i.i
 
 _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.i: ; preds = %.lr.ph.split.split.i
-  %52 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17hc9c0cd5438e9cfa5E(i8 noundef %.pre87.i, ptr noalias noundef nonnull readonly align 1 %45, i64 noundef %44), !noalias !116
+  %52 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17hc9c0cd5438e9cfa5E(i8 noundef %.pre.i, ptr noalias noundef nonnull readonly align 1 %45, i64 noundef %44), !noalias !116
   %53 = extractvalue { i64, i64 } %52, 0
   %54 = extractvalue { i64, i64 } %52, 1
   %55 = icmp eq i64 %53, 1

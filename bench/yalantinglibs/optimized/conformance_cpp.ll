@@ -1171,6 +1171,8 @@ if.then.i.i.i21:                                  ; preds = %if.end.i
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.thread.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i: ; preds = %if.then.i.i.i21
+  %cmp3.i.i.i.i.i.i.i = icmp samesign ult i64 %47, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
   %cmp.not.i.i.i.i.i = icmp ugt i32 %46, 15
   br i1 %cmp.not.i.i.i.i.i, label %land.lhs.true.i.i.i, label %if.then12.i.i.i.i.i
 

@@ -7823,6 +7823,7 @@ _ZN14polars_parquet7parquet8encoding7uleb1286encode17h47e23aa0bc6ec121E.exit: ; 
   %.idx56 = phi i64 [ %.add57, %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h48d032df6d8edaa7E.exit.i.i" ], [ 0, %.lr.ph.split ]
   %.ptr58 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx56
   %41 = add nuw nsw i64 %.sroa.0.014.i.i, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.1) ]
   %42 = icmp ne ptr %.sroa.0.1, %2
   call void @llvm.assume(i1 %42)
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 4

@@ -39296,10 +39296,10 @@ common.ret:                                       ; preds = %49, %28
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.val17 = load ptr, ptr %40, align 8
   %41 = icmp eq i64 %.val, 2
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %41, label %54, label %42
 
 42:                                               ; preds = %39
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd81fd28301b1df01E.llvm.3246130142079152848"(ptr noalias noundef nonnull align 8 dereferenceable(8) %43)
           to label %"_ZN4core3ptr84drop_in_place$LT$gpui..app..entity_map..WeakModel$LT$client..user..UserStore$GT$$GT$17hc1f4d841655d7568E.exit" unwind label %44
@@ -39340,7 +39340,6 @@ common.ret:                                       ; preds = %49, %28
 
 54:                                               ; preds = %39
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val17) ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %55
 
 55:                                               ; preds = %59, %54

@@ -904,6 +904,7 @@ default.unreachable:                              ; preds = %47
 
 93:                                               ; preds = %84, %80, %83
   %.sroa.916.0.ph = phi ptr [ %.sroa.0.0.i.ph.i.i, %83 ], [ %87, %84 ], [ %82, %80 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.916.0.ph) ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.916.0.ph, ptr %94, align 8
   store i8 1, ptr %0, align 8
@@ -1170,6 +1171,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$serde_json_lenient..de..Deserializer
 
 92:                                               ; preds = %83, %79, %82
   %.sroa.716.0.ph = phi ptr [ %.sroa.0.0.i.ph.i.i, %82 ], [ %81, %79 ], [ %86, %83 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.716.0.ph) ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.716.0.ph, ptr %93, align 8
   store i8 1, ptr %0, align 8

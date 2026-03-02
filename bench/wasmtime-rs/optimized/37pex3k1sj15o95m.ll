@@ -30113,17 +30113,17 @@ define void @_ZN17cranelift_codegen6egraph10EgraphPass3run17h53701bb828fc2b34E(p
 
 .noexc90.i:                                       ; preds = %218
   %220 = load i64, ptr %149, align 8, !range !62, !noalias !5366, !noundef !4
-  %221 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %222 = load i64, ptr %221, align 8, !noalias !5366, !noundef !4
-  %223 = getelementptr inbounds nuw i8, ptr %149, i64 16
-  %224 = load i64, ptr %223, align 8, !noalias !5366, !noundef !4
+  %221 = icmp ne i64 %220, 0
+  call void @llvm.assume(i1 %221)
+  %222 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  %223 = load i64, ptr %222, align 8, !noalias !5366, !noundef !4
+  %224 = getelementptr inbounds nuw i8, ptr %149, i64 16
+  %225 = load i64, ptr %224, align 8, !noalias !5366, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %149), !noalias !5366
-  %225 = load ptr, ptr %170, align 8, !alias.scope !5367, !noalias !5324, !nonnull !4, !noundef !4
-  %226 = sub nsw i64 0, %224
-  %227 = getelementptr inbounds i8, ptr %225, i64 %226
-  %228 = icmp ne i64 %220, 0
-  call void @llvm.assume(i1 %228)
-  call void @__rust_dealloc(ptr noundef nonnull %227, i64 noundef %222, i64 noundef %220) #34, !noalias !5367
+  %226 = load ptr, ptr %170, align 8, !alias.scope !5367, !noalias !5324, !nonnull !4, !noundef !4
+  %227 = sub nsw i64 0, %225
+  %228 = getelementptr inbounds i8, ptr %226, i64 %227
+  call void @__rust_dealloc(ptr noundef nonnull %228, i64 noundef %223, i64 noundef %220) #34, !noalias !5367
   br label %"_ZN4core3ptr205drop_in_place$LT$cranelift_codegen..ctxhash..CtxHashMap$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$cranelift_codegen..ir..entities..Value$GT$$GT$17h333172616db3f5cfE.exit.i"
 
 229:                                              ; preds = %"_ZN4core3ptr322drop_in_place$LT$std..collections..hash..map..HashMap$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$cranelift_codegen..scoped_hash_map..Val$LT$cranelift_codegen..ir..entities..Value$GT$$C$core..hash..BuildHasherDefault$LT$cranelift_codegen..fx..FxHasher$GT$$GT$$GT$17hd93f09b101e2ed02E.exit.i198.i"
@@ -31933,17 +31933,17 @@ _ZN17cranelift_codegen6cursor6Cursor25remove_inst_and_step_back17hdd56a95817f1e8
 
 .noexc203.i:                                      ; preds = %958
   %960 = load i64, ptr %127, align 8, !range !62, !noalias !5873, !noundef !4
-  %961 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  %962 = load i64, ptr %961, align 8, !noalias !5873, !noundef !4
-  %963 = getelementptr inbounds nuw i8, ptr %127, i64 16
-  %964 = load i64, ptr %963, align 8, !noalias !5873, !noundef !4
+  %961 = icmp ne i64 %960, 0
+  call void @llvm.assume(i1 %961)
+  %962 = getelementptr inbounds nuw i8, ptr %127, i64 8
+  %963 = load i64, ptr %962, align 8, !noalias !5873, !noundef !4
+  %964 = getelementptr inbounds nuw i8, ptr %127, i64 16
+  %965 = load i64, ptr %964, align 8, !noalias !5873, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %127), !noalias !5873
-  %965 = load ptr, ptr %170, align 8, !alias.scope !5874, !noalias !5324, !nonnull !4, !noundef !4
-  %966 = sub nsw i64 0, %964
-  %967 = getelementptr inbounds i8, ptr %965, i64 %966
-  %968 = icmp ne i64 %960, 0
-  call void @llvm.assume(i1 %968)
-  call void @__rust_dealloc(ptr noundef nonnull %967, i64 noundef %962, i64 noundef %960) #34, !noalias !5874
+  %966 = load ptr, ptr %170, align 8, !alias.scope !5874, !noalias !5324, !nonnull !4, !noundef !4
+  %967 = sub nsw i64 0, %965
+  %968 = getelementptr inbounds i8, ptr %966, i64 %967
+  call void @__rust_dealloc(ptr noundef nonnull %968, i64 noundef %963, i64 noundef %960) #34, !noalias !5874
   br label %"_ZN4core3ptr205drop_in_place$LT$cranelift_codegen..ctxhash..CtxHashMap$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$cranelift_codegen..ir..entities..Value$GT$$GT$17h333172616db3f5cfE.exit204.i"
 
 "_ZN4core3ptr205drop_in_place$LT$cranelift_codegen..ctxhash..CtxHashMap$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$cranelift_codegen..ir..entities..Value$GT$$GT$17h333172616db3f5cfE.exit204.i": ; preds = %.noexc203.i, %"_ZN4core3ptr216drop_in_place$LT$cranelift_codegen..scoped_hash_map..ScopedHashMap$LT$$LP$cranelift_codegen..ir..types..Type$C$cranelift_codegen..ir..instructions..InstructionData$RP$$C$cranelift_codegen..ir..entities..Value$GT$$GT$17h6dfee0e2a30d00dcE.exit202.i"

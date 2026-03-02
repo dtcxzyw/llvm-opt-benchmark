@@ -39293,6 +39293,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr65drop
 
 97:                                               ; preds = %70
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %73) ]
   %98 = ptrtoint ptr %73 to i64
   br label %99
 
@@ -41330,17 +41331,17 @@ default.unreachable216:                           ; preds = %2
 
 .noexc64:                                         ; preds = %.noexc63
   %39 = load i64, ptr %11, align 8, !range !1098, !noalias !8362, !noundef !4
-  %40 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %41 = load i64, ptr %40, align 8, !noalias !8362, !noundef !4
-  %42 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %43 = load i64, ptr %42, align 8, !noalias !8362, !noundef !4
+  %40 = icmp ne i64 %39, 0
+  call void @llvm.assume(i1 %40)
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %42 = load i64, ptr %41, align 8, !noalias !8362, !noundef !4
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %44 = load i64, ptr %43, align 8, !noalias !8362, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !8362
-  %44 = load ptr, ptr %.sroa.8.0..sroa_idx151, align 8, !alias.scope !8363, !noalias !8341, !nonnull !4, !noundef !4
-  %45 = sub nsw i64 0, %43
-  %46 = getelementptr inbounds i8, ptr %44, i64 %45
-  %47 = icmp ne i64 %39, 0
-  call void @llvm.assume(i1 %47)
-  call void @__rust_dealloc(ptr noundef nonnull %46, i64 noundef %41, i64 noundef %39) #41, !noalias !8364
+  %45 = load ptr, ptr %.sroa.8.0..sroa_idx151, align 8, !alias.scope !8363, !noalias !8341, !nonnull !4, !noundef !4
+  %46 = sub nsw i64 0, %44
+  %47 = getelementptr inbounds i8, ptr %45, i64 %46
+  call void @__rust_dealloc(ptr noundef nonnull %47, i64 noundef %42, i64 noundef %39) #41, !noalias !8364
   br label %50
 
 48:                                               ; preds = %.noexc63, %.noexc, %35

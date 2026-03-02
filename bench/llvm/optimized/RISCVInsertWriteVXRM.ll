@@ -645,6 +645,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i: ; preds = %_ZN4llvm7RISCV
 
 126:                                              ; preds = %.sink.split.i, %122
   %.1.i = phi i1 [ %.012.i, %122 ], [ %.1.ph.i, %.sink.split.i ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.02.013.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.02.013.i, align 8
   %127 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i = icmp eq i64 %127, 0
@@ -1610,6 +1611,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i71: ; preds = %_ZN4llvm7RIS
   %.sroa.088.2.i = phi i8 [ %.sroa.088.1111.i, %476 ], [ %.sroa.088.1111.i, %474 ], [ %457, %456 ]
   %.sroa.7.2.i = phi i8 [ 2, %476 ], [ %.sroa.7.1112.i, %474 ], [ 1, %456 ]
   %.7.i = phi i8 [ %.5113.i, %476 ], [ %.5113.i, %474 ], [ 0, %456 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.084.0114.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i73 = load i64, ptr %.sroa.084.0114.i, align 8
   %478 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i73, 4
   %.not.i.i.i.i74 = icmp eq i64 %478, 0

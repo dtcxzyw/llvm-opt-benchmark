@@ -13948,6 +13948,7 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %.lr.ph
   ]
 
 48:                                               ; preds = %45
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.028.042) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i19 = load i64, ptr %.sroa.028.042, align 8
   %49 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i19, 4
   %.not.i.i.i20 = icmp eq i64 %49, 0

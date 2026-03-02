@@ -523,9 +523,10 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h579cc46c31ddf6f6E.exit":
   %.sroa.0.0.copyload4 = load ptr, ptr %1, align 8, !alias.scope !106, !nonnull !9, !noundef !9
   %.sroa.6.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.6.0.copyload6 = load ptr, ptr %.sroa.6.0..sroa_idx5, align 8, !alias.scope !106, !nonnull !9, !noundef !9
+  %.sroa.6.0.copyload6 = load ptr, ptr %.sroa.6.0..sroa_idx5, align 8, !alias.scope !106
   %.sroa.8.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.8.0.copyload9 = load i64, ptr %.sroa.8.0..sroa_idx8, align 8, !alias.scope !106
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.6.0.copyload6) ]
   %2 = inttoptr i64 %.sroa.8.0.copyload9 to ptr
   tail call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hdcc94451d9c78a9eE.llvm.4495110368786696258"(ptr noundef nonnull %.sroa.0.0.copyload4, ptr noundef nonnull %.sroa.6.0.copyload6, ptr noalias noundef nonnull align 8 dereferenceable(64) %2, ptr noalias noundef nonnull align 8 dereferenceable(32) %0), !noalias !110
   ret void

@@ -7213,8 +7213,8 @@ _ZN10rayon_core8registry12WorkerThread4push17h6d2a101a53d17c67E.exit: ; preds = 
   %83 = extractvalue { ptr, ptr } %75, 0
   %84 = extractvalue { ptr, ptr } %75, 1
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %83) ]
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %84) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %84) ]
   invoke void @_ZN10rayon_core4join23join_recover_from_panic17h688f9edb39b86a29E(ptr noundef nonnull align 128 %2, ptr noundef nonnull align 8 %18, ptr noundef nonnull align 1 %83, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %84) #56
           to label %138 unwind label %.thread.loopexit.split-lp
 
@@ -7653,8 +7653,8 @@ _ZN10rayon_core8registry12WorkerThread4push17h6d2a101a53d17c67E.exit: ; preds = 
   %83 = extractvalue { ptr, ptr } %75, 0
   %84 = extractvalue { ptr, ptr } %75, 1
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %83) ]
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %84) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %84) ]
   invoke void @_ZN10rayon_core4join23join_recover_from_panic17h688f9edb39b86a29E(ptr noundef nonnull align 128 %2, ptr noundef nonnull align 8 %18, ptr noundef nonnull align 1 %83, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %84) #56
           to label %138 unwind label %.thread.loopexit.split-lp
 
@@ -8097,9 +8097,9 @@ _ZN10rayon_core8registry12WorkerThread4push17h6d2a101a53d17c67E.exit: ; preds = 
   %83 = extractvalue { ptr, ptr } %75, 0
   %84 = extractvalue { ptr, ptr } %75, 1
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %83) ]
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %84) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %84) ]
   invoke void @_ZN10rayon_core4join23join_recover_from_panic17h688f9edb39b86a29E(ptr noundef nonnull align 128 %2, ptr noundef nonnull align 8 %18, ptr noundef nonnull align 1 %83, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %84) #56
           to label %140 unwind label %.thread.loopexit.split-lp
 
@@ -8519,9 +8519,9 @@ _ZN10rayon_core8registry12WorkerThread4push17h6d2a101a53d17c67E.exit: ; preds = 
   %83 = extractvalue { ptr, ptr } %75, 0
   %84 = extractvalue { ptr, ptr } %75, 1
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %83) ]
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %84) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %84) ]
   invoke void @_ZN10rayon_core4join23join_recover_from_panic17h688f9edb39b86a29E(ptr noundef nonnull align 128 %2, ptr noundef nonnull align 8 %18, ptr noundef nonnull align 1 %83, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %84) #56
           to label %140 unwind label %.thread.loopexit.split-lp
 
@@ -8936,9 +8936,9 @@ _ZN10rayon_core8registry12WorkerThread4push17h6d2a101a53d17c67E.exit: ; preds = 
   %80 = extractvalue { ptr, ptr } %72, 0
   %81 = extractvalue { ptr, ptr } %72, 1
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %80) ]
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %81) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %81) ]
   invoke void @_ZN10rayon_core4join23join_recover_from_panic17h688f9edb39b86a29E(ptr noundef nonnull align 128 %2, ptr noundef nonnull align 8 %16, ptr noundef nonnull align 1 %80, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %81) #56
           to label %121 unwind label %.thread.loopexit.split-lp
 
@@ -10331,8 +10331,8 @@ _ZN10rayon_core8registry12WorkerThread4push17h6d2a101a53d17c67E.exit: ; preds = 
   %80 = extractvalue { ptr, ptr } %72, 0
   %81 = extractvalue { ptr, ptr } %72, 1
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %80) ]
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %81) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %81) ]
   invoke void @_ZN10rayon_core4join23join_recover_from_panic17h688f9edb39b86a29E(ptr noundef nonnull align 128 %2, ptr noundef nonnull align 8 %16, ptr noundef nonnull align 1 %80, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %81) #56
           to label %119 unwind label %.thread.loopexit.split-lp
 
@@ -10717,8 +10717,8 @@ _ZN10rayon_core8registry12WorkerThread4push17h6d2a101a53d17c67E.exit: ; preds = 
   %82 = extractvalue { ptr, ptr } %74, 0
   %83 = extractvalue { ptr, ptr } %74, 1
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %82) ]
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %83) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %83) ]
   invoke void @_ZN10rayon_core4join23join_recover_from_panic17h688f9edb39b86a29E(ptr noundef nonnull align 128 %2, ptr noundef nonnull align 8 %17, ptr noundef nonnull align 1 %82, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %83) #56
           to label %139 unwind label %.thread.loopexit.split-lp
 

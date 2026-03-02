@@ -5801,6 +5801,7 @@ define void @"_ZN82_$LT$rustls..crypto..tls12..PrfUsingHmac$u20$as$u20$rustls..c
 41:                                               ; preds = %40
   %42 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fca.1.extract) ]
   invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..hmac..Key$GT$$GT$17hb5eb4a04d4424ca5E"(ptr nonnull %.fca.0.extract, ptr nonnull %.fca.1.extract) #34
           to label %.body unwind label %73
 
@@ -5906,6 +5907,7 @@ define void @"_ZN82_$LT$rustls..crypto..tls12..PrfUsingHmac$u20$as$u20$rustls..c
 16:                                               ; preds = %9
   %17 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fca.1.extract) ]
   invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..hmac..Key$GT$$GT$17hb5eb4a04d4424ca5E"(ptr nonnull %.fca.0.extract, ptr nonnull %.fca.1.extract) #34
           to label %common.resume unwind label %37
 
@@ -6638,6 +6640,7 @@ define { ptr, ptr } @"_ZN84_$LT$rustls..crypto..tls13..HkdfUsingHmac$u20$as$u20$
 
 "_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit": ; preds = %.lr.ph.i.i.i.i, %25
   %.pn = phi { ptr, i32 } [ %26, %25 ], [ %eh.lpad-body, %.lr.ph.i.i.i.i ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fca.1.extract) ]
   invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..hmac..Key$GT$$GT$17hb5eb4a04d4424ca5E"(ptr %.fca.0.extract, ptr nonnull %.fca.1.extract) #34
           to label %common.resume unwind label %72
 
@@ -6885,6 +6888,7 @@ define void @"_ZN84_$LT$rustls..crypto..tls13..HkdfUsingHmac$u20$as$u20$rustls..
 20:                                               ; preds = %"_ZN92_$LT$rustls..crypto..tls13..OkmBlock$u20$as$u20$core..convert..AsRef$LT$$u5b$u8$u5d$$GT$$GT$6as_ref17haed0c274cddec310E.exit"
   %21 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fca.1.extract) ]
   invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..hmac..Key$GT$$GT$17hb5eb4a04d4424ca5E"(ptr %.fca.0.extract, ptr nonnull %.fca.1.extract) #34
           to label %common.resume unwind label %41
 

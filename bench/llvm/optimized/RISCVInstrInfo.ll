@@ -19755,6 +19755,7 @@ define dso_local void @_ZNK4llvm14RISCVInstrInfo18buildOutlinedFrameERNS_17Machi
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.024.032) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.024.032, align 8
   %16 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %16, 0

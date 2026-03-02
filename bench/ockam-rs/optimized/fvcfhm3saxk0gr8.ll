@@ -3347,6 +3347,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.th
 433:                                              ; preds = %432
   %434 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %358) ]
   br label %.body.thread.sink.split.i.i
 
 .noexc4.i.i:                                      ; preds = %432

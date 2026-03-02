@@ -7819,6 +7819,7 @@ _ZN11quinn_proto5token16encode_unix_secs17h14abcd41ee43cda7E.exit20: ; preds = %
 85:                                               ; preds = %88, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8c53eaa133ee9530E.exit", %79
   %86 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %81) ]
   invoke fastcc void @"_ZN4core3ptr82drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$quinn_proto..crypto..AeadKey$GT$$GT$17h540cb866fe89f75eE"(ptr %80, ptr nonnull %81) #26
           to label %.thread unwind label %110
 

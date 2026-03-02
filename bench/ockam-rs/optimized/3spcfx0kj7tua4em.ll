@@ -13536,6 +13536,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit212: ; preds = %293
 343:                                              ; preds = %339
   %344 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1da59b8c316d5d82E"(ptr nonnull %.val, ptr nonnull readonly %.val184) #35
   br label %.body222
 
@@ -41217,6 +41218,7 @@ common.resume:                                    ; preds = %.body21, %.body32, 
 43:                                               ; preds = %39
   %44 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val15) ]
   tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1da59b8c316d5d82E"(ptr nonnull %.val15, ptr nonnull readonly %.val16) #35
   br label %common.resume
 
@@ -41450,6 +41452,7 @@ common.resume:                                    ; preds = %.body21, %.body32, 
 128:                                              ; preds = %124
   %129 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1da59b8c316d5d82E"(ptr nonnull %.val, ptr nonnull readonly %.val14) #35
   br label %common.resume
 
@@ -53449,6 +53452,7 @@ common.resume:                                    ; preds = %23, %9
 23:                                               ; preds = %19
   %24 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h38567f58cfb4af28E"(ptr nonnull %.val, ptr nonnull readonly %.val1) #35
   br label %common.resume
 
@@ -55699,6 +55703,7 @@ common.resume.i:                                  ; preds = %25, %11
 25:                                               ; preds = %21
   %26 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i) ]
   tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h38567f58cfb4af28E"(ptr nonnull %.val.i, ptr nonnull readonly %.val1.i) #35, !noalias !9129
   br label %common.resume.i
 
@@ -55830,6 +55835,7 @@ define internal fastcc void @"_ZN4core3ptr98drop_in_place$LT$alloc..boxed..Box$L
 2:                                                ; preds = %0
   %3 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.val) ]
   tail call fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1da59b8c316d5d82E"(ptr nonnull %.0.val, ptr nonnull %.8.val) #35
   resume { ptr, i32 } %3
 
@@ -60002,38 +60008,40 @@ _ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.llvm.9977487472220041507.
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
 define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h8a2b6ac23898eabbE.llvm.9977487472220041507(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #12 {
   %5 = icmp eq i64 %2, 0
-  br i1 %5, label %6, label %10
+  br i1 %5, label %6, label %11
 
 6:                                                ; preds = %4
   %7 = add i64 %1, -1
   %8 = icmp sgt i64 %7, -1
   tail call void @llvm.assume(i1 %8)
   %9 = inttoptr i64 %1 to ptr
-  br label %11
+  %10 = icmp ne i64 %1, 0
+  tail call void @llvm.assume(i1 %10)
+  br label %12
 
-10:                                               ; preds = %4
-  br i1 %3, label %19, label %14
+11:                                               ; preds = %4
+  br i1 %3, label %20, label %15
 
-11:                                               ; preds = %14, %19, %6
-  %.sroa.0.0 = phi ptr [ %9, %6 ], [ %22, %19 ], [ %18, %14 ]
-  %12 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %13 = insertvalue { ptr, i64 } %12, i64 %2, 1
-  ret { ptr, i64 } %13
+12:                                               ; preds = %15, %20, %6
+  %.sroa.0.0 = phi ptr [ %9, %6 ], [ %23, %20 ], [ %19, %15 ]
+  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %14 = insertvalue { ptr, i64 } %13, i64 %2, 1
+  ret { ptr, i64 } %14
 
-14:                                               ; preds = %10
-  %15 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %16 = add i64 %1, -1
-  %17 = icmp sgt i64 %16, -1
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #37
-  br label %11
+15:                                               ; preds = %11
+  %16 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %17 = add i64 %1, -1
+  %18 = icmp sgt i64 %17, -1
+  tail call void @llvm.assume(i1 %18)
+  %19 = tail call noundef ptr @__rust_alloc(i64 noundef %2, i64 noundef %1) #37
+  br label %12
 
-19:                                               ; preds = %10
-  %20 = add i64 %1, -1
-  %21 = icmp sgt i64 %20, -1
-  tail call void @llvm.assume(i1 %21)
-  %22 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #37
-  br label %11
+20:                                               ; preds = %11
+  %21 = add i64 %1, -1
+  %22 = icmp sgt i64 %21, -1
+  tail call void @llvm.assume(i1 %22)
+  %23 = tail call noundef ptr @__rust_alloc_zeroed(i64 noundef %2, i64 noundef %1) #37
+  br label %12
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
@@ -122187,6 +122195,7 @@ _ZN5tokio7runtime7context7CONTEXT7__getit17h7f325999eee39338E.llvm.9977487472220
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.i9.i) ]
   store i64 %.sroa.5.0.i8.i, ptr %22, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %222 = load i64, ptr %28, align 8, !noundef !4
@@ -123043,6 +123052,7 @@ _ZN5tokio7runtime7context7CONTEXT7__getit17h7f325999eee39338E.llvm.9977487472220
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.6.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.i, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.i9.i) ]
   store i64 %.sroa.5.0.i8.i, ptr %22, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %222 = load i64, ptr %28, align 8, !noundef !4
@@ -123904,6 +123914,7 @@ _ZN5tokio7runtime7context7CONTEXT7__getit17h7f325999eee39338E.llvm.9977487472220
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %.sroa.7.8..sroa_idx, ptr noundef nonnull align 1 dereferenceable(9) %.sroa.8.i.i, i64 9, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.i.i29) ]
   %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 30
   store i8 %.sroa.6.0.i.i28, ptr %.sroa.6.8..sroa_idx, align 2
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -124761,6 +124772,7 @@ _ZN5tokio7runtime7context7CONTEXT7__getit17h7f325999eee39338E.llvm.9977487472220
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.i9.i) ]
   store i64 %.sroa.5.0.i8.i, ptr %22, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %222 = load i64, ptr %28, align 8, !noundef !4
@@ -125617,6 +125629,7 @@ _ZN5tokio7runtime7context7CONTEXT7__getit17h7f325999eee39338E.llvm.9977487472220
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.i9.i) ]
   store i64 %.sroa.5.0.i8.i, ptr %22, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %222 = load i64, ptr %28, align 8, !noundef !4

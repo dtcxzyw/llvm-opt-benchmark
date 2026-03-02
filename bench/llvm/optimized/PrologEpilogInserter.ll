@@ -7442,6 +7442,7 @@ _ZNK4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1E
   br i1 %.not25.i.i, label %3330, label %3313
 
 3313:                                             ; preds = %.thread17.i.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.05.21520.i.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i46.i.i = load i64, ptr %.sroa.05.21520.i.i, align 8
   %3314 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i46.i.i, 4
   %.not.i.i.i47.i.i = icmp eq i64 %3314, 0

@@ -11033,6 +11033,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 22:                                               ; preds = %.noexc.i
   %23 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %19) ]
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$polars_expr..reduce..GroupedReduction$GT$$GT$17hebadc23af5ec00cdE"(ptr %18, ptr nonnull %19) #33
           to label %32 unwind label %24, !noalias !2373
 
@@ -11044,6 +11045,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 26:                                               ; preds = %.noexc.i
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %18) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %19) ]
   %27 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %.sroa.9.0.copyload, i64 %.val20.i
   store ptr %18, ptr %27, align 8, !noalias !2376
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8

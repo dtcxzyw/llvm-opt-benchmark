@@ -9599,12 +9599,12 @@ common.ret:                                       ; preds = %1540, %130
   br label %730
 
 701:                                              ; preds = %675
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.435.0.copyload.i.i.i) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   call void @llvm.lifetime.end.p0(ptr nonnull %72), !noalias !1253
   store i8 1, ptr %397, align 8, !noalias !1253
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %73), !noalias !1208
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.435.0.copyload.i.i.i) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %77)
   %702 = getelementptr inbounds nuw i8, ptr %1, i64 336
   call void @llvm.lifetime.start.p0(ptr nonnull %49), !noalias !1406

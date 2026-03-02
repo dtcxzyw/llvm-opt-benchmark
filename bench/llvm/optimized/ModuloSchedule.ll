@@ -9347,6 +9347,7 @@ _ZN4llvm8DebugLocD2Ev.exit61:                     ; preds = %57, %67
   br i1 %.not.i, label %.loopexit.i, label %78, !llvm.loop !463
 
 .loopexit.i:                                      ; preds = %86, %85, %72
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.016.025.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.016.025.i, align 8
   %88 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i62 = icmp eq i64 %88, 0
@@ -9533,6 +9534,7 @@ _ZN4llvm8DebugLocD2Ev.exit72:                     ; preds = %134, %144
   br i1 %.not.i80, label %.loopexit.i81, label %155, !llvm.loop !463
 
 .loopexit.i81:                                    ; preds = %163, %162, %149
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.016.025.i76) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i82 = load i64, ptr %.sroa.016.025.i76, align 8
   %165 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i82, 4
   %.not.i.i.i.i83 = icmp eq i64 %165, 0
@@ -12583,6 +12585,7 @@ _ZNK4llvm12MachineInstr12isTerminatorENS0_9QueryTypeE.exit: ; preds = %37
   %59 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_17MachineBasicBlockEPNS_12MachineInstrEES6_NS_12DenseMapInfoIS7_vEENS_6detail12DenseMapPairIS7_S6_EEEES7_S6_S9_SC_EixEOS7_(ptr noundef nonnull align 1 dereferenceable(1) %34, ptr noundef nonnull align 8 dereferenceable(16) %7)
   store ptr %.sroa.014.0, ptr %59, align 8, !tbaa !58
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.014.0) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.014.0, align 8
   %60 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %60, 0
@@ -20358,6 +20361,7 @@ _ZNK4llvm12MachineInstr12isTerminatorENS0_9QueryTypeE.exit35: ; preds = %165
   br i1 %.not1.i, label %.critedge2, label %.preheader.preheader
 
 .critedge2:                                       ; preds = %.preheader175, %.preheader175, %186
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0158.1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i39 = load i64, ptr %.sroa.0158.1, align 8
   %190 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i39, 4
   %.not.i.i.i40 = icmp eq i64 %190, 0
@@ -20417,6 +20421,7 @@ _ZNK4llvm12MachineInstr10isFullCopyEv.exit51:     ; preds = %203
   br i1 %.not1.i50, label %.critedge4, label %_ZNK4llvm12MachineInstr10isFullCopyEv.exit51.thread
 
 .critedge4:                                       ; preds = %.preheader, %.preheader, %_ZNK4llvm12MachineInstr10isFullCopyEv.exit51
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i53 = load i64, ptr %.sroa.0.1, align 8
   %211 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i53, 4
   %.not.i.i.i54 = icmp eq i64 %211, 0
@@ -20458,6 +20463,7 @@ _ZNK4llvm12MachineInstr10isFullCopyEv.exit51.thread: ; preds = %203, %_ZNK4llvm1
   br label %.lr.ph189
 
 ._crit_edge190:                                   ; preds = %_ZN12_GLOBAL__N_117KernelOperandInfoD2Ev.exit83, %_ZNK4llvm12MachineInstr10isFullCopyEv.exit51.thread
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0158.1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i63 = load i64, ptr %.sroa.0158.1, align 8
   %227 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i63, 4
   %.not.i.i.i64 = icmp eq i64 %227, 0
@@ -29885,6 +29891,7 @@ _ZNK4llvm12MachineInstr18getPostInstrSymbolEv.exit.thread.i: ; preds = %_ZL17par
   %.sroa.1233.2.i = phi ptr [ %.sroa.1233.048.i, %_ZNK4llvm12MachineInstr12isTerminatorENS0_9QueryTypeE.exit.i ], [ %.sroa.1233.1.i, %_ZNK4llvm12MachineInstr18getPostInstrSymbolEv.exit.i ], [ %.sroa.1233.1.i, %_ZL17parseSymbolStringN4llvm9StringRefERiS1_.exit.i ], [ %.sroa.1233.048.i, %194 ], [ %.sroa.1233.1.i, %_ZNSt6vectorIPN4llvm12MachineInstrESaIS2_EE9push_backEOS2_.exit.i ], [ %.sroa.1233.1.i, %224 ], [ %.sroa.1233.1.i, %228 ]
   %.sroa.831.2.i = phi ptr [ %.sroa.831.049.i, %_ZNK4llvm12MachineInstr12isTerminatorENS0_9QueryTypeE.exit.i ], [ %.sroa.831.1.i, %_ZNK4llvm12MachineInstr18getPostInstrSymbolEv.exit.i ], [ %.sroa.831.1.i, %_ZL17parseSymbolStringN4llvm9StringRefERiS1_.exit.i ], [ %.sroa.831.049.i, %194 ], [ %.sroa.831.1.i, %_ZNSt6vectorIPN4llvm12MachineInstrESaIS2_EE9push_backEOS2_.exit.i ], [ %.sroa.831.1.i, %224 ], [ %.sroa.831.1.i, %228 ]
   %.sroa.028.2.i = phi ptr [ %.sroa.028.050.i, %_ZNK4llvm12MachineInstr12isTerminatorENS0_9QueryTypeE.exit.i ], [ %.sroa.028.1.i, %_ZNK4llvm12MachineInstr18getPostInstrSymbolEv.exit.i ], [ %.sroa.028.1.i, %_ZL17parseSymbolStringN4llvm9StringRefERiS1_.exit.i ], [ %.sroa.028.050.i, %194 ], [ %.sroa.028.1.i, %_ZNSt6vectorIPN4llvm12MachineInstrESaIS2_EE9push_backEOS2_.exit.i ], [ %.sroa.028.1.i, %224 ], [ %.sroa.028.1.i, %228 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.026.051.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.026.051.i, align 8
   %332 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i34.i = icmp eq i64 %332, 0

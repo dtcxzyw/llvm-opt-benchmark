@@ -2599,18 +2599,20 @@ define hidden void @"_ZN4core3ptr131drop_in_place$LT$crossbeam_utils..cache_padd
   %2 = load atomic i64, ptr %0 monotonic, align 128, !alias.scope !721
   %3 = and i64 %2, -8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load i64, ptr %5, align 8, !noalias !721, !noundef !17
-  %7 = icmp eq i64 %6, 0
-  br i1 %7, label %"_ZN4core3ptr81drop_in_place$LT$crossbeam_deque..deque..Inner$LT$rayon_core..job..JobRef$GT$$GT$17h5edf0db4655b8c91E.llvm.3531809010164697281.exit", label %8
+  %5 = icmp ne i64 %3, 0
+  tail call void @llvm.assume(i1 %5)
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %7 = load i64, ptr %6, align 8, !noalias !721, !noundef !17
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %"_ZN4core3ptr81drop_in_place$LT$crossbeam_deque..deque..Inner$LT$rayon_core..job..JobRef$GT$$GT$17h5edf0db4655b8c91E.llvm.3531809010164697281.exit", label %9
 
-8:                                                ; preds = %1
-  %9 = load ptr, ptr %4, align 8, !noalias !721, !nonnull !17, !noundef !17
-  %10 = shl nuw i64 %6, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %10, i64 noundef 8) #26, !noalias !722
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %4, align 8, !noalias !721, !nonnull !17, !noundef !17
+  %11 = shl nuw i64 %7, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %11, i64 noundef 8) #26, !noalias !722
   br label %"_ZN4core3ptr81drop_in_place$LT$crossbeam_deque..deque..Inner$LT$rayon_core..job..JobRef$GT$$GT$17h5edf0db4655b8c91E.llvm.3531809010164697281.exit"
 
-"_ZN4core3ptr81drop_in_place$LT$crossbeam_deque..deque..Inner$LT$rayon_core..job..JobRef$GT$$GT$17h5edf0db4655b8c91E.llvm.3531809010164697281.exit": ; preds = %1, %8
+"_ZN4core3ptr81drop_in_place$LT$crossbeam_deque..deque..Inner$LT$rayon_core..job..JobRef$GT$$GT$17h5edf0db4655b8c91E.llvm.3531809010164697281.exit": ; preds = %1, %9
   tail call void @__rust_dealloc(ptr noundef nonnull %4, i64 noundef 16, i64 noundef 8) #26, !noalias !721
   ret void
 }
@@ -17050,18 +17052,20 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$crossbeam_deque..deque..Inne
   %2 = load atomic i64, ptr %0 monotonic, align 128, !alias.scope !7097
   %3 = and i64 %2, -8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load i64, ptr %5, align 8, !noalias !7097, !noundef !17
-  %7 = icmp eq i64 %6, 0
-  br i1 %7, label %"_ZN80_$LT$crossbeam_deque..deque..Inner$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hefbc58ce7740fc55E.llvm.3531809010164697281.exit", label %8
+  %5 = icmp ne i64 %3, 0
+  tail call void @llvm.assume(i1 %5)
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %7 = load i64, ptr %6, align 8, !noalias !7097, !noundef !17
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %"_ZN80_$LT$crossbeam_deque..deque..Inner$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hefbc58ce7740fc55E.llvm.3531809010164697281.exit", label %9
 
-8:                                                ; preds = %1
-  %9 = load ptr, ptr %4, align 8, !noalias !7097, !nonnull !17, !noundef !17
-  %10 = shl nuw i64 %6, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %10, i64 noundef 8) #26, !noalias !7100
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %4, align 8, !noalias !7097, !nonnull !17, !noundef !17
+  %11 = shl nuw i64 %7, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %11, i64 noundef 8) #26, !noalias !7100
   br label %"_ZN80_$LT$crossbeam_deque..deque..Inner$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hefbc58ce7740fc55E.llvm.3531809010164697281.exit"
 
-"_ZN80_$LT$crossbeam_deque..deque..Inner$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hefbc58ce7740fc55E.llvm.3531809010164697281.exit": ; preds = %1, %8
+"_ZN80_$LT$crossbeam_deque..deque..Inner$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hefbc58ce7740fc55E.llvm.3531809010164697281.exit": ; preds = %1, %9
   tail call void @__rust_dealloc(ptr noundef nonnull %4, i64 noundef 16, i64 noundef 8) #26, !noalias !7097
   ret void
 }
@@ -23763,18 +23767,20 @@ define hidden void @"_ZN80_$LT$crossbeam_deque..deque..Inner$LT$T$GT$$u20$as$u20
   %2 = load atomic i64, ptr %0 monotonic, align 128
   %3 = and i64 %2, -8
   %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load i64, ptr %5, align 8, !noundef !17
-  %7 = icmp eq i64 %6, 0
-  br i1 %7, label %"_ZN15crossbeam_deque5deque15Buffer$LT$T$GT$7dealloc17h8f3a92dc029a9e39E.exit", label %8
+  %5 = icmp ne i64 %3, 0
+  tail call void @llvm.assume(i1 %5)
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %7 = load i64, ptr %6, align 8, !noundef !17
+  %8 = icmp eq i64 %7, 0
+  br i1 %8, label %"_ZN15crossbeam_deque5deque15Buffer$LT$T$GT$7dealloc17h8f3a92dc029a9e39E.exit", label %9
 
-8:                                                ; preds = %1
-  %9 = load ptr, ptr %4, align 8, !nonnull !17, !noundef !17
-  %10 = shl nuw i64 %6, 4
-  tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef %10, i64 noundef 8) #26, !noalias !8783
+9:                                                ; preds = %1
+  %10 = load ptr, ptr %4, align 8, !nonnull !17, !noundef !17
+  %11 = shl nuw i64 %7, 4
+  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %11, i64 noundef 8) #26, !noalias !8783
   br label %"_ZN15crossbeam_deque5deque15Buffer$LT$T$GT$7dealloc17h8f3a92dc029a9e39E.exit"
 
-"_ZN15crossbeam_deque5deque15Buffer$LT$T$GT$7dealloc17h8f3a92dc029a9e39E.exit": ; preds = %8, %1
+"_ZN15crossbeam_deque5deque15Buffer$LT$T$GT$7dealloc17h8f3a92dc029a9e39E.exit": ; preds = %9, %1
   tail call void @__rust_dealloc(ptr noundef nonnull %4, i64 noundef 16, i64 noundef 8) #26
   ret void
 }

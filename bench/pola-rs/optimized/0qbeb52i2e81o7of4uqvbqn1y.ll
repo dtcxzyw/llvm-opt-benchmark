@@ -7474,6 +7474,7 @@ define hidden void @"_ZN128_$LT$slotmap..secondary..SecondaryMap$LT$K$C$V$GT$$u2
 
 31:                                               ; preds = %.noexc
   %32 = extractvalue { i32, i32 } %29, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %20) ]
   call void @llvm.experimental.noalias.scope.decl(metadata !579)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !582
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !582

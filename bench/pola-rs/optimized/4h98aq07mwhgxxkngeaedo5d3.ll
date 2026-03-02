@@ -14987,6 +14987,7 @@ _ZN4core5slice4sort6stable9quicksort16stable_partition17h7a44bc4d23a7c101E.exit:
 
 105:                                              ; preds = %66
   %106 = getelementptr inbounds nuw { i8, [159 x i8] }, ptr %.sroa.0.0.ph88, i64 %.sroa.11.1.lcssa.i
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.ph88) ]
   tail call void @_ZN4core5slice4sort6stable9quicksort9quicksort17ha6e9b0a50fb7bdbbE(ptr noalias noundef nonnull align 16 %106, i64 noundef %58, ptr noalias noundef nonnull align 16 %2, i64 noundef %3, i32 noundef %17, ptr noundef align 16 null, ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
   %107 = icmp ult i64 %.sroa.11.1.lcssa.i, 17
   br i1 %107, label %.outer._crit_edge, label %11

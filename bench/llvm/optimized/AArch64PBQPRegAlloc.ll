@@ -2757,6 +2757,7 @@ _ZN4llvm11SmallVectorIjLj8EED2Ev.exit:            ; preds = %._crit_edge, %175
   br label %191
 
 191:                                              ; preds = %177, %185, %._crit_edge50, %186
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.033.053) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.033.053, align 8
   %192 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i26 = icmp eq i64 %192, 0

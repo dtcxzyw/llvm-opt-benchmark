@@ -8029,6 +8029,7 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$csv..deserializer..DeRecordWrap$LT$T$
   %49 = load i64, ptr %48, align 8, !alias.scope !1363, !noalias !1366, !noundef !4
   %50 = add i64 %49, 1
   store i64 %50, ptr %48, align 8, !alias.scope !1363, !noalias !1366
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.04.0.i) ]
   %.not.i = icmp ult i64 %.sroa.46.0.i, 2
   br i1 %.not.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3f56ada1c4bf45b8E.exit.thread", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3f56ada1c4bf45b8E.exit"
 
@@ -8667,6 +8668,7 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$csv..deserializer..DeRecordWrap$LT$T$
   %46 = load i64, ptr %45, align 8, !alias.scope !1472, !noalias !1475, !noundef !4
   %47 = add i64 %46, 1
   store i64 %47, ptr %45, align 8, !alias.scope !1472, !noalias !1475
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.04.0.i) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1488)
   %48 = tail call { i64, ptr } @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17heb0200df961f0708E.llvm.12734007390182477403"(i64 noundef %.sroa.46.0.i, i64 noundef 1, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c5e2469ed6d41041bc57d8389d86a011.53.llvm.12734007390182477403), !noalias !1491
   %49 = extractvalue { i64, ptr } %48, 0

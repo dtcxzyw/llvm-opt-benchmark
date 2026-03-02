@@ -78,9 +78,9 @@ XXH32_endian_align.exit:                          ; preds = %5
   br label %50
 
 .preheader.thread.i:                              ; preds = %3
-  %48 = icmp eq i64 %1, 0
-  tail call void @llvm.assume(i1 %48)
-  %49 = add i32 %2, 374761393
+  %48 = add i32 %2, 374761393
+  %49 = icmp eq i64 %1, 0
+  tail call void @llvm.assume(i1 %49)
   br label %XXH32_finalize.exit
 
 50:                                               ; preds = %XXH32_endian_align.exit, %XXH32_endian_align.exit.thread
@@ -127,7 +127,7 @@ XXH_readLE32_align.exit.i:                        ; preds = %50, %XXH_readLE32_a
   br i1 %.not.i, label %XXH32_finalize.exit, label %.lr.ph.i, !llvm.loop !11
 
 XXH32_finalize.exit:                              ; preds = %.lr.ph.i, %.preheader.thread.i, %.preheader.i
-  %.1.lcssa.i = phi i32 [ %.0.lcssa.i, %.preheader.i ], [ %49, %.preheader.thread.i ], [ %67, %.lr.ph.i ]
+  %.1.lcssa.i = phi i32 [ %.0.lcssa.i, %.preheader.i ], [ %48, %.preheader.thread.i ], [ %67, %.lr.ph.i ]
   %69 = lshr i32 %.1.lcssa.i, 15
   %70 = xor i32 %69, %.1.lcssa.i
   %71 = mul i32 %70, -2048144777

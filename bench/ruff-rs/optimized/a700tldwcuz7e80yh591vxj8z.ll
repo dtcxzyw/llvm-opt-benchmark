@@ -1356,56 +1356,58 @@ define hidden noundef i64 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15parti
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !noalias !131
   %13 = icmp eq i64 %.pre, 0
+  %14 = icmp ne i64 %1, 0
+  tail call void @llvm.assume(i1 %14)
   br i1 %13, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit.i", label %"_ZN161_$LT$ruff_python_formatter..statement..stmt_with..FormatStmtWith$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..StmtWith$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17hac5439d07ff1ef24E.exit.i.i"
 
 "_ZN161_$LT$ruff_python_formatter..statement..stmt_with..FormatStmtWith$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..StmtWith$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17hac5439d07ff1ef24E.exit.i.i": ; preds = %._crit_edge.i.thread10, %._crit_edge.i
-  %.sroa.05.0.lcssa.i13 = phi i64 [ %32, %._crit_edge.i.thread10 ], [ 0, %._crit_edge.i ]
-  %14 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i13
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %16 = load ptr, ptr %15, align 8, !noalias !131, !nonnull !3, !noundef !3
-  %17 = tail call { i32, i32 } @"_ZN15ruff_python_ast9generated93_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..WithItem$GT$5range17ha94cdf2d7ff16625E"(ptr noundef nonnull align 8 %16), !noalias !131
-  %18 = extractvalue { i32, i32 } %17, 0
-  %19 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %14), !noalias !131
-  %20 = extractvalue { i32, i32 } %19, 0
-  %21 = icmp ugt i32 %18, %20
-  %cond.fr.i.i = freeze i1 %21
-  %22 = zext i1 %cond.fr.i.i to i64
+  %.sroa.05.0.lcssa.i13 = phi i64 [ %33, %._crit_edge.i.thread10 ], [ 0, %._crit_edge.i ]
+  %15 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.05.0.lcssa.i13
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %17 = load ptr, ptr %16, align 8, !noalias !131, !nonnull !3, !noundef !3
+  %18 = tail call { i32, i32 } @"_ZN15ruff_python_ast9generated93_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..WithItem$GT$5range17ha94cdf2d7ff16625E"(ptr noundef nonnull align 8 %17), !noalias !131
+  %19 = extractvalue { i32, i32 } %18, 0
+  %20 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %15), !noalias !131
+  %21 = extractvalue { i32, i32 } %20, 0
+  %22 = icmp ugt i32 %19, %21
+  %cond.fr.i.i = freeze i1 %22
+  %23 = zext i1 %cond.fr.i.i to i64
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit.i"
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %.lr.ph.split.i
-  %.sroa.01.031.i = phi i64 [ %33, %.lr.ph.split.i ], [ %1, %.lr.ph.split.i.preheader ]
-  %.sroa.05.030.i = phi i64 [ %32, %.lr.ph.split.i ], [ 0, %.lr.ph.split.i.preheader ]
-  %23 = lshr i64 %.sroa.01.031.i, 1
-  %24 = add i64 %23, %.sroa.05.030.i
-  %25 = icmp ult i64 %24, %1
-  tail call void @llvm.assume(i1 %25)
-  %26 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %24
-  %27 = tail call { i32, i32 } @"_ZN15ruff_python_ast9generated93_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..WithItem$GT$5range17ha94cdf2d7ff16625E"(ptr noundef nonnull align 8 %8), !noalias !131
-  %28 = extractvalue { i32, i32 } %27, 0
-  %29 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26), !noalias !131
-  %30 = extractvalue { i32, i32 } %29, 0
-  %31 = icmp ugt i32 %28, %30
-  %cond.fr.i27.i = freeze i1 %31
-  %32 = select i1 %cond.fr.i27.i, i64 %24, i64 %.sroa.05.030.i
-  %33 = sub i64 %.sroa.01.031.i, %23
-  %34 = icmp ugt i64 %33, 1
-  br i1 %34, label %.lr.ph.split.i, label %._crit_edge.i.thread10, !llvm.loop !134
+  %.sroa.01.031.i = phi i64 [ %34, %.lr.ph.split.i ], [ %1, %.lr.ph.split.i.preheader ]
+  %.sroa.05.030.i = phi i64 [ %33, %.lr.ph.split.i ], [ 0, %.lr.ph.split.i.preheader ]
+  %24 = lshr i64 %.sroa.01.031.i, 1
+  %25 = add i64 %24, %.sroa.05.030.i
+  %26 = icmp ult i64 %25, %1
+  tail call void @llvm.assume(i1 %26)
+  %27 = getelementptr inbounds nuw { { { i32, i32 } }, i8, i8, [2 x i8] }, ptr %0, i64 %25
+  %28 = tail call { i32, i32 } @"_ZN15ruff_python_ast9generated93_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..WithItem$GT$5range17ha94cdf2d7ff16625E"(ptr noundef nonnull align 8 %8), !noalias !131
+  %29 = extractvalue { i32, i32 } %28, 0
+  %30 = tail call { i32, i32 } @"_ZN95_$LT$ruff_formatter..source_code..SourceCodeSlice$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17hbd47a9150c94599dE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %27), !noalias !131
+  %31 = extractvalue { i32, i32 } %30, 0
+  %32 = icmp ugt i32 %29, %31
+  %cond.fr.i27.i = freeze i1 %32
+  %33 = select i1 %cond.fr.i27.i, i64 %25, i64 %.sroa.05.030.i
+  %34 = sub i64 %.sroa.01.031.i, %24
+  %35 = icmp ugt i64 %34, 1
+  br i1 %35, label %.lr.ph.split.i, label %._crit_edge.i.thread10, !llvm.loop !134
 
 ._crit_edge.i.thread10:                           ; preds = %.lr.ph.split.i
-  %35 = icmp ult i64 %32, %1
-  tail call void @llvm.assume(i1 %35)
+  %36 = icmp ult i64 %33, %1
+  tail call void @llvm.assume(i1 %36)
   br label %"_ZN161_$LT$ruff_python_formatter..statement..stmt_with..FormatStmtWith$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..StmtWith$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17hac5439d07ff1ef24E.exit.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit.i": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit29.us.i", %"_ZN161_$LT$ruff_python_formatter..statement..stmt_with..FormatStmtWith$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..StmtWith$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17hac5439d07ff1ef24E.exit.i.i", %._crit_edge.i
   %.sroa.05.0.lcssa.i9 = phi i64 [ 0, %._crit_edge.i ], [ %.sroa.05.0.lcssa.i13, %"_ZN161_$LT$ruff_python_formatter..statement..stmt_with..FormatStmtWith$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..StmtWith$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17hac5439d07ff1ef24E.exit.i.i" ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit29.us.i" ]
-  %36 = phi i64 [ 0, %._crit_edge.i ], [ %22, %"_ZN161_$LT$ruff_python_formatter..statement..stmt_with..FormatStmtWith$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..StmtWith$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17hac5439d07ff1ef24E.exit.i.i" ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit29.us.i" ]
-  %37 = add nuw i64 %36, %.sroa.05.0.lcssa.i9
-  %38 = icmp ule i64 %37, %1
-  tail call void @llvm.assume(i1 %38)
+  %37 = phi i64 [ 0, %._crit_edge.i ], [ %23, %"_ZN161_$LT$ruff_python_formatter..statement..stmt_with..FormatStmtWith$u20$as$u20$ruff_python_formatter..FormatNodeRule$LT$ruff_python_ast..generated..StmtWith$GT$$GT$10fmt_fields28_$u7b$$u7b$closure$u7d$$u7d$17hac5439d07ff1ef24E.exit.i.i" ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit29.us.i" ]
+  %38 = add nuw i64 %37, %.sroa.05.0.lcssa.i9
+  %39 = icmp ule i64 %38, %1
+  tail call void @llvm.assume(i1 %39)
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h3c893f1ce26ed8ceE.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h3c893f1ce26ed8ceE.exit": ; preds = %3, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit.i"
-  %.sroa.4.0.i = phi i64 [ %1, %3 ], [ %37, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit.i" ]
+  %.sroa.4.0.i = phi i64 [ %1, %3 ], [ %38, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15partition_point28_$u7b$$u7b$closure$u7d$$u7d$17hc54ec42fb2a6e5d1E.exit.i" ]
   ret i64 %.sroa.4.0.i
 }
 
@@ -3617,10 +3619,10 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN21ruff_python_
   %26 = extractvalue { ptr, i8 } %25, 0
   %27 = extractvalue { ptr, i8 } %25, 1
   %28 = call noundef i8 @"_ZN196_$LT$ruff_python_formatter..pattern..FormatPattern$u20$as$u20$ruff_formatter..FormatRuleWithOptions$LT$ruff_python_ast..generated..Pattern$C$ruff_python_formatter..context..PyFormatContext$GT$$GT$12with_options17hae2ab7a87392e8ccE"(i8 noundef %27, i8 noundef 0), !noalias !304
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %26) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr %.sroa.0.012, ptr %10, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %26) ]
   store ptr %26, ptr %9, align 8
   store i8 %28, ptr %12, align 8
   %29 = call noundef i8 @_ZN14ruff_formatter8builders4Line3new17hf3fbd55e59bdfc74E(i8 noundef 0)

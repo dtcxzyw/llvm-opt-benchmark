@@ -40399,17 +40399,17 @@ define hidden void @_ZN15tree_sitter_cli8generate13grammar_files12insert_after17
 
 .noexc:                                           ; preds = %15
   %17 = load i64, ptr %8, align 8, !range !164, !noalias !9551, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %19 = load i64, ptr %18, align 8, !noalias !9551, !noundef !4
-  %20 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %21 = load i64, ptr %20, align 8, !noalias !9551, !noundef !4
+  %18 = icmp ne i64 %17, 0
+  tail call void @llvm.assume(i1 %18)
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %20 = load i64, ptr %19, align 8, !noalias !9551, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %22 = load i64, ptr %21, align 8, !noalias !9551, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !9551
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.429.0.copyload) ]
-  %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds i8, ptr %.sroa.429.0.copyload, i64 %22
-  %24 = icmp ne i64 %17, 0
-  tail call void @llvm.assume(i1 %24)
-  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %19, i64 noundef %17) #56, !noalias !9551
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds i8, ptr %.sroa.429.0.copyload, i64 %23
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %20, i64 noundef %17) #56, !noalias !9551
   br label %27
 
 25:                                               ; preds = %.body.thread

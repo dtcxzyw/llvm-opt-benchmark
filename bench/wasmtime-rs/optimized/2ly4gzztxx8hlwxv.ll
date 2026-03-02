@@ -2601,7 +2601,7 @@ define internal fastcc noundef zeroext i1 @_ZN17cranelift_codegen2ir7extfunc10wr
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %9 = alloca ptr, align 8
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %28, label %10
+  br i1 %.not, label %29, label %10
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -2628,46 +2628,48 @@ define internal fastcc noundef zeroext i1 @_ZN17cranelift_codegen2ir7extfunc10wr
 17:                                               ; preds = %10
   %.idx = mul i64 %2, 12
   %18 = getelementptr i8, ptr %1, i64 %.idx
-  %19 = icmp eq i64 %.idx, 12
-  br i1 %19, label %.sink.split, label %.lr.ph
+  %19 = icmp ne ptr %18, null
+  call void @llvm.assume(i1 %19)
+  %20 = icmp eq i64 %.idx, 12
+  br i1 %20, label %.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
   %.sroa.0.01922 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  br label %25
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  br label %26
 
-25:                                               ; preds = %25, %.lr.ph
-  %.sroa.0.01923 = phi ptr [ %.sroa.0.01922, %.lr.ph ], [ %.sroa.0.019, %25 ]
+26:                                               ; preds = %26, %.lr.ph
+  %.sroa.0.01923 = phi ptr [ %.sroa.0.01922, %.lr.ph ], [ %.sroa.0.019, %26 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %.sroa.0.01923, ptr %6, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h010200a8db1dbe83E", ptr %20, align 8
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h010200a8db1dbe83E", ptr %21, align 8
   store ptr @anon.cce7e70c2f474c62efac044d17224bb4.41, ptr %5, align 8, !alias.scope !610, !noalias !613
-  store i64 1, ptr %21, align 8, !alias.scope !610, !noalias !613
-  store ptr null, ptr %22, align 8, !alias.scope !610, !noalias !613
-  store ptr %4, ptr %23, align 8, !alias.scope !610, !noalias !613
-  store i64 1, ptr %24, align 8, !alias.scope !610, !noalias !613
-  %26 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
+  store i64 1, ptr %22, align 8, !alias.scope !610, !noalias !613
+  store ptr null, ptr %23, align 8, !alias.scope !610, !noalias !613
+  store ptr %4, ptr %24, align 8, !alias.scope !610, !noalias !613
+  store i64 1, ptr %25, align 8, !alias.scope !610, !noalias !613
+  %27 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.0.019 = getelementptr inbounds nuw i8, ptr %.sroa.0.01923, i64 12
-  %27 = icmp eq ptr %.sroa.0.019, %18
-  %or.cond = select i1 %26, i1 true, i1 %27
-  br i1 %or.cond, label %.sink.split, label %25
+  %28 = icmp eq ptr %.sroa.0.019, %18
+  %or.cond = select i1 %27, i1 true, i1 %28
+  br i1 %or.cond, label %.sink.split, label %26
 
-.sink.split:                                      ; preds = %25, %17, %10
-  %.0.ph = phi i1 [ true, %10 ], [ false, %17 ], [ %26, %25 ]
+.sink.split:                                      ; preds = %26, %17, %10
+  %.0.ph = phi i1 [ true, %10 ], [ false, %17 ], [ %27, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %28
+  br label %29
 
-28:                                               ; preds = %.sink.split, %3
+29:                                               ; preds = %.sink.split, %3
   %.0 = phi i1 [ false, %3 ], [ %.0.ph, %.sink.split ]
   ret i1 %.0
 }

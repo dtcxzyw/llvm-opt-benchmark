@@ -299,7 +299,7 @@ _ZNK24cmComputeLinkInformation9GetConfigB5cxx11Ev.exit: ; preds = %._crit_edge.i
 
 .noexc.i:                                         ; preds = %_ZNK24cmComputeLinkInformation9GetConfigB5cxx11Ev.exit
   %40 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef 0)
-          to label %.noexc unwind label %195
+          to label %.noexc unwind label %199
 
 .noexc:                                           ; preds = %.noexc.i
   store ptr %40, ptr %15, align 8, !tbaa !19
@@ -343,7 +343,7 @@ _ZNK24cmComputeLinkInformation9GetConfigB5cxx11Ev.exit: ; preds = %._crit_edge.i
 
 .noexc.i.i.i:                                     ; preds = %46
   %53 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef 0)
-          to label %.noexc11 unwind label %197
+          to label %.noexc11 unwind label %201
 
 .noexc11:                                         ; preds = %.noexc.i.i.i
   store ptr %53, ptr %11, align 8, !tbaa !19
@@ -387,7 +387,7 @@ _ZNK24cmComputeLinkInformation9GetConfigB5cxx11Ev.exit: ; preds = %._crit_edge.i
 
 .noexc.i.i.i.i:                                   ; preds = %"_ZZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationEN3$_0C2ERKS2_.exit.i"
   %65 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 0)
-          to label %.noexc.i10 unwind label %180
+          to label %.noexc.i10 unwind label %184
 
 .noexc.i10:                                       ; preds = %.noexc.i.i.i.i
   store ptr %65, ptr %9, align 8, !tbaa !19
@@ -432,7 +432,7 @@ _ZNK24cmComputeLinkInformation9GetConfigB5cxx11Ev.exit: ; preds = %._crit_edge.i
 
 .noexc.i.i.i.i.i:                                 ; preds = %"_ZZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationEN3$_0C2ERKS2_.exit.i.i"
   %77 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
-          to label %.noexc.i.i9 unwind label %170
+          to label %.noexc.i.i9 unwind label %174
 
 .noexc.i.i9:                                      ; preds = %.noexc.i.i.i.i.i
   store ptr %77, ptr %7, align 8, !tbaa !19
@@ -469,377 +469,382 @@ _ZNK24cmComputeLinkInformation9GetConfigB5cxx11Ev.exit: ; preds = %._crit_edge.i
   %87 = load ptr, ptr %7, align 8, !tbaa !19, !noalias !25
   %88 = icmp eq ptr %87, %75
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %90 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %91 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br i1 %88, label %.thread.i.i.i, label %94
+  br i1 %88, label %.thread.i.i.i, label %95
 
 .thread.i.i.i:                                    ; preds = %"_ZZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationEN3$_0C2ERKS2_.exit.i.i.i"
-  %92 = load i64, ptr %84, align 8, !tbaa !22, !noalias !25
-  %93 = add nuw nsw i64 %92, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.sroa.4.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %75, i64 %93, i1 false), !noalias !25
+  %90 = load i64, ptr %84, align 8, !tbaa !22, !noalias !25
+  %91 = add nuw nsw i64 %90, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.sroa.4.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %75, i64 %91, i1 false), !noalias !25
   store i64 0, ptr %84, align 8, !tbaa !22, !noalias !25
   store i8 0, ptr %75, align 8, !tbaa !24, !noalias !25
   store ptr %89, ptr %6, align 8, !tbaa !16, !alias.scope !25
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %89, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.4.i.i.i, i64 %93, i1 false)
-  store i64 %92, ptr %90, align 8, !tbaa !22, !alias.scope !25
+  %92 = icmp samesign ult i64 %90, 16
+  call void @llvm.assume(i1 %92)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %89, ptr noundef nonnull align 8 dereferenceable(1) %.sroa.4.i.i.i, i64 %91, i1 false)
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %90, ptr %93, align 8, !tbaa !22, !alias.scope !25
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %91, ptr %4, align 8, !tbaa !16
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %94, ptr %4, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %92, ptr %3, align 8, !tbaa !23
+  store i64 %90, ptr %3, align 8, !tbaa !23
   br label %._crit_edge.i.i.i.i.i.i.i.i
 
-94:                                               ; preds = %"_ZZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationEN3$_0C2ERKS2_.exit.i.i.i"
-  %95 = load i64, ptr %75, align 8, !tbaa !24, !noalias !25
+95:                                               ; preds = %"_ZZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationEN3$_0C2ERKS2_.exit.i.i.i"
+  %96 = load i64, ptr %75, align 8, !tbaa !24, !noalias !25
   %.pre.i.i.i.i = load i64, ptr %84, align 8, !tbaa !22, !noalias !25
   store ptr %75, ptr %7, align 8, !tbaa !19, !noalias !25
   store i64 0, ptr %84, align 8, !tbaa !22, !noalias !25
   store i8 0, ptr %75, align 8, !tbaa !24, !noalias !25
   store ptr %87, ptr %6, align 8, !tbaa !19, !alias.scope !25
-  store i64 %95, ptr %89, align 8, !tbaa !24, !alias.scope !25
-  store i64 %.pre.i.i.i.i, ptr %90, align 8, !tbaa !22, !alias.scope !25
+  store i64 %96, ptr %89, align 8, !tbaa !24, !alias.scope !25
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %.pre.i.i.i.i, ptr %97, align 8, !tbaa !22, !alias.scope !25
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %91, ptr %4, align 8, !tbaa !16
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %98, ptr %4, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %.pre.i.i.i.i, ptr %3, align 8, !tbaa !23
-  %96 = icmp ugt i64 %.pre.i.i.i.i, 15
-  br i1 %96, label %.noexc.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i
+  %99 = icmp ugt i64 %.pre.i.i.i.i, 15
+  br i1 %99, label %.noexc.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i
 
-.noexc.i.i.i.i.i.i.i:                             ; preds = %94
-  %97 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
-          to label %.noexc.i.i5.i unwind label %156
+.noexc.i.i.i.i.i.i.i:                             ; preds = %95
+  %100 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
+          to label %.noexc.i.i5.i unwind label %160
 
 .noexc.i.i5.i:                                    ; preds = %.noexc.i.i.i.i.i.i.i
-  store ptr %97, ptr %4, align 8, !tbaa !19
-  %98 = load i64, ptr %3, align 8, !tbaa !23
-  store i64 %98, ptr %91, align 8, !tbaa !24
+  store ptr %100, ptr %4, align 8, !tbaa !19
+  %101 = load i64, ptr %3, align 8, !tbaa !23
+  store i64 %101, ptr %98, align 8, !tbaa !24
   br label %._crit_edge.i.i.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.noexc.i.i5.i, %94, %.thread.i.i.i
-  %.val2.i.i.i = phi ptr [ %87, %.noexc.i.i5.i ], [ %87, %94 ], [ %89, %.thread.i.i.i ]
-  %99 = phi i64 [ %.pre.i.i.i.i, %.noexc.i.i5.i ], [ %.pre.i.i.i.i, %94 ], [ %92, %.thread.i.i.i ]
-  %100 = phi ptr [ %97, %.noexc.i.i5.i ], [ %91, %94 ], [ %91, %.thread.i.i.i ]
-  switch i64 %99, label %103 [
-    i64 1, label %101
+._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.noexc.i.i5.i, %95, %.thread.i.i.i
+  %102 = phi ptr [ %98, %.noexc.i.i5.i ], [ %98, %95 ], [ %94, %.thread.i.i.i ]
+  %.val2.i.i.i = phi ptr [ %87, %.noexc.i.i5.i ], [ %87, %95 ], [ %89, %.thread.i.i.i ]
+  %103 = phi i64 [ %.pre.i.i.i.i, %.noexc.i.i5.i ], [ %.pre.i.i.i.i, %95 ], [ %90, %.thread.i.i.i ]
+  %104 = phi ptr [ %100, %.noexc.i.i5.i ], [ %98, %95 ], [ %94, %.thread.i.i.i ]
+  switch i64 %103, label %107 [
+    i64 1, label %105
     i64 0, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EC2ERKS6_.exit.i.i.i.i"
   ]
 
-101:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i
-  %102 = load i8, ptr %.val2.i.i.i, align 1, !tbaa !24
-  store i8 %102, ptr %100, align 1, !tbaa !24
+105:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i
+  %106 = load i8, ptr %.val2.i.i.i, align 1, !tbaa !24
+  store i8 %106, ptr %104, align 1, !tbaa !24
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EC2ERKS6_.exit.i.i.i.i"
 
-103:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %100, ptr readonly align 1 %.val2.i.i.i, i64 %99, i1 false)
+107:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %104, ptr readonly align 1 %.val2.i.i.i, i64 %103, i1 false)
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EC2ERKS6_.exit.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EC2ERKS6_.exit.i.i.i.i": ; preds = %103, %101, %._crit_edge.i.i.i.i.i.i.i.i
-  %104 = load i64, ptr %3, align 8, !tbaa !23
-  %105 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %104, ptr %105, align 8, !tbaa !22
-  %106 = load ptr, ptr %4, align 8, !tbaa !19
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %104
-  store i8 0, ptr %107, align 1, !tbaa !24
+"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EC2ERKS6_.exit.i.i.i.i": ; preds = %107, %105, %._crit_edge.i.i.i.i.i.i.i.i
+  %108 = load i64, ptr %3, align 8, !tbaa !23
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %108, ptr %109, align 8, !tbaa !22
+  %110 = load ptr, ptr %4, align 8, !tbaa !19
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %108
+  store i8 0, ptr %111, align 1, !tbaa !24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %108 = ptrtoint ptr %35 to i64
-  %109 = ptrtoint ptr %33 to i64
-  %110 = sub i64 %108, %109
-  %111 = sdiv exact i64 %110, 80
-  %112 = ashr i64 %111, 2
-  %113 = icmp sgt i64 %112, 0
-  br i1 %113, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i4.i.i
+  %112 = ptrtoint ptr %35 to i64
+  %113 = ptrtoint ptr %33 to i64
+  %114 = sub i64 %112, %113
+  %115 = sdiv exact i64 %114, 80
+  %116 = ashr i64 %115, 2
+  %117 = icmp sgt i64 %116, 0
+  br i1 %117, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i4.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EC2ERKS6_.exit.i.i.i.i", %124
-  %.036.i.i.i.i.i = phi i64 [ %126, %124 ], [ %112, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EC2ERKS6_.exit.i.i.i.i" ]
-  %.sroa.025.035.i.i.i.i.i = phi ptr [ %125, %124 ], [ %33, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EC2ERKS6_.exit.i.i.i.i" ]
-  %114 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EclINS_17__normal_iteratorIPKNS3_4ItemESt6vectorIS9_SaIS9_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr %.sroa.025.035.i.i.i.i.i)
+.lr.ph.i.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EC2ERKS6_.exit.i.i.i.i", %128
+  %.036.i.i.i.i.i = phi i64 [ %130, %128 ], [ %116, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EC2ERKS6_.exit.i.i.i.i" ]
+  %.sroa.025.035.i.i.i.i.i = phi ptr [ %129, %128 ], [ %33, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EC2ERKS6_.exit.i.i.i.i" ]
+  %118 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EclINS_17__normal_iteratorIPKNS3_4ItemESt6vectorIS9_SaIS9_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr %.sroa.025.035.i.i.i.i.i)
           to label %.noexc.i.i5.i.i unwind label %.loopexit.i.i.i.i
 
 .noexc.i.i5.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i
-  br i1 %114, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN24cmComputeLinkInformation4ItemESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagERS2_E3$_0EEET_SG_SG_T0_St26random_access_iterator_tag.exit.i.i.i.i", label %115
+  br i1 %118, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN24cmComputeLinkInformation4ItemESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagERS2_E3$_0EEET_SG_SG_T0_St26random_access_iterator_tag.exit.i.i.i.i", label %119
 
-115:                                              ; preds = %.noexc.i.i5.i.i
-  %116 = getelementptr inbounds nuw i8, ptr %.sroa.025.035.i.i.i.i.i, i64 80
-  %117 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EclINS_17__normal_iteratorIPKNS3_4ItemESt6vectorIS9_SaIS9_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr nonnull %116)
+119:                                              ; preds = %.noexc.i.i5.i.i
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.025.035.i.i.i.i.i, i64 80
+  %121 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EclINS_17__normal_iteratorIPKNS3_4ItemESt6vectorIS9_SaIS9_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr nonnull %120)
           to label %.noexc4.i.i.i.i unwind label %.loopexit.i.i.i.i
 
-.noexc4.i.i.i.i:                                  ; preds = %115
-  br i1 %117, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN24cmComputeLinkInformation4ItemESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagERS2_E3$_0EEET_SG_SG_T0_St26random_access_iterator_tag.exit.i.i.i.i", label %118
+.noexc4.i.i.i.i:                                  ; preds = %119
+  br i1 %121, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN24cmComputeLinkInformation4ItemESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagERS2_E3$_0EEET_SG_SG_T0_St26random_access_iterator_tag.exit.i.i.i.i", label %122
 
-118:                                              ; preds = %.noexc4.i.i.i.i
-  %119 = getelementptr inbounds nuw i8, ptr %.sroa.025.035.i.i.i.i.i, i64 160
-  %120 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EclINS_17__normal_iteratorIPKNS3_4ItemESt6vectorIS9_SaIS9_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr nonnull %119)
+122:                                              ; preds = %.noexc4.i.i.i.i
+  %123 = getelementptr inbounds nuw i8, ptr %.sroa.025.035.i.i.i.i.i, i64 160
+  %124 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EclINS_17__normal_iteratorIPKNS3_4ItemESt6vectorIS9_SaIS9_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr nonnull %123)
           to label %.noexc5.i.i.i.i unwind label %.loopexit.i.i.i.i
 
-.noexc5.i.i.i.i:                                  ; preds = %118
-  br i1 %120, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN24cmComputeLinkInformation4ItemESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagERS2_E3$_0EEET_SG_SG_T0_St26random_access_iterator_tag.exit.i.i.i.i", label %121
+.noexc5.i.i.i.i:                                  ; preds = %122
+  br i1 %124, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN24cmComputeLinkInformation4ItemESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagERS2_E3$_0EEET_SG_SG_T0_St26random_access_iterator_tag.exit.i.i.i.i", label %125
 
-121:                                              ; preds = %.noexc5.i.i.i.i
-  %122 = getelementptr inbounds nuw i8, ptr %.sroa.025.035.i.i.i.i.i, i64 240
-  %123 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EclINS_17__normal_iteratorIPKNS3_4ItemESt6vectorIS9_SaIS9_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr nonnull %122)
+125:                                              ; preds = %.noexc5.i.i.i.i
+  %126 = getelementptr inbounds nuw i8, ptr %.sroa.025.035.i.i.i.i.i, i64 240
+  %127 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EclINS_17__normal_iteratorIPKNS3_4ItemESt6vectorIS9_SaIS9_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr nonnull %126)
           to label %.noexc6.i.i.i.i unwind label %.loopexit.i.i.i.i
 
-.noexc6.i.i.i.i:                                  ; preds = %121
-  br i1 %123, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN24cmComputeLinkInformation4ItemESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagERS2_E3$_0EEET_SG_SG_T0_St26random_access_iterator_tag.exit.i.i.i.i", label %124
+.noexc6.i.i.i.i:                                  ; preds = %125
+  br i1 %127, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN24cmComputeLinkInformation4ItemESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagERS2_E3$_0EEET_SG_SG_T0_St26random_access_iterator_tag.exit.i.i.i.i", label %128
 
-124:                                              ; preds = %.noexc6.i.i.i.i
-  %125 = getelementptr inbounds nuw i8, ptr %.sroa.025.035.i.i.i.i.i, i64 320
-  %126 = add nsw i64 %.036.i.i.i.i.i, -1
-  %127 = icmp sgt i64 %.036.i.i.i.i.i, 1
-  br i1 %127, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !28
+128:                                              ; preds = %.noexc6.i.i.i.i
+  %129 = getelementptr inbounds nuw i8, ptr %.sroa.025.035.i.i.i.i.i, i64 320
+  %130 = add nsw i64 %.036.i.i.i.i.i, -1
+  %131 = icmp sgt i64 %.036.i.i.i.i.i, 1
+  br i1 %131, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !28
 
-._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %124
-  %.pre.i.i.i.i.i = ptrtoint ptr %125 to i64
-  %.pre37.i.i.i.i.i = sub i64 %108, %.pre.i.i.i.i.i
+._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %128
+  %.pre.i.i.i.i.i = ptrtoint ptr %129 to i64
+  %.pre37.i.i.i.i.i = sub i64 %112, %.pre.i.i.i.i.i
   br label %._crit_edge.i.i.i4.i.i
 
 ._crit_edge.i.i.i4.i.i:                           ; preds = %._crit_edge.loopexit.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EC2ERKS6_.exit.i.i.i.i"
-  %.pre-phi38.i.i.i.i.i = phi i64 [ %.pre37.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %110, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EC2ERKS6_.exit.i.i.i.i" ]
-  %.sroa.025.0.lcssa.i.i.i.i.i = phi ptr [ %125, %._crit_edge.loopexit.i.i.i.i.i ], [ %33, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EC2ERKS6_.exit.i.i.i.i" ]
-  %128 = sdiv exact i64 %.pre-phi38.i.i.i.i.i, 80
-  switch i64 %128, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN24cmComputeLinkInformation4ItemESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagERS2_E3$_0EEET_SG_SG_T0_St26random_access_iterator_tag.exit.i.i.i.i" [
-    i64 3, label %129
-    i64 2, label %133
-    i64 1, label %137
+  %.pre-phi38.i.i.i.i.i = phi i64 [ %.pre37.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %114, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EC2ERKS6_.exit.i.i.i.i" ]
+  %.sroa.025.0.lcssa.i.i.i.i.i = phi ptr [ %129, %._crit_edge.loopexit.i.i.i.i.i ], [ %33, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EC2ERKS6_.exit.i.i.i.i" ]
+  %132 = sdiv exact i64 %.pre-phi38.i.i.i.i.i, 80
+  switch i64 %132, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN24cmComputeLinkInformation4ItemESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagERS2_E3$_0EEET_SG_SG_T0_St26random_access_iterator_tag.exit.i.i.i.i" [
+    i64 3, label %133
+    i64 2, label %137
+    i64 1, label %141
   ]
 
-129:                                              ; preds = %._crit_edge.i.i.i4.i.i
-  %130 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EclINS_17__normal_iteratorIPKNS3_4ItemESt6vectorIS9_SaIS9_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr %.sroa.025.0.lcssa.i.i.i.i.i)
+133:                                              ; preds = %._crit_edge.i.i.i4.i.i
+  %134 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EclINS_17__normal_iteratorIPKNS3_4ItemESt6vectorIS9_SaIS9_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr %.sroa.025.0.lcssa.i.i.i.i.i)
           to label %.noexc7.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i
 
-.noexc7.i.i.i.i:                                  ; preds = %129
-  br i1 %130, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN24cmComputeLinkInformation4ItemESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagERS2_E3$_0EEET_SG_SG_T0_St26random_access_iterator_tag.exit.i.i.i.i", label %131
-
-131:                                              ; preds = %.noexc7.i.i.i.i
-  %132 = getelementptr inbounds nuw i8, ptr %.sroa.025.0.lcssa.i.i.i.i.i, i64 80
-  br label %133
-
-133:                                              ; preds = %131, %._crit_edge.i.i.i4.i.i
-  %.sroa.025.1.i.i.i.i.i = phi ptr [ %132, %131 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i4.i.i ]
-  %134 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EclINS_17__normal_iteratorIPKNS3_4ItemESt6vectorIS9_SaIS9_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr %.sroa.025.1.i.i.i.i.i)
-          to label %.noexc8.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i
-
-.noexc8.i.i.i.i:                                  ; preds = %133
+.noexc7.i.i.i.i:                                  ; preds = %133
   br i1 %134, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN24cmComputeLinkInformation4ItemESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagERS2_E3$_0EEET_SG_SG_T0_St26random_access_iterator_tag.exit.i.i.i.i", label %135
 
-135:                                              ; preds = %.noexc8.i.i.i.i
-  %136 = getelementptr inbounds nuw i8, ptr %.sroa.025.1.i.i.i.i.i, i64 80
+135:                                              ; preds = %.noexc7.i.i.i.i
+  %136 = getelementptr inbounds nuw i8, ptr %.sroa.025.0.lcssa.i.i.i.i.i, i64 80
   br label %137
 
 137:                                              ; preds = %135, %._crit_edge.i.i.i4.i.i
-  %.sroa.025.2.i.i.i.i.i = phi ptr [ %136, %135 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i4.i.i ]
-  %138 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EclINS_17__normal_iteratorIPKNS3_4ItemESt6vectorIS9_SaIS9_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr %.sroa.025.2.i.i.i.i.i)
+  %.sroa.025.1.i.i.i.i.i = phi ptr [ %136, %135 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i4.i.i ]
+  %138 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EclINS_17__normal_iteratorIPKNS3_4ItemESt6vectorIS9_SaIS9_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr %.sroa.025.1.i.i.i.i.i)
+          to label %.noexc8.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i
+
+.noexc8.i.i.i.i:                                  ; preds = %137
+  br i1 %138, label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN24cmComputeLinkInformation4ItemESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagERS2_E3$_0EEET_SG_SG_T0_St26random_access_iterator_tag.exit.i.i.i.i", label %139
+
+139:                                              ; preds = %.noexc8.i.i.i.i
+  %140 = getelementptr inbounds nuw i8, ptr %.sroa.025.1.i.i.i.i.i, i64 80
+  br label %141
+
+141:                                              ; preds = %139, %._crit_edge.i.i.i4.i.i
+  %.sroa.025.2.i.i.i.i.i = phi ptr [ %140, %139 ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i4.i.i ]
+  %142 = invoke fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0EclINS_17__normal_iteratorIPKNS3_4ItemESt6vectorIS9_SaIS9_EEEEEEbT_"(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr %.sroa.025.2.i.i.i.i.i)
           to label %.noexc9.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i
 
-.noexc9.i.i.i.i:                                  ; preds = %137
-  %spec.select.i.i.i.i.i = select i1 %138, ptr %.sroa.025.2.i.i.i.i.i, ptr %35
+.noexc9.i.i.i.i:                                  ; preds = %141
+  %spec.select.i.i.i.i.i = select i1 %142, ptr %.sroa.025.2.i.i.i.i.i, ptr %35
   br label %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN24cmComputeLinkInformation4ItemESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagERS2_E3$_0EEET_SG_SG_T0_St26random_access_iterator_tag.exit.i.i.i.i"
 
 "_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN24cmComputeLinkInformation4ItemESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagERS2_E3$_0EEET_SG_SG_T0_St26random_access_iterator_tag.exit.i.i.i.i": ; preds = %.noexc6.i.i.i.i, %.noexc5.i.i.i.i, %.noexc4.i.i.i.i, %.noexc.i.i5.i.i, %.noexc9.i.i.i.i, %.noexc8.i.i.i.i, %.noexc7.i.i.i.i, %._crit_edge.i.i.i4.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.025.1.i.i.i.i.i, %.noexc8.i.i.i.i ], [ %spec.select.i.i.i.i.i, %.noexc9.i.i.i.i ], [ %35, %._crit_edge.i.i.i4.i.i ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %.noexc7.i.i.i.i ], [ %.sroa.025.035.i.i.i.i.i, %.noexc.i.i5.i.i ], [ %116, %.noexc4.i.i.i.i ], [ %119, %.noexc5.i.i.i.i ], [ %122, %.noexc6.i.i.i.i ]
-  %139 = load ptr, ptr %4, align 8, !tbaa !19
-  %140 = icmp eq ptr %139, %91
-  br i1 %140, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.025.1.i.i.i.i.i, %.noexc8.i.i.i.i ], [ %spec.select.i.i.i.i.i, %.noexc9.i.i.i.i ], [ %35, %._crit_edge.i.i.i4.i.i ], [ %.sroa.025.0.lcssa.i.i.i.i.i, %.noexc7.i.i.i.i ], [ %.sroa.025.035.i.i.i.i.i, %.noexc.i.i5.i.i ], [ %120, %.noexc4.i.i.i.i ], [ %123, %.noexc5.i.i.i.i ], [ %126, %.noexc6.i.i.i.i ]
+  %143 = load ptr, ptr %4, align 8, !tbaa !19
+  %144 = icmp eq ptr %143, %102
+  br i1 %144, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i: ; preds = %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN24cmComputeLinkInformation4ItemESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagERS2_E3$_0EEET_SG_SG_T0_St26random_access_iterator_tag.exit.i.i.i.i"
-  %141 = load i64, ptr %91, align 8, !tbaa !24
-  %142 = add i64 %141, 1
-  call void @_ZdlPvm(ptr noundef %139, i64 noundef %142) #24
+  %145 = load i64, ptr %102, align 8, !tbaa !24
+  %146 = add i64 %145, 1
+  call void @_ZdlPvm(ptr noundef %143, i64 noundef %146) #24
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i
 
-.loopexit.i.i.i.i:                                ; preds = %121, %118, %115, %.lr.ph.i.i.i.i.i
+.loopexit.i.i.i.i:                                ; preds = %125, %122, %119, %.lr.ph.i.i.i.i.i
   %lpad.loopexit.i.i.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %143
+  br label %147
 
-.loopexit.split-lp.i.i.i.i:                       ; preds = %137, %133, %129
+.loopexit.split-lp.i.i.i.i:                       ; preds = %141, %137, %133
   %lpad.loopexit.split-lp.i.i.i.i = landingpad { ptr, i32 }
           cleanup
-  br label %143
+  br label %147
 
-143:                                              ; preds = %.loopexit.split-lp.i.i.i.i, %.loopexit.i.i.i.i
+147:                                              ; preds = %.loopexit.split-lp.i.i.i.i, %.loopexit.i.i.i.i
   %lpad.phi.i.i.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i.i.i, %.loopexit.i.i.i.i ], [ %lpad.loopexit.split-lp.i.i.i.i, %.loopexit.split-lp.i.i.i.i ]
-  %144 = load ptr, ptr %4, align 8, !tbaa !19
-  %145 = icmp eq ptr %144, %91
-  br i1 %145, label %.body.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i10.i.i.i.i
+  %148 = load ptr, ptr %4, align 8, !tbaa !19
+  %149 = icmp eq ptr %148, %102
+  br i1 %149, label %.body.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i10.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i10.i.i.i.i: ; preds = %143
-  %146 = load i64, ptr %91, align 8, !tbaa !24
-  %147 = add i64 %146, 1
-  call void @_ZdlPvm(ptr noundef %144, i64 noundef %147) #24
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i10.i.i.i.i: ; preds = %147
+  %150 = load i64, ptr %102, align 8, !tbaa !24
+  %151 = add i64 %150, 1
+  call void @_ZdlPvm(ptr noundef %148, i64 noundef %151) #24
   br label %.body.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i: ; preds = %"_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN24cmComputeLinkInformation4ItemESt6vectorIS3_SaIS3_EEEENS0_5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagERS2_E3$_0EEET_SG_SG_T0_St26random_access_iterator_tag.exit.i.i.i.i", %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %148 = load ptr, ptr %6, align 8, !tbaa !19
-  %149 = icmp eq ptr %148, %89
-  br i1 %149, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0ED2Ev.exit.i.i.i", label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
+  %152 = load ptr, ptr %6, align 8, !tbaa !19
+  %153 = icmp eq ptr %152, %89
+  br i1 %153, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0ED2Ev.exit.i.i.i", label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i
-  %150 = load i64, ptr %89, align 8, !tbaa !24
-  %151 = add i64 %150, 1
-  call void @_ZdlPvm(ptr noundef %148, i64 noundef %151) #24
+  %154 = load i64, ptr %89, align 8, !tbaa !24
+  %155 = add i64 %154, 1
+  call void @_ZdlPvm(ptr noundef %152, i64 noundef %155) #24
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0ED2Ev.exit.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0ED2Ev.exit.i.i.i": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
-  %152 = load ptr, ptr %7, align 8, !tbaa !19
-  %153 = icmp eq ptr %152, %75
-  br i1 %153, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
+  %156 = load ptr, ptr %7, align 8, !tbaa !19
+  %157 = icmp eq ptr %156, %75
+  br i1 %157, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0ED2Ev.exit.i.i.i"
-  %154 = load i64, ptr %75, align 8, !tbaa !24
-  %155 = add i64 %154, 1
-  call void @_ZdlPvm(ptr noundef %152, i64 noundef %155) #24
+  %158 = load i64, ptr %75, align 8, !tbaa !24
+  %159 = add i64 %158, 1
+  call void @_ZdlPvm(ptr noundef %156, i64 noundef %159) #24
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
 
-156:                                              ; preds = %.noexc.i.i.i.i.i.i.i
-  %157 = landingpad { ptr, i32 }
+160:                                              ; preds = %.noexc.i.i.i.i.i.i.i
+  %161 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i
 
-.body.i.i.i:                                      ; preds = %143, %156, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i10.i.i.i.i
-  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %157, %156 ], [ %lpad.phi.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i10.i.i.i.i ], [ %lpad.phi.i.i.i.i, %143 ]
-  %158 = load ptr, ptr %6, align 8, !tbaa !19
-  %159 = icmp eq ptr %158, %89
-  br i1 %159, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0ED2Ev.exit10.i.i.i", label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i8.i.i.i
+.body.i.i.i:                                      ; preds = %147, %160, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i10.i.i.i.i
+  %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %161, %160 ], [ %lpad.phi.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i10.i.i.i.i ], [ %lpad.phi.i.i.i.i, %147 ]
+  %162 = load ptr, ptr %6, align 8, !tbaa !19
+  %163 = icmp eq ptr %162, %89
+  br i1 %163, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0ED2Ev.exit10.i.i.i", label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i8.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i8.i.i.i: ; preds = %.body.i.i.i
-  %160 = load i64, ptr %89, align 8, !tbaa !24
-  %161 = add i64 %160, 1
-  call void @_ZdlPvm(ptr noundef %158, i64 noundef %161) #24
+  %164 = load i64, ptr %89, align 8, !tbaa !24
+  %165 = add i64 %164, 1
+  call void @_ZdlPvm(ptr noundef %162, i64 noundef %165) #24
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0ED2Ev.exit10.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0ED2Ev.exit10.i.i.i": ; preds = %.body.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i8.i.i.i
-  %162 = load ptr, ptr %7, align 8, !tbaa !19
-  %163 = icmp eq ptr %162, %75
-  br i1 %163, label %.body.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i11.i.i.i
+  %166 = load ptr, ptr %7, align 8, !tbaa !19
+  %167 = icmp eq ptr %166, %75
+  br i1 %167, label %.body.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i11.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i11.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0ED2Ev.exit10.i.i.i"
-  %164 = load i64, ptr %75, align 8, !tbaa !24
-  %165 = add i64 %164, 1
-  call void @_ZdlPvm(ptr noundef %162, i64 noundef %165) #24
+  %168 = load i64, ptr %75, align 8, !tbaa !24
+  %169 = add i64 %168, 1
+  call void @_ZdlPvm(ptr noundef %166, i64 noundef %169) #24
   br label %.body.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0ED2Ev.exit.i.i.i", %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %166 = load ptr, ptr %9, align 8, !tbaa !19
-  %167 = icmp eq ptr %166, %63
-  br i1 %167, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
+  %170 = load ptr, ptr %9, align 8, !tbaa !19
+  %171 = icmp eq ptr %170, %63
+  br i1 %171, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  %168 = load i64, ptr %63, align 8, !tbaa !24
-  %169 = add i64 %168, 1
-  call void @_ZdlPvm(ptr noundef %166, i64 noundef %169) #24
+  %172 = load i64, ptr %63, align 8, !tbaa !24
+  %173 = add i64 %172, 1
+  call void @_ZdlPvm(ptr noundef %170, i64 noundef %173) #24
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
 
-170:                                              ; preds = %.noexc.i.i.i.i.i
-  %171 = landingpad { ptr, i32 }
+174:                                              ; preds = %.noexc.i.i.i.i.i
+  %175 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i
 
-.body.i.i:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0ED2Ev.exit10.i.i.i", %170, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i11.i.i.i
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %171, %170 ], [ %eh.lpad-body.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i11.i.i.i ], [ %eh.lpad-body.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0ED2Ev.exit10.i.i.i" ]
-  %172 = load ptr, ptr %9, align 8, !tbaa !19
-  %173 = icmp eq ptr %172, %63
-  br i1 %173, label %.body.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i6.i.i
+.body.i.i:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0ED2Ev.exit10.i.i.i", %174, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i11.i.i.i
+  %eh.lpad-body.i.i = phi { ptr, i32 } [ %175, %174 ], [ %eh.lpad-body.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i11.i.i.i ], [ %eh.lpad-body.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationE3$_0ED2Ev.exit10.i.i.i" ]
+  %176 = load ptr, ptr %9, align 8, !tbaa !19
+  %177 = icmp eq ptr %176, %63
+  br i1 %177, label %.body.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i6.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i6.i.i: ; preds = %.body.i.i
-  %174 = load i64, ptr %63, align 8, !tbaa !24
-  %175 = add i64 %174, 1
-  call void @_ZdlPvm(ptr noundef %172, i64 noundef %175) #24
+  %178 = load i64, ptr %63, align 8, !tbaa !24
+  %179 = add i64 %178, 1
+  call void @_ZdlPvm(ptr noundef %176, i64 noundef %179) #24
   br label %.body.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %176 = load ptr, ptr %11, align 8, !tbaa !19
-  %177 = icmp eq ptr %176, %51
-  br i1 %177, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+  %180 = load ptr, ptr %11, align 8, !tbaa !19
+  %181 = icmp eq ptr %180, %51
+  br i1 %181, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  %178 = load i64, ptr %51, align 8, !tbaa !24
-  %179 = add i64 %178, 1
-  call void @_ZdlPvm(ptr noundef %176, i64 noundef %179) #24
+  %182 = load i64, ptr %51, align 8, !tbaa !24
+  %183 = add i64 %182, 1
+  call void @_ZdlPvm(ptr noundef %180, i64 noundef %183) #24
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
 
-180:                                              ; preds = %.noexc.i.i.i.i
-  %181 = landingpad { ptr, i32 }
+184:                                              ; preds = %.noexc.i.i.i.i
+  %185 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-.body.i:                                          ; preds = %.body.i.i, %180, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i6.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %181, %180 ], [ %eh.lpad-body.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i6.i.i ], [ %eh.lpad-body.i.i, %.body.i.i ]
-  %182 = load ptr, ptr %11, align 8, !tbaa !19
-  %183 = icmp eq ptr %182, %51
-  br i1 %183, label %.body, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i6.i
+.body.i:                                          ; preds = %.body.i.i, %184, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i6.i.i
+  %eh.lpad-body.i = phi { ptr, i32 } [ %185, %184 ], [ %eh.lpad-body.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i6.i.i ], [ %eh.lpad-body.i.i, %.body.i.i ]
+  %186 = load ptr, ptr %11, align 8, !tbaa !19
+  %187 = icmp eq ptr %186, %51
+  br i1 %187, label %.body, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i6.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i6.i: ; preds = %.body.i
-  %184 = load i64, ptr %51, align 8, !tbaa !24
-  %185 = add i64 %184, 1
-  call void @_ZdlPvm(ptr noundef %182, i64 noundef %185) #24
+  %188 = load i64, ptr %51, align 8, !tbaa !24
+  %189 = add i64 %188, 1
+  call void @_ZdlPvm(ptr noundef %186, i64 noundef %189) #24
   br label %.body
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %186 = load ptr, ptr %15, align 8, !tbaa !19
-  %187 = icmp eq ptr %186, %36
-  br i1 %187, label %"_ZZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationEN3$_0D2Ev.exit", label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %190 = load ptr, ptr %15, align 8, !tbaa !19
+  %191 = icmp eq ptr %190, %36
+  br i1 %191, label %"_ZZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationEN3$_0D2Ev.exit", label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
-  %188 = load i64, ptr %36, align 8, !tbaa !24
-  %189 = add i64 %188, 1
-  call void @_ZdlPvm(ptr noundef %186, i64 noundef %189) #24
+  %192 = load i64, ptr %36, align 8, !tbaa !24
+  %193 = add i64 %192, 1
+  call void @_ZdlPvm(ptr noundef %190, i64 noundef %193) #24
   br label %"_ZZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationEN3$_0D2Ev.exit"
 
 "_ZZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationEN3$_0D2Ev.exit": ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %190 = load ptr, ptr %14, align 8, !tbaa !19
-  %191 = icmp eq ptr %190, %18
-  br i1 %191, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %194 = load ptr, ptr %14, align 8, !tbaa !19
+  %195 = icmp eq ptr %194, %18
+  br i1 %195, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %"_ZZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationEN3$_0D2Ev.exit"
-  %192 = load i64, ptr %18, align 8, !tbaa !24
-  %193 = add i64 %192, 1
-  call void @_ZdlPvm(ptr noundef %190, i64 noundef %193) #24
+  %196 = load i64, ptr %18, align 8, !tbaa !24
+  %197 = add i64 %196, 1
+  call void @_ZdlPvm(ptr noundef %194, i64 noundef %197) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %"_ZZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationEN3$_0D2Ev.exit", %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
-  %194 = icmp ne ptr %35, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
+  %198 = icmp ne ptr %35, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  ret i1 %194
+  ret i1 %198
 
-195:                                              ; preds = %.noexc.i
-  %196 = landingpad { ptr, i32 }
+199:                                              ; preds = %.noexc.i
+  %200 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationEN3$_0D2Ev.exit14"
 
-197:                                              ; preds = %.noexc.i.i.i
-  %198 = landingpad { ptr, i32 }
+201:                                              ; preds = %.noexc.i.i.i
+  %202 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.body.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i6.i, %197
-  %eh.lpad-body = phi { ptr, i32 } [ %198, %197 ], [ %eh.lpad-body.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i6.i ], [ %eh.lpad-body.i, %.body.i ]
-  %199 = load ptr, ptr %15, align 8, !tbaa !19
-  %200 = icmp eq ptr %199, %36
-  br i1 %200, label %"_ZZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationEN3$_0D2Ev.exit14", label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i12
+.body:                                            ; preds = %.body.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i6.i, %201
+  %eh.lpad-body = phi { ptr, i32 } [ %202, %201 ], [ %eh.lpad-body.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i6.i ], [ %eh.lpad-body.i, %.body.i ]
+  %203 = load ptr, ptr %15, align 8, !tbaa !19
+  %204 = icmp eq ptr %203, %36
+  br i1 %204, label %"_ZZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationEN3$_0D2Ev.exit14", label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i12
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i12: ; preds = %.body
-  %201 = load i64, ptr %36, align 8, !tbaa !24
-  %202 = add i64 %201, 1
-  call void @_ZdlPvm(ptr noundef %199, i64 noundef %202) #24
-  br label %"_ZZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationEN3$_0D2Ev.exit14"
-
-"_ZZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationEN3$_0D2Ev.exit14": ; preds = %.body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i12, %195
-  %.pn = phi { ptr, i32 } [ %196, %195 ], [ %eh.lpad-body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i12 ], [ %eh.lpad-body, %.body ]
-  %203 = load ptr, ptr %14, align 8, !tbaa !19
-  %204 = icmp eq ptr %203, %18
-  br i1 %204, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15: ; preds = %"_ZZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationEN3$_0D2Ev.exit14"
-  %205 = load i64, ptr %18, align 8, !tbaa !24
+  %205 = load i64, ptr %36, align 8, !tbaa !24
   %206 = add i64 %205, 1
   call void @_ZdlPvm(ptr noundef %203, i64 noundef %206) #24
+  br label %"_ZZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationEN3$_0D2Ev.exit14"
+
+"_ZZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationEN3$_0D2Ev.exit14": ; preds = %.body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i12, %199
+  %.pn = phi { ptr, i32 } [ %200, %199 ], [ %eh.lpad-body, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i12 ], [ %eh.lpad-body, %.body ]
+  %207 = load ptr, ptr %14, align 8, !tbaa !19
+  %208 = icmp eq ptr %207, %18
+  br i1 %208, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15: ; preds = %"_ZZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationEN3$_0D2Ev.exit14"
+  %209 = load i64, ptr %18, align 8, !tbaa !24
+  %210 = add i64 %209, 1
+  call void @_ZdlPvm(ptr noundef %207, i64 noundef %210) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %"_ZZN24cmLinkLineDeviceComputer35ComputeRequiresDeviceLinkingIPOFlagER24cmComputeLinkInformationEN3$_0D2Ev.exit14", %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15

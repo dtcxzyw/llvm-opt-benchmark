@@ -120524,6 +120524,7 @@ _ZN3std2io7BufRead9read_line17hc4054bb54ea9f362E.exit.i: ; preds = %"_ZN4core3pt
   br i1 %203, label %.body58, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8318809290061399519.exit.i.i1.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.8318809290061399519.exit.i.i1.i.i": ; preds = %201
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.8.2) ]
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.8.2, i64 noundef %.sroa.099.1, i64 noundef 1) #66, !noalias !30891
   br label %.body58
 

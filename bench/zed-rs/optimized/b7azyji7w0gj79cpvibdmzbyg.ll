@@ -757,17 +757,17 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
 
 .noexc:                                           ; preds = %28
   %30 = load i64, ptr %12, align 8, !range !10, !noalias !206, !noundef !9
-  %31 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %32 = load i64, ptr %31, align 8, !noalias !206, !noundef !9
-  %33 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %34 = load i64, ptr %33, align 8, !noalias !206, !noundef !9
+  %31 = icmp ne i64 %30, 0
+  tail call void @llvm.assume(i1 %31)
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %33 = load i64, ptr %32, align 8, !noalias !206, !noundef !9
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %35 = load i64, ptr %34, align 8, !noalias !206, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !206
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.274.0.copyload) ]
-  %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds i8, ptr %.sroa.274.0.copyload, i64 %35
-  %37 = icmp ne i64 %30, 0
-  tail call void @llvm.assume(i1 %37)
-  tail call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %32, i64 noundef %30) #30, !noalias !206
+  %36 = sub nsw i64 0, %35
+  %37 = getelementptr inbounds i8, ptr %.sroa.274.0.copyload, i64 %36
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %33, i64 noundef %30) #30, !noalias !206
   br label %64
 
 38:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47", %24
@@ -1345,17 +1345,17 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
 
 .noexc:                                           ; preds = %31
   %33 = load i64, ptr %15, align 8, !range !10, !noalias !399, !noundef !9
-  %34 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %35 = load i64, ptr %34, align 8, !noalias !399, !noundef !9
-  %36 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %37 = load i64, ptr %36, align 8, !noalias !399, !noundef !9
+  %34 = icmp ne i64 %33, 0
+  tail call void @llvm.assume(i1 %34)
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %36 = load i64, ptr %35, align 8, !noalias !399, !noundef !9
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %38 = load i64, ptr %37, align 8, !noalias !399, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !399
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.278.0.copyload) ]
-  %38 = sub nsw i64 0, %37
-  %39 = getelementptr inbounds i8, ptr %.sroa.278.0.copyload, i64 %38
-  %40 = icmp ne i64 %33, 0
-  tail call void @llvm.assume(i1 %40)
-  tail call void @__rust_dealloc(ptr noundef nonnull %39, i64 noundef %35, i64 noundef %33) #30, !noalias !399
+  %39 = sub nsw i64 0, %38
+  %40 = getelementptr inbounds i8, ptr %.sroa.278.0.copyload, i64 %39
+  tail call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef %36, i64 noundef %33) #30, !noalias !399
   br label %86
 
 41:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit51", %27
@@ -2008,17 +2008,17 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
 
 .noexc:                                           ; preds = %28
   %30 = load i64, ptr %12, align 8, !range !10, !noalias !601, !noundef !9
-  %31 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %32 = load i64, ptr %31, align 8, !noalias !601, !noundef !9
-  %33 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %34 = load i64, ptr %33, align 8, !noalias !601, !noundef !9
+  %31 = icmp ne i64 %30, 0
+  tail call void @llvm.assume(i1 %31)
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %33 = load i64, ptr %32, align 8, !noalias !601, !noundef !9
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %35 = load i64, ptr %34, align 8, !noalias !601, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !601
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.274.0.copyload) ]
-  %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds i8, ptr %.sroa.274.0.copyload, i64 %35
-  %37 = icmp ne i64 %30, 0
-  tail call void @llvm.assume(i1 %37)
-  tail call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %32, i64 noundef %30) #30, !noalias !601
+  %36 = sub nsw i64 0, %35
+  %37 = getelementptr inbounds i8, ptr %.sroa.274.0.copyload, i64 %36
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %33, i64 noundef %30) #30, !noalias !601
   br label %64
 
 38:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47", %24
@@ -2593,17 +2593,17 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
 
 .noexc:                                           ; preds = %28
   %30 = load i64, ptr %12, align 8, !range !10, !noalias !792, !noundef !9
-  %31 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %32 = load i64, ptr %31, align 8, !noalias !792, !noundef !9
-  %33 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %34 = load i64, ptr %33, align 8, !noalias !792, !noundef !9
+  %31 = icmp ne i64 %30, 0
+  tail call void @llvm.assume(i1 %31)
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %33 = load i64, ptr %32, align 8, !noalias !792, !noundef !9
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %35 = load i64, ptr %34, align 8, !noalias !792, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !792
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.274.0.copyload) ]
-  %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds i8, ptr %.sroa.274.0.copyload, i64 %35
-  %37 = icmp ne i64 %30, 0
-  tail call void @llvm.assume(i1 %37)
-  tail call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %32, i64 noundef %30) #30, !noalias !792
+  %36 = sub nsw i64 0, %35
+  %37 = getelementptr inbounds i8, ptr %.sroa.274.0.copyload, i64 %36
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %33, i64 noundef %30) #30, !noalias !792
   br label %64
 
 38:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47", %24
@@ -3181,17 +3181,17 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
 
 .noexc:                                           ; preds = %31
   %33 = load i64, ptr %15, align 8, !range !10, !noalias !983, !noundef !9
-  %34 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %35 = load i64, ptr %34, align 8, !noalias !983, !noundef !9
-  %36 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %37 = load i64, ptr %36, align 8, !noalias !983, !noundef !9
+  %34 = icmp ne i64 %33, 0
+  tail call void @llvm.assume(i1 %34)
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %36 = load i64, ptr %35, align 8, !noalias !983, !noundef !9
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %38 = load i64, ptr %37, align 8, !noalias !983, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !983
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.278.0.copyload) ]
-  %38 = sub nsw i64 0, %37
-  %39 = getelementptr inbounds i8, ptr %.sroa.278.0.copyload, i64 %38
-  %40 = icmp ne i64 %33, 0
-  tail call void @llvm.assume(i1 %40)
-  tail call void @__rust_dealloc(ptr noundef nonnull %39, i64 noundef %35, i64 noundef %33) #30, !noalias !983
+  %39 = sub nsw i64 0, %38
+  %40 = getelementptr inbounds i8, ptr %.sroa.278.0.copyload, i64 %39
+  tail call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef %36, i64 noundef %33) #30, !noalias !983
   br label %77
 
 41:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit51", %27
@@ -3828,17 +3828,17 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
 
 .noexc:                                           ; preds = %28
   %30 = load i64, ptr %12, align 8, !range !10, !noalias !1183, !noundef !9
-  %31 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %32 = load i64, ptr %31, align 8, !noalias !1183, !noundef !9
-  %33 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %34 = load i64, ptr %33, align 8, !noalias !1183, !noundef !9
+  %31 = icmp ne i64 %30, 0
+  tail call void @llvm.assume(i1 %31)
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %33 = load i64, ptr %32, align 8, !noalias !1183, !noundef !9
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %35 = load i64, ptr %34, align 8, !noalias !1183, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1183
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.275.0.copyload) ]
-  %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds i8, ptr %.sroa.275.0.copyload, i64 %35
-  %37 = icmp ne i64 %30, 0
-  tail call void @llvm.assume(i1 %37)
-  tail call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %32, i64 noundef %30) #30, !noalias !1183
+  %36 = sub nsw i64 0, %35
+  %37 = getelementptr inbounds i8, ptr %.sroa.275.0.copyload, i64 %36
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %33, i64 noundef %30) #30, !noalias !1183
   br label %64
 
 38:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit48", %24
@@ -4419,17 +4419,17 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
 
 .noexc:                                           ; preds = %28
   %30 = load i64, ptr %12, align 8, !range !10, !noalias !1374, !noundef !9
-  %31 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %32 = load i64, ptr %31, align 8, !noalias !1374, !noundef !9
-  %33 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %34 = load i64, ptr %33, align 8, !noalias !1374, !noundef !9
+  %31 = icmp ne i64 %30, 0
+  tail call void @llvm.assume(i1 %31)
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %33 = load i64, ptr %32, align 8, !noalias !1374, !noundef !9
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %35 = load i64, ptr %34, align 8, !noalias !1374, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1374
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.277.0.copyload) ]
-  %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds i8, ptr %.sroa.277.0.copyload, i64 %35
-  %37 = icmp ne i64 %30, 0
-  tail call void @llvm.assume(i1 %37)
-  tail call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %32, i64 noundef %30) #30, !noalias !1374
+  %36 = sub nsw i64 0, %35
+  %37 = getelementptr inbounds i8, ptr %.sroa.277.0.copyload, i64 %36
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %33, i64 noundef %30) #30, !noalias !1374
   br label %70
 
 38:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit50", %24
@@ -5033,17 +5033,17 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
 
 .noexc:                                           ; preds = %28
   %30 = load i64, ptr %12, align 8, !range !10, !noalias !1566, !noundef !9
-  %31 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %32 = load i64, ptr %31, align 8, !noalias !1566, !noundef !9
-  %33 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %34 = load i64, ptr %33, align 8, !noalias !1566, !noundef !9
+  %31 = icmp ne i64 %30, 0
+  tail call void @llvm.assume(i1 %31)
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %33 = load i64, ptr %32, align 8, !noalias !1566, !noundef !9
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %35 = load i64, ptr %34, align 8, !noalias !1566, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1566
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.274.0.copyload) ]
-  %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds i8, ptr %.sroa.274.0.copyload, i64 %35
-  %37 = icmp ne i64 %30, 0
-  tail call void @llvm.assume(i1 %37)
-  tail call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %32, i64 noundef %30) #30, !noalias !1566
+  %36 = sub nsw i64 0, %35
+  %37 = getelementptr inbounds i8, ptr %.sroa.274.0.copyload, i64 %36
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %33, i64 noundef %30) #30, !noalias !1566
   br label %64
 
 38:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47", %24
@@ -5618,17 +5618,17 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
 
 .noexc:                                           ; preds = %28
   %30 = load i64, ptr %12, align 8, !range !10, !noalias !1757, !noundef !9
-  %31 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %32 = load i64, ptr %31, align 8, !noalias !1757, !noundef !9
-  %33 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %34 = load i64, ptr %33, align 8, !noalias !1757, !noundef !9
+  %31 = icmp ne i64 %30, 0
+  tail call void @llvm.assume(i1 %31)
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %33 = load i64, ptr %32, align 8, !noalias !1757, !noundef !9
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %35 = load i64, ptr %34, align 8, !noalias !1757, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1757
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.274.0.copyload) ]
-  %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds i8, ptr %.sroa.274.0.copyload, i64 %35
-  %37 = icmp ne i64 %30, 0
-  tail call void @llvm.assume(i1 %37)
-  tail call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %32, i64 noundef %30) #30, !noalias !1757
+  %36 = sub nsw i64 0, %35
+  %37 = getelementptr inbounds i8, ptr %.sroa.274.0.copyload, i64 %36
+  tail call void @__rust_dealloc(ptr noundef nonnull %37, i64 noundef %33, i64 noundef %30) #30, !noalias !1757
   br label %64
 
 38:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$serde_json..map..IntoIter$GT$17h9b8c383ffe7a81e9E.exit47", %24

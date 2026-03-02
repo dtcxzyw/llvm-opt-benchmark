@@ -4947,26 +4947,27 @@ define hidden void @"_ZN4core3ptr160drop_in_place$LT$alloc..sync..ArcInner$LT$cr
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %1
   %9 = and i64 %8, -8
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load i64, ptr %11, align 8, !noalias !683, !noundef !3
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %"_ZN4core3ptr131drop_in_place$LT$crossbeam_utils..cache_padded..CachePadded$LT$crossbeam_deque..deque..Inner$LT$rayon_core..job..JobRef$GT$$GT$$GT$17hf94b661243d5cbfeE.exit", label %14
+  %11 = icmp ne i64 %9, 0
+  call void @llvm.assume(i1 %11)
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %13 = load i64, ptr %12, align 8, !noalias !683, !noundef !3
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %"_ZN4core3ptr131drop_in_place$LT$crossbeam_utils..cache_padded..CachePadded$LT$crossbeam_deque..deque..Inner$LT$rayon_core..job..JobRef$GT$$GT$$GT$17hf94b661243d5cbfeE.exit", label %15
 
-14:                                               ; preds = %._crit_edge.i.i.i
-  %15 = load ptr, ptr %10, align 8, !noalias !683, !nonnull !3, !noundef !3
-  %16 = shl nuw nsw i64 %12, 4
-  call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %15, i64 noundef range(i64 1, 0) %16, i64 noundef 8) #18, !noalias !683
+15:                                               ; preds = %._crit_edge.i.i.i
+  %16 = load ptr, ptr %10, align 8, !noalias !683, !nonnull !3, !noundef !3
+  %17 = shl nuw nsw i64 %13, 4
+  call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %16, i64 noundef range(i64 1, 0) %17, i64 noundef 8) #18, !noalias !683
   br label %"_ZN4core3ptr131drop_in_place$LT$crossbeam_utils..cache_padded..CachePadded$LT$crossbeam_deque..deque..Inner$LT$rayon_core..job..JobRef$GT$$GT$$GT$17hf94b661243d5cbfeE.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
-  %.sroa.0.010.i.i.i = phi i64 [ %18, %.lr.ph.i.i.i ], [ %7, %1 ]
-  %17 = call noundef align 8 dereferenceable(16) ptr @"_ZN15crossbeam_epoch6atomic15Shared$LT$T$GT$5deref17hf47c09b0dacfa633E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2), !noalias !683
-  %18 = add i64 %.sroa.0.010.i.i.i, 1
-  %.not.i.i.i = icmp eq i64 %18, %5
+  %.sroa.0.010.i.i.i = phi i64 [ %19, %.lr.ph.i.i.i ], [ %7, %1 ]
+  %18 = call noundef align 8 dereferenceable(16) ptr @"_ZN15crossbeam_epoch6atomic15Shared$LT$T$GT$5deref17hf47c09b0dacfa633E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2), !noalias !683
+  %19 = add i64 %.sroa.0.010.i.i.i, 1
+  %.not.i.i.i = icmp eq i64 %19, %5
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
-"_ZN4core3ptr131drop_in_place$LT$crossbeam_utils..cache_padded..CachePadded$LT$crossbeam_deque..deque..Inner$LT$rayon_core..job..JobRef$GT$$GT$$GT$17hf94b661243d5cbfeE.exit": ; preds = %._crit_edge.i.i.i, %14
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %10) ]
+"_ZN4core3ptr131drop_in_place$LT$crossbeam_utils..cache_padded..CachePadded$LT$crossbeam_deque..deque..Inner$LT$rayon_core..job..JobRef$GT$$GT$$GT$17hf94b661243d5cbfeE.exit": ; preds = %._crit_edge.i.i.i, %15
   call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %10, i64 noundef 16, i64 noundef 8) #18, !noalias !683
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !683
   ret void

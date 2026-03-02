@@ -18230,10 +18230,10 @@ define internal fastcc void @_ZN4just10subcommand10Subcommand9variables17h1f6c34
 28:                                               ; preds = %.lr.ph, %33
   %29 = phi { ptr, ptr } [ %12, %.lr.ph ], [ %35, %33 ]
   %30 = extractvalue { ptr, ptr } %29, 1
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %30) ]
   %31 = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !3875, !noalias !3872, !noundef !8
   %32 = add i64 %31, 1
   store i64 %32, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !3875, !noalias !3872
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %30) ]
   %.not = icmp eq i64 %31, 0
   br i1 %.not, label %33, label %38
 

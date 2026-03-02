@@ -660,13 +660,13 @@ dissect_lorawan_beacon.exit:                      ; preds = %30, %58
   %91 = tail call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %90, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   %92 = load i32, ptr @hf_lorawan_mac_header_major_type, align 4
   %93 = tail call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %92, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  switch i8 %.0, label %227 [
+  switch i8 %.0, label %228 [
     i8 0, label %94
     i8 1, label %130
-    i8 2, label %223
-    i8 4, label %223
-    i8 3, label %225
-    i8 5, label %225
+    i8 2, label %224
+    i8 4, label %224
+    i8 3, label %226
+    i8 5, label %226
   ]
 
 94:                                               ; preds = %85
@@ -772,135 +772,137 @@ dissect_lorawan_join_request.exit:                ; preds = %116, %get_root_key.
   %153 = getelementptr i8, ptr %150, i64 1
   %154 = zext nneg i32 %152 to i64
   %155 = add nsw i64 %149, -1
-  %156 = getelementptr i8, ptr %146, i64 %154
-  %157 = trunc nuw nsw i32 %148 to i8
-  br label %158
+  %156 = icmp ne i32 %148, 0
+  %157 = getelementptr i8, ptr %146, i64 %154
+  %158 = trunc nuw nsw i32 %148 to i8
+  br label %159
 
-158:                                              ; preds = %188, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %188 ]
-  %159 = load ptr, ptr @root_keys, align 8
-  %160 = getelementptr %struct._root_keys_t, ptr %159, i64 %indvars.iv.i
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 24
-  %162 = load ptr, ptr %161, align 8
+159:                                              ; preds = %189, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %189 ]
+  %160 = load ptr, ptr @root_keys, align 8
+  %161 = getelementptr %struct._root_keys_t, ptr %160, i64 %indvars.iv.i
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 24
   %163 = load ptr, ptr %162, align 8
-  %164 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 1, i32 noundef %131)
+  %164 = load ptr, ptr %163, align 8
+  %165 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 1, i32 noundef %131)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %165 = call i32 @gcry_cipher_open(ptr noundef nonnull %5, i32 noundef 7, i32 noundef 1, i32 noundef 0)
-  %.not.i.i65 = icmp eq i32 %165, 0
-  br i1 %.not.i.i65, label %166, label %aes128_lorawan_encrypt.exit.thread.i
+  %166 = call i32 @gcry_cipher_open(ptr noundef nonnull %5, i32 noundef 7, i32 noundef 1, i32 noundef 0)
+  %.not.i.i65 = icmp eq i32 %166, 0
+  br i1 %.not.i.i65, label %167, label %aes128_lorawan_encrypt.exit.thread.i
 
-166:                                              ; preds = %158
-  %167 = load ptr, ptr %5, align 8
-  %168 = call i32 @gcry_cipher_setkey(ptr noundef %167, ptr noundef %163, i64 noundef 16)
-  %.not5.i.i = icmp eq i32 %168, 0
-  %169 = load ptr, ptr %5, align 8
-  br i1 %.not5.i.i, label %aes128_lorawan_encrypt.exit.i, label %170
+167:                                              ; preds = %159
+  %168 = load ptr, ptr %5, align 8
+  %169 = call i32 @gcry_cipher_setkey(ptr noundef %168, ptr noundef %164, i64 noundef 16)
+  %.not5.i.i = icmp eq i32 %169, 0
+  %170 = load ptr, ptr %5, align 8
+  br i1 %.not5.i.i, label %aes128_lorawan_encrypt.exit.i, label %171
 
-170:                                              ; preds = %166
-  call void @gcry_cipher_close(ptr noundef %169)
+171:                                              ; preds = %167
+  call void @gcry_cipher_close(ptr noundef %170)
   br label %aes128_lorawan_encrypt.exit.thread.i
 
-aes128_lorawan_encrypt.exit.thread.i:             ; preds = %170, %158
+aes128_lorawan_encrypt.exit.thread.i:             ; preds = %171, %159
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %188
+  br label %189
 
-aes128_lorawan_encrypt.exit.i:                    ; preds = %166
-  %171 = call i32 @gcry_cipher_encrypt(ptr noundef %169, ptr noundef %146, i64 noundef %145, ptr noundef %164, i64 noundef %145)
-  %.not6.i.i = icmp eq i32 %171, 0
-  %172 = load ptr, ptr %5, align 8
-  call void @gcry_cipher_close(ptr noundef %172)
+aes128_lorawan_encrypt.exit.i:                    ; preds = %167
+  %172 = call i32 @gcry_cipher_encrypt(ptr noundef %170, ptr noundef %146, i64 noundef %145, ptr noundef %165, i64 noundef %145)
+  %.not6.i.i = icmp eq i32 %172, 0
+  %173 = load ptr, ptr %5, align 8
+  call void @gcry_cipher_close(ptr noundef %173)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not6.i.i, label %173, label %188
+  br i1 %.not6.i.i, label %174, label %189
 
-173:                                              ; preds = %aes128_lorawan_encrypt.exit.i
-  %174 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
-  store i8 %174, ptr %150, align 1
-  %175 = call ptr @__memcpy_chk(ptr noundef %153, ptr noundef %146, i64 noundef range(i64 -2147483648, 2147483648) %154, i64 noundef %155) #12, !alias.scope !8
-  %176 = load i32, ptr %156, align 1
-  %177 = load ptr, ptr @root_keys, align 8
-  %178 = getelementptr %struct._root_keys_t, ptr %177, i64 %indvars.iv.i
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 24
-  %180 = load ptr, ptr %179, align 8
+174:                                              ; preds = %aes128_lorawan_encrypt.exit.i
+  %175 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
+  store i8 %175, ptr %150, align 1
+  call void @llvm.assume(i1 %156)
+  %176 = call ptr @__memcpy_chk(ptr noundef %153, ptr noundef %146, i64 noundef range(i64 -2147483648, 2147483648) %154, i64 noundef %155) #12, !alias.scope !8
+  %177 = load i32, ptr %157, align 1
+  %178 = load ptr, ptr @root_keys, align 8
+  %179 = getelementptr %struct._root_keys_t, ptr %178, i64 %indvars.iv.i
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 24
   %181 = load ptr, ptr %180, align 8
-  %182 = call fastcc i32 @calculate_mic(ptr noundef %150, i8 noundef zeroext %157, ptr noundef %181)
-  %183 = icmp eq i32 %182, %176
-  br i1 %183, label %184, label %188
+  %182 = load ptr, ptr %181, align 8
+  %183 = call fastcc i32 @calculate_mic(ptr noundef %150, i8 noundef zeroext %158, ptr noundef %182)
+  %184 = icmp eq i32 %183, %177
+  br i1 %184, label %185, label %189
 
-184:                                              ; preds = %173
-  %185 = load ptr, ptr @root_keys, align 8
-  %186 = getelementptr %struct._root_keys_t, ptr %185, i64 %indvars.iv.i
-  %187 = icmp eq ptr %186, null
-  br i1 %187, label %.critedge.i, label %192
+185:                                              ; preds = %174
+  %186 = load ptr, ptr @root_keys, align 8
+  %187 = getelementptr %struct._root_keys_t, ptr %186, i64 %indvars.iv.i
+  %188 = icmp eq ptr %187, null
+  br i1 %188, label %.critedge.i, label %193
 
-188:                                              ; preds = %173, %aes128_lorawan_encrypt.exit.i, %aes128_lorawan_encrypt.exit.thread.i
+189:                                              ; preds = %174, %aes128_lorawan_encrypt.exit.i, %aes128_lorawan_encrypt.exit.thread.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %189 = load i32, ptr @root_num_keys, align 4
-  %190 = zext i32 %189 to i64
-  %191 = icmp samesign ult i64 %indvars.iv.next.i, %190
-  br i1 %191, label %158, label %.critedge.i, !llvm.loop !12
+  %190 = load i32, ptr @root_num_keys, align 4
+  %191 = zext i32 %190 to i64
+  %192 = icmp samesign ult i64 %indvars.iv.next.i, %191
+  br i1 %192, label %159, label %.critedge.i, !llvm.loop !12
 
-192:                                              ; preds = %184
-  %193 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %146, i32 noundef %131, i32 noundef %131)
-  call void @add_new_data_source(ptr noundef %1, ptr noundef %193, ptr noundef nonnull @.str.301)
-  %194 = load i32, ptr @hf_lorawan_join_accept_joinnonce_type, align 4
-  %195 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %194, ptr noundef %193, i32 noundef 0, i32 noundef 3, i32 noundef -2147483648)
-  %196 = load i32, ptr @hf_lorawan_join_accept_netid_type, align 4
-  %197 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %196, ptr noundef %193, i32 noundef 3, i32 noundef 3, i32 noundef -2147483648)
-  %198 = load i32, ptr @hf_lorawan_join_accept_devaddr_type, align 4
-  %199 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %198, ptr noundef %193, i32 noundef 6, i32 noundef 4, i32 noundef -2147483648)
-  %200 = load i32, ptr @hf_lorawan_join_accept_dlsettings_type, align 4
-  %201 = load i32, ptr @ett_lorawan_join_accept_dlsettings, align 4
-  %202 = call ptr @proto_tree_add_bitmask(ptr noundef %135, ptr noundef %193, i32 noundef 10, i32 noundef %200, i32 noundef %201, ptr noundef nonnull @hfx_lorawan_join_accept_dlsettings, i32 noundef 0)
-  %203 = load i32, ptr @hf_lorawan_join_accept_rxdelay_type, align 4
-  %204 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %203, ptr noundef %193, i32 noundef 11, i32 noundef 1, i32 noundef 0)
-  %205 = call i32 @tvb_captured_length(ptr noundef %193)
-  %206 = add i32 %205, -17
-  %207 = icmp ult i32 %206, -5
-  br i1 %207, label %208, label %213
+193:                                              ; preds = %185
+  %194 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %146, i32 noundef %131, i32 noundef %131)
+  call void @add_new_data_source(ptr noundef %1, ptr noundef %194, ptr noundef nonnull @.str.301)
+  %195 = load i32, ptr @hf_lorawan_join_accept_joinnonce_type, align 4
+  %196 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %195, ptr noundef %194, i32 noundef 0, i32 noundef 3, i32 noundef -2147483648)
+  %197 = load i32, ptr @hf_lorawan_join_accept_netid_type, align 4
+  %198 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %197, ptr noundef %194, i32 noundef 3, i32 noundef 3, i32 noundef -2147483648)
+  %199 = load i32, ptr @hf_lorawan_join_accept_devaddr_type, align 4
+  %200 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %199, ptr noundef %194, i32 noundef 6, i32 noundef 4, i32 noundef -2147483648)
+  %201 = load i32, ptr @hf_lorawan_join_accept_dlsettings_type, align 4
+  %202 = load i32, ptr @ett_lorawan_join_accept_dlsettings, align 4
+  %203 = call ptr @proto_tree_add_bitmask(ptr noundef %135, ptr noundef %194, i32 noundef 10, i32 noundef %201, i32 noundef %202, ptr noundef nonnull @hfx_lorawan_join_accept_dlsettings, i32 noundef 0)
+  %204 = load i32, ptr @hf_lorawan_join_accept_rxdelay_type, align 4
+  %205 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %204, ptr noundef %194, i32 noundef 11, i32 noundef 1, i32 noundef 0)
+  %206 = call i32 @tvb_captured_length(ptr noundef %194)
+  %207 = add i32 %206, -17
+  %208 = icmp ult i32 %207, -5
+  br i1 %208, label %209, label %214
 
-208:                                              ; preds = %192
-  %209 = load i32, ptr @hf_lorawan_join_accept_cflist_type, align 4
-  %210 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %209, ptr noundef %193, i32 noundef 12, i32 noundef 16, i32 noundef 0)
-  %211 = call i32 @proto_item_get_len(ptr noundef %133)
-  %212 = add i32 %211, 16
-  call void @proto_item_set_len(ptr noundef %133, i32 noundef %212)
-  br label %213
+209:                                              ; preds = %193
+  %210 = load i32, ptr @hf_lorawan_join_accept_cflist_type, align 4
+  %211 = call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %210, ptr noundef %194, i32 noundef 12, i32 noundef 16, i32 noundef 0)
+  %212 = call i32 @proto_item_get_len(ptr noundef %133)
+  %213 = add i32 %212, 16
+  call void @proto_item_set_len(ptr noundef %133, i32 noundef %213)
+  br label %214
 
-213:                                              ; preds = %208, %192
-  %.089.i = phi i32 [ 28, %208 ], [ 12, %192 ]
-  %214 = load i32, ptr @hf_lorawan_mic_type, align 4
-  %215 = load i32, ptr @hf_lorawan_mic_status_type, align 4
-  %216 = call ptr @proto_tree_add_checksum(ptr noundef %13, ptr noundef %193, i32 noundef %.089.i, i32 noundef %214, i32 noundef %215, ptr noundef nonnull @ei_lorawan_mic, ptr noundef %1, i32 noundef 0, i32 noundef -2147483648, i32 noundef 9)
-  br label %221
+214:                                              ; preds = %209, %193
+  %.089.i = phi i32 [ 28, %209 ], [ 12, %193 ]
+  %215 = load i32, ptr @hf_lorawan_mic_type, align 4
+  %216 = load i32, ptr @hf_lorawan_mic_status_type, align 4
+  %217 = call ptr @proto_tree_add_checksum(ptr noundef %13, ptr noundef %194, i32 noundef %.089.i, i32 noundef %215, i32 noundef %216, ptr noundef nonnull @ei_lorawan_mic, ptr noundef %1, i32 noundef 0, i32 noundef -2147483648, i32 noundef 9)
+  br label %222
 
-.critedge.i:                                      ; preds = %188, %184, %142
-  %217 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %135, ptr noundef nonnull @ei_lorawan_missing_keys)
-  %218 = load i32, ptr @hf_lorawan_frame_payload_type, align 4
-  %219 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 1)
-  %220 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %218, ptr noundef %0, i32 noundef 1, i32 noundef %219, i32 noundef 0)
-  br label %221
+.critedge.i:                                      ; preds = %189, %185, %142
+  %218 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %135, ptr noundef nonnull @ei_lorawan_missing_keys)
+  %219 = load i32, ptr @hf_lorawan_frame_payload_type, align 4
+  %220 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 1)
+  %221 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %219, ptr noundef %0, i32 noundef 1, i32 noundef %220, i32 noundef 0)
+  br label %222
 
-221:                                              ; preds = %.critedge.i, %213
-  %222 = call i32 @tvb_captured_length(ptr noundef %0)
+222:                                              ; preds = %.critedge.i, %214
+  %223 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %dissect_lorawan_join_accept.exit
 
-223:                                              ; preds = %85, %85
-  %224 = tail call fastcc i32 @dissect_lorawan_data(ptr noundef %0, ptr noundef %1, ptr noundef %13, i1 noundef zeroext true)
+224:                                              ; preds = %85, %85
+  %225 = tail call fastcc i32 @dissect_lorawan_data(ptr noundef %0, ptr noundef %1, ptr noundef %13, i1 noundef zeroext true)
   br label %dissect_lorawan_join_accept.exit
 
-225:                                              ; preds = %85, %85
-  %226 = tail call fastcc i32 @dissect_lorawan_data(ptr noundef %0, ptr noundef %1, ptr noundef %13, i1 noundef zeroext false)
+226:                                              ; preds = %85, %85
+  %227 = tail call fastcc i32 @dissect_lorawan_data(ptr noundef %0, ptr noundef %1, ptr noundef %13, i1 noundef zeroext false)
   br label %dissect_lorawan_join_accept.exit
 
-227:                                              ; preds = %85
-  %228 = load i32, ptr @hf_lorawan_frame_payload_type, align 4
-  %229 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 1)
-  %230 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %228, ptr noundef %0, i32 noundef 1, i32 noundef %229, i32 noundef 0)
-  %231 = tail call i32 @tvb_captured_length(ptr noundef %0)
+228:                                              ; preds = %85
+  %229 = load i32, ptr @hf_lorawan_frame_payload_type, align 4
+  %230 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 1)
+  %231 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %229, ptr noundef %0, i32 noundef 1, i32 noundef %230, i32 noundef 0)
+  %232 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %dissect_lorawan_join_accept.exit
 
-dissect_lorawan_join_accept.exit:                 ; preds = %221, %136, %dissect_lorawan_join_request.exit, %223, %225, %227, %dissect_lorawan_beacon.exit
-  %.062 = phi i32 [ %66, %dissect_lorawan_beacon.exit ], [ %231, %227 ], [ %129, %dissect_lorawan_join_request.exit ], [ %226, %225 ], [ %224, %223 ], [ %141, %136 ], [ %222, %221 ]
+dissect_lorawan_join_accept.exit:                 ; preds = %222, %136, %dissect_lorawan_join_request.exit, %224, %226, %228, %dissect_lorawan_beacon.exit
+  %.062 = phi i32 [ %66, %dissect_lorawan_beacon.exit ], [ %232, %228 ], [ %129, %dissect_lorawan_join_request.exit ], [ %227, %226 ], [ %225, %224 ], [ %141, %136 ], [ %223, %222 ]
   ret i32 %.062
 }
 

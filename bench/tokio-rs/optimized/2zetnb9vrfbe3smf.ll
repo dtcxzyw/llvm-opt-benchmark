@@ -4966,6 +4966,7 @@ _ZN5tokio7runtime9scheduler12multi_thread5stats5Stats32start_processing_schedule
   %75 = load i32, ptr %74, align 8, !alias.scope !889, !noundef !19
   %76 = add i32 %75, 1
   store i32 %76, ptr %74, align 8, !alias.scope !889
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.2253) ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !892)
   %77 = load ptr, ptr %0, align 8, !noalias !892, !nonnull !19, !noundef !19
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16

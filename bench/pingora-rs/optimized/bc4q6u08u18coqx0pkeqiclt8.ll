@@ -646,11 +646,11 @@ define void @_ZN20pingora_header_serde11HeaderSerde9serialize17hf7403978be8838e6
 
 60:                                               ; preds = %.noexc14
   %61 = extractvalue { ptr, ptr } %58, 1
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %61) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !58
   store ptr %56, ptr %12, align 8, !noalias !58
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !58
   store ptr %59, ptr %11, align 8, !noalias !58
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %61) ]
   %62 = load ptr, ptr %56, align 8, !noundef !7
   %63 = icmp ne ptr %62, null
   %64 = load ptr, ptr %59, align 8, !noundef !7

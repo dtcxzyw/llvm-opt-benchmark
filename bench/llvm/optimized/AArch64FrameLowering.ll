@@ -8031,6 +8031,7 @@ _ZL14requiresSaveVGRN4llvm15MachineFunctionE.exit.thread1032: ; preds = %723, %_
   br label %_Z15isVGInstructionN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.thread1036
 
 _Z15isVGInstructionN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.thread1036: ; preds = %735, %_ZL14requiresSaveVGRN4llvm15MachineFunctionE.exit.thread, %_ZL14requiresSaveVGRN4llvm15MachineFunctionE.exit.thread, %_ZL14requiresSaveVGRN4llvm15MachineFunctionE.exit.thread, %_ZL14requiresSaveVGRN4llvm15MachineFunctionE.exit.thread1032, %_Z15isVGInstructionN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit, %_ZL15IsSVECalleeSaveN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0998.11112) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0998.11112, align 8
   %744 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %744, 0
@@ -9928,6 +9929,7 @@ _ZL15IsSVECalleeSaveN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.
   br i1 %.not1104, label %.critedge7, label %1395
 
 1395:                                             ; preds = %_ZL15IsSVECalleeSaveN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit687.thread
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0998.3) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i689 = load i64, ptr %.sroa.0998.3, align 8
   %1396 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i689, 4
   %.not.i.i.i690 = icmp eq i64 %1396, 0
@@ -10649,6 +10651,7 @@ _Z15isVGInstructionN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.e
   br i1 %61, label %_Z15isVGInstructionN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.thread141, label %_ZL14requiresSaveVGRN4llvm15MachineFunctionE.exit.thread
 
 _Z15isVGInstructionN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.thread141: ; preds = %54, %_ZL14requiresSaveVGRN4llvm15MachineFunctionE.exit, %_ZL14requiresSaveVGRN4llvm15MachineFunctionE.exit, %_ZL14requiresSaveVGRN4llvm15MachineFunctionE.exit, %_Z15isVGInstructionN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0130.1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0130.1, align 8
   %62 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %62, 0
@@ -10777,6 +10780,7 @@ _ZL14requiresSaveVGRN4llvm15MachineFunctionE.exit.thread: ; preds = %42, %_Z17re
   br i1 %110, label %111, label %.lr.ph.i.i.i
 
 111:                                              ; preds = %109
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0130.0) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i60 = load i64, ptr %.sroa.0130.0, align 8
   %112 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i60, 4
   %.not.i.i.i61 = icmp eq i64 %112, 0
@@ -12019,6 +12023,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit: ; preds =
   ]
 
 _ZL15IsSVECalleeSaveN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE.exit.thread: ; preds = %272, %272, %272, %272, %272, %272, %272, %272, %272, %272, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEmmEv.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.i.i.i) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i237 = load i64, ptr %.sroa.0.0.i.i.i, align 8
   %275 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i237, 4
   %.not.i.i.i238 = icmp ne i64 %275, 0
@@ -26361,6 +26366,7 @@ _ZL29expandSMEPPRToZPRSpillPseudosRN4llvm17MachineBasicBlockERKNS_18TargetRegist
   br i1 %.not290, label %.critedge, label %1065
 
 1065:                                             ; preds = %.lr.ph
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0278.0319) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0278.0319, align 8
   %1066 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i56 = icmp ne i64 %1066, 0
@@ -28461,6 +28467,7 @@ _ZN12_GLOBAL__N_112GroupBuilder9AddMemberEi.exit: ; preds = %.critedge, %223
 
 247:                                              ; preds = %.sink.split, %.lr.ph166
   %248 = phi i32 [ %76, %.lr.ph166 ], [ %.sink, %.sink.split ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0128.0164) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.0128.0164, align 8
   %249 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %249, 0
@@ -29300,6 +29307,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit: ;
 
 27:                                               ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit
   %28 = phi i32 [ %12, %.lr.ph ], [ %26, %_ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.034.039) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.034.039, align 8
   %29 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i = icmp eq i64 %29, 0

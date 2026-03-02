@@ -13934,7 +13934,7 @@ _ZN3std4path8absolute17h62785088be14fb2dE.exit:   ; preds = %4
 
 226:                                              ; preds = %.noexc293
   %227 = invoke noundef nonnull ptr @_ZN6fs_err6errors5Error5build17h2612844ee709033cE(ptr noundef nonnull %225, i8 noundef 15, ptr noalias noundef nonnull readonly align 1 %220, i64 noundef %221)
-          to label %.thread636 unwind label %217
+          to label %.thread634 unwind label %217
 
 228:                                              ; preds = %.noexc293
   %.sroa.8377.0..sroa_idx378 = getelementptr inbounds nuw i8, ptr %99, i64 16
@@ -13949,7 +13949,7 @@ _ZN3std4path8absolute17h62785088be14fb2dE.exit:   ; preds = %4
   invoke void @_ZN13uv_cache_info9timestamp9Timestamp9from_path17h3492d136c0e163eaE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %143, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %98)
           to label %230 unwind label %217
 
-.thread636:                                       ; preds = %226
+.thread634:                                       ; preds = %226
   call void @llvm.lifetime.end.p0(ptr nonnull %99), !noalias !2438
   store ptr %227, ptr %143, align 8
   %229 = load i64, ptr %157, align 8, !noundef !11
@@ -13963,8 +13963,8 @@ _ZN3std4path8absolute17h62785088be14fb2dE.exit:   ; preds = %4
   %232 = icmp eq i32 %.pre, 1000000000
   br i1 %232, label %233, label %308
 
-233:                                              ; preds = %.thread636, %230
-  %234 = phi i64 [ %229, %.thread636 ], [ %231, %230 ]
+233:                                              ; preds = %.thread634, %230
+  %234 = phi i64 [ %229, %.thread634 ], [ %231, %230 ]
   %235 = load ptr, ptr %156, align 8, !nonnull !11, !align !27, !noundef !11
   %236 = load ptr, ptr %143, align 8, !nonnull !11, !noundef !11
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11418)

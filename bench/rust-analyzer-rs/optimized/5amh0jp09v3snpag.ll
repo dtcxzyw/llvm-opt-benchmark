@@ -250,17 +250,17 @@ define hidden void @"_ZN4core3ptr164drop_in_place$LT$core..option..Option$LT$ind
 
 .noexc.i.i.i:                                     ; preds = %11
   %13 = load i64, ptr %2, align 8, !range !20, !noalias !43, !noundef !4
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = load i64, ptr %14, align 8, !noalias !43, !noundef !4
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %17 = load i64, ptr %16, align 8, !noalias !43, !noundef !4
+  %14 = icmp ne i64 %13, 0
+  tail call void @llvm.assume(i1 %14)
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %16 = load i64, ptr %15, align 8, !noalias !43, !noundef !4
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %18 = load i64, ptr %17, align 8, !noalias !43, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !43
-  %18 = load ptr, ptr %7, align 8, !alias.scope !43, !nonnull !4, !noundef !4
-  %19 = sub nsw i64 0, %17
-  %20 = getelementptr inbounds i8, ptr %18, i64 %19
-  %21 = icmp ne i64 %13, 0
-  tail call void @llvm.assume(i1 %21)
-  tail call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %15, i64 noundef %13) #23, !noalias !43
+  %19 = load ptr, ptr %7, align 8, !alias.scope !43, !nonnull !4, !noundef !4
+  %20 = sub nsw i64 0, %18
+  %21 = getelementptr inbounds i8, ptr %19, i64 %20
+  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %16, i64 noundef %13) #23, !noalias !43
   br label %"_ZN4core3ptr136drop_in_place$LT$indexmap..set..IndexSet$LT$salsa..DatabaseKeyIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17he0d68bb00687a27fE.exit"
 
 22:                                               ; preds = %11
@@ -623,17 +623,17 @@ common.resume:                                    ; preds = %12, %.body
 
 .noexc.i.i.i.i:                                   ; preds = %24
   %26 = load i64, ptr %3, align 8, !range !20, !noalias !109, !noundef !4
-  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %28 = load i64, ptr %27, align 8, !noalias !109, !noundef !4
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %30 = load i64, ptr %29, align 8, !noalias !109, !noundef !4
+  %27 = icmp ne i64 %26, 0
+  call void @llvm.assume(i1 %27)
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %29 = load i64, ptr %28, align 8, !noalias !109, !noundef !4
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %31 = load i64, ptr %30, align 8, !noalias !109, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !109
-  %31 = load ptr, ptr %20, align 8, !alias.scope !109, !nonnull !4, !noundef !4
-  %32 = sub nsw i64 0, %30
-  %33 = getelementptr inbounds i8, ptr %31, i64 %32
-  %34 = icmp ne i64 %26, 0
-  call void @llvm.assume(i1 %34)
-  call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef %28, i64 noundef %26) #23, !noalias !109
+  %32 = load ptr, ptr %20, align 8, !alias.scope !109, !nonnull !4, !noundef !4
+  %33 = sub nsw i64 0, %31
+  %34 = getelementptr inbounds i8, ptr %32, i64 %33
+  call void @__rust_dealloc(ptr noundef nonnull %34, i64 noundef %29, i64 noundef %26) #23, !noalias !109
   br label %"_ZN4core3ptr136drop_in_place$LT$indexmap..set..IndexSet$LT$salsa..DatabaseKeyIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17he0d68bb00687a27fE.exit.i"
 
 35:                                               ; preds = %24
@@ -1848,17 +1848,17 @@ define hidden void @_ZN5salsa7runtime11ActiveQuery18add_untracked_read17h55244b1
 
 .noexc.i.i.i.i:                                   ; preds = %11
   %13 = load i64, ptr %3, align 8, !range !20, !noalias !209, !noundef !4
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %15 = load i64, ptr %14, align 8, !noalias !209, !noundef !4
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %17 = load i64, ptr %16, align 8, !noalias !209, !noundef !4
+  %14 = icmp ne i64 %13, 0
+  tail call void @llvm.assume(i1 %14)
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %16 = load i64, ptr %15, align 8, !noalias !209, !noundef !4
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %18 = load i64, ptr %17, align 8, !noalias !209, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !209
-  %18 = load ptr, ptr %7, align 8, !alias.scope !209, !nonnull !4, !noundef !4
-  %19 = sub nsw i64 0, %17
-  %20 = getelementptr inbounds i8, ptr %18, i64 %19
-  %21 = icmp ne i64 %13, 0
-  tail call void @llvm.assume(i1 %21)
-  tail call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %15, i64 noundef %13) #23, !noalias !209
+  %19 = load ptr, ptr %7, align 8, !alias.scope !209, !nonnull !4, !noundef !4
+  %20 = sub nsw i64 0, %18
+  %21 = getelementptr inbounds i8, ptr %19, i64 %20
+  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %16, i64 noundef %13) #23, !noalias !209
   br label %"_ZN4core3ptr136drop_in_place$LT$indexmap..set..IndexSet$LT$salsa..DatabaseKeyIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17he0d68bb00687a27fE.exit.i"
 
 22:                                               ; preds = %11
@@ -1926,17 +1926,17 @@ define hidden void @_ZN5salsa7runtime11ActiveQuery18add_synthetic_read17h2bf4062
 
 .noexc.i.i.i.i:                                   ; preds = %12
   %14 = load i64, ptr %4, align 8, !range !20, !noalias !236, !noundef !4
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %16 = load i64, ptr %15, align 8, !noalias !236, !noundef !4
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %18 = load i64, ptr %17, align 8, !noalias !236, !noundef !4
+  %15 = icmp ne i64 %14, 0
+  tail call void @llvm.assume(i1 %15)
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %17 = load i64, ptr %16, align 8, !noalias !236, !noundef !4
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %19 = load i64, ptr %18, align 8, !noalias !236, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !236
-  %19 = load ptr, ptr %8, align 8, !alias.scope !236, !nonnull !4, !noundef !4
-  %20 = sub nsw i64 0, %18
-  %21 = getelementptr inbounds i8, ptr %19, i64 %20
-  %22 = icmp ne i64 %14, 0
-  tail call void @llvm.assume(i1 %22)
-  tail call void @__rust_dealloc(ptr noundef nonnull %21, i64 noundef %16, i64 noundef %14) #23, !noalias !236
+  %20 = load ptr, ptr %8, align 8, !alias.scope !236, !nonnull !4, !noundef !4
+  %21 = sub nsw i64 0, %19
+  %22 = getelementptr inbounds i8, ptr %20, i64 %21
+  tail call void @__rust_dealloc(ptr noundef nonnull %22, i64 noundef %17, i64 noundef %14) #23, !noalias !236
   br label %"_ZN4core3ptr136drop_in_place$LT$indexmap..set..IndexSet$LT$salsa..DatabaseKeyIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17he0d68bb00687a27fE.exit.i"
 
 23:                                               ; preds = %12
@@ -2074,17 +2074,17 @@ define hidden void @_ZN5salsa7runtime11ActiveQuery8add_from17h744410310c48abcfE(
 
 .noexc.i.i.i.i:                                   ; preds = %26
   %28 = load i64, ptr %6, align 8, !range !20, !noalias !266, !noundef !4
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %30 = load i64, ptr %29, align 8, !noalias !266, !noundef !4
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %32 = load i64, ptr %31, align 8, !noalias !266, !noundef !4
+  %29 = icmp ne i64 %28, 0
+  tail call void @llvm.assume(i1 %29)
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %31 = load i64, ptr %30, align 8, !noalias !266, !noundef !4
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %33 = load i64, ptr %32, align 8, !noalias !266, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !266
-  %33 = load ptr, ptr %22, align 8, !alias.scope !266, !nonnull !4, !noundef !4
-  %34 = sub nsw i64 0, %32
-  %35 = getelementptr inbounds i8, ptr %33, i64 %34
-  %36 = icmp ne i64 %28, 0
-  tail call void @llvm.assume(i1 %36)
-  tail call void @__rust_dealloc(ptr noundef nonnull %35, i64 noundef %30, i64 noundef %28) #23, !noalias !266
+  %34 = load ptr, ptr %22, align 8, !alias.scope !266, !nonnull !4, !noundef !4
+  %35 = sub nsw i64 0, %33
+  %36 = getelementptr inbounds i8, ptr %34, i64 %35
+  tail call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %31, i64 noundef %28) #23, !noalias !266
   br label %"_ZN4core3ptr136drop_in_place$LT$indexmap..set..IndexSet$LT$salsa..DatabaseKeyIndex$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17he0d68bb00687a27fE.exit.i"
 
 37:                                               ; preds = %26

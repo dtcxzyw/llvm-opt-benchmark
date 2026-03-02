@@ -586,6 +586,7 @@ define internal { ptr, ptr } @"_ZN3rpc12proto_client14AnyProtoClient25add_model_
 
 49:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !22
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %36) ]
   store ptr %35, ptr %9, align 8, !noalias !22
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %36, ptr %50, align 8, !noalias !22
@@ -802,6 +803,7 @@ define internal { ptr, ptr } @"_ZN3rpc12proto_client14AnyProtoClient25add_model_
 
 49:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !75
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %36) ]
   store ptr %35, ptr %9, align 8, !noalias !75
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %36, ptr %50, align 8, !noalias !75
@@ -1018,6 +1020,7 @@ define internal { ptr, ptr } @"_ZN3rpc12proto_client14AnyProtoClient25add_model_
 
 49:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !128
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %36) ]
   store ptr %35, ptr %9, align 8, !noalias !128
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %36, ptr %50, align 8, !noalias !128
@@ -1234,6 +1237,7 @@ define internal { ptr, ptr } @"_ZN3rpc12proto_client14AnyProtoClient25add_model_
 
 49:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !181
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %36) ]
   store ptr %35, ptr %9, align 8, !noalias !181
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %36, ptr %50, align 8, !noalias !181
@@ -1450,6 +1454,7 @@ define internal { ptr, ptr } @"_ZN3rpc12proto_client14AnyProtoClient25add_model_
 
 49:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !234
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %36) ]
   store ptr %35, ptr %10, align 8, !noalias !234
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %36, ptr %50, align 8, !noalias !234

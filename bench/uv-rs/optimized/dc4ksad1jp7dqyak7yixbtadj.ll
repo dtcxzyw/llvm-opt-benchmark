@@ -65,11 +65,11 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h038969811724b49bE"(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-.lr.ph.i:
+.lr.ph.split.split.preheader.i:
   br label %.lr.ph.split.split.i
 
-.lr.ph.split.split.i:                             ; preds = %.lr.ph.i, %19
-  %3 = phi i64 [ %17, %19 ], [ 0, %.lr.ph.i ]
+.lr.ph.split.split.i:                             ; preds = %19, %.lr.ph.split.split.preheader.i
+  %3 = phi i64 [ %17, %19 ], [ 0, %.lr.ph.split.split.preheader.i ]
   %4 = sub nuw i64 %2, %3
   %5 = getelementptr inbounds i8, ptr %1, i64 %3
   %6 = icmp ult i64 %4, 16

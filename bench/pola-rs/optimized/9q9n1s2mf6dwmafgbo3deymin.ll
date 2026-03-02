@@ -5851,6 +5851,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h4f52b73d3b94d990E.exit.thread
 56:                                               ; preds = %38
   %57 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %51) ]
   invoke fastcc void @"_ZN4core3ptr214drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$mut$u20$core..fmt..Formatter$C$usize$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$GT$$GT$17hf8f5396be95fd080E"(ptr %50, ptr nonnull %51) #29
           to label %common.resume unwind label %78
 
@@ -6009,6 +6010,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h8102183a2372fca8E.exit.thread
 55:                                               ; preds = %38
   %56 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %50) ]
   invoke fastcc void @"_ZN4core3ptr214drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$mut$u20$core..fmt..Formatter$C$usize$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$GT$$GT$17hf8f5396be95fd080E"(ptr %49, ptr nonnull %50) #29
           to label %common.resume unwind label %77
 
@@ -6166,6 +6168,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h2488f2c3e2a08fc9E.exit.thread
 55:                                               ; preds = %38
   %56 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %50) ]
   invoke fastcc void @"_ZN4core3ptr214drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$mut$u20$core..fmt..Formatter$C$usize$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$GT$$GT$17hf8f5396be95fd080E"(ptr %49, ptr nonnull %50) #29
           to label %common.resume unwind label %77
 
@@ -6322,6 +6325,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hf87ee12f39824e53E.exit.thread
 54:                                               ; preds = %38
   %55 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   invoke fastcc void @"_ZN4core3ptr214drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$mut$u20$core..fmt..Formatter$C$usize$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$GT$$GT$17hf8f5396be95fd080E"(ptr %48, ptr nonnull %49) #29
           to label %common.resume unwind label %76
 
@@ -6479,6 +6483,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17he69ae0b61be603b7E.exit.thread
 55:                                               ; preds = %38
   %56 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %50) ]
   invoke fastcc void @"_ZN4core3ptr214drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$mut$u20$core..fmt..Formatter$C$usize$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$GT$$GT$17hf8f5396be95fd080E"(ptr %49, ptr nonnull %50) #29
           to label %common.resume unwind label %77
 
@@ -6638,6 +6643,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h82b97e394149bc90E.exit.thread
 56:                                               ; preds = %38
   %57 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %51) ]
   invoke fastcc void @"_ZN4core3ptr214drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$mut$u20$core..fmt..Formatter$C$usize$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$GT$$GT$17hf8f5396be95fd080E"(ptr %50, ptr nonnull %51) #29
           to label %common.resume unwind label %78
 
@@ -6797,6 +6803,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h7c89ca97507cdf92E.exit.thread
 55:                                               ; preds = %38
   %56 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %50) ]
   invoke fastcc void @"_ZN4core3ptr214drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$mut$u20$core..fmt..Formatter$C$usize$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$GT$$GT$17hf8f5396be95fd080E"(ptr %49, ptr nonnull %50) #29
           to label %common.resume unwind label %77
 
@@ -6954,6 +6961,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h1e558b0f1eb0d71aE.exit.thread
 55:                                               ; preds = %38
   %56 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %50) ]
   invoke fastcc void @"_ZN4core3ptr214drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$mut$u20$core..fmt..Formatter$C$usize$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$GT$$GT$17hf8f5396be95fd080E"(ptr %49, ptr nonnull %50) #29
           to label %common.resume unwind label %77
 
@@ -7113,6 +7121,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17ha327f6e5385bbe8fE.exit.thread
 56:                                               ; preds = %38
   %57 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %51) ]
   invoke fastcc void @"_ZN4core3ptr214drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$mut$u20$core..fmt..Formatter$C$usize$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$GT$$GT$17hf8f5396be95fd080E"(ptr %50, ptr nonnull %51) #29
           to label %common.resume unwind label %78
 
@@ -15141,6 +15150,7 @@ _ZN12polars_arrow5array5union10UnionArray15index_unchecked17hc543118b80ea7570E.e
 58:                                               ; preds = %44
   %59 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %53) ]
   invoke fastcc void @"_ZN4core3ptr214drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..Fn$LT$$LP$$RF$mut$u20$core..fmt..Formatter$C$usize$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$core..fmt..Error$GT$$GT$$GT$17hf8f5396be95fd080E"(ptr %52, ptr nonnull %53) #29
           to label %common.resume unwind label %80
 

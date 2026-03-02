@@ -18009,12 +18009,12 @@ default.unreachable164:                           ; preds = %1305, %945, %928, %
           to label %334 unwind label %323, !noalias !2007
 
 716:                                              ; preds = %682
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.435.0.copyload.i.i) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %116)
   call void @llvm.lifetime.end.p0(ptr nonnull %117), !noalias !2107
   store i8 1, ptr %365, align 8, !noalias !2107
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %118), !noalias !2002
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.435.0.copyload.i.i) ]
   call void @llvm.lifetime.end.p0(ptr nonnull %126)
   br label %717
 

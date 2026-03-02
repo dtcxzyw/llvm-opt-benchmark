@@ -552,6 +552,7 @@ _ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineIn
 _ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.exit.thread54: ; preds = %.lr.ph, %_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.exit.thread60
   %.12859 = phi i32 [ %.3.ph, %_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.exit.thread60 ], [ %.02769, %.lr.ph ]
   %.13158 = phi i1 [ %.434.ph, %_ZN12_GLOBAL__N_124AArch64StorePairSuppress15isNarrowFPStoreERKN4llvm12MachineInstrE.exit.thread60 ], [ %.03068, %.lr.ph ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.038.070) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.038.070, align 8
   %108 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i35 = icmp eq i64 %108, 0
