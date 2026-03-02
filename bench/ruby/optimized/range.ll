@@ -4702,17 +4702,17 @@ r_less.exit12.i.i:                                ; preds = %66
   br label %range_include_internal.exit.thread
 
 74:                                               ; preds = %range_integer_edge_p.exit.i
-  br i1 %22, label %range_string_range_p.exit.thread.i, label %rbimpl_RB_TYPE_P_fastpath.exit3.i.i
+  br i1 %22, label %range_string_range_p.exit.thread.i, label %76
 
-rbimpl_RB_TYPE_P_fastpath.exit3.i.i:              ; preds = %74
+76:                                               ; preds = %74
   %75 = inttoptr i64 %6 to ptr
   %76 = load i64, ptr %75, align 8, !tbaa !11
   %77 = and i64 %76, 31
   %78 = icmp ne i64 %77, 5
   %brmerge.i = or i1 %39, %78
-  br i1 %brmerge.i, label %range_string_range_p.exit.thread.i, label %range_string_range_p.exit.i
+  br i1 %brmerge.i, label %85, label %range_string_range_p.exit.i
 
-range_string_range_p.exit.i:                      ; preds = %rbimpl_RB_TYPE_P_fastpath.exit3.i.i
+range_string_range_p.exit.i:; preds = %rbimpl_RB_TYPE_P_fastpath.exit3.i.i
   %79 = inttoptr i64 %13 to ptr
   %80 = load i64, ptr %79, align 8, !tbaa !11
   %81 = and i64 %80, 31
@@ -4732,26 +4732,26 @@ range_string_range_p.exit.i:                      ; preds = %rbimpl_RB_TYPE_P_fa
 
 RANGE_EXCL.exit.i:                                ; preds = %86, %83
   %.0.i.i.i31.i = phi ptr [ %88, %86 ], [ %5, %83 ]
-  %89 = getelementptr i8, ptr %.0.i.i.i31.i, i64 16
-  %90 = load i64, ptr %89, align 8, !tbaa !7
-  %91 = tail call i64 @rb_str_include_range_p(i64 noundef %6, i64 noundef %13, i64 noundef %1, i64 noundef %90) #12
+  %82 = getelementptr i8, ptr %.0.i.i.i31.i, i64 16
+  %83 = load i64, ptr %82, align 8, !tbaa !7
+  %84 = tail call i64 @rb_str_include_range_p(i64 noundef %6, i64 noundef %13, i64 noundef %1, i64 noundef %83) #12
   br label %range_include_internal.exit
 
-range_string_range_p.exit.thread.i:               ; preds = %range_string_range_p.exit.i, %rbimpl_RB_TYPE_P_fastpath.exit3.i.i, %74
-  %92 = tail call fastcc i64 @range_include_fallback(i64 noundef %6, i64 noundef %13, i64 noundef %1)
+85:                                               ; preds = %range_string_range_p.exit.i, %76, %74
+  %86 = tail call fastcc i64 @range_include_fallback(i64 noundef %6, i64 noundef %13, i64 noundef %1)
   br label %range_include_internal.exit
 
-range_include_internal.exit:                      ; preds = %RANGE_EXCL.exit.i, %range_string_range_p.exit.thread.i
-  %.0.i = phi i64 [ %92, %range_string_range_p.exit.thread.i ], [ %91, %RANGE_EXCL.exit.i ]
-  %93 = icmp eq i64 %.0.i, 36
-  br i1 %93, label %94, label %range_include_internal.exit.thread
+range_include_internal.exit:                      ; preds = %RANGE_EXCL.exit.i, %85
+  %.0.i = phi i64 [ %86, %range_string_range_p.exit.thread.i ], [ %84, %RANGE_EXCL.exit.i ]
+  %87 = icmp eq i64 %.0.i, 36
+  br i1 %87, label %88, label %range_include_internal.exit.thread
 
-94:                                               ; preds = %range_include_internal.exit
-  %95 = call i64 @rb_call_super(i32 noundef 1, ptr noundef nonnull %3) #12
+88:                                               ; preds = %range_include_internal.exit
+  %89 = call i64 @rb_call_super(i32 noundef 1, ptr noundef nonnull %3) #12
   br label %range_include_internal.exit.thread
 
-range_include_internal.exit.thread:               ; preds = %66, %54, %r_less.exit.i.i, %r_less.exit12.i.i, %.thread.i.i, %range_include_internal.exit, %94
-  %.0 = phi i64 [ %95, %94 ], [ %.0.i, %range_include_internal.exit ], [ 0, %66 ], [ 0, %54 ], [ 0, %r_less.exit.i.i ], [ 0, %r_less.exit12.i.i ], [ 20, %.thread.i.i ]
+range_include_internal.exit.thread:               ; preds = %66, %54, %r_less.exit.i.i, %r_less.exit12.i.i, %.thread.i.i, %range_include_internal.exit, %88
+  %.0 = phi i64 [ %89, %94 ], [ %.0.i, %range_include_internal.exit ], [ 0, %66 ], [ 0, %54 ], [ 0, %r_less.exit.i.i ], [ 0, %r_less.exit12.i.i ], [ 20, %.thread.i.i ]
   ret i64 %.0
 }
 

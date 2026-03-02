@@ -216,22 +216,22 @@ mpeg4video_split.exit:                            ; preds = %58, %63
   %94 = getelementptr inbounds i8, ptr %78, i64 -5
   %95 = load i8, ptr %94, align 1, !tbaa !31
   %96 = icmp eq i8 %95, 0
-  br i1 %96, label %.lr.ph62, label %.critedge.i
+  br i1 %96, label %.lr.ph63, label %.critedge.i
 
-.lr.ph62:                                         ; preds = %.lr.ph43.preheader.i, %.lr.ph43.i
+.lr.ph63:                                         ; preds = %.lr.ph43.preheader.i, %.lr.ph43.i
   %97 = phi ptr [ %100, %.lr.ph43.i ], [ %94, %.lr.ph43.preheader.i ]
-  %.13442.i61 = phi ptr [ %99, %.lr.ph43.i ], [ %78, %.lr.ph43.preheader.i ]
+  %.13442.i62 = phi ptr [ %99, %.lr.ph43.i ], [ %78, %.lr.ph43.preheader.i ]
   %98 = icmp ugt ptr %97, %71
   br i1 %98, label %.lr.ph43.i, label %..critedge.i.loopexit_crit_edge, !llvm.loop !32
 
-.lr.ph43.i:                                       ; preds = %.lr.ph62
-  %99 = getelementptr inbounds i8, ptr %.13442.i61, i64 -1
-  %100 = getelementptr inbounds i8, ptr %.13442.i61, i64 -6
+.lr.ph43.i:                                       ; preds = %.lr.ph63
+  %99 = getelementptr inbounds i8, ptr %.13442.i62, i64 -1
+  %100 = getelementptr inbounds i8, ptr %.13442.i62, i64 -6
   %101 = load i8, ptr %100, align 1, !tbaa !31
   %102 = icmp eq i8 %101, 0
-  br i1 %102, label %.lr.ph62, label %.critedge.i, !llvm.loop !32
+  br i1 %102, label %.lr.ph63, label %.critedge.i, !llvm.loop !32
 
-..critedge.i.loopexit_crit_edge:                  ; preds = %.lr.ph62
+..critedge.i.loopexit_crit_edge:                  ; preds = %.lr.ph63
   br label %.critedge.i, !llvm.loop !32
 
 .critedge.i:                                      ; preds = %.lr.ph43.i, %.lr.ph43.preheader.i, %..critedge.i.loopexit_crit_edge, %.preheader.i
@@ -322,13 +322,13 @@ h264_split.exit:                                  ; preds = %.lr.ph.i33, %106, %
 
 .lr.ph:                                           ; preds = %.lr.ph42.preheader.i, %.lr.ph42.i
   %137 = phi ptr [ %140, %.lr.ph42.i ], [ %134, %.lr.ph42.preheader.i ]
-  %.13241.i59 = phi ptr [ %139, %.lr.ph42.i ], [ %117, %.lr.ph42.preheader.i ]
+  %.13241.i60 = phi ptr [ %139, %.lr.ph42.i ], [ %117, %.lr.ph42.preheader.i ]
   %138 = icmp ugt ptr %137, %110
   br i1 %138, label %.lr.ph42.i, label %..critedge.i41.loopexit_crit_edge, !llvm.loop !35
 
 .lr.ph42.i:                                       ; preds = %.lr.ph
-  %139 = getelementptr inbounds i8, ptr %.13241.i59, i64 -1
-  %140 = getelementptr inbounds i8, ptr %.13241.i59, i64 -6
+  %139 = getelementptr inbounds i8, ptr %.13241.i60, i64 -1
+  %140 = getelementptr inbounds i8, ptr %.13241.i60, i64 -6
   %141 = load i8, ptr %140, align 1, !tbaa !31
   %142 = icmp eq i8 %141, 0
   br i1 %142, label %.lr.ph, label %.critedge.i41, !llvm.loop !35
@@ -369,7 +369,7 @@ hevc_split.exit:                                  ; preds = %.lr.ph.i35, %146, %
 
 .lr.ph.i44:                                       ; preds = %167, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %167 ]
-  %.01927.i = phi i1 [ false, %.lr.ph.preheader.i ], [ %.1.i46, %167 ]
+  %.01927.i = phi i1 [ false, %.lr.ph.preheader.i ], [ %.1.i47, %167 ]
   %.02026.i = phi i32 [ -1, %.lr.ph.preheader.i ], [ %157, %167 ]
   %153 = shl i32 %.02026.i, 8
   %154 = getelementptr inbounds nuw i8, ptr %150, i64 %indvars.iv.i
@@ -393,7 +393,7 @@ hevc_split.exit:                                  ; preds = %.lr.ph.i35, %146, %
   br label %mpegvideo_split.exit
 
 167:                                              ; preds = %159, %.lr.ph.i44
-  %.1.i46 = phi i1 [ %.01927.i, %159 ], [ true, %.lr.ph.i44 ]
+  %.1.i47 = phi i1 [ %.01927.i, %159 ], [ true, %.lr.ph.i44 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %mpegvideo_split.exit, label %.lr.ph.i44, !llvm.loop !37
@@ -408,20 +408,20 @@ hevc_split.exit:                                  ; preds = %.lr.ph.i35, %146, %
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 -1, ptr %3, align 4, !tbaa !30
   %175 = icmp sgt i32 %172, 0
-  br i1 %175, label %.lr.ph.i47, label %vc1_split.exit
+  br i1 %175, label %.lr.ph.i48, label %vc1_split.exit
 
-.lr.ph.i47:                                       ; preds = %168, %189
-  %.016.i = phi i32 [ %.1.i50, %189 ], [ 0, %168 ]
+.lr.ph.i48:                                       ; preds = %168, %189
+  %.016.i = phi i32 [ %.1.i51, %189 ], [ 0, %168 ]
   %.01215.i = phi ptr [ %176, %189 ], [ %170, %168 ]
   %176 = call ptr @avpriv_find_start_code(ptr noundef %.01215.i, ptr noundef nonnull %174, ptr noundef nonnull %3) #3
   %177 = load i32, ptr %3, align 4, !tbaa !30
   %178 = and i32 %177, -2
-  %or.cond.i48 = icmp eq i32 %178, 270
-  br i1 %or.cond.i48, label %189, label %179
+  %or.cond.i49 = icmp eq i32 %178, 270
+  br i1 %or.cond.i49, label %189, label %179
 
-179:                                              ; preds = %.lr.ph.i47
-  %.not.i49 = icmp eq i32 %.016.i, 0
-  br i1 %.not.i49, label %189, label %180
+179:                                              ; preds = %.lr.ph.i48
+  %.not.i50 = icmp eq i32 %.016.i, 0
+  br i1 %.not.i50, label %189, label %180
 
 180:                                              ; preds = %179
   %181 = and i32 %177, -256
@@ -436,10 +436,10 @@ hevc_split.exit:                                  ; preds = %.lr.ph.i35, %146, %
   %188 = trunc i64 %187 to i32
   br label %vc1_split.exit
 
-189:                                              ; preds = %180, %179, %.lr.ph.i47
-  %.1.i50 = phi i32 [ 0, %179 ], [ 1, %180 ], [ 1, %.lr.ph.i47 ]
+189:                                              ; preds = %180, %179, %.lr.ph.i48
+  %.1.i51 = phi i32 [ 0, %179 ], [ 1, %180 ], [ 1, %.lr.ph.i47 ]
   %190 = icmp ult ptr %176, %174
-  br i1 %190, label %.lr.ph.i47, label %vc1_split.exit, !llvm.loop !38
+  br i1 %190, label %.lr.ph.i48, label %vc1_split.exit, !llvm.loop !38
 
 vc1_split.exit:                                   ; preds = %189, %168, %183
   %.011.i = phi i32 [ %188, %183 ], [ 0, %168 ], [ 0, %189 ]

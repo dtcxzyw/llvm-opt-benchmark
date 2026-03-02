@@ -5939,9 +5939,9 @@ define void @_ZN7Minisat10SimpSolver8relocAllERNS_15ClauseAllocatorE(ptr noundef
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 676
   %7 = load i32, ptr %6, align 4, !tbaa !134
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph29, label %._crit_edge30
+  br i1 %8, label %.lr.ph30, label %._crit_edge31
 
-.lr.ph29:                                         ; preds = %.preheader
+.lr.ph30:                                         ; preds = %.preheader
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 976
@@ -5951,7 +5951,7 @@ define void @_ZN7Minisat10SimpSolver8relocAllERNS_15ClauseAllocatorE(ptr noundef
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   br label %28
 
-._crit_edge30:                                    ; preds = %._crit_edge, %.preheader
+._crit_edge31:                                    ; preds = %._crit_edge, %.preheader
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1116
   %18 = load i32, ptr %17, align 4, !tbaa !127
@@ -5964,16 +5964,16 @@ define void @_ZN7Minisat10SimpSolver8relocAllERNS_15ClauseAllocatorE(ptr noundef
   %24 = select i1 %.not.i, i32 %23, i32 0
   %25 = add nsw i32 %21, %24
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph33, label %._crit_edge34
+  br i1 %26, label %.lr.ph34, label %._crit_edge35
 
-.lr.ph33:                                         ; preds = %._crit_edge30
+.lr.ph34:                                         ; preds = %._crit_edge31
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 680
   br label %170
 
-28:                                               ; preds = %.lr.ph29, %._crit_edge
-  %indvars.iv38 = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next39, %._crit_edge ]
+28:                                               ; preds = %.lr.ph30, %._crit_edge
+  %indvars.iv39 = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next40, %._crit_edge ]
   %29 = load ptr, ptr %9, align 8, !tbaa !112
-  %30 = getelementptr inbounds nuw %"class.Minisat::vec.2", ptr %29, i64 %indvars.iv38
+  %30 = getelementptr inbounds nuw %"class.Minisat::vec.2", ptr %29, i64 %indvars.iv39
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !103
   %33 = icmp sgt i32 %32, 0
@@ -6027,21 +6027,21 @@ define void @_ZN7Minisat10SimpSolver8relocAllERNS_15ClauseAllocatorE(ptr noundef
 
 _ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEE5cleanERKi.exit: ; preds = %28, %._crit_edge.i, %.lr.ph.i.i
   %58 = load ptr, ptr %11, align 8, !tbaa !96
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %indvars.iv38
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %indvars.iv39
   store i8 0, ptr %59, align 1, !tbaa !110
   %60 = load ptr, ptr %9, align 8, !tbaa !112
-  %61 = getelementptr inbounds nuw %"class.Minisat::vec.2", ptr %60, i64 %indvars.iv38
+  %61 = getelementptr inbounds nuw %"class.Minisat::vec.2", ptr %60, i64 %indvars.iv39
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i32, ptr %62, align 8, !tbaa !103
   %64 = icmp sgt i32 %63, 0
   br i1 %64, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit, %_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEE5cleanERKi.exit
-  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
+  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %65 = load i32, ptr %6, align 4, !tbaa !134
   %66 = sext i32 %65 to i64
-  %67 = icmp slt i64 %indvars.iv.next39, %66
-  br i1 %67, label %28, label %._crit_edge30, !llvm.loop !184
+  %67 = icmp slt i64 %indvars.iv.next40, %66
+  br i1 %67, label %28, label %._crit_edge31, !llvm.loop !184
 
 .lr.ph:                                           ; preds = %_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEE5cleanERKi.exit, %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit ], [ 0, %_ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDefaultIiEEE5cleanERKi.exit ]
@@ -6075,8 +6075,8 @@ _ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDef
   %89 = load i32, ptr %14, align 8, !tbaa !106
   %90 = add i32 %88, %89
   %91 = load i32, ptr %15, align 4, !tbaa !185
-  %.not.i17 = icmp ult i32 %91, %90
-  br i1 %.not.i17, label %.preheader.i, label %_ZN7Minisat15RegionAllocatorIjE8capacityEj.exit
+  %.not.i18 = icmp ult i32 %91, %90
+  br i1 %.not.i18, label %.preheader.i, label %_ZN7Minisat15RegionAllocatorIjE8capacityEj.exit
 
 .preheader.i:                                     ; preds = %79, %94
   %92 = phi i32 [ %100, %94 ], [ %91, %79 ]
@@ -6121,11 +6121,11 @@ _ZN7Minisat8OccListsIiNS_3vecIjiEENS_10SimpSolver13ClauseDeletedENS_14MkIndexDef
 _ZN7MinisatL8xreallocEPvm.exit.i:                 ; preds = %109, %103
   store ptr %107, ptr %1, align 8, !tbaa !107
   %.pre = load i32, ptr %14, align 8, !tbaa !106
-  %.pre41 = add i32 %.pre, %88
+  %.pre42 = add i32 %.pre, %88
   br label %_ZN7Minisat15RegionAllocatorIjE8capacityEj.exit
 
 _ZN7Minisat15RegionAllocatorIjE8capacityEj.exit:  ; preds = %79, %_ZN7MinisatL8xreallocEPvm.exit.i
-  %.pre-phi = phi i32 [ %90, %79 ], [ %.pre41, %_ZN7MinisatL8xreallocEPvm.exit.i ]
+  %.pre-phi = phi i32 [ %90, %79 ], [ %.pre42, %_ZN7MinisatL8xreallocEPvm.exit.i ]
   %115 = phi i32 [ %89, %79 ], [ %.pre, %_ZN7MinisatL8xreallocEPvm.exit.i ]
   store i32 %.pre-phi, ptr %14, align 8, !tbaa !106
   %116 = icmp ult i32 %.pre-phi, %115
@@ -6147,9 +6147,9 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i:   ; preds = %_ZN7Minisat15Region
   store i32 %125, ptr %121, align 4
   %126 = load i32, ptr %73, align 4
   %.not.i.i = icmp ult i32 %126, 32
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i16
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i17
 
-.lr.ph.i.i16:                                     ; preds = %_ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i
+.lr.ph.i.i17:                                     ; preds = %_ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i
   %127 = getelementptr inbounds nuw i8, ptr %73, i64 4
   %128 = getelementptr inbounds nuw i8, ptr %121, i64 4
   br label %129
@@ -6157,7 +6157,7 @@ _ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i:   ; preds = %_ZN7Minisat15Region
 ._crit_edge.i.i:                                  ; preds = %129, %_ZN7Minisat15RegionAllocatorIjE5allocEi.exit.i
   br i1 %84, label %136, label %_ZN7Minisat15ClauseAllocator5allocERKNS_6ClauseE.exit
 
-129:                                              ; preds = %129, %.lr.ph.i.i16
+129:                                              ; preds = %129, %.lr.ph.i.i17
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i16 ], [ %indvars.iv.next.i.i, %129 ]
   %130 = getelementptr inbounds nuw %union.anon, ptr %127, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %130, align 4, !tbaa !9
@@ -6207,7 +6207,7 @@ _ZN7Minisat15ClauseAllocator5relocERjRS0_.exit:   ; preds = %76, %_ZN7Minisat15C
   %153 = icmp slt i64 %indvars.iv.next, %152
   br i1 %153, label %.lr.ph, label %._crit_edge, !llvm.loop !188
 
-._crit_edge34:                                    ; preds = %194, %._crit_edge30
+._crit_edge35:                                    ; preds = %194, %._crit_edge31
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %156 = load i32, ptr %155, align 8, !tbaa !9
@@ -6219,13 +6219,13 @@ _ZN7Minisat15ClauseAllocator5relocERjRS0_.exit:   ; preds = %76, %_ZN7Minisat15C
   %.not.i12 = icmp eq i32 %161, 0
   br i1 %.not.i12, label %165, label %162
 
-162:                                              ; preds = %._crit_edge34
+162:                                              ; preds = %._crit_edge35
   %163 = getelementptr inbounds nuw i8, ptr %159, i64 4
   %164 = load i32, ptr %163, align 4, !tbaa !110
   store i32 %164, ptr %155, align 8, !tbaa !9
   br label %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit13
 
-165:                                              ; preds = %._crit_edge34
+165:                                              ; preds = %._crit_edge35
   %166 = tail call noundef i32 @_ZN7Minisat15ClauseAllocator5allocERKNS_6ClauseE(ptr noundef nonnull align 8 dereferenceable(25) %1, ptr noundef nonnull align 4 dereferenceable(4) %159)
   store i32 %166, ptr %155, align 8, !tbaa !9
   %167 = load i32, ptr %159, align 4
@@ -6235,8 +6235,8 @@ _ZN7Minisat15ClauseAllocator5relocERjRS0_.exit:   ; preds = %76, %_ZN7Minisat15C
   store i32 %166, ptr %169, align 4, !tbaa !110
   br label %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit13
 
-170:                                              ; preds = %.lr.ph33, %194
-  %.031 = phi i32 [ %25, %.lr.ph33 ], [ %195, %194 ]
+170:                                              ; preds = %.lr.ph34, %194
+  %.032 = phi i32 [ %25, %.lr.ph33 ], [ %195, %194 ]
   %171 = load i32, ptr %19, align 8, !tbaa !128
   %172 = load ptr, ptr %16, align 8, !tbaa !102
   %173 = sext i32 %171 to i64
@@ -6275,14 +6275,14 @@ _ZN7Minisat15ClauseAllocator5relocERjRS0_.exit:   ; preds = %76, %_ZN7Minisat15C
   br label %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit15
 
 _ZN7Minisat15ClauseAllocator5relocERjRS0_.exit15: ; preds = %186, %189
-  %.024 = phi i32 [ %190, %189 ], [ %188, %186 ]
-  tail call void @_ZN7Minisat5QueueIjE6insertEj(ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef %.024)
+  %.025 = phi i32 [ %190, %189 ], [ %188, %186 ]
+  tail call void @_ZN7Minisat5QueueIjE6insertEj(ptr noundef nonnull align 8 dereferenceable(24) %16, i32 noundef %.025)
   br label %194
 
 194:                                              ; preds = %170, %_ZN7Minisat15ClauseAllocator5relocERjRS0_.exit15
-  %195 = add nsw i32 %.031, -1
-  %196 = icmp sgt i32 %.031, 1
-  br i1 %196, label %170, label %._crit_edge34, !llvm.loop !189
+  %195 = add nsw i32 %.032, -1
+  %196 = icmp sgt i32 %.032, 1
+  br i1 %196, label %170, label %._crit_edge35, !llvm.loop !189
 
 _ZN7Minisat15ClauseAllocator5relocERjRS0_.exit13: ; preds = %165, %162, %2
   ret void

@@ -916,11 +916,11 @@ define noundef i32 @SUNMatScaleAddI_Sparse(double noundef %0, ptr noundef readon
   %.pre126 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !43
   br label %.lr.ph122
 
-._crit_edge123:                                   ; preds = %79, %54
+._crit_edge123:                                   ; preds = %80, %54
   ret i32 0
 
-.lr.ph122:                                        ; preds = %.lr.ph122.preheader, %79
-  %56 = phi i64 [ %80, %79 ], [ %.pre126, %.lr.ph122.preheader ]
+.lr.ph122:                                        ; preds = %.lr.ph122.preheader, %80
+  %56 = phi i64 [ %81, %79 ], [ %.pre126, %.lr.ph122.preheader ]
   %.082.in119 = phi i64 [ %.082120, %79 ], [ %8, %.lr.ph122.preheader ]
   %.2118 = phi i64 [ %.3, %79 ], [ %.088.lcssa, %.lr.ph122.preheader ]
   %.082120 = add nsw i64 %.082.in119, -1
@@ -930,7 +930,7 @@ define noundef i32 @SUNMatScaleAddI_Sparse(double noundef %0, ptr noundef readon
   %.not.not109 = icmp sgt i64 %56, %59
   br i1 %.not.not109, label %.lr.ph113, label %._crit_edge114
 
-._crit_edge114:                                   ; preds = %.lr.ph113, %.lr.ph122
+._crit_edge114.loopexit:                          ; preds = %.lr.ph113, %.lr.ph122
   %60 = phi i64 [ %59, %.lr.ph122 ], [ %71, %.lr.ph113 ]
   %.081.lcssa = phi i1 [ false, %.lr.ph122 ], [ %spec.select, %.lr.ph113 ]
   %61 = load i64, ptr %57, align 8, !tbaa !43
@@ -938,43 +938,43 @@ define noundef i32 @SUNMatScaleAddI_Sparse(double noundef %0, ptr noundef readon
   store i64 %62, ptr %57, align 8, !tbaa !43
   %.not95 = icmp sgt i64 %.082.in119, %9
   %or.cond97 = select i1 %.081.lcssa, i1 true, i1 %.not95
-  br i1 %or.cond97, label %79, label %72
+  br i1 %or.cond97, label %80, label %73
 
 .lr.ph113:                                        ; preds = %.lr.ph122, %.lr.ph113
   %.0.in111 = phi i64 [ %.0, %.lr.ph113 ], [ %56, %.lr.ph122 ]
   %.081110 = phi i1 [ %spec.select, %.lr.ph113 ], [ false, %.lr.ph122 ]
   %.0 = add nsw i64 %.0.in111, -1
-  %63 = getelementptr inbounds i64, ptr %.091, i64 %.0
-  %64 = load i64, ptr %63, align 8, !tbaa !43
-  %65 = icmp eq i64 %64, %.082120
-  %spec.select = select i1 %65, i1 true, i1 %.081110
-  %66 = add nsw i64 %.0, %.2118
-  %67 = getelementptr inbounds i64, ptr %.091, i64 %66
-  store i64 %64, ptr %67, align 8, !tbaa !43
-  %68 = getelementptr inbounds double, ptr %.090, i64 %.0
-  %69 = load double, ptr %68, align 8, !tbaa !41
-  %70 = getelementptr inbounds double, ptr %.090, i64 %66
-  store double %69, ptr %70, align 8, !tbaa !41
-  %71 = load i64, ptr %58, align 8, !tbaa !43
-  %.not.not = icmp sgt i64 %.0, %71
-  br i1 %.not.not, label %.lr.ph113, label %._crit_edge114
+  %64 = getelementptr inbounds i64, ptr %.091, i64 %.0
+  %65 = load i64, ptr %64, align 8, !tbaa !43
+  %66 = icmp eq i64 %65, %.082120
+  %spec.select = select i1 %66, i1 true, i1 %.081110
+  %67 = add nsw i64 %.0, %.2118
+  %68 = getelementptr inbounds i64, ptr %.091, i64 %67
+  store i64 %65, ptr %68, align 8, !tbaa !43
+  %69 = getelementptr inbounds double, ptr %.090, i64 %.0
+  %70 = load double, ptr %69, align 8, !tbaa !41
+  %71 = getelementptr inbounds double, ptr %.090, i64 %67
+  store double %70, ptr %71, align 8, !tbaa !41
+  %72 = load i64, ptr %58, align 8, !tbaa !43
+  %.not.not = icmp sgt i64 %.0, %72
+  br i1 %.not.not, label %.lr.ph113, label %._crit_edge114.loopexit
 
-72:                                               ; preds = %._crit_edge114
-  %73 = add nsw i64 %.2118, -1
-  %74 = getelementptr i64, ptr %.091, i64 %60
-  %75 = getelementptr i64, ptr %74, i64 %73
-  store i64 %.082120, ptr %75, align 8, !tbaa !43
-  %76 = load i64, ptr %58, align 8, !tbaa !43
-  %77 = getelementptr double, ptr %.090, i64 %76
-  %78 = getelementptr double, ptr %77, i64 %73
-  store double 1.000000e+00, ptr %78, align 8, !tbaa !41
-  br label %79
+73:                                               ; preds = %._crit_edge114
+  %74 = add nsw i64 %.2118, -1
+  %75 = getelementptr i64, ptr %.091, i64 %60
+  %76 = getelementptr i64, ptr %75, i64 %74
+  store i64 %.082120, ptr %76, align 8, !tbaa !43
+  %77 = load i64, ptr %58, align 8, !tbaa !43
+  %78 = getelementptr double, ptr %.090, i64 %77
+  %79 = getelementptr double, ptr %78, i64 %74
+  store double 1.000000e+00, ptr %79, align 8, !tbaa !41
+  br label %80
 
-79:                                               ; preds = %72, %._crit_edge114
-  %80 = phi i64 [ %60, %._crit_edge114 ], [ %76, %72 ]
-  %.3 = phi i64 [ %.2118, %._crit_edge114 ], [ %73, %72 ]
-  %81 = icmp sgt i64 %.3, 0
-  br i1 %81, label %.lr.ph122, label %._crit_edge123
+80:                                               ; preds = %73, %._crit_edge114
+  %81 = phi i64 [ %60, %._crit_edge114 ], [ %77, %72 ]
+  %.3 = phi i64 [ %.2118, %._crit_edge114 ], [ %74, %72 ]
+  %82 = icmp sgt i64 %.3, 0
+  br i1 %82, label %.lr.ph122, label %._crit_edge123
 }
 
 ; Function Attrs: nounwind uwtable

@@ -3926,22 +3926,22 @@ define noundef ptr @Bmc_CexEssentialBitOne(ptr noundef readonly captures(none) %
 
 .critedge7.thread:                                ; preds = %181, %.lr.ph183, %.critedge7
   %.0112.lcssa210 = phi i32 [ %.1113, %.critedge7 ], [ %38, %.lr.ph183 ], [ %38, %181 ]
-  br i1 %.not, label %226, label %225
+  br i1 %.not, label %227, label %226
 
-225:                                              ; preds = %.critedge7.thread
+226:                                              ; preds = %.critedge7.thread
   store i32 %.0112.lcssa210, ptr %4, align 4, !tbaa !10
-  br label %226
+  br label %227
 
-226:                                              ; preds = %225, %.critedge7.thread
+227:                                              ; preds = %226, %.critedge7.thread
   tail call void @Abc_CexFree(ptr noundef nonnull %13) #21
   br label %.loopexit
 
 .critedge140:                                     ; preds = %.critedge7
   %.pre201 = load i32, ptr %10, align 4, !tbaa !37
-  %227 = icmp slt i32 %.0116191, %.pre201
-  br i1 %227, label %.preheader, label %.loopexit, !llvm.loop !99
+  %228 = icmp slt i32 %.0116191, %.pre201
+  br i1 %228, label %.preheader, label %.loopexit, !llvm.loop !99
 
-.loopexit:                                        ; preds = %.critedge5, %.critedge140, %7, %226
+.loopexit:                                        ; preds = %.critedge5, %.critedge140, %7, %227
   %.2 = phi ptr [ null, %226 ], [ %13, %7 ], [ %13, %.critedge140 ], [ %13, %.critedge5 ]
   ret ptr %.2
 }

@@ -55,8 +55,8 @@ for.body.lr.ph:                                   ; preds = %entry
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %PO.i, i64 16
   br label %for.body
 
-do.body10.preheader.loopexit:                     ; preds = %_ZL18performFunctionDCEPN6hermes8FunctionE.exit
-  %frombool = zext i1 %tobool8 to i8
+do.body10.preheader:                              ; preds = %_ZL18performFunctionDCEPN6hermes8FunctionE.exit
+  %frombool = zext i1 %or19 to i8
   br label %do.body10.preheader
 
 do.body10.preheader:                              ; preds = %do.body10.preheader.loopexit, %entry
@@ -76,7 +76,7 @@ do.body10.preheader:                              ; preds = %do.body10.preheader
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZL18performFunctionDCEPN6hermes8FunctionE.exit
   %__begin1.sroa.0.065 = phi ptr [ %__begin1.sroa.0.062, %for.body.lr.ph ], [ %__begin1.sroa.0.0, %_ZL18performFunctionDCEPN6hermes8FunctionE.exit ]
-  %changed.064 = phi i1 [ false, %for.body.lr.ph ], [ %tobool8, %_ZL18performFunctionDCEPN6hermes8FunctionE.exit ]
+  %changed.064 = phi i1 [ false, %for.body.lr.ph ], [ %or19, %_ZL18performFunctionDCEPN6hermes8FunctionE.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %PO.i)
   call void @_ZN6hermes17PostOrderAnalysisC1EPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(32) %PO.i, ptr noundef nonnull %__begin1.sroa.0.065) #6
   %0 = load ptr, ptr %Order.i.i, align 8
@@ -155,11 +155,11 @@ if.then.i.i.i.i.i:                                ; preds = %for.end25.i
 
 _ZL18performFunctionDCEPN6hermes8FunctionE.exit:  ; preds = %for.end25.i, %if.then.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %PO.i)
-  %tobool8 = or i1 %changed.064, %changed.0.lcssa.i
+  %or19 = or i1 %changed.064, %changed.0.lcssa.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.065, i64 8
   %__begin1.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin1.sroa.0.0, %FunctionList.i
-  br i1 %cmp.i.not, label %do.body10.preheader.loopexit, label %for.body
+  br i1 %cmp.i.not, label %do.body10.preheader, label %for.body
 
 for.body17:                                       ; preds = %do.body10.preheader, %for.body17.backedge
   %__begin2.sroa.0.070 = phi ptr [ %__begin2.sroa.0.070.be, %for.body17.backedge ], [ %__begin2.sroa.0.066120, %do.body10.preheader ]

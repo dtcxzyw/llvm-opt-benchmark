@@ -7908,11 +7908,11 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h84d6
 
 "_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17hb7b886c46e130987E.exit": ; preds = %.lr.ph, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %7 = trunc nuw nsw i32 %1 to i8
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  %9 = or disjoint i8 %7, 48
-  store i8 %9, ptr %8, align 1, !alias.scope !727
-  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he55b90e851844799E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9ef04808737cbe8ef653d32af212bbe.66)
+  %6 = trunc nuw nsw i32 %1 to i8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %8 = or disjoint i8 %6, 48
+  store i8 %8, ptr %7, align 1, !alias.scope !727
+  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17he55b90e851844799E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9ef04808737cbe8ef653d32af212bbe.66)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 

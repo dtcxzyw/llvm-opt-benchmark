@@ -17388,7 +17388,7 @@ define noundef i64 @_ZN15rustfmt_nightly5lists15get_comment_end17hd5f69cd5e203b3
   %20 = icmp eq i64 %.fca.0.extract, 0
   %.fca.1.extract = extractvalue { i64, i64 } %19, 1
   %.3 = select i1 %20, i64 %1, i64 %.fca.1.extract
-  br label %108
+  br label %109
 
 21:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !2695
@@ -17485,117 +17485,117 @@ define noundef i64 @_ZN15rustfmt_nightly5lists15get_comment_end17hd5f69cd5e203b3
   %.not80 = icmp eq i64 %39, 0
   %58 = add i64 %.sroa.3.0.i69, 1
   %spec.select64 = select i1 %.not80, i64 0, i64 %58
-  br label %108
+  br label %109
 
 59:                                               ; preds = %56
   %60 = icmp eq i64 %39, 0
-  br i1 %60, label %64, label %66
+  br i1 %60, label %65, label %67
 
-61:                                               ; preds = %66, %56
+61:                                               ; preds = %67, %56
   %62 = icmp ugt i64 %.sroa.3.0.i69, %.fca.1.extract19
-  %or.cond6 = select i1 %trunc.i68, i1 %62, i1 false
+  %or.cond6 = select i1 %trunc.i69, i1 %62, i1 false
   %63 = add i64 %.sroa.3.0.i69, 1
   %spec.select65 = select i1 %or.cond6, i64 %63, i64 %1
   br label %108
 
-64:                                               ; preds = %59
-  %65 = icmp ugt i64 %.sroa.3.0.i, %.fca.1.extract19
-  br i1 %65, label %77, label %68
+65:                                               ; preds = %59
+  %66 = icmp ugt i64 %.sroa.3.0.i, %.fca.1.extract19
+  br i1 %66, label %78, label %69
 
-66:                                               ; preds = %59
-  %67 = icmp ult i64 %.sroa.3.0.i, %41
-  br i1 %67, label %89, label %61
+67:                                               ; preds = %59
+  %68 = icmp ult i64 %.sroa.3.0.i, %41
+  br i1 %68, label %90, label %61
 
-68:                                               ; preds = %64
-  %69 = icmp eq i64 %.sroa.3.0.i, 0
-  br i1 %69, label %80, label %70
+69:                                               ; preds = %65
+  %70 = icmp eq i64 %.sroa.3.0.i, 0
+  br i1 %70, label %81, label %71
 
-70:                                               ; preds = %68
+71:                                               ; preds = %69
   %.not.i.i70 = icmp ult i64 %.sroa.3.0.i, %1
-  br i1 %.not.i.i70, label %71, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i71"
+  br i1 %.not.i.i70, label %72, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i71"
 
-71:                                               ; preds = %70
-  %72 = getelementptr inbounds i8, ptr %0, i64 %.sroa.3.0.i
-  %73 = load i8, ptr %72, align 1, !alias.scope !2716, !noundef !10
-  %74 = icmp sgt i8 %73, -65
-  %75 = sub nuw i64 %1, %.sroa.3.0.i
-  br i1 %74, label %80, label %79
+72:                                               ; preds = %71
+  %73 = getelementptr inbounds i8, ptr %0, i64 %.sroa.3.0.i
+  %74 = load i8, ptr %73, align 1, !alias.scope !2716, !noundef !10
+  %75 = icmp sgt i8 %74, -65
+  %76 = sub nuw i64 %1, %.sroa.3.0.i
+  br i1 %75, label %81, label %80
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i71": ; preds = %70
-  %76 = icmp eq i64 %.sroa.3.0.i, %1
-  br i1 %76, label %80, label %79
+"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i71": ; preds = %71
+  %77 = icmp eq i64 %.sroa.3.0.i, %1
+  br i1 %77, label %81, label %80
 
-77:                                               ; preds = %64
-  %78 = add nuw i64 %.fca.1.extract19, 1
-  br label %108
+78:                                               ; preds = %65
+  %79 = add nuw i64 %.fca.1.extract19, 1
+  br label %109
 
-79:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i71", %71
+80:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i71", %72
   tail call void @_ZN4core3str16slice_error_fail17hb5c4f833c44f34d2E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %.sroa.3.0.i, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.baa956cfa16a1a4d76c0816b6b0648a8.410) #44
   unreachable
 
-80:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i71", %71, %68
-  %81 = phi i64 [ %75, %71 ], [ 0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i71" ], [ %1, %68 ]
-  %82 = getelementptr inbounds i8, ptr %0, i64 %.sroa.3.0.i
-  %83 = tail call { i64, i64 } @_ZN15rustfmt_nightly7comment16find_comment_end17hc65b4fb3ef7202eaE(ptr noalias noundef nonnull readonly align 1 %82, i64 noundef %81)
-  %.fca.0.extract35 = extractvalue { i64, i64 } %83, 0
-  %84 = icmp eq i64 %.fca.0.extract35, 0
-  br i1 %84, label %85, label %86
+81:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i71", %72, %69
+  %82 = phi i64 [ %76, %71 ], [ 0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i71" ], [ %1, %68 ]
+  %83 = getelementptr inbounds i8, ptr %0, i64 %.sroa.3.0.i
+  %84 = tail call { i64, i64 } @_ZN15rustfmt_nightly7comment16find_comment_end17hc65b4fb3ef7202eaE(ptr noalias noundef nonnull readonly align 1 %83, i64 noundef %82)
+  %.fca.0.extract35 = extractvalue { i64, i64 } %84, 0
+  %85 = icmp eq i64 %.fca.0.extract35, 0
+  br i1 %85, label %86, label %87
 
-85:                                               ; preds = %80
+86:                                               ; preds = %81
   tail call void @_ZN4core9panicking5panic17hbd449742545cb8d5E(ptr noalias noundef nonnull readonly align 1 @anon.baa956cfa16a1a4d76c0816b6b0648a8.380.llvm.7442130522521287225, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.baa956cfa16a1a4d76c0816b6b0648a8.411) #44
   unreachable
 
-86:                                               ; preds = %80
-  %.fca.1.extract36 = extractvalue { i64, i64 } %83, 1
-  %87 = add i64 %.fca.1.extract36, %.sroa.3.0.i
-  %88 = add i64 %.fca.1.extract19, 1
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %87, i64 %88)
-  br label %108
+87:                                               ; preds = %81
+  %.fca.1.extract36 = extractvalue { i64, i64 } %84, 1
+  %88 = add i64 %.fca.1.extract36, %.sroa.3.0.i
+  %89 = add i64 %.fca.1.extract19, 1
+  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %88, i64 %89)
+  br label %109
 
-89:                                               ; preds = %66
-  %90 = icmp eq i64 %.sroa.3.0.i, 0
-  br i1 %90, label %99, label %91
+90:                                               ; preds = %67
+  %91 = icmp eq i64 %.sroa.3.0.i, 0
+  br i1 %91, label %100, label %92
 
-91:                                               ; preds = %89
+92:                                               ; preds = %90
   %.not.i.i73 = icmp ult i64 %.sroa.3.0.i, %1
-  br i1 %.not.i.i73, label %92, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i74"
+  br i1 %.not.i.i73, label %93, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i74"
 
-92:                                               ; preds = %91
-  %93 = getelementptr inbounds i8, ptr %0, i64 %.sroa.3.0.i
-  %94 = load i8, ptr %93, align 1, !alias.scope !2721, !noundef !10
-  %95 = icmp sgt i8 %94, -65
-  %96 = sub nuw i64 %1, %.sroa.3.0.i
-  br i1 %95, label %99, label %98
+93:                                               ; preds = %92
+  %94 = getelementptr inbounds i8, ptr %0, i64 %.sroa.3.0.i
+  %95 = load i8, ptr %94, align 1, !alias.scope !2721, !noundef !10
+  %96 = icmp sgt i8 %95, -65
+  %97 = sub nuw i64 %1, %.sroa.3.0.i
+  br i1 %96, label %100, label %99
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i74": ; preds = %91
-  %97 = icmp eq i64 %.sroa.3.0.i, %1
-  br i1 %97, label %99, label %98
+"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i74": ; preds = %92
+  %98 = icmp eq i64 %.sroa.3.0.i, %1
+  br i1 %98, label %100, label %99
 
-98:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i74", %92
+99:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i74", %93
   tail call void @_ZN4core3str16slice_error_fail17hb5c4f833c44f34d2E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef %.sroa.3.0.i, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.baa956cfa16a1a4d76c0816b6b0648a8.412) #44
   unreachable
 
-99:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i74", %92, %89
-  %100 = phi i64 [ %96, %92 ], [ 0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i74" ], [ %1, %89 ]
-  %101 = getelementptr inbounds i8, ptr %0, i64 %.sroa.3.0.i
-  %102 = tail call { i64, i64 } @_ZN15rustfmt_nightly7comment16find_comment_end17hc65b4fb3ef7202eaE(ptr noalias noundef nonnull readonly align 1 %101, i64 noundef %100)
-  %.fca.0.extract41 = extractvalue { i64, i64 } %102, 0
-  %103 = icmp eq i64 %.fca.0.extract41, 0
-  br i1 %103, label %104, label %105
+100:                                              ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i74", %93, %90
+  %101 = phi i64 [ %97, %92 ], [ 0, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.llvm.7442130522521287225.exit.i74" ], [ %1, %89 ]
+  %102 = getelementptr inbounds i8, ptr %0, i64 %.sroa.3.0.i
+  %103 = tail call { i64, i64 } @_ZN15rustfmt_nightly7comment16find_comment_end17hc65b4fb3ef7202eaE(ptr noalias noundef nonnull readonly align 1 %102, i64 noundef %101)
+  %.fca.0.extract41 = extractvalue { i64, i64 } %103, 0
+  %104 = icmp eq i64 %.fca.0.extract41, 0
+  br i1 %104, label %105, label %106
 
-104:                                              ; preds = %99
+105:                                              ; preds = %100
   tail call void @_ZN4core9panicking5panic17hbd449742545cb8d5E(ptr noalias noundef nonnull readonly align 1 @anon.baa956cfa16a1a4d76c0816b6b0648a8.380.llvm.7442130522521287225, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.baa956cfa16a1a4d76c0816b6b0648a8.413) #44
   unreachable
 
-105:                                              ; preds = %99
-  %.fca.1.extract42 = extractvalue { i64, i64 } %102, 1
-  %106 = add i64 %.fca.1.extract42, %.sroa.3.0.i
-  %107 = add i64 %.fca.1.extract19, 1
-  %.0.sroa.speculated.i77 = tail call noundef i64 @llvm.umax.i64(i64 %106, i64 %107)
-  br label %108
+106:                                              ; preds = %100
+  %.fca.1.extract42 = extractvalue { i64, i64 } %103, 1
+  %107 = add i64 %.fca.1.extract42, %.sroa.3.0.i
+  %108 = add i64 %.fca.1.extract19, 1
+  %.0.sroa.speculated.i77 = tail call noundef i64 @llvm.umax.i64(i64 %107, i64 %108)
+  br label %109
 
-108:                                              ; preds = %61, %57, %105, %86, %77, %18
-  %.2 = phi i64 [ %.3, %18 ], [ %spec.select64, %57 ], [ %spec.select65, %61 ], [ %78, %77 ], [ %.0.sroa.speculated.i, %86 ], [ %.0.sroa.speculated.i77, %105 ]
+109:                                              ; preds = %61, %57, %106, %87, %78, %18
+  %.2 = phi i64 [ %.3, %18 ], [ %spec.select64, %57 ], [ %spec.select65, %61 ], [ %79, %77 ], [ %.0.sroa.speculated.i, %86 ], [ %.0.sroa.speculated.i77, %105 ]
   ret i64 %.2
 }
 

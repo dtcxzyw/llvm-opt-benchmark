@@ -230,11 +230,11 @@ carith_checkarg.exit.thread:                      ; preds = %115, %117
   br label %387
 
 .thread111.i.sink.split:                          ; preds = %94, %ctype_rawchild.exit.i, %86, %91
-  %.sink103 = phi ptr [ %.193.i, %ctype_rawchild.exit.i ], [ %93, %91 ], [ %88, %86 ], [ null, %94 ]
+  %.sink104 = phi ptr [ %.193.i, %ctype_rawchild.exit.i ], [ %93, %91 ], [ %88, %86 ], [ null, %94 ]
   %.sink = phi ptr [ %.094.i, %ctype_rawchild.exit.i ], [ null, %91 ], [ %.088123.i, %86 ], [ inttoptr (i64 1 to ptr), %94 ]
   %.5.i.ph = phi i1 [ %.089122.i, %ctype_rawchild.exit.i ], [ %.089122.i, %91 ], [ %.089122.i, %86 ], [ false, %94 ]
   %123 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
-  store ptr %.sink103, ptr %123, align 8, !tbaa !49
+  store ptr %.sink104, ptr %123, align 8, !tbaa !49
   store ptr %.sink, ptr %indvars.iv.i.sroa.phi, align 8, !tbaa !50
   br label %.thread111.i
 

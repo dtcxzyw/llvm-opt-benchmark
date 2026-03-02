@@ -1268,13 +1268,13 @@ _ZNK4llvm10BasicBlock13getTerminatorEv.exit70:    ; preds = %268, %_ZNK4llvm10Ba
   store i8 %278, ptr %274, align 2, !tbaa !129
   %.sroa.0.0.copyload.i = load i64, ptr %12, align 8, !tbaa !84
   %.sroa.4.0.copyload.i = load i32, ptr %.sroa.484.0..sroa_idx, align 8, !tbaa !85
-  %279 = icmp eq i32 %.sroa.484.0.copyload, 1
-  %spec.select.i71 = select i1 %279, i32 1, i32 %.sroa.4.0.copyload.i
+  %278 = icmp eq i32 %.sroa.484.0.copyload, 1
+  %spec.select.i71 = select i1 %278, i32 1, i32 %.sroa.4.0.copyload.i
   %.0.i.i72 = call i64 @llvm.ssub.sat.i64(i64 %.sroa.0.0.copyload.i, i64 %.sroa.083.0.copyload)
-  %280 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %281 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_15InstructionCostENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %280, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  store i64 %.0.i.i72, ptr %281, align 8, !tbaa !84
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %281, i64 8
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %280 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_15InstructionCostENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %279, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  store i64 %.0.i.i72, ptr %280, align 8, !tbaa !84
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %280, i64 8
   store i32 %spec.select.i71, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !85
   ret void
 }

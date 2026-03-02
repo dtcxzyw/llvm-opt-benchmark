@@ -1150,8 +1150,8 @@ _ZN6uu_fmt9linebreak13write_newline17h20c93d642033101cE.exit.i.i: ; preds = %411
   %brmerge.i.i.not.i.i = icmp eq i8 %436, 0
   %437 = and i8 %435, %.041.i.i
   %438 = or i8 %437, %433
-  %or.cond.i.i.not.i.i = icmp eq i8 %438, 0
-  %spec.select.i.i.i.i = select i1 %or.cond.i.i.not.i.i, i64 1, i64 2
+  %brmerge2.demorgan.i.i.i.i = icmp eq i8 %438, 0
+  %spec.select.i.i.i.i = select i1 %brmerge2.demorgan.i.i.i.i, i64 1, i64 2
   %.0.i.i.i.i = select i1 %brmerge.i.i.not.i.i, i64 0, i64 %spec.select.i.i.i.i
   br label %_ZN6uu_fmt9linebreak14slice_if_fresh17he2750172105604aaE.exit.i.i
 
@@ -1507,8 +1507,8 @@ _ZN6uu_fmt9linebreak17write_with_spaces17h0d1c56e388841e4eE.exit.i.i: ; preds = 
   %brmerge.i.i.not = icmp eq i8 %568, 0
   %569 = and i8 %565, %.029.in
   %570 = or i8 %567, %569
-  %or.cond.i.i.not = icmp eq i8 %570, 0
-  %spec.select.i.i56 = select i1 %or.cond.i.i.not, i64 1, i64 2
+  %brmerge2.demorgan.i.i = icmp eq i8 %570, 0
+  %spec.select.i.i56 = select i1 %brmerge2.demorgan.i.i, i64 1, i64 2
   %.0.i.i = select i1 %brmerge.i.i.not, i64 0, i64 %spec.select.i.i56
   br label %_ZN6uu_fmt9linebreak14slice_if_fresh17he2750172105604aaE.exit
 

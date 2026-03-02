@@ -1338,12 +1338,12 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr noundef readnone captures(none) %0, 
   %92 = zext i16 %91 to i32
   %93 = or i32 %86, %92
   %94 = icmp eq i32 %93, 0
-  br i1 %94, label %95, label %.thread57
+  br i1 %94, label %95, label %.thread55
 
 95:                                               ; preds = %81
   %96 = tail call ptr @sta_info_get_bss(ptr noundef %5, ptr noundef nonnull %83) #13
   %97 = icmp eq ptr %96, null
-  br i1 %97, label %.thread57, label %98
+  br i1 %97, label %.thread55, label %98
 
 98:                                               ; preds = %95
   %99 = getelementptr inbounds nuw i8, ptr %96, i64 2707
@@ -1363,7 +1363,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr noundef readnone captures(none) %0, 
   %106 = icmp eq ptr %105, null
   br i1 %106, label %299, label %.thread22
 
-.thread57:                                        ; preds = %81, %95
+.thread55:                                        ; preds = %81, %95
   tail call void @__rcu_read_lock() #13
   %107 = getelementptr inbounds nuw i8, ptr %9, i64 10
   %108 = getelementptr i8, ptr %9, i64 14
@@ -1387,7 +1387,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr noundef readnone captures(none) %0, 
   %119 = getelementptr i8, ptr %9, i64 14
   br i1 %.fr, label %.split.us, label %.split.preheader
 
-.split.preheader:                                 ; preds = %.thread57, %114
+.split.preheader:                                 ; preds = %.thread55, %114
   %120 = phi ptr [ %108, %.thread57 ], [ %119, %114 ]
   %121 = phi ptr [ %107, %.thread57 ], [ %117, %114 ]
   %122 = phi i32 [ -1, %.thread57 ], [ %110, %114 ]

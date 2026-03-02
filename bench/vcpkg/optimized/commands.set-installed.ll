@@ -551,8 +551,8 @@ define dso_local void @_ZN5vcpkg32create_dependency_graph_snapshotERKNS_17VcpkgC
   %67 = and i8 %57, %54
   %68 = and i8 %67, %60
   %69 = and i8 %68, %62
-  %70 = and i8 %69, %65
-  %or.cond10.not = icmp eq i8 %70, 0
+  %69 = and i8 %69, %65
+  %70 = icmp eq i8 %69, 0
   br i1 %or.cond10.not, label %618, label %71
 
 71:                                               ; preds = %3
@@ -3624,8 +3624,8 @@ _ZNSt6vectorIN5vcpkg11PackageSpecESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNS
   %122 = load i8, ptr %121, align 8, !tbaa !4, !range !9, !noundef !10
   %123 = and i8 %120, %118
   %124 = and i8 %123, %122
-  %or.cond3.not = icmp eq i8 %124, 0
-  br i1 %or.cond3.not, label %140, label %125
+  %or.cond = icmp eq i8 %124, 0
+  br i1 %or.cond, label %140, label %125
 
 125:                                              ; preds = %117
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 944

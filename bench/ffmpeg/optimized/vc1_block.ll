@@ -18601,7 +18601,7 @@ thread-pre-split344:                              ; preds = %268, %260
   %275 = getelementptr inbounds nuw i16, ptr %1, i64 %247
   %.16.v = select i1 %272, i64 5664, i64 5632
   %.16 = getelementptr inbounds nuw i8, ptr %0, i64 %.16.v
-  %.sink456 = load ptr, ptr %.16, align 8, !tbaa !282
+  %.sink455 = load ptr, ptr %.16, align 8, !tbaa !282
   tail call void %.sink456(ptr noundef %274, i64 noundef %239, ptr noundef %275) #11
   br label %._crit_edge390.thread
 
@@ -18695,7 +18695,7 @@ thread-pre-split357:                              ; preds = %314, %305
   %320 = getelementptr inbounds nuw i16, ptr %1, i64 %292
   %.17.v = select i1 %318, i64 5672, i64 5640
   %.17 = getelementptr inbounds nuw i8, ptr %0, i64 %.17.v
-  %.sink458 = load ptr, ptr %.17, align 8, !tbaa !282
+  %.sink457 = load ptr, ptr %.17, align 8, !tbaa !282
   tail call void %.sink458(ptr noundef %319, i64 noundef %285, ptr noundef %320) #11
   br label %._crit_edge.thread
 

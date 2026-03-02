@@ -10150,14 +10150,14 @@ define hidden noundef zeroext i1 @"_ZN4just6recipe15Recipe$LT$D$GT$7enabled17hd9
   %15 = and i64 %11, %13
   %16 = and i64 %15, %12
   %17 = trunc nuw i64 %16 to i1
-  %18 = and i64 %14, %12
-  %19 = icmp eq i64 %18, 0
-  %20 = or i1 %19, %17
-  %21 = or i1 %20, %.1.i26
+  %17 = and i64 %14, %12
+  %18 = icmp eq i64 %17, 0
+  %19 = or i1 %19, %17
+  %20 = or i1 %19, %.1.i26
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17ha5cdde376751ca9eE.exit28"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17ha5cdde376751ca9eE.exit28": ; preds = %.critedge, %8
-  %spec.select = phi i1 [ %21, %8 ], [ true, %.critedge ]
+  %spec.select = phi i1 [ %20, %8 ], [ true, %.critedge ]
   ret i1 %spec.select
 }
 

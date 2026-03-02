@@ -30855,24 +30855,24 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN71_$LT$core..option..Option$LT$T$G
   %3 = load i64, ptr %0, align 8, !range !1507, !noundef !22
   %4 = load i64, ptr %1, align 8, !range !1507, !noundef !22
   %5 = and i64 %4, %3
-  %or.cond.not = icmp eq i64 %5, 0
+  %6 = icmp eq i64 %5, 0
   br i1 %or.cond.not, label %6, label %7
 
-6:                                                ; preds = %2
-  %.05 = tail call i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
-  br label %12
-
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.05 = tail call i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
+  br label %13
+
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9637)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9640)
-  %10 = load i64, ptr %8, align 8, !alias.scope !9637, !noalias !9640, !noundef !22
-  %11 = load i64, ptr %9, align 8, !alias.scope !9640, !noalias !9637, !noundef !22
-  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %10, i64 %11)
-  br label %12
+  %11 = load i64, ptr %9, align 8, !alias.scope !9637, !noalias !9640, !noundef !22
+  %12 = load i64, ptr %10, align 8, !alias.scope !9640, !noalias !9637, !noundef !22
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %11, i64 %12)
+  br label %13
 
-12:                                               ; preds = %6, %7
+13:                                               ; preds = %7, %8
   %.0 = phi i8 [ %.0.i, %7 ], [ %.05, %6 ]
   ret i8 %.0
 }
@@ -103761,7 +103761,7 @@ define hidden void @"_ZN14deltalake_core6kernel8snapshot11log_segment30list_log_
   %9 = alloca { ptr, [3 x i64] }, align 8
   %.sroa.05 = alloca { { { { { i64, ptr, {} }, i64 } } }, { i64, [2 x i64] } }, align 8
   %10 = tail call noundef zeroext i1 @_ZN14deltalake_core6kernel8snapshot11log_segment7PathExt14is_commit_file17h9a4033eb480fdf2aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
-  br i1 %10, label %11, label %.critedge7
+  br i1 %10, label %11, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5b08987d2b0e5125E.llvm.5991570310944373761.exit.thread"
 
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !27381
@@ -103788,7 +103788,7 @@ _ZN14deltalake_core6kernel8snapshot11log_segment7PathExt14commit_version17hb827c
   %22 = load i64, ptr %21, align 8, !noalias !27381
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !27381
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !27381
-  br i1 %trunc.i, label %.critedge7, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5b08987d2b0e5125E.llvm.5991570310944373761.exit"
+  br i1 %trunc.i, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5b08987d2b0e5125E.llvm.5991570310944373761.exit.thread", label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5b08987d2b0e5125E.llvm.5991570310944373761.exit"
 
 .critedge:                                        ; preds = %11, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !27381
@@ -103799,9 +103799,9 @@ _ZN14deltalake_core6kernel8snapshot11log_segment7PathExt14commit_version17hb827c
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i64, ptr %24, align 8, !noundef !22
   %26 = icmp sgt i64 %22, %25
-  br i1 %26, label %27, label %.critedge7
+  br i1 %26, label %27, label %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5b08987d2b0e5125E.llvm.5991570310944373761.exit.thread"
 
-.critedge7:                                       ; preds = %.critedge, %_ZN14deltalake_core6kernel8snapshot11log_segment7PathExt14commit_version17hb827cf332cc80e56E.exit, %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5b08987d2b0e5125E.llvm.5991570310944373761.exit", %3
+"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5b08987d2b0e5125E.llvm.5991570310944373761.exit.thread": ; preds = %.critedge, %_ZN14deltalake_core6kernel8snapshot11log_segment7PathExt14commit_version17hb827cf332cc80e56E.exit, %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5b08987d2b0e5125E.llvm.5991570310944373761.exit", %3
   store i64 -9223372036854775808, ptr %0, align 8
   br label %51
 
@@ -103895,7 +103895,7 @@ _ZN14deltalake_core6kernel8snapshot11log_segment7PathExt14commit_version17hb827c
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.05)
   br label %51
 
-51:                                               ; preds = %"_ZN63_$LT$object_store..ObjectMeta$u20$as$u20$core..clone..Clone$GT$5clone17h1ca4d296ca307f16E.llvm.5991570310944373761.exit", %.critedge7
+51:                                               ; preds = %"_ZN63_$LT$object_store..ObjectMeta$u20$as$u20$core..clone..Clone$GT$5clone17h1ca4d296ca307f16E.llvm.5991570310944373761.exit", %.critedge8
   ret void
 }
 

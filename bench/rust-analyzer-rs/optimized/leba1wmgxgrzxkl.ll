@@ -27279,28 +27279,28 @@ define hidden void @_ZN9itertools9size_hint3min17h7946f69d7c948d8fE.llvm.3835216
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %11, %6
-  %or.cond.not = icmp eq i64 %14, 0
-  br i1 %or.cond.not, label %15, label %16
+  %15 = icmp eq i64 %14, 0
+  br i1 %15, label %15, label %16
 
-15:                                               ; preds = %3
+16:                                               ; preds = %3
   %trunc = trunc nuw i64 %6 to i1
   %spec.select = select i1 %trunc, i64 1, i64 %11
   %spec.select7 = select i1 %trunc, i64 %8, i64 %13
-  br label %17
+  br label %18
 
-16:                                               ; preds = %3
+17:                                               ; preds = %3
   %.0.sroa.speculated.i8 = tail call noundef i64 @llvm.umin.i64(i64 %8, i64 %13)
-  br label %17
+  br label %18
 
-17:                                               ; preds = %15, %16
+18:                                               ; preds = %16, %17
   %.sroa.04.0 = phi i64 [ 1, %16 ], [ %spec.select, %15 ]
   %.sroa.5.0 = phi i64 [ %.0.sroa.speculated.i8, %16 ], [ %spec.select7, %15 ]
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %9)
   store i64 %.0.sroa.speculated.i, ptr %0, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.04.0, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.5.0, ptr %19, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.04.0, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.5.0, ptr %20, align 8
   ret void
 }
 

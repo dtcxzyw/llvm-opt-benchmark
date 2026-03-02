@@ -2928,18 +2928,18 @@ define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_9UnionTypeEPKN
   %.not12 = icmp eq ptr %4, %6
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %12, %3
+._crit_edge.loopexit:                             ; preds = %12, %3
   %.0.lcssa = phi i1 [ true, %3 ], [ %.1, %12 ]
   ret i1 %.0.lcssa
 
 .lr.ph:                                           ; preds = %3, %12
   %.014 = phi i1 [ %.1, %12 ], [ true, %3 ]
   %.sroa.09.013 = phi ptr [ %13, %12 ], [ %4, %3 ]
-  %7 = load ptr, ptr %.sroa.09.013, align 8, !tbaa !77
-  %8 = tail call fastcc noundef zeroext i1 @_ZN4LuauL13areCompatibleEPKNS_4TypeES2_(ptr noundef %7, ptr noundef %2)
-  br i1 %8, label %9, label %12
+  %8 = load ptr, ptr %.sroa.09.013, align 8, !tbaa !77
+  %9 = tail call fastcc noundef zeroext i1 @_ZN4LuauL13areCompatibleEPKNS_4TypeES2_(ptr noundef %8, ptr noundef %2)
+  br i1 %9, label %15, label %12
 
-9:                                                ; preds = %.lr.ph
+15:                                               ; preds = %.lr.ph
   %10 = tail call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %7, ptr noundef %2)
   %11 = select i1 %10, i1 %.014, i1 false
   br label %12
@@ -2959,18 +2959,18 @@ define dso_local noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeEPKNS_9Un
   %.not12 = icmp eq ptr %4, %6
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %12, %3
+._crit_edge.loopexit:                             ; preds = %12, %3
   %.0.lcssa = phi i1 [ true, %3 ], [ %.1, %12 ]
   ret i1 %.0.lcssa
 
 .lr.ph:                                           ; preds = %3, %12
   %.014 = phi i1 [ %.1, %12 ], [ true, %3 ]
   %.sroa.09.013 = phi ptr [ %13, %12 ], [ %4, %3 ]
-  %7 = load ptr, ptr %.sroa.09.013, align 8, !tbaa !77
-  %8 = tail call fastcc noundef zeroext i1 @_ZN4LuauL13areCompatibleEPKNS_4TypeES2_(ptr noundef %1, ptr noundef %7)
-  br i1 %8, label %9, label %12
+  %8 = load ptr, ptr %.sroa.09.013, align 8, !tbaa !77
+  %9 = tail call fastcc noundef zeroext i1 @_ZN4LuauL13areCompatibleEPKNS_4TypeES2_(ptr noundef %1, ptr noundef %8)
+  br i1 %9, label %15, label %12
 
-9:                                                ; preds = %.lr.ph
+15:                                               ; preds = %.lr.ph
   %10 = tail call noundef zeroext i1 @_ZN4Luau8Unifier25unifyEPKNS_4TypeES3_(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr noundef %1, ptr noundef %7)
   %11 = select i1 %10, i1 %.014, i1 false
   br label %12

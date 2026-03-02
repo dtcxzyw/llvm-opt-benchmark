@@ -68203,76 +68203,76 @@ define dso_local void @_ZN5Catch13MultiReporter11addReporterEONS_6Detail10unique
   %.not.i.i = icmp eq ptr %26, %28
   br i1 %.not.i.i, label %33, label %29
 
-29:                                               ; preds = %2
-  %30 = load ptr, ptr %1, align 8
-  store ptr %30, ptr %26, align 8
+30:                                               ; preds = %2
+  %31 = load ptr, ptr %1, align 8
+  store ptr %31, ptr %26, align 8
   store ptr null, ptr %1, align 8
-  %31 = load ptr, ptr %25, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr %32, ptr %25, align 8
+  %32 = load ptr, ptr %25, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store ptr %33, ptr %25, align 8
   br label %_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE9push_backEOS4_.exit
 
-33:                                               ; preds = %2
-  %34 = load ptr, ptr %24, align 8
-  %35 = ptrtoint ptr %26 to i64
-  %36 = ptrtoint ptr %34 to i64
-  %37 = sub i64 %35, %36
-  %38 = icmp eq i64 %37, 9223372036854775800
-  br i1 %38, label %39, label %_ZNKSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
+34:                                               ; preds = %2
+  %35 = load ptr, ptr %24, align 8
+  %36 = ptrtoint ptr %26 to i64
+  %37 = ptrtoint ptr %35 to i64
+  %38 = sub i64 %36, %37
+  %39 = icmp eq i64 %38, 9223372036854775800
+  br i1 %39, label %40, label %_ZNKSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
 
-39:                                               ; preds = %33
+40:                                               ; preds = %34
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.469) #56
   unreachable
 
-_ZNKSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %33
-  %40 = ashr exact i64 %37, 3
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %40, i64 1)
-  %41 = add nsw i64 %.sroa.speculated.i.i.i.i, %40
-  %42 = icmp ult i64 %41, %40
-  %43 = tail call i64 @llvm.umin.i64(i64 %41, i64 1152921504606846975)
-  %44 = select i1 %42, i64 1152921504606846975, i64 %43
-  %.not.i.i.i.i = icmp ne i64 %44, 0
+_ZNKSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %34
+  %41 = ashr exact i64 %38, 3
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %41, i64 1)
+  %42 = add nsw i64 %.sroa.speculated.i.i.i.i, %41
+  %43 = icmp ult i64 %42, %41
+  %44 = tail call i64 @llvm.umin.i64(i64 %42, i64 1152921504606846975)
+  %45 = select i1 %43, i64 1152921504606846975, i64 %44
+  %.not.i.i.i.i = icmp ne i64 %45, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i)
-  %45 = shl nuw nsw i64 %44, 3
-  %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #58
-  %47 = getelementptr inbounds i8, ptr %46, i64 %37
-  %48 = load ptr, ptr %1, align 8
-  store ptr %48, ptr %47, align 8
+  %46 = shl nuw nsw i64 %45, 3
+  %47 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %46) #58
+  %48 = getelementptr inbounds i8, ptr %47, i64 %38
+  %49 = load ptr, ptr %1, align 8
+  store ptr %49, ptr %48, align 8
   store ptr null, ptr %1, align 8
-  %.not10.i.i.i.i.i.i = icmp eq ptr %34, %26
+  %.not10.i.i.i.i.i.i = icmp eq ptr %35, %26
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i, %.lr.ph.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i.i.i.i ], [ %46, %_ZNKSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %.0911.i.i.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i.i.i ], [ %34, %_ZNKSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.012.i.i.i.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i.i.i.i ], [ %47, %_ZNKSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ]
+  %.0911.i.i.i.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i.i.i.i ], [ %35, %_ZNKSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1066)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1069)
-  %49 = load ptr, ptr %.0911.i.i.i.i.i.i, align 8, !alias.scope !1069, !noalias !1066
-  store ptr %49, ptr %.012.i.i.i.i.i.i, align 8, !alias.scope !1066, !noalias !1069
+  %50 = load ptr, ptr %.0911.i.i.i.i.i.i, align 8, !alias.scope !1069, !noalias !1066
+  store ptr %50, ptr %.012.i.i.i.i.i.i, align 8, !alias.scope !1066, !noalias !1069
   store ptr null, ptr %.0911.i.i.i.i.i.i, align 8, !alias.scope !1069, !noalias !1066
-  %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 8
-  %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %50, %26
+  %51 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %51, %26
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !1071
 
 _ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %46, %_ZNKSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %51, %.lr.ph.i.i.i.i.i.i ]
-  %52 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
-  %.not.i23.i.i.i = icmp eq ptr %34, null
-  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %53
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %47, %_ZNKSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %52, %.lr.ph.i.i.i.i.i.i ]
+  %53 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
+  %.not.i23.i.i.i = icmp eq ptr %35, null
+  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i, label %54
 
-53:                                               ; preds = %_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %34) #59
+54:                                               ; preds = %_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i
+  tail call void @_ZdlPv(ptr noundef nonnull %35) #59
   br label %_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %53, %_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i
-  store ptr %46, ptr %24, align 8
-  store ptr %52, ptr %25, align 8
-  %54 = getelementptr inbounds nuw %"class.Catch::Detail::unique_ptr.78", ptr %46, i64 %44
-  store ptr %54, ptr %27, align 8
+_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %54, %_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i
+  store ptr %47, ptr %24, align 8
+  store ptr %53, ptr %25, align 8
+  %55 = getelementptr inbounds nuw %"class.Catch::Detail::unique_ptr.78", ptr %47, i64 %45
+  store ptr %55, ptr %27, align 8
   br label %_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE9push_backEOS4_.exit
 
-_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE9push_backEOS4_.exit: ; preds = %29, %_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i
+_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE9push_backEOS4_.exit: ; preds = %30, %_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i
   ret void
 }
 

@@ -8493,7 +8493,7 @@ define internal fastcc range(i32 -1, 1) i32 @unescape_nonascii0(ptr noundef nonn
   br i1 %21, label %.lr.ph385, label %.loopexit229._crit_edge
 
 .lr.ph385:                                        ; preds = %.loopexit229, %.critedge
-  %22 = phi ptr [ %181, %.critedge ], [ %20, %.loopexit229 ]
+  %22 = phi ptr [ %182, %.critedge ], [ %20, %.loopexit229 ]
   %.1146384 = phi i32 [ %.2147, %.critedge ], [ 0, %.loopexit229 ]
   %.1151383 = phi i32 [ %.2152, %.critedge ], [ %.0150, %.loopexit229 ]
   %.1157382 = phi i32 [ %.2158, %.critedge ], [ %.0156, %.loopexit229 ]
@@ -8921,32 +8921,32 @@ define internal fastcc range(i32 -1, 1) i32 @unescape_nonascii0(ptr noundef nonn
 .thread215:                                       ; preds = %.lr.ph, %177, %164, %167, %175, %162, %178, %38
   %.5161 = phi i32 [ %.1157382, %38 ], [ %.1157382, %178 ], [ %.1157382, %162 ], [ 0, %164 ], [ %.1157382, %167 ], [ %176, %175 ], [ %.1157382, %177 ], [ %.1157382, %.lr.ph ]
   %.5155 = phi i32 [ %.1151383, %38 ], [ %spec.select210, %178 ], [ %spec.select209, %162 ], [ %spec.select209, %164 ], [ %spec.select209, %167 ], [ %spec.select209, %175 ], [ %spec.select209, %177 ], [ %spec.select209, %.lr.ph ]
-  %179 = call i64 @rb_str_cat(i64 noundef %3, ptr noundef nonnull %12, i64 noundef 1) #29
+  %180 = call i64 @rb_str_cat(i64 noundef %3, ptr noundef nonnull %12, i64 noundef 1) #29
   br label %.critedge
 
 .critedge.loopexit:                               ; preds = %110, %.lr.ph259, %.preheader
-  %180 = phi ptr [ %39, %.preheader ], [ %scevgep288, %110 ], [ %101, %.lr.ph259 ]
-  store ptr %180, ptr %11, align 8
+  %181 = phi ptr [ %39, %.preheader ], [ %scevgep288, %110 ], [ %101, %.lr.ph259 ]
+  store ptr %181, ptr %11, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge, %.critedge.loopexit, %111, %113, %116, %.thread215, %87, %83, %69, %92, %121, %118, %63, %._crit_edge.thread, %35, %36
   %.2158 = phi i32 [ %.1157382, %36 ], [ %.1157382, %35 ], [ %.1157382, %.critedge.loopexit ], [ %.1157382, %._crit_edge ], [ %.1157382, %._crit_edge.thread ], [ %.1157382, %63 ], [ %.1157382, %118 ], [ %.1157382, %121 ], [ %.1157382, %113 ], [ %.1157382, %111 ], [ %.1157382, %92 ], [ %.1157382, %69 ], [ %.1157382, %83 ], [ %.1157382, %87 ], [ %.5161, %.thread215 ], [ %.1157382, %116 ]
   %.2152 = phi i32 [ %.1151383, %36 ], [ %.1151383, %35 ], [ %.1151383, %.critedge.loopexit ], [ %.1151383, %._crit_edge ], [ %.1151383, %._crit_edge.thread ], [ %.1151383, %63 ], [ %.1151383, %118 ], [ %122, %121 ], [ %.1151383, %113 ], [ %.1151383, %111 ], [ %.1151383, %92 ], [ %.1151383, %69 ], [ %.1151383, %83 ], [ %.1151383, %87 ], [ %.5155, %.thread215 ], [ %.1151383, %116 ]
   %.2147 = phi i32 [ %.1146384, %36 ], [ %.1146384, %35 ], [ 0, %.critedge.loopexit ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %.1146384, %63 ], [ %.1146384, %118 ], [ 0, %121 ], [ %114, %113 ], [ %.1146384, %111 ], [ %.1146384, %92 ], [ %.1146384, %69 ], [ %.1146384, %83 ], [ %.1146384, %87 ], [ %.1146384, %.thread215 ], [ %spec.select, %116 ]
-  %181 = load ptr, ptr %11, align 8, !tbaa !64
-  %182 = icmp ult ptr %181, %1
-  br i1 %182, label %.lr.ph385, label %.loopexit229._crit_edge
+  %182 = load ptr, ptr %11, align 8, !tbaa !64
+  %183 = icmp ult ptr %182, %1
+  br i1 %183, label %.lr.ph385, label %.loopexit229._crit_edge
 
 .loopexit229._crit_edge:                          ; preds = %.loopexit229, %.critedge
-  %.lcssa356 = phi ptr [ %181, %.critedge ], [ %20, %.loopexit229 ]
+  %.lcssa356 = phi ptr [ %182, %.critedge ], [ %20, %.loopexit229 ]
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %.thread220, label %183
+  br i1 %.not, label %.thread220, label %184
 
-183:                                              ; preds = %.loopexit229._crit_edge
+184:                                              ; preds = %.loopexit229._crit_edge
   store ptr %.lcssa356, ptr %0, align 8, !tbaa !64
   br label %.thread220
 
-.thread220:                                       ; preds = %171, %61, %77, %69, %87, %124, %.loopexit228, %86, %73, %42, %37, %.loopexit229._crit_edge, %183
+.thread220:                                       ; preds = %171, %61, %77, %69, %87, %124, %.loopexit228, %86, %73, %42, %37, %.loopexit229._crit_edge, %184
   %.8 = phi i32 [ -1, %42 ], [ 0, %183 ], [ 0, %.loopexit229._crit_edge ], [ -1, %73 ], [ 0, %124 ], [ -1, %.loopexit228 ], [ -1, %37 ], [ -1, %86 ], [ -1, %61 ], [ -1, %87 ], [ -1, %69 ], [ -1, %77 ], [ -1, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

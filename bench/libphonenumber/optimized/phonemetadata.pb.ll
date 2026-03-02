@@ -13609,31 +13609,31 @@ define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers13PhoneMetadata13IsI
   %4 = trunc i32 %3 to i1
   br i1 %4, label %5, label %_ZN6google8protobuf8internal17AllAreInitializedIN4i18n12phonenumbers12NumberFormatEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit
 
-5:                                                ; preds = %1
+15:                                               ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8, !tbaa !51
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %7 to i64
-  br label %11
+  br label %28
 
-11:                                               ; preds = %14, %5
-  %indvars.iv.i = phi i64 [ %15, %14 ], [ %10, %5 ]
-  %12 = trunc nuw i64 %indvars.iv.i to i32
-  %13 = icmp slt i32 %12, 1
-  br i1 %13, label %21, label %14
+28:                                               ; preds = %31, %5
+  %indvars.iv.i2 = phi i64 [ %32, %14 ], [ %10, %5 ]
+  %29 = trunc nuw i64 %indvars.iv.i2 to i32
+  %30 = icmp slt i32 %29, 1
+  br i1 %30, label %_ZN6google8protobuf8internal17AllAreInitializedIN4i18n12phonenumbers12NumberFormatEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, label %31
 
-14:                                               ; preds = %11
-  %15 = add nsw i64 %indvars.iv.i, -1
-  %16 = getelementptr ptr, ptr %9, i64 %indvars.iv.i
-  %17 = load ptr, ptr %16, align 8, !tbaa !67
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load i32, ptr %18, align 4, !tbaa !62
-  %20 = and i32 %19, 3
-  %.not.i.i = icmp eq i32 %20, 3
-  br i1 %.not.i.i, label %11, label %_ZN6google8protobuf8internal17AllAreInitializedIN4i18n12phonenumbers12NumberFormatEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, !llvm.loop !129
+31:                                               ; preds = %28
+  %32 = add nsw i64 %indvars.iv.i2, -1
+  %33 = getelementptr ptr, ptr %9, i64 %indvars.iv.i2
+  %34 = load ptr, ptr %33, align 8, !tbaa !67
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %36 = load i32, ptr %35, align 4, !tbaa !62
+  %37 = and i32 %36, 3
+  %.not.i.i3 = icmp eq i32 %37, 3
+  br i1 %.not.i.i3, label %28, label %_ZN6google8protobuf8internal17AllAreInitializedIN4i18n12phonenumbers12NumberFormatEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit, !llvm.loop !129
 
-21:                                               ; preds = %11
+_ZN6google8protobuf8internal17AllAreInitializedIN4i18n12phonenumbers12NumberFormatEEEbRKNS0_16RepeatedPtrFieldIT_EE.exit: ; preds = %11
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load i32, ptr %22, align 8, !tbaa !51
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64

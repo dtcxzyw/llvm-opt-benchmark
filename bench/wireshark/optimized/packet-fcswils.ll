@@ -747,11 +747,11 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
   %28 = load i16, ptr %27, align 2
   %29 = zext i16 %28 to i32
   %30 = tail call ptr @find_conversation(i32 noundef %18, ptr noundef nonnull %19, ptr noundef nonnull %20, i32 noundef %23, i32 noundef %26, i32 noundef %29, i32 noundef 131072)
-  %.not = icmp eq ptr %30, null
+  %.not110 = icmp eq ptr %30, null
   br i1 %or.cond, label %55, label %31
 
 31:                                               ; preds = %7
-  br i1 %.not, label %32, label %41
+  br i1 %.not110, label %32, label %41
 
 32:                                               ; preds = %31
   %33 = load i32, ptr %17, align 4
@@ -791,7 +791,7 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %75
 
 55:                                               ; preds = %7
-  br i1 %.not, label %56, label %61
+  br i1 %.not110, label %56, label %61
 
 56:                                               ; preds = %55
   %57 = icmp ne ptr %2, null
@@ -824,8 +824,8 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
 71:                                               ; preds = %61
   %.not109 = icmp ne ptr %2, null
   %72 = icmp ne i8 %10, 1
-  %or.cond132 = select i1 %.not109, i1 %72, i1 false
-  br i1 %or.cond132, label %73, label %.thread
+  %or.cond130 = select i1 %.not109, i1 %72, i1 false
+  br i1 %or.cond130, label %73, label %.thread
 
 73:                                               ; preds = %71
   %74 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %14, ptr noundef %1, ptr noundef nonnull @ei_swils_no_exchange, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.405)
@@ -843,9 +843,9 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %78, label %.thread122, label %84
 
 .thread122:                                       ; preds = %66, %.thread
-  %.097.ph145 = phi i32 [ 0, %.thread ], [ %68, %66 ]
+  %.097.ph143 = phi i32 [ 0, %.thread ], [ %68, %66 ]
   %79 = load ptr, ptr %8, align 8
-  %80 = and i32 %.097.ph145, 255
+  %80 = and i32 %.097.ph143, 255
   %81 = call ptr @val_to_str(i32 noundef %80, ptr noundef nonnull @fc_swils_opcode_key_val, ptr noundef nonnull @.str.406)
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.407, ptr noundef %81)
   %82 = load i32, ptr @hf_swils_opcode, align 4
@@ -868,9 +868,9 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %91, label %92, label %99
 
 92:                                               ; preds = %.thread122, %88
-  %.095118127 = phi i8 [ 1, %.thread122 ], [ %.095118, %88 ]
+  %.095118126 = phi i8 [ 1, %.thread122 ], [ %.095118, %88 ]
   %.094120125 = phi i8 [ 0, %.thread122 ], [ %.094120, %88 ]
-  %93 = zext nneg i8 %.095118127 to i64
+  %93 = zext nneg i8 %.095118126 to i64
   %94 = shl nuw nsw i64 1, %93
   %95 = and i64 %94, 3658640879845373
   %.not113.not = icmp eq i64 %95, 0
@@ -893,20 +893,20 @@ define internal i32 @dissect_fcswils(ptr noundef %0, ptr noundef %1, ptr noundef
   %or.cond10 = select i1 %102, i1 %104, i1 false
   br i1 %or.cond10, label %105, label %109
 
-105:                                              ; preds = %101
+105:; preds = %101
   %106 = call i32 @call_dissector(ptr noundef nonnull %103, ptr noundef %0, ptr noundef %1, ptr noundef %14)
   br label %109
 
-.thread129:                                       ; preds = %92, %99
+.thread129:; preds = %92, %99
   %107 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 4)
   %108 = call i32 @call_data_dissector(ptr noundef %107, ptr noundef %1, ptr noundef %2)
   br label %109
 
-109:                                              ; preds = %.thread129, %105, %101, %96
+109:   ; preds = %.thread129, %105, %101, %96
   %110 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %111
 
-111:                                              ; preds = %4, %109, %73, %59
+111:; preds = %4, %109, %73, %59
   %.0 = phi i32 [ 0, %59 ], [ %110, %109 ], [ 0, %73 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

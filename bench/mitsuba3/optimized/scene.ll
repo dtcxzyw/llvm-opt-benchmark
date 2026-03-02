@@ -4883,46 +4883,46 @@ define weak_odr void @_ZN7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4E
   %12 = load ptr, ptr %11, align 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %14 = load ptr, ptr %13, align 8
-  %.not3643 = icmp eq ptr %12, %14
-  br i1 %.not3643, label %._crit_edge, label %.lr.ph
+  %.not3744 = icmp eq ptr %12, %14
+  br i1 %.not3744, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
-  %.sroa.033.044 = phi ptr [ %17, %.lr.ph ], [ %12, %10 ]
-  %15 = load ptr, ptr %.sroa.033.044, align 8
+  %.sroa.034.045 = phi ptr [ %17, %.lr.ph ], [ %12, %10 ]
+  %15 = load ptr, ptr %.sroa.034.045, align 8
   %16 = tail call noundef zeroext i1 @_ZNK7mitsuba5ShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE5dirtyEv(ptr noundef nonnull align 16 dereferenceable(403) %15)
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.033.044, i64 8
-  %.not36 = icmp eq ptr %17, %14
-  %or.cond = select i1 %16, i1 true, i1 %.not36
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.034.045, i64 8
+  %.not37 = icmp eq ptr %17, %14
+  %or.cond = select i1 %16, i1 true, i1 %.not37
   br i1 %or.cond, label %._crit_edge.loopexit, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.not36.lcssa.ph = xor i1 %16, true
+  %.not37.lcssa.ph = xor i1 %16, true
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %10
-  %.not36.lcssa = phi i1 [ true, %10 ], [ %.not36.lcssa.ph, %._crit_edge.loopexit ]
+  %.not37.lcssa = phi i1 [ true, %10 ], [ %.not37.lcssa.ph, %._crit_edge.loopexit ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %19 = load ptr, ptr %18, align 16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %21 = load ptr, ptr %20, align 8
-  %.not3748 = icmp eq ptr %19, %21
-  br i1 %.not3748, label %._crit_edge52, label %.lr.ph51
+  %.not3849 = icmp eq ptr %19, %21
+  br i1 %.not3849, label %._crit_edge53, label %.lr.ph52
 
-22:                                               ; preds = %.lr.ph51
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.029.049, i64 8
-  %.not37 = icmp eq ptr %23, %21
-  br i1 %.not37, label %._crit_edge52, label %.lr.ph51
+22:                                               ; preds = %.lr.ph52
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.030.050, i64 8
+  %.not38 = icmp eq ptr %23, %21
+  br i1 %.not38, label %._crit_edge53, label %.lr.ph52
 
-.lr.ph51:                                         ; preds = %._crit_edge, %22
-  %.sroa.029.049 = phi ptr [ %23, %22 ], [ %19, %._crit_edge ]
-  %24 = load ptr, ptr %.sroa.029.049, align 8
+.lr.ph52:                                         ; preds = %._crit_edge, %22
+  %.sroa.030.050 = phi ptr [ %23, %22 ], [ %19, %._crit_edge ]
+  %24 = load ptr, ptr %.sroa.030.050, align 8
   %25 = tail call noundef zeroext i1 @_ZNK7mitsuba5ShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE5dirtyEv(ptr noundef nonnull align 16 dereferenceable(403) %24)
   br i1 %25, label %.critedge, label %22
 
-._crit_edge52:                                    ; preds = %22, %._crit_edge
-  br i1 %.not36.lcssa, label %.loopexit42, label %.critedge
+._crit_edge53:                                    ; preds = %22, %._crit_edge
+  br i1 %.not37.lcssa, label %.loopexit43, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph51, %._crit_edge52
+.critedge:                                        ; preds = %.lr.ph52, %._crit_edge53
   tail call void @_ZN7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE28accel_parameters_changed_cpuEv(ptr noundef nonnull align 16 dereferenceable(345) %0)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store <4 x float> splat (float 0x7FF0000000000000), ptr %26, align 16
@@ -4930,16 +4930,16 @@ define weak_odr void @_ZN7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4E
   store <4 x float> splat (float 0xFFF0000000000000), ptr %.sroa.2.0..sroa_idx, align 16
   %27 = load ptr, ptr %11, align 16
   %28 = load ptr, ptr %13, align 8
-  %.not3853 = icmp eq ptr %27, %28
-  br i1 %.not3853, label %.loopexit42, label %.lr.ph55
+  %.not3954 = icmp eq ptr %27, %28
+  br i1 %.not3954, label %.loopexit43, label %.lr.ph56
 
-.lr.ph55:                                         ; preds = %.critedge
+.lr.ph56:                                         ; preds = %.critedge
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %30
 
-30:                                               ; preds = %.lr.ph55, %30
-  %.sroa.024.054 = phi ptr [ %27, %.lr.ph55 ], [ %41, %30 ]
-  %31 = load ptr, ptr %.sroa.024.054, align 8
+30:                                               ; preds = %.lr.ph56, %30
+  %.sroa.025.055 = phi ptr [ %27, %.lr.ph55 ], [ %41, %30 ]
+  %31 = load ptr, ptr %.sroa.025.055, align 8
   %32 = load ptr, ptr %31, align 16
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 240
   %34 = load ptr, ptr %33, align 8
@@ -4952,26 +4952,26 @@ define weak_odr void @_ZN7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4E
   %39 = load <4 x float>, ptr %.sroa.2.0..sroa_idx, align 16
   %40 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %38, <4 x float> %39)
   store <4 x float> %40, ptr %.sroa.2.0..sroa_idx, align 16
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.024.054, i64 8
-  %.not38 = icmp eq ptr %41, %28
-  br i1 %.not38, label %.loopexit42, label %30
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.025.055, i64 8
+  %.not39 = icmp eq ptr %41, %28
+  br i1 %.not39, label %.loopexit43, label %30
 
-.loopexit42:                                      ; preds = %30, %.critedge, %._crit_edge52
+.loopexit43:                                      ; preds = %30, %.critedge, %._crit_edge53
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i8 0, ptr %42, align 8
   %43 = load ptr, ptr %11, align 16
   %44 = load ptr, ptr %13, align 8
-  %.not3956 = icmp eq ptr %43, %44
-  br i1 %.not3956, label %.loopexit41, label %.lr.ph59
+  %.not4057 = icmp eq ptr %43, %44
+  br i1 %.not4057, label %.loopexit42, label %.lr.ph60
 
-45:                                               ; preds = %.lr.ph59
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.020.057, i64 8
-  %.not39 = icmp eq ptr %46, %44
-  br i1 %.not39, label %.loopexit41, label %.lr.ph59
+45:                                               ; preds = %.lr.ph60
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.021.058, i64 8
+  %.not40 = icmp eq ptr %46, %44
+  br i1 %.not40, label %.loopexit42, label %.lr.ph60
 
-.lr.ph59:                                         ; preds = %.loopexit42, %45
-  %.sroa.020.057 = phi ptr [ %46, %45 ], [ %43, %.loopexit42 ]
-  %47 = load ptr, ptr %.sroa.020.057, align 8
+.lr.ph60:                                         ; preds = %.loopexit43, %45
+  %.sroa.021.058 = phi ptr [ %46, %45 ], [ %43, %.loopexit42 ]
+  %47 = load ptr, ptr %.sroa.021.058, align 8
   %48 = load ptr, ptr %47, align 16
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 336
   %50 = load ptr, ptr %49, align 8
@@ -4983,34 +4983,34 @@ define weak_odr void @_ZN7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4E
   store i8 %55, ptr %42, align 8
   br i1 %54, label %56, label %45
 
-56:                                               ; preds = %.lr.ph59
+56:                                               ; preds = %.lr.ph60
   call void @_ZN7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE39update_silhouette_sampling_distributionEv(ptr noundef nonnull align 16 dereferenceable(345) %0)
-  br label %.loopexit41
+  br label %.loopexit42
 
-.loopexit41:                                      ; preds = %45, %.loopexit42, %56
+.loopexit42:                                      ; preds = %45, %.loopexit43, %56
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %58 = load ptr, ptr %57, align 16
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %60 = load ptr, ptr %59, align 8
-  %.not4060 = icmp eq ptr %58, %60
-  br i1 %.not4060, label %.loopexit, label %.lr.ph63
+  %.not4161 = icmp eq ptr %58, %60
+  br i1 %.not4161, label %.loopexit, label %.lr.ph64
 
-61:                                               ; preds = %.lr.ph63
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.016.061, i64 8
-  %.not40 = icmp eq ptr %62, %60
-  br i1 %.not40, label %.loopexit, label %.lr.ph63
+61:                                               ; preds = %.lr.ph64
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.017.062, i64 8
+  %.not41 = icmp eq ptr %62, %60
+  br i1 %.not41, label %.loopexit, label %.lr.ph64
 
-.lr.ph63:                                         ; preds = %.loopexit41, %61
-  %.sroa.016.061 = phi ptr [ %62, %61 ], [ %58, %.loopexit41 ]
-  %63 = load ptr, ptr %.sroa.016.061, align 8
+.lr.ph64:                                         ; preds = %.loopexit42, %61
+  %.sroa.017.062 = phi ptr [ %62, %61 ], [ %58, %.loopexit41 ]
+  %63 = load ptr, ptr %.sroa.017.062, align 8
   %64 = call noundef zeroext i1 @_ZNK7mitsuba7EmitterIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE5dirtyEv(ptr noundef nonnull align 16 dereferenceable(201) %63)
   br i1 %64, label %65, label %61
 
-65:                                               ; preds = %.lr.ph63
+65:                                               ; preds = %.lr.ph64
   call void @_ZN7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE36update_emitter_sampling_distributionEv(ptr noundef nonnull align 16 dereferenceable(345) %0)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %61, %.loopexit41, %65
+.loopexit:                                        ; preds = %61, %.loopexit42, %65
   ret void
 }
 

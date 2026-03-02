@@ -2831,7 +2831,7 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup.lo
 
 for.body:                                         ; preds = %entry, %if.end23
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %if.end23 ], [ 0, %entry ]
-  %4 = phi ptr [ %28, %if.end23 ], [ %1, %entry ]
+  %4 = phi ptr [ %29, %if.end23 ], [ %1, %entry ]
   %unmatched.068 = phi i8 [ %unmatched.1, %if.end23 ], [ 0, %entry ]
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv70
   %5 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !48
@@ -2918,30 +2918,30 @@ if.end:                                           ; preds = %if.then18, %_ZSteqI
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %vtable = load ptr, ptr %mesh, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 224
-  %23 = load ptr, ptr %vfn, align 8
+  %24 = load ptr, ptr %vfn, align 8
   %call6 = tail call noundef nonnull align 8 dereferenceable(25) ptr %23(ptr noundef nonnull align 8 dereferenceable(8) %mesh) #31
   %_M_finish.i.i39 = getelementptr inbounds nuw i8, ptr %call6, i64 8
-  %24 = load ptr, ptr %_M_finish.i.i39, align 8, !tbaa !44
-  %25 = load ptr, ptr %call6, align 8, !tbaa !45
-  %sub.ptr.lhs.cast.i.i40 = ptrtoint ptr %24 to i64
-  %sub.ptr.rhs.cast.i.i41 = ptrtoint ptr %25 to i64
+  %25 = load ptr, ptr %_M_finish.i.i39, align 8, !tbaa !44
+  %26 = load ptr, ptr %call6, align 8, !tbaa !45
+  %sub.ptr.lhs.cast.i.i40 = ptrtoint ptr %25 to i64
+  %sub.ptr.rhs.cast.i.i41 = ptrtoint ptr %26 to i64
   %sub.ptr.sub.i.i42 = sub i64 %sub.ptr.lhs.cast.i.i40, %sub.ptr.rhs.cast.i.i41
   %sub.ptr.div.i.i43 = lshr exact i64 %sub.ptr.sub.i.i42, 3
-  %26 = and i64 %sub.ptr.div.i.i43, 4294967295
-  %cmp8 = icmp samesign ult i64 %indvars.iv.next, %26
+  %27 = and i64 %sub.ptr.div.i.i43, 4294967295
+  %cmp8 = icmp samesign ult i64 %indvars.iv.next, %27
   br i1 %cmp8, label %for.body10, label %for.cond.cleanup9, !llvm.loop !163
 
 if.end23:                                         ; preds = %for.cond.cleanup9, %land.rhs.i
   %unmatched.1 = phi i8 [ %spec.select, %for.cond.cleanup9 ], [ 1, %land.rhs.i ]
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %27 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !44
-  %28 = load ptr, ptr %AllJoints, align 8, !tbaa !45
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %27 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %28 to i64
+  %28 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !44
+  %29 = load ptr, ptr %AllJoints, align 8, !tbaa !45
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %28 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 3
-  %29 = and i64 %sub.ptr.div.i.i, 4294967295
-  %cmp = icmp samesign ult i64 %indvars.iv.next71, %29
+  %30 = and i64 %sub.ptr.div.i.i, 4294967295
+  %cmp = icmp samesign ult i64 %indvars.iv.next71, %30
   br i1 %cmp, label %for.body, label %for.cond.cleanup.loopexit, !llvm.loop !164
 }
 

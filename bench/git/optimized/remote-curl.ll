@@ -3114,7 +3114,7 @@ define internal fastcc range(i32 -1, 1) i32 @post_rpc(ptr noundef nonnull %0, i3
   br i1 %.not, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %3, %.preheader
-  %.195 = phi i1 [ %.296, %.preheader ], [ false, %3 ]
+  %.1104 = phi i1 [ %.296, %.preheader ], [ false, %3 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %14 = call fastcc i32 @rpc_read_from_out(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %6, ptr noundef %7)
@@ -3463,11 +3463,11 @@ _.exit:                                           ; preds = %199, %201
 
 210:                                              ; preds = %208
   %211 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.87, i32 noundef 5) #17
-  %.pre155 = load i32, ptr %206, align 4, !tbaa !141
+  %.pre156 = load i32, ptr %206, align 4, !tbaa !141
   br label %_.exit136
 
 _.exit136:                                        ; preds = %208, %210
-  %212 = phi i32 [ %.pre155, %210 ], [ %207, %208 ]
+  %212 = phi i32 [ %.pre156, %210 ], [ %207, %208 ]
   %.0.i135 = phi ptr [ %211, %210 ], [ @.str.87, %208 ]
   %213 = call i32 (ptr, ...) @error(ptr noundef %.0.i135, i32 noundef %212) #17
   br label %214

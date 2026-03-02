@@ -920,7 +920,7 @@ define internal fastcc range(i32 0, 33) i32 @__bf_round(ptr noundef captures(non
   br i1 %.not13.i.i, label %.preheader.i.i, label %scan_bit_nz.exit.i, !llvm.loop !40
 
 scan_bit_nz.exit.i:                               ; preds = %50, %.preheader.i.i, %37, %31, %28
-  %.not25.not.i = phi i1 [ true, %28 ], [ false, %31 ], [ true, %37 ], [ %49, %.preheader.i.i ], [ %49, %50 ]
+  %.not26.not.i = phi i1 [ true, %28 ], [ false, %31 ], [ true, %37 ], [ %49, %.preheader.i.i ], [ %49, %50 ]
   %.0.i113 = phi i64 [ 1, %28 ], [ 0, %31 ], [ 1, %37 ], [ 1, %50 ], [ 0, %.preheader.i.i ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load ptr, ptr %53, align 8, !tbaa !29
@@ -928,8 +928,8 @@ scan_bit_nz.exit.i:                               ; preds = %50, %.preheader.i.i
   %56 = add i64 %.pre.i, %55
   %57 = ashr i64 %56, 6
   %58 = icmp sgt i64 %57, -1
-  %.not.i26.i = icmp ult i64 %57, %3
-  %or.cond.i.i = and i1 %58, %.not.i26.i
+  %.not.i27.i = icmp ult i64 %57, %3
+  %or.cond.i.i = and i1 %58, %.not.i27.i
   br i1 %or.cond.i.i, label %59, label %get_bit.exit.i
 
 59:                                               ; preds = %scan_bit_nz.exit.i
@@ -941,11 +941,11 @@ scan_bit_nz.exit.i:                               ; preds = %50, %.preheader.i.i
   br label %get_bit.exit.i
 
 get_bit.exit.i:                                   ; preds = %59, %scan_bit_nz.exit.i
-  %.0.i27.i = phi i64 [ %64, %59 ], [ 0, %scan_bit_nz.exit.i ]
-  %65 = or i64 %.0.i27.i, %.0.i113
+  %.0.i28.i = phi i64 [ %64, %59 ], [ 0, %scan_bit_nz.exit.i ]
+  %65 = or i64 %.0.i28.i, %.0.i113
   %66 = trunc nuw nsw i64 %65 to i32
   switch i32 %29, label %default.unreachable [
-    i32 1, label %get_bit.exit31.i
+    i32 1, label %get_bit.exit32.i
     i32 0, label %67
     i32 2, label %79
     i32 3, label %79
@@ -956,19 +956,19 @@ get_bit.exit.i:                                   ; preds = %59, %scan_bit_nz.ex
   ]
 
 67:                                               ; preds = %get_bit.exit.i
-  %.not.i = icmp eq i64 %.0.i27.i, 0
-  %brmerge.i = or i1 %.not25.not.i, %.not.i
-  %not..not.i = xor i1 %.not.i, true
-  %.mux.i = zext i1 %not..not.i to i32
-  br i1 %brmerge.i, label %get_bit.exit31.i, label %68
+  %.not25.i = icmp eq i64 %.0.i28.i, 0
+  %brmerge.i = or i1 %.not26.not.i, %.not25.i
+  %not..not25.i = xor i1 %.not25.i, true
+  %.mux.i = zext i1 %not..not25.i to i32
+  br i1 %brmerge.i, label %get_bit.exit32.i, label %68
 
 68:                                               ; preds = %67
   %69 = sub i64 %.pre.i, %.089
   %70 = ashr i64 %69, 6
   %71 = icmp sgt i64 %70, -1
-  %.not.i28.i = icmp ult i64 %70, %3
-  %or.cond.i29.i = and i1 %71, %.not.i28.i
-  br i1 %or.cond.i29.i, label %72, label %get_bit.exit31.i
+  %.not.i29.i = icmp ult i64 %70, %3
+  %or.cond.i30.i = and i1 %71, %.not.i29.i
+  br i1 %or.cond.i30.i, label %72, label %get_bit.exit32.i
 
 72:                                               ; preds = %68
   %73 = getelementptr inbounds nuw i64, ptr %54, i64 %70
@@ -977,7 +977,7 @@ get_bit.exit.i:                                   ; preds = %59, %scan_bit_nz.ex
   %76 = lshr i64 %74, %75
   %77 = trunc i64 %76 to i32
   %78 = and i32 %77, 1
-  br label %get_bit.exit31.i
+  br label %get_bit.exit32.i
 
 79:                                               ; preds = %get_bit.exit.i, %get_bit.exit.i
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -986,14 +986,14 @@ get_bit.exit.i:                                   ; preds = %59, %scan_bit_nz.ex
   %83 = zext i1 %82 to i32
   %84 = icmp eq i32 %81, %83
   %spec.select.i = select i1 %84, i32 %66, i32 0
-  br label %get_bit.exit31.i
+  br label %get_bit.exit32.i
 
 85:                                               ; preds = %get_bit.exit.i
-  br label %get_bit.exit31.i
+  br label %get_bit.exit32.i
 
 86:                                               ; preds = %get_bit.exit.i, %get_bit.exit.i
-  %87 = trunc nuw nsw i64 %.0.i27.i to i32
-  br label %get_bit.exit31.i
+  %87 = trunc nuw nsw i64 %.0.i28.i to i32
+  br label %get_bit.exit32.i
 
 default.unreachable:                              ; preds = %get_bit.exit.i
   unreachable
@@ -1002,7 +1002,7 @@ default.unreachable:                              ; preds = %get_bit.exit.i
   tail call void @abort() #23
   unreachable
 
-get_bit.exit31.i:                                 ; preds = %86, %85, %79, %72, %68, %67, %get_bit.exit.i
+get_bit.exit32.i:                                 ; preds = %86, %85, %79, %72, %68, %67, %get_bit.exit.i
   %.024.i = phi i32 [ 0, %get_bit.exit.i ], [ %87, %86 ], [ %spec.select.i, %79 ], [ %.mux.i, %67 ], [ %66, %85 ], [ %78, %72 ], [ 0, %68 ]
   %89 = shl nuw nsw i32 %66, 4
   %spec.select = or i32 %89, %4
@@ -1010,7 +1010,7 @@ get_bit.exit31.i:                                 ; preds = %86, %85, %79, %72, 
   %.not112 = icmp eq i32 %.024.i, 0
   br i1 %90, label %91, label %106
 
-91:                                               ; preds = %get_bit.exit31.i
+91:                                               ; preds = %get_bit.exit32.i
   br i1 %.not112, label %132, label %92
 
 92:                                               ; preds = %91
@@ -1048,7 +1048,7 @@ bf_resize.exit:                                   ; preds = %.bf_resize.exit_cri
   %105 = or i32 %spec.select, 24
   br label %bf_resize.exit122
 
-106:                                              ; preds = %get_bit.exit31.i
+106:                                              ; preds = %get_bit.exit32.i
   br i1 %.not112, label %.loopexit, label %107
 
 107:                                              ; preds = %106

@@ -41,7 +41,7 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly ca
   %16 = trunc nuw i32 %15 to i1
   %17 = load ptr, ptr %10, align 8
   %18 = icmp ne ptr %17, null
-  %or.cond.us6878 = select i1 %16, i1 true, i1 %18
+  %or.cond.us = select i1 %16, i1 true, i1 %18
   br i1 %.not44, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %5
@@ -65,35 +65,35 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly ca
 .split.split.us:                                  ; preds = %.split
   br i1 %or.cond.us6878, label %.split64.us, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.split.split.us, %24
-  %.037.us6779 = phi ptr [ %25, %24 ], [ %0, %.split.split.us ]
+.lr.ph:                                           ; preds = %.split.split.us, %26
+  %.037.us6779 = phi ptr [ %27, %24 ], [ %0, %.split.split.us ]
   %.not45.us = icmp ult ptr %.037.us6779, %8
-  br i1 %.not45.us, label %24, label %.loopexit
+  br i1 %.not45.us, label %26, label %.loopexit
 
-24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds nuw i8, ptr %.037.us6779, i64 1
+26:                                               ; preds = %.lr.ph
+  %27 = getelementptr inbounds nuw i8, ptr %.037.us6779, i64 1
   store ptr null, ptr %10, align 8, !tbaa !11
   store i32 0, ptr %11, align 8, !tbaa !12
   store ptr null, ptr %6, align 8, !tbaa !13
-  %26 = call fastcc i32 @grpmatch(ptr noundef %6, i32 noundef 0, ptr noundef nonnull %25, ptr noundef %1, ptr noundef nonnull %8)
-  %27 = trunc nuw i32 %26 to i1
-  %28 = load ptr, ptr %10, align 8
-  %29 = icmp ne ptr %28, null
-  %or.cond.us68 = select i1 %27, i1 true, i1 %29
+  %28 = call fastcc i32 @grpmatch(ptr noundef %6, i32 noundef 0, ptr noundef nonnull %27, ptr noundef %1, ptr noundef nonnull %8)
+  %27 = trunc nuw i32 %28 to i1
+  %30 = load ptr, ptr %10, align 8
+  %31 = icmp ne ptr %30, null
+  %or.cond.us68 = select i1 %27, i1 true, i1 %31
   br i1 %or.cond.us68, label %.split64.us, label %.lr.ph
 
-.split64.us:                                      ; preds = %.split.split, %24, %.split.split.preheader, %.split.split.us, %19
-  %.us-phi = phi ptr [ %0, %19 ], [ %25, %24 ], [ %0, %.split.split.us ], [ %0, %.split.split.preheader ], [ %37, %.split.split ]
+.split.split:                                     ; preds = %46, %24, %.split.split.preheader, %.split.split.us, %19
+  %.037 = phi ptr [ %0, %19 ], [ %27, %24 ], [ %0, %.split.split.us ], [ %0, %.split.split.preheader ], [ %37, %.split.split ]
   %.us-phi65 = phi i1 [ %16, %19 ], [ %27, %24 ], [ %16, %.split.split.us ], [ %16, %.split.split.preheader ], [ %39, %.split.split ]
   %.us-phi66 = phi i1 [ %.not, %19 ], [ true, %24 ], [ true, %.split.split.us ], [ false, %.split.split.preheader ], [ false, %.split.split ]
   br i1 %.us-phi65, label %32, label %30
 
-30:                                               ; preds = %.split64.us
+30:; preds = %.split64.us
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %6, ptr noundef nonnull align 8 dereferenceable(176) %31, i64 176, i1 false), !tbaa.struct !14
   br label %32
 
-32:                                               ; preds = %30, %.split64.us
+32:; preds = %30, %.split64.us
   %33 = load i32, ptr %11, align 8, !tbaa !12
   %34 = add nsw i32 %33, 1
   %35 = load ptr, ptr %13, align 8, !tbaa !17
@@ -103,13 +103,13 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly ca
   %or.cond54 = select i1 %.us-phi66, i1 true, i1 %.not46
   br i1 %or.cond54, label %44, label %.loopexit
 
-.lr.ph113:                                        ; preds = %.split.split.preheader, %.split.split
+45:                                               ; preds = %.split.split.preheader, %46
   %.037112 = phi ptr [ %37, %.split.split ], [ %0, %.split.split.preheader ]
   %.not45 = icmp ult ptr %.037112, %8
   br i1 %.not45, label %.split.split, label %.loopexit
 
-.split.split:                                     ; preds = %.lr.ph113
-  %37 = getelementptr inbounds nuw i8, ptr %.037112, i64 1
+46:                                               ; preds = %45
+  %47 = getelementptr inbounds nuw i8, ptr %.037112, i64 1
   store ptr null, ptr %10, align 8, !tbaa !11
   store i32 0, ptr %11, align 8, !tbaa !12
   store ptr null, ptr %6, align 8, !tbaa !13
@@ -125,37 +125,37 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly ca
 
 44:                                               ; preds = %32
   %.not47 = icmp eq ptr %2, null
-  br i1 %.not47, label %.loopexit, label %45
+  br i1 %.not47, label %.loopexit, label %49
 
-45:                                               ; preds = %44
+49:                                               ; preds = %44
   store ptr %.us-phi, ptr %6, align 8, !tbaa !13
   %spec.select = tail call i32 @llvm.smin.i32(i32 %3, i32 %34)
-  %46 = icmp sgt i32 %spec.select, 0
-  br i1 %46, label %.lr.ph83, label %.loopexit
+  %50 = icmp sgt i32 %spec.select, 0
+  br i1 %50, label %.lr.ph83, label %.loopexit
 
-.lr.ph83:                                         ; preds = %45
-  %47 = ptrtoint ptr %0 to i64
+.lr.ph83:                                         ; preds = %49
+  %51 = ptrtoint ptr %0 to i64
   %wide.trip.count = zext nneg i32 %spec.select to i64
-  br label %48
+  br label %52
 
-48:                                               ; preds = %.lr.ph83, %56
+52:                                               ; preds = %.lr.ph83, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next, %56 ]
-  %49 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
-  %50 = load ptr, ptr %49, align 8, !tbaa !13
-  %.not48 = icmp eq ptr %50, null
-  br i1 %.not48, label %56, label %51
+  %53 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %54 = load ptr, ptr %53, align 8, !tbaa !13
+  %.not48 = icmp eq ptr %54, null
+  br i1 %.not48, label %60, label %55
 
-51:                                               ; preds = %48
-  %52 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
-  %53 = load ptr, ptr %52, align 8, !tbaa !13
-  %54 = ptrtoint ptr %53 to i64
-  %55 = sub i64 %54, %47
-  br label %56
+55:                                               ; preds = %52
+  %56 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %57 = load ptr, ptr %56, align 8, !tbaa !13
+  %58 = ptrtoint ptr %57 to i64
+  %59 = sub i64 %58, %51
+  br label %60
 
-56:                                               ; preds = %48, %51
-  %57 = phi i64 [ %55, %51 ], [ 0, %48 ]
+60:                                               ; preds = %52, %55
+  %61 = phi i64 [ %59, %51 ], [ 0, %48 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
   store i64 %57, ptr %58, align 8, !tbaa !18
   %59 = ptrtoint ptr %50 to i64
   %60 = sub i64 %59, %47
@@ -164,9 +164,9 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly ca
   store i64 %61, ptr %62, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %48, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %52, !llvm.loop !20
 
-.loopexit:                                        ; preds = %.lr.ph113, %.lr.ph, %56, %.split.us, %19, %45, %44, %32
+.loopexit:                                        ; preds = %45, %.lr.ph, %60, %.split.us, %19, %49, %44, %32
   %.0 = phi i32 [ %spec.select, %45 ], [ 1, %44 ], [ 0, %32 ], [ 0, %.split.us ], [ 0, %.lr.ph ], [ %spec.select, %56 ], [ 0, %19 ], [ 0, %.lr.ph113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0

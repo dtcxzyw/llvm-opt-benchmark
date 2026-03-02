@@ -302,7 +302,7 @@ define hidden i64 @_ZN18ModRefBarrierSetC115resolve_addressER9LIRAccessb(ptr nou
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 3221225472
   %or.cond = icmp eq i64 %6, 1073741824
-  br i1 %or.cond, label %7, label %14
+  br i1 %or.cond, label %7, label %13
 
 7:                                                ; preds = %3
   %8 = and i64 %5, 2228224
@@ -311,12 +311,12 @@ define hidden i64 @_ZN18ModRefBarrierSetC115resolve_addressER9LIRAccessb(ptr nou
   %11 = load i8, ptr %10, align 8
   %12 = and i8 %11, -2
   %or.cond.i.i = icmp eq i8 %12, 12
-  %13 = and i1 %9, %or.cond.i.i
-  %spec.select = or i1 %2, %13
-  br label %14
+  %narrow = and i1 %9, %or.cond.i.i
+  %spec.select = or i1 %2, %narrow
+  br label %13
 
-14:                                               ; preds = %7, %3
-  %15 = phi i1 [ %spec.select, %7 ], [ %2, %3 ]
+13:                                               ; preds = %7, %3
+  %14 = phi i1 [ %spec.select, %7 ], [ %2, %3 ]
   %16 = tail call i64 @_ZN12BarrierSetC115resolve_addressER9LIRAccessb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i1 noundef zeroext %15) #5
   ret i64 %16
 }
